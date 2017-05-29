@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.evorepair.guidance.catalog/src-gen" editDirectory="/de.evorepair.guidance.catalog.edit/src-gen"
+    editorDirectory="/de.evorepair.guidance.catalog.editor/src-gen" modelPluginID="de.evorepair.guidance.catalog"
+    modelName="EvoGuidanceCatalog" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/de.evorepair.guidance.catalog.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel#//evofirstorderlogic ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//evooperation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EvoGuidanceCatalog.ecore</foreignModel>
+  <genPackages prefix="EvoguidanceCatalog" basePackage="de.evorepair.guidance" disposableProviderFactory="true"
+      ecorePackage="EvoGuidanceCatalog.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoAnomalyType">
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyType/DEFECT"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyType/BEHAVIORAL_CHANGE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory">
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/MAPPING"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/CONFIGURATION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation">
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE_IN_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE_WITH_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE_IN_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE_WITH_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_BUT_KEEP_CODE"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_ADDGROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_DELETE_AND_ADD_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_DELETE_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MERGE_FEATURES"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/SPLIT_FEATURES"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_GROUP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoGuidanceType">
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/REPAIR_SUGGESTION"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/WARNING"/>
+    </genEnums>
+    <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoGuidanceTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoGuidanceTable/triggeringEvolutionOperations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceTable/anomalies"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoAnomaly">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/category"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/guidance"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoGuidanceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoGuidanceElement/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoGuidanceElement/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceElement/action"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

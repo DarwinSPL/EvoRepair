@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evoguidancecatalog" nsURI="http://darwinspl.de/evorepair/guidance/catalog/0.1"
+    nsPrefix="evoguidancecatalog">
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoAnomalyType">
+    <eLiterals name="DEFECT"/>
+    <eLiterals name="BEHAVIORAL_CHANGE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoAnomalyCategory">
+    <eLiterals name="MAPPING"/>
+    <eLiterals name="CONFIGURATION" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoTriggeringEvolutionOperation">
+    <eLiterals name="ADD_FEATURE"/>
+    <eLiterals name="ADD_FEATURE_IN_GROUP" value="1"/>
+    <eLiterals name="ADD_FEATURE_WITH_GROUP" value="2"/>
+    <eLiterals name="DELETE_FEATURE" value="3"/>
+    <eLiterals name="DELETE_FEATURE_IN_GROUP" value="4"/>
+    <eLiterals name="DELETE_FEATURE_WITH_GROUP" value="5"/>
+    <eLiterals name="DELETE_BUT_KEEP_CODE" value="6"/>
+    <eLiterals name="MOVE_FEATURE" value="7"/>
+    <eLiterals name="MOVE_FEATURE_ADDGROUP" value="8"/>
+    <eLiterals name="MOVE_FEATURE_DELETE_AND_ADD_GROUP" value="9"/>
+    <eLiterals name="MOVE_FEATURE_DELETE_GROUP" value="10"/>
+    <eLiterals name="MERGE_FEATURES" value="11"/>
+    <eLiterals name="SPLIT_FEATURES" value="12"/>
+    <eLiterals name="MOVE_GROUP" value="13"/>
+    <eLiterals name="ADD_GROUP" value="14"/>
+    <eLiterals name="DELETE_GROUP" value="15"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGuidanceTable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggeringEvolutionOperations"
+        eType="#//EvoTriggeringEvolutionOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anomalies" upperBound="-1"
+        eType="#//EvoAnomaly" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoAnomaly">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EvoAnomalyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//EvoAnomalyCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="ecore:EClass ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" lowerBound="1"
+        upperBound="-1" eType="#//EvoGuidanceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGuidanceElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EvoGuidanceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoFormula"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoGuidanceType">
+    <eLiterals name="REPAIR_SUGGESTION"/>
+    <eLiterals name="WARNING" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

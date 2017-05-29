@@ -1,0 +1,270 @@
+grammar de.evorepair.logic.EvoLogicLanguage with org.eclipse.xtext.common.Terminals
+
+import "http://hyvar-project.eu/feature/1.0" as hyfeature
+
+generate evoLogicLanguage "http://tu-braunschweig.de/isf/darwinspl/evorepair/logic/firstorder"
+
+CommandDocument:
+	imports += Import
+	formula = EvoFormula
+;
+
+Import: 
+	'import' importURI=STRING
+;
+
+EvoFormula returns EvoFormula:
+	'formula'
+	'{'
+		('variables' '{' 
+			variables+=EvoVariable ( "," variables+=EvoVariable)* 
+		'}'
+		)?
+		'term' term=EvoAbstractTerm
+	'}';
+
+EvoVariable returns EvoVariable:
+	EvoArbitratyFeatureVariable;
+
+EvoVariableTerm returns EvoVariableTerm:
+	'EvoVariableTerm'
+	'{'
+		'variable' variable=[EvoVariable]
+	'}';
+
+EvoArbitratyFeatureVariable returns EvoArbitratyFeatureVariable:
+	'afeature' feature=[hyfeature::HyFeature];
+
+
+
+EvoAbstractTerm returns EvoAbstractTerm:
+	EvoOr;
+	
+EvoOr returns EvoAbstractTerm:
+	EvoAnd({EvoOr.leftElement=current} ('or' | '||' ) rightElement=EvoAnd)*;
+	
+EvoXOr returns EvoAbstractTerm:
+	EvoAnd({EvoXOr.leftElement=current} 'xor' rightElement=EvoAnd)*;
+	
+EvoAnd returns EvoAbstractTerm:
+	EvoAbstractOneParameterTerm({EvoAnd.leftElement=current} ('and' | '&&') rightElement=EvoAbstractOneParameterTerm)*;
+	
+EvoAbstractOneParameterTerm returns EvoAbstractTerm:
+	EvoVariableTerm | '(' EvoOr ')';
+
+
+
+/*
+Not returns Not:
+	'Not'
+	'{'
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoParenthesis returns EvoParenthesis:
+	'EvoParenthesis'
+	'{'
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoCardinality returns EvoCardinality:
+	'EvoCardinality'
+	'{'
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoComplement returns EvoComplement:
+	'EvoComplement'
+	'{'
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoForAll returns EvoForAll:
+	'EvoForAll'
+	'{'
+		'boundedVariable' boundedVariable=[EvoVariable|EString]
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoExist returns EvoExist:
+	'EvoExist'
+	'{'
+		'boundedVariable' boundedVariable=[EvoVariable|EString]
+		'element' element=EvoAbstractTerm
+	'}';
+
+EvoUniqueExists returns EvoUniqueExists:
+	'EvoUniqueExists'
+	'{'
+		'boundedVariable' boundedVariable=[EvoVariable|EString]
+		'element' element=EvoAbstractTerm
+	'}';
+*/
+
+/*
+EvoXOr returns EvoXOr:
+	'EvoXOr'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoEqual returns EvoEqual:
+	'EvoEqual'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoUnequal returns EvoUnequal:
+	'EvoUnequal'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoImplication returns EvoImplication:
+	'EvoImplication'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoBiconditional returns EvoBiconditional:
+	'EvoBiconditional'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoInclusion returns EvoInclusion:
+	'EvoInclusion'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoIntersection returns EvoIntersection:
+	'EvoIntersection'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoUnion returns EvoUnion:
+	'EvoUnion'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoDifference returns EvoDifference:
+	'EvoDifference'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoSymmetricDifference returns EvoSymmetricDifference:
+	'EvoSymmetricDifference'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoCartesianProduct returns EvoCartesianProduct:
+	'EvoCartesianProduct'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoElementOf returns EvoElementOf:
+	'EvoElementOf'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoNotElementOf returns EvoNotElementOf:
+	'EvoNotElementOf'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoIndexedIntegerVariable returns EvoIndexedIntegerVariable:
+	'EvoIndexedIntegerVariable'
+	name=EString
+	'{'
+		'index' index=[EvoIntegerVariable|EString]
+	'}';
+
+EvoIntegerVariable returns EvoIntegerVariable:
+	{EvoIntegerVariable}
+	'EvoIntegerVariable'
+	name=EString;
+
+EvoVariableTerm returns EvoVariableTerm:
+	'EvoVariableTerm'
+	'{'
+		'variable' variable=[EvoVariable|EString]
+	'}';
+
+EvoLess returns EvoLess:
+	'EvoLess'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoLessEqual returns EvoLessEqual:
+	'EvoLessEqual'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoGreater returns EvoGreater:
+	'EvoGreater'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoGreaterEqual returns EvoGreaterEqual:
+	'EvoGreaterEqual'
+	'{'
+		'elements' '{' elements+=EvoAbstractTerm ( "," elements+=EvoAbstractTerm)* '}' 
+	'}';
+
+EvoApplicationConstraintVariable returns EvoApplicationConstraintVariable:
+	{EvoApplicationConstraintVariable}
+	'EvoApplicationConstraintVariable'
+	name=EString;
+
+EvoFeatureModelConstraintVariable returns EvoFeatureModelConstraintVariable:
+	{EvoFeatureModelConstraintVariable}
+	'EvoFeatureModelConstraintVariable'
+	name=EString;
+
+EvoArbitratyFeatureVariable returns EvoArbitratyFeatureVariable:
+	{EvoArbitratyFeatureVariable}
+	'EvoArbitratyFeatureVariable'
+	name=EString;
+
+EvoPredefinedVariable_Impl returns EvoPredefinedVariable:
+	{EvoPredefinedVariable}
+	(afterEvolution?='afterEvolution')?
+	'EvoPredefinedVariable'
+	name=EString;
+
+EvoAllFeaturesVariable returns EvoAllFeaturesVariable:
+	{EvoAllFeaturesVariable}
+	'EvoAllFeaturesVariable'
+	name=EString;
+
+EvoMappingVariable returns EvoMappingVariable:
+	(afterEvolution?='afterEvolution')?
+	'EvoMappingVariable'
+	name=EString;
+
+
+EvoRequirementVariable returns EvoRequirementVariable:
+	{EvoRequirementVariable}
+	(afterEvolution?='afterEvolution')?
+	'EvoRequirementVariable'
+	name=EString;
+
+EString returns ecore::EString:
+	STRING | ID;
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+*/
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evovariable" nsURI="http://darwinspl.de/evorepair/variable/0.1"
+    nsPrefix="evovariable">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="feature_0" value="../../eu.hyvar.feature/model/Feature.ecore#/"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoVariableType">
+    <eLiterals name="EvoIdentifier"/>
+    <eLiterals name="EvoSource" value="1"/>
+    <eLiterals name="EvoTarget" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableType" eType="#//EvoVariableType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureVariable" eSuperTypes="#//EvoVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
+        eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureType" eType="#//EvoFeatureVariableType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGroupVariable" eSuperTypes="#//EvoVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" lowerBound="1" eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvoFeatureVariableType">
+    <eLiterals name="EvoParent"/>
+    <eLiterals name="EvoSource" value="1"/>
+    <eLiterals name="EvoTarget" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSetVariable" eSuperTypes="#//EvoVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//EvoVariable"/>
+  </eClassifiers>
+</ecore:EPackage>

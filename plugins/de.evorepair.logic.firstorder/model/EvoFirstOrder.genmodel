@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.evorepair.logic.firstorder/src-gen" editDirectory="/de.evorepair.logic.firstorder.edit/src-gen"
+    editorDirectory="/de.evorepair.logic.firstorder.editor/src-gen" modelPluginID="de.evorepair.logic.firstorder"
+    modelName="EvoFirstOrder" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/de.evorepair.logic.firstorder.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//evooperation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EvoFirstOrder.ecore</foreignModel>
+  <genPackages prefix="EvoFirstOrderLogic" basePackage="de.evorepair.logic" disposableProviderFactory="true"
+      ecorePackage="EvoFirstOrder.ecore#/">
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoAnd"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoOr"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoAbstractTwoParameterTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAbstractTwoParameterTerm/leftElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAbstractTwoParameterTerm/rightElement"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoXOr"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoNot"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoAbstractOneParameterTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAbstractOneParameterTerm/element"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoAbstractTerm"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoEqual"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoUnequal"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoImplication"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoBiconditional"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoFormulaVariable"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoFormulaSetVariable"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoAbstractSetTerm"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetInclusion"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetIntersection"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetUnion"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetDifference"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetSymmetricDifference"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetCartesianProduct"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetCardinality"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetElementOf"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSetNotElementOf"/>
+    <genClasses image="false" ecoreClass="EvoFirstOrder.ecore#//EvoAbstractQuantifierTerm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAbstractQuantifierTerm/boundedVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoForAll"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoExist"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoUniqueExists"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoFormula/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoFormula/variables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoFormula/testTrigger"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoVariableTerm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoVariableTerm/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoVariableTerm/id"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoApplicationConstraintVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoApplicationConstraintVariable/mapping"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoFeatureModelConstraintVariable"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoPredefinedVariable"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoAllFeaturesVariable"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoAllValidConfigurationsVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAllValidConfigurationsVariable/featureVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoAllMappingsVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoAllMappingsVariable/associatedMappings"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoMappingAssociatedAssetsVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoMappingAssociatedAssetsVariable/associatedMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoMappingVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoMappingVariable/mapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoFirstOrder.ecore#//EvoMappingVariable/containingFeature"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoInvolvedFeatureVariable"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoRequirementVariable"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoEmpty"/>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoGroupType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoGroupType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoFeatureType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoFeatureType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoEvolutionTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoEvolutionTerm/afterEvolution"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSiblings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoFirstOrder.ecore#//EvoSiblings/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoFirstOrder.ecore#//EvoSatisfiable"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xtext
+Bundle-SymbolicName: de.evorepair.xtext.operation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.evorepair.xtext.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui,
+ de.evorepair.evolution.operation.editor
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: de.evorepair.xtext

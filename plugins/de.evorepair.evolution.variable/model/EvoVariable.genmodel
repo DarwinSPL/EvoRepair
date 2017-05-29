@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.evorepair.evolution.variable/src-gen" editDirectory="/de.evorepair.evolution.variable.edit/src-gen"
+    editorDirectory="/de.evorepair.evolution.variable.editor/src-gen" modelPluginID="de.evorepair.evolution.variable"
+    modelName="EvoVariable" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/de.evorepair.evolution.variable.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EvoVariable.ecore</foreignModel>
+  <genPackages prefix="EvoVariable" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
+      ecorePackage="EvoVariable.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoVariable.ecore#//EvoVariableType">
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoIdentifier"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoSource"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoTarget"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoVariable.ecore#//EvoFeatureVariableType">
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoFeatureVariableType/EvoParent"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoFeatureVariableType/EvoSource"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoFeatureVariableType/EvoTarget"/>
+    </genEnums>
+    <genClasses ecoreClass="EvoVariable.ecore#//EvoVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoVariable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoVariable/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoVariable/variableType"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoVariable.ecore#//EvoFeatureVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoVariable.ecore#//EvoFeatureVariable/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoFeatureVariable/featureType"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoVariable.ecore#//EvoGroupVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoVariable.ecore#//EvoGroupVariable/group"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoVariable.ecore#//EvoSetVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoVariable.ecore#//EvoSetVariable/elements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
