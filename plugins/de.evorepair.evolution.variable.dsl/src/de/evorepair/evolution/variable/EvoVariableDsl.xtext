@@ -1,0 +1,30 @@
+grammar de.evorepair.evolution.variable.EvoVariableDsl with org.eclipse.xtext.common.Terminals
+
+generate evoVariableDsl "http://www.evorepair.de/evolution/variable/EvoVariableDsl"
+
+import "http://darwinspl.de/evorepair/variable/0.1"
+
+Model:
+	variables+=EvoVariable*;
+	
+EvoVariable:
+	'var' name=ID ('_'index=INT) (variableType=EvoVariableType)
+;
+
+enum EvoVariableType: 
+	EvoIdentifier = '@ident' |
+	EvoSource = '@pre' |
+	EvoTarget = '@post'
+;
+
+
+EvoFeatureVariable: 
+	'var' name=ID ('_'index=INT) ('.'('parent' | 'child' | 'sibling')? ('.' featureType=EvoFeatureVariableType))
+;
+
+enum EvoFeatureVariableType:
+	EvoParent = 'parent' |
+	EvoSibling = 'source' |
+	EvoChild = 'child'	
+;
+

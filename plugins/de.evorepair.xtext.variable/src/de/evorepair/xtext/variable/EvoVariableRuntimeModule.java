@@ -15,7 +15,7 @@ public class EvoVariableRuntimeModule extends AbstractGenericResourceRuntimeModu
 
 	@Override
 	protected String getFileExtensions() {
-		return "evovariable";
+		return "evooperation";
 	}
 
     public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {

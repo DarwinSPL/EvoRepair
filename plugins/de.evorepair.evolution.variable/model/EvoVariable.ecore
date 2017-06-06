@@ -26,8 +26,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoFeatureVariableType">
     <eLiterals name="EvoParent"/>
-    <eLiterals name="EvoSource" value="1"/>
-    <eLiterals name="EvoTarget" value="2"/>
+    <eLiterals name="EvoChild" value="1"/>
+    <eLiterals name="EvoSibling" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoSetVariable" eSuperTypes="#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"

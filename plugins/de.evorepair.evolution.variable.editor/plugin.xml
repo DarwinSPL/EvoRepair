@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated EvoVariable -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.evorepair.evolution.evovariable.presentation.EvoVariableModelWizardID"
+            name="%_UI_EvoVariableModelWizard_label"
+            class="de.evorepair.evolution.evovariable.presentation.EvoVariableModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EvoVariableModelFile.gif">
+         <description>%_UI_EvoVariableModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated EvoVariable -->
+      <editor
+            id="de.evorepair.evolution.evovariable.presentation.EvoVariableEditorID"
+            name="%_UI_EvoVariableEditor_label"
+            icon="icons/full/obj16/EvoVariableModelFile.gif"
+            extensions="evovariable"
+            class="de.evorepair.evolution.evovariable.presentation.EvoVariableEditor"
+            contributorClass="de.evorepair.evolution.evovariable.presentation.EvoVariableActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

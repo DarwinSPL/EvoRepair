@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.evorepair.guidance.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.evorepair.guidance.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.evorepair.guidance.dsl,
+ de.evorepair.guidance.catalog,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime,
+ de.evorepair.logic.dsl.ide;bundle-version="1.0.0",
+ de.evorepair.logic.dsl;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.evorepair.guidance.ide.contentassist.antlr.internal,
+ de.evorepair.guidance.ide.contentassist.antlr
+

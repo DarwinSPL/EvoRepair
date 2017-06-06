@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.evorepair.guidance.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.evorepair.guidance.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.evorepair.guidance.catalog,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ de.evorepair.logic.dsl;bundle-version="1.0.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.evorepair.guidance.formatting2,
+ de.evorepair.guidance.serializer,
+ de.evorepair.guidance.parser.antlr,
+ de.evorepair.guidance.guidancedsl.util,
+ de.evorepair.guidance.scoping,
+ de.evorepair.guidance.services,
+ de.evorepair.guidance.validation,
+ de.evorepair.guidance.guidancedsl,
+ de.evorepair.guidance.parser.antlr.internal,
+ de.evorepair.guidance,
+ de.evorepair.guidance.guidancedsl.impl,
+ de.evorepair.guidance.generator
+Import-Package: org.apache.log4j
