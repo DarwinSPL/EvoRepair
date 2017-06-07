@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Container implements EvoAllValidConfigurationsVariable {
+public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Container implements EvoAllValidConfigurationsVariable
+{
 	/**
 	 * The cached value of the '{@link #getFeatureVariable() <em>Feature Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -43,7 +44,8 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAllValidConfigurationsVariableImpl() {
+	protected EvoAllValidConfigurationsVariableImpl()
+	{
 		super();
 	}
 
@@ -53,7 +55,8 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE;
 	}
 
@@ -62,11 +65,14 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormulaVariable getFeatureVariable() {
-		if (featureVariable != null && featureVariable.eIsProxy()) {
+	public EvoFormulaVariable getFeatureVariable()
+	{
+		if (featureVariable != null && featureVariable.eIsProxy())
+		{
 			InternalEObject oldFeatureVariable = (InternalEObject)featureVariable;
 			featureVariable = (EvoFormulaVariable)eResolveProxy(oldFeatureVariable);
-			if (featureVariable != oldFeatureVariable) {
+			if (featureVariable != oldFeatureVariable)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE, oldFeatureVariable, featureVariable));
 			}
@@ -79,7 +85,8 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormulaVariable basicGetFeatureVariable() {
+	public EvoFormulaVariable basicGetFeatureVariable()
+	{
 		return featureVariable;
 	}
 
@@ -88,7 +95,8 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureVariable(EvoFormulaVariable newFeatureVariable) {
+	public void setFeatureVariable(EvoFormulaVariable newFeatureVariable)
+	{
 		EvoFormulaVariable oldFeatureVariable = featureVariable;
 		featureVariable = newFeatureVariable;
 		if (eNotificationRequired())
@@ -101,8 +109,10 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE:
 				if (resolve) return getFeatureVariable();
 				return basicGetFeatureVariable();
@@ -116,8 +126,10 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE:
 				setFeatureVariable((EvoFormulaVariable)newValue);
 				return;
@@ -131,8 +143,10 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE:
 				setFeatureVariable((EvoFormulaVariable)null);
 				return;
@@ -146,8 +160,10 @@ public class EvoAllValidConfigurationsVariableImpl extends MinimalEObjectImpl.Co
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE:
 				return featureVariable != null;
 		}

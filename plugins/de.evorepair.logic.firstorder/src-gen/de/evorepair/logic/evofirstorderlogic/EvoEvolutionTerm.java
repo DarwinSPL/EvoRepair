@@ -20,7 +20,8 @@ import de.evorepair.evolution.evovariable.EvoVariable;
  * @model
  * @generated
  */
-public interface EvoEvolutionTerm extends EvoVariable {
+public interface EvoEvolutionTerm extends EvoVariable
+{
 	/**
 	 * Returns the value of the '<em><b>After Evolution</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -19,7 +19,8 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoMappingAssociatedAssetsVariable extends EvoEvolutionTerm {
+public interface EvoMappingAssociatedAssetsVariable extends EvoEvolutionTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Associated Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->

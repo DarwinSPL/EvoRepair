@@ -22,7 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EvoAllMappingsVariable extends EObject {
+public interface EvoAllMappingsVariable extends EObject
+{
 	/**
 	 * Returns the value of the '<em><b>Associated Mappings</b></em>' reference list.
 	 * The list contents are of type {@link de.evorepair.logic.evofirstorderlogic.EvoMappingVariable}.

@@ -14,5 +14,6 @@ import de.evorepair.evolution.evovariable.EvoSetVariable;
  * @model abstract="true"
  * @generated
  */
-public interface EvoFormulaSetVariable extends EvoSetVariable {
+public interface EvoFormulaSetVariable extends EvoSetVariable
+{
 } // EvoFormulaSetVariable

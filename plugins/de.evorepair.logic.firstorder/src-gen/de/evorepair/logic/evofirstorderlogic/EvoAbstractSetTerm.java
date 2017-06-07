@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model abstract="true"
  * @generated
  */
-public interface EvoAbstractSetTerm extends EvoAbstractTerm {
+public interface EvoAbstractSetTerm extends EvoAbstractTerm
+{
 } // EvoAbstractSetTerm

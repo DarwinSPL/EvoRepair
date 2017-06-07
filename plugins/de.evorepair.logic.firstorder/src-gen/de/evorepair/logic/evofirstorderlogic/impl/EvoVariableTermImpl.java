@@ -28,7 +28,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVariableTerm {
+public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVariableTerm
+{
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -64,7 +65,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoVariableTermImpl() {
+	protected EvoVariableTermImpl()
+	{
 		super();
 	}
 
@@ -74,7 +76,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_VARIABLE_TERM;
 	}
 
@@ -83,11 +86,14 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariable getVariable() {
-		if (variable != null && variable.eIsProxy()) {
+	public EvoVariable getVariable()
+	{
+		if (variable != null && variable.eIsProxy())
+		{
 			InternalEObject oldVariable = (InternalEObject)variable;
 			variable = (EvoVariable)eResolveProxy(oldVariable);
-			if (variable != oldVariable) {
+			if (variable != oldVariable)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE, oldVariable, variable));
 			}
@@ -100,7 +106,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariable basicGetVariable() {
+	public EvoVariable basicGetVariable()
+	{
 		return variable;
 	}
 
@@ -109,7 +116,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariable(EvoVariable newVariable) {
+	public void setVariable(EvoVariable newVariable)
+	{
 		EvoVariable oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired())
@@ -121,7 +129,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
+	public String getId()
+	{
 		return id;
 	}
 
@@ -130,7 +139,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
+	public void setId(String newId)
+	{
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
@@ -143,8 +153,10 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				if (resolve) return getVariable();
 				return basicGetVariable();
@@ -160,8 +172,10 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				setVariable((EvoVariable)newValue);
 				return;
@@ -178,8 +192,10 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				setVariable((EvoVariable)null);
 				return;
@@ -196,8 +212,10 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				return variable != null;
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID:
@@ -212,7 +230,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * @generated
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

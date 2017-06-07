@@ -21,7 +21,8 @@ import de.evorepair.evolution.evovariable.EvoVariable;
  * @model
  * @generated
  */
-public interface EvoVariableTerm extends EvoAbstractTerm {
+public interface EvoVariableTerm extends EvoAbstractTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->

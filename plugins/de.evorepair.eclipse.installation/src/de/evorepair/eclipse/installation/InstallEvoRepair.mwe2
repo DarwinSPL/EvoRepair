@@ -1,0 +1,70 @@
+module org.xtext.example.mydsl.GenerateMyDsl
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.emf.mwe2.ecore.EcoreGenerator
+
+
+
+Workflow {	
+	bean = StandaloneSetup {
+		platformUri = ".."
+		
+		scanClassPath = true
+		
+		registerGenModelFile = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel"
+	}
+	
+	
+	component = DirectoryCleaner {
+		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.guidance.catalog/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.logic.firstorder/src-gen"
+		
+	}
+	
+	
+	// Generate Operation Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
+		srcPath = "platform:/resource/de.evorepair.evolution.operation/src-gen"
+		
+		generateEdit = true
+		generateEditor = true	
+	}
+	
+	// Generate Variable Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+		srcPath = "platform:/resource/de.evorepair.evolution.variable/src-gen"
+		
+		generateEdit = true
+		generateEditor = true	
+	}
+	
+	// Generate Guidance Catalog Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
+		srcPath = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
+	}
+	
+	// Generate Logic Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel"
+		srcPath = "platform:/resource/de.evorepair.logic.firstorder/src-gen"
+		
+		generateEdit = true
+		generateEditor = true	
+	}
+	
+	// Generate DSLs
+	component = @de.evorepair.logic.GenerateEvoDsl {}
+	component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
+	component = @de.evorepair.operation.GenerateEvoOperationDsl {}
+	component = @de.evorepair.guidance.GenerateGuidanceDsl {}
+}

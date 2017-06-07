@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
+public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot
+{
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -43,7 +44,8 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoNotImpl() {
+	protected EvoNotImpl()
+	{
 		super();
 	}
 
@@ -53,7 +55,8 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_NOT;
 	}
 
@@ -62,7 +65,8 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getElement() {
+	public EvoAbstractTerm getElement()
+	{
 		return element;
 	}
 
@@ -71,10 +75,12 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldElement = element;
 		element = newElement;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT, oldElement, newElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -86,8 +92,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(EvoAbstractTerm newElement) {
-		if (newElement != element) {
+	public void setElement(EvoAbstractTerm newElement)
+	{
+		if (newElement != element)
+		{
 			NotificationChain msgs = null;
 			if (element != null)
 				msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT, null, msgs);
@@ -106,8 +114,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -120,8 +130,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT:
 				return getElement();
 		}
@@ -134,8 +146,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT:
 				setElement((EvoAbstractTerm)newValue);
 				return;
@@ -149,8 +163,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT:
 				setElement((EvoAbstractTerm)null);
 				return;
@@ -164,8 +180,10 @@ public class EvoNotImpl extends EvoAbstractTermImpl implements EvoNot {
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_NOT__ELEMENT:
 				return element != null;
 		}

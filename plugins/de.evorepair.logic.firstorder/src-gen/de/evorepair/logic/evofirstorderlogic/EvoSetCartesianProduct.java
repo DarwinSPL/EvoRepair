@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoSetCartesianProduct extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm {
+public interface EvoSetCartesianProduct extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm
+{
 } // EvoSetCartesianProduct

@@ -25,7 +25,8 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage
  * @generated
  */
-public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
+public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
+{
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -40,8 +41,10 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicSwitch() {
-		if (modelPackage == null) {
+	public EvoFirstOrderLogicSwitch()
+	{
+		if (modelPackage == null)
+		{
 			modelPackage = EvoFirstOrderLogicPackage.eINSTANCE;
 		}
 	}
@@ -55,7 +58,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
+	protected boolean isSwitchFor(EPackage ePackage)
+	{
 		return ePackage == modelPackage;
 	}
 
@@ -67,9 +71,12 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case EvoFirstOrderLogicPackage.EVO_AND: {
+	protected T doSwitch(int classifierID, EObject theEObject)
+	{
+		switch (classifierID)
+		{
+			case EvoFirstOrderLogicPackage.EVO_AND:
+			{
 				EvoAnd evoAnd = (EvoAnd)theEObject;
 				T result = caseEvoAnd(evoAnd);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoAnd);
@@ -77,7 +84,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_OR: {
+			case EvoFirstOrderLogicPackage.EVO_OR:
+			{
 				EvoOr evoOr = (EvoOr)theEObject;
 				T result = caseEvoOr(evoOr);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoOr);
@@ -85,14 +93,16 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM:
+			{
 				EvoAbstractTwoParameterTerm evoAbstractTwoParameterTerm = (EvoAbstractTwoParameterTerm)theEObject;
 				T result = caseEvoAbstractTwoParameterTerm(evoAbstractTwoParameterTerm);
 				if (result == null) result = caseEvoAbstractTerm(evoAbstractTwoParameterTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_XOR: {
+			case EvoFirstOrderLogicPackage.EVO_XOR:
+			{
 				EvoXOr evoXOr = (EvoXOr)theEObject;
 				T result = caseEvoXOr(evoXOr);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoXOr);
@@ -100,7 +110,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_NOT: {
+			case EvoFirstOrderLogicPackage.EVO_NOT:
+			{
 				EvoNot evoNot = (EvoNot)theEObject;
 				T result = caseEvoNot(evoNot);
 				if (result == null) result = caseEvoAbstractOneParameterTerm(evoNot);
@@ -108,20 +119,23 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM:
+			{
 				EvoAbstractOneParameterTerm evoAbstractOneParameterTerm = (EvoAbstractOneParameterTerm)theEObject;
 				T result = caseEvoAbstractOneParameterTerm(evoAbstractOneParameterTerm);
 				if (result == null) result = caseEvoAbstractTerm(evoAbstractOneParameterTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TERM:
+			{
 				EvoAbstractTerm evoAbstractTerm = (EvoAbstractTerm)theEObject;
 				T result = caseEvoAbstractTerm(evoAbstractTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_EQUAL: {
+			case EvoFirstOrderLogicPackage.EVO_EQUAL:
+			{
 				EvoEqual evoEqual = (EvoEqual)theEObject;
 				T result = caseEvoEqual(evoEqual);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoEqual);
@@ -129,7 +143,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_UNEQUAL: {
+			case EvoFirstOrderLogicPackage.EVO_UNEQUAL:
+			{
 				EvoUnequal evoUnequal = (EvoUnequal)theEObject;
 				T result = caseEvoUnequal(evoUnequal);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoUnequal);
@@ -137,7 +152,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_IMPLICATION: {
+			case EvoFirstOrderLogicPackage.EVO_IMPLICATION:
+			{
 				EvoImplication evoImplication = (EvoImplication)theEObject;
 				T result = caseEvoImplication(evoImplication);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoImplication);
@@ -145,7 +161,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_BICONDITIONAL: {
+			case EvoFirstOrderLogicPackage.EVO_BICONDITIONAL:
+			{
 				EvoBiconditional evoBiconditional = (EvoBiconditional)theEObject;
 				T result = caseEvoBiconditional(evoBiconditional);
 				if (result == null) result = caseEvoAbstractTwoParameterTerm(evoBiconditional);
@@ -153,7 +170,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE:
+			{
 				EvoFormulaVariable evoFormulaVariable = (EvoFormulaVariable)theEObject;
 				T result = caseEvoFormulaVariable(evoFormulaVariable);
 				if (result == null) result = caseEvoAbstractTerm(evoFormulaVariable);
@@ -161,7 +179,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FORMULA_SET_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_FORMULA_SET_VARIABLE:
+			{
 				EvoFormulaSetVariable evoFormulaSetVariable = (EvoFormulaSetVariable)theEObject;
 				T result = caseEvoFormulaSetVariable(evoFormulaSetVariable);
 				if (result == null) result = caseEvoSetVariable(evoFormulaSetVariable);
@@ -169,14 +188,16 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_SET_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_SET_TERM:
+			{
 				EvoAbstractSetTerm evoAbstractSetTerm = (EvoAbstractSetTerm)theEObject;
 				T result = caseEvoAbstractSetTerm(evoAbstractSetTerm);
 				if (result == null) result = caseEvoAbstractTerm(evoAbstractSetTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_INCLUSION: {
+			case EvoFirstOrderLogicPackage.EVO_SET_INCLUSION:
+			{
 				EvoSetInclusion evoSetInclusion = (EvoSetInclusion)theEObject;
 				T result = caseEvoSetInclusion(evoSetInclusion);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetInclusion);
@@ -185,7 +206,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_INTERSECTION: {
+			case EvoFirstOrderLogicPackage.EVO_SET_INTERSECTION:
+			{
 				EvoSetIntersection evoSetIntersection = (EvoSetIntersection)theEObject;
 				T result = caseEvoSetIntersection(evoSetIntersection);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetIntersection);
@@ -194,7 +216,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_UNION: {
+			case EvoFirstOrderLogicPackage.EVO_SET_UNION:
+			{
 				EvoSetUnion evoSetUnion = (EvoSetUnion)theEObject;
 				T result = caseEvoSetUnion(evoSetUnion);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetUnion);
@@ -203,7 +226,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_DIFFERENCE: {
+			case EvoFirstOrderLogicPackage.EVO_SET_DIFFERENCE:
+			{
 				EvoSetDifference evoSetDifference = (EvoSetDifference)theEObject;
 				T result = caseEvoSetDifference(evoSetDifference);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetDifference);
@@ -212,7 +236,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_SYMMETRIC_DIFFERENCE: {
+			case EvoFirstOrderLogicPackage.EVO_SET_SYMMETRIC_DIFFERENCE:
+			{
 				EvoSetSymmetricDifference evoSetSymmetricDifference = (EvoSetSymmetricDifference)theEObject;
 				T result = caseEvoSetSymmetricDifference(evoSetSymmetricDifference);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetSymmetricDifference);
@@ -221,7 +246,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_CARTESIAN_PRODUCT: {
+			case EvoFirstOrderLogicPackage.EVO_SET_CARTESIAN_PRODUCT:
+			{
 				EvoSetCartesianProduct evoSetCartesianProduct = (EvoSetCartesianProduct)theEObject;
 				T result = caseEvoSetCartesianProduct(evoSetCartesianProduct);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetCartesianProduct);
@@ -230,7 +256,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY: {
+			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY:
+			{
 				EvoSetCardinality evoSetCardinality = (EvoSetCardinality)theEObject;
 				T result = caseEvoSetCardinality(evoSetCardinality);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetCardinality);
@@ -239,7 +266,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_ELEMENT_OF: {
+			case EvoFirstOrderLogicPackage.EVO_SET_ELEMENT_OF:
+			{
 				EvoSetElementOf evoSetElementOf = (EvoSetElementOf)theEObject;
 				T result = caseEvoSetElementOf(evoSetElementOf);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetElementOf);
@@ -248,7 +276,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SET_NOT_ELEMENT_OF: {
+			case EvoFirstOrderLogicPackage.EVO_SET_NOT_ELEMENT_OF:
+			{
 				EvoSetNotElementOf evoSetNotElementOf = (EvoSetNotElementOf)theEObject;
 				T result = caseEvoSetNotElementOf(evoSetNotElementOf);
 				if (result == null) result = caseEvoAbstractSetTerm(evoSetNotElementOf);
@@ -257,7 +286,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_QUANTIFIER_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_ABSTRACT_QUANTIFIER_TERM:
+			{
 				EvoAbstractQuantifierTerm evoAbstractQuantifierTerm = (EvoAbstractQuantifierTerm)theEObject;
 				T result = caseEvoAbstractQuantifierTerm(evoAbstractQuantifierTerm);
 				if (result == null) result = caseEvoAbstractOneParameterTerm(evoAbstractQuantifierTerm);
@@ -265,7 +295,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FOR_ALL: {
+			case EvoFirstOrderLogicPackage.EVO_FOR_ALL:
+			{
 				EvoForAll evoForAll = (EvoForAll)theEObject;
 				T result = caseEvoForAll(evoForAll);
 				if (result == null) result = caseEvoAbstractQuantifierTerm(evoForAll);
@@ -274,7 +305,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_EXIST: {
+			case EvoFirstOrderLogicPackage.EVO_EXIST:
+			{
 				EvoExist evoExist = (EvoExist)theEObject;
 				T result = caseEvoExist(evoExist);
 				if (result == null) result = caseEvoAbstractQuantifierTerm(evoExist);
@@ -283,7 +315,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_UNIQUE_EXISTS: {
+			case EvoFirstOrderLogicPackage.EVO_UNIQUE_EXISTS:
+			{
 				EvoUniqueExists evoUniqueExists = (EvoUniqueExists)theEObject;
 				T result = caseEvoUniqueExists(evoUniqueExists);
 				if (result == null) result = caseEvoAbstractQuantifierTerm(evoUniqueExists);
@@ -292,20 +325,23 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FORMULA: {
+			case EvoFirstOrderLogicPackage.EVO_FORMULA:
+			{
 				EvoFormula evoFormula = (EvoFormula)theEObject;
 				T result = caseEvoFormula(evoFormula);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM:
+			{
 				EvoVariableTerm evoVariableTerm = (EvoVariableTerm)theEObject;
 				T result = caseEvoVariableTerm(evoVariableTerm);
 				if (result == null) result = caseEvoAbstractTerm(evoVariableTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE:
+			{
 				EvoApplicationConstraintVariable evoApplicationConstraintVariable = (EvoApplicationConstraintVariable)theEObject;
 				T result = caseEvoApplicationConstraintVariable(evoApplicationConstraintVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoApplicationConstraintVariable);
@@ -313,7 +349,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE:
+			{
 				EvoFeatureModelConstraintVariable evoFeatureModelConstraintVariable = (EvoFeatureModelConstraintVariable)theEObject;
 				T result = caseEvoFeatureModelConstraintVariable(evoFeatureModelConstraintVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoFeatureModelConstraintVariable);
@@ -321,7 +358,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_PREDEFINED_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_PREDEFINED_VARIABLE:
+			{
 				EvoPredefinedVariable evoPredefinedVariable = (EvoPredefinedVariable)theEObject;
 				T result = caseEvoPredefinedVariable(evoPredefinedVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoPredefinedVariable);
@@ -329,7 +367,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ALL_FEATURES_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_ALL_FEATURES_VARIABLE:
+			{
 				EvoAllFeaturesVariable evoAllFeaturesVariable = (EvoAllFeaturesVariable)theEObject;
 				T result = caseEvoAllFeaturesVariable(evoAllFeaturesVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoAllFeaturesVariable);
@@ -337,19 +376,22 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE:
+			{
 				EvoAllValidConfigurationsVariable evoAllValidConfigurationsVariable = (EvoAllValidConfigurationsVariable)theEObject;
 				T result = caseEvoAllValidConfigurationsVariable(evoAllValidConfigurationsVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE:
+			{
 				EvoAllMappingsVariable evoAllMappingsVariable = (EvoAllMappingsVariable)theEObject;
 				T result = caseEvoAllMappingsVariable(evoAllMappingsVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE:
+			{
 				EvoMappingAssociatedAssetsVariable evoMappingAssociatedAssetsVariable = (EvoMappingAssociatedAssetsVariable)theEObject;
 				T result = caseEvoMappingAssociatedAssetsVariable(evoMappingAssociatedAssetsVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoMappingAssociatedAssetsVariable);
@@ -357,7 +399,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE:
+			{
 				EvoMappingVariable evoMappingVariable = (EvoMappingVariable)theEObject;
 				T result = caseEvoMappingVariable(evoMappingVariable);
 				if (result == null) result = caseEvoPredefinedVariable(evoMappingVariable);
@@ -366,7 +409,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_INVOLVED_FEATURE_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_INVOLVED_FEATURE_VARIABLE:
+			{
 				EvoInvolvedFeatureVariable evoInvolvedFeatureVariable = (EvoInvolvedFeatureVariable)theEObject;
 				T result = caseEvoInvolvedFeatureVariable(evoInvolvedFeatureVariable);
 				if (result == null) result = caseEvoEvolutionTerm(evoInvolvedFeatureVariable);
@@ -374,7 +418,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_REQUIREMENT_VARIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_REQUIREMENT_VARIABLE:
+			{
 				EvoRequirementVariable evoRequirementVariable = (EvoRequirementVariable)theEObject;
 				T result = caseEvoRequirementVariable(evoRequirementVariable);
 				if (result == null) result = caseEvoPredefinedVariable(evoRequirementVariable);
@@ -383,14 +428,16 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_EMPTY: {
+			case EvoFirstOrderLogicPackage.EVO_EMPTY:
+			{
 				EvoEmpty evoEmpty = (EvoEmpty)theEObject;
 				T result = caseEvoEmpty(evoEmpty);
 				if (result == null) result = caseEvoAbstractTerm(evoEmpty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE: {
+			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE:
+			{
 				EvoGroupType evoGroupType = (EvoGroupType)theEObject;
 				T result = caseEvoGroupType(evoGroupType);
 				if (result == null) result = caseEvoEvolutionTerm(evoGroupType);
@@ -399,7 +446,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE: {
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE:
+			{
 				EvoFeatureType evoFeatureType = (EvoFeatureType)theEObject;
 				T result = caseEvoFeatureType(evoFeatureType);
 				if (result == null) result = caseEvoEvolutionTerm(evoFeatureType);
@@ -408,14 +456,16 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM: {
+			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM:
+			{
 				EvoEvolutionTerm evoEvolutionTerm = (EvoEvolutionTerm)theEObject;
 				T result = caseEvoEvolutionTerm(evoEvolutionTerm);
 				if (result == null) result = caseEvoVariable(evoEvolutionTerm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SIBLINGS: {
+			case EvoFirstOrderLogicPackage.EVO_SIBLINGS:
+			{
 				EvoSiblings evoSiblings = (EvoSiblings)theEObject;
 				T result = caseEvoSiblings(evoSiblings);
 				if (result == null) result = caseEvoPredefinedVariable(evoSiblings);
@@ -424,7 +474,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE: {
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE:
+			{
 				EvoSatisfiable evoSatisfiable = (EvoSatisfiable)theEObject;
 				T result = caseEvoSatisfiable(evoSatisfiable);
 				if (result == null) result = caseEvoAbstractOneParameterTerm(evoSatisfiable);
@@ -447,7 +498,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAnd(EvoAnd object) {
+	public T caseEvoAnd(EvoAnd object)
+	{
 		return null;
 	}
 
@@ -462,7 +514,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoOr(EvoOr object) {
+	public T caseEvoOr(EvoOr object)
+	{
 		return null;
 	}
 
@@ -477,7 +530,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAbstractTwoParameterTerm(EvoAbstractTwoParameterTerm object) {
+	public T caseEvoAbstractTwoParameterTerm(EvoAbstractTwoParameterTerm object)
+	{
 		return null;
 	}
 
@@ -492,7 +546,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoXOr(EvoXOr object) {
+	public T caseEvoXOr(EvoXOr object)
+	{
 		return null;
 	}
 
@@ -507,7 +562,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoNot(EvoNot object) {
+	public T caseEvoNot(EvoNot object)
+	{
 		return null;
 	}
 
@@ -522,7 +578,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAbstractOneParameterTerm(EvoAbstractOneParameterTerm object) {
+	public T caseEvoAbstractOneParameterTerm(EvoAbstractOneParameterTerm object)
+	{
 		return null;
 	}
 
@@ -537,7 +594,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAbstractTerm(EvoAbstractTerm object) {
+	public T caseEvoAbstractTerm(EvoAbstractTerm object)
+	{
 		return null;
 	}
 
@@ -552,7 +610,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoEqual(EvoEqual object) {
+	public T caseEvoEqual(EvoEqual object)
+	{
 		return null;
 	}
 
@@ -567,7 +626,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoUnequal(EvoUnequal object) {
+	public T caseEvoUnequal(EvoUnequal object)
+	{
 		return null;
 	}
 
@@ -582,7 +642,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoImplication(EvoImplication object) {
+	public T caseEvoImplication(EvoImplication object)
+	{
 		return null;
 	}
 
@@ -597,7 +658,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoBiconditional(EvoBiconditional object) {
+	public T caseEvoBiconditional(EvoBiconditional object)
+	{
 		return null;
 	}
 
@@ -612,7 +674,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoFormulaVariable(EvoFormulaVariable object) {
+	public T caseEvoFormulaVariable(EvoFormulaVariable object)
+	{
 		return null;
 	}
 
@@ -627,7 +690,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoFormulaSetVariable(EvoFormulaSetVariable object) {
+	public T caseEvoFormulaSetVariable(EvoFormulaSetVariable object)
+	{
 		return null;
 	}
 
@@ -642,7 +706,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAbstractSetTerm(EvoAbstractSetTerm object) {
+	public T caseEvoAbstractSetTerm(EvoAbstractSetTerm object)
+	{
 		return null;
 	}
 
@@ -657,7 +722,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetInclusion(EvoSetInclusion object) {
+	public T caseEvoSetInclusion(EvoSetInclusion object)
+	{
 		return null;
 	}
 
@@ -672,7 +738,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetIntersection(EvoSetIntersection object) {
+	public T caseEvoSetIntersection(EvoSetIntersection object)
+	{
 		return null;
 	}
 
@@ -687,7 +754,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetUnion(EvoSetUnion object) {
+	public T caseEvoSetUnion(EvoSetUnion object)
+	{
 		return null;
 	}
 
@@ -702,7 +770,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetDifference(EvoSetDifference object) {
+	public T caseEvoSetDifference(EvoSetDifference object)
+	{
 		return null;
 	}
 
@@ -717,7 +786,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object) {
+	public T caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object)
+	{
 		return null;
 	}
 
@@ -732,7 +802,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetCartesianProduct(EvoSetCartesianProduct object) {
+	public T caseEvoSetCartesianProduct(EvoSetCartesianProduct object)
+	{
 		return null;
 	}
 
@@ -747,7 +818,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetCardinality(EvoSetCardinality object) {
+	public T caseEvoSetCardinality(EvoSetCardinality object)
+	{
 		return null;
 	}
 
@@ -762,7 +834,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetElementOf(EvoSetElementOf object) {
+	public T caseEvoSetElementOf(EvoSetElementOf object)
+	{
 		return null;
 	}
 
@@ -777,7 +850,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetNotElementOf(EvoSetNotElementOf object) {
+	public T caseEvoSetNotElementOf(EvoSetNotElementOf object)
+	{
 		return null;
 	}
 
@@ -792,7 +866,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object) {
+	public T caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object)
+	{
 		return null;
 	}
 
@@ -807,7 +882,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoForAll(EvoForAll object) {
+	public T caseEvoForAll(EvoForAll object)
+	{
 		return null;
 	}
 
@@ -822,7 +898,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoExist(EvoExist object) {
+	public T caseEvoExist(EvoExist object)
+	{
 		return null;
 	}
 
@@ -837,7 +914,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoUniqueExists(EvoUniqueExists object) {
+	public T caseEvoUniqueExists(EvoUniqueExists object)
+	{
 		return null;
 	}
 
@@ -852,7 +930,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoFormula(EvoFormula object) {
+	public T caseEvoFormula(EvoFormula object)
+	{
 		return null;
 	}
 
@@ -867,7 +946,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoVariableTerm(EvoVariableTerm object) {
+	public T caseEvoVariableTerm(EvoVariableTerm object)
+	{
 		return null;
 	}
 
@@ -882,7 +962,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object) {
+	public T caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object)
+	{
 		return null;
 	}
 
@@ -897,7 +978,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoFeatureModelConstraintVariable(EvoFeatureModelConstraintVariable object) {
+	public T caseEvoFeatureModelConstraintVariable(EvoFeatureModelConstraintVariable object)
+	{
 		return null;
 	}
 
@@ -912,7 +994,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoPredefinedVariable(EvoPredefinedVariable object) {
+	public T caseEvoPredefinedVariable(EvoPredefinedVariable object)
+	{
 		return null;
 	}
 
@@ -927,7 +1010,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object) {
+	public T caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object)
+	{
 		return null;
 	}
 
@@ -942,7 +1026,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAllValidConfigurationsVariable(EvoAllValidConfigurationsVariable object) {
+	public T caseEvoAllValidConfigurationsVariable(EvoAllValidConfigurationsVariable object)
+	{
 		return null;
 	}
 
@@ -957,7 +1042,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoAllMappingsVariable(EvoAllMappingsVariable object) {
+	public T caseEvoAllMappingsVariable(EvoAllMappingsVariable object)
+	{
 		return null;
 	}
 
@@ -972,7 +1058,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoMappingAssociatedAssetsVariable(EvoMappingAssociatedAssetsVariable object) {
+	public T caseEvoMappingAssociatedAssetsVariable(EvoMappingAssociatedAssetsVariable object)
+	{
 		return null;
 	}
 
@@ -987,7 +1074,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoMappingVariable(EvoMappingVariable object) {
+	public T caseEvoMappingVariable(EvoMappingVariable object)
+	{
 		return null;
 	}
 
@@ -1002,7 +1090,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoInvolvedFeatureVariable(EvoInvolvedFeatureVariable object) {
+	public T caseEvoInvolvedFeatureVariable(EvoInvolvedFeatureVariable object)
+	{
 		return null;
 	}
 
@@ -1017,7 +1106,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoRequirementVariable(EvoRequirementVariable object) {
+	public T caseEvoRequirementVariable(EvoRequirementVariable object)
+	{
 		return null;
 	}
 
@@ -1032,7 +1122,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoEmpty(EvoEmpty object) {
+	public T caseEvoEmpty(EvoEmpty object)
+	{
 		return null;
 	}
 
@@ -1047,7 +1138,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoGroupType(EvoGroupType object) {
+	public T caseEvoGroupType(EvoGroupType object)
+	{
 		return null;
 	}
 
@@ -1062,7 +1154,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoFeatureType(EvoFeatureType object) {
+	public T caseEvoFeatureType(EvoFeatureType object)
+	{
 		return null;
 	}
 
@@ -1077,7 +1170,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoEvolutionTerm(EvoEvolutionTerm object) {
+	public T caseEvoEvolutionTerm(EvoEvolutionTerm object)
+	{
 		return null;
 	}
 
@@ -1092,7 +1186,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSiblings(EvoSiblings object) {
+	public T caseEvoSiblings(EvoSiblings object)
+	{
 		return null;
 	}
 
@@ -1107,7 +1202,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSatisfiable(EvoSatisfiable object) {
+	public T caseEvoSatisfiable(EvoSatisfiable object)
+	{
 		return null;
 	}
 
@@ -1122,7 +1218,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoVariable(EvoVariable object) {
+	public T caseEvoVariable(EvoVariable object)
+	{
 		return null;
 	}
 
@@ -1137,7 +1234,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoSetVariable(EvoSetVariable object) {
+	public T caseEvoSetVariable(EvoSetVariable object)
+	{
 		return null;
 	}
 
@@ -1153,7 +1251,8 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T defaultCase(EObject object)
+	{
 		return null;
 	}
 

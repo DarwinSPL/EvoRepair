@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoSetElementOf extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm {
+public interface EvoSetElementOf extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm
+{
 } // EvoSetElementOf

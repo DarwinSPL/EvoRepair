@@ -19,7 +19,8 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface EvoAbstractOneParameterTerm extends EvoAbstractTerm {
+public interface EvoAbstractOneParameterTerm extends EvoAbstractTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -30,7 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl implements EvoFormulaVariable {
+public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl implements EvoFormulaVariable
+{
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,7 +97,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFormulaVariableImpl() {
+	protected EvoFormulaVariableImpl()
+	{
 		super();
 	}
 
@@ -106,7 +108,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FORMULA_VARIABLE;
 	}
 
@@ -115,7 +118,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
@@ -124,7 +128,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
+	public void setName(String newName)
+	{
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -136,7 +141,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getIndex() {
+	public int getIndex()
+	{
 		return index;
 	}
 
@@ -145,7 +151,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIndex(int newIndex) {
+	public void setIndex(int newIndex)
+	{
 		int oldIndex = index;
 		index = newIndex;
 		if (eNotificationRequired())
@@ -157,7 +164,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableType getVariableType() {
+	public EvoVariableType getVariableType()
+	{
 		return variableType;
 	}
 
@@ -166,7 +174,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariableType(EvoVariableType newVariableType) {
+	public void setVariableType(EvoVariableType newVariableType)
+	{
 		EvoVariableType oldVariableType = variableType;
 		variableType = newVariableType == null ? VARIABLE_TYPE_EDEFAULT : newVariableType;
 		if (eNotificationRequired())
@@ -179,8 +188,10 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME:
 				return getName();
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__INDEX:
@@ -197,8 +208,10 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME:
 				setName((String)newValue);
 				return;
@@ -218,8 +231,10 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -239,8 +254,10 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__INDEX:
@@ -257,9 +274,12 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoVariable.class) {
-			switch (derivedFeatureID) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoVariable.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME: return EvoVariablePackage.EVO_VARIABLE__NAME;
 				case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__INDEX: return EvoVariablePackage.EVO_VARIABLE__INDEX;
 				case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__VARIABLE_TYPE: return EvoVariablePackage.EVO_VARIABLE__VARIABLE_TYPE;
@@ -275,9 +295,12 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoVariable.class) {
-			switch (baseFeatureID) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoVariable.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EvoVariablePackage.EVO_VARIABLE__NAME: return EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME;
 				case EvoVariablePackage.EVO_VARIABLE__INDEX: return EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__INDEX;
 				case EvoVariablePackage.EVO_VARIABLE__VARIABLE_TYPE: return EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__VARIABLE_TYPE;
@@ -293,7 +316,8 @@ public abstract class EvoFormulaVariableImpl extends EvoAbstractTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

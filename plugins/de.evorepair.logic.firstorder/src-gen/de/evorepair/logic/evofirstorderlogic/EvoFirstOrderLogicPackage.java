@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.EReference;
  *        annotation="http://www.eclipse.org/OCL/Import configuration='../../eu.hyvar.feature.configuration/model/Configuration.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore' evooperation_0='../../de.evorepair.evolution.operation/model/EvoOperation.ecore#/' evovariable_0='../../de.evorepair.evolution.variable/model/EvoVariable.ecore#/' feature_0='../../eu.hyvar.feature/model/Feature.ecore#/' mapping_0='../../eu.hyvar.feature.mapping/model/Mapping.ecore#/'"
  * @generated
  */
-public interface EvoFirstOrderLogicPackage extends EPackage {
+public interface EvoFirstOrderLogicPackage extends EPackage
+{
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -3018,7 +3019,8 @@ public interface EvoFirstOrderLogicPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals
+	{
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAndImpl <em>Evo And</em>}' class.
 		 * <!-- begin-user-doc -->

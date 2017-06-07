@@ -19,7 +19,8 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface EvoAbstractQuantifierTerm extends EvoAbstractTerm, EvoAbstractOneParameterTerm {
+public interface EvoAbstractQuantifierTerm extends EvoAbstractTerm, EvoAbstractOneParameterTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Bounded Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->

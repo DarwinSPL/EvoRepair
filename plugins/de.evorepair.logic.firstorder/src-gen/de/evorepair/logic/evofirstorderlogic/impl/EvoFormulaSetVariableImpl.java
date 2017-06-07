@@ -16,13 +16,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class EvoFormulaSetVariableImpl extends EvoSetVariableImpl implements EvoFormulaSetVariable {
+public abstract class EvoFormulaSetVariableImpl extends EvoSetVariableImpl implements EvoFormulaSetVariable
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFormulaSetVariableImpl() {
+	protected EvoFormulaSetVariableImpl()
+	{
 		super();
 	}
 
@@ -32,7 +34,8 @@ public abstract class EvoFormulaSetVariableImpl extends EvoSetVariableImpl imple
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FORMULA_SET_VARIABLE;
 	}
 

@@ -14,13 +14,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoFeatureModelConstraintVariableImpl extends EvoEvolutionTermImpl implements EvoFeatureModelConstraintVariable {
+public class EvoFeatureModelConstraintVariableImpl extends EvoEvolutionTermImpl implements EvoFeatureModelConstraintVariable
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFeatureModelConstraintVariableImpl() {
+	protected EvoFeatureModelConstraintVariableImpl()
+	{
 		super();
 	}
 
@@ -30,7 +32,8 @@ public class EvoFeatureModelConstraintVariableImpl extends EvoEvolutionTermImpl 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE;
 	}
 

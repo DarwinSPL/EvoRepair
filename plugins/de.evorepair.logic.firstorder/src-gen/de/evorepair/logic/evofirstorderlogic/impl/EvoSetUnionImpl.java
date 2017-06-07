@@ -29,7 +29,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUnion {
+public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUnion
+{
 	/**
 	 * The cached value of the '{@link #getLeftElement() <em>Left Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -55,7 +56,8 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoSetUnionImpl() {
+	protected EvoSetUnionImpl()
+	{
 		super();
 	}
 
@@ -65,7 +67,8 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_SET_UNION;
 	}
 
@@ -74,7 +77,8 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getLeftElement() {
+	public EvoAbstractTerm getLeftElement()
+	{
 		return leftElement;
 	}
 
@@ -83,10 +87,12 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeftElement(EvoAbstractTerm newLeftElement, NotificationChain msgs) {
+	public NotificationChain basicSetLeftElement(EvoAbstractTerm newLeftElement, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldLeftElement = leftElement;
 		leftElement = newLeftElement;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT, oldLeftElement, newLeftElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -98,8 +104,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeftElement(EvoAbstractTerm newLeftElement) {
-		if (newLeftElement != leftElement) {
+	public void setLeftElement(EvoAbstractTerm newLeftElement)
+	{
+		if (newLeftElement != leftElement)
+		{
 			NotificationChain msgs = null;
 			if (leftElement != null)
 				msgs = ((InternalEObject)leftElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT, null, msgs);
@@ -117,7 +125,8 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getRightElement() {
+	public EvoAbstractTerm getRightElement()
+	{
 		return rightElement;
 	}
 
@@ -126,10 +135,12 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRightElement(EvoAbstractTerm newRightElement, NotificationChain msgs) {
+	public NotificationChain basicSetRightElement(EvoAbstractTerm newRightElement, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldRightElement = rightElement;
 		rightElement = newRightElement;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT, oldRightElement, newRightElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -141,8 +152,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRightElement(EvoAbstractTerm newRightElement) {
-		if (newRightElement != rightElement) {
+	public void setRightElement(EvoAbstractTerm newRightElement)
+	{
+		if (newRightElement != rightElement)
+		{
 			NotificationChain msgs = null;
 			if (rightElement != null)
 				msgs = ((InternalEObject)rightElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT, null, msgs);
@@ -161,8 +174,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT:
 				return basicSetLeftElement(null, msgs);
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT:
@@ -177,8 +192,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT:
 				return getLeftElement();
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT:
@@ -193,8 +210,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT:
 				setLeftElement((EvoAbstractTerm)newValue);
 				return;
@@ -211,8 +230,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT:
 				setLeftElement((EvoAbstractTerm)null);
 				return;
@@ -229,8 +250,10 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT:
 				return leftElement != null;
 			case EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT:
@@ -245,9 +268,12 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractTwoParameterTerm.class) {
-			switch (derivedFeatureID) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractTwoParameterTerm.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT: return EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM__LEFT_ELEMENT;
 				case EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT: return EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM__RIGHT_ELEMENT;
 				default: return -1;
@@ -262,9 +288,12 @@ public class EvoSetUnionImpl extends EvoAbstractSetTermImpl implements EvoSetUni
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractTwoParameterTerm.class) {
-			switch (baseFeatureID) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractTwoParameterTerm.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM__LEFT_ELEMENT: return EvoFirstOrderLogicPackage.EVO_SET_UNION__LEFT_ELEMENT;
 				case EvoFirstOrderLogicPackage.EVO_ABSTRACT_TWO_PARAMETER_TERM__RIGHT_ELEMENT: return EvoFirstOrderLogicPackage.EVO_SET_UNION__RIGHT_ELEMENT;
 				default: return -1;

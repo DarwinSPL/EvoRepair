@@ -3,10 +3,33 @@
  */
 package de.evorepair.guidance.ui.contentassist
 
+import com.google.common.base.Predicate
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.CrossReference
+import org.eclipse.xtext.resource.IEObjectDescription
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import de.evorepair.guidance.guidancedsl.impl.GrammarEntryImpl
+import org.eclipse.xtext.builder.builderState.EObjectDescription
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class GuidanceDslProposalProvider extends AbstractGuidanceDslProposalProvider {
+	override completeEvoVariableTerm_Variable(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, new Predicate<IEObjectDescription>{
+			
+			override apply(IEObjectDescription arg0) {
+				var table = (context.rootModel as GrammarEntryImpl).table
+				
+				val description = arg0 as  EObjectDescription
+				var filtered = table.triggeringOperations.filter[name.equals(description.qualifiedName.segments.get(0))]
+				
+				return !filtered.empty
+			}
+			
+		})
+	}
 }

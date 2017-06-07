@@ -20,7 +20,8 @@ import eu.hyvar.feature.HyGroupTypeEnum;
  * @model
  * @generated
  */
-public interface EvoGroupType extends EvoEvolutionTerm, EvoAbstractTerm {
+public interface EvoGroupType extends EvoEvolutionTerm, EvoAbstractTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link eu.hyvar.feature.HyGroupTypeEnum}.

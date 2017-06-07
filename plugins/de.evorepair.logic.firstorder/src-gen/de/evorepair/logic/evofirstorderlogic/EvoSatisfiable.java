@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoSatisfiable extends EvoAbstractOneParameterTerm {
+public interface EvoSatisfiable extends EvoAbstractOneParameterTerm
+{
 } // EvoSatisfiable

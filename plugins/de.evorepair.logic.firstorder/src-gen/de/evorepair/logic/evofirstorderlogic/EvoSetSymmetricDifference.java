@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoSetSymmetricDifference extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm {
+public interface EvoSetSymmetricDifference extends EvoAbstractSetTerm, EvoAbstractTwoParameterTerm
+{
 } // EvoSetSymmetricDifference

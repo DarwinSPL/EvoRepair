@@ -14,13 +14,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoInvolvedFeatureVariableImpl extends EvoEvolutionTermImpl implements EvoInvolvedFeatureVariable {
+public class EvoInvolvedFeatureVariableImpl extends EvoEvolutionTermImpl implements EvoInvolvedFeatureVariable
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoInvolvedFeatureVariableImpl() {
+	protected EvoInvolvedFeatureVariableImpl()
+	{
 		super();
 	}
 
@@ -30,7 +32,8 @@ public class EvoInvolvedFeatureVariableImpl extends EvoEvolutionTermImpl impleme
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_INVOLVED_FEATURE_VARIABLE;
 	}
 

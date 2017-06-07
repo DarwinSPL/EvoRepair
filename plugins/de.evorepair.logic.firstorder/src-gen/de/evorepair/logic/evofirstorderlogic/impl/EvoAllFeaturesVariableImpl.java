@@ -14,13 +14,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoAllFeaturesVariableImpl extends EvoEvolutionTermImpl implements EvoAllFeaturesVariable {
+public class EvoAllFeaturesVariableImpl extends EvoEvolutionTermImpl implements EvoAllFeaturesVariable
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAllFeaturesVariableImpl() {
+	protected EvoAllFeaturesVariableImpl()
+	{
 		super();
 	}
 
@@ -30,7 +32,8 @@ public class EvoAllFeaturesVariableImpl extends EvoEvolutionTermImpl implements 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_ALL_FEATURES_VARIABLE;
 	}
 

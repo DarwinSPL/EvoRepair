@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl implements EvoMappingAssociatedAssetsVariable {
+public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl implements EvoMappingAssociatedAssetsVariable
+{
 	/**
 	 * The cached value of the '{@link #getAssociatedMapping() <em>Associated Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -42,7 +43,8 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoMappingAssociatedAssetsVariableImpl() {
+	protected EvoMappingAssociatedAssetsVariableImpl()
+	{
 		super();
 	}
 
@@ -52,7 +54,8 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE;
 	}
 
@@ -61,11 +64,14 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable getAssociatedMapping() {
-		if (associatedMapping != null && associatedMapping.eIsProxy()) {
+	public EvoMappingVariable getAssociatedMapping()
+	{
+		if (associatedMapping != null && associatedMapping.eIsProxy())
+		{
 			InternalEObject oldAssociatedMapping = (InternalEObject)associatedMapping;
 			associatedMapping = (EvoMappingVariable)eResolveProxy(oldAssociatedMapping);
-			if (associatedMapping != oldAssociatedMapping) {
+			if (associatedMapping != oldAssociatedMapping)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING, oldAssociatedMapping, associatedMapping));
 			}
@@ -78,7 +84,8 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable basicGetAssociatedMapping() {
+	public EvoMappingVariable basicGetAssociatedMapping()
+	{
 		return associatedMapping;
 	}
 
@@ -87,7 +94,8 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAssociatedMapping(EvoMappingVariable newAssociatedMapping) {
+	public void setAssociatedMapping(EvoMappingVariable newAssociatedMapping)
+	{
 		EvoMappingVariable oldAssociatedMapping = associatedMapping;
 		associatedMapping = newAssociatedMapping;
 		if (eNotificationRequired())
@@ -100,8 +108,10 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING:
 				if (resolve) return getAssociatedMapping();
 				return basicGetAssociatedMapping();
@@ -115,8 +125,10 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING:
 				setAssociatedMapping((EvoMappingVariable)newValue);
 				return;
@@ -130,8 +142,10 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING:
 				setAssociatedMapping((EvoMappingVariable)null);
 				return;
@@ -145,8 +159,10 @@ public class EvoMappingAssociatedAssetsVariableImpl extends EvoEvolutionTermImpl
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING:
 				return associatedMapping != null;
 		}

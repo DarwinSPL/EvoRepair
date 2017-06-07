@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatureType {
+public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatureType
+{
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +53,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFeatureTypeImpl() {
+	protected EvoFeatureTypeImpl()
+	{
 		super();
 	}
 
@@ -62,7 +64,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FEATURE_TYPE;
 	}
 
@@ -71,7 +74,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HyFeatureTypeEnum getType() {
+	public HyFeatureTypeEnum getType()
+	{
 		return type;
 	}
 
@@ -80,7 +84,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(HyFeatureTypeEnum newType) {
+	public void setType(HyFeatureTypeEnum newType)
+	{
 		HyFeatureTypeEnum oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
@@ -93,8 +98,10 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				return getType();
 		}
@@ -107,8 +114,10 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				setType((HyFeatureTypeEnum)newValue);
 				return;
@@ -122,8 +131,10 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
@@ -137,8 +148,10 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				return type != TYPE_EDEFAULT;
 		}
@@ -151,7 +164,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @generated
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

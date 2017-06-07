@@ -14,13 +14,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoRequirementVariableImpl extends EvoPredefinedVariableImpl implements EvoRequirementVariable {
+public class EvoRequirementVariableImpl extends EvoPredefinedVariableImpl implements EvoRequirementVariable
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoRequirementVariableImpl() {
+	protected EvoRequirementVariableImpl()
+	{
 		super();
 	}
 
@@ -30,7 +32,8 @@ public class EvoRequirementVariableImpl extends EvoPredefinedVariableImpl implem
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_REQUIREMENT_VARIABLE;
 	}
 

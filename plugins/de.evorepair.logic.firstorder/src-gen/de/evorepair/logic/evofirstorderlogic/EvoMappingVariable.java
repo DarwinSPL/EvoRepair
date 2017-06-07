@@ -20,7 +20,8 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoMappingVariable extends EvoPredefinedVariable {
+public interface EvoMappingVariable extends EvoPredefinedVariable
+{
 	/**
 	 * Returns the value of the '<em><b>Mapping</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoAnd extends EvoAbstractTwoParameterTerm {
+public interface EvoAnd extends EvoAbstractTwoParameterTerm
+{
 } // EvoAnd

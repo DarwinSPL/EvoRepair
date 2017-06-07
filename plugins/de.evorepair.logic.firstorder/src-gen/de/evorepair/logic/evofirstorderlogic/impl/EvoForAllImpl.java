@@ -30,7 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
+public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll
+{
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -56,7 +57,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoForAllImpl() {
+	protected EvoForAllImpl()
+	{
 		super();
 	}
 
@@ -66,7 +68,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FOR_ALL;
 	}
 
@@ -75,7 +78,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getElement() {
+	public EvoAbstractTerm getElement()
+	{
 		return element;
 	}
 
@@ -84,10 +88,12 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldElement = element;
 		element = newElement;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT, oldElement, newElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -99,8 +105,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(EvoAbstractTerm newElement) {
-		if (newElement != element) {
+	public void setElement(EvoAbstractTerm newElement)
+	{
+		if (newElement != element)
+		{
 			NotificationChain msgs = null;
 			if (element != null)
 				msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT, null, msgs);
@@ -118,11 +126,14 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTerm getBoundedVariable() {
-		if (boundedVariable != null && boundedVariable.eIsProxy()) {
+	public EvoEvolutionTerm getBoundedVariable()
+	{
+		if (boundedVariable != null && boundedVariable.eIsProxy())
+		{
 			InternalEObject oldBoundedVariable = (InternalEObject)boundedVariable;
 			boundedVariable = (EvoEvolutionTerm)eResolveProxy(oldBoundedVariable);
-			if (boundedVariable != oldBoundedVariable) {
+			if (boundedVariable != oldBoundedVariable)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLE, oldBoundedVariable, boundedVariable));
 			}
@@ -135,7 +146,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTerm basicGetBoundedVariable() {
+	public EvoEvolutionTerm basicGetBoundedVariable()
+	{
 		return boundedVariable;
 	}
 
@@ -144,7 +156,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBoundedVariable(EvoEvolutionTerm newBoundedVariable) {
+	public void setBoundedVariable(EvoEvolutionTerm newBoundedVariable)
+	{
 		EvoEvolutionTerm oldBoundedVariable = boundedVariable;
 		boundedVariable = newBoundedVariable;
 		if (eNotificationRequired())
@@ -157,8 +170,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -171,8 +186,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				return getElement();
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLE:
@@ -188,8 +205,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				setElement((EvoAbstractTerm)newValue);
 				return;
@@ -206,8 +225,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				setElement((EvoAbstractTerm)null);
 				return;
@@ -224,8 +245,10 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				return element != null;
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLE:
@@ -240,9 +263,12 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractOneParameterTerm.class) {
-			switch (derivedFeatureID) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractOneParameterTerm.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT: return EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT;
 				default: return -1;
 			}
@@ -256,9 +282,12 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll {
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractOneParameterTerm.class) {
-			switch (baseFeatureID) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractOneParameterTerm.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT: return EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT;
 				default: return -1;
 			}

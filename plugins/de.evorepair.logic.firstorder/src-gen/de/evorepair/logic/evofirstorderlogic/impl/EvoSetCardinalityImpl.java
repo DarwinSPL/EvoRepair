@@ -28,7 +28,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements EvoSetCardinality {
+public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements EvoSetCardinality
+{
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -44,7 +45,8 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoSetCardinalityImpl() {
+	protected EvoSetCardinalityImpl()
+	{
 		super();
 	}
 
@@ -54,7 +56,8 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_SET_CARDINALITY;
 	}
 
@@ -63,7 +66,8 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getElement() {
+	public EvoAbstractTerm getElement()
+	{
 		return element;
 	}
 
@@ -72,10 +76,12 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldElement = element;
 		element = newElement;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT, oldElement, newElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -87,8 +93,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(EvoAbstractTerm newElement) {
-		if (newElement != element) {
+	public void setElement(EvoAbstractTerm newElement)
+	{
+		if (newElement != element)
+		{
 			NotificationChain msgs = null;
 			if (element != null)
 				msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT, null, msgs);
@@ -107,8 +115,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -121,8 +131,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT:
 				return getElement();
 		}
@@ -135,8 +147,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT:
 				setElement((EvoAbstractTerm)newValue);
 				return;
@@ -150,8 +164,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT:
 				setElement((EvoAbstractTerm)null);
 				return;
@@ -165,8 +181,10 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT:
 				return element != null;
 		}
@@ -179,9 +197,12 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractOneParameterTerm.class) {
-			switch (derivedFeatureID) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractOneParameterTerm.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT: return EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT;
 				default: return -1;
 			}
@@ -195,9 +216,12 @@ public class EvoSetCardinalityImpl extends EvoAbstractSetTermImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == EvoAbstractOneParameterTerm.class) {
-			switch (baseFeatureID) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == EvoAbstractOneParameterTerm.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EvoFirstOrderLogicPackage.EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT: return EvoFirstOrderLogicPackage.EVO_SET_CARDINALITY__ELEMENT;
 				default: return -1;
 			}

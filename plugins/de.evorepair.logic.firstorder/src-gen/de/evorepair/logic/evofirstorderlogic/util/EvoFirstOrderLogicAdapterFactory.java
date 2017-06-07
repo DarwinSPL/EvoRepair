@@ -22,7 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage
  * @generated
  */
-public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
+public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
+{
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -37,8 +38,10 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicAdapterFactory() {
-		if (modelPackage == null) {
+	public EvoFirstOrderLogicAdapterFactory()
+	{
+		if (modelPackage == null)
+		{
 			modelPackage = EvoFirstOrderLogicPackage.eINSTANCE;
 		}
 	}
@@ -52,11 +55,14 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+	public boolean isFactoryForType(Object object)
+	{
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -69,197 +75,246 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected EvoFirstOrderLogicSwitch<Adapter> modelSwitch =
-		new EvoFirstOrderLogicSwitch<Adapter>() {
+		new EvoFirstOrderLogicSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseEvoAnd(EvoAnd object) {
+			public Adapter caseEvoAnd(EvoAnd object)
+			{
 				return createEvoAndAdapter();
 			}
 			@Override
-			public Adapter caseEvoOr(EvoOr object) {
+			public Adapter caseEvoOr(EvoOr object)
+			{
 				return createEvoOrAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractTwoParameterTerm(EvoAbstractTwoParameterTerm object) {
+			public Adapter caseEvoAbstractTwoParameterTerm(EvoAbstractTwoParameterTerm object)
+			{
 				return createEvoAbstractTwoParameterTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoXOr(EvoXOr object) {
+			public Adapter caseEvoXOr(EvoXOr object)
+			{
 				return createEvoXOrAdapter();
 			}
 			@Override
-			public Adapter caseEvoNot(EvoNot object) {
+			public Adapter caseEvoNot(EvoNot object)
+			{
 				return createEvoNotAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractOneParameterTerm(EvoAbstractOneParameterTerm object) {
+			public Adapter caseEvoAbstractOneParameterTerm(EvoAbstractOneParameterTerm object)
+			{
 				return createEvoAbstractOneParameterTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractTerm(EvoAbstractTerm object) {
+			public Adapter caseEvoAbstractTerm(EvoAbstractTerm object)
+			{
 				return createEvoAbstractTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoEqual(EvoEqual object) {
+			public Adapter caseEvoEqual(EvoEqual object)
+			{
 				return createEvoEqualAdapter();
 			}
 			@Override
-			public Adapter caseEvoUnequal(EvoUnequal object) {
+			public Adapter caseEvoUnequal(EvoUnequal object)
+			{
 				return createEvoUnequalAdapter();
 			}
 			@Override
-			public Adapter caseEvoImplication(EvoImplication object) {
+			public Adapter caseEvoImplication(EvoImplication object)
+			{
 				return createEvoImplicationAdapter();
 			}
 			@Override
-			public Adapter caseEvoBiconditional(EvoBiconditional object) {
+			public Adapter caseEvoBiconditional(EvoBiconditional object)
+			{
 				return createEvoBiconditionalAdapter();
 			}
 			@Override
-			public Adapter caseEvoFormulaVariable(EvoFormulaVariable object) {
+			public Adapter caseEvoFormulaVariable(EvoFormulaVariable object)
+			{
 				return createEvoFormulaVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoFormulaSetVariable(EvoFormulaSetVariable object) {
+			public Adapter caseEvoFormulaSetVariable(EvoFormulaSetVariable object)
+			{
 				return createEvoFormulaSetVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractSetTerm(EvoAbstractSetTerm object) {
+			public Adapter caseEvoAbstractSetTerm(EvoAbstractSetTerm object)
+			{
 				return createEvoAbstractSetTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetInclusion(EvoSetInclusion object) {
+			public Adapter caseEvoSetInclusion(EvoSetInclusion object)
+			{
 				return createEvoSetInclusionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetIntersection(EvoSetIntersection object) {
+			public Adapter caseEvoSetIntersection(EvoSetIntersection object)
+			{
 				return createEvoSetIntersectionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetUnion(EvoSetUnion object) {
+			public Adapter caseEvoSetUnion(EvoSetUnion object)
+			{
 				return createEvoSetUnionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetDifference(EvoSetDifference object) {
+			public Adapter caseEvoSetDifference(EvoSetDifference object)
+			{
 				return createEvoSetDifferenceAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object) {
+			public Adapter caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object)
+			{
 				return createEvoSetSymmetricDifferenceAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetCartesianProduct(EvoSetCartesianProduct object) {
+			public Adapter caseEvoSetCartesianProduct(EvoSetCartesianProduct object)
+			{
 				return createEvoSetCartesianProductAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetCardinality(EvoSetCardinality object) {
+			public Adapter caseEvoSetCardinality(EvoSetCardinality object)
+			{
 				return createEvoSetCardinalityAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetElementOf(EvoSetElementOf object) {
+			public Adapter caseEvoSetElementOf(EvoSetElementOf object)
+			{
 				return createEvoSetElementOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetNotElementOf(EvoSetNotElementOf object) {
+			public Adapter caseEvoSetNotElementOf(EvoSetNotElementOf object)
+			{
 				return createEvoSetNotElementOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object) {
+			public Adapter caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object)
+			{
 				return createEvoAbstractQuantifierTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoForAll(EvoForAll object) {
+			public Adapter caseEvoForAll(EvoForAll object)
+			{
 				return createEvoForAllAdapter();
 			}
 			@Override
-			public Adapter caseEvoExist(EvoExist object) {
+			public Adapter caseEvoExist(EvoExist object)
+			{
 				return createEvoExistAdapter();
 			}
 			@Override
-			public Adapter caseEvoUniqueExists(EvoUniqueExists object) {
+			public Adapter caseEvoUniqueExists(EvoUniqueExists object)
+			{
 				return createEvoUniqueExistsAdapter();
 			}
 			@Override
-			public Adapter caseEvoFormula(EvoFormula object) {
+			public Adapter caseEvoFormula(EvoFormula object)
+			{
 				return createEvoFormulaAdapter();
 			}
 			@Override
-			public Adapter caseEvoVariableTerm(EvoVariableTerm object) {
+			public Adapter caseEvoVariableTerm(EvoVariableTerm object)
+			{
 				return createEvoVariableTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object) {
+			public Adapter caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object)
+			{
 				return createEvoApplicationConstraintVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoFeatureModelConstraintVariable(EvoFeatureModelConstraintVariable object) {
+			public Adapter caseEvoFeatureModelConstraintVariable(EvoFeatureModelConstraintVariable object)
+			{
 				return createEvoFeatureModelConstraintVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoPredefinedVariable(EvoPredefinedVariable object) {
+			public Adapter caseEvoPredefinedVariable(EvoPredefinedVariable object)
+			{
 				return createEvoPredefinedVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object) {
+			public Adapter caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object)
+			{
 				return createEvoAllFeaturesVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoAllValidConfigurationsVariable(EvoAllValidConfigurationsVariable object) {
+			public Adapter caseEvoAllValidConfigurationsVariable(EvoAllValidConfigurationsVariable object)
+			{
 				return createEvoAllValidConfigurationsVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoAllMappingsVariable(EvoAllMappingsVariable object) {
+			public Adapter caseEvoAllMappingsVariable(EvoAllMappingsVariable object)
+			{
 				return createEvoAllMappingsVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoMappingAssociatedAssetsVariable(EvoMappingAssociatedAssetsVariable object) {
+			public Adapter caseEvoMappingAssociatedAssetsVariable(EvoMappingAssociatedAssetsVariable object)
+			{
 				return createEvoMappingAssociatedAssetsVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoMappingVariable(EvoMappingVariable object) {
+			public Adapter caseEvoMappingVariable(EvoMappingVariable object)
+			{
 				return createEvoMappingVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoInvolvedFeatureVariable(EvoInvolvedFeatureVariable object) {
+			public Adapter caseEvoInvolvedFeatureVariable(EvoInvolvedFeatureVariable object)
+			{
 				return createEvoInvolvedFeatureVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoRequirementVariable(EvoRequirementVariable object) {
+			public Adapter caseEvoRequirementVariable(EvoRequirementVariable object)
+			{
 				return createEvoRequirementVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoEmpty(EvoEmpty object) {
+			public Adapter caseEvoEmpty(EvoEmpty object)
+			{
 				return createEvoEmptyAdapter();
 			}
 			@Override
-			public Adapter caseEvoGroupType(EvoGroupType object) {
+			public Adapter caseEvoGroupType(EvoGroupType object)
+			{
 				return createEvoGroupTypeAdapter();
 			}
 			@Override
-			public Adapter caseEvoFeatureType(EvoFeatureType object) {
+			public Adapter caseEvoFeatureType(EvoFeatureType object)
+			{
 				return createEvoFeatureTypeAdapter();
 			}
 			@Override
-			public Adapter caseEvoEvolutionTerm(EvoEvolutionTerm object) {
+			public Adapter caseEvoEvolutionTerm(EvoEvolutionTerm object)
+			{
 				return createEvoEvolutionTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoSiblings(EvoSiblings object) {
+			public Adapter caseEvoSiblings(EvoSiblings object)
+			{
 				return createEvoSiblingsAdapter();
 			}
 			@Override
-			public Adapter caseEvoSatisfiable(EvoSatisfiable object) {
+			public Adapter caseEvoSatisfiable(EvoSatisfiable object)
+			{
 				return createEvoSatisfiableAdapter();
 			}
 			@Override
-			public Adapter caseEvoVariable(EvoVariable object) {
+			public Adapter caseEvoVariable(EvoVariable object)
+			{
 				return createEvoVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetVariable(EvoSetVariable object) {
+			public Adapter caseEvoSetVariable(EvoSetVariable object)
+			{
 				return createEvoSetVariableAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};
@@ -273,7 +328,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	@Override
-	public Adapter createAdapter(Notifier target) {
+	public Adapter createAdapter(Notifier target)
+	{
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
@@ -288,7 +344,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAnd
 	 * @generated
 	 */
-	public Adapter createEvoAndAdapter() {
+	public Adapter createEvoAndAdapter()
+	{
 		return null;
 	}
 
@@ -302,7 +359,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoOr
 	 * @generated
 	 */
-	public Adapter createEvoOrAdapter() {
+	public Adapter createEvoOrAdapter()
+	{
 		return null;
 	}
 
@@ -316,7 +374,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractTwoParameterTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractTwoParameterTermAdapter() {
+	public Adapter createEvoAbstractTwoParameterTermAdapter()
+	{
 		return null;
 	}
 
@@ -330,7 +389,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoXOr
 	 * @generated
 	 */
-	public Adapter createEvoXOrAdapter() {
+	public Adapter createEvoXOrAdapter()
+	{
 		return null;
 	}
 
@@ -344,7 +404,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoNot
 	 * @generated
 	 */
-	public Adapter createEvoNotAdapter() {
+	public Adapter createEvoNotAdapter()
+	{
 		return null;
 	}
 
@@ -358,7 +419,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractOneParameterTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractOneParameterTermAdapter() {
+	public Adapter createEvoAbstractOneParameterTermAdapter()
+	{
 		return null;
 	}
 
@@ -372,7 +434,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractTermAdapter() {
+	public Adapter createEvoAbstractTermAdapter()
+	{
 		return null;
 	}
 
@@ -386,7 +449,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoEqual
 	 * @generated
 	 */
-	public Adapter createEvoEqualAdapter() {
+	public Adapter createEvoEqualAdapter()
+	{
 		return null;
 	}
 
@@ -400,7 +464,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoUnequal
 	 * @generated
 	 */
-	public Adapter createEvoUnequalAdapter() {
+	public Adapter createEvoUnequalAdapter()
+	{
 		return null;
 	}
 
@@ -414,7 +479,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoImplication
 	 * @generated
 	 */
-	public Adapter createEvoImplicationAdapter() {
+	public Adapter createEvoImplicationAdapter()
+	{
 		return null;
 	}
 
@@ -428,7 +494,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoBiconditional
 	 * @generated
 	 */
-	public Adapter createEvoBiconditionalAdapter() {
+	public Adapter createEvoBiconditionalAdapter()
+	{
 		return null;
 	}
 
@@ -442,7 +509,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFormulaVariable
 	 * @generated
 	 */
-	public Adapter createEvoFormulaVariableAdapter() {
+	public Adapter createEvoFormulaVariableAdapter()
+	{
 		return null;
 	}
 
@@ -456,7 +524,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFormulaSetVariable
 	 * @generated
 	 */
-	public Adapter createEvoFormulaSetVariableAdapter() {
+	public Adapter createEvoFormulaSetVariableAdapter()
+	{
 		return null;
 	}
 
@@ -470,7 +539,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractSetTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractSetTermAdapter() {
+	public Adapter createEvoAbstractSetTermAdapter()
+	{
 		return null;
 	}
 
@@ -484,7 +554,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetInclusion
 	 * @generated
 	 */
-	public Adapter createEvoSetInclusionAdapter() {
+	public Adapter createEvoSetInclusionAdapter()
+	{
 		return null;
 	}
 
@@ -498,7 +569,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetIntersection
 	 * @generated
 	 */
-	public Adapter createEvoSetIntersectionAdapter() {
+	public Adapter createEvoSetIntersectionAdapter()
+	{
 		return null;
 	}
 
@@ -512,7 +584,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetUnion
 	 * @generated
 	 */
-	public Adapter createEvoSetUnionAdapter() {
+	public Adapter createEvoSetUnionAdapter()
+	{
 		return null;
 	}
 
@@ -526,7 +599,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetDifference
 	 * @generated
 	 */
-	public Adapter createEvoSetDifferenceAdapter() {
+	public Adapter createEvoSetDifferenceAdapter()
+	{
 		return null;
 	}
 
@@ -540,7 +614,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference
 	 * @generated
 	 */
-	public Adapter createEvoSetSymmetricDifferenceAdapter() {
+	public Adapter createEvoSetSymmetricDifferenceAdapter()
+	{
 		return null;
 	}
 
@@ -554,7 +629,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetCartesianProduct
 	 * @generated
 	 */
-	public Adapter createEvoSetCartesianProductAdapter() {
+	public Adapter createEvoSetCartesianProductAdapter()
+	{
 		return null;
 	}
 
@@ -568,7 +644,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetCardinality
 	 * @generated
 	 */
-	public Adapter createEvoSetCardinalityAdapter() {
+	public Adapter createEvoSetCardinalityAdapter()
+	{
 		return null;
 	}
 
@@ -582,7 +659,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetElementOf
 	 * @generated
 	 */
-	public Adapter createEvoSetElementOfAdapter() {
+	public Adapter createEvoSetElementOfAdapter()
+	{
 		return null;
 	}
 
@@ -596,7 +674,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetNotElementOf
 	 * @generated
 	 */
-	public Adapter createEvoSetNotElementOfAdapter() {
+	public Adapter createEvoSetNotElementOfAdapter()
+	{
 		return null;
 	}
 
@@ -610,7 +689,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractQuantifierTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractQuantifierTermAdapter() {
+	public Adapter createEvoAbstractQuantifierTermAdapter()
+	{
 		return null;
 	}
 
@@ -624,7 +704,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoForAll
 	 * @generated
 	 */
-	public Adapter createEvoForAllAdapter() {
+	public Adapter createEvoForAllAdapter()
+	{
 		return null;
 	}
 
@@ -638,7 +719,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoExist
 	 * @generated
 	 */
-	public Adapter createEvoExistAdapter() {
+	public Adapter createEvoExistAdapter()
+	{
 		return null;
 	}
 
@@ -652,7 +734,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoUniqueExists
 	 * @generated
 	 */
-	public Adapter createEvoUniqueExistsAdapter() {
+	public Adapter createEvoUniqueExistsAdapter()
+	{
 		return null;
 	}
 
@@ -666,7 +749,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFormula
 	 * @generated
 	 */
-	public Adapter createEvoFormulaAdapter() {
+	public Adapter createEvoFormulaAdapter()
+	{
 		return null;
 	}
 
@@ -680,7 +764,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoVariableTerm
 	 * @generated
 	 */
-	public Adapter createEvoVariableTermAdapter() {
+	public Adapter createEvoVariableTermAdapter()
+	{
 		return null;
 	}
 
@@ -694,7 +779,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintVariable
 	 * @generated
 	 */
-	public Adapter createEvoApplicationConstraintVariableAdapter() {
+	public Adapter createEvoApplicationConstraintVariableAdapter()
+	{
 		return null;
 	}
 
@@ -708,7 +794,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFeatureModelConstraintVariable
 	 * @generated
 	 */
-	public Adapter createEvoFeatureModelConstraintVariableAdapter() {
+	public Adapter createEvoFeatureModelConstraintVariableAdapter()
+	{
 		return null;
 	}
 
@@ -722,7 +809,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoPredefinedVariable
 	 * @generated
 	 */
-	public Adapter createEvoPredefinedVariableAdapter() {
+	public Adapter createEvoPredefinedVariableAdapter()
+	{
 		return null;
 	}
 
@@ -736,7 +824,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllFeaturesVariable
 	 * @generated
 	 */
-	public Adapter createEvoAllFeaturesVariableAdapter() {
+	public Adapter createEvoAllFeaturesVariableAdapter()
+	{
 		return null;
 	}
 
@@ -750,7 +839,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable
 	 * @generated
 	 */
-	public Adapter createEvoAllValidConfigurationsVariableAdapter() {
+	public Adapter createEvoAllValidConfigurationsVariableAdapter()
+	{
 		return null;
 	}
 
@@ -764,7 +854,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable
 	 * @generated
 	 */
-	public Adapter createEvoAllMappingsVariableAdapter() {
+	public Adapter createEvoAllMappingsVariableAdapter()
+	{
 		return null;
 	}
 
@@ -778,7 +869,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoMappingAssociatedAssetsVariable
 	 * @generated
 	 */
-	public Adapter createEvoMappingAssociatedAssetsVariableAdapter() {
+	public Adapter createEvoMappingAssociatedAssetsVariableAdapter()
+	{
 		return null;
 	}
 
@@ -792,7 +884,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoMappingVariable
 	 * @generated
 	 */
-	public Adapter createEvoMappingVariableAdapter() {
+	public Adapter createEvoMappingVariableAdapter()
+	{
 		return null;
 	}
 
@@ -806,7 +899,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoInvolvedFeatureVariable
 	 * @generated
 	 */
-	public Adapter createEvoInvolvedFeatureVariableAdapter() {
+	public Adapter createEvoInvolvedFeatureVariableAdapter()
+	{
 		return null;
 	}
 
@@ -820,7 +914,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoRequirementVariable
 	 * @generated
 	 */
-	public Adapter createEvoRequirementVariableAdapter() {
+	public Adapter createEvoRequirementVariableAdapter()
+	{
 		return null;
 	}
 
@@ -834,7 +929,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoEmpty
 	 * @generated
 	 */
-	public Adapter createEvoEmptyAdapter() {
+	public Adapter createEvoEmptyAdapter()
+	{
 		return null;
 	}
 
@@ -848,7 +944,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoGroupType
 	 * @generated
 	 */
-	public Adapter createEvoGroupTypeAdapter() {
+	public Adapter createEvoGroupTypeAdapter()
+	{
 		return null;
 	}
 
@@ -862,7 +959,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFeatureType
 	 * @generated
 	 */
-	public Adapter createEvoFeatureTypeAdapter() {
+	public Adapter createEvoFeatureTypeAdapter()
+	{
 		return null;
 	}
 
@@ -876,7 +974,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm
 	 * @generated
 	 */
-	public Adapter createEvoEvolutionTermAdapter() {
+	public Adapter createEvoEvolutionTermAdapter()
+	{
 		return null;
 	}
 
@@ -890,7 +989,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSiblings
 	 * @generated
 	 */
-	public Adapter createEvoSiblingsAdapter() {
+	public Adapter createEvoSiblingsAdapter()
+	{
 		return null;
 	}
 
@@ -904,7 +1004,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoSatisfiable
 	 * @generated
 	 */
-	public Adapter createEvoSatisfiableAdapter() {
+	public Adapter createEvoSatisfiableAdapter()
+	{
 		return null;
 	}
 
@@ -918,7 +1019,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.evolution.evovariable.EvoVariable
 	 * @generated
 	 */
-	public Adapter createEvoVariableAdapter() {
+	public Adapter createEvoVariableAdapter()
+	{
 		return null;
 	}
 
@@ -932,7 +1034,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.evolution.evovariable.EvoSetVariable
 	 * @generated
 	 */
-	public Adapter createEvoSetVariableAdapter() {
+	public Adapter createEvoSetVariableAdapter()
+	{
 		return null;
 	}
 
@@ -944,7 +1047,8 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl {
 	 * @return the new adapter.
 	 * @generated
 	 */
-	public Adapter createEObjectAdapter() {
+	public Adapter createEObjectAdapter()
+	{
 		return null;
 	}
 

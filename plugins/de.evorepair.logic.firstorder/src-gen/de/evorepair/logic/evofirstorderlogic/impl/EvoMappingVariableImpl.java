@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements EvoMappingVariable {
+public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements EvoMappingVariable
+{
 	/**
 	 * The default value of the '{@link #getMapping() <em>Mapping</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,7 +64,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoMappingVariableImpl() {
+	protected EvoMappingVariableImpl()
+	{
 		super();
 	}
 
@@ -73,7 +75,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_MAPPING_VARIABLE;
 	}
 
@@ -82,7 +85,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMapping() {
+	public String getMapping()
+	{
 		return mapping;
 	}
 
@@ -91,7 +95,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMapping(String newMapping) {
+	public void setMapping(String newMapping)
+	{
 		String oldMapping = mapping;
 		mapping = newMapping;
 		if (eNotificationRequired())
@@ -103,11 +108,14 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormulaVariable getContainingFeature() {
-		if (containingFeature != null && containingFeature.eIsProxy()) {
+	public EvoFormulaVariable getContainingFeature()
+	{
+		if (containingFeature != null && containingFeature.eIsProxy())
+		{
 			InternalEObject oldContainingFeature = (InternalEObject)containingFeature;
 			containingFeature = (EvoFormulaVariable)eResolveProxy(oldContainingFeature);
-			if (containingFeature != oldContainingFeature) {
+			if (containingFeature != oldContainingFeature)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__CONTAINING_FEATURE, oldContainingFeature, containingFeature));
 			}
@@ -120,7 +128,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormulaVariable basicGetContainingFeature() {
+	public EvoFormulaVariable basicGetContainingFeature()
+	{
 		return containingFeature;
 	}
 
@@ -129,7 +138,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContainingFeature(EvoFormulaVariable newContainingFeature) {
+	public void setContainingFeature(EvoFormulaVariable newContainingFeature)
+	{
 		EvoFormulaVariable oldContainingFeature = containingFeature;
 		containingFeature = newContainingFeature;
 		if (eNotificationRequired())
@@ -142,8 +152,10 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__MAPPING:
 				return getMapping();
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__CONTAINING_FEATURE:
@@ -159,8 +171,10 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__MAPPING:
 				setMapping((String)newValue);
 				return;
@@ -177,8 +191,10 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__MAPPING:
 				setMapping(MAPPING_EDEFAULT);
 				return;
@@ -195,8 +211,10 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__MAPPING:
 				return MAPPING_EDEFAULT == null ? mapping != null : !MAPPING_EDEFAULT.equals(mapping);
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__CONTAINING_FEATURE:
@@ -211,7 +229,8 @@ public class EvoMappingVariableImpl extends EvoPredefinedVariableImpl implements
 	 * @generated
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

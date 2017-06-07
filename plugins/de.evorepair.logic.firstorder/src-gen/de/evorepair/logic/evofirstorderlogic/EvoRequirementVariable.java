@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoRequirementVariable extends EvoPredefinedVariable {
+public interface EvoRequirementVariable extends EvoPredefinedVariable
+{
 } // EvoRequirementVariable

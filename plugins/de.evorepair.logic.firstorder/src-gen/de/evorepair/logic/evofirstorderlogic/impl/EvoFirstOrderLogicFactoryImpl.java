@@ -18,21 +18,26 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFirstOrderLogicFactory {
+public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFirstOrderLogicFactory
+{
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EvoFirstOrderLogicFactory init() {
-		try {
+	public static EvoFirstOrderLogicFactory init()
+	{
+		try
+		{
 			EvoFirstOrderLogicFactory theEvoFirstOrderLogicFactory = (EvoFirstOrderLogicFactory)EPackage.Registry.INSTANCE.getEFactory(EvoFirstOrderLogicPackage.eNS_URI);
-			if (theEvoFirstOrderLogicFactory != null) {
+			if (theEvoFirstOrderLogicFactory != null)
+			{
 				return theEvoFirstOrderLogicFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EvoFirstOrderLogicFactoryImpl();
@@ -44,7 +49,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicFactoryImpl() {
+	public EvoFirstOrderLogicFactoryImpl()
+	{
 		super();
 	}
 
@@ -54,8 +60,10 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
+	public EObject create(EClass eClass)
+	{
+		switch (eClass.getClassifierID())
+		{
 			case EvoFirstOrderLogicPackage.EVO_AND: return createEvoAnd();
 			case EvoFirstOrderLogicPackage.EVO_OR: return createEvoOr();
 			case EvoFirstOrderLogicPackage.EVO_XOR: return createEvoXOr();
@@ -104,7 +112,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAnd createEvoAnd() {
+	public EvoAnd createEvoAnd()
+	{
 		EvoAndImpl evoAnd = new EvoAndImpl();
 		return evoAnd;
 	}
@@ -114,7 +123,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoOr createEvoOr() {
+	public EvoOr createEvoOr()
+	{
 		EvoOrImpl evoOr = new EvoOrImpl();
 		return evoOr;
 	}
@@ -124,7 +134,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoXOr createEvoXOr() {
+	public EvoXOr createEvoXOr()
+	{
 		EvoXOrImpl evoXOr = new EvoXOrImpl();
 		return evoXOr;
 	}
@@ -134,7 +145,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoNot createEvoNot() {
+	public EvoNot createEvoNot()
+	{
 		EvoNotImpl evoNot = new EvoNotImpl();
 		return evoNot;
 	}
@@ -144,7 +156,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEqual createEvoEqual() {
+	public EvoEqual createEvoEqual()
+	{
 		EvoEqualImpl evoEqual = new EvoEqualImpl();
 		return evoEqual;
 	}
@@ -154,7 +167,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoUnequal createEvoUnequal() {
+	public EvoUnequal createEvoUnequal()
+	{
 		EvoUnequalImpl evoUnequal = new EvoUnequalImpl();
 		return evoUnequal;
 	}
@@ -164,7 +178,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoImplication createEvoImplication() {
+	public EvoImplication createEvoImplication()
+	{
 		EvoImplicationImpl evoImplication = new EvoImplicationImpl();
 		return evoImplication;
 	}
@@ -174,7 +189,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoBiconditional createEvoBiconditional() {
+	public EvoBiconditional createEvoBiconditional()
+	{
 		EvoBiconditionalImpl evoBiconditional = new EvoBiconditionalImpl();
 		return evoBiconditional;
 	}
@@ -184,7 +200,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetInclusion createEvoSetInclusion() {
+	public EvoSetInclusion createEvoSetInclusion()
+	{
 		EvoSetInclusionImpl evoSetInclusion = new EvoSetInclusionImpl();
 		return evoSetInclusion;
 	}
@@ -194,7 +211,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetIntersection createEvoSetIntersection() {
+	public EvoSetIntersection createEvoSetIntersection()
+	{
 		EvoSetIntersectionImpl evoSetIntersection = new EvoSetIntersectionImpl();
 		return evoSetIntersection;
 	}
@@ -204,7 +222,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetUnion createEvoSetUnion() {
+	public EvoSetUnion createEvoSetUnion()
+	{
 		EvoSetUnionImpl evoSetUnion = new EvoSetUnionImpl();
 		return evoSetUnion;
 	}
@@ -214,7 +233,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetDifference createEvoSetDifference() {
+	public EvoSetDifference createEvoSetDifference()
+	{
 		EvoSetDifferenceImpl evoSetDifference = new EvoSetDifferenceImpl();
 		return evoSetDifference;
 	}
@@ -224,7 +244,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetSymmetricDifference createEvoSetSymmetricDifference() {
+	public EvoSetSymmetricDifference createEvoSetSymmetricDifference()
+	{
 		EvoSetSymmetricDifferenceImpl evoSetSymmetricDifference = new EvoSetSymmetricDifferenceImpl();
 		return evoSetSymmetricDifference;
 	}
@@ -234,7 +255,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetCartesianProduct createEvoSetCartesianProduct() {
+	public EvoSetCartesianProduct createEvoSetCartesianProduct()
+	{
 		EvoSetCartesianProductImpl evoSetCartesianProduct = new EvoSetCartesianProductImpl();
 		return evoSetCartesianProduct;
 	}
@@ -244,7 +266,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetCardinality createEvoSetCardinality() {
+	public EvoSetCardinality createEvoSetCardinality()
+	{
 		EvoSetCardinalityImpl evoSetCardinality = new EvoSetCardinalityImpl();
 		return evoSetCardinality;
 	}
@@ -254,7 +277,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetElementOf createEvoSetElementOf() {
+	public EvoSetElementOf createEvoSetElementOf()
+	{
 		EvoSetElementOfImpl evoSetElementOf = new EvoSetElementOfImpl();
 		return evoSetElementOf;
 	}
@@ -264,7 +288,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetNotElementOf createEvoSetNotElementOf() {
+	public EvoSetNotElementOf createEvoSetNotElementOf()
+	{
 		EvoSetNotElementOfImpl evoSetNotElementOf = new EvoSetNotElementOfImpl();
 		return evoSetNotElementOf;
 	}
@@ -274,7 +299,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoForAll createEvoForAll() {
+	public EvoForAll createEvoForAll()
+	{
 		EvoForAllImpl evoForAll = new EvoForAllImpl();
 		return evoForAll;
 	}
@@ -284,7 +310,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoExist createEvoExist() {
+	public EvoExist createEvoExist()
+	{
 		EvoExistImpl evoExist = new EvoExistImpl();
 		return evoExist;
 	}
@@ -294,7 +321,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoUniqueExists createEvoUniqueExists() {
+	public EvoUniqueExists createEvoUniqueExists()
+	{
 		EvoUniqueExistsImpl evoUniqueExists = new EvoUniqueExistsImpl();
 		return evoUniqueExists;
 	}
@@ -304,7 +332,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormula createEvoFormula() {
+	public EvoFormula createEvoFormula()
+	{
 		EvoFormulaImpl evoFormula = new EvoFormulaImpl();
 		return evoFormula;
 	}
@@ -314,7 +343,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableTerm createEvoVariableTerm() {
+	public EvoVariableTerm createEvoVariableTerm()
+	{
 		EvoVariableTermImpl evoVariableTerm = new EvoVariableTermImpl();
 		return evoVariableTerm;
 	}
@@ -324,7 +354,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoApplicationConstraintVariable createEvoApplicationConstraintVariable() {
+	public EvoApplicationConstraintVariable createEvoApplicationConstraintVariable()
+	{
 		EvoApplicationConstraintVariableImpl evoApplicationConstraintVariable = new EvoApplicationConstraintVariableImpl();
 		return evoApplicationConstraintVariable;
 	}
@@ -334,7 +365,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFeatureModelConstraintVariable createEvoFeatureModelConstraintVariable() {
+	public EvoFeatureModelConstraintVariable createEvoFeatureModelConstraintVariable()
+	{
 		EvoFeatureModelConstraintVariableImpl evoFeatureModelConstraintVariable = new EvoFeatureModelConstraintVariableImpl();
 		return evoFeatureModelConstraintVariable;
 	}
@@ -344,7 +376,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoPredefinedVariable createEvoPredefinedVariable() {
+	public EvoPredefinedVariable createEvoPredefinedVariable()
+	{
 		EvoPredefinedVariableImpl evoPredefinedVariable = new EvoPredefinedVariableImpl();
 		return evoPredefinedVariable;
 	}
@@ -354,7 +387,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllFeaturesVariable createEvoAllFeaturesVariable() {
+	public EvoAllFeaturesVariable createEvoAllFeaturesVariable()
+	{
 		EvoAllFeaturesVariableImpl evoAllFeaturesVariable = new EvoAllFeaturesVariableImpl();
 		return evoAllFeaturesVariable;
 	}
@@ -364,7 +398,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllValidConfigurationsVariable createEvoAllValidConfigurationsVariable() {
+	public EvoAllValidConfigurationsVariable createEvoAllValidConfigurationsVariable()
+	{
 		EvoAllValidConfigurationsVariableImpl evoAllValidConfigurationsVariable = new EvoAllValidConfigurationsVariableImpl();
 		return evoAllValidConfigurationsVariable;
 	}
@@ -374,7 +409,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllMappingsVariable createEvoAllMappingsVariable() {
+	public EvoAllMappingsVariable createEvoAllMappingsVariable()
+	{
 		EvoAllMappingsVariableImpl evoAllMappingsVariable = new EvoAllMappingsVariableImpl();
 		return evoAllMappingsVariable;
 	}
@@ -384,7 +420,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingAssociatedAssetsVariable createEvoMappingAssociatedAssetsVariable() {
+	public EvoMappingAssociatedAssetsVariable createEvoMappingAssociatedAssetsVariable()
+	{
 		EvoMappingAssociatedAssetsVariableImpl evoMappingAssociatedAssetsVariable = new EvoMappingAssociatedAssetsVariableImpl();
 		return evoMappingAssociatedAssetsVariable;
 	}
@@ -394,7 +431,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable createEvoMappingVariable() {
+	public EvoMappingVariable createEvoMappingVariable()
+	{
 		EvoMappingVariableImpl evoMappingVariable = new EvoMappingVariableImpl();
 		return evoMappingVariable;
 	}
@@ -404,7 +442,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoInvolvedFeatureVariable createEvoInvolvedFeatureVariable() {
+	public EvoInvolvedFeatureVariable createEvoInvolvedFeatureVariable()
+	{
 		EvoInvolvedFeatureVariableImpl evoInvolvedFeatureVariable = new EvoInvolvedFeatureVariableImpl();
 		return evoInvolvedFeatureVariable;
 	}
@@ -414,7 +453,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoRequirementVariable createEvoRequirementVariable() {
+	public EvoRequirementVariable createEvoRequirementVariable()
+	{
 		EvoRequirementVariableImpl evoRequirementVariable = new EvoRequirementVariableImpl();
 		return evoRequirementVariable;
 	}
@@ -424,7 +464,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEmpty createEvoEmpty() {
+	public EvoEmpty createEvoEmpty()
+	{
 		EvoEmptyImpl evoEmpty = new EvoEmptyImpl();
 		return evoEmpty;
 	}
@@ -434,7 +475,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoGroupType createEvoGroupType() {
+	public EvoGroupType createEvoGroupType()
+	{
 		EvoGroupTypeImpl evoGroupType = new EvoGroupTypeImpl();
 		return evoGroupType;
 	}
@@ -444,7 +486,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFeatureType createEvoFeatureType() {
+	public EvoFeatureType createEvoFeatureType()
+	{
 		EvoFeatureTypeImpl evoFeatureType = new EvoFeatureTypeImpl();
 		return evoFeatureType;
 	}
@@ -454,7 +497,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTerm createEvoEvolutionTerm() {
+	public EvoEvolutionTerm createEvoEvolutionTerm()
+	{
 		EvoEvolutionTermImpl evoEvolutionTerm = new EvoEvolutionTermImpl();
 		return evoEvolutionTerm;
 	}
@@ -464,7 +508,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSiblings createEvoSiblings() {
+	public EvoSiblings createEvoSiblings()
+	{
 		EvoSiblingsImpl evoSiblings = new EvoSiblingsImpl();
 		return evoSiblings;
 	}
@@ -474,7 +519,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSatisfiable createEvoSatisfiable() {
+	public EvoSatisfiable createEvoSatisfiable()
+	{
 		EvoSatisfiableImpl evoSatisfiable = new EvoSatisfiableImpl();
 		return evoSatisfiable;
 	}
@@ -484,7 +530,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicPackage getEvoFirstOrderLogicPackage() {
+	public EvoFirstOrderLogicPackage getEvoFirstOrderLogicPackage()
+	{
 		return (EvoFirstOrderLogicPackage)getEPackage();
 	}
 
@@ -495,7 +542,8 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * @generated
 	 */
 	@Deprecated
-	public static EvoFirstOrderLogicPackage getPackage() {
+	public static EvoFirstOrderLogicPackage getPackage()
+	{
 		return EvoFirstOrderLogicPackage.eINSTANCE;
 	}
 

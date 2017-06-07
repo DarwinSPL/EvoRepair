@@ -40,7 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoFormula {
+public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoFormula
+{
 	/**
 	 * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -76,7 +77,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFormulaImpl() {
+	protected EvoFormulaImpl()
+	{
 		super();
 	}
 
@@ -86,7 +88,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_FORMULA;
 	}
 
@@ -95,7 +98,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getTerm() {
+	public EvoAbstractTerm getTerm()
+	{
 		return term;
 	}
 
@@ -104,10 +108,12 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTerm(EvoAbstractTerm newTerm, NotificationChain msgs) {
+	public NotificationChain basicSetTerm(EvoAbstractTerm newTerm, NotificationChain msgs)
+	{
 		EvoAbstractTerm oldTerm = term;
 		term = newTerm;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_FORMULA__TERM, oldTerm, newTerm);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -119,8 +125,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTerm(EvoAbstractTerm newTerm) {
-		if (newTerm != term) {
+	public void setTerm(EvoAbstractTerm newTerm)
+	{
+		if (newTerm != term)
+		{
 			NotificationChain msgs = null;
 			if (term != null)
 				msgs = ((InternalEObject)term).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_FORMULA__TERM, null, msgs);
@@ -138,8 +146,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoEvolutionTerm> getVariables() {
-		if (variables == null) {
+	public EList<EvoEvolutionTerm> getVariables()
+	{
+		if (variables == null)
+		{
 			variables = new EObjectContainmentEList<EvoEvolutionTerm>(EvoEvolutionTerm.class, this, EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES);
 		}
 		return variables;
@@ -150,11 +160,14 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoOperation getTestTrigger() {
-		if (testTrigger != null && testTrigger.eIsProxy()) {
+	public EvoOperation getTestTrigger()
+	{
+		if (testTrigger != null && testTrigger.eIsProxy())
+		{
 			InternalEObject oldTestTrigger = (InternalEObject)testTrigger;
 			testTrigger = (EvoOperation)eResolveProxy(oldTestTrigger);
-			if (testTrigger != oldTestTrigger) {
+			if (testTrigger != oldTestTrigger)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_FORMULA__TEST_TRIGGER, oldTestTrigger, testTrigger));
 			}
@@ -167,7 +180,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoOperation basicGetTestTrigger() {
+	public EvoOperation basicGetTestTrigger()
+	{
 		return testTrigger;
 	}
 
@@ -176,7 +190,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTestTrigger(EvoOperation newTestTrigger) {
+	public void setTestTrigger(EvoOperation newTestTrigger)
+	{
 		EvoOperation oldTestTrigger = testTrigger;
 		testTrigger = newTestTrigger;
 		if (eNotificationRequired())
@@ -189,8 +204,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return basicSetTerm(null, msgs);
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
@@ -205,8 +222,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return getTerm();
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
@@ -225,8 +244,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				setTerm((EvoAbstractTerm)newValue);
 				return;
@@ -247,8 +268,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				setTerm((EvoAbstractTerm)null);
 				return;
@@ -268,8 +291,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return term != null;
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:

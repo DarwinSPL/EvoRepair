@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoUniqueExists extends EvoAbstractQuantifierTerm {
+public interface EvoUniqueExists extends EvoAbstractQuantifierTerm
+{
 } // EvoUniqueExists

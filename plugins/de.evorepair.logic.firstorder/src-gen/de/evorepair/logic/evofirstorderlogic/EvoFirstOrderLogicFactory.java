@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.EFactory;
  * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage
  * @generated
  */
-public interface EvoFirstOrderLogicFactory extends EFactory {
+public interface EvoFirstOrderLogicFactory extends EFactory
+{
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

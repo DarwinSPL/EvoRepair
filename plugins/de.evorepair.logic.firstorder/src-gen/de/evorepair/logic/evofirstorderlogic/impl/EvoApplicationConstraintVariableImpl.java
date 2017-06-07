@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl implements EvoApplicationConstraintVariable {
+public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl implements EvoApplicationConstraintVariable
+{
 	/**
 	 * The cached value of the '{@link #getMapping() <em>Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -42,7 +43,8 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoApplicationConstraintVariableImpl() {
+	protected EvoApplicationConstraintVariableImpl()
+	{
 		super();
 	}
 
@@ -52,7 +54,8 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_APPLICATION_CONSTRAINT_VARIABLE;
 	}
 
@@ -61,11 +64,14 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable getMapping() {
-		if (mapping != null && mapping.eIsProxy()) {
+	public EvoMappingVariable getMapping()
+	{
+		if (mapping != null && mapping.eIsProxy())
+		{
 			InternalEObject oldMapping = (InternalEObject)mapping;
 			mapping = (EvoMappingVariable)eResolveProxy(oldMapping);
-			if (mapping != oldMapping) {
+			if (mapping != oldMapping)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING, oldMapping, mapping));
 			}
@@ -78,7 +84,8 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable basicGetMapping() {
+	public EvoMappingVariable basicGetMapping()
+	{
 		return mapping;
 	}
 
@@ -87,7 +94,8 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMapping(EvoMappingVariable newMapping) {
+	public void setMapping(EvoMappingVariable newMapping)
+	{
 		EvoMappingVariable oldMapping = mapping;
 		mapping = newMapping;
 		if (eNotificationRequired())
@@ -100,8 +108,10 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING:
 				if (resolve) return getMapping();
 				return basicGetMapping();
@@ -115,8 +125,10 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING:
 				setMapping((EvoMappingVariable)newValue);
 				return;
@@ -130,8 +142,10 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING:
 				setMapping((EvoMappingVariable)null);
 				return;
@@ -145,8 +159,10 @@ public class EvoApplicationConstraintVariableImpl extends EvoEvolutionTermImpl i
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING:
 				return mapping != null;
 		}

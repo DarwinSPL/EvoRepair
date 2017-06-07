@@ -29,7 +29,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container implements EvoAllMappingsVariable {
+public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container implements EvoAllMappingsVariable
+{
 	/**
 	 * The cached value of the '{@link #getAssociatedMappings() <em>Associated Mappings</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,7 +46,8 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAllMappingsVariableImpl() {
+	protected EvoAllMappingsVariableImpl()
+	{
 		super();
 	}
 
@@ -55,7 +57,8 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_ALL_MAPPINGS_VARIABLE;
 	}
 
@@ -64,8 +67,10 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoMappingVariable> getAssociatedMappings() {
-		if (associatedMappings == null) {
+	public EList<EvoMappingVariable> getAssociatedMappings()
+	{
+		if (associatedMappings == null)
+		{
 			associatedMappings = new EObjectResolvingEList<EvoMappingVariable>(EvoMappingVariable.class, this, EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS);
 		}
 		return associatedMappings;
@@ -77,8 +82,10 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
 				return getAssociatedMappings();
 		}
@@ -92,8 +99,10 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
 				getAssociatedMappings().clear();
 				getAssociatedMappings().addAll((Collection<? extends EvoMappingVariable>)newValue);
@@ -108,8 +117,10 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
 				getAssociatedMappings().clear();
 				return;
@@ -123,8 +134,10 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
 				return associatedMappings != null && !associatedMappings.isEmpty();
 		}

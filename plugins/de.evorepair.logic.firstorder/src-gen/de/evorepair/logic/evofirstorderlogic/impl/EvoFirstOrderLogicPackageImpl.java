@@ -69,7 +69,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFirstOrderLogicPackage {
+public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFirstOrderLogicPackage
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,7 +401,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * @see #init()
 	 * @generated
 	 */
-	private EvoFirstOrderLogicPackageImpl() {
+	private EvoFirstOrderLogicPackageImpl()
+	{
 		super(eNS_URI, EvoFirstOrderLogicFactory.eINSTANCE);
 	}
 
@@ -423,7 +425,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static EvoFirstOrderLogicPackage init() {
+	public static EvoFirstOrderLogicPackage init()
+	{
 		if (isInited) return (EvoFirstOrderLogicPackage)EPackage.Registry.INSTANCE.getEPackage(EvoFirstOrderLogicPackage.eNS_URI);
 
 		// Obtain or create and register package
@@ -454,7 +457,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAnd() {
+	public EClass getEvoAnd()
+	{
 		return evoAndEClass;
 	}
 
@@ -463,7 +467,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoOr() {
+	public EClass getEvoOr()
+	{
 		return evoOrEClass;
 	}
 
@@ -472,7 +477,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractTwoParameterTerm() {
+	public EClass getEvoAbstractTwoParameterTerm()
+	{
 		return evoAbstractTwoParameterTermEClass;
 	}
 
@@ -481,7 +487,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractTwoParameterTerm_LeftElement() {
+	public EReference getEvoAbstractTwoParameterTerm_LeftElement()
+	{
 		return (EReference)evoAbstractTwoParameterTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -490,7 +497,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractTwoParameterTerm_RightElement() {
+	public EReference getEvoAbstractTwoParameterTerm_RightElement()
+	{
 		return (EReference)evoAbstractTwoParameterTermEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -499,7 +507,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoXOr() {
+	public EClass getEvoXOr()
+	{
 		return evoXOrEClass;
 	}
 
@@ -508,7 +517,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoNot() {
+	public EClass getEvoNot()
+	{
 		return evoNotEClass;
 	}
 
@@ -517,7 +527,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractOneParameterTerm() {
+	public EClass getEvoAbstractOneParameterTerm()
+	{
 		return evoAbstractOneParameterTermEClass;
 	}
 
@@ -526,7 +537,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractOneParameterTerm_Element() {
+	public EReference getEvoAbstractOneParameterTerm_Element()
+	{
 		return (EReference)evoAbstractOneParameterTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -535,7 +547,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractTerm() {
+	public EClass getEvoAbstractTerm()
+	{
 		return evoAbstractTermEClass;
 	}
 
@@ -544,7 +557,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoEqual() {
+	public EClass getEvoEqual()
+	{
 		return evoEqualEClass;
 	}
 
@@ -553,7 +567,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoUnequal() {
+	public EClass getEvoUnequal()
+	{
 		return evoUnequalEClass;
 	}
 
@@ -562,7 +577,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoImplication() {
+	public EClass getEvoImplication()
+	{
 		return evoImplicationEClass;
 	}
 
@@ -571,7 +587,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoBiconditional() {
+	public EClass getEvoBiconditional()
+	{
 		return evoBiconditionalEClass;
 	}
 
@@ -580,7 +597,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFormulaVariable() {
+	public EClass getEvoFormulaVariable()
+	{
 		return evoFormulaVariableEClass;
 	}
 
@@ -589,7 +607,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFormulaSetVariable() {
+	public EClass getEvoFormulaSetVariable()
+	{
 		return evoFormulaSetVariableEClass;
 	}
 
@@ -598,7 +617,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractSetTerm() {
+	public EClass getEvoAbstractSetTerm()
+	{
 		return evoAbstractSetTermEClass;
 	}
 
@@ -607,7 +627,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetInclusion() {
+	public EClass getEvoSetInclusion()
+	{
 		return evoSetInclusionEClass;
 	}
 
@@ -616,7 +637,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetIntersection() {
+	public EClass getEvoSetIntersection()
+	{
 		return evoSetIntersectionEClass;
 	}
 
@@ -625,7 +647,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetUnion() {
+	public EClass getEvoSetUnion()
+	{
 		return evoSetUnionEClass;
 	}
 
@@ -634,7 +657,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetDifference() {
+	public EClass getEvoSetDifference()
+	{
 		return evoSetDifferenceEClass;
 	}
 
@@ -643,7 +667,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetSymmetricDifference() {
+	public EClass getEvoSetSymmetricDifference()
+	{
 		return evoSetSymmetricDifferenceEClass;
 	}
 
@@ -652,7 +677,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetCartesianProduct() {
+	public EClass getEvoSetCartesianProduct()
+	{
 		return evoSetCartesianProductEClass;
 	}
 
@@ -661,7 +687,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetCardinality() {
+	public EClass getEvoSetCardinality()
+	{
 		return evoSetCardinalityEClass;
 	}
 
@@ -670,7 +697,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetElementOf() {
+	public EClass getEvoSetElementOf()
+	{
 		return evoSetElementOfEClass;
 	}
 
@@ -679,7 +707,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetNotElementOf() {
+	public EClass getEvoSetNotElementOf()
+	{
 		return evoSetNotElementOfEClass;
 	}
 
@@ -688,7 +717,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractQuantifierTerm() {
+	public EClass getEvoAbstractQuantifierTerm()
+	{
 		return evoAbstractQuantifierTermEClass;
 	}
 
@@ -697,7 +727,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractQuantifierTerm_BoundedVariable() {
+	public EReference getEvoAbstractQuantifierTerm_BoundedVariable()
+	{
 		return (EReference)evoAbstractQuantifierTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -706,7 +737,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoForAll() {
+	public EClass getEvoForAll()
+	{
 		return evoForAllEClass;
 	}
 
@@ -715,7 +747,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoExist() {
+	public EClass getEvoExist()
+	{
 		return evoExistEClass;
 	}
 
@@ -724,7 +757,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoUniqueExists() {
+	public EClass getEvoUniqueExists()
+	{
 		return evoUniqueExistsEClass;
 	}
 
@@ -733,7 +767,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFormula() {
+	public EClass getEvoFormula()
+	{
 		return evoFormulaEClass;
 	}
 
@@ -742,7 +777,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFormula_Term() {
+	public EReference getEvoFormula_Term()
+	{
 		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -751,7 +787,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFormula_Variables() {
+	public EReference getEvoFormula_Variables()
+	{
 		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -760,7 +797,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFormula_TestTrigger() {
+	public EReference getEvoFormula_TestTrigger()
+	{
 		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -769,7 +807,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoVariableTerm() {
+	public EClass getEvoVariableTerm()
+	{
 		return evoVariableTermEClass;
 	}
 
@@ -778,7 +817,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoVariableTerm_Variable() {
+	public EReference getEvoVariableTerm_Variable()
+	{
 		return (EReference)evoVariableTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -787,7 +827,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoVariableTerm_Id() {
+	public EAttribute getEvoVariableTerm_Id()
+	{
 		return (EAttribute)evoVariableTermEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -796,7 +837,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoApplicationConstraintVariable() {
+	public EClass getEvoApplicationConstraintVariable()
+	{
 		return evoApplicationConstraintVariableEClass;
 	}
 
@@ -805,7 +847,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoApplicationConstraintVariable_Mapping() {
+	public EReference getEvoApplicationConstraintVariable_Mapping()
+	{
 		return (EReference)evoApplicationConstraintVariableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -814,7 +857,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFeatureModelConstraintVariable() {
+	public EClass getEvoFeatureModelConstraintVariable()
+	{
 		return evoFeatureModelConstraintVariableEClass;
 	}
 
@@ -823,7 +867,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoPredefinedVariable() {
+	public EClass getEvoPredefinedVariable()
+	{
 		return evoPredefinedVariableEClass;
 	}
 
@@ -832,7 +877,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAllFeaturesVariable() {
+	public EClass getEvoAllFeaturesVariable()
+	{
 		return evoAllFeaturesVariableEClass;
 	}
 
@@ -841,7 +887,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAllValidConfigurationsVariable() {
+	public EClass getEvoAllValidConfigurationsVariable()
+	{
 		return evoAllValidConfigurationsVariableEClass;
 	}
 
@@ -850,7 +897,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAllValidConfigurationsVariable_FeatureVariable() {
+	public EReference getEvoAllValidConfigurationsVariable_FeatureVariable()
+	{
 		return (EReference)evoAllValidConfigurationsVariableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -859,7 +907,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAllMappingsVariable() {
+	public EClass getEvoAllMappingsVariable()
+	{
 		return evoAllMappingsVariableEClass;
 	}
 
@@ -868,7 +917,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAllMappingsVariable_AssociatedMappings() {
+	public EReference getEvoAllMappingsVariable_AssociatedMappings()
+	{
 		return (EReference)evoAllMappingsVariableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -877,7 +927,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoMappingAssociatedAssetsVariable() {
+	public EClass getEvoMappingAssociatedAssetsVariable()
+	{
 		return evoMappingAssociatedAssetsVariableEClass;
 	}
 
@@ -886,7 +937,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoMappingAssociatedAssetsVariable_AssociatedMapping() {
+	public EReference getEvoMappingAssociatedAssetsVariable_AssociatedMapping()
+	{
 		return (EReference)evoMappingAssociatedAssetsVariableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -895,7 +947,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoMappingVariable() {
+	public EClass getEvoMappingVariable()
+	{
 		return evoMappingVariableEClass;
 	}
 
@@ -904,7 +957,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoMappingVariable_Mapping() {
+	public EAttribute getEvoMappingVariable_Mapping()
+	{
 		return (EAttribute)evoMappingVariableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -913,7 +967,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoMappingVariable_ContainingFeature() {
+	public EReference getEvoMappingVariable_ContainingFeature()
+	{
 		return (EReference)evoMappingVariableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -922,7 +977,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoInvolvedFeatureVariable() {
+	public EClass getEvoInvolvedFeatureVariable()
+	{
 		return evoInvolvedFeatureVariableEClass;
 	}
 
@@ -931,7 +987,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoRequirementVariable() {
+	public EClass getEvoRequirementVariable()
+	{
 		return evoRequirementVariableEClass;
 	}
 
@@ -940,7 +997,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoEmpty() {
+	public EClass getEvoEmpty()
+	{
 		return evoEmptyEClass;
 	}
 
@@ -949,7 +1007,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoGroupType() {
+	public EClass getEvoGroupType()
+	{
 		return evoGroupTypeEClass;
 	}
 
@@ -958,7 +1017,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoGroupType_Type() {
+	public EAttribute getEvoGroupType_Type()
+	{
 		return (EAttribute)evoGroupTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -967,7 +1027,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFeatureType() {
+	public EClass getEvoFeatureType()
+	{
 		return evoFeatureTypeEClass;
 	}
 
@@ -976,7 +1037,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoFeatureType_Type() {
+	public EAttribute getEvoFeatureType_Type()
+	{
 		return (EAttribute)evoFeatureTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -985,7 +1047,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoEvolutionTerm() {
+	public EClass getEvoEvolutionTerm()
+	{
 		return evoEvolutionTermEClass;
 	}
 
@@ -994,7 +1057,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoEvolutionTerm_AfterEvolution() {
+	public EAttribute getEvoEvolutionTerm_AfterEvolution()
+	{
 		return (EAttribute)evoEvolutionTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1003,7 +1067,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSiblings() {
+	public EClass getEvoSiblings()
+	{
 		return evoSiblingsEClass;
 	}
 
@@ -1012,7 +1077,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoSiblings_Type() {
+	public EAttribute getEvoSiblings_Type()
+	{
 		return (EAttribute)evoSiblingsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1021,7 +1087,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSatisfiable() {
+	public EClass getEvoSatisfiable()
+	{
 		return evoSatisfiableEClass;
 	}
 
@@ -1030,7 +1097,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicFactory getEvoFirstOrderLogicFactory() {
+	public EvoFirstOrderLogicFactory getEvoFirstOrderLogicFactory()
+	{
 		return (EvoFirstOrderLogicFactory)getEFactoryInstance();
 	}
 
@@ -1048,7 +1116,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
+	public void createPackageContents()
+	{
 		if (isCreated) return;
 		isCreated = true;
 
@@ -1177,7 +1246,8 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents() {
+	public void initializePackageContents()
+	{
 		if (isInitialized) return;
 		isInitialized = true;
 
@@ -1375,12 +1445,14 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createImportAnnotations() {
+	protected void createImportAnnotations()
+	{
 		String source = "http://www.eclipse.org/OCL/Import";	
 		addAnnotation
 		  (this, 
 		   source, 
-		   new String[] {
+		   new String[] 
+		   {
 			 "configuration", "../../eu.hyvar.feature.configuration/model/Configuration.ecore#/",
 			 "ecore", "http://www.eclipse.org/emf/2002/Ecore",
 			 "evooperation_0", "../../de.evorepair.evolution.operation/model/EvoOperation.ecore#/",

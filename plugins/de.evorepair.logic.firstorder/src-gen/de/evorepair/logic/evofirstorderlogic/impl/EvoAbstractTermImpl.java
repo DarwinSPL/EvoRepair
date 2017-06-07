@@ -16,13 +16,15 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class EvoAbstractTermImpl extends MinimalEObjectImpl.Container implements EvoAbstractTerm {
+public abstract class EvoAbstractTermImpl extends MinimalEObjectImpl.Container implements EvoAbstractTerm
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAbstractTermImpl() {
+	protected EvoAbstractTermImpl()
+	{
 		super();
 	}
 
@@ -32,7 +34,8 @@ public abstract class EvoAbstractTermImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_ABSTRACT_TERM;
 	}
 

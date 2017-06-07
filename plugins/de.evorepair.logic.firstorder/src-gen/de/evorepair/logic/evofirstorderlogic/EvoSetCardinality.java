@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoSetCardinality extends EvoAbstractSetTerm, EvoAbstractOneParameterTerm {
+public interface EvoSetCardinality extends EvoAbstractSetTerm, EvoAbstractOneParameterTerm
+{
 } // EvoSetCardinality

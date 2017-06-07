@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutionTerm {
+public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutionTerm
+{
 	/**
 	 * The default value of the '{@link #isAfterEvolution() <em>After Evolution</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +53,8 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoEvolutionTermImpl() {
+	protected EvoEvolutionTermImpl()
+	{
 		super();
 	}
 
@@ -62,7 +64,8 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_EVOLUTION_TERM;
 	}
 
@@ -71,7 +74,8 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAfterEvolution() {
+	public boolean isAfterEvolution()
+	{
 		return afterEvolution;
 	}
 
@@ -80,7 +84,8 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAfterEvolution(boolean newAfterEvolution) {
+	public void setAfterEvolution(boolean newAfterEvolution)
+	{
 		boolean oldAfterEvolution = afterEvolution;
 		afterEvolution = newAfterEvolution;
 		if (eNotificationRequired())
@@ -93,8 +98,10 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM__AFTER_EVOLUTION:
 				return isAfterEvolution();
 		}
@@ -107,8 +114,10 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM__AFTER_EVOLUTION:
 				setAfterEvolution((Boolean)newValue);
 				return;
@@ -122,8 +131,10 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM__AFTER_EVOLUTION:
 				setAfterEvolution(AFTER_EVOLUTION_EDEFAULT);
 				return;
@@ -137,8 +148,10 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM__AFTER_EVOLUTION:
 				return afterEvolution != AFTER_EVOLUTION_EDEFAULT;
 		}
@@ -151,7 +164,8 @@ public class EvoEvolutionTermImpl extends EvoVariableImpl implements EvoEvolutio
 	 * @generated
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

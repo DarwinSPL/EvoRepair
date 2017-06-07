@@ -14,13 +14,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoEmptyImpl extends EvoAbstractTermImpl implements EvoEmpty {
+public class EvoEmptyImpl extends EvoAbstractTermImpl implements EvoEmpty
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoEmptyImpl() {
+	protected EvoEmptyImpl()
+	{
 		super();
 	}
 
@@ -30,7 +32,8 @@ public class EvoEmptyImpl extends EvoAbstractTermImpl implements EvoEmpty {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoFirstOrderLogicPackage.Literals.EVO_EMPTY;
 	}
 

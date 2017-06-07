@@ -19,7 +19,8 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoApplicationConstraintVariable extends EvoEvolutionTerm {
+public interface EvoApplicationConstraintVariable extends EvoEvolutionTerm
+{
 	/**
 	 * Returns the value of the '<em><b>Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -13,5 +13,6 @@ package de.evorepair.logic.evofirstorderlogic;
  * @model
  * @generated
  */
-public interface EvoAllFeaturesVariable extends EvoEvolutionTerm {
+public interface EvoAllFeaturesVariable extends EvoEvolutionTerm
+{
 } // EvoAllFeaturesVariable
