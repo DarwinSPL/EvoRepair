@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,12 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class EvoVariableDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EvoVariableDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_EvoFeatureVariable___ChildKeyword_3_1_1_or_ParentKeyword_3_1_0_or_SiblingKeyword_3_1_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EvoVariableDslGrammarAccess) access;
-		match_EvoFeatureVariable___ChildKeyword_3_1_1_or_ParentKeyword_3_1_0_or_SiblingKeyword_3_1_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getEvoFeatureVariableAccess().getChildKeyword_3_1_1()), new TokenAlias(false, false, grammarAccess.getEvoFeatureVariableAccess().getParentKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getEvoFeatureVariableAccess().getSiblingKeyword_3_1_2()));
 	}
 	
 	@Override
@@ -41,21 +36,8 @@ public class EvoVariableDslSyntacticSequencer extends AbstractSyntacticSequencer
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_EvoFeatureVariable___ChildKeyword_3_1_1_or_ParentKeyword_3_1_0_or_SiblingKeyword_3_1_2__q.equals(syntax))
-				emit_EvoFeatureVariable___ChildKeyword_3_1_1_or_ParentKeyword_3_1_0_or_SiblingKeyword_3_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('parent' | 'child' | 'sibling')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     index=INT '.' (ambiguity) '.' featureType=EvoFeatureVariableType
-	 */
-	protected void emit_EvoFeatureVariable___ChildKeyword_3_1_1_or_ParentKeyword_3_1_0_or_SiblingKeyword_3_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

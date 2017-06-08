@@ -3,6 +3,7 @@ module de.evorepair.guidance.GenerateGuidanceDsl
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
+
 var rootPath = ".."
 
 Workflow {
@@ -49,6 +50,14 @@ Workflow {
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
 			fragment = exporting.SimpleNamesFragment2 auto-inject{}
+			
+			fragment = scoping.ImportNamespacesScopingFragment2 auto-inject{}
+			
+			scopeProvider = {				
+				generateXtendStub = true
+			}
+			
+			
 			
 			formatter = {
 				generateStub = true

@@ -97,7 +97,7 @@ public class EvoLogicLanguageSyntacticSequencer extends AbstractSyntacticSequenc
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'or' | '||'
+	 *     '||' | 'or'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     {EvoOr.leftElement=} (ambiguity) rightElement=EvoAnd

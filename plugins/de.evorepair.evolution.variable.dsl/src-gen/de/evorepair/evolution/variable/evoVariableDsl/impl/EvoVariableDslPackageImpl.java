@@ -5,6 +5,7 @@ package de.evorepair.evolution.variable.evoVariableDsl.impl;
 
 import de.evorepair.evolution.evovariable.EvoVariablePackage;
 
+import de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslFactory;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage;
 import de.evorepair.evolution.variable.evoVariableDsl.Model;
@@ -29,6 +30,13 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass evoGenericVariableEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -121,6 +129,16 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getEvoGenericVariable()
+  {
+    return evoGenericVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EvoVariableDslFactory getEvoVariableDslFactory()
   {
     return (EvoVariableDslFactory)getEFactoryInstance();
@@ -148,6 +166,8 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     // Create classes and their features
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__VARIABLES);
+
+    evoGenericVariableEClass = createEClass(EVO_GENERIC_VARIABLE);
   }
 
   /**
@@ -182,10 +202,13 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    evoGenericVariableEClass.getESuperTypes().add(theEvoVariablePackage.getEvoVariable());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Variables(), theEvoVariablePackage.getEvoVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(evoGenericVariableEClass, EvoGenericVariable.class, "EvoGenericVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

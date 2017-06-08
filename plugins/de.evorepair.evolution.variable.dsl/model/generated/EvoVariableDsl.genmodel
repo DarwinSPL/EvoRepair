@@ -9,5 +9,6 @@
     <genClasses ecoreClass="EvoVariableDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoVariableDsl.ecore#//Model/variables"/>
     </genClasses>
+    <genClasses ecoreClass="EvoVariableDsl.ecore#//EvoGenericVariable"/>
   </genPackages>
 </genmodel:GenModel>

@@ -32,7 +32,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderLogicAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderLogicAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
+{
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +64,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderLogicItemProviderAdapterFactory() {
+	public EvoFirstOrderLogicItemProviderAdapterFactory()
+	{
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -86,8 +88,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoAndAdapter() {
-		if (evoAndItemProvider == null) {
+	public Adapter createEvoAndAdapter()
+	{
+		if (evoAndItemProvider == null)
+		{
 			evoAndItemProvider = new EvoAndItemProvider(this);
 		}
 
@@ -109,8 +113,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoOrAdapter() {
-		if (evoOrItemProvider == null) {
+	public Adapter createEvoOrAdapter()
+	{
+		if (evoOrItemProvider == null)
+		{
 			evoOrItemProvider = new EvoOrItemProvider(this);
 		}
 
@@ -132,8 +138,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoXOrAdapter() {
-		if (evoXOrItemProvider == null) {
+	public Adapter createEvoXOrAdapter()
+	{
+		if (evoXOrItemProvider == null)
+		{
 			evoXOrItemProvider = new EvoXOrItemProvider(this);
 		}
 
@@ -155,8 +163,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoNotAdapter() {
-		if (evoNotItemProvider == null) {
+	public Adapter createEvoNotAdapter()
+	{
+		if (evoNotItemProvider == null)
+		{
 			evoNotItemProvider = new EvoNotItemProvider(this);
 		}
 
@@ -178,8 +188,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoEqualAdapter() {
-		if (evoEqualItemProvider == null) {
+	public Adapter createEvoEqualAdapter()
+	{
+		if (evoEqualItemProvider == null)
+		{
 			evoEqualItemProvider = new EvoEqualItemProvider(this);
 		}
 
@@ -201,8 +213,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoUnequalAdapter() {
-		if (evoUnequalItemProvider == null) {
+	public Adapter createEvoUnequalAdapter()
+	{
+		if (evoUnequalItemProvider == null)
+		{
 			evoUnequalItemProvider = new EvoUnequalItemProvider(this);
 		}
 
@@ -224,8 +238,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoImplicationAdapter() {
-		if (evoImplicationItemProvider == null) {
+	public Adapter createEvoImplicationAdapter()
+	{
+		if (evoImplicationItemProvider == null)
+		{
 			evoImplicationItemProvider = new EvoImplicationItemProvider(this);
 		}
 
@@ -247,8 +263,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoBiconditionalAdapter() {
-		if (evoBiconditionalItemProvider == null) {
+	public Adapter createEvoBiconditionalAdapter()
+	{
+		if (evoBiconditionalItemProvider == null)
+		{
 			evoBiconditionalItemProvider = new EvoBiconditionalItemProvider(this);
 		}
 
@@ -270,8 +288,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetInclusionAdapter() {
-		if (evoSetInclusionItemProvider == null) {
+	public Adapter createEvoSetInclusionAdapter()
+	{
+		if (evoSetInclusionItemProvider == null)
+		{
 			evoSetInclusionItemProvider = new EvoSetInclusionItemProvider(this);
 		}
 
@@ -293,8 +313,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetIntersectionAdapter() {
-		if (evoSetIntersectionItemProvider == null) {
+	public Adapter createEvoSetIntersectionAdapter()
+	{
+		if (evoSetIntersectionItemProvider == null)
+		{
 			evoSetIntersectionItemProvider = new EvoSetIntersectionItemProvider(this);
 		}
 
@@ -316,8 +338,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetUnionAdapter() {
-		if (evoSetUnionItemProvider == null) {
+	public Adapter createEvoSetUnionAdapter()
+	{
+		if (evoSetUnionItemProvider == null)
+		{
 			evoSetUnionItemProvider = new EvoSetUnionItemProvider(this);
 		}
 
@@ -339,8 +363,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetDifferenceAdapter() {
-		if (evoSetDifferenceItemProvider == null) {
+	public Adapter createEvoSetDifferenceAdapter()
+	{
+		if (evoSetDifferenceItemProvider == null)
+		{
 			evoSetDifferenceItemProvider = new EvoSetDifferenceItemProvider(this);
 		}
 
@@ -362,8 +388,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetSymmetricDifferenceAdapter() {
-		if (evoSetSymmetricDifferenceItemProvider == null) {
+	public Adapter createEvoSetSymmetricDifferenceAdapter()
+	{
+		if (evoSetSymmetricDifferenceItemProvider == null)
+		{
 			evoSetSymmetricDifferenceItemProvider = new EvoSetSymmetricDifferenceItemProvider(this);
 		}
 
@@ -385,8 +413,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetCartesianProductAdapter() {
-		if (evoSetCartesianProductItemProvider == null) {
+	public Adapter createEvoSetCartesianProductAdapter()
+	{
+		if (evoSetCartesianProductItemProvider == null)
+		{
 			evoSetCartesianProductItemProvider = new EvoSetCartesianProductItemProvider(this);
 		}
 
@@ -408,8 +438,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetCardinalityAdapter() {
-		if (evoSetCardinalityItemProvider == null) {
+	public Adapter createEvoSetCardinalityAdapter()
+	{
+		if (evoSetCardinalityItemProvider == null)
+		{
 			evoSetCardinalityItemProvider = new EvoSetCardinalityItemProvider(this);
 		}
 
@@ -431,8 +463,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetElementOfAdapter() {
-		if (evoSetElementOfItemProvider == null) {
+	public Adapter createEvoSetElementOfAdapter()
+	{
+		if (evoSetElementOfItemProvider == null)
+		{
 			evoSetElementOfItemProvider = new EvoSetElementOfItemProvider(this);
 		}
 
@@ -454,8 +488,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetNotElementOfAdapter() {
-		if (evoSetNotElementOfItemProvider == null) {
+	public Adapter createEvoSetNotElementOfAdapter()
+	{
+		if (evoSetNotElementOfItemProvider == null)
+		{
 			evoSetNotElementOfItemProvider = new EvoSetNotElementOfItemProvider(this);
 		}
 
@@ -477,8 +513,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoForAllAdapter() {
-		if (evoForAllItemProvider == null) {
+	public Adapter createEvoForAllAdapter()
+	{
+		if (evoForAllItemProvider == null)
+		{
 			evoForAllItemProvider = new EvoForAllItemProvider(this);
 		}
 
@@ -500,8 +538,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoExistAdapter() {
-		if (evoExistItemProvider == null) {
+	public Adapter createEvoExistAdapter()
+	{
+		if (evoExistItemProvider == null)
+		{
 			evoExistItemProvider = new EvoExistItemProvider(this);
 		}
 
@@ -523,8 +563,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoUniqueExistsAdapter() {
-		if (evoUniqueExistsItemProvider == null) {
+	public Adapter createEvoUniqueExistsAdapter()
+	{
+		if (evoUniqueExistsItemProvider == null)
+		{
 			evoUniqueExistsItemProvider = new EvoUniqueExistsItemProvider(this);
 		}
 
@@ -546,8 +588,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoFormulaAdapter() {
-		if (evoFormulaItemProvider == null) {
+	public Adapter createEvoFormulaAdapter()
+	{
+		if (evoFormulaItemProvider == null)
+		{
 			evoFormulaItemProvider = new EvoFormulaItemProvider(this);
 		}
 
@@ -569,8 +613,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoVariableTermAdapter() {
-		if (evoVariableTermItemProvider == null) {
+	public Adapter createEvoVariableTermAdapter()
+	{
+		if (evoVariableTermItemProvider == null)
+		{
 			evoVariableTermItemProvider = new EvoVariableTermItemProvider(this);
 		}
 
@@ -592,8 +638,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoApplicationConstraintVariableAdapter() {
-		if (evoApplicationConstraintVariableItemProvider == null) {
+	public Adapter createEvoApplicationConstraintVariableAdapter()
+	{
+		if (evoApplicationConstraintVariableItemProvider == null)
+		{
 			evoApplicationConstraintVariableItemProvider = new EvoApplicationConstraintVariableItemProvider(this);
 		}
 
@@ -615,8 +663,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoFeatureModelConstraintVariableAdapter() {
-		if (evoFeatureModelConstraintVariableItemProvider == null) {
+	public Adapter createEvoFeatureModelConstraintVariableAdapter()
+	{
+		if (evoFeatureModelConstraintVariableItemProvider == null)
+		{
 			evoFeatureModelConstraintVariableItemProvider = new EvoFeatureModelConstraintVariableItemProvider(this);
 		}
 
@@ -638,8 +688,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoPredefinedVariableAdapter() {
-		if (evoPredefinedVariableItemProvider == null) {
+	public Adapter createEvoPredefinedVariableAdapter()
+	{
+		if (evoPredefinedVariableItemProvider == null)
+		{
 			evoPredefinedVariableItemProvider = new EvoPredefinedVariableItemProvider(this);
 		}
 
@@ -661,8 +713,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoAllFeaturesVariableAdapter() {
-		if (evoAllFeaturesVariableItemProvider == null) {
+	public Adapter createEvoAllFeaturesVariableAdapter()
+	{
+		if (evoAllFeaturesVariableItemProvider == null)
+		{
 			evoAllFeaturesVariableItemProvider = new EvoAllFeaturesVariableItemProvider(this);
 		}
 
@@ -684,8 +738,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoAllValidConfigurationsVariableAdapter() {
-		if (evoAllValidConfigurationsVariableItemProvider == null) {
+	public Adapter createEvoAllValidConfigurationsVariableAdapter()
+	{
+		if (evoAllValidConfigurationsVariableItemProvider == null)
+		{
 			evoAllValidConfigurationsVariableItemProvider = new EvoAllValidConfigurationsVariableItemProvider(this);
 		}
 
@@ -707,8 +763,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoAllMappingsVariableAdapter() {
-		if (evoAllMappingsVariableItemProvider == null) {
+	public Adapter createEvoAllMappingsVariableAdapter()
+	{
+		if (evoAllMappingsVariableItemProvider == null)
+		{
 			evoAllMappingsVariableItemProvider = new EvoAllMappingsVariableItemProvider(this);
 		}
 
@@ -730,8 +788,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoMappingAssociatedAssetsVariableAdapter() {
-		if (evoMappingAssociatedAssetsVariableItemProvider == null) {
+	public Adapter createEvoMappingAssociatedAssetsVariableAdapter()
+	{
+		if (evoMappingAssociatedAssetsVariableItemProvider == null)
+		{
 			evoMappingAssociatedAssetsVariableItemProvider = new EvoMappingAssociatedAssetsVariableItemProvider(this);
 		}
 
@@ -753,8 +813,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoMappingVariableAdapter() {
-		if (evoMappingVariableItemProvider == null) {
+	public Adapter createEvoMappingVariableAdapter()
+	{
+		if (evoMappingVariableItemProvider == null)
+		{
 			evoMappingVariableItemProvider = new EvoMappingVariableItemProvider(this);
 		}
 
@@ -776,8 +838,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoInvolvedFeatureVariableAdapter() {
-		if (evoInvolvedFeatureVariableItemProvider == null) {
+	public Adapter createEvoInvolvedFeatureVariableAdapter()
+	{
+		if (evoInvolvedFeatureVariableItemProvider == null)
+		{
 			evoInvolvedFeatureVariableItemProvider = new EvoInvolvedFeatureVariableItemProvider(this);
 		}
 
@@ -799,8 +863,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoRequirementVariableAdapter() {
-		if (evoRequirementVariableItemProvider == null) {
+	public Adapter createEvoRequirementVariableAdapter()
+	{
+		if (evoRequirementVariableItemProvider == null)
+		{
 			evoRequirementVariableItemProvider = new EvoRequirementVariableItemProvider(this);
 		}
 
@@ -822,8 +888,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoEmptyAdapter() {
-		if (evoEmptyItemProvider == null) {
+	public Adapter createEvoEmptyAdapter()
+	{
+		if (evoEmptyItemProvider == null)
+		{
 			evoEmptyItemProvider = new EvoEmptyItemProvider(this);
 		}
 
@@ -845,8 +913,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoGroupTypeAdapter() {
-		if (evoGroupTypeItemProvider == null) {
+	public Adapter createEvoGroupTypeAdapter()
+	{
+		if (evoGroupTypeItemProvider == null)
+		{
 			evoGroupTypeItemProvider = new EvoGroupTypeItemProvider(this);
 		}
 
@@ -868,8 +938,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoFeatureTypeAdapter() {
-		if (evoFeatureTypeItemProvider == null) {
+	public Adapter createEvoFeatureTypeAdapter()
+	{
+		if (evoFeatureTypeItemProvider == null)
+		{
 			evoFeatureTypeItemProvider = new EvoFeatureTypeItemProvider(this);
 		}
 
@@ -891,8 +963,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoEvolutionTermAdapter() {
-		if (evoEvolutionTermItemProvider == null) {
+	public Adapter createEvoEvolutionTermAdapter()
+	{
+		if (evoEvolutionTermItemProvider == null)
+		{
 			evoEvolutionTermItemProvider = new EvoEvolutionTermItemProvider(this);
 		}
 
@@ -914,8 +988,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSiblingsAdapter() {
-		if (evoSiblingsItemProvider == null) {
+	public Adapter createEvoSiblingsAdapter()
+	{
+		if (evoSiblingsItemProvider == null)
+		{
 			evoSiblingsItemProvider = new EvoSiblingsItemProvider(this);
 		}
 
@@ -937,8 +1013,10 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSatisfiableAdapter() {
-		if (evoSatisfiableItemProvider == null) {
+	public Adapter createEvoSatisfiableAdapter()
+	{
+		if (evoSatisfiableItemProvider == null)
+		{
 			evoSatisfiableItemProvider = new EvoSatisfiableItemProvider(this);
 		}
 
@@ -951,7 +1029,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
+	public ComposeableAdapterFactory getRootAdapterFactory()
+	{
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
@@ -961,7 +1040,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
+	{
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -971,7 +1051,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object type) {
+	public boolean isFactoryForType(Object type)
+	{
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
@@ -982,7 +1063,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
+	public Adapter adapt(Notifier notifier, Object type)
+	{
 		return super.adapt(notifier, this);
 	}
 
@@ -992,10 +1074,13 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * @generated
 	 */
 	@Override
-	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
+	public Object adapt(Object object, Object type)
+	{
+		if (isFactoryForType(type))
+		{
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
+			{
 				return adapter;
 			}
 		}
@@ -1009,7 +1094,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
+	public void addListener(INotifyChangedListener notifyChangedListener)
+	{
 		changeNotifier.addListener(notifyChangedListener);
 	}
 
@@ -1019,7 +1105,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
+	public void removeListener(INotifyChangedListener notifyChangedListener)
+	{
 		changeNotifier.removeListener(notifyChangedListener);
 	}
 
@@ -1029,10 +1116,12 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void fireNotifyChanged(Notification notification) {
+	public void fireNotifyChanged(Notification notification)
+	{
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null) {
+		if (parentAdapterFactory != null)
+		{
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -1043,7 +1132,8 @@ public class EvoFirstOrderLogicItemProviderAdapterFactory extends EvoFirstOrderL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void dispose() {
+	public void dispose()
+	{
 		if (evoAndItemProvider != null) evoAndItemProvider.dispose();
 		if (evoOrItemProvider != null) evoOrItemProvider.dispose();
 		if (evoXOrItemProvider != null) evoXOrItemProvider.dispose();

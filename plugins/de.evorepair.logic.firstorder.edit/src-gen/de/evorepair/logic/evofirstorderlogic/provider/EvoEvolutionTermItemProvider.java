@@ -27,14 +27,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
+public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTermItemProvider(AdapterFactory adapterFactory) {
+	public EvoEvolutionTermItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -45,8 +47,10 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 			addAfterEvolutionPropertyDescriptor(object);
@@ -60,7 +64,8 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAfterEvolutionPropertyDescriptor(Object object) {
+	protected void addAfterEvolutionPropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -83,7 +88,8 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(Object object)
+	{
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoEvolutionTerm"));
 	}
 
@@ -94,7 +100,8 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		String label = ((EvoEvolutionTerm)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EvoEvolutionTerm_type") :
@@ -110,10 +117,12 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoEvolutionTerm.class)) {
+		switch (notification.getFeatureID(EvoEvolutionTerm.class))
+		{
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM__AFTER_EVOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -129,7 +138,8 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -140,7 +150,8 @@ public class EvoEvolutionTermItemProvider extends EvoVariableItemProvider {
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
+	public ResourceLocator getResourceLocator()
+	{
 		return EvoFirstOrderEditPlugin.INSTANCE;
 	}
 

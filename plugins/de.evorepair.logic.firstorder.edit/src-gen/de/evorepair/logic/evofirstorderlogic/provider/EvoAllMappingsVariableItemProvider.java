@@ -35,14 +35,16 @@ public class EvoAllMappingsVariableItemProvider
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource {
+		IItemPropertySource
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllMappingsVariableItemProvider(AdapterFactory adapterFactory) {
+	public EvoAllMappingsVariableItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -53,8 +55,10 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 			addAssociatedMappingsPropertyDescriptor(object);
@@ -68,7 +72,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssociatedMappingsPropertyDescriptor(Object object) {
+	protected void addAssociatedMappingsPropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -91,7 +96,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(Object object)
+	{
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoAllMappingsVariable"));
 	}
 
@@ -102,7 +108,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		return getString("_UI_EvoAllMappingsVariable_type");
 	}
 	
@@ -115,7 +122,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -128,7 +136,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -139,7 +148,8 @@ public class EvoAllMappingsVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
+	public ResourceLocator getResourceLocator()
+	{
 		return EvoFirstOrderEditPlugin.INSTANCE;
 	}
 

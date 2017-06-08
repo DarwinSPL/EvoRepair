@@ -31,22 +31,17 @@ public class EvoVariableDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getEvoFeatureVariableAccess().getAlternatives_3_1(), "rule__EvoFeatureVariable__Alternatives_3_1");
+					put(grammarAccess.getEvoVariableAccess().getAlternatives(), "rule__EvoVariable__Alternatives");
 					put(grammarAccess.getEvoVariableTypeAccess().getAlternatives(), "rule__EvoVariableType__Alternatives");
 					put(grammarAccess.getEvoFeatureVariableTypeAccess().getAlternatives(), "rule__EvoFeatureVariableType__Alternatives");
-					put(grammarAccess.getEvoVariableAccess().getGroup(), "rule__EvoVariable__Group__0");
-					put(grammarAccess.getEvoVariableAccess().getGroup_2(), "rule__EvoVariable__Group_2__0");
+					put(grammarAccess.getEvoGenericVariableAccess().getGroup(), "rule__EvoGenericVariable__Group__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup(), "rule__EvoFeatureVariable__Group__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_2(), "rule__EvoFeatureVariable__Group_2__0");
-					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_3(), "rule__EvoFeatureVariable__Group_3__0");
-					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_3_2(), "rule__EvoFeatureVariable__Group_3_2__0");
 					put(grammarAccess.getModelAccess().getVariablesAssignment(), "rule__Model__VariablesAssignment");
-					put(grammarAccess.getEvoVariableAccess().getNameAssignment_1(), "rule__EvoVariable__NameAssignment_1");
-					put(grammarAccess.getEvoVariableAccess().getIndexAssignment_2_1(), "rule__EvoVariable__IndexAssignment_2_1");
-					put(grammarAccess.getEvoVariableAccess().getVariableTypeAssignment_3(), "rule__EvoVariable__VariableTypeAssignment_3");
+					put(grammarAccess.getEvoGenericVariableAccess().getNameAssignment_1(), "rule__EvoGenericVariable__NameAssignment_1");
+					put(grammarAccess.getEvoGenericVariableAccess().getVariableTypeAssignment_2(), "rule__EvoGenericVariable__VariableTypeAssignment_2");
 					put(grammarAccess.getEvoFeatureVariableAccess().getNameAssignment_1(), "rule__EvoFeatureVariable__NameAssignment_1");
-					put(grammarAccess.getEvoFeatureVariableAccess().getIndexAssignment_2_1(), "rule__EvoFeatureVariable__IndexAssignment_2_1");
-					put(grammarAccess.getEvoFeatureVariableAccess().getFeatureTypeAssignment_3_2_1(), "rule__EvoFeatureVariable__FeatureTypeAssignment_3_2_1");
+					put(grammarAccess.getEvoFeatureVariableAccess().getFeatureTypeAssignment_2_1(), "rule__EvoFeatureVariable__FeatureTypeAssignment_2_1");
 				}
 			};
 		}

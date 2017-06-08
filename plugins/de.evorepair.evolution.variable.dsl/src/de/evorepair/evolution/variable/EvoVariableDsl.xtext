@@ -8,7 +8,7 @@ Model:
 	variables+=EvoVariable*;
 	
 EvoVariable:
-	'var' name=ID ('_'index=INT) (variableType=EvoVariableType)
+	EvoGenericVariable | EvoFeatureVariable
 ;
 
 enum EvoVariableType: 
@@ -17,9 +17,12 @@ enum EvoVariableType:
 	EvoTarget = '@post'
 ;
 
+EvoGenericVariable:
+	'var' name=ID (variableType=EvoVariableType)
+;
 
 EvoFeatureVariable: 
-	'var' name=ID ('_'index=INT) ('.'('parent' | 'child' | 'sibling')? ('.' featureType=EvoFeatureVariableType))
+	'feature' name=ID ('.' featureType=EvoFeatureVariableType)?
 ;
 
 enum EvoFeatureVariableType:

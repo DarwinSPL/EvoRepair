@@ -25,14 +25,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider {
+public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFormulaVariableItemProvider(AdapterFactory adapterFactory) {
+	public EvoFormulaVariableItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -43,8 +45,10 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -60,7 +64,8 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -82,7 +87,8 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIndexPropertyDescriptor(Object object) {
+	protected void addIndexPropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -104,7 +110,8 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVariableTypePropertyDescriptor(Object object) {
+	protected void addVariableTypePropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -127,7 +134,8 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		String label = ((EvoFormulaVariable)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EvoFormulaVariable_type") :
@@ -143,10 +151,12 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoFormulaVariable.class)) {
+		switch (notification.getFeatureID(EvoFormulaVariable.class))
+		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__NAME:
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__INDEX:
 			case EvoFirstOrderLogicPackage.EVO_FORMULA_VARIABLE__VARIABLE_TYPE:
@@ -164,7 +174,8 @@ public class EvoFormulaVariableItemProvider extends EvoAbstractTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

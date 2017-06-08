@@ -24,14 +24,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider {
+public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetElementOfItemProvider(AdapterFactory adapterFactory) {
+	public EvoSetElementOfItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -42,8 +44,10 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 		}
@@ -59,8 +63,10 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+	{
+		if (childrenFeatures == null)
+		{
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EvoFirstOrderLogicPackage.Literals.EVO_ABSTRACT_TWO_PARAMETER_TERM__LEFT_ELEMENT);
 			childrenFeatures.add(EvoFirstOrderLogicPackage.Literals.EVO_ABSTRACT_TWO_PARAMETER_TERM__RIGHT_ELEMENT);
@@ -74,7 +80,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
+	protected EStructuralFeature getChildFeature(Object object, Object child)
+	{
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -88,7 +95,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(Object object)
+	{
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoSetElementOf"));
 	}
 
@@ -99,7 +107,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		return getString("_UI_EvoSetElementOf_type");
 	}
 	
@@ -112,10 +121,12 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoSetElementOf.class)) {
+		switch (notification.getFeatureID(EvoSetElementOf.class))
+		{
 			case EvoFirstOrderLogicPackage.EVO_SET_ELEMENT_OF__LEFT_ELEMENT:
 			case EvoFirstOrderLogicPackage.EVO_SET_ELEMENT_OF__RIGHT_ELEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -132,7 +143,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
@@ -393,7 +405,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+	{
 		Object childFeature = feature;
 		Object childObject = child;
 
@@ -401,7 +414,8 @@ public class EvoSetElementOfItemProvider extends EvoAbstractSetTermItemProvider 
 			childFeature == EvoFirstOrderLogicPackage.Literals.EVO_ABSTRACT_TWO_PARAMETER_TERM__LEFT_ELEMENT ||
 			childFeature == EvoFirstOrderLogicPackage.Literals.EVO_ABSTRACT_TWO_PARAMETER_TERM__RIGHT_ELEMENT;
 
-		if (qualify) {
+		if (qualify)
+		{
 			return getString
 				("_UI_CreateChild_text2",
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });

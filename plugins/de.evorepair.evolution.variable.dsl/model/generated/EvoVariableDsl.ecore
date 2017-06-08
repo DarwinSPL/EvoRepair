@@ -7,4 +7,5 @@
         eType="ecore:EClass platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoVariable"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGenericVariable" eSuperTypes="platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoVariable"/>
 </ecore:EPackage>

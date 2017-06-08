@@ -3,6 +3,8 @@
  */
 package de.evorepair.evolution.variable.evoVariableDsl.util;
 
+import de.evorepair.evolution.evovariable.EvoVariable;
+
 import de.evorepair.evolution.variable.evoVariableDsl.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -80,6 +82,14 @@ public class EvoVariableDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EvoVariableDslPackage.EVO_GENERIC_VARIABLE:
+      {
+        EvoGenericVariable evoGenericVariable = (EvoGenericVariable)theEObject;
+        T result = caseEvoGenericVariable(evoGenericVariable);
+        if (result == null) result = caseEvoVariable(evoGenericVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -96,6 +106,38 @@ public class EvoVariableDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Evo Generic Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Evo Generic Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEvoGenericVariable(EvoGenericVariable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Evo Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Evo Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEvoVariable(EvoVariable object)
   {
     return null;
   }

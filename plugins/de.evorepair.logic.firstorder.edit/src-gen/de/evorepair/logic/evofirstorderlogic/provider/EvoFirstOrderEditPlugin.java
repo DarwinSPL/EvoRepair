@@ -22,7 +22,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * <!-- end-user-doc -->
  * @generated
  */
-public final class EvoFirstOrderEditPlugin extends EMFPlugin {
+public final class EvoFirstOrderEditPlugin extends EMFPlugin
+{
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -45,9 +46,11 @@ public final class EvoFirstOrderEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFirstOrderEditPlugin() {
+	public EvoFirstOrderEditPlugin()
+	{
 		super
-		  (new ResourceLocator [] {
+		  (new ResourceLocator [] 
+		   {
 		     DataValuesEditPlugin.INSTANCE,
 		     EvolEditPlugin.INSTANCE,
 		     EvoOperationEditPlugin.INSTANCE,
@@ -64,7 +67,8 @@ public final class EvoFirstOrderEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getPluginResourceLocator() {
+	public ResourceLocator getPluginResourceLocator()
+	{
 		return plugin;
 	}
 
@@ -75,7 +79,8 @@ public final class EvoFirstOrderEditPlugin extends EMFPlugin {
 	 * @return the singleton instance.
 	 * @generated
 	 */
-	public static Implementation getPlugin() {
+	public static Implementation getPlugin()
+	{
 		return plugin;
 	}
 
@@ -85,14 +90,16 @@ public final class EvoFirstOrderEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipsePlugin {
+	public static class Implementation extends EclipsePlugin
+	{
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public Implementation() {
+		public Implementation()
+		{
 			super();
 
 			// Remember the static instance.

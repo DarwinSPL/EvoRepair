@@ -3,6 +3,8 @@
  */
 package de.evorepair.evolution.variable.evoVariableDsl.util;
 
+import de.evorepair.evolution.evovariable.EvoVariable;
+
 import de.evorepair.evolution.variable.evoVariableDsl.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -81,6 +83,16 @@ public class EvoVariableDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseEvoGenericVariable(EvoGenericVariable object)
+      {
+        return createEvoGenericVariableAdapter();
+      }
+      @Override
+      public Adapter caseEvoVariable(EvoVariable object)
+      {
+        return createEvoVariableAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -113,6 +125,36 @@ public class EvoVariableDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable <em>Evo Generic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable
+   * @generated
+   */
+  public Adapter createEvoGenericVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.evorepair.evolution.evovariable.EvoVariable <em>Evo Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.evorepair.evolution.evovariable.EvoVariable
+   * @generated
+   */
+  public Adapter createEvoVariableAdapter()
   {
     return null;
   }

@@ -175,7 +175,8 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  */
 public class EvoOperationEditor
 	extends MultiPageEditorPart
-	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
+{
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -331,35 +332,46 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	protected IPartListener partListener =
-		new IPartListener() {
-			public void partActivated(IWorkbenchPart p) {
-				if (p instanceof ContentOutline) {
-					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
+		new IPartListener()
+		{
+			public void partActivated(IWorkbenchPart p)
+			{
+				if (p instanceof ContentOutline)
+				{
+					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage)
+					{
 						getActionBarContributor().setActiveEditor(EvoOperationEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
-				else if (p instanceof PropertySheet) {
-					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
+				else if (p instanceof PropertySheet)
+				{
+					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage()))
+					{
 						getActionBarContributor().setActiveEditor(EvoOperationEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == EvoOperationEditor.this) {
+				else if (p == EvoOperationEditor.this)
+				{
 					handleActivate();
 				}
 			}
-			public void partBroughtToTop(IWorkbenchPart p) {
+			public void partBroughtToTop(IWorkbenchPart p)
+			{
 				// Ignore.
 			}
-			public void partClosed(IWorkbenchPart p) {
+			public void partClosed(IWorkbenchPart p)
+			{
 				// Ignore.
 			}
-			public void partDeactivated(IWorkbenchPart p) {
+			public void partDeactivated(IWorkbenchPart p)
+			{
 				// Ignore.
 			}
-			public void partOpened(IWorkbenchPart p) {
+			public void partOpened(IWorkbenchPart p)
+			{
 				// Ignore.
 			}
 		};
@@ -411,27 +423,37 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	protected EContentAdapter problemIndicationAdapter =
-		new EContentAdapter() {
+		new EContentAdapter()
+		{
 			@Override
-			public void notifyChanged(Notification notification) {
-				if (notification.getNotifier() instanceof Resource) {
-					switch (notification.getFeatureID(Resource.class)) {
+			public void notifyChanged(Notification notification)
+			{
+				if (notification.getNotifier() instanceof Resource)
+				{
+					switch (notification.getFeatureID(Resource.class))
+					{
 						case Resource.RESOURCE__IS_LOADED:
 						case Resource.RESOURCE__ERRORS:
-						case Resource.RESOURCE__WARNINGS: {
+						case Resource.RESOURCE__WARNINGS:
+						{
 							Resource resource = (Resource)notification.getNotifier();
 							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-							if (diagnostic.getSeverity() != Diagnostic.OK) {
+							if (diagnostic.getSeverity() != Diagnostic.OK)
+							{
 								resourceToDiagnosticMap.put(resource, diagnostic);
 							}
-							else {
+							else
+							{
 								resourceToDiagnosticMap.remove(resource);
 							}
 
-							if (updateProblemIndication) {
+							if (updateProblemIndication)
+							{
 								getSite().getShell().getDisplay().asyncExec
-									(new Runnable() {
-										 public void run() {
+									(new Runnable()
+									 {
+										 public void run()
+										 {
 											 updateProblemIndication();
 										 }
 									 });
@@ -440,24 +462,30 @@ public class EvoOperationEditor
 						}
 					}
 				}
-				else {
+				else
+				{
 					super.notifyChanged(notification);
 				}
 			}
 
 			@Override
-			protected void setTarget(Resource target) {
+			protected void setTarget(Resource target)
+			{
 				basicSetTarget(target);
 			}
 
 			@Override
-			protected void unsetTarget(Resource target) {
+			protected void unsetTarget(Resource target)
+			{
 				basicUnsetTarget(target);
 				resourceToDiagnosticMap.remove(target);
-				if (updateProblemIndication) {
+				if (updateProblemIndication)
+				{
 					getSite().getShell().getDisplay().asyncExec
-						(new Runnable() {
-							 public void run() {
+						(new Runnable()
+						 {
+							 public void run()
+							 {
 								 updateProblemIndication();
 							 }
 						 });
@@ -472,25 +500,35 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener =
-		new IResourceChangeListener() {
-			public void resourceChanged(IResourceChangeEvent event) {
+		new IResourceChangeListener()
+		{
+			public void resourceChanged(IResourceChangeEvent event)
+			{
 				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+				try
+				{
+					class ResourceDeltaVisitor implements IResourceDeltaVisitor
+					{
 						protected ResourceSet resourceSet = editingDomain.getResourceSet();
 						protected Collection<Resource> changedResources = new ArrayList<Resource>();
 						protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
+						public boolean visit(IResourceDelta delta)
+						{
+							if (delta.getResource().getType() == IResource.FILE)
+							{
 								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
+								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS)
+								{
 									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
+									if (resource != null)
+									{
+										if (delta.getKind() == IResourceDelta.REMOVED)
+										{
 											removedResources.add(resource);
 										}
-										else if (!savedResources.remove(resource)) {
+										else if (!savedResources.remove(resource))
+										{
 											changedResources.add(resource);
 										}
 									}
@@ -501,11 +539,13 @@ public class EvoOperationEditor
 							return true;
 						}
 
-						public Collection<Resource> getChangedResources() {
+						public Collection<Resource> getChangedResources()
+						{
 							return changedResources;
 						}
 
-						public Collection<Resource> getRemovedResources() {
+						public Collection<Resource> getRemovedResources()
+						{
 							return removedResources;
 						}
 					}
@@ -513,31 +553,40 @@ public class EvoOperationEditor
 					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
 					delta.accept(visitor);
 
-					if (!visitor.getRemovedResources().isEmpty()) {
+					if (!visitor.getRemovedResources().isEmpty())
+					{
 						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
+							(new Runnable()
+							 {
+								 public void run()
+								 {
 									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
+									 if (!isDirty())
+									 {
 										 getSite().getPage().closeEditor(EvoOperationEditor.this, false);
 									 }
 								 }
 							 });
 					}
 
-					if (!visitor.getChangedResources().isEmpty()) {
+					if (!visitor.getChangedResources().isEmpty())
+					{
 						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
+							(new Runnable()
+							 {
+								 public void run()
+								 {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == EvoOperationEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == EvoOperationEditor.this)
+									 {
 										 handleActivate();
 									 }
 								 }
 							 });
 					}
 				}
-				catch (CoreException exception) {
+				catch (CoreException exception)
+				{
 					EvoOperationEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -549,10 +598,12 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void handleActivate() {
+	protected void handleActivate()
+	{
 		// Recompute the read only state.
 		//
-		if (editingDomain.getResourceToReadOnlyMap() != null) {
+		if (editingDomain.getResourceToReadOnlyMap() != null)
+		{
 		  editingDomain.getResourceToReadOnlyMap().clear();
 
 		  // Refresh any actions that may become enabled or disabled.
@@ -560,17 +611,21 @@ public class EvoOperationEditor
 		  setSelection(getSelection());
 		}
 
-		if (!removedResources.isEmpty()) {
-			if (handleDirtyConflict()) {
+		if (!removedResources.isEmpty())
+		{
+			if (handleDirtyConflict())
+			{
 				getSite().getPage().closeEditor(EvoOperationEditor.this, false);
 			}
-			else {
+			else
+			{
 				removedResources.clear();
 				changedResources.clear();
 				savedResources.clear();
 			}
 		}
-		else if (!changedResources.isEmpty()) {
+		else if (!changedResources.isEmpty())
+		{
 			changedResources.removeAll(savedResources);
 			handleChangedResources();
 			changedResources.clear();
@@ -584,29 +639,38 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void handleChangedResources() {
-		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			if (isDirty()) {
+	protected void handleChangedResources()
+	{
+		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict()))
+		{
+			if (isDirty())
+			{
 				changedResources.addAll(editingDomain.getResourceSet().getResources());
 			}
 			editingDomain.getCommandStack().flush();
 
 			updateProblemIndication = false;
-			for (Resource resource : changedResources) {
-				if (resource.isLoaded()) {
+			for (Resource resource : changedResources)
+			{
+				if (resource.isLoaded())
+				{
 					resource.unload();
-					try {
+					try
+					{
 						resource.load(Collections.EMPTY_MAP);
 					}
-					catch (IOException exception) {
-						if (!resourceToDiagnosticMap.containsKey(resource)) {
+					catch (IOException exception)
+					{
+						if (!resourceToDiagnosticMap.containsKey(resource))
+						{
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
 					}
 				}
 			}
 
-			if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
+			if (AdapterFactoryEditingDomain.isStale(editorSelection))
+			{
 				setSelection(StructuredSelection.EMPTY);
 			}
 
@@ -621,8 +685,10 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void updateProblemIndication() {
-		if (updateProblemIndication) {
+	protected void updateProblemIndication()
+	{
+		if (updateProblemIndication)
+		{
 			BasicDiagnostic diagnostic =
 				new BasicDiagnostic
 					(Diagnostic.OK,
@@ -630,41 +696,52 @@ public class EvoOperationEditor
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
-			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
-				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
+			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values())
+			{
+				if (childDiagnostic.getSeverity() != Diagnostic.OK)
+				{
 					diagnostic.add(childDiagnostic);
 				}
 			}
 
 			int lastEditorPage = getPageCount() - 1;
-			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
+			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart)
+			{
 				((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
-				if (diagnostic.getSeverity() != Diagnostic.OK) {
+				if (diagnostic.getSeverity() != Diagnostic.OK)
+				{
 					setActivePage(lastEditorPage);
 				}
 			}
-			else if (diagnostic.getSeverity() != Diagnostic.OK) {
+			else if (diagnostic.getSeverity() != Diagnostic.OK)
+			{
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
-				try {
+				try
+				{
 					addPage(++lastEditorPage, problemEditorPart, getEditorInput());
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
 				}
-				catch (PartInitException exception) {
+				catch (PartInitException exception)
+				{
 					EvoOperationEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
-			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
+			if (markerHelper.hasMarkers(editingDomain.getResourceSet()))
+			{
 				markerHelper.deleteMarkers(editingDomain.getResourceSet());
-				if (diagnostic.getSeverity() != Diagnostic.OK) {
-					try {
+				if (diagnostic.getSeverity() != Diagnostic.OK)
+				{
+					try
+					{
 						markerHelper.createMarkers(diagnostic);
 					}
-					catch (CoreException exception) {
+					catch (CoreException exception)
+					{
 						EvoOperationEditorPlugin.INSTANCE.log(exception);
 					}
 				}
@@ -678,7 +755,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected boolean handleDirtyConflict() {
+	protected boolean handleDirtyConflict()
+	{
 		return
 			MessageDialog.openQuestion
 				(getSite().getShell(),
@@ -692,7 +770,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoOperationEditor() {
+	public EvoOperationEditor()
+	{
 		super();
 		initializeEditingDomain();
 	}
@@ -703,7 +782,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void initializeEditingDomain() {
+	protected void initializeEditingDomain()
+	{
 		// Create an adapter factory that yields item providers.
 		//
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -723,25 +803,33 @@ public class EvoOperationEditor
 		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
 		//
 		commandStack.addCommandStackListener
-			(new CommandStackListener() {
-				 public void commandStackChanged(final EventObject event) {
+			(new CommandStackListener()
+			 {
+				 public void commandStackChanged(final EventObject event)
+				 {
 					 getContainer().getDisplay().asyncExec
-						 (new Runnable() {
-							  public void run() {
+						 (new Runnable()
+						  {
+							  public void run()
+							  {
 								  firePropertyChange(IEditorPart.PROP_DIRTY);
 
 								  // Try to select the affected objects.
 								  //
 								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-								  if (mostRecentCommand != null) {
+								  if (mostRecentCommand != null)
+								  {
 									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 								  }
-								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); ) {
+								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); )
+								  {
 									  PropertySheetPage propertySheetPage = i.next();
-									  if (propertySheetPage.getControl().isDisposed()) {
+									  if (propertySheetPage.getControl().isDisposed())
+									  {
 										  i.remove();
 									  }
-									  else {
+									  else
+									  {
 										  propertySheetPage.refresh();
 									  }
 								  }
@@ -762,7 +850,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 			@Override
-	protected void firePropertyChange(int action) {
+	protected void firePropertyChange(int action)
+	{
 		super.firePropertyChange(action);
 	}
 
@@ -772,17 +861,22 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectionToViewer(Collection<?> collection) {
+	public void setSelectionToViewer(Collection<?> collection)
+	{
 		final Collection<?> theSelection = collection;
 		// Make sure it's okay.
 		//
-		if (theSelection != null && !theSelection.isEmpty()) {
+		if (theSelection != null && !theSelection.isEmpty())
+		{
 			Runnable runnable =
-				new Runnable() {
-					public void run() {
+				new Runnable()
+				{
+					public void run()
+					{
 						// Try to select the items in the current content viewer of the editor.
 						//
-						if (currentViewer != null) {
+						if (currentViewer != null)
+						{
 							currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 						}
 					}
@@ -799,7 +893,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EditingDomain getEditingDomain() {
+	public EditingDomain getEditingDomain()
+	{
 		return editingDomain;
 	}
 
@@ -808,13 +903,15 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider
+	{
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
+		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory)
+		{
 			super(adapterFactory);
 		}
 
@@ -824,7 +921,8 @@ public class EvoOperationEditor
 		 * @generated
 		 */
 		@Override
-		public Object [] getElements(Object object) {
+		public Object [] getElements(Object object)
+		{
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -835,7 +933,8 @@ public class EvoOperationEditor
 		 * @generated
 		 */
 		@Override
-		public Object [] getChildren(Object object) {
+		public Object [] getChildren(Object object)
+		{
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -846,7 +945,8 @@ public class EvoOperationEditor
 		 * @generated
 		 */
 		@Override
-		public boolean hasChildren(Object object) {
+		public boolean hasChildren(Object object)
+		{
 			Object parent = super.getParent(object);
 			return parent != null;
 		}
@@ -857,7 +957,8 @@ public class EvoOperationEditor
 		 * @generated
 		 */
 		@Override
-		public Object getParent(Object object) {
+		public Object getParent(Object object)
+		{
 			return null;
 		}
 	}
@@ -867,9 +968,12 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentViewerPane(ViewerPane viewerPane) {
-		if (currentViewerPane != viewerPane) {
-			if (currentViewerPane != null) {
+	public void setCurrentViewerPane(ViewerPane viewerPane)
+	{
+		if (currentViewerPane != viewerPane)
+		{
+			if (currentViewerPane != null)
+			{
 				currentViewerPane.showFocus(false);
 			}
 			currentViewerPane = viewerPane;
@@ -884,18 +988,23 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentViewer(Viewer viewer) {
+	public void setCurrentViewer(Viewer viewer)
+	{
 		// If it is changing...
 		//
-		if (currentViewer != viewer) {
-			if (selectionChangedListener == null) {
+		if (currentViewer != viewer)
+		{
+			if (selectionChangedListener == null)
+			{
 				// Create the listener on demand.
 				//
 				selectionChangedListener =
-					new ISelectionChangedListener() {
+					new ISelectionChangedListener()
+					{
 						// This just notifies those things that are affected by the section.
 						//
-						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+						public void selectionChanged(SelectionChangedEvent selectionChangedEvent)
+						{
 							setSelection(selectionChangedEvent.getSelection());
 						}
 					};
@@ -903,13 +1012,15 @@ public class EvoOperationEditor
 
 			// Stop listening to the old one.
 			//
-			if (currentViewer != null) {
+			if (currentViewer != null)
+			{
 				currentViewer.removeSelectionChangedListener(selectionChangedListener);
 			}
 
 			// Start listening to the new one.
 			//
-			if (viewer != null) {
+			if (viewer != null)
+			{
 				viewer.addSelectionChangedListener(selectionChangedListener);
 			}
 
@@ -929,7 +1040,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Viewer getViewer() {
+	public Viewer getViewer()
+	{
 		return currentViewer;
 	}
 
@@ -939,7 +1051,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createContextMenuFor(StructuredViewer viewer) {
+	protected void createContextMenuFor(StructuredViewer viewer)
+	{
 		MenuManager contextMenu = new MenuManager("#PopUp");
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
@@ -960,22 +1073,26 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createModel() {
+	public void createModel()
+	{
 		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
 		Exception exception = null;
 		Resource resource = null;
-		try {
+		try
+		{
 			// Load the resource through the editing domain.
 			//
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-		if (diagnostic.getSeverity() != Diagnostic.OK) {
+		if (diagnostic.getSeverity() != Diagnostic.OK)
+		{
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
@@ -988,9 +1105,11 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
+	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception)
+	{
 		boolean hasErrors = !resource.getErrors().isEmpty();
-		if (hasErrors || !resource.getWarnings().isEmpty()) {
+		if (hasErrors || !resource.getWarnings().isEmpty())
+		{
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
 					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
@@ -1001,7 +1120,8 @@ public class EvoOperationEditor
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
 		}
-		else if (exception != null) {
+		else if (exception != null)
+		{
 			return
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
@@ -1010,7 +1130,8 @@ public class EvoOperationEditor
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object[] { exception });
 		}
-		else {
+		else
+		{
 			return Diagnostic.OK_INSTANCE;
 		}
 	}
@@ -1022,27 +1143,32 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void createPages() {
+	public void createPages()
+	{
 		// Creates the model from the editor input
 		//
 		createModel();
 
 		// Only creates the other pages if there is something that can be edited
 		//
-		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
+		if (!getEditingDomain().getResourceSet().getResources().isEmpty())
+		{
 			// Create a page for the selection tree view.
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
 							return newTreeViewer;
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1068,15 +1194,18 @@ public class EvoOperationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
 							return newTreeViewer;
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1097,13 +1226,16 @@ public class EvoOperationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							return new ListViewer(composite);
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1122,13 +1254,16 @@ public class EvoOperationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							return new TreeViewer(composite);
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1149,13 +1284,16 @@ public class EvoOperationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							return new TableViewer(composite);
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1192,13 +1330,16 @@ public class EvoOperationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), EvoOperationEditor.this) {
+					new ViewerPane(getSite().getPage(), EvoOperationEditor.this)
+					{
 						@Override
-						public Viewer createViewer(Composite composite) {
+						public Viewer createViewer(Composite composite)
+						{
 							return new TreeViewer(composite);
 						}
 						@Override
-						public void requestActivation() {
+						public void requestActivation()
+						{
 							super.requestActivation();
 							setCurrentViewerPane(this);
 						}
@@ -1232,8 +1373,10 @@ public class EvoOperationEditor
 			}
 
 			getSite().getShell().getDisplay().asyncExec
-				(new Runnable() {
-					 public void run() {
+				(new Runnable()
+				 {
+					 public void run()
+					 {
 						 setActivePage(0);
 					 }
 				 });
@@ -1243,11 +1386,14 @@ public class EvoOperationEditor
 		// area if there are more than one page
 		//
 		getContainer().addControlListener
-			(new ControlAdapter() {
+			(new ControlAdapter()
+			 {
 				boolean guard = false;
 				@Override
-				public void controlResized(ControlEvent event) {
-					if (!guard) {
+				public void controlResized(ControlEvent event)
+				{
+					if (!guard)
+					{
 						guard = true;
 						hideTabs();
 						guard = false;
@@ -1256,8 +1402,10 @@ public class EvoOperationEditor
 			 });
 
 		getSite().getShell().getDisplay().asyncExec
-			(new Runnable() {
-				 public void run() {
+			(new Runnable()
+			 {
+				 public void run()
+				 {
 					 updateProblemIndication();
 				 }
 			 });
@@ -1270,10 +1418,13 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void hideTabs() {
-		if (getPageCount() <= 1) {
+	protected void hideTabs()
+	{
+		if (getPageCount() <= 1)
+		{
 			setPageText(0, "");
-			if (getContainer() instanceof CTabFolder) {
+			if (getContainer() instanceof CTabFolder)
+			{
 				((CTabFolder)getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y + 6);
@@ -1288,10 +1439,13 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void showTabs() {
-		if (getPageCount() > 1) {
+	protected void showTabs()
+	{
+		if (getPageCount() > 1)
+		{
 			setPageText(0, getString("_UI_SelectionPage_label"));
-			if (getContainer() instanceof CTabFolder) {
+			if (getContainer() instanceof CTabFolder)
+			{
 				((CTabFolder)getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y - 6);
@@ -1306,10 +1460,12 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	protected void pageChange(int pageIndex) {
+	protected void pageChange(int pageIndex)
+	{
 		super.pageChange(pageIndex);
 
-		if (contentOutlinePage != null) {
+		if (contentOutlinePage != null)
+		{
 			handleContentOutlineSelection(contentOutlinePage.getSelection());
 		}
 	}
@@ -1322,17 +1478,22 @@ public class EvoOperationEditor
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
-	public Object getAdapter(Class key) {
-		if (key.equals(IContentOutlinePage.class)) {
+	public Object getAdapter(Class key)
+	{
+		if (key.equals(IContentOutlinePage.class))
+		{
 			return showOutlineView() ? getContentOutlinePage() : null;
 		}
-		else if (key.equals(IPropertySheetPage.class)) {
+		else if (key.equals(IPropertySheetPage.class))
+		{
 			return getPropertySheetPage();
 		}
-		else if (key.equals(IGotoMarker.class)) {
+		else if (key.equals(IGotoMarker.class))
+		{
 			return this;
 		}
-		else {
+		else
+		{
 			return super.getAdapter(key);
 		}
 	}
@@ -1343,13 +1504,17 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IContentOutlinePage getContentOutlinePage() {
-		if (contentOutlinePage == null) {
+	public IContentOutlinePage getContentOutlinePage()
+	{
+		if (contentOutlinePage == null)
+		{
 			// The content outline is just a tree.
 			//
-			class MyContentOutlinePage extends ContentOutlinePage {
+			class MyContentOutlinePage extends ContentOutlinePage
+			{
 				@Override
-				public void createControl(Composite parent) {
+				public void createControl(Composite parent)
+				{
 					super.createControl(parent);
 					contentOutlineViewer = getTreeViewer();
 					contentOutlineViewer.addSelectionChangedListener(this);
@@ -1364,7 +1529,8 @@ public class EvoOperationEditor
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+					if (!editingDomain.getResourceSet().getResources().isEmpty())
+					{
 					  // Select the root object in the view.
 					  //
 					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
@@ -1372,13 +1538,15 @@ public class EvoOperationEditor
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
+				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager)
+				{
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
 
 				@Override
-				public void setActionBars(IActionBars actionBars) {
+				public void setActionBars(IActionBars actionBars)
+				{
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
 				}
@@ -1389,10 +1557,12 @@ public class EvoOperationEditor
 			// Listen to selection so that we can handle it is a special way.
 			//
 			contentOutlinePage.addSelectionChangedListener
-				(new ISelectionChangedListener() {
+				(new ISelectionChangedListener()
+				 {
 					 // This ensures that we handle selections correctly.
 					 //
-					 public void selectionChanged(SelectionChangedEvent event) {
+					 public void selectionChanged(SelectionChangedEvent event)
+					 {
 						 handleContentOutlineSelection(event.getSelection());
 					 }
 				 });
@@ -1407,17 +1577,21 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IPropertySheetPage getPropertySheetPage() {
+	public IPropertySheetPage getPropertySheetPage()
+	{
 		PropertySheetPage propertySheetPage =
-			new ExtendedPropertySheetPage(editingDomain) {
+			new ExtendedPropertySheetPage(editingDomain)
+			{
 				@Override
-				public void setSelectionToViewer(List<?> selection) {
+				public void setSelectionToViewer(List<?> selection)
+				{
 					EvoOperationEditor.this.setSelectionToViewer(selection);
 					EvoOperationEditor.this.setFocus();
 				}
 
 				@Override
-				public void setActionBars(IActionBars actionBars) {
+				public void setActionBars(IActionBars actionBars)
+				{
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
 				}
@@ -1434,20 +1608,25 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void handleContentOutlineSelection(ISelection selection) {
-		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+	public void handleContentOutlineSelection(ISelection selection)
+	{
+		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection)
+		{
 			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
-			if (selectedElements.hasNext()) {
+			if (selectedElements.hasNext())
+			{
 				// Get the first selected element.
 				//
 				Object selectedElement = selectedElements.next();
 
 				// If it's the selection viewer, then we want it to select the same selection as this selection.
 				//
-				if (currentViewerPane.getViewer() == selectionViewer) {
+				if (currentViewerPane.getViewer() == selectionViewer)
+				{
 					ArrayList<Object> selectionList = new ArrayList<Object>();
 					selectionList.add(selectedElement);
-					while (selectedElements.hasNext()) {
+					while (selectedElements.hasNext())
+					{
 						selectionList.add(selectedElements.next());
 					}
 
@@ -1455,10 +1634,12 @@ public class EvoOperationEditor
 					//
 					selectionViewer.setSelection(new StructuredSelection(selectionList));
 				}
-				else {
+				else
+				{
 					// Set the input to the widget.
 					//
-					if (currentViewerPane.getViewer().getInput() != selectedElement) {
+					if (currentViewerPane.getViewer().getInput() != selectedElement)
+					{
 						currentViewerPane.getViewer().setInput(selectedElement);
 						currentViewerPane.setTitle(selectedElement);
 					}
@@ -1474,7 +1655,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public boolean isDirty() {
+	public boolean isDirty()
+	{
 		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
 	}
 
@@ -1485,7 +1667,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void doSave(IProgressMonitor progressMonitor) {
+	public void doSave(IProgressMonitor progressMonitor)
+	{
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -1495,24 +1678,31 @@ public class EvoOperationEditor
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
+			new WorkspaceModifyOperation()
+			{
 				// This is the method that gets invoked when the operation runs.
 				//
 				@Override
-				public void execute(IProgressMonitor monitor) {
+				public void execute(IProgressMonitor monitor)
+				{
 					// Save the resources to the file system.
 					//
 					boolean first = true;
-					for (Resource resource : editingDomain.getResourceSet().getResources()) {
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
-							try {
+					for (Resource resource : editingDomain.getResourceSet().getResources())
+					{
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource))
+						{
+							try
+							{
 								long timeStamp = resource.getTimeStamp();
 								resource.save(saveOptions);
-								if (resource.getTimeStamp() != timeStamp) {
+								if (resource.getTimeStamp() != timeStamp)
+								{
 									savedResources.add(resource);
 								}
 							}
-							catch (Exception exception) {
+							catch (Exception exception)
+							{
 								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 							}
 							first = false;
@@ -1522,7 +1712,8 @@ public class EvoOperationEditor
 			};
 
 		updateProblemIndication = false;
-		try {
+		try
+		{
 			// This runs the options, and shows progress.
 			//
 			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
@@ -1532,7 +1723,8 @@ public class EvoOperationEditor
 			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			// Something went wrong that shouldn't.
 			//
 			EvoOperationEditorPlugin.INSTANCE.log(exception);
@@ -1548,16 +1740,20 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected boolean isPersisted(Resource resource) {
+	protected boolean isPersisted(Resource resource)
+	{
 		boolean result = false;
-		try {
+		try
+		{
 			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if (stream != null) {
+			if (stream != null)
+			{
 				result = true;
 				stream.close();
 			}
 		}
-		catch (IOException e) {
+		catch (IOException e)
+		{
 			// Ignore
 		}
 		return result;
@@ -1570,7 +1766,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public boolean isSaveAsAllowed() {
+	public boolean isSaveAsAllowed()
+	{
 		return true;
 	}
 
@@ -1581,13 +1778,16 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void doSaveAs() {
+	public void doSaveAs()
+	{
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
 		IPath path = saveAsDialog.getResult();
-		if (path != null) {
+		if (path != null)
+		{
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if (file != null) {
+			if (file != null)
+			{
 				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
 			}
 		}
@@ -1598,7 +1798,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void doSaveAs(URI uri, IEditorInput editorInput) {
+	protected void doSaveAs(URI uri, IEditorInput editorInput)
+	{
 		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
@@ -1614,9 +1815,11 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void gotoMarker(IMarker marker) {
+	public void gotoMarker(IMarker marker)
+	{
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
-		if (!targetObjects.isEmpty()) {
+		if (!targetObjects.isEmpty())
+		{
 			setSelectionToViewer(targetObjects);
 		}
 	}
@@ -1628,7 +1831,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void init(IEditorSite site, IEditorInput editorInput) {
+	public void init(IEditorSite site, IEditorInput editorInput)
+	{
 		setSite(site);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
@@ -1643,11 +1847,14 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void setFocus() {
-		if (currentViewerPane != null) {
+	public void setFocus()
+	{
+		if (currentViewerPane != null)
+		{
 			currentViewerPane.setFocus();
 		}
-		else {
+		else
+		{
 			getControl(getActivePage()).setFocus();
 		}
 	}
@@ -1658,7 +1865,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+	public void addSelectionChangedListener(ISelectionChangedListener listener)
+	{
 		selectionChangedListeners.add(listener);
 	}
 
@@ -1668,7 +1876,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+	public void removeSelectionChangedListener(ISelectionChangedListener listener)
+	{
 		selectionChangedListeners.remove(listener);
 	}
 
@@ -1678,7 +1887,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ISelection getSelection() {
+	public ISelection getSelection()
+	{
 		return editorSelection;
 	}
 
@@ -1689,10 +1899,12 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(ISelection selection) {
+	public void setSelection(ISelection selection)
+	{
 		editorSelection = selection;
 
-		for (ISelectionChangedListener listener : selectionChangedListeners) {
+		for (ISelectionChangedListener listener : selectionChangedListeners)
+		{
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));
 		}
 		setStatusLineManager(selection);
@@ -1703,30 +1915,38 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatusLineManager(ISelection selection) {
+	public void setStatusLineManager(ISelection selection)
+	{
 		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
 			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
 
-		if (statusLineManager != null) {
-			if (selection instanceof IStructuredSelection) {
+		if (statusLineManager != null)
+		{
+			if (selection instanceof IStructuredSelection)
+			{
 				Collection<?> collection = ((IStructuredSelection)selection).toList();
-				switch (collection.size()) {
-					case 0: {
+				switch (collection.size())
+				{
+					case 0:
+					{
 						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
 						break;
 					}
-					case 1: {
+					case 1:
+					{
 						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
-					default: {
+					default:
+					{
 						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
 						break;
 					}
 				}
 			}
-			else {
+			else
+			{
 				statusLineManager.setMessage("");
 			}
 		}
@@ -1738,7 +1958,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static String getString(String key) {
+	private static String getString(String key)
+	{
 		return EvoOperationEditorPlugin.INSTANCE.getString(key);
 	}
 
@@ -1748,7 +1969,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static String getString(String key, Object s1) {
+	private static String getString(String key, Object s1)
+	{
 		return EvoOperationEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
@@ -1758,7 +1980,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void menuAboutToShow(IMenuManager menuManager) {
+	public void menuAboutToShow(IMenuManager menuManager)
+	{
 		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
 
@@ -1767,7 +1990,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EditingDomainActionBarContributor getActionBarContributor() {
+	public EditingDomainActionBarContributor getActionBarContributor()
+	{
 		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
 	}
 
@@ -1776,7 +2000,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IActionBars getActionBars() {
+	public IActionBars getActionBars()
+	{
 		return getActionBarContributor().getActionBars();
 	}
 
@@ -1785,7 +2010,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdapterFactory getAdapterFactory() {
+	public AdapterFactory getAdapterFactory()
+	{
 		return adapterFactory;
 	}
 
@@ -1795,7 +2021,8 @@ public class EvoOperationEditor
 	 * @generated
 	 */
 	@Override
-	public void dispose() {
+	public void dispose()
+	{
 		updateProblemIndication = false;
 
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
@@ -1804,15 +2031,18 @@ public class EvoOperationEditor
 
 		adapterFactory.dispose();
 
-		if (getActionBarContributor().getActiveEditor() == this) {
+		if (getActionBarContributor().getActiveEditor() == this)
+		{
 			getActionBarContributor().setActiveEditor(null);
 		}
 
-		for (PropertySheetPage propertySheetPage : propertySheetPages) {
+		for (PropertySheetPage propertySheetPage : propertySheetPages)
+		{
 			propertySheetPage.dispose();
 		}
 
-		if (contentOutlinePage != null) {
+		if (contentOutlinePage != null)
+		{
 			contentOutlinePage.dispose();
 		}
 
@@ -1825,7 +2055,8 @@ public class EvoOperationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected boolean showOutlineView() {
+	protected boolean showOutlineView()
+	{
 		return true;
 	}
 }

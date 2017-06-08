@@ -3,6 +3,14 @@
  */
 package de.evorepair.guidance.scoping
 
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable
+import de.evorepair.guidance.guidancedsl.GrammarEntry
+import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.FilteringScope
 
 /**
  * This class contains custom scoping description.

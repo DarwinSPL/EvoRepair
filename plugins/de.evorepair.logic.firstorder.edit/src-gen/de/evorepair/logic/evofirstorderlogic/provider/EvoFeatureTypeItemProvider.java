@@ -23,14 +23,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
+public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFeatureTypeItemProvider(AdapterFactory adapterFactory) {
+	public EvoFeatureTypeItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -41,8 +43,10 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
@@ -56,7 +60,8 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -79,7 +84,8 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(Object object)
+	{
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoFeatureType"));
 	}
 
@@ -90,7 +96,8 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		String label = ((EvoFeatureType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EvoFeatureType_type") :
@@ -106,10 +113,12 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoFeatureType.class)) {
+		switch (notification.getFeatureID(EvoFeatureType.class))
+		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -125,7 +134,8 @@ public class EvoFeatureTypeItemProvider extends EvoEvolutionTermItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

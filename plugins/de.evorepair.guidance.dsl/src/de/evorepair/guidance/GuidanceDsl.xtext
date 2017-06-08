@@ -15,12 +15,12 @@ GrammarEntry:
     table=EvoGuidanceTable;
 
 EvoGuidanceTable returns EvoGuidanceTable: 
-	'GuidanceTable' '{'
-		'trigger' ':' '{'
+	'guidance' '{'
+		'trigger' '=' '{'
 			triggeringOperations+=[evooperations::EvoOperation] ( "," triggeringOperations+=[evooperations::EvoOperation])*
 		'}'
 		
-		'anomalies' ':' '{'
+		'anomalies' '=' '{'
 			anomalies+=EvoAnomaly ( "," anomalies+=EvoAnomaly)*
 		'}'
 	'}'
@@ -38,9 +38,9 @@ EvoAnomaly returns EvoAnomaly:
 		'}' 
 	'}';
 EvoGuidanceElement:
-	'type' ':' type=EvoGuidanceType
-	('description' ':' description=STRING)
-	'action' ':' action=EvoFormula
+	'type' '=' type=EvoGuidanceType
+	('description' '=' description=STRING)
+	'action' '=' action=EvoFormula
 ;
 
 

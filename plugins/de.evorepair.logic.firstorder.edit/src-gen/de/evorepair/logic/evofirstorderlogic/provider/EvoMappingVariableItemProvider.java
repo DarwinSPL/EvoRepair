@@ -23,14 +23,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemProvider {
+public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemProvider
+{
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariableItemProvider(AdapterFactory adapterFactory) {
+	public EvoMappingVariableItemProvider(AdapterFactory adapterFactory)
+	{
 		super(adapterFactory);
 	}
 
@@ -41,8 +43,10 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+	{
+		if (itemPropertyDescriptors == null)
+		{
 			super.getPropertyDescriptors(object);
 
 			addMappingPropertyDescriptor(object);
@@ -57,7 +61,8 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingPropertyDescriptor(Object object) {
+	protected void addMappingPropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -79,7 +84,8 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContainingFeaturePropertyDescriptor(Object object) {
+	protected void addContainingFeaturePropertyDescriptor(Object object)
+	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -102,7 +108,8 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(Object object)
+	{
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoMappingVariable"));
 	}
 
@@ -113,7 +120,8 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object) {
+	public String getText(Object object)
+	{
 		String label = ((EvoMappingVariable)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EvoMappingVariable_type") :
@@ -129,10 +137,12 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification)
+	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoMappingVariable.class)) {
+		switch (notification.getFeatureID(EvoMappingVariable.class))
+		{
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE__MAPPING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -148,7 +158,8 @@ public class EvoMappingVariableItemProvider extends EvoPredefinedVariableItemPro
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

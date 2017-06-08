@@ -3,6 +3,8 @@
  */
 package de.evorepair.evolution.variable.evoVariableDsl;
 
+import de.evorepair.evolution.evovariable.EvoVariablePackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -84,6 +86,52 @@ public interface EvoVariableDslPackage extends EPackage
    */
   int MODEL_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.EvoGenericVariableImpl <em>Evo Generic Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoGenericVariableImpl
+   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getEvoGenericVariable()
+   * @generated
+   */
+  int EVO_GENERIC_VARIABLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVO_GENERIC_VARIABLE__NAME = EvoVariablePackage.EVO_VARIABLE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVO_GENERIC_VARIABLE__INDEX = EvoVariablePackage.EVO_VARIABLE__INDEX;
+
+  /**
+   * The feature id for the '<em><b>Variable Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVO_GENERIC_VARIABLE__VARIABLE_TYPE = EvoVariablePackage.EVO_VARIABLE__VARIABLE_TYPE;
+
+  /**
+   * The number of structural features of the '<em>Evo Generic Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVO_GENERIC_VARIABLE_FEATURE_COUNT = EvoVariablePackage.EVO_VARIABLE_FEATURE_COUNT + 0;
+
 
   /**
    * Returns the meta object for class '{@link de.evorepair.evolution.variable.evoVariableDsl.Model <em>Model</em>}'.
@@ -105,6 +153,16 @@ public interface EvoVariableDslPackage extends EPackage
    * @generated
    */
   EReference getModel_Variables();
+
+  /**
+   * Returns the meta object for class '{@link de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable <em>Evo Generic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Evo Generic Variable</em>'.
+   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable
+   * @generated
+   */
+  EClass getEvoGenericVariable();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -146,6 +204,16 @@ public interface EvoVariableDslPackage extends EPackage
      * @generated
      */
     EReference MODEL__VARIABLES = eINSTANCE.getModel_Variables();
+
+    /**
+     * The meta object literal for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.EvoGenericVariableImpl <em>Evo Generic Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoGenericVariableImpl
+     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getEvoGenericVariable()
+     * @generated
+     */
+    EClass EVO_GENERIC_VARIABLE = eINSTANCE.getEvoGenericVariable();
 
   }
 

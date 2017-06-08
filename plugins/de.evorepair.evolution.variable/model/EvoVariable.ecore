@@ -17,8 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableType" eType="#//EvoVariableType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureVariable" eSuperTypes="#//EvoVariable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
-        eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureType" eType="#//EvoFeatureVariableType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoGroupVariable" eSuperTypes="#//EvoVariable">
