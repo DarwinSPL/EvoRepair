@@ -2,13 +2,13 @@ grammar de.evorepair.evolution.variable.EvoVariableDsl with org.eclipse.xtext.co
 
 generate evoVariableDsl "http://www.evorepair.de/evolution/variable/EvoVariableDsl"
 
-import "http://darwinspl.de/evorepair/variable/0.1"
+import "http://darwinspl.de/evorepair/variable/0.2"
 
 Model:
 	variables+=EvoVariable*;
 	
 EvoVariable:
-	EvoGenericVariable | EvoFeatureVariable
+	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
 ;
 
 enum EvoVariableType: 
@@ -23,6 +23,18 @@ EvoGenericVariable:
 
 EvoFeatureVariable: 
 	'feature' name=ID ('.' featureType=EvoFeatureVariableType)?
+;
+
+EvoGroupVariable:
+	'group' name=ID
+;
+
+EvoSetVariable: 
+	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
+;
+
+EvoMappingVariable:
+	'mapping' name=ID
 ;
 
 enum EvoFeatureVariableType:

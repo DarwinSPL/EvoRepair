@@ -4,13 +4,16 @@
 package de.evorepair.evolution.variable.tests;
 
 import com.google.inject.Inject;
-import de.evorepair.evolution.variable.evoVariableDsl.Model;
 import de.evorepair.evolution.variable.tests.EvoVariableDslInjectorProvider;
+import org.eclipse.xtext.testing.InjectWith;
+import org.eclipse.xtext.testing.XtextRunner;
+import org.eclipse.xtext.testing.util.ParseHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/* @RunWith(/* name is null */)
-@InjectWith(EvoVariableDslInjectorProvider.class) */@SuppressWarnings("all")
+@RunWith(XtextRunner.class)
+@InjectWith(EvoVariableDslInjectorProvider.class)
+@SuppressWarnings("all")
 public class EvoVariableDslParsingTest {
   @Inject
   private /* ParseHelper<Model> */Object parseHelper;
@@ -18,8 +21,7 @@ public class EvoVariableDslParsingTest {
   @Test
   public void loadModel() {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe field EvoVariableDslParsingTest.parseHelper refers to the missing type ParseHelper"
-      + "\nparse cannot be resolved"
+      + "\nThe field EvoVariableDslParsingTest.parseHelper refers to the missing type Model"
       + "\neResource cannot be resolved"
       + "\nerrors cannot be resolved"
       + "\nisEmpty cannot be resolved");

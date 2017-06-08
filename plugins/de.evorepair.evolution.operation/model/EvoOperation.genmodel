@@ -9,13 +9,13 @@
   <foreignModel>EvoOperation.ecore</foreignModel>
   <genPackages prefix="EvoOperation" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
       ecorePackage="EvoOperation.ecore#/">
+    <genClasses ecoreClass="EvoOperation.ecore#//EvoOperationContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoOperation.ecore#//EvoOperationContainer/operations"/>
+    </genClasses>
     <genClasses ecoreClass="EvoOperation.ecore#//EvoOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoOperation.ecore#//EvoOperation/variables"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoOperation.ecore#//EvoOperation/date"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoOperation.ecore#//EvoOperation/name"/>
-    </genClasses>
-    <genClasses ecoreClass="EvoOperation.ecore#//EvoOperationContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoOperation.ecore#//EvoOperationContainer/operations"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

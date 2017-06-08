@@ -6,7 +6,7 @@ generate formuladsl "http://darwinspl.de/evorepair/logic/dsl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://hyvar-project.eu/feature/1.0" as hyfeature
 import "http://darwinspl.de/evorepair/logic/0.3" 
-import "http://darwinspl.de/evorepair/variable/0.1" as evovariables
+import "http://darwinspl.de/evorepair/variable/0.2" as evovariables
 import "http://darwinspl.de/evorepair/evolutionoperation/0.1" as evooperations
 
  
@@ -16,10 +16,6 @@ EvoFormula returns EvoFormula:
 	
 	'formula'
 	'{'
-		('test'
-			"mapsTo" testTrigger=[evooperations::EvoOperation|QualifiedName]	
-		)?
-		
 		'term' ':' term=EvoAbstractTerm ';'
 	'}';
 
@@ -27,42 +23,56 @@ QualifiedName returns ecore::EString:
 	ID ("." ID)*
 ;
 
-EvoAbstractTerm returns EvoAbstractTerm:
+EvoAbstractTerm:
 	EvoXOr;
+	
 	
 EvoXOr returns EvoAbstractTerm:
 	EvoOr({EvoXOr.leftElement=current} ('xor') rightElement=EvoOr)*;
 	
+	
 EvoOr returns EvoAbstractTerm:
 	EvoAnd({EvoOr.leftElement=current} ('or') rightElement=EvoAnd)*;
 	
+	
 EvoAnd returns EvoAbstractTerm:
 	EvoNot({EvoAnd.leftElement=current} ('and') rightElement=EvoNot)*;
+	
+	
 EvoNot returns EvoAbstractTerm:
 	({EvoNot} 'not' element=EvoEqual) | EvoEqual;
+	
+	
 EvoEqual returns EvoAbstractTerm:
 	EvoUnequal({EvoEqual.leftElement=current} ('=') rightElement=EvoUnequalEmpty)*;
+	
 	
 EvoUnequalEmpty returns EvoAbstractTerm:
 	EvoUnequal | EvoEmpty;
 
+
 EvoUnequal returns EvoAbstractTerm:
 	EvoImplication({EvoUnequal.leftElement=current} ('!=') rightElement=EvoImplicationEmpty)* ;
+
 
 EvoImplicationEmpty returns EvoAbstractTerm:
 	EvoImplication | EvoEmpty;
 
+
 EvoImplication returns EvoAbstractTerm:
 	EvoBiconditional({EvoImplication.leftElement=current} ('=>') rightElement=EvoBiconditionalEmpty)*;
 	
+	
 EvoBiconditionalEmpty returns EvoAbstractTerm:
-EvoBiconditional | EvoEmpty;
+	EvoBiconditional | EvoEmpty;
+		
 		
 EvoBiconditional returns EvoAbstractTerm:
 	EvoSetInclusion({EvoBiconditional.leftElement=current} ('<=>') rightElement=EvoSetInclusionEmpty)*;
 	
+	
 EvoSetInclusionEmpty returns EvoAbstractTerm:
-EvoSetInclusion | EvoEmpty;
+	EvoSetInclusion | EvoEmpty;
 
 
 EvoAbstractOneParameterTerm returns EvoAbstractTerm:
@@ -96,12 +106,13 @@ EvoSetCartesianProduct returns EvoAbstractTerm:
 EvoSetCardinality returns EvoAbstractTerm:
 	({EvoSetCardinality} '|' element=EvoAbstractOneParameterTerm '|' | EvoAbstractOneParameterTerm);
 
+
 EvoEmpty:
 	{EvoEmpty}"empty";
 
 
 EvoVariableTerm returns EvoVariableTerm:
-	variable=[evovariables::EvoVariable|QualifiedName];
+	variable=[evovariables::EvoVariable | QualifiedName];
 
 
 

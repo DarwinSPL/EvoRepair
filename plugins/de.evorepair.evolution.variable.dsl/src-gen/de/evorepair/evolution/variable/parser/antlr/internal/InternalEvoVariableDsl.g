@@ -130,6 +130,33 @@ ruleEvoVariable returns [EObject current=null]
 			$current = $this_EvoFeatureVariable_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEvoVariableAccess().getEvoGroupVariableParserRuleCall_2());
+		}
+		this_EvoGroupVariable_2=ruleEvoGroupVariable
+		{
+			$current = $this_EvoGroupVariable_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEvoVariableAccess().getEvoSetVariableParserRuleCall_3());
+		}
+		this_EvoSetVariable_3=ruleEvoSetVariable
+		{
+			$current = $this_EvoSetVariable_3.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEvoVariableAccess().getEvoMappingVariableParserRuleCall_4());
+		}
+		this_EvoMappingVariable_4=ruleEvoMappingVariable
+		{
+			$current = $this_EvoMappingVariable_4.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -256,6 +283,171 @@ ruleEvoFeatureVariable returns [EObject current=null]
 				)
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleEvoGroupVariable
+entryRuleEvoGroupVariable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoGroupVariableRule()); }
+	iv_ruleEvoGroupVariable=ruleEvoGroupVariable
+	{ $current=$iv_ruleEvoGroupVariable.current; }
+	EOF;
+
+// Rule EvoGroupVariable
+ruleEvoGroupVariable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='group'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEvoGroupVariableAccess().getGroupKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getEvoGroupVariableAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvoGroupVariableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEvoSetVariable
+entryRuleEvoSetVariable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoSetVariableRule()); }
+	iv_ruleEvoSetVariable=ruleEvoSetVariable
+	{ $current=$iv_ruleEvoSetVariable.current; }
+	EOF;
+
+// Rule EvoSetVariable
+ruleEvoSetVariable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='set'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEvoSetVariableAccess().getSetKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getEvoSetVariableAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvoSetVariableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEvoSetVariableAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEvoSetVariableRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableCrossReference_2_1_0());
+					}
+				)
+			)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getEvoSetVariableAccess().getCommaKeyword_2_2_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getEvoSetVariableRule());
+							}
+						}
+						otherlv_5=RULE_ID
+						{
+							newLeafNode(otherlv_5, grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableCrossReference_2_2_1_0());
+						}
+					)
+				)
+			)
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getEvoSetVariableAccess().getRightParenthesisKeyword_2_3());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleEvoMappingVariable
+entryRuleEvoMappingVariable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoMappingVariableRule()); }
+	iv_ruleEvoMappingVariable=ruleEvoMappingVariable
+	{ $current=$iv_ruleEvoMappingVariable.current; }
+	EOF;
+
+// Rule EvoMappingVariable
+ruleEvoMappingVariable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='mapping'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEvoMappingVariableAccess().getMappingKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getEvoMappingVariableAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvoMappingVariableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
 	)
 ;
 

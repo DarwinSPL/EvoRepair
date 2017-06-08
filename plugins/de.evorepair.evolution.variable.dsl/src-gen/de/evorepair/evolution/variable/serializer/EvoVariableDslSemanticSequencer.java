@@ -5,6 +5,9 @@ package de.evorepair.evolution.variable.serializer;
 
 import com.google.inject.Inject;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
+import de.evorepair.evolution.evovariable.EvoGroupVariable;
+import de.evorepair.evolution.evovariable.EvoMappingVariable;
+import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariablePackage;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage;
@@ -47,6 +50,15 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 			case EvoVariablePackage.EVO_FEATURE_VARIABLE:
 				sequence_EvoFeatureVariable(context, (EvoFeatureVariable) semanticObject); 
 				return; 
+			case EvoVariablePackage.EVO_GROUP_VARIABLE:
+				sequence_EvoGroupVariable(context, (EvoGroupVariable) semanticObject); 
+				return; 
+			case EvoVariablePackage.EVO_MAPPING_VARIABLE:
+				sequence_EvoMappingVariable(context, (EvoMappingVariable) semanticObject); 
+				return; 
+			case EvoVariablePackage.EVO_SET_VARIABLE:
+				sequence_EvoSetVariable(context, (EvoSetVariable) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -84,6 +96,57 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 		feeder.accept(grammarAccess.getEvoGenericVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getEvoGenericVariableAccess().getVariableTypeEvoVariableTypeEnumRuleCall_2_0(), semanticObject.getVariableType());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EvoVariable returns EvoGroupVariable
+	 *     EvoGroupVariable returns EvoGroupVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_EvoGroupVariable(ISerializationContext context, EvoGroupVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEvoGroupVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EvoVariable returns EvoMappingVariable
+	 *     EvoMappingVariable returns EvoMappingVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_EvoMappingVariable(ISerializationContext context, EvoMappingVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEvoMappingVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EvoVariable returns EvoSetVariable
+	 *     EvoSetVariable returns EvoSetVariable
+	 *
+	 * Constraint:
+	 *     (name=ID (elements+=[EvoVariable|ID] elements+=[EvoVariable|ID])?)
+	 */
+	protected void sequence_EvoSetVariable(ISerializationContext context, EvoSetVariable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

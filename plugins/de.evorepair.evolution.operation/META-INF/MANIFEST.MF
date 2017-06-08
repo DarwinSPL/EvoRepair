@@ -10,11 +10,16 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.evolution.evooperation,
  de.evorepair.evolution.evooperation.impl,
  de.evorepair.evolution.evooperation.util
+Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  eu.hyvar.feature.data;visibility:=reexport,
  eu.hyvar.evolution;visibility:=reexport,
- de.evorepair.evolution.variable;visibility:=reexport,
+ de.evorepair.evolution.variable;bundle-version="1.0.0";visibility:=reexport,
  eu.hyvar.feature;visibility:=reexport,
- de.evorepair.evolution.variable.dsl;bundle-version="1.0.0"
-Bundle-ActivationPolicy: lazy
+ eu.hyvar.feature.mapping;visibility:=reexport,
+ eu.hyvar.feature.expression;visibility:=reexport,
+ org.deltaecore.core.decore;visibility:=reexport,
+ eu.hyvar.context.information;visibility:=reexport,
+ org.deltaecore.core.decorebase;visibility:=reexport,
+ org.deltaecore.core.decoredialect;visibility:=reexport

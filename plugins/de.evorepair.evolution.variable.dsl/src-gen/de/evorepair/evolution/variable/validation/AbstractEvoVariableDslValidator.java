@@ -14,7 +14,7 @@ public abstract class AbstractEvoVariableDslValidator extends AbstractDeclarativ
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage.eINSTANCE);
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/variable/0.1"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/variable/0.2"));
 		return result;
 	}
 	

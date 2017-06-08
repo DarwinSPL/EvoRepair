@@ -14,6 +14,8 @@
   <semanticResources>platform:/resource/org.deltaecore.core.decoredialect/model/DEcoreDialect.ecore</semanticResources>
   <semanticResources>platform:/resource/eu.hyvar.feature.configuration/model/Configuration.ecore</semanticResources>
   <semanticResources>platform:/resource/de.evorepair.evolution.variables/model/EvoVariables.ecore</semanticResources>
+  <semanticResources>platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.ecore</semanticResources>
+  <semanticResources>platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.ecore</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_KpufQC2yEeeVDsiMukgMnw">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_LxGXAC2yEeeVDsiMukgMnw" name="EvoFirstOrderLogic class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_LxGXAS2yEeeVDsiMukgMnw" source="DANNOTATION_CUSTOMIZATION_KEY">
@@ -294,6 +296,10 @@
           <children xmi:type="notation:Node" xmi:id="_J158AC26EeeVDsiMukgMnw" type="2003" element="_J1o2QC26EeeVDsiMukgMnw">
             <children xmi:type="notation:Node" xmi:id="_J16jEC26EeeVDsiMukgMnw" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_J16jES26EeeVDsiMukgMnw" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_OpeEQExcEee5uuF7_iUBZg" type="3010" element="_OomhkExcEee5uuF7_iUBZg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_OpeEQUxcEee5uuF7_iUBZg" fontName="Open Sans" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_OpeEQkxcEee5uuF7_iUBZg"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_J16jEi26EeeVDsiMukgMnw"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_J16jEy26EeeVDsiMukgMnw"/>
             </children>
@@ -2042,6 +2048,14 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OomhkExcEee5uuF7_iUBZg" name="id : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="EvoFirstOrder.ecore#//EvoVariableTerm/id"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="EvoFirstOrder.ecore#//EvoVariableTerm/id"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OooWwExcEee5uuF7_iUBZg" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_NKEbcC26EeeVDsiMukgMnw" sourceNode="_J1o2QC26EeeVDsiMukgMnw" targetNode="_MONw0C2yEeeVDsiMukgMnw">
         <target xmi:type="ecore:EClass" href="EvoFirstOrder.ecore#//EvoVariableTerm"/>

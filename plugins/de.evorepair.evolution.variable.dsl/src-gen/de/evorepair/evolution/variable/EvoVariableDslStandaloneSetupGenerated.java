@@ -38,5 +38,8 @@ public class EvoVariableDslStandaloneSetupGenerated implements ISetup {
 		
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("evovariable", resourceFactory);
 		IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("evovariable", serviceProvider);
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.evorepair.de/evolution/variable/EvoVariableDsl")) {
+			EPackage.Registry.INSTANCE.put("http://www.evorepair.de/evolution/variable/EvoVariableDsl", EvoVariableDslPackage.eINSTANCE);
+		}
 	}
 }

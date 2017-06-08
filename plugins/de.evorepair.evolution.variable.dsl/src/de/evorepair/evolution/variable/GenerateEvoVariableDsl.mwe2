@@ -43,10 +43,14 @@ Workflow {
 		language = StandardLanguage {
 			name = "de.evorepair.evolution.variable.EvoVariableDsl"
 			fileExtensions = "evovariable"
+			
 			referencedResource = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
-
+			
+			fragment = ecore.EMFGeneratorFragment2 auto-inject {
+			}
+			
 			formatter = {
 				generateStub = true
 			}

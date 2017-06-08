@@ -8,6 +8,7 @@ import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.EnumLiteralDeclaration;
 import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
@@ -45,12 +46,15 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cEvoGenericVariableParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEvoFeatureVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEvoGroupVariableParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEvoSetVariableParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cEvoMappingVariableParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//EvoVariable:
-		//	EvoGenericVariable | EvoFeatureVariable;
+		//	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EvoGenericVariable | EvoFeatureVariable
+		//EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//EvoGenericVariable
@@ -58,6 +62,15 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EvoFeatureVariable
 		public RuleCall getEvoFeatureVariableParserRuleCall_1() { return cEvoFeatureVariableParserRuleCall_1; }
+		
+		//EvoGroupVariable
+		public RuleCall getEvoGroupVariableParserRuleCall_2() { return cEvoGroupVariableParserRuleCall_2; }
+		
+		//EvoSetVariable
+		public RuleCall getEvoSetVariableParserRuleCall_3() { return cEvoSetVariableParserRuleCall_3; }
+		
+		//EvoMappingVariable
+		public RuleCall getEvoMappingVariableParserRuleCall_4() { return cEvoMappingVariableParserRuleCall_4; }
 	}
 	public class EvoGenericVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoGenericVariable");
@@ -128,6 +141,119 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EvoFeatureVariableType
 		public RuleCall getFeatureTypeEvoFeatureVariableTypeEnumRuleCall_2_1_0() { return cFeatureTypeEvoFeatureVariableTypeEnumRuleCall_2_1_0; }
+	}
+	public class EvoGroupVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoGroupVariable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGroupKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//EvoGroupVariable:
+		//	'group' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'group' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'group'
+		public Keyword getGroupKeyword_0() { return cGroupKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class EvoSetVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoSetVariable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cElementsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cElementsEvoVariableCrossReference_2_1_0 = (CrossReference)cElementsAssignment_2_1.eContents().get(0);
+		private final RuleCall cElementsEvoVariableIDTerminalRuleCall_2_1_0_1 = (RuleCall)cElementsEvoVariableCrossReference_2_1_0.eContents().get(1);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cElementsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final CrossReference cElementsEvoVariableCrossReference_2_2_1_0 = (CrossReference)cElementsAssignment_2_2_1.eContents().get(0);
+		private final RuleCall cElementsEvoVariableIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cElementsEvoVariableCrossReference_2_2_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//EvoSetVariable:
+		//	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//'set'
+		public Keyword getSetKeyword_0() { return cSetKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//elements+=[EvoVariable]
+		public Assignment getElementsAssignment_2_1() { return cElementsAssignment_2_1; }
+		
+		//[EvoVariable]
+		public CrossReference getElementsEvoVariableCrossReference_2_1_0() { return cElementsEvoVariableCrossReference_2_1_0; }
+		
+		//ID
+		public RuleCall getElementsEvoVariableIDTerminalRuleCall_2_1_0_1() { return cElementsEvoVariableIDTerminalRuleCall_2_1_0_1; }
+		
+		//',' elements+=[EvoVariable]
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//elements+=[EvoVariable]
+		public Assignment getElementsAssignment_2_2_1() { return cElementsAssignment_2_2_1; }
+		
+		//[EvoVariable]
+		public CrossReference getElementsEvoVariableCrossReference_2_2_1_0() { return cElementsEvoVariableCrossReference_2_2_1_0; }
+		
+		//ID
+		public RuleCall getElementsEvoVariableIDTerminalRuleCall_2_2_1_0_1() { return cElementsEvoVariableIDTerminalRuleCall_2_2_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+	}
+	public class EvoMappingVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoMappingVariable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//EvoMappingVariable:
+		//	'mapping' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'mapping' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'mapping'
+		public Keyword getMappingKeyword_0() { return cMappingKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	
 	public class EvoVariableTypeElements extends AbstractEnumRuleElementFinder {
@@ -210,6 +336,9 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final EvoVariableTypeElements eEvoVariableType;
 	private final EvoGenericVariableElements pEvoGenericVariable;
 	private final EvoFeatureVariableElements pEvoFeatureVariable;
+	private final EvoGroupVariableElements pEvoGroupVariable;
+	private final EvoSetVariableElements pEvoSetVariable;
+	private final EvoMappingVariableElements pEvoMappingVariable;
 	private final EvoFeatureVariableTypeElements eEvoFeatureVariableType;
 	
 	private final Grammar grammar;
@@ -226,6 +355,9 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.eEvoVariableType = new EvoVariableTypeElements();
 		this.pEvoGenericVariable = new EvoGenericVariableElements();
 		this.pEvoFeatureVariable = new EvoFeatureVariableElements();
+		this.pEvoGroupVariable = new EvoGroupVariableElements();
+		this.pEvoSetVariable = new EvoSetVariableElements();
+		this.pEvoMappingVariable = new EvoMappingVariableElements();
 		this.eEvoFeatureVariableType = new EvoFeatureVariableTypeElements();
 	}
 	
@@ -267,7 +399,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoVariable:
-	//	EvoGenericVariable | EvoFeatureVariable;
+	//	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 	public EvoVariableElements getEvoVariableAccess() {
 		return pEvoVariable;
 	}
@@ -306,6 +438,36 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEvoFeatureVariableRule() {
 		return getEvoFeatureVariableAccess().getRule();
+	}
+	
+	//EvoGroupVariable:
+	//	'group' name=ID;
+	public EvoGroupVariableElements getEvoGroupVariableAccess() {
+		return pEvoGroupVariable;
+	}
+	
+	public ParserRule getEvoGroupVariableRule() {
+		return getEvoGroupVariableAccess().getRule();
+	}
+	
+	//EvoSetVariable:
+	//	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
+	public EvoSetVariableElements getEvoSetVariableAccess() {
+		return pEvoSetVariable;
+	}
+	
+	public ParserRule getEvoSetVariableRule() {
+		return getEvoSetVariableAccess().getRule();
+	}
+	
+	//EvoMappingVariable:
+	//	'mapping' name=ID;
+	public EvoMappingVariableElements getEvoMappingVariableAccess() {
+		return pEvoMappingVariable;
+	}
+	
+	public ParserRule getEvoMappingVariableRule() {
+		return getEvoMappingVariableAccess().getRule();
 	}
 	
 	//enum EvoFeatureVariableType:
