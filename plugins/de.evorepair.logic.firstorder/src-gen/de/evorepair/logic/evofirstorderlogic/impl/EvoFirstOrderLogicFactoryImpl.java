@@ -86,22 +86,23 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 			case EvoFirstOrderLogicPackage.EVO_UNIQUE_EXISTS: return createEvoUniqueExists();
 			case EvoFirstOrderLogicPackage.EVO_FORMULA: return createEvoFormula();
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM: return createEvoVariableTerm();
+			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM: return createEvoApplicationConstraintTerm();
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE: return createEvoApplicationConstraintVariable();
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE: return createEvoFeatureModelConstraintVariable();
 			case EvoFirstOrderLogicPackage.EVO_PREDEFINED_VARIABLE: return createEvoPredefinedVariable();
 			case EvoFirstOrderLogicPackage.EVO_ALL_FEATURES_VARIABLE: return createEvoAllFeaturesVariable();
-			case EvoFirstOrderLogicPackage.EVO_ALL_VALID_CONFIGURATIONS_VARIABLE: return createEvoAllValidConfigurationsVariable();
 			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE: return createEvoAllMappingsVariable();
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE: return createEvoMappingAssociatedAssetsVariable();
 			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE: return createEvoMappingVariable();
 			case EvoFirstOrderLogicPackage.EVO_INVOLVED_FEATURE_VARIABLE: return createEvoInvolvedFeatureVariable();
 			case EvoFirstOrderLogicPackage.EVO_REQUIREMENT_VARIABLE: return createEvoRequirementVariable();
-			case EvoFirstOrderLogicPackage.EVO_EMPTY: return createEvoEmpty();
+			case EvoFirstOrderLogicPackage.EVO_SIZE: return createEvoSize();
 			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE: return createEvoGroupType();
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE: return createEvoFeatureType();
 			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM: return createEvoEvolutionTerm();
 			case EvoFirstOrderLogicPackage.EVO_SIBLINGS: return createEvoSiblings();
 			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE: return createEvoSatisfiable();
+			case EvoFirstOrderLogicPackage.EVO_SET_TERM: return createEvoSetTerm();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -354,6 +355,17 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EvoApplicationConstraintTerm createEvoApplicationConstraintTerm()
+	{
+		EvoApplicationConstraintTermImpl evoApplicationConstraintTerm = new EvoApplicationConstraintTermImpl();
+		return evoApplicationConstraintTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EvoApplicationConstraintVariable createEvoApplicationConstraintVariable()
 	{
 		EvoApplicationConstraintVariableImpl evoApplicationConstraintVariable = new EvoApplicationConstraintVariableImpl();
@@ -391,17 +403,6 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	{
 		EvoAllFeaturesVariableImpl evoAllFeaturesVariable = new EvoAllFeaturesVariableImpl();
 		return evoAllFeaturesVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoAllValidConfigurationsVariable createEvoAllValidConfigurationsVariable()
-	{
-		EvoAllValidConfigurationsVariableImpl evoAllValidConfigurationsVariable = new EvoAllValidConfigurationsVariableImpl();
-		return evoAllValidConfigurationsVariable;
 	}
 
 	/**
@@ -464,10 +465,10 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEmpty createEvoEmpty()
+	public EvoSize createEvoSize()
 	{
-		EvoEmptyImpl evoEmpty = new EvoEmptyImpl();
-		return evoEmpty;
+		EvoSizeImpl evoSize = new EvoSizeImpl();
+		return evoSize;
 	}
 
 	/**
@@ -523,6 +524,17 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	{
 		EvoSatisfiableImpl evoSatisfiable = new EvoSatisfiableImpl();
 		return evoSatisfiable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvoSetTerm createEvoSetTerm()
+	{
+		EvoSetTermImpl evoSetTerm = new EvoSetTermImpl();
+		return evoSetTerm;
 	}
 
 	/**

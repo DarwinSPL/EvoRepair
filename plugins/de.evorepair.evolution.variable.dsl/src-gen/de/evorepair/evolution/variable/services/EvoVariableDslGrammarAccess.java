@@ -44,21 +44,21 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class EvoVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoVariable");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cEvoGenericVariableParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEvoConfigurationVariableParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEvoFeatureVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cEvoGroupVariableParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cEvoSetVariableParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cEvoMappingVariableParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//EvoVariable:
-		//	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
+		//	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
+		//EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//EvoGenericVariable
-		public RuleCall getEvoGenericVariableParserRuleCall_0() { return cEvoGenericVariableParserRuleCall_0; }
+		//EvoConfigurationVariable
+		public RuleCall getEvoConfigurationVariableParserRuleCall_0() { return cEvoConfigurationVariableParserRuleCall_0; }
 		
 		//EvoFeatureVariable
 		public RuleCall getEvoFeatureVariableParserRuleCall_1() { return cEvoFeatureVariableParserRuleCall_1; }
@@ -71,37 +71,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EvoMappingVariable
 		public RuleCall getEvoMappingVariableParserRuleCall_4() { return cEvoMappingVariableParserRuleCall_4; }
-	}
-	public class EvoGenericVariableElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoGenericVariable");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cVariableTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cVariableTypeEvoVariableTypeEnumRuleCall_2_0 = (RuleCall)cVariableTypeAssignment_2.eContents().get(0);
-		
-		//EvoGenericVariable:
-		//	'var' name=ID variableType=EvoVariableType;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'var' name=ID variableType=EvoVariableType
-		public Group getGroup() { return cGroup; }
-		
-		//'var'
-		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//variableType=EvoVariableType
-		public Assignment getVariableTypeAssignment_2() { return cVariableTypeAssignment_2; }
-		
-		//EvoVariableType
-		public RuleCall getVariableTypeEvoVariableTypeEnumRuleCall_2_0() { return cVariableTypeEvoVariableTypeEnumRuleCall_2_0; }
 	}
 	public class EvoFeatureVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureVariable");
@@ -255,44 +224,30 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
-	
-	public class EvoVariableTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoVariableType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cEvoIdentifierEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cEvoIdentifierIdentKeyword_0_0 = (Keyword)cEvoIdentifierEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cEvoSourceEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cEvoSourcePreKeyword_1_0 = (Keyword)cEvoSourceEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cEvoTargetEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cEvoTargetPostKeyword_2_0 = (Keyword)cEvoTargetEnumLiteralDeclaration_2.eContents().get(0);
+	public class EvoConfigurationVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoConfigurationVariable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConfigurationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//enum EvoVariableType:
-		//	EvoIdentifier='@ident' |
-		//	EvoSource='@pre' |
-		//	EvoTarget='@post';
-		public EnumRule getRule() { return rule; }
+		//EvoConfigurationVariable:
+		//	'configuration' name=ID;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//EvoIdentifier='@ident' | EvoSource='@pre' | EvoTarget='@post'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'configuration' name=ID
+		public Group getGroup() { return cGroup; }
 		
-		//EvoIdentifier='@ident'
-		public EnumLiteralDeclaration getEvoIdentifierEnumLiteralDeclaration_0() { return cEvoIdentifierEnumLiteralDeclaration_0; }
+		//'configuration'
+		public Keyword getConfigurationKeyword_0() { return cConfigurationKeyword_0; }
 		
-		//'@ident'
-		public Keyword getEvoIdentifierIdentKeyword_0_0() { return cEvoIdentifierIdentKeyword_0_0; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//EvoSource='@pre'
-		public EnumLiteralDeclaration getEvoSourceEnumLiteralDeclaration_1() { return cEvoSourceEnumLiteralDeclaration_1; }
-		
-		//'@pre'
-		public Keyword getEvoSourcePreKeyword_1_0() { return cEvoSourcePreKeyword_1_0; }
-		
-		//EvoTarget='@post'
-		public EnumLiteralDeclaration getEvoTargetEnumLiteralDeclaration_2() { return cEvoTargetEnumLiteralDeclaration_2; }
-		
-		//'@post'
-		public Keyword getEvoTargetPostKeyword_2_0() { return cEvoTargetPostKeyword_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
+	
 	public class EvoFeatureVariableTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureVariableType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -333,12 +288,11 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final EvoVariableElements pEvoVariable;
-	private final EvoVariableTypeElements eEvoVariableType;
-	private final EvoGenericVariableElements pEvoGenericVariable;
 	private final EvoFeatureVariableElements pEvoFeatureVariable;
 	private final EvoGroupVariableElements pEvoGroupVariable;
 	private final EvoSetVariableElements pEvoSetVariable;
 	private final EvoMappingVariableElements pEvoMappingVariable;
+	private final EvoConfigurationVariableElements pEvoConfigurationVariable;
 	private final EvoFeatureVariableTypeElements eEvoFeatureVariableType;
 	
 	private final Grammar grammar;
@@ -352,12 +306,11 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pEvoVariable = new EvoVariableElements();
-		this.eEvoVariableType = new EvoVariableTypeElements();
-		this.pEvoGenericVariable = new EvoGenericVariableElements();
 		this.pEvoFeatureVariable = new EvoFeatureVariableElements();
 		this.pEvoGroupVariable = new EvoGroupVariableElements();
 		this.pEvoSetVariable = new EvoSetVariableElements();
 		this.pEvoMappingVariable = new EvoMappingVariableElements();
+		this.pEvoConfigurationVariable = new EvoConfigurationVariableElements();
 		this.eEvoFeatureVariableType = new EvoFeatureVariableTypeElements();
 	}
 	
@@ -399,35 +352,13 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoVariable:
-	//	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
+	//	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 	public EvoVariableElements getEvoVariableAccess() {
 		return pEvoVariable;
 	}
 	
 	public ParserRule getEvoVariableRule() {
 		return getEvoVariableAccess().getRule();
-	}
-	
-	//enum EvoVariableType:
-	//	EvoIdentifier='@ident' |
-	//	EvoSource='@pre' |
-	//	EvoTarget='@post';
-	public EvoVariableTypeElements getEvoVariableTypeAccess() {
-		return eEvoVariableType;
-	}
-	
-	public EnumRule getEvoVariableTypeRule() {
-		return getEvoVariableTypeAccess().getRule();
-	}
-	
-	//EvoGenericVariable:
-	//	'var' name=ID variableType=EvoVariableType;
-	public EvoGenericVariableElements getEvoGenericVariableAccess() {
-		return pEvoGenericVariable;
-	}
-	
-	public ParserRule getEvoGenericVariableRule() {
-		return getEvoGenericVariableAccess().getRule();
 	}
 	
 	//EvoFeatureVariable:
@@ -468,6 +399,16 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEvoMappingVariableRule() {
 		return getEvoMappingVariableAccess().getRule();
+	}
+	
+	//EvoConfigurationVariable:
+	//	'configuration' name=ID;
+	public EvoConfigurationVariableElements getEvoConfigurationVariableAccess() {
+		return pEvoConfigurationVariable;
+	}
+	
+	public ParserRule getEvoConfigurationVariableRule() {
+		return getEvoConfigurationVariableAccess().getRule();
 	}
 	
 	//enum EvoFeatureVariableType:

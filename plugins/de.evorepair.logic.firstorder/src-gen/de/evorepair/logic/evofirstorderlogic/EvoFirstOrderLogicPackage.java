@@ -559,22 +559,13 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_FORMULA_VARIABLE__INDEX = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_VARIABLE__VARIABLE_TYPE = EVO_ABSTRACT_TERM_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Evo Formula Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_FORMULA_VARIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 3;
+	int EVO_FORMULA_VARIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Evo Formula Variable</em>' class.
@@ -612,15 +603,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_FORMULA_SET_VARIABLE__INDEX = EvoVariablePackage.EVO_SET_VARIABLE__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE__VARIABLE_TYPE = EvoVariablePackage.EVO_SET_VARIABLE__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -1341,13 +1323,13 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_VARIABLE_TERM__VARIABLE = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_VARIABLE_TERM__ID = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
+	int EVO_VARIABLE_TERM__TYPE = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Evo Variable Term</em>' class.
@@ -1366,6 +1348,43 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_VARIABLE_TERM_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoApplicationConstraintTermImpl <em>Evo Application Constraint Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoApplicationConstraintTermImpl
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoApplicationConstraintTerm()
+	 * @generated
+	 */
+	int EVO_APPLICATION_CONSTRAINT_TERM = 29;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Evo Application Constraint Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_APPLICATION_CONSTRAINT_TERM_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Evo Application Constraint Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_APPLICATION_CONSTRAINT_TERM_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoEvolutionTermImpl <em>Evo Evolution Term</em>}' class.
@@ -1394,15 +1413,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_EVOLUTION_TERM__INDEX = EvoVariablePackage.EVO_VARIABLE__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_EVOLUTION_TERM__VARIABLE_TYPE = EvoVariablePackage.EVO_VARIABLE__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1439,7 +1449,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoApplicationConstraintVariable()
 	 * @generated
 	 */
-	int EVO_APPLICATION_CONSTRAINT_VARIABLE = 29;
+	int EVO_APPLICATION_CONSTRAINT_VARIABLE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1458,15 +1468,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_APPLICATION_CONSTRAINT_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_APPLICATION_CONSTRAINT_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1512,7 +1513,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoFeatureModelConstraintVariable()
 	 * @generated
 	 */
-	int EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE = 30;
+	int EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1531,15 +1532,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1576,7 +1568,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoPredefinedVariable()
 	 * @generated
 	 */
-	int EVO_PREDEFINED_VARIABLE = 31;
+	int EVO_PREDEFINED_VARIABLE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1595,15 +1587,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_PREDEFINED_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_PREDEFINED_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1640,7 +1623,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoAllFeaturesVariable()
 	 * @generated
 	 */
-	int EVO_ALL_FEATURES_VARIABLE = 32;
+	int EVO_ALL_FEATURES_VARIABLE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1659,15 +1642,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_ALL_FEATURES_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_ALL_FEATURES_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1697,43 +1671,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_ALL_FEATURES_VARIABLE_OPERATION_COUNT = EVO_EVOLUTION_TERM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllValidConfigurationsVariableImpl <em>Evo All Valid Configurations Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoAllValidConfigurationsVariableImpl
-	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoAllValidConfigurationsVariable()
-	 * @generated
-	 */
-	int EVO_ALL_VALID_CONFIGURATIONS_VARIABLE = 33;
-
-	/**
-	 * The feature id for the '<em><b>Feature Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Evo All Valid Configurations Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_ALL_VALID_CONFIGURATIONS_VARIABLE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Evo All Valid Configurations Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_ALL_VALID_CONFIGURATIONS_VARIABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllMappingsVariableImpl <em>Evo All Mappings Variable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1744,13 +1681,13 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_ALL_MAPPINGS_VARIABLE = 34;
 
 	/**
-	 * The feature id for the '<em><b>Associated Mappings</b></em>' reference list.
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS = 0;
+	int EVO_ALL_MAPPINGS_VARIABLE__VARIABLES = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Evo All Mappings Variable</em>' class.
@@ -1759,7 +1696,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_ALL_MAPPINGS_VARIABLE_FEATURE_COUNT = 1;
+	int EVO_ALL_MAPPINGS_VARIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Evo All Mappings Variable</em>' class.
@@ -1768,7 +1705,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_ALL_MAPPINGS_VARIABLE_OPERATION_COUNT = 0;
+	int EVO_ALL_MAPPINGS_VARIABLE_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoMappingAssociatedAssetsVariableImpl <em>Evo Mapping Associated Assets Variable</em>}' class.
@@ -1797,15 +1734,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1870,15 +1798,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_MAPPING_VARIABLE__INDEX = EVO_PREDEFINED_VARIABLE__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_MAPPING_VARIABLE__VARIABLE_TYPE = EVO_PREDEFINED_VARIABLE__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -1954,15 +1873,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_INVOLVED_FEATURE_VARIABLE__INDEX = EVO_EVOLUTION_TERM__INDEX;
 
 	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_INVOLVED_FEATURE_VARIABLE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
-
-	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2018,15 +1928,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_REQUIREMENT_VARIABLE__INDEX = EVO_PREDEFINED_VARIABLE__INDEX;
 
 	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_REQUIREMENT_VARIABLE__VARIABLE_TYPE = EVO_PREDEFINED_VARIABLE__VARIABLE_TYPE;
-
-	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2054,32 +1955,41 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_REQUIREMENT_VARIABLE_OPERATION_COUNT = EVO_PREDEFINED_VARIABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoEmptyImpl <em>Evo Empty</em>}' class.
+	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSizeImpl <em>Evo Size</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoEmptyImpl
-	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoEmpty()
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoSizeImpl
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoSize()
 	 * @generated
 	 */
-	int EVO_EMPTY = 39;
+	int EVO_SIZE = 39;
 
 	/**
-	 * The number of structural features of the '<em>Evo Empty</em>' class.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_EMPTY_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
+	int EVO_SIZE__SIZE = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Evo Empty</em>' class.
+	 * The number of structural features of the '<em>Evo Size</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_EMPTY_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
+	int EVO_SIZE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Evo Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_SIZE_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoGroupTypeImpl <em>Evo Group Type</em>}' class.
@@ -2110,15 +2020,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_GROUP_TYPE__INDEX = EVO_EVOLUTION_TERM__INDEX;
 
 	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_GROUP_TYPE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
-
-	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2137,13 +2038,22 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_GROUP_TYPE__TYPE = EVO_EVOLUTION_TERM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_GROUP_TYPE__VARIABLES = EVO_EVOLUTION_TERM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Evo Group Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_GROUP_TYPE_FEATURE_COUNT = EVO_EVOLUTION_TERM_FEATURE_COUNT + 1;
+	int EVO_GROUP_TYPE_FEATURE_COUNT = EVO_EVOLUTION_TERM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Evo Group Type</em>' class.
@@ -2165,49 +2075,22 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_FEATURE_TYPE = 41;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FEATURE_TYPE__NAME = EVO_EVOLUTION_TERM__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FEATURE_TYPE__INDEX = EVO_EVOLUTION_TERM__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FEATURE_TYPE__VARIABLE_TYPE = EVO_EVOLUTION_TERM__VARIABLE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FEATURE_TYPE__AFTER_EVOLUTION = EVO_EVOLUTION_TERM__AFTER_EVOLUTION;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_FEATURE_TYPE__TYPE = EVO_EVOLUTION_TERM_FEATURE_COUNT + 0;
+	int EVO_FEATURE_TYPE__TYPE = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_FEATURE_TYPE__VARIABLES = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Evo Feature Type</em>' class.
@@ -2216,7 +2099,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_FEATURE_TYPE_FEATURE_COUNT = EVO_EVOLUTION_TERM_FEATURE_COUNT + 1;
+	int EVO_FEATURE_TYPE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Evo Feature Type</em>' class.
@@ -2225,7 +2108,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_FEATURE_TYPE_OPERATION_COUNT = EVO_EVOLUTION_TERM_OPERATION_COUNT + 0;
+	int EVO_FEATURE_TYPE_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSiblingsImpl <em>Evo Siblings</em>}' class.
@@ -2254,15 +2137,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_SIBLINGS__INDEX = EVO_PREDEFINED_VARIABLE__INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Variable Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_SIBLINGS__VARIABLE_TYPE = EVO_PREDEFINED_VARIABLE__VARIABLE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>After Evolution</b></em>' attribute.
@@ -2311,13 +2185,13 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_SATISFIABLE = 44;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_SATISFIABLE__ELEMENT = EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT;
+	int EVO_SATISFIABLE__VARIABLES = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Evo Satisfiable</em>' class.
@@ -2326,7 +2200,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_SATISFIABLE_FEATURE_COUNT = EVO_ABSTRACT_ONE_PARAMETER_TERM_FEATURE_COUNT + 0;
+	int EVO_SATISFIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Evo Satisfiable</em>' class.
@@ -2335,7 +2209,53 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_SATISFIABLE_OPERATION_COUNT = EVO_ABSTRACT_ONE_PARAMETER_TERM_OPERATION_COUNT + 0;
+	int EVO_SATISFIABLE_OPERATION_COUNT = EVO_ABSTRACT_TERM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSetTermImpl <em>Evo Set Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoSetTermImpl
+	 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoSetTerm()
+	 * @generated
+	 */
+	int EVO_SET_TERM = 45;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_SET_TERM__ELEMENT = EVO_ABSTRACT_ONE_PARAMETER_TERM__ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_SET_TERM__VARIABLES = EVO_ABSTRACT_ONE_PARAMETER_TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Evo Set Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_SET_TERM_FEATURE_COUNT = EVO_ABSTRACT_ONE_PARAMETER_TERM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Evo Set Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVO_SET_TERM_OPERATION_COUNT = EVO_ABSTRACT_ONE_PARAMETER_TERM_OPERATION_COUNT + 0;
 
 
 	/**
@@ -2717,15 +2637,36 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EReference getEvoVariableTerm_Variable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getId()
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getType()
 	 * @see #getEvoVariableTerm()
 	 * @generated
 	 */
-	EAttribute getEvoVariableTerm_Id();
+	EAttribute getEvoVariableTerm_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm <em>Evo Application Constraint Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Evo Application Constraint Term</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm
+	 * @generated
+	 */
+	EClass getEvoApplicationConstraintTerm();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm#getVariable()
+	 * @see #getEvoApplicationConstraintTerm()
+	 * @generated
+	 */
+	EReference getEvoApplicationConstraintTerm_Variable();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintVariable <em>Evo Application Constraint Variable</em>}'.
@@ -2779,27 +2720,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EClass getEvoAllFeaturesVariable();
 
 	/**
-	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable <em>Evo All Valid Configurations Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Evo All Valid Configurations Variable</em>'.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable
-	 * @generated
-	 */
-	EClass getEvoAllValidConfigurationsVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable#getFeatureVariable <em>Feature Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Feature Variable</em>'.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable#getFeatureVariable()
-	 * @see #getEvoAllValidConfigurationsVariable()
-	 * @generated
-	 */
-	EReference getEvoAllValidConfigurationsVariable_FeatureVariable();
-
-	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable <em>Evo All Mappings Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2810,15 +2730,15 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EClass getEvoAllMappingsVariable();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable#getAssociatedMappings <em>Associated Mappings</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Associated Mappings</em>'.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable#getAssociatedMappings()
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable#getVariables()
 	 * @see #getEvoAllMappingsVariable()
 	 * @generated
 	 */
-	EReference getEvoAllMappingsVariable_AssociatedMappings();
+	EReference getEvoAllMappingsVariable_Variables();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoMappingAssociatedAssetsVariable <em>Evo Mapping Associated Assets Variable</em>}'.
@@ -2894,14 +2814,25 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EClass getEvoRequirementVariable();
 
 	/**
-	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoEmpty <em>Evo Empty</em>}'.
+	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoSize <em>Evo Size</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Evo Empty</em>'.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoEmpty
+	 * @return the meta object for class '<em>Evo Size</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSize
 	 * @generated
 	 */
-	EClass getEvoEmpty();
+	EClass getEvoSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.evorepair.logic.evofirstorderlogic.EvoSize#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSize#getSize()
+	 * @see #getEvoSize()
+	 * @generated
+	 */
+	EAttribute getEvoSize_Size();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoGroupType <em>Evo Group Type</em>}'.
@@ -2925,6 +2856,17 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EAttribute getEvoGroupType_Type();
 
 	/**
+	 * Returns the meta object for the reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoGroupType#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Variables</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoGroupType#getVariables()
+	 * @see #getEvoGroupType()
+	 * @generated
+	 */
+	EReference getEvoGroupType_Variables();
+
+	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoFeatureType <em>Evo Feature Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2944,6 +2886,17 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getEvoFeatureType_Type();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoFeatureType#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Variables</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoFeatureType#getVariables()
+	 * @see #getEvoFeatureType()
+	 * @generated
+	 */
+	EReference getEvoFeatureType_Variables();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm <em>Evo Evolution Term</em>}'.
@@ -2996,6 +2949,38 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @generated
 	 */
 	EClass getEvoSatisfiable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoSatisfiable#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSatisfiable#getVariables()
+	 * @see #getEvoSatisfiable()
+	 * @generated
+	 */
+	EReference getEvoSatisfiable_Variables();
+
+	/**
+	 * Returns the meta object for class '{@link de.evorepair.logic.evofirstorderlogic.EvoSetTerm <em>Evo Set Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Evo Set Term</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetTerm
+	 * @generated
+	 */
+	EClass getEvoSetTerm();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoSetTerm#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetTerm#getVariables()
+	 * @see #getEvoSetTerm()
+	 * @generated
+	 */
+	EReference getEvoSetTerm_Variables();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3376,12 +3361,30 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EReference EVO_VARIABLE_TERM__VARIABLE = eINSTANCE.getEvoVariableTerm_Variable();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVO_VARIABLE_TERM__ID = eINSTANCE.getEvoVariableTerm_Id();
+		EAttribute EVO_VARIABLE_TERM__TYPE = eINSTANCE.getEvoVariableTerm_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoApplicationConstraintTermImpl <em>Evo Application Constraint Term</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoApplicationConstraintTermImpl
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoApplicationConstraintTerm()
+		 * @generated
+		 */
+		EClass EVO_APPLICATION_CONSTRAINT_TERM = eINSTANCE.getEvoApplicationConstraintTerm();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE = eINSTANCE.getEvoApplicationConstraintTerm_Variable();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoApplicationConstraintVariableImpl <em>Evo Application Constraint Variable</em>}' class.
@@ -3432,24 +3435,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EClass EVO_ALL_FEATURES_VARIABLE = eINSTANCE.getEvoAllFeaturesVariable();
 
 		/**
-		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllValidConfigurationsVariableImpl <em>Evo All Valid Configurations Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoAllValidConfigurationsVariableImpl
-		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoAllValidConfigurationsVariable()
-		 * @generated
-		 */
-		EClass EVO_ALL_VALID_CONFIGURATIONS_VARIABLE = eINSTANCE.getEvoAllValidConfigurationsVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Feature Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVO_ALL_VALID_CONFIGURATIONS_VARIABLE__FEATURE_VARIABLE = eINSTANCE.getEvoAllValidConfigurationsVariable_FeatureVariable();
-
-		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllMappingsVariableImpl <em>Evo All Mappings Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3460,12 +3445,12 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EClass EVO_ALL_MAPPINGS_VARIABLE = eINSTANCE.getEvoAllMappingsVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Associated Mappings</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS = eINSTANCE.getEvoAllMappingsVariable_AssociatedMappings();
+		EReference EVO_ALL_MAPPINGS_VARIABLE__VARIABLES = eINSTANCE.getEvoAllMappingsVariable_Variables();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoMappingAssociatedAssetsVariableImpl <em>Evo Mapping Associated Assets Variable</em>}' class.
@@ -3532,14 +3517,22 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EClass EVO_REQUIREMENT_VARIABLE = eINSTANCE.getEvoRequirementVariable();
 
 		/**
-		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoEmptyImpl <em>Evo Empty</em>}' class.
+		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSizeImpl <em>Evo Size</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoEmptyImpl
-		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoEmpty()
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoSizeImpl
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoSize()
 		 * @generated
 		 */
-		EClass EVO_EMPTY = eINSTANCE.getEvoEmpty();
+		EClass EVO_SIZE = eINSTANCE.getEvoSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVO_SIZE__SIZE = eINSTANCE.getEvoSize_Size();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoGroupTypeImpl <em>Evo Group Type</em>}' class.
@@ -3560,6 +3553,14 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EAttribute EVO_GROUP_TYPE__TYPE = eINSTANCE.getEvoGroupType_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVO_GROUP_TYPE__VARIABLES = eINSTANCE.getEvoGroupType_Variables();
+
+		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFeatureTypeImpl <em>Evo Feature Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3576,6 +3577,14 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute EVO_FEATURE_TYPE__TYPE = eINSTANCE.getEvoFeatureType_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVO_FEATURE_TYPE__VARIABLES = eINSTANCE.getEvoFeatureType_Variables();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoEvolutionTermImpl <em>Evo Evolution Term</em>}' class.
@@ -3622,6 +3631,32 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		 * @generated
 		 */
 		EClass EVO_SATISFIABLE = eINSTANCE.getEvoSatisfiable();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVO_SATISFIABLE__VARIABLES = eINSTANCE.getEvoSatisfiable_Variables();
+
+		/**
+		 * The meta object literal for the '{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSetTermImpl <em>Evo Set Term</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoSetTermImpl
+		 * @see de.evorepair.logic.evofirstorderlogic.impl.EvoFirstOrderLogicPackageImpl#getEvoSetTerm()
+		 * @generated
+		 */
+		EClass EVO_SET_TERM = eINSTANCE.getEvoSetTerm();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVO_SET_TERM__VARIABLES = eINSTANCE.getEvoSetTerm_Variables();
 
 	}
 

@@ -221,6 +221,15 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	EvoVariableTerm createEvoVariableTerm();
 
 	/**
+	 * Returns a new object of class '<em>Evo Application Constraint Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evo Application Constraint Term</em>'.
+	 * @generated
+	 */
+	EvoApplicationConstraintTerm createEvoApplicationConstraintTerm();
+
+	/**
 	 * Returns a new object of class '<em>Evo Application Constraint Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,15 +264,6 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	 * @generated
 	 */
 	EvoAllFeaturesVariable createEvoAllFeaturesVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo All Valid Configurations Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo All Valid Configurations Variable</em>'.
-	 * @generated
-	 */
-	EvoAllValidConfigurationsVariable createEvoAllValidConfigurationsVariable();
 
 	/**
 	 * Returns a new object of class '<em>Evo All Mappings Variable</em>'.
@@ -311,13 +311,13 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	EvoRequirementVariable createEvoRequirementVariable();
 
 	/**
-	 * Returns a new object of class '<em>Evo Empty</em>'.
+	 * Returns a new object of class '<em>Evo Size</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Empty</em>'.
+	 * @return a new object of class '<em>Evo Size</em>'.
 	 * @generated
 	 */
-	EvoEmpty createEvoEmpty();
+	EvoSize createEvoSize();
 
 	/**
 	 * Returns a new object of class '<em>Evo Group Type</em>'.
@@ -363,6 +363,15 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	 * @generated
 	 */
 	EvoSatisfiable createEvoSatisfiable();
+
+	/**
+	 * Returns a new object of class '<em>Evo Set Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evo Set Term</em>'.
+	 * @generated
+	 */
+	EvoSetTerm createEvoSetTerm();
 
 	/**
 	 * Returns the package supported by this factory.

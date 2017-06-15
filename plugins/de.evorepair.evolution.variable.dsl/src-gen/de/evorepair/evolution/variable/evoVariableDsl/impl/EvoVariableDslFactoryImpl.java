@@ -66,7 +66,6 @@ public class EvoVariableDslFactoryImpl extends EFactoryImpl implements EvoVariab
     switch (eClass.getClassifierID())
     {
       case EvoVariableDslPackage.MODEL: return createModel();
-      case EvoVariableDslPackage.EVO_GENERIC_VARIABLE: return createEvoGenericVariable();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -81,17 +80,6 @@ public class EvoVariableDslFactoryImpl extends EFactoryImpl implements EvoVariab
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EvoGenericVariable createEvoGenericVariable()
-  {
-    EvoGenericVariableImpl evoGenericVariable = new EvoGenericVariableImpl();
-    return evoGenericVariable;
   }
 
   /**

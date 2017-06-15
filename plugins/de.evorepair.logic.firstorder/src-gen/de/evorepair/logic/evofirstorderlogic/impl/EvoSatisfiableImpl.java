@@ -6,13 +6,17 @@ import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 import de.evorepair.logic.evofirstorderlogic.EvoSatisfiable;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSatisfiableImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoSatisfiableImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,14 +34,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisfiable
 {
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EvoAbstractTerm element;
+	protected EList<EvoAbstractTerm> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,47 +69,13 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAbstractTerm getElement()
+	public EList<EvoAbstractTerm> getVariables()
 	{
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElement(EvoAbstractTerm newElement, NotificationChain msgs)
-	{
-		EvoAbstractTerm oldElement = element;
-		element = newElement;
-		if (eNotificationRequired())
+		if (variables == null)
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT, oldElement, newElement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			variables = new EObjectContainmentEList<EvoAbstractTerm>(EvoAbstractTerm.class, this, EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElement(EvoAbstractTerm newElement)
-	{
-		if (newElement != element)
-		{
-			NotificationChain msgs = null;
-			if (element != null)
-				msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT, null, msgs);
-			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT, null, msgs);
-			msgs = basicSetElement(newElement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT, newElement, newElement));
+		return variables;
 	}
 
 	/**
@@ -118,8 +88,8 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT:
-				return basicSetElement(null, msgs);
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -134,8 +104,8 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT:
-				return getElement();
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES:
+				return getVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -145,13 +115,15 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT:
-				setElement((EvoAbstractTerm)newValue);
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends EvoAbstractTerm>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,8 +139,8 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT:
-				setElement((EvoAbstractTerm)null);
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES:
+				getVariables().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -184,8 +156,8 @@ public class EvoSatisfiableImpl extends EvoAbstractTermImpl implements EvoSatisf
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__ELEMENT:
-				return element != null;
+			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE__VARIABLES:
+				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

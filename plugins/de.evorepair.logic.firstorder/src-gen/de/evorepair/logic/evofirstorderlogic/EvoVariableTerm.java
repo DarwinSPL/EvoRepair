@@ -3,6 +3,7 @@
 package de.evorepair.logic.evofirstorderlogic;
 
 import de.evorepair.evolution.evovariable.EvoVariable;
+import de.evorepair.evolution.evovariable.EvoVariableType;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ import de.evorepair.evolution.evovariable.EvoVariable;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getVariable <em>Variable</em>}</li>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getId <em>Id</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoVariableTerm()
@@ -50,29 +51,32 @@ public interface EvoVariableTerm extends EvoAbstractTerm
 	void setVariable(EvoVariable value);
 
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.evorepair.evolution.evovariable.EvoVariableType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoVariableTerm_Id()
-	 * @model id="true"
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see de.evorepair.evolution.evovariable.EvoVariableType
+	 * @see #setType(EvoVariableType)
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoVariableTerm_Type()
+	 * @model
 	 * @generated
 	 */
-	String getId();
+	EvoVariableType getType();
 
 	/**
-	 * Sets the value of the '{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see de.evorepair.evolution.evovariable.EvoVariableType
+	 * @see #getType()
 	 * @generated
 	 */
-	void setId(String value);
+	void setType(EvoVariableType value);
 
 } // EvoVariableTerm

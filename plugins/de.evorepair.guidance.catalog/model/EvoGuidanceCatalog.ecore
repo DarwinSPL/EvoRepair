@@ -18,7 +18,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggeringOperations" upperBound="-1"
         eType="ecore:EClass ../../de.evorepair.evolution.operation/model/EvoOperation.ecore#//EvoOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="anomalies" upperBound="-1"
-        eType="#//EvoAnomaly" containment="true"/>
+        eType="#//EvoAnomaly" containment="true" eOpposite="#//EvoAnomaly/table"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="#//EvoGuidanceContainer" eOpposite="#//EvoGuidanceContainer/tables"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGuidanceContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//EvoGuidanceTable" containment="true" eOpposite="#//EvoGuidanceTable/container"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoAnomaly">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EvoAnomalyType"/>
@@ -28,6 +34,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" lowerBound="1"
         upperBound="-1" eType="#//EvoGuidanceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//EvoGuidanceTable"
+        eOpposite="#//EvoGuidanceTable/anomalies"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>

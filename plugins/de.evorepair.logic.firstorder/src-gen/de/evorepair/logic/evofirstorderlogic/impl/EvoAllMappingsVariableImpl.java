@@ -2,19 +2,21 @@
  */
 package de.evorepair.logic.evofirstorderlogic.impl;
 
+import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
-import de.evorepair.logic.evofirstorderlogic.EvoMappingVariable;
 
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,22 +26,22 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllMappingsVariableImpl#getAssociatedMappings <em>Associated Mappings</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoAllMappingsVariableImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container implements EvoAllMappingsVariable
+public class EvoAllMappingsVariableImpl extends EvoAbstractTermImpl implements EvoAllMappingsVariable
 {
 	/**
-	 * The cached value of the '{@link #getAssociatedMappings() <em>Associated Mappings</em>}' reference list.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssociatedMappings()
+	 * @see #getVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EvoMappingVariable> associatedMappings;
+	protected EList<EvoAbstractTerm> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,13 +69,29 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoMappingVariable> getAssociatedMappings()
+	public EList<EvoAbstractTerm> getVariables()
 	{
-		if (associatedMappings == null)
+		if (variables == null)
 		{
-			associatedMappings = new EObjectResolvingEList<EvoMappingVariable>(EvoMappingVariable.class, this, EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS);
+			variables = new EObjectContainmentEList<EvoAbstractTerm>(EvoAbstractTerm.class, this, EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES);
 		}
-		return associatedMappings;
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -86,8 +104,8 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
-				return getAssociatedMappings();
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES:
+				return getVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -103,9 +121,9 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
-				getAssociatedMappings().clear();
-				getAssociatedMappings().addAll((Collection<? extends EvoMappingVariable>)newValue);
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends EvoAbstractTerm>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +139,8 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
-				getAssociatedMappings().clear();
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES:
+				getVariables().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +156,8 @@ public class EvoAllMappingsVariableImpl extends MinimalEObjectImpl.Container imp
 	{
 		switch (featureID)
 		{
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__ASSOCIATED_MAPPINGS:
-				return associatedMappings != null && !associatedMappings.isEmpty();
+			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE__VARIABLES:
+				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

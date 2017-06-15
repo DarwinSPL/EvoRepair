@@ -6,7 +6,7 @@ generate formuladsl "http://darwinspl.de/evorepair/logic/dsl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://hyvar-project.eu/feature/1.0" as hyfeature
 import "http://darwinspl.de/evorepair/logic/0.3" 
-import "http://darwinspl.de/evorepair/variable/0.2" as evovariables
+import "http://darwinspl.de/evorepair/variable/0.2" as evovar
 import "http://darwinspl.de/evorepair/evolutionoperation/0.1" as evooperations
 
  
@@ -24,9 +24,9 @@ QualifiedName returns ecore::EString:
 ;
 
 EvoAbstractTerm:
-	EvoXOr;
-	
-	
+	EvoXOr
+;
+
 EvoXOr returns EvoAbstractTerm:
 	EvoOr({EvoXOr.leftElement=current} ('xor') rightElement=EvoOr)*;
 	
@@ -36,49 +36,41 @@ EvoOr returns EvoAbstractTerm:
 	
 	
 EvoAnd returns EvoAbstractTerm:
-	EvoNot({EvoAnd.leftElement=current} ('and') rightElement=EvoNot)*;
-	
-	
-EvoNot returns EvoAbstractTerm:
-	({EvoNot} 'not' element=EvoEqual) | EvoEqual;
+	EvoEqual({EvoAnd.leftElement=current} ('and') rightElement=EvoEqual)*;
 	
 	
 EvoEqual returns EvoAbstractTerm:
-	EvoUnequal({EvoEqual.leftElement=current} ('=') rightElement=EvoUnequalEmpty)*;
+	EvoUnequal({EvoEqual.leftElement=current} ('=') rightElement=EvoUnequalSize)*;
 	
 	
-EvoUnequalEmpty returns EvoAbstractTerm:
-	EvoUnequal | EvoEmpty;
+EvoUnequalSize returns EvoAbstractTerm:
+	EvoUnequal | EvoSize;
 
 
 EvoUnequal returns EvoAbstractTerm:
-	EvoImplication({EvoUnequal.leftElement=current} ('!=') rightElement=EvoImplicationEmpty)* ;
+	EvoImplication({EvoUnequal.leftElement=current} ('!=') rightElement=EvoImplicationSize)* ;
 
 
-EvoImplicationEmpty returns EvoAbstractTerm:
-	EvoImplication | EvoEmpty;
+EvoImplicationSize returns EvoAbstractTerm:
+	EvoImplication | EvoSize;
 
 
 EvoImplication returns EvoAbstractTerm:
-	EvoBiconditional({EvoImplication.leftElement=current} ('=>') rightElement=EvoBiconditionalEmpty)*;
+	EvoBiconditional({EvoImplication.leftElement=current} ('=>') rightElement=EvoBiconditionalSize)*;
 	
 	
-EvoBiconditionalEmpty returns EvoAbstractTerm:
-	EvoBiconditional | EvoEmpty;
+EvoBiconditionalSize returns EvoAbstractTerm:
+	EvoBiconditional | EvoSize;
 		
 		
 EvoBiconditional returns EvoAbstractTerm:
-	EvoSetInclusion({EvoBiconditional.leftElement=current} ('<=>') rightElement=EvoSetInclusionEmpty)*;
+	EvoSetInclusion({EvoBiconditional.leftElement=current} ('<=>') rightElement=EvoSetInclusionSize)*;
 	
 	
-EvoSetInclusionEmpty returns EvoAbstractTerm:
-	EvoSetInclusion | EvoEmpty;
+EvoSetInclusionSize returns EvoAbstractTerm:
+	EvoSetInclusion | EvoSize;
 
 
-EvoAbstractOneParameterTerm returns EvoAbstractTerm:
-	EvoVariableTerm | '(' EvoXOr ')';
-
- 	
 EvoSetInclusion returns EvoAbstractTerm:
 	EvoSetIntersection({EvoBiconditional.leftElement=current} ('inclusion') rightElement=EvoSetIntersection)*;
 	
@@ -100,27 +92,84 @@ EvoSetSymmetricDifference returns EvoAbstractTerm:
 
 
 EvoSetCartesianProduct returns EvoAbstractTerm:
-	EvoSetCardinality({EvoSetCartesianProduct.leftElement=current} ('x') rightElement=EvoSetCardinality)*;
+	EvoElementOf({EvoSetCartesianProduct.leftElement=current} ('x') rightElement=EvoElementOf)*;
+
+//EvoSetCardinality returns EvoAbstractTerm:
+//	EvoElementOf('size' '(' {EvoSetCardinality.element=current} ')');
+
+EvoElementOf returns EvoAbstractTerm:
+	EvoAbstractOneParameterTerm({EvoElementOf.leftElement=current} ('elementOf') rightElement=EvoAbstractOneParameterTerm)*;
+
+EvoSatisfiable returns EvoAbstractTerm: 
+	({EvoSatisfiable}'satisfiable' '(' variables+=(EvoSetVariable | EvoApplicationConstraintTerm) (',' variables+=(EvoSetVariable | EvoApplicationConstraintTerm))* ')');
+	
+EvoAbstractOneParameterTerm returns EvoAbstractTerm:
+	EvoVariableTerm | 
+	EvoSetTerm | 
+	EvoApplicationConstraintTerm | 
+	EvoAllMappingsVariable | 
+	EvoNot | 
+	EvoFeatureType | 
+	EvoGroupType | 
+	EvoSatisfiable |
+	'(' EvoXOr ')';
 
 
-EvoSetCardinality returns EvoAbstractTerm:
-	({EvoSetCardinality} '|' element=EvoAbstractOneParameterTerm '|' | EvoAbstractOneParameterTerm);
 
 
-EvoEmpty:
-	{EvoEmpty}"empty";
 
+
+EvoSize returns EvoAbstractTerm:
+	{EvoSize}size=INT;
+
+
+enum EvoVariableType returns evovar::EvoVariableType: 
+	EvoIdentifier = '@ident' |
+	EvoSource = '@pre' |
+	EvoTarget = '@post'
+;
 
 EvoVariableTerm returns EvoVariableTerm:
-	variable=[evovariables::EvoVariable | QualifiedName];
+	variable=[evovar::EvoVariable | QualifiedName](type=EvoVariableType)?;
+	
+EvoApplicationConstraintTerm returns EvoVariableTerm:
+	'AC' '(' variable=[evovar::EvoMappingVariable | QualifiedName] ')';
+	
+
+
+EvoNot returns EvoAbstractTerm:
+	({EvoNot} 'not' element=EvoEqual);
 
 
 
+EvoFeatureType returns EvoAbstractTerm:
+	({EvoFeatureType}'featureType' ('(' variables+=[evovar::EvoFeatureVariable | QualifiedName] (',' variables+=[evovar::EvoFeatureVariable | QualifiedName])* ')') '==' type=HyFeatureTypeEnum)
+;
+
+enum HyFeatureTypeEnum returns hyfeature::HyFeatureTypeEnum:
+	OPTIONAL = 'optional' | MANDATORY = 'mandatory'
+;
+
+EvoGroupType returns EvoAbstractTerm:
+	({EvoGroupType}'groupType' ('(' variables+=[evovar::EvoGroupVariable | QualifiedName] (',' variables+=[evovar::EvoGroupVariable | QualifiedName])* ')') '==' type=HyGroupTypeEnum)
+;
+
+enum HyGroupTypeEnum returns hyfeature::HyGroupTypeEnum:
+	AND = 'and' | OR = 'or' | ALTERNATIVE = 'alternative'
+;
+
+EvoSetTerm returns EvoAbstractTerm:
+	{EvoSetTerm} '{' variables+=EvoSetVariable (',' variables+=EvoSetVariable)* '}'
+;
+
+EvoSetVariable returns EvoAbstractTerm:
+	EvoVariableTerm | EvoNot
+;
 
 
 
-
-
+EvoAllMappingsVariable returns EvoAbstractTerm: 
+	{EvoAllMappingsVariable}'M' ('(' variables+=EvoSetVariable (',' variables+=EvoSetVariable)*')');
 
 
 

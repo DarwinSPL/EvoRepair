@@ -12,8 +12,11 @@ import "http://darwinspl.de/evorepair/variable/0.2" as evovariables
 import "http://darwinspl.de/evorepair/evolutionoperation/0.1" as evooperations
 
 GrammarEntry:
-    table=EvoGuidanceTable;
+    table=EvoGuidanceContainer;
 
+EvoGuidanceContainer:
+	{EvoGuidanceContainer}(tables+=EvoGuidanceTable)*
+;
 EvoGuidanceTable returns EvoGuidanceTable: 
 	'guidance' '{'
 		'trigger' '=' '{'
@@ -31,8 +34,8 @@ EvoAnomaly returns EvoAnomaly:
  
 	'anomaly' id=ID '{'
 		('type' type=EvoAnomalyType)?
-		('category' category=EvoAnomalyCategory)?
-		'condition' condition=EvoFormula
+		('category' '=' category=EvoAnomalyCategory)?
+		'condition' '=' condition=EvoFormula
 		'guidance' '{' 
 			guidance+=EvoGuidanceElement ( "," guidance+=EvoGuidanceElement)* 
 		'}' 
@@ -43,6 +46,9 @@ EvoGuidanceElement:
 	'action' '=' action=EvoFormula
 ;
 
+@Override 
+EvoFormula returns EvoFormula:	
+	term=EvoAbstractTerm;
 
 enum EvoAnomalyType returns EvoAnomalyType:
 	DEFECT = 'Defect' | BEHAVIORAL_CHANGE = 'Behavioral Change'

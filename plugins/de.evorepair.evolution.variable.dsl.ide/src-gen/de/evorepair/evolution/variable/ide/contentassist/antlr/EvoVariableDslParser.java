@@ -32,9 +32,7 @@ public class EvoVariableDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getEvoVariableAccess().getAlternatives(), "rule__EvoVariable__Alternatives");
-					put(grammarAccess.getEvoVariableTypeAccess().getAlternatives(), "rule__EvoVariableType__Alternatives");
 					put(grammarAccess.getEvoFeatureVariableTypeAccess().getAlternatives(), "rule__EvoFeatureVariableType__Alternatives");
-					put(grammarAccess.getEvoGenericVariableAccess().getGroup(), "rule__EvoGenericVariable__Group__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup(), "rule__EvoFeatureVariable__Group__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_2(), "rule__EvoFeatureVariable__Group_2__0");
 					put(grammarAccess.getEvoGroupVariableAccess().getGroup(), "rule__EvoGroupVariable__Group__0");
@@ -42,9 +40,8 @@ public class EvoVariableDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoSetVariableAccess().getGroup_2(), "rule__EvoSetVariable__Group_2__0");
 					put(grammarAccess.getEvoSetVariableAccess().getGroup_2_2(), "rule__EvoSetVariable__Group_2_2__0");
 					put(grammarAccess.getEvoMappingVariableAccess().getGroup(), "rule__EvoMappingVariable__Group__0");
+					put(grammarAccess.getEvoConfigurationVariableAccess().getGroup(), "rule__EvoConfigurationVariable__Group__0");
 					put(grammarAccess.getModelAccess().getVariablesAssignment(), "rule__Model__VariablesAssignment");
-					put(grammarAccess.getEvoGenericVariableAccess().getNameAssignment_1(), "rule__EvoGenericVariable__NameAssignment_1");
-					put(grammarAccess.getEvoGenericVariableAccess().getVariableTypeAssignment_2(), "rule__EvoGenericVariable__VariableTypeAssignment_2");
 					put(grammarAccess.getEvoFeatureVariableAccess().getNameAssignment_1(), "rule__EvoFeatureVariable__NameAssignment_1");
 					put(grammarAccess.getEvoFeatureVariableAccess().getFeatureTypeAssignment_2_1(), "rule__EvoFeatureVariable__FeatureTypeAssignment_2_1");
 					put(grammarAccess.getEvoGroupVariableAccess().getNameAssignment_1(), "rule__EvoGroupVariable__NameAssignment_1");
@@ -52,6 +49,7 @@ public class EvoVariableDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoSetVariableAccess().getElementsAssignment_2_1(), "rule__EvoSetVariable__ElementsAssignment_2_1");
 					put(grammarAccess.getEvoSetVariableAccess().getElementsAssignment_2_2_1(), "rule__EvoSetVariable__ElementsAssignment_2_2_1");
 					put(grammarAccess.getEvoMappingVariableAccess().getNameAssignment_1(), "rule__EvoMappingVariable__NameAssignment_1");
+					put(grammarAccess.getEvoConfigurationVariableAccess().getNameAssignment_1(), "rule__EvoConfigurationVariable__NameAssignment_1");
 				}
 			};
 		}

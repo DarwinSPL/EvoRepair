@@ -223,6 +223,11 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 				return createEvoVariableTermAdapter();
 			}
 			@Override
+			public Adapter caseEvoApplicationConstraintTerm(EvoApplicationConstraintTerm object)
+			{
+				return createEvoApplicationConstraintTermAdapter();
+			}
+			@Override
 			public Adapter caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object)
 			{
 				return createEvoApplicationConstraintVariableAdapter();
@@ -241,11 +246,6 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object)
 			{
 				return createEvoAllFeaturesVariableAdapter();
-			}
-			@Override
-			public Adapter caseEvoAllValidConfigurationsVariable(EvoAllValidConfigurationsVariable object)
-			{
-				return createEvoAllValidConfigurationsVariableAdapter();
 			}
 			@Override
 			public Adapter caseEvoAllMappingsVariable(EvoAllMappingsVariable object)
@@ -273,9 +273,9 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 				return createEvoRequirementVariableAdapter();
 			}
 			@Override
-			public Adapter caseEvoEmpty(EvoEmpty object)
+			public Adapter caseEvoSize(EvoSize object)
 			{
-				return createEvoEmptyAdapter();
+				return createEvoSizeAdapter();
 			}
 			@Override
 			public Adapter caseEvoGroupType(EvoGroupType object)
@@ -301,6 +301,11 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseEvoSatisfiable(EvoSatisfiable object)
 			{
 				return createEvoSatisfiableAdapter();
+			}
+			@Override
+			public Adapter caseEvoSetTerm(EvoSetTerm object)
+			{
+				return createEvoSetTermAdapter();
 			}
 			@Override
 			public Adapter caseEvoVariable(EvoVariable object)
@@ -770,6 +775,21 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm <em>Evo Application Constraint Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm
+	 * @generated
+	 */
+	public Adapter createEvoApplicationConstraintTermAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintVariable <em>Evo Application Constraint Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -825,21 +845,6 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createEvoAllFeaturesVariableAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable <em>Evo All Valid Configurations Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoAllValidConfigurationsVariable
-	 * @generated
-	 */
-	public Adapter createEvoAllValidConfigurationsVariableAdapter()
 	{
 		return null;
 	}
@@ -920,16 +925,16 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoEmpty <em>Evo Empty</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoSize <em>Evo Size</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoEmpty
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSize
 	 * @generated
 	 */
-	public Adapter createEvoEmptyAdapter()
+	public Adapter createEvoSizeAdapter()
 	{
 		return null;
 	}
@@ -1005,6 +1010,21 @@ public class EvoFirstOrderLogicAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createEvoSatisfiableAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evofirstorderlogic.EvoSetTerm <em>Evo Set Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoSetTerm
+	 * @generated
+	 */
+	public Adapter createEvoSetTermAdapter()
 	{
 		return null;
 	}

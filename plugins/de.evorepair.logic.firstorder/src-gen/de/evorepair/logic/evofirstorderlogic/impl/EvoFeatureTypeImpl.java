@@ -2,16 +2,24 @@
  */
 package de.evorepair.logic.evofirstorderlogic.impl;
 
+import de.evorepair.evolution.evovariable.EvoFeatureVariable;
+
 import de.evorepair.logic.evofirstorderlogic.EvoFeatureType;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 
 import eu.hyvar.feature.HyFeatureTypeEnum;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,11 +30,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFeatureTypeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFeatureTypeImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatureType
+public class EvoFeatureTypeImpl extends EvoAbstractTermImpl implements EvoFeatureType
 {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -47,6 +56,16 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * @ordered
 	 */
 	protected HyFeatureTypeEnum type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EvoFeatureVariable> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +116,20 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EvoFeatureVariable> getVariables()
+	{
+		if (variables == null)
+		{
+			variables = new EObjectResolvingEList<EvoFeatureVariable>(EvoFeatureVariable.class, this, EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
@@ -104,6 +137,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				return getType();
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
+				return getVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,6 +148,7 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -120,6 +156,10 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				setType((HyFeatureTypeEnum)newValue);
+				return;
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends EvoFeatureVariable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +178,9 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
+				getVariables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,6 +197,8 @@ public class EvoFeatureTypeImpl extends EvoEvolutionTermImpl implements EvoFeatu
 		{
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__TYPE:
 				return type != TYPE_EDEFAULT;
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
+				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

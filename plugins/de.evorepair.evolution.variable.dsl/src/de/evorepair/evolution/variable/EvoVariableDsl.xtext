@@ -8,18 +8,9 @@ Model:
 	variables+=EvoVariable*;
 	
 EvoVariable:
-	EvoGenericVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
+	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
 ;
 
-enum EvoVariableType: 
-	EvoIdentifier = '@ident' |
-	EvoSource = '@pre' |
-	EvoTarget = '@post'
-;
-
-EvoGenericVariable:
-	'var' name=ID (variableType=EvoVariableType)
-;
 
 EvoFeatureVariable: 
 	'feature' name=ID ('.' featureType=EvoFeatureVariableType)?
@@ -35,6 +26,10 @@ EvoSetVariable:
 
 EvoMappingVariable:
 	'mapping' name=ID
+;
+
+EvoConfigurationVariable:
+	'configuration' name=ID
 ;
 
 enum EvoFeatureVariableType:

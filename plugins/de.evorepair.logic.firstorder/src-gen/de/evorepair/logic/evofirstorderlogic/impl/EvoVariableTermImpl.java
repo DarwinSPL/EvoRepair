@@ -3,6 +3,7 @@
 package de.evorepair.logic.evofirstorderlogic.impl;
 
 import de.evorepair.evolution.evovariable.EvoVariable;
+import de.evorepair.evolution.evovariable.EvoVariableType;
 
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoVariableTermImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoVariableTermImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoVariableTermImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,24 +42,24 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	protected EvoVariable variable;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final EvoVariableType TYPE_EDEFAULT = EvoVariableType.EVO_IDENTIFIER;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected EvoVariableType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,9 +130,9 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public EvoVariableType getType()
 	{
-		return id;
+		return type;
 	}
 
 	/**
@@ -139,12 +140,12 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setType(EvoVariableType newType)
 	{
-		String oldId = id;
-		id = newId;
+		EvoVariableType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__TYPE, oldType, type));
 	}
 
 	/**
@@ -160,8 +161,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				if (resolve) return getVariable();
 				return basicGetVariable();
-			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID:
-				return getId();
+			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,8 +180,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				setVariable((EvoVariable)newValue);
 				return;
-			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID:
-				setId((String)newValue);
+			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__TYPE:
+				setType((EvoVariableType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -199,8 +200,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				setVariable((EvoVariable)null);
 				return;
-			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID:
-				setId(ID_EDEFAULT);
+			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -218,8 +219,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 		{
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__VARIABLE:
 				return variable != null;
-			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -235,8 +236,8 @@ public class EvoVariableTermImpl extends EvoAbstractTermImpl implements EvoVaria
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

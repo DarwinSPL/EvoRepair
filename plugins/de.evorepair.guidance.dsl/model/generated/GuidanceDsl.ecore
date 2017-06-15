@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="guidancedsl" nsURI="http://darwinspl.de/evorepair/guidance/dsl"
     nsPrefix="guidancedsl">
   <eClassifiers xsi:type="ecore:EClass" name="GrammarEntry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="ecore:EClass platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.ecore#//EvoGuidanceTable"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="ecore:EClass platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.ecore#//EvoGuidanceContainer"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

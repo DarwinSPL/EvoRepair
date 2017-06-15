@@ -114,11 +114,11 @@ ruleEvoVariable returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getEvoVariableAccess().getEvoGenericVariableParserRuleCall_0());
+			newCompositeNode(grammarAccess.getEvoVariableAccess().getEvoConfigurationVariableParserRuleCall_0());
 		}
-		this_EvoGenericVariable_0=ruleEvoGenericVariable
+		this_EvoConfigurationVariable_0=ruleEvoConfigurationVariable
 		{
-			$current = $this_EvoGenericVariable_0.current;
+			$current = $this_EvoConfigurationVariable_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -157,66 +157,6 @@ ruleEvoVariable returns [EObject current=null]
 			$current = $this_EvoMappingVariable_4.current;
 			afterParserOrEnumRuleCall();
 		}
-	)
-;
-
-// Entry rule entryRuleEvoGenericVariable
-entryRuleEvoGenericVariable returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEvoGenericVariableRule()); }
-	iv_ruleEvoGenericVariable=ruleEvoGenericVariable
-	{ $current=$iv_ruleEvoGenericVariable.current; }
-	EOF;
-
-// Rule EvoGenericVariable
-ruleEvoGenericVariable returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='var'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoGenericVariableAccess().getVarKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getEvoGenericVariableAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEvoGenericVariableRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEvoGenericVariableAccess().getVariableTypeEvoVariableTypeEnumRuleCall_2_0());
-				}
-				lv_variableType_2_0=ruleEvoVariableType
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEvoGenericVariableRule());
-					}
-					set(
-						$current,
-						"variableType",
-						lv_variableType_2_0,
-						"de.evorepair.evolution.variable.EvoVariableDsl.EvoVariableType");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 
@@ -451,8 +391,15 @@ ruleEvoMappingVariable returns [EObject current=null]
 	)
 ;
 
-// Rule EvoVariableType
-ruleEvoVariableType returns [Enumerator current=null]
+// Entry rule entryRuleEvoConfigurationVariable
+entryRuleEvoConfigurationVariable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoConfigurationVariableRule()); }
+	iv_ruleEvoConfigurationVariable=ruleEvoConfigurationVariable
+	{ $current=$iv_ruleEvoConfigurationVariable.current; }
+	EOF;
+
+// Rule EvoConfigurationVariable
+ruleEvoConfigurationVariable returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -460,28 +407,27 @@ ruleEvoVariableType returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='configuration'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEvoConfigurationVariableAccess().getConfigurationKeyword_0());
+		}
 		(
-			enumLiteral_0='@ident'
-			{
-				$current = grammarAccess.getEvoVariableTypeAccess().getEvoIdentifierEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getEvoVariableTypeAccess().getEvoIdentifierEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='@pre'
-			{
-				$current = grammarAccess.getEvoVariableTypeAccess().getEvoSourceEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getEvoVariableTypeAccess().getEvoSourceEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='@post'
-			{
-				$current = grammarAccess.getEvoVariableTypeAccess().getEvoTargetEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getEvoVariableTypeAccess().getEvoTargetEnumLiteralDeclaration_2());
-			}
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getEvoConfigurationVariableAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvoConfigurationVariableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
 	)
 ;

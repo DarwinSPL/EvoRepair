@@ -2,7 +2,11 @@
  */
 package de.evorepair.logic.evofirstorderlogic;
 
+import de.evorepair.evolution.evovariable.EvoGroupVariable;
+
 import eu.hyvar.feature.HyGroupTypeEnum;
+
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +18,7 @@ import eu.hyvar.feature.HyGroupTypeEnum;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoGroupType#getType <em>Type</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoGroupType#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoGroupType()
@@ -50,5 +55,21 @@ public interface EvoGroupType extends EvoEvolutionTerm, EvoAbstractTerm
 	 * @generated
 	 */
 	void setType(HyGroupTypeEnum value);
+
+	/**
+	 * Returns the value of the '<em><b>Variables</b></em>' reference list.
+	 * The list contents are of type {@link de.evorepair.evolution.evovariable.EvoGroupVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variables</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variables</em>' reference list.
+	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoGroupType_Variables()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<EvoGroupVariable> getVariables();
 
 } // EvoGroupType

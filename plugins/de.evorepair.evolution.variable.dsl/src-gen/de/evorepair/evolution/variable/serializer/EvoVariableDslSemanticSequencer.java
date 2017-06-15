@@ -4,12 +4,12 @@
 package de.evorepair.evolution.variable.serializer;
 
 import com.google.inject.Inject;
+import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoGroupVariable;
 import de.evorepair.evolution.evovariable.EvoMappingVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariablePackage;
-import de.evorepair.evolution.variable.evoVariableDsl.EvoGenericVariable;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage;
 import de.evorepair.evolution.variable.evoVariableDsl.Model;
 import de.evorepair.evolution.variable.services.EvoVariableDslGrammarAccess;
@@ -38,15 +38,15 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EvoVariableDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EvoVariableDslPackage.EVO_GENERIC_VARIABLE:
-				sequence_EvoGenericVariable(context, (EvoGenericVariable) semanticObject); 
-				return; 
 			case EvoVariableDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			}
 		else if (epackage == EvoVariablePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case EvoVariablePackage.EVO_CONFIGURATION_VARIABLE:
+				sequence_EvoConfigurationVariable(context, (EvoConfigurationVariable) semanticObject); 
+				return; 
 			case EvoVariablePackage.EVO_FEATURE_VARIABLE:
 				sequence_EvoFeatureVariable(context, (EvoFeatureVariable) semanticObject); 
 				return; 
@@ -66,6 +66,25 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	
 	/**
 	 * Contexts:
+	 *     EvoVariable returns EvoConfigurationVariable
+	 *     EvoConfigurationVariable returns EvoConfigurationVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_EvoConfigurationVariable(ISerializationContext context, EvoConfigurationVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEvoConfigurationVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EvoVariable returns EvoFeatureVariable
 	 *     EvoFeatureVariable returns EvoFeatureVariable
 	 *
@@ -74,28 +93,6 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	 */
 	protected void sequence_EvoFeatureVariable(ISerializationContext context, EvoFeatureVariable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EvoVariable returns EvoGenericVariable
-	 *     EvoGenericVariable returns EvoGenericVariable
-	 *
-	 * Constraint:
-	 *     (name=ID variableType=EvoVariableType)
-	 */
-	protected void sequence_EvoGenericVariable(ISerializationContext context, EvoGenericVariable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
-			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__VARIABLE_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__VARIABLE_TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEvoGenericVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getEvoGenericVariableAccess().getVariableTypeEvoVariableTypeEnumRuleCall_2_0(), semanticObject.getVariableType());
-		feeder.finish();
 	}
 	
 	

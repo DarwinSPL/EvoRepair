@@ -64,8 +64,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="EvoVariableTerm" eSuperTypes="#//EvoAbstractTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="ecore:EClass ../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoVariable"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoVariableType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoApplicationConstraintTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass ../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoMappingVariable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoApplicationConstraintVariable" eSuperTypes="#//EvoEvolutionTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" eType="#//EvoMappingVariable"/>
@@ -73,12 +75,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureModelConstraintVariable" eSuperTypes="#//EvoEvolutionTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoPredefinedVariable" eSuperTypes="#//EvoEvolutionTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoAllFeaturesVariable" eSuperTypes="#//EvoEvolutionTerm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoAllValidConfigurationsVariable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureVariable" eType="#//EvoFormulaVariable"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoAllMappingsVariable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="associatedMappings" upperBound="-1"
-        eType="#//EvoMappingVariable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoAllMappingsVariable" eSuperTypes="#//EvoAbstractTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//EvoAbstractTerm" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoMappingAssociatedAssetsVariable"
       eSuperTypes="#//EvoEvolutionTerm">
@@ -91,12 +90,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoInvolvedFeatureVariable" eSuperTypes="#//EvoEvolutionTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoRequirementVariable" eSuperTypes="#//EvoPredefinedVariable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoEmpty" eSuperTypes="#//EvoAbstractTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSize" eSuperTypes="#//EvoAbstractTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoGroupType" eSuperTypes="#//EvoEvolutionTerm #//EvoAbstractTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../eu.hyvar.feature/model/Feature.ecore#//HyGroupTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoGroupVariable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureType" eSuperTypes="#//EvoEvolutionTerm #//EvoAbstractTerm">
+  <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureType" eSuperTypes="#//EvoAbstractTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../eu.hyvar.feature/model/Feature.ecore#//HyFeatureTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoFeatureVariable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoEvolutionTerm" eSuperTypes="../../de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="afterEvolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -104,5 +109,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="EvoSiblings" eSuperTypes="#//EvoPredefinedVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../eu.hyvar.feature/model/Feature.ecore#//HyFeatureTypeEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoSatisfiable" eSuperTypes="#//EvoAbstractOneParameterTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSatisfiable" eSuperTypes="#//EvoAbstractTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
+        upperBound="-1" eType="#//EvoAbstractTerm" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSetTerm" eSuperTypes="#//EvoAbstractOneParameterTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//EvoAbstractTerm" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
