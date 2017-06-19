@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="de.evorepair.analysis.toolbar.EvoToolbarButtonHandler"
+            id="de.evorepair.analysis.solver.SolveCommand"
+            name="SolveCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="de.evorepair.analysis.solver.toolbar3">
+            <command
+                  commandId="de.evorepair.analysis.solver.SolveCommand"
+                  label="Solve"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
