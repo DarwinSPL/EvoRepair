@@ -1,22 +1,42 @@
 package de.evorepair.analysis.solver;
 
 import java.util.Date;
+import java.util.HashMap;
 
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.nary.cnf.ILogical;
 import org.chocosolver.solver.constraints.nary.cnf.LogOp;
+import org.chocosolver.solver.constraints.set.PropCardinality;
+import org.chocosolver.solver.constraints.set.PropIntersection;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.BoolVar;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.SetVar;
+import org.chocosolver.solver.variables.Variable;
+import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeSet;
+import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
 
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
+import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
+import de.evorepair.logic.evofirstorderlogic.EvoAbstractSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAnd;
 import de.evorepair.logic.evofirstorderlogic.EvoBiconditional;
 import de.evorepair.logic.evofirstorderlogic.EvoFeatureType;
+import de.evorepair.logic.evofirstorderlogic.EvoGroupType;
 import de.evorepair.logic.evofirstorderlogic.EvoImplication;
 import de.evorepair.logic.evofirstorderlogic.EvoNot;
 import de.evorepair.logic.evofirstorderlogic.EvoOr;
+import de.evorepair.logic.evofirstorderlogic.EvoSetCardinality;
+import de.evorepair.logic.evofirstorderlogic.EvoSetDifference;
+import de.evorepair.logic.evofirstorderlogic.EvoSetElementOf;
+import de.evorepair.logic.evofirstorderlogic.EvoSetInclusion;
+import de.evorepair.logic.evofirstorderlogic.EvoSetIntersection;
+import de.evorepair.logic.evofirstorderlogic.EvoSetNotElementOf;
+import de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference;
+import de.evorepair.logic.evofirstorderlogic.EvoSetUnion;
 import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoXOr;
 import eu.hyvar.evolution.util.HyEvolutionUtil;
@@ -24,25 +44,8 @@ import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.HyFeatureType;
 
 public class EvoSolver {
-	/*
-	ISolver solver;
-
-	public boolean isSolvable(EvoAnomaly anomaly){
-		for(EvoOperation operation : anomaly.getTable().getTriggeringOperations()){
-			for(EvoVariable variable : operation.getVariables()){
-
-			}
-		}
-
-		if(term instanceof EvoAnd){
-			EvoAnd and = (EvoAnd)term;
-			isSolvable(and.getLeftElement());
-			isSolvable(and.getRightElement());
-		}
-
-		return true;
-	}
-	 */
+	HashMap<String, BoolVar> boolVariables = new HashMap<>();
+	HashMap<String, IntIterableRangeSet> setVariables = new HashMap<>();
 
 	private HyFeatureType getFeatureType(HyFeature feature, Date date){
 		return HyEvolutionUtil.getValidTemporalElement(feature.getTypes(), date);
@@ -74,7 +77,67 @@ public class EvoSolver {
 	
 	Model model;
 
-	private LogOp solveTerm(EvoAbstractTerm term){
+	private IntIterableRangeSet getSet(EvoAbstractTerm term){
+		if(term instanceof EvoSetVariable){
+			EvoSetVariable setTerm = (EvoSetVariable)term;
+			return setVariables.get(setTerm.getName());
+		}
+		
+		return null;
+	}
+	private Variable getVariable(EvoAbstractTerm term){
+		if(term instanceof EvoFeatureVariable){
+			EvoFeatureVariable featureVariableTerm = (EvoFeatureVariable)term;
+			return boolVariables.get(featureVariableTerm.getName());
+		}
+		
+		return null;
+	}
+	private boolean solveSetTerm(EvoAbstractSetTerm term){
+		// TODO implement
+		if(term instanceof EvoSetCardinality){
+			EvoSetCardinality cardinalityTerm = (EvoSetCardinality)term;
+			IntIterableRangeSet set = getSet(cardinalityTerm.getElement());
+
+			System.err.println("SetCardinality not implemented");
+			return true;
+			
+		// TODO implement
+		}else if(term instanceof EvoSetInclusion){
+			return true;
+			
+		// TODO implement
+		}else if(term instanceof EvoSetIntersection){
+			PropIntersection intersection = new PropIntersection(null, null);
+			
+		}else if(term instanceof EvoSetUnion){
+			EvoSetUnion unionTerm = (EvoSetUnion)term;
+
+			IntIterableRangeSet set1 = getSet(unionTerm.getLeftElement());
+			IntIterableRangeSet set2 = getSet(unionTerm.getRightElement());
+			
+			IntIterableSetUtils.union(set1, set2);
+		}else if(term instanceof EvoSetDifference){
+		}else if(term instanceof EvoSetSymmetricDifference){
+		}else if(term instanceof EvoSetElementOf){
+			EvoSetElementOf elementOfTerm = (EvoSetElementOf)term;
+			
+			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
+			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement());
+			
+			return IntIterableSetUtils.includedIn(element, set);
+		}else if(term instanceof EvoSetNotElementOf){
+			EvoSetNotElementOf elementOfTerm = (EvoSetNotElementOf)term;
+			
+			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
+			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement());
+			
+			return IntIterableSetUtils.notIncludedIn(element, set);
+		}
+		
+		return false;
+	}
+	private ILogical solveTerm(EvoAbstractTerm term){
 		if(term instanceof EvoAnd){
 			EvoAnd andTerm = (EvoAnd)term;
 			return LogOp.and(solveTerm(andTerm.getLeftElement()),
@@ -97,11 +160,11 @@ public class EvoSolver {
 			EvoBiconditional biconditionalTerm = (EvoBiconditional)term;
 			return LogOp.ifOnlyIf(solveTerm(biconditionalTerm.getLeftElement()), 
 						   solveTerm(biconditionalTerm.getRightElement()));
-		}
-		if(term instanceof EvoFeatureType){
+		}else if(term instanceof EvoFeatureType){
 			EvoFeatureType featureTypeTerm = (EvoFeatureType)term;
 			
 			model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null));
+		}else if(term instanceof EvoGroupType){	
 		}
 		
 		return null;
