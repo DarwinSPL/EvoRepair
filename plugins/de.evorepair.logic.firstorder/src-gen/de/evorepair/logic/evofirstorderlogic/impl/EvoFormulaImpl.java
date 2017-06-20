@@ -5,25 +5,17 @@ package de.evorepair.logic.evofirstorderlogic.impl;
 import de.evorepair.evolution.evooperation.EvoOperation;
 
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 import de.evorepair.logic.evofirstorderlogic.EvoFormula;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +26,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFormulaImpl#getTerm <em>Term</em>}</li>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFormulaImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoFormulaImpl#getTestTrigger <em>Test Trigger</em>}</li>
  * </ul>
  *
@@ -51,16 +42,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @ordered
 	 */
 	protected EvoAbstractTerm term;
-
-	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EvoEvolutionTerm> variables;
 
 	/**
 	 * The cached value of the '{@link #getTestTrigger() <em>Test Trigger</em>}' reference.
@@ -146,20 +127,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoEvolutionTerm> getVariables()
-	{
-		if (variables == null)
-		{
-			variables = new EObjectContainmentEList<EvoEvolutionTerm>(EvoEvolutionTerm.class, this, EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES);
-		}
-		return variables;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EvoOperation getTestTrigger()
 	{
 		if (testTrigger != null && testTrigger.eIsProxy())
@@ -210,8 +177,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return basicSetTerm(null, msgs);
-			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
-				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -228,8 +193,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return getTerm();
-			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
-				return getVariables();
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TEST_TRIGGER:
 				if (resolve) return getTestTrigger();
 				return basicGetTestTrigger();
@@ -242,7 +205,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -250,10 +212,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				setTerm((EvoAbstractTerm)newValue);
-				return;
-			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
-				getVariables().clear();
-				getVariables().addAll((Collection<? extends EvoEvolutionTerm>)newValue);
 				return;
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TEST_TRIGGER:
 				setTestTrigger((EvoOperation)newValue);
@@ -275,9 +233,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				setTerm((EvoAbstractTerm)null);
 				return;
-			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
-				getVariables().clear();
-				return;
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TEST_TRIGGER:
 				setTestTrigger((EvoOperation)null);
 				return;
@@ -297,8 +252,6 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 		{
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TERM:
 				return term != null;
-			case EvoFirstOrderLogicPackage.EVO_FORMULA__VARIABLES:
-				return variables != null && !variables.isEmpty();
 			case EvoFirstOrderLogicPackage.EVO_FORMULA__TEST_TRIGGER:
 				return testTrigger != null;
 		}

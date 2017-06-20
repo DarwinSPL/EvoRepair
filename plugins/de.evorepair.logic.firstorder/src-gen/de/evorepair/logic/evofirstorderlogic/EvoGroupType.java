@@ -2,8 +2,6 @@
  */
 package de.evorepair.logic.evofirstorderlogic;
 
-import de.evorepair.evolution.evovariable.EvoGroupVariable;
-
 import eu.hyvar.feature.HyGroupTypeEnum;
 
 import org.eclipse.emf.common.util.EList;
@@ -25,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EvoGroupType extends EvoEvolutionTerm, EvoAbstractTerm
+public interface EvoGroupType extends EvoAbstractTerm
 {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -57,19 +55,19 @@ public interface EvoGroupType extends EvoEvolutionTerm, EvoAbstractTerm
 	void setType(HyGroupTypeEnum value);
 
 	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' reference list.
-	 * The list contents are of type {@link de.evorepair.evolution.evovariable.EvoGroupVariable}.
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variables</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' reference list.
+	 * @return the value of the '<em>Variables</em>' containment reference list.
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoGroupType_Variables()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<EvoGroupVariable> getVariables();
+	EList<EvoVariableTerm> getVariables();
 
 } // EvoGroupType

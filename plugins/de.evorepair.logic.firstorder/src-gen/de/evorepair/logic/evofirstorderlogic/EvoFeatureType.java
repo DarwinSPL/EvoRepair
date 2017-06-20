@@ -2,8 +2,6 @@
  */
 package de.evorepair.logic.evofirstorderlogic;
 
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-
 import eu.hyvar.feature.HyFeatureTypeEnum;
 
 import org.eclipse.emf.common.util.EList;
@@ -57,19 +55,19 @@ public interface EvoFeatureType extends EvoAbstractTerm
 	void setType(HyFeatureTypeEnum value);
 
 	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' reference list.
-	 * The list contents are of type {@link de.evorepair.evolution.evovariable.EvoFeatureVariable}.
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link de.evorepair.logic.evofirstorderlogic.EvoVariableTerm}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variables</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' reference list.
+	 * @return the value of the '<em>Variables</em>' containment reference list.
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoFeatureType_Variables()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<EvoFeatureVariable> getVariables();
+	EList<EvoVariableTerm> getVariables();
 
 } // EvoFeatureType

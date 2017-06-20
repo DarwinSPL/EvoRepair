@@ -17,7 +17,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureVariable" eSuperTypes="#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureType" eType="#//EvoFeatureVariableType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//EvoFeatureRelation"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoGroupVariable" eSuperTypes="#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyGroup"/>
@@ -36,5 +37,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoConfigurationVariable" eSuperTypes="#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureType" eType="#//EvoFeatureVariableType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedFeatures" lowerBound="1"
+        upperBound="-1" eType="#//EvoFeatureVariable"/>
   </eClassifiers>
 </ecore:EPackage>

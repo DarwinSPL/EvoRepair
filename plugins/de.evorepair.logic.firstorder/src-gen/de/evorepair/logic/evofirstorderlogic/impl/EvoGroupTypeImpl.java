@@ -2,24 +2,26 @@
  */
 package de.evorepair.logic.evofirstorderlogic.impl;
 
-import de.evorepair.evolution.evovariable.EvoGroupVariable;
-
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 import de.evorepair.logic.evofirstorderlogic.EvoGroupType;
+import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 
 import eu.hyvar.feature.HyGroupTypeEnum;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class EvoGroupTypeImpl extends EvoEvolutionTermImpl implements EvoGroupType
+public class EvoGroupTypeImpl extends EvoAbstractTermImpl implements EvoGroupType
 {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -58,14 +60,14 @@ public class EvoGroupTypeImpl extends EvoEvolutionTermImpl implements EvoGroupTy
 	protected HyGroupTypeEnum type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' reference list.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EvoGroupVariable> variables;
+	protected EList<EvoVariableTerm> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,13 +118,29 @@ public class EvoGroupTypeImpl extends EvoEvolutionTermImpl implements EvoGroupTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoGroupVariable> getVariables()
+	public EList<EvoVariableTerm> getVariables()
 	{
 		if (variables == null)
 		{
-			variables = new EObjectResolvingEList<EvoGroupVariable>(EvoGroupVariable.class, this, EvoFirstOrderLogicPackage.EVO_GROUP_TYPE__VARIABLES);
+			variables = new EObjectContainmentEList<EvoVariableTerm>(EvoVariableTerm.class, this, EvoFirstOrderLogicPackage.EVO_GROUP_TYPE__VARIABLES);
 		}
 		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -159,7 +177,7 @@ public class EvoGroupTypeImpl extends EvoEvolutionTermImpl implements EvoGroupTy
 				return;
 			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE__VARIABLES:
 				getVariables().clear();
-				getVariables().addAll((Collection<? extends EvoGroupVariable>)newValue);
+				getVariables().addAll((Collection<? extends EvoVariableTerm>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

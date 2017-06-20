@@ -199,30 +199,102 @@ ruleEvoFeatureVariable returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_2='.'
+			(
+				{
+					newCompositeNode(grammarAccess.getEvoFeatureVariableAccess().getRelationEvoFeatureRelationParserRuleCall_2_0());
+				}
+				lv_relation_2_0=ruleEvoFeatureRelation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEvoFeatureVariableRule());
+					}
+					set(
+						$current,
+						"relation",
+						lv_relation_2_0,
+						"de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureRelation");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleEvoFeatureRelation
+entryRuleEvoFeatureRelation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoFeatureRelationRule()); }
+	iv_ruleEvoFeatureRelation=ruleEvoFeatureRelation
+	{ $current=$iv_ruleEvoFeatureRelation.current; }
+	EOF;
+
+// Rule EvoFeatureRelation
+ruleEvoFeatureRelation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEvoFeatureRelationAccess().getFeatureTypeEvoFeatureVariableTypeEnumRuleCall_0_0());
+				}
+				lv_featureType_0_0=ruleEvoFeatureVariableType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEvoFeatureRelationRule());
+					}
+					set(
+						$current,
+						"featureType",
+						lv_featureType_0_0,
+						"de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureVariableType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEvoFeatureRelationAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvoFeatureRelationRule());
+					}
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_2_0());
+				}
+			)
+		)
+		(
+			otherlv_3=','
 			{
-				newLeafNode(otherlv_2, grammarAccess.getEvoFeatureVariableAccess().getFullStopKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getEvoFeatureRelationAccess().getCommaKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEvoFeatureVariableAccess().getFeatureTypeEvoFeatureVariableTypeEnumRuleCall_2_1_0());
-					}
-					lv_featureType_3_0=ruleEvoFeatureVariableType
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEvoFeatureVariableRule());
+							$current = createModelElement(grammarAccess.getEvoFeatureRelationRule());
 						}
-						set(
-							$current,
-							"featureType",
-							lv_featureType_3_0,
-							"de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureVariableType");
-						afterParserOrEnumRuleCall();
+					}
+					otherlv_4=RULE_ID
+					{
+						newLeafNode(otherlv_4, grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0());
 					}
 				)
 			)
 		)?
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getEvoFeatureRelationAccess().getRightParenthesisKeyword_4());
+		}
 	)
 ;
 
@@ -442,7 +514,7 @@ ruleEvoFeatureVariableType returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='parent'
+			enumLiteral_0='parentOf'
 			{
 				$current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoParentEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_0, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoParentEnumLiteralDeclaration_0());
@@ -450,7 +522,7 @@ ruleEvoFeatureVariableType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='source'
+			enumLiteral_1='siblingOf'
 			{
 				$current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoSiblingEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoSiblingEnumLiteralDeclaration_1());
@@ -458,7 +530,7 @@ ruleEvoFeatureVariableType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='child'
+			enumLiteral_2='childOf'
 			{
 				$current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoChildEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoChildEnumLiteralDeclaration_2());

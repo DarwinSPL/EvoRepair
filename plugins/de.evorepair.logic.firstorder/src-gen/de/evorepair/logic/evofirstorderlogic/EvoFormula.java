@@ -4,8 +4,6 @@ package de.evorepair.logic.evofirstorderlogic;
 
 import de.evorepair.evolution.evooperation.EvoOperation;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoFormula#getTerm <em>Term</em>}</li>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoFormula#getVariables <em>Variables</em>}</li>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.EvoFormula#getTestTrigger <em>Test Trigger</em>}</li>
  * </ul>
  *
@@ -53,22 +50,6 @@ public interface EvoFormula extends EObject
 	 * @generated
 	 */
 	void setTerm(EvoAbstractTerm value);
-
-	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
-	 * The list contents are of type {@link de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' containment reference list.
-	 * @see de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage#getEvoFormula_Variables()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<EvoEvolutionTerm> getVariables();
 
 	/**
 	 * Returns the value of the '<em><b>Test Trigger</b></em>' reference.

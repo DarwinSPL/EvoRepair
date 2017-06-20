@@ -24,15 +24,11 @@ Workflow {
 			project = StandardProjectConfig {
 				baseName = "de.evorepair.evolution.operation.dsl"
 				rootPath = rootPath
-				runtimeTest = {
-					enabled = true
-				}
+
 				eclipsePlugin = {
 					enabled = true
 				}
-				eclipsePluginTest = {
-					enabled = true
-				}
+
 				createEclipseMetaData = true
 			}
 			code = {

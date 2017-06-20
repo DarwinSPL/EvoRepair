@@ -12,4 +12,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightElement" eType="ecore:EClass platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoAllMappingsVariable" eSuperTypes="platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="ecore:EClass platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

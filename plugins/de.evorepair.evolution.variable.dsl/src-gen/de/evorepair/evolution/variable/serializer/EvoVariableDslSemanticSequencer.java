@@ -5,6 +5,7 @@ package de.evorepair.evolution.variable.serializer;
 
 import com.google.inject.Inject;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
+import de.evorepair.evolution.evovariable.EvoFeatureRelation;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoGroupVariable;
 import de.evorepair.evolution.evovariable.EvoMappingVariable;
@@ -47,6 +48,9 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 			case EvoVariablePackage.EVO_CONFIGURATION_VARIABLE:
 				sequence_EvoConfigurationVariable(context, (EvoConfigurationVariable) semanticObject); 
 				return; 
+			case EvoVariablePackage.EVO_FEATURE_RELATION:
+				sequence_EvoFeatureRelation(context, (EvoFeatureRelation) semanticObject); 
+				return; 
 			case EvoVariablePackage.EVO_FEATURE_VARIABLE:
 				sequence_EvoFeatureVariable(context, (EvoFeatureVariable) semanticObject); 
 				return; 
@@ -85,11 +89,23 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	
 	/**
 	 * Contexts:
+	 *     EvoFeatureRelation returns EvoFeatureRelation
+	 *
+	 * Constraint:
+	 *     (featureType=EvoFeatureVariableType relatedFeatures+=[EvoFeatureVariable|ID] relatedFeatures+=[EvoFeatureVariable|ID]?)
+	 */
+	protected void sequence_EvoFeatureRelation(ISerializationContext context, EvoFeatureRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EvoVariable returns EvoFeatureVariable
 	 *     EvoFeatureVariable returns EvoFeatureVariable
 	 *
 	 * Constraint:
-	 *     (name=ID featureType=EvoFeatureVariableType?)
+	 *     (name=ID relation=EvoFeatureRelation?)
 	 */
 	protected void sequence_EvoFeatureVariable(ISerializationContext context, EvoFeatureVariable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

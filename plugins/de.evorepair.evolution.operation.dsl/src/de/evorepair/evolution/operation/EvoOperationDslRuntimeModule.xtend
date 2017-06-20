@@ -3,15 +3,9 @@
  */
 package de.evorepair.evolution.operation
 
-import de.evorepair.evolution.operation.converter.EvoTerminalConverters
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class EvoOperationDslRuntimeModule extends AbstractEvoOperationDslRuntimeModule {
-	
-	override bindIValueConverterService() {
-		return EvoTerminalConverters;
-	}
-	
 }

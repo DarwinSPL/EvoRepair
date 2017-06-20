@@ -87,22 +87,14 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 			case EvoFirstOrderLogicPackage.EVO_FORMULA: return createEvoFormula();
 			case EvoFirstOrderLogicPackage.EVO_VARIABLE_TERM: return createEvoVariableTerm();
 			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM: return createEvoApplicationConstraintTerm();
-			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE: return createEvoApplicationConstraintVariable();
-			case EvoFirstOrderLogicPackage.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE: return createEvoFeatureModelConstraintVariable();
-			case EvoFirstOrderLogicPackage.EVO_PREDEFINED_VARIABLE: return createEvoPredefinedVariable();
-			case EvoFirstOrderLogicPackage.EVO_ALL_FEATURES_VARIABLE: return createEvoAllFeaturesVariable();
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE: return createEvoAllMappingsVariable();
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE: return createEvoMappingAssociatedAssetsVariable();
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE: return createEvoMappingVariable();
-			case EvoFirstOrderLogicPackage.EVO_INVOLVED_FEATURE_VARIABLE: return createEvoInvolvedFeatureVariable();
-			case EvoFirstOrderLogicPackage.EVO_REQUIREMENT_VARIABLE: return createEvoRequirementVariable();
 			case EvoFirstOrderLogicPackage.EVO_SIZE: return createEvoSize();
 			case EvoFirstOrderLogicPackage.EVO_GROUP_TYPE: return createEvoGroupType();
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE: return createEvoFeatureType();
-			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM: return createEvoEvolutionTerm();
-			case EvoFirstOrderLogicPackage.EVO_SIBLINGS: return createEvoSiblings();
 			case EvoFirstOrderLogicPackage.EVO_SATISFIABLE: return createEvoSatisfiable();
 			case EvoFirstOrderLogicPackage.EVO_SET_TERM: return createEvoSetTerm();
+			case EvoFirstOrderLogicPackage.EVO_CHILDREN_OF: return createEvoChildrenOf();
+			case EvoFirstOrderLogicPackage.EVO_SIBLINGS_OF: return createEvoSiblingsOf();
+			case EvoFirstOrderLogicPackage.EVO_PARENT_OF: return createEvoParentOf();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -366,105 +358,6 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoApplicationConstraintVariable createEvoApplicationConstraintVariable()
-	{
-		EvoApplicationConstraintVariableImpl evoApplicationConstraintVariable = new EvoApplicationConstraintVariableImpl();
-		return evoApplicationConstraintVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoFeatureModelConstraintVariable createEvoFeatureModelConstraintVariable()
-	{
-		EvoFeatureModelConstraintVariableImpl evoFeatureModelConstraintVariable = new EvoFeatureModelConstraintVariableImpl();
-		return evoFeatureModelConstraintVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoPredefinedVariable createEvoPredefinedVariable()
-	{
-		EvoPredefinedVariableImpl evoPredefinedVariable = new EvoPredefinedVariableImpl();
-		return evoPredefinedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoAllFeaturesVariable createEvoAllFeaturesVariable()
-	{
-		EvoAllFeaturesVariableImpl evoAllFeaturesVariable = new EvoAllFeaturesVariableImpl();
-		return evoAllFeaturesVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoAllMappingsVariable createEvoAllMappingsVariable()
-	{
-		EvoAllMappingsVariableImpl evoAllMappingsVariable = new EvoAllMappingsVariableImpl();
-		return evoAllMappingsVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoMappingAssociatedAssetsVariable createEvoMappingAssociatedAssetsVariable()
-	{
-		EvoMappingAssociatedAssetsVariableImpl evoMappingAssociatedAssetsVariable = new EvoMappingAssociatedAssetsVariableImpl();
-		return evoMappingAssociatedAssetsVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoMappingVariable createEvoMappingVariable()
-	{
-		EvoMappingVariableImpl evoMappingVariable = new EvoMappingVariableImpl();
-		return evoMappingVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoInvolvedFeatureVariable createEvoInvolvedFeatureVariable()
-	{
-		EvoInvolvedFeatureVariableImpl evoInvolvedFeatureVariable = new EvoInvolvedFeatureVariableImpl();
-		return evoInvolvedFeatureVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoRequirementVariable createEvoRequirementVariable()
-	{
-		EvoRequirementVariableImpl evoRequirementVariable = new EvoRequirementVariableImpl();
-		return evoRequirementVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EvoSize createEvoSize()
 	{
 		EvoSizeImpl evoSize = new EvoSizeImpl();
@@ -498,28 +391,6 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTerm createEvoEvolutionTerm()
-	{
-		EvoEvolutionTermImpl evoEvolutionTerm = new EvoEvolutionTermImpl();
-		return evoEvolutionTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoSiblings createEvoSiblings()
-	{
-		EvoSiblingsImpl evoSiblings = new EvoSiblingsImpl();
-		return evoSiblings;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EvoSatisfiable createEvoSatisfiable()
 	{
 		EvoSatisfiableImpl evoSatisfiable = new EvoSatisfiableImpl();
@@ -535,6 +406,39 @@ public class EvoFirstOrderLogicFactoryImpl extends EFactoryImpl implements EvoFi
 	{
 		EvoSetTermImpl evoSetTerm = new EvoSetTermImpl();
 		return evoSetTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvoChildrenOf createEvoChildrenOf()
+	{
+		EvoChildrenOfImpl evoChildrenOf = new EvoChildrenOfImpl();
+		return evoChildrenOf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvoSiblingsOf createEvoSiblingsOf()
+	{
+		EvoSiblingsOfImpl evoSiblingsOf = new EvoSiblingsOfImpl();
+		return evoSiblingsOf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvoParentOf createEvoParentOf()
+	{
+		EvoParentOfImpl evoParentOf = new EvoParentOfImpl();
+		return evoParentOf;
 	}
 
 	/**

@@ -94,11 +94,18 @@ EvoSetSymmetricDifference returns EvoAbstractTerm:
 EvoSetCartesianProduct returns EvoAbstractTerm:
 	EvoElementOf({EvoSetCartesianProduct.leftElement=current} ('x') rightElement=EvoElementOf)*;
 
-//EvoSetCardinality returns EvoAbstractTerm:
-//	EvoElementOf('size' '(' {EvoSetCardinality.element=current} ')');
+EvoSetCardinality returns EvoAbstractTerm:
+	{EvoSetCardinality} (('|' element=EvoAbstractTerm '|') | ('size' '(' element=EvoAbstractTerm ')'));
 
 EvoElementOf returns EvoAbstractTerm:
 	EvoAbstractOneParameterTerm({EvoElementOf.leftElement=current} ('elementOf') rightElement=EvoAbstractOneParameterTerm)*;
+
+EvoForAll returns EvoAbstractTerm:
+	{EvoForAll}'forAll' '('
+		boundedVariables+=[evovar::EvoVariable | QualifiedName] (',' boundedVariables+=[evovar::EvoVariable | QualifiedName]) ':'
+		element=EvoAbstractTerm
+	')';
+
 
 EvoSatisfiable returns EvoAbstractTerm: 
 	({EvoSatisfiable}'satisfiable' '(' variables+=(EvoSetVariable | EvoApplicationConstraintTerm) (',' variables+=(EvoSetVariable | EvoApplicationConstraintTerm))* ')');
@@ -109,8 +116,13 @@ EvoAbstractOneParameterTerm returns EvoAbstractTerm:
 	EvoApplicationConstraintTerm | 
 	EvoAllMappingsVariable | 
 	EvoNot | 
+	EvoForAll |
 	EvoFeatureType | 
 	EvoGroupType | 
+	EvoSetCardinality |
+	EvoChildrenOf |
+	EvoParentOf |
+	EvoSiblingsOf |
 	EvoSatisfiable |
 	'(' EvoXOr ')';
 
@@ -143,16 +155,20 @@ EvoNot returns EvoAbstractTerm:
 
 
 EvoFeatureType returns EvoAbstractTerm:
-	({EvoFeatureType}'featureType' ('(' variables+=[evovar::EvoFeatureVariable | QualifiedName] (',' variables+=[evovar::EvoFeatureVariable | QualifiedName])* ')') '==' type=HyFeatureTypeEnum)
+	({EvoFeatureType}'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '==' type=HyFeatureTypeEnum)
 ;
+
 
 enum HyFeatureTypeEnum returns hyfeature::HyFeatureTypeEnum:
 	OPTIONAL = 'optional' | MANDATORY = 'mandatory'
 ;
 
 EvoGroupType returns EvoAbstractTerm:
-	({EvoGroupType}'groupType' ('(' variables+=[evovar::EvoGroupVariable | QualifiedName] (',' variables+=[evovar::EvoGroupVariable | QualifiedName])* ')') '==' type=HyGroupTypeEnum)
+	({EvoGroupType}'groupType' ('(' variables+=EvoGroupTerm (',' variables+=EvoGroupTerm)* ')') '==' type=HyGroupTypeEnum)
 ;
+
+EvoGroupTerm returns EvoVariableTerm:
+	variable=[evovar::EvoGroupVariable | QualifiedName](type=EvoVariableType)?;
 
 enum HyGroupTypeEnum returns hyfeature::HyGroupTypeEnum:
 	AND = 'and' | OR = 'or' | ALTERNATIVE = 'alternative'
@@ -163,7 +179,7 @@ EvoSetTerm returns EvoAbstractTerm:
 ;
 
 EvoSetVariable returns EvoAbstractTerm:
-	EvoVariableTerm | EvoNot
+	EvoVariableTerm | EvoSetTerm | EvoNot
 ;
 
 
@@ -171,7 +187,17 @@ EvoSetVariable returns EvoAbstractTerm:
 EvoAllMappingsVariable returns EvoAbstractTerm: 
 	{EvoAllMappingsVariable}'M' ('(' variables+=EvoSetVariable (',' variables+=EvoSetVariable)*')');
 
+EvoParentOf:
+	'parentOf' '(' variable=EvoVariableTerm ')'
+;
 
+EvoSiblingsOf:
+	'sibilingsOf' '(' variable=EvoVariableTerm ')'
+;
+
+EvoChildrenOf: 
+	'childrenOf' '(' variable=EvoVariableTerm ')'
+;
 
 
 

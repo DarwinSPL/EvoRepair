@@ -347,88 +347,6 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoFirstOrderLogicPackage.EVO_APPLICATION_CONSTRAINT_VARIABLE:
-			{
-				EvoApplicationConstraintVariable evoApplicationConstraintVariable = (EvoApplicationConstraintVariable)theEObject;
-				T result = caseEvoApplicationConstraintVariable(evoApplicationConstraintVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoApplicationConstraintVariable);
-				if (result == null) result = caseEvoVariable(evoApplicationConstraintVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE:
-			{
-				EvoFeatureModelConstraintVariable evoFeatureModelConstraintVariable = (EvoFeatureModelConstraintVariable)theEObject;
-				T result = caseEvoFeatureModelConstraintVariable(evoFeatureModelConstraintVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoFeatureModelConstraintVariable);
-				if (result == null) result = caseEvoVariable(evoFeatureModelConstraintVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_PREDEFINED_VARIABLE:
-			{
-				EvoPredefinedVariable evoPredefinedVariable = (EvoPredefinedVariable)theEObject;
-				T result = caseEvoPredefinedVariable(evoPredefinedVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoPredefinedVariable);
-				if (result == null) result = caseEvoVariable(evoPredefinedVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_ALL_FEATURES_VARIABLE:
-			{
-				EvoAllFeaturesVariable evoAllFeaturesVariable = (EvoAllFeaturesVariable)theEObject;
-				T result = caseEvoAllFeaturesVariable(evoAllFeaturesVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoAllFeaturesVariable);
-				if (result == null) result = caseEvoVariable(evoAllFeaturesVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_ALL_MAPPINGS_VARIABLE:
-			{
-				EvoAllMappingsVariable evoAllMappingsVariable = (EvoAllMappingsVariable)theEObject;
-				T result = caseEvoAllMappingsVariable(evoAllMappingsVariable);
-				if (result == null) result = caseEvoAbstractTerm(evoAllMappingsVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE:
-			{
-				EvoMappingAssociatedAssetsVariable evoMappingAssociatedAssetsVariable = (EvoMappingAssociatedAssetsVariable)theEObject;
-				T result = caseEvoMappingAssociatedAssetsVariable(evoMappingAssociatedAssetsVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoMappingAssociatedAssetsVariable);
-				if (result == null) result = caseEvoVariable(evoMappingAssociatedAssetsVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_MAPPING_VARIABLE:
-			{
-				EvoMappingVariable evoMappingVariable = (EvoMappingVariable)theEObject;
-				T result = caseEvoMappingVariable(evoMappingVariable);
-				if (result == null) result = caseEvoPredefinedVariable(evoMappingVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoMappingVariable);
-				if (result == null) result = caseEvoVariable(evoMappingVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_INVOLVED_FEATURE_VARIABLE:
-			{
-				EvoInvolvedFeatureVariable evoInvolvedFeatureVariable = (EvoInvolvedFeatureVariable)theEObject;
-				T result = caseEvoInvolvedFeatureVariable(evoInvolvedFeatureVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoInvolvedFeatureVariable);
-				if (result == null) result = caseEvoVariable(evoInvolvedFeatureVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_REQUIREMENT_VARIABLE:
-			{
-				EvoRequirementVariable evoRequirementVariable = (EvoRequirementVariable)theEObject;
-				T result = caseEvoRequirementVariable(evoRequirementVariable);
-				if (result == null) result = caseEvoPredefinedVariable(evoRequirementVariable);
-				if (result == null) result = caseEvoEvolutionTerm(evoRequirementVariable);
-				if (result == null) result = caseEvoVariable(evoRequirementVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EvoFirstOrderLogicPackage.EVO_SIZE:
 			{
 				EvoSize evoSize = (EvoSize)theEObject;
@@ -441,9 +359,7 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 			{
 				EvoGroupType evoGroupType = (EvoGroupType)theEObject;
 				T result = caseEvoGroupType(evoGroupType);
-				if (result == null) result = caseEvoEvolutionTerm(evoGroupType);
 				if (result == null) result = caseEvoAbstractTerm(evoGroupType);
-				if (result == null) result = caseEvoVariable(evoGroupType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -452,24 +368,6 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 				EvoFeatureType evoFeatureType = (EvoFeatureType)theEObject;
 				T result = caseEvoFeatureType(evoFeatureType);
 				if (result == null) result = caseEvoAbstractTerm(evoFeatureType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_EVOLUTION_TERM:
-			{
-				EvoEvolutionTerm evoEvolutionTerm = (EvoEvolutionTerm)theEObject;
-				T result = caseEvoEvolutionTerm(evoEvolutionTerm);
-				if (result == null) result = caseEvoVariable(evoEvolutionTerm);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EvoFirstOrderLogicPackage.EVO_SIBLINGS:
-			{
-				EvoSiblings evoSiblings = (EvoSiblings)theEObject;
-				T result = caseEvoSiblings(evoSiblings);
-				if (result == null) result = caseEvoPredefinedVariable(evoSiblings);
-				if (result == null) result = caseEvoEvolutionTerm(evoSiblings);
-				if (result == null) result = caseEvoVariable(evoSiblings);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -485,8 +383,33 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 			{
 				EvoSetTerm evoSetTerm = (EvoSetTerm)theEObject;
 				T result = caseEvoSetTerm(evoSetTerm);
-				if (result == null) result = caseEvoAbstractOneParameterTerm(evoSetTerm);
 				if (result == null) result = caseEvoAbstractTerm(evoSetTerm);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EvoFirstOrderLogicPackage.EVO_CHILDREN_OF:
+			{
+				EvoChildrenOf evoChildrenOf = (EvoChildrenOf)theEObject;
+				T result = caseEvoChildrenOf(evoChildrenOf);
+				if (result == null) result = caseEvoAbstractTerm(evoChildrenOf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EvoFirstOrderLogicPackage.EVO_SIBLINGS_OF:
+			{
+				EvoSiblingsOf evoSiblingsOf = (EvoSiblingsOf)theEObject;
+				T result = caseEvoSiblingsOf(evoSiblingsOf);
+				if (result == null) result = caseEvoSetTerm(evoSiblingsOf);
+				if (result == null) result = caseEvoAbstractTerm(evoSiblingsOf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EvoFirstOrderLogicPackage.EVO_PARENT_OF:
+			{
+				EvoParentOf evoParentOf = (EvoParentOf)theEObject;
+				T result = caseEvoParentOf(evoParentOf);
+				if (result == null) result = caseEvoSetTerm(evoParentOf);
+				if (result == null) result = caseEvoAbstractTerm(evoParentOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -975,150 +898,6 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Application Constraint Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Application Constraint Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoApplicationConstraintVariable(EvoApplicationConstraintVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Feature Model Constraint Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Feature Model Constraint Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoFeatureModelConstraintVariable(EvoFeatureModelConstraintVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Predefined Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Predefined Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoPredefinedVariable(EvoPredefinedVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo All Features Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo All Features Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoAllFeaturesVariable(EvoAllFeaturesVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo All Mappings Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo All Mappings Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoAllMappingsVariable(EvoAllMappingsVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Mapping Associated Assets Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Mapping Associated Assets Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoMappingAssociatedAssetsVariable(EvoMappingAssociatedAssetsVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Mapping Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Mapping Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoMappingVariable(EvoMappingVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Involved Feature Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Involved Feature Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoInvolvedFeatureVariable(EvoInvolvedFeatureVariable object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Requirement Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Requirement Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoRequirementVariable(EvoRequirementVariable object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Evo Size</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1167,38 +946,6 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Evolution Term</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Evolution Term</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoEvolutionTerm(EvoEvolutionTerm object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Evo Siblings</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Evo Siblings</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvoSiblings(EvoSiblings object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Evo Satisfiable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1226,6 +973,54 @@ public class EvoFirstOrderLogicSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseEvoSetTerm(EvoSetTerm object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evo Children Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evo Children Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvoChildrenOf(EvoChildrenOf object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evo Siblings Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evo Siblings Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvoSiblingsOf(EvoSiblingsOf object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evo Parent Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evo Parent Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvoParentOf(EvoParentOf object)
 	{
 		return null;
 	}

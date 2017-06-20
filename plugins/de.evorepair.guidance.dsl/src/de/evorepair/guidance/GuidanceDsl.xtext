@@ -42,8 +42,8 @@ EvoAnomaly returns EvoAnomaly:
 	'}';
 EvoGuidanceElement:
 	'type' '=' type=EvoGuidanceType
-	('description' '=' description=STRING)
-	'action' '=' action=EvoFormula
+	('description' '=' description=STRING)?
+	('action' '=' action=EvoFormula)?
 ;
 
 @Override 

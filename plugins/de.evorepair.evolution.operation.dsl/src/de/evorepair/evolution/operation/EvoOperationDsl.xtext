@@ -18,9 +18,9 @@ EvoOperationContainer:
 EvoOperation:
 	'operation' name=ID '{'
 		'variables' '=' '{' 
-			variables+=EvoVariable (variables+=EvoVariable)*
+			variables+=EvoVariable (';' variables+=EvoVariable)*
 		'}'
-		'timestamp' '=' date=DATE
+		('timestamp' '=' date=DATE)?
 		
 	'}';
 

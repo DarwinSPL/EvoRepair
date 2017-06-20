@@ -13,5 +13,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoElementOf/leftElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoElementOf/rightElement"/>
     </genClasses>
+    <genClasses ecoreClass="EvoDsl.ecore#//EvoAllMappingsVariable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoAllMappingsVariable/variables"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -230,87 +230,6 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	EvoApplicationConstraintTerm createEvoApplicationConstraintTerm();
 
 	/**
-	 * Returns a new object of class '<em>Evo Application Constraint Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Application Constraint Variable</em>'.
-	 * @generated
-	 */
-	EvoApplicationConstraintVariable createEvoApplicationConstraintVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Feature Model Constraint Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Feature Model Constraint Variable</em>'.
-	 * @generated
-	 */
-	EvoFeatureModelConstraintVariable createEvoFeatureModelConstraintVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Predefined Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Predefined Variable</em>'.
-	 * @generated
-	 */
-	EvoPredefinedVariable createEvoPredefinedVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo All Features Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo All Features Variable</em>'.
-	 * @generated
-	 */
-	EvoAllFeaturesVariable createEvoAllFeaturesVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo All Mappings Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo All Mappings Variable</em>'.
-	 * @generated
-	 */
-	EvoAllMappingsVariable createEvoAllMappingsVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Mapping Associated Assets Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Mapping Associated Assets Variable</em>'.
-	 * @generated
-	 */
-	EvoMappingAssociatedAssetsVariable createEvoMappingAssociatedAssetsVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Mapping Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Mapping Variable</em>'.
-	 * @generated
-	 */
-	EvoMappingVariable createEvoMappingVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Involved Feature Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Involved Feature Variable</em>'.
-	 * @generated
-	 */
-	EvoInvolvedFeatureVariable createEvoInvolvedFeatureVariable();
-
-	/**
-	 * Returns a new object of class '<em>Evo Requirement Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Requirement Variable</em>'.
-	 * @generated
-	 */
-	EvoRequirementVariable createEvoRequirementVariable();
-
-	/**
 	 * Returns a new object of class '<em>Evo Size</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,24 +257,6 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	EvoFeatureType createEvoFeatureType();
 
 	/**
-	 * Returns a new object of class '<em>Evo Evolution Term</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Evolution Term</em>'.
-	 * @generated
-	 */
-	EvoEvolutionTerm createEvoEvolutionTerm();
-
-	/**
-	 * Returns a new object of class '<em>Evo Siblings</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Siblings</em>'.
-	 * @generated
-	 */
-	EvoSiblings createEvoSiblings();
-
-	/**
 	 * Returns a new object of class '<em>Evo Satisfiable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -372,6 +273,33 @@ public interface EvoFirstOrderLogicFactory extends EFactory
 	 * @generated
 	 */
 	EvoSetTerm createEvoSetTerm();
+
+	/**
+	 * Returns a new object of class '<em>Evo Children Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evo Children Of</em>'.
+	 * @generated
+	 */
+	EvoChildrenOf createEvoChildrenOf();
+
+	/**
+	 * Returns a new object of class '<em>Evo Siblings Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evo Siblings Of</em>'.
+	 * @generated
+	 */
+	EvoSiblingsOf createEvoSiblingsOf();
+
+	/**
+	 * Returns a new object of class '<em>Evo Parent Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evo Parent Of</em>'.
+	 * @generated
+	 */
+	EvoParentOf createEvoParentOf();
 
 	/**
 	 * Returns the package supported by this factory.

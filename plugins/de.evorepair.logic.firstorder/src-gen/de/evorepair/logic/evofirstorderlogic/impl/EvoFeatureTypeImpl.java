@@ -2,24 +2,26 @@
  */
 package de.evorepair.logic.evofirstorderlogic.impl;
 
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-
 import de.evorepair.logic.evofirstorderlogic.EvoFeatureType;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
+import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 
 import eu.hyvar.feature.HyFeatureTypeEnum;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,14 +60,14 @@ public class EvoFeatureTypeImpl extends EvoAbstractTermImpl implements EvoFeatur
 	protected HyFeatureTypeEnum type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' reference list.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EvoFeatureVariable> variables;
+	protected EList<EvoVariableTerm> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,13 +118,29 @@ public class EvoFeatureTypeImpl extends EvoAbstractTermImpl implements EvoFeatur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoFeatureVariable> getVariables()
+	public EList<EvoVariableTerm> getVariables()
 	{
 		if (variables == null)
 		{
-			variables = new EObjectResolvingEList<EvoFeatureVariable>(EvoFeatureVariable.class, this, EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES);
+			variables = new EObjectContainmentEList<EvoVariableTerm>(EvoVariableTerm.class, this, EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES);
 		}
 		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -159,7 +177,7 @@ public class EvoFeatureTypeImpl extends EvoAbstractTermImpl implements EvoFeatur
 				return;
 			case EvoFirstOrderLogicPackage.EVO_FEATURE_TYPE__VARIABLES:
 				getVariables().clear();
-				getVariables().addAll((Collection<? extends EvoFeatureVariable>)newValue);
+				getVariables().addAll((Collection<? extends EvoVariableTerm>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -2,19 +2,26 @@
  */
 package de.evorepair.logic.evofirstorderlogic.impl;
 
+import de.evorepair.evolution.evovariable.EvoVariable;
+
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractOneParameterTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoExist;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoExistImpl#getElement <em>Element</em>}</li>
- *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoExistImpl#getBoundedVariable <em>Bounded Variable</em>}</li>
+ *   <li>{@link de.evorepair.logic.evofirstorderlogic.impl.EvoExistImpl#getBoundedVariables <em>Bounded Variables</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +50,14 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 	protected EvoAbstractTerm element;
 
 	/**
-	 * The cached value of the '{@link #getBoundedVariable() <em>Bounded Variable</em>}' reference.
+	 * The cached value of the '{@link #getBoundedVariables() <em>Bounded Variables</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBoundedVariable()
+	 * @see #getBoundedVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EvoEvolutionTerm boundedVariable;
+	protected EList<EvoVariable> boundedVariables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,42 +133,13 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoEvolutionTerm getBoundedVariable()
+	public EList<EvoVariable> getBoundedVariables()
 	{
-		if (boundedVariable != null && boundedVariable.eIsProxy())
+		if (boundedVariables == null)
 		{
-			InternalEObject oldBoundedVariable = (InternalEObject)boundedVariable;
-			boundedVariable = (EvoEvolutionTerm)eResolveProxy(oldBoundedVariable);
-			if (boundedVariable != oldBoundedVariable)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE, oldBoundedVariable, boundedVariable));
-			}
+			boundedVariables = new EObjectResolvingEList<EvoVariable>(EvoVariable.class, this, EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLES);
 		}
-		return boundedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoEvolutionTerm basicGetBoundedVariable()
-	{
-		return boundedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBoundedVariable(EvoEvolutionTerm newBoundedVariable)
-	{
-		EvoEvolutionTerm oldBoundedVariable = boundedVariable;
-		boundedVariable = newBoundedVariable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE, oldBoundedVariable, boundedVariable));
+		return boundedVariables;
 	}
 
 	/**
@@ -192,9 +170,8 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 		{
 			case EvoFirstOrderLogicPackage.EVO_EXIST__ELEMENT:
 				return getElement();
-			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE:
-				if (resolve) return getBoundedVariable();
-				return basicGetBoundedVariable();
+			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLES:
+				return getBoundedVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +181,7 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -212,8 +190,9 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 			case EvoFirstOrderLogicPackage.EVO_EXIST__ELEMENT:
 				setElement((EvoAbstractTerm)newValue);
 				return;
-			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE:
-				setBoundedVariable((EvoEvolutionTerm)newValue);
+			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLES:
+				getBoundedVariables().clear();
+				getBoundedVariables().addAll((Collection<? extends EvoVariable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,8 +211,8 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 			case EvoFirstOrderLogicPackage.EVO_EXIST__ELEMENT:
 				setElement((EvoAbstractTerm)null);
 				return;
-			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE:
-				setBoundedVariable((EvoEvolutionTerm)null);
+			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLES:
+				getBoundedVariables().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -251,8 +230,8 @@ public class EvoExistImpl extends EvoAbstractTermImpl implements EvoExist
 		{
 			case EvoFirstOrderLogicPackage.EVO_EXIST__ELEMENT:
 				return element != null;
-			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLE:
-				return boundedVariable != null;
+			case EvoFirstOrderLogicPackage.EVO_EXIST__BOUNDED_VARIABLES:
+				return boundedVariables != null && !boundedVariables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

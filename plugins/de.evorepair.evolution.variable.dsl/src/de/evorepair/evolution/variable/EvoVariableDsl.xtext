@@ -13,7 +13,11 @@ EvoVariable:
 
 
 EvoFeatureVariable: 
-	'feature' name=ID ('.' featureType=EvoFeatureVariableType)?
+	'feature' name=ID (relation=EvoFeatureRelation)?
+;
+
+EvoFeatureRelation:
+	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')'
 ;
 
 EvoGroupVariable:
@@ -33,8 +37,8 @@ EvoConfigurationVariable:
 ;
 
 enum EvoFeatureVariableType:
-	EvoParent = 'parent' |
-	EvoSibling = 'source' |
-	EvoChild = 'child'	
+	EvoParent = 'parentOf' |
+	EvoSibling = 'siblingOf' |
+	EvoChild = 'childOf'	
 ;
 

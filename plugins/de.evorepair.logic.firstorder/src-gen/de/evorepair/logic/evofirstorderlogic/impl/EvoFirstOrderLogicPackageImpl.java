@@ -11,16 +11,12 @@ import de.evorepair.logic.evofirstorderlogic.EvoAbstractQuantifierTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTwoParameterTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoAllFeaturesVariable;
-import de.evorepair.logic.evofirstorderlogic.EvoAllMappingsVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoAnd;
 import de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoApplicationConstraintVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoBiconditional;
+import de.evorepair.logic.evofirstorderlogic.EvoChildrenOf;
 import de.evorepair.logic.evofirstorderlogic.EvoEqual;
-import de.evorepair.logic.evofirstorderlogic.EvoEvolutionTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoExist;
-import de.evorepair.logic.evofirstorderlogic.EvoFeatureModelConstraintVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoFeatureType;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicFactory;
 import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicPackage;
@@ -30,13 +26,9 @@ import de.evorepair.logic.evofirstorderlogic.EvoFormulaSetVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoFormulaVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoGroupType;
 import de.evorepair.logic.evofirstorderlogic.EvoImplication;
-import de.evorepair.logic.evofirstorderlogic.EvoInvolvedFeatureVariable;
-import de.evorepair.logic.evofirstorderlogic.EvoMappingAssociatedAssetsVariable;
-import de.evorepair.logic.evofirstorderlogic.EvoMappingVariable;
 import de.evorepair.logic.evofirstorderlogic.EvoNot;
 import de.evorepair.logic.evofirstorderlogic.EvoOr;
-import de.evorepair.logic.evofirstorderlogic.EvoPredefinedVariable;
-import de.evorepair.logic.evofirstorderlogic.EvoRequirementVariable;
+import de.evorepair.logic.evofirstorderlogic.EvoParentOf;
 import de.evorepair.logic.evofirstorderlogic.EvoSatisfiable;
 import de.evorepair.logic.evofirstorderlogic.EvoSetCardinality;
 import de.evorepair.logic.evofirstorderlogic.EvoSetCartesianProduct;
@@ -48,7 +40,7 @@ import de.evorepair.logic.evofirstorderlogic.EvoSetNotElementOf;
 import de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference;
 import de.evorepair.logic.evofirstorderlogic.EvoSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoSetUnion;
-import de.evorepair.logic.evofirstorderlogic.EvoSiblings;
+import de.evorepair.logic.evofirstorderlogic.EvoSiblingsOf;
 import de.evorepair.logic.evofirstorderlogic.EvoSize;
 import de.evorepair.logic.evofirstorderlogic.EvoUnequal;
 import de.evorepair.logic.evofirstorderlogic.EvoUniqueExists;
@@ -287,69 +279,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass evoApplicationConstraintVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoFeatureModelConstraintVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoPredefinedVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoAllFeaturesVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoAllMappingsVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoMappingAssociatedAssetsVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoMappingVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoInvolvedFeatureVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoRequirementVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass evoSizeEClass = null;
 
 	/**
@@ -371,20 +300,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass evoEvolutionTermEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoSiblingsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass evoSatisfiableEClass = null;
 
 	/**
@@ -393,6 +308,27 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * @generated
 	 */
 	private EClass evoSetTermEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evoChildrenOfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evoSiblingsOfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evoParentOfEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -735,7 +671,7 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractQuantifierTerm_BoundedVariable()
+	public EReference getEvoAbstractQuantifierTerm_BoundedVariables()
 	{
 		return (EReference)evoAbstractQuantifierTermEClass.getEStructuralFeatures().get(0);
 	}
@@ -795,19 +731,9 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFormula_Variables()
-	{
-		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getEvoFormula_TestTrigger()
 	{
-		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(2);
+		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -858,146 +784,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	public EReference getEvoApplicationConstraintTerm_Variable()
 	{
 		return (EReference)evoApplicationConstraintTermEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoApplicationConstraintVariable()
-	{
-		return evoApplicationConstraintVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvoApplicationConstraintVariable_Mapping()
-	{
-		return (EReference)evoApplicationConstraintVariableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoFeatureModelConstraintVariable()
-	{
-		return evoFeatureModelConstraintVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoPredefinedVariable()
-	{
-		return evoPredefinedVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoAllFeaturesVariable()
-	{
-		return evoAllFeaturesVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoAllMappingsVariable()
-	{
-		return evoAllMappingsVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvoAllMappingsVariable_Variables()
-	{
-		return (EReference)evoAllMappingsVariableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoMappingAssociatedAssetsVariable()
-	{
-		return evoMappingAssociatedAssetsVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvoMappingAssociatedAssetsVariable_AssociatedMapping()
-	{
-		return (EReference)evoMappingAssociatedAssetsVariableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoMappingVariable()
-	{
-		return evoMappingVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEvoMappingVariable_Mapping()
-	{
-		return (EAttribute)evoMappingVariableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvoMappingVariable_ContainingFeature()
-	{
-		return (EReference)evoMappingVariableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoInvolvedFeatureVariable()
-	{
-		return evoInvolvedFeatureVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoRequirementVariable()
-	{
-		return evoRequirementVariableEClass;
 	}
 
 	/**
@@ -1085,46 +871,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoEvolutionTerm()
-	{
-		return evoEvolutionTermEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEvoEvolutionTerm_AfterEvolution()
-	{
-		return (EAttribute)evoEvolutionTermEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoSiblings()
-	{
-		return evoSiblingsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEvoSiblings_Type()
-	{
-		return (EAttribute)evoSiblingsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEvoSatisfiable()
 	{
 		return evoSatisfiableEClass;
@@ -1158,6 +904,66 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 	public EReference getEvoSetTerm_Variables()
 	{
 		return (EReference)evoSetTermEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvoChildrenOf()
+	{
+		return evoChildrenOfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEvoChildrenOf_Variable()
+	{
+		return (EReference)evoChildrenOfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvoSiblingsOf()
+	{
+		return evoSiblingsOfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEvoSiblingsOf_Variable()
+	{
+		return (EReference)evoSiblingsOfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvoParentOf()
+	{
+		return evoParentOfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEvoParentOf_Variable()
+	{
+		return (EReference)evoParentOfEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1240,7 +1046,7 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		evoSetNotElementOfEClass = createEClass(EVO_SET_NOT_ELEMENT_OF);
 
 		evoAbstractQuantifierTermEClass = createEClass(EVO_ABSTRACT_QUANTIFIER_TERM);
-		createEReference(evoAbstractQuantifierTermEClass, EVO_ABSTRACT_QUANTIFIER_TERM__BOUNDED_VARIABLE);
+		createEReference(evoAbstractQuantifierTermEClass, EVO_ABSTRACT_QUANTIFIER_TERM__BOUNDED_VARIABLES);
 
 		evoForAllEClass = createEClass(EVO_FOR_ALL);
 
@@ -1250,7 +1056,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 
 		evoFormulaEClass = createEClass(EVO_FORMULA);
 		createEReference(evoFormulaEClass, EVO_FORMULA__TERM);
-		createEReference(evoFormulaEClass, EVO_FORMULA__VARIABLES);
 		createEReference(evoFormulaEClass, EVO_FORMULA__TEST_TRIGGER);
 
 		evoVariableTermEClass = createEClass(EVO_VARIABLE_TERM);
@@ -1259,29 +1064,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 
 		evoApplicationConstraintTermEClass = createEClass(EVO_APPLICATION_CONSTRAINT_TERM);
 		createEReference(evoApplicationConstraintTermEClass, EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE);
-
-		evoApplicationConstraintVariableEClass = createEClass(EVO_APPLICATION_CONSTRAINT_VARIABLE);
-		createEReference(evoApplicationConstraintVariableEClass, EVO_APPLICATION_CONSTRAINT_VARIABLE__MAPPING);
-
-		evoFeatureModelConstraintVariableEClass = createEClass(EVO_FEATURE_MODEL_CONSTRAINT_VARIABLE);
-
-		evoPredefinedVariableEClass = createEClass(EVO_PREDEFINED_VARIABLE);
-
-		evoAllFeaturesVariableEClass = createEClass(EVO_ALL_FEATURES_VARIABLE);
-
-		evoAllMappingsVariableEClass = createEClass(EVO_ALL_MAPPINGS_VARIABLE);
-		createEReference(evoAllMappingsVariableEClass, EVO_ALL_MAPPINGS_VARIABLE__VARIABLES);
-
-		evoMappingAssociatedAssetsVariableEClass = createEClass(EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE);
-		createEReference(evoMappingAssociatedAssetsVariableEClass, EVO_MAPPING_ASSOCIATED_ASSETS_VARIABLE__ASSOCIATED_MAPPING);
-
-		evoMappingVariableEClass = createEClass(EVO_MAPPING_VARIABLE);
-		createEAttribute(evoMappingVariableEClass, EVO_MAPPING_VARIABLE__MAPPING);
-		createEReference(evoMappingVariableEClass, EVO_MAPPING_VARIABLE__CONTAINING_FEATURE);
-
-		evoInvolvedFeatureVariableEClass = createEClass(EVO_INVOLVED_FEATURE_VARIABLE);
-
-		evoRequirementVariableEClass = createEClass(EVO_REQUIREMENT_VARIABLE);
 
 		evoSizeEClass = createEClass(EVO_SIZE);
 		createEAttribute(evoSizeEClass, EVO_SIZE__SIZE);
@@ -1294,17 +1076,20 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		createEAttribute(evoFeatureTypeEClass, EVO_FEATURE_TYPE__TYPE);
 		createEReference(evoFeatureTypeEClass, EVO_FEATURE_TYPE__VARIABLES);
 
-		evoEvolutionTermEClass = createEClass(EVO_EVOLUTION_TERM);
-		createEAttribute(evoEvolutionTermEClass, EVO_EVOLUTION_TERM__AFTER_EVOLUTION);
-
-		evoSiblingsEClass = createEClass(EVO_SIBLINGS);
-		createEAttribute(evoSiblingsEClass, EVO_SIBLINGS__TYPE);
-
 		evoSatisfiableEClass = createEClass(EVO_SATISFIABLE);
 		createEReference(evoSatisfiableEClass, EVO_SATISFIABLE__VARIABLES);
 
 		evoSetTermEClass = createEClass(EVO_SET_TERM);
 		createEReference(evoSetTermEClass, EVO_SET_TERM__VARIABLES);
+
+		evoChildrenOfEClass = createEClass(EVO_CHILDREN_OF);
+		createEReference(evoChildrenOfEClass, EVO_CHILDREN_OF__VARIABLE);
+
+		evoSiblingsOfEClass = createEClass(EVO_SIBLINGS_OF);
+		createEReference(evoSiblingsOfEClass, EVO_SIBLINGS_OF__VARIABLE);
+
+		evoParentOfEClass = createEClass(EVO_PARENT_OF);
+		createEReference(evoParentOfEClass, EVO_PARENT_OF__VARIABLE);
 	}
 
 	/**
@@ -1379,23 +1164,14 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		evoExistEClass.getESuperTypes().add(this.getEvoAbstractQuantifierTerm());
 		evoUniqueExistsEClass.getESuperTypes().add(this.getEvoAbstractQuantifierTerm());
 		evoVariableTermEClass.getESuperTypes().add(this.getEvoAbstractTerm());
-		evoApplicationConstraintVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoFeatureModelConstraintVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoPredefinedVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoAllFeaturesVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoAllMappingsVariableEClass.getESuperTypes().add(this.getEvoAbstractTerm());
-		evoMappingAssociatedAssetsVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoMappingVariableEClass.getESuperTypes().add(this.getEvoPredefinedVariable());
-		evoInvolvedFeatureVariableEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
-		evoRequirementVariableEClass.getESuperTypes().add(this.getEvoPredefinedVariable());
 		evoSizeEClass.getESuperTypes().add(this.getEvoAbstractTerm());
-		evoGroupTypeEClass.getESuperTypes().add(this.getEvoEvolutionTerm());
 		evoGroupTypeEClass.getESuperTypes().add(this.getEvoAbstractTerm());
 		evoFeatureTypeEClass.getESuperTypes().add(this.getEvoAbstractTerm());
-		evoEvolutionTermEClass.getESuperTypes().add(theEvoVariablePackage.getEvoVariable());
-		evoSiblingsEClass.getESuperTypes().add(this.getEvoPredefinedVariable());
 		evoSatisfiableEClass.getESuperTypes().add(this.getEvoAbstractTerm());
-		evoSetTermEClass.getESuperTypes().add(this.getEvoAbstractOneParameterTerm());
+		evoSetTermEClass.getESuperTypes().add(this.getEvoAbstractTerm());
+		evoChildrenOfEClass.getESuperTypes().add(this.getEvoAbstractTerm());
+		evoSiblingsOfEClass.getESuperTypes().add(this.getEvoSetTerm());
+		evoParentOfEClass.getESuperTypes().add(this.getEvoSetTerm());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(evoAndEClass, EvoAnd.class, "EvoAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1448,7 +1224,7 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		initEClass(evoSetNotElementOfEClass, EvoSetNotElementOf.class, "EvoSetNotElementOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoAbstractQuantifierTermEClass, EvoAbstractQuantifierTerm.class, "EvoAbstractQuantifierTerm", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvoAbstractQuantifierTerm_BoundedVariable(), this.getEvoEvolutionTerm(), null, "boundedVariable", null, 1, 1, EvoAbstractQuantifierTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvoAbstractQuantifierTerm_BoundedVariables(), theEvoVariablePackage.getEvoVariable(), null, "boundedVariables", null, 1, -1, EvoAbstractQuantifierTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoForAllEClass, EvoForAll.class, "EvoForAll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1458,7 +1234,6 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 
 		initEClass(evoFormulaEClass, EvoFormula.class, "EvoFormula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvoFormula_Term(), this.getEvoAbstractTerm(), null, "term", null, 1, 1, EvoFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvoFormula_Variables(), this.getEvoEvolutionTerm(), null, "variables", null, 0, -1, EvoFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvoFormula_TestTrigger(), theEvoOperationPackage.getEvoOperation(), null, "testTrigger", null, 0, 1, EvoFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoVariableTermEClass, EvoVariableTerm.class, "EvoVariableTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1468,51 +1243,31 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		initEClass(evoApplicationConstraintTermEClass, EvoApplicationConstraintTerm.class, "EvoApplicationConstraintTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvoApplicationConstraintTerm_Variable(), theEvoVariablePackage.getEvoMappingVariable(), null, "variable", null, 0, 1, EvoApplicationConstraintTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(evoApplicationConstraintVariableEClass, EvoApplicationConstraintVariable.class, "EvoApplicationConstraintVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvoApplicationConstraintVariable_Mapping(), this.getEvoMappingVariable(), null, "mapping", null, 0, 1, EvoApplicationConstraintVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoFeatureModelConstraintVariableEClass, EvoFeatureModelConstraintVariable.class, "EvoFeatureModelConstraintVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoPredefinedVariableEClass, EvoPredefinedVariable.class, "EvoPredefinedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoAllFeaturesVariableEClass, EvoAllFeaturesVariable.class, "EvoAllFeaturesVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoAllMappingsVariableEClass, EvoAllMappingsVariable.class, "EvoAllMappingsVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvoAllMappingsVariable_Variables(), this.getEvoAbstractTerm(), null, "variables", null, 0, -1, EvoAllMappingsVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoMappingAssociatedAssetsVariableEClass, EvoMappingAssociatedAssetsVariable.class, "EvoMappingAssociatedAssetsVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvoMappingAssociatedAssetsVariable_AssociatedMapping(), this.getEvoMappingVariable(), null, "associatedMapping", null, 0, 1, EvoMappingAssociatedAssetsVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoMappingVariableEClass, EvoMappingVariable.class, "EvoMappingVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEvoMappingVariable_Mapping(), ecorePackage.getEString(), "mapping", null, 1, 1, EvoMappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvoMappingVariable_ContainingFeature(), this.getEvoFormulaVariable(), null, "containingFeature", null, 0, 1, EvoMappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoInvolvedFeatureVariableEClass, EvoInvolvedFeatureVariable.class, "EvoInvolvedFeatureVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoRequirementVariableEClass, EvoRequirementVariable.class, "EvoRequirementVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(evoSizeEClass, EvoSize.class, "EvoSize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvoSize_Size(), ecorePackage.getEInt(), "size", null, 0, 1, EvoSize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoGroupTypeEClass, EvoGroupType.class, "EvoGroupType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvoGroupType_Type(), theHyFeaturePackage.getHyGroupTypeEnum(), "type", null, 0, 1, EvoGroupType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvoGroupType_Variables(), theEvoVariablePackage.getEvoGroupVariable(), null, "variables", null, 1, -1, EvoGroupType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvoGroupType_Variables(), this.getEvoVariableTerm(), null, "variables", null, 1, -1, EvoGroupType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoFeatureTypeEClass, EvoFeatureType.class, "EvoFeatureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvoFeatureType_Type(), theHyFeaturePackage.getHyFeatureTypeEnum(), "type", null, 0, 1, EvoFeatureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvoFeatureType_Variables(), theEvoVariablePackage.getEvoFeatureVariable(), null, "variables", null, 1, -1, EvoFeatureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoEvolutionTermEClass, EvoEvolutionTerm.class, "EvoEvolutionTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEvoEvolutionTerm_AfterEvolution(), ecorePackage.getEBoolean(), "afterEvolution", null, 0, 1, EvoEvolutionTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(evoSiblingsEClass, EvoSiblings.class, "EvoSiblings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEvoSiblings_Type(), theHyFeaturePackage.getHyFeatureTypeEnum(), "type", null, 0, 1, EvoSiblings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvoFeatureType_Variables(), this.getEvoVariableTerm(), null, "variables", null, 1, -1, EvoFeatureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoSatisfiableEClass, EvoSatisfiable.class, "EvoSatisfiable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvoSatisfiable_Variables(), this.getEvoAbstractTerm(), null, "variables", null, 1, -1, EvoSatisfiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoSetTermEClass, EvoSetTerm.class, "EvoSetTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvoSetTerm_Variables(), this.getEvoAbstractTerm(), null, "variables", null, 0, -1, EvoSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(evoChildrenOfEClass, EvoChildrenOf.class, "EvoChildrenOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEvoChildrenOf_Variable(), this.getEvoVariableTerm(), null, "variable", null, 1, 1, EvoChildrenOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(evoSiblingsOfEClass, EvoSiblingsOf.class, "EvoSiblingsOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEvoSiblingsOf_Variable(), this.getEvoVariableTerm(), null, "variable", null, 1, 1, EvoSiblingsOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(evoParentOfEClass, EvoParentOf.class, "EvoParentOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEvoParentOf_Variable(), this.getEvoVariableTerm(), null, "variable", null, 1, 1, EvoParentOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

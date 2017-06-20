@@ -19,15 +19,15 @@ Require-Bundle: de.evorepair.evolution.operation;bundle-version="1.0.0",
  de.evorepair.evolution.variable.dsl;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.logic,
- de.evorepair.logic.validation,
  de.evorepair.logic.formatting2,
- de.evorepair.logic.scoping,
+ de.evorepair.logic.formuladsl,
+ de.evorepair.logic.formuladsl.impl,
+ de.evorepair.logic.formuladsl.util,
  de.evorepair.logic.generator,
  de.evorepair.logic.parser.antlr,
  de.evorepair.logic.parser.antlr.internal,
+ de.evorepair.logic.scoping,
  de.evorepair.logic.serializer,
  de.evorepair.logic.services,
- de.evorepair.logic.formuladsl,
- de.evorepair.logic.formuladsl.impl,
- de.evorepair.logic.formuladsl.util
+ de.evorepair.logic.validation
 Import-Package: org.apache.log4j
