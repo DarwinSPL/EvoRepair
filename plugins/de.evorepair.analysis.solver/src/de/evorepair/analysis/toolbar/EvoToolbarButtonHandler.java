@@ -11,7 +11,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 	
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-        solver.solve();
+       // solver.solve();
         
         return null;
     }

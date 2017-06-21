@@ -9,7 +9,6 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.nary.cnf.ILogical;
 import org.chocosolver.solver.constraints.nary.cnf.LogOp;
-import org.chocosolver.solver.constraints.set.PropIntersection;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
@@ -44,6 +43,8 @@ import de.evorepair.logic.evofirstorderlogic.EvoSetIntersection;
 import de.evorepair.logic.evofirstorderlogic.EvoSetNotElementOf;
 import de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference;
 import de.evorepair.logic.evofirstorderlogic.EvoSetUnion;
+import de.evorepair.logic.evofirstorderlogic.EvoSize;
+import de.evorepair.logic.evofirstorderlogic.EvoUnequal;
 import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoXOr;
 import eu.hyvar.evolution.util.HyEvolutionUtil;
@@ -55,30 +56,19 @@ import eu.hyvar.feature.HyGroupComposition;
 import eu.hyvar.feature.HyGroupType;
 
 public class EvoSolver {
-	private class EvoFeature{
-		public IntVar variable;
-		public HyFeature feature;
 
-		public EvoFeature(IntVar variable, HyFeature feature){
-			this.variable = variable;
-			this.feature = feature;
-		}
-	}
-
-	private class EvoGroup{
-		public IntVar variable;
-		public HyGroup group;
-
-		public EvoGroup(IntVar variable, HyGroup group){
-			this.variable = variable;
-			this.group = group;
-		}
-	}
 
 	HashMap<HyFeature, IntVar> featureVariables = new HashMap<>();
 	HashMap<HyGroup, IntVar> groupVariables = new HashMap<>();
 	HashMap<String, IntIterableRangeSet> setVariables = new HashMap<>();
 
+	Model model;
+
+	/**
+	 * Adds a variable to the solver
+	 * @param operation
+	 * @param variable
+	 */
 	private void addVariable(EvoOperation operation, EvoVariable variable){
 		if(variable instanceof EvoFeatureVariable){
 			EvoFeatureVariable featureVariable = (EvoFeatureVariable)variable;
@@ -117,6 +107,10 @@ public class EvoSolver {
 		}
 	}
 
+	/**
+	 * Collect variables of a guidance table and adds them to the solver
+	 * @param guidanceTable
+	 */
 	private void collectVariables(EvoGuidanceTable guidanceTable){
 		for(EvoOperation operation : guidanceTable.getTriggeringOperations()){
 			for(EvoVariable variable : operation.getVariables()){
@@ -145,9 +139,22 @@ public class EvoSolver {
 		collectVariables(guidanceTable);
 	}
 
+	/**
+	 * returns the feature type valid at a given date
+	 * @param feature
+	 * @param date
+	 * @return valid feature type at given date
+	 */
 	private HyFeatureType getFeatureType(HyFeature feature, Date date){
 		return HyEvolutionUtil.getValidTemporalElement(feature.getTypes(), date);
 	}
+
+	/**
+	 * Checks if a certain feature has the desired type and returns the result
+	 * @param operation
+	 * @param oldFeature
+	 * @return
+	 */
 	public boolean determineValueOfFeatureTypeOperation(EvoFeatureType operation, HyFeature oldFeature){
 		Date date = new Date();
 
@@ -173,9 +180,22 @@ public class EvoSolver {
 		return true;
 	}
 
+	/**
+	 * returns the group type valid at a given date
+	 * @param group
+	 * @param date
+	 * @return valid group type at given date
+	 */
 	private HyGroupType getGroupType(HyGroup group, Date date){
 		return HyEvolutionUtil.getValidTemporalElement(group.getTypes(), date);
 	}
+
+	/**
+	 * Chekcs if a certain group has the desired type and returns the result
+	 * @param operation
+	 * @param oldGroup
+	 * @return
+	 */
 	public boolean determineValueOfGroupTypeOperation(EvoGroupType operation, HyGroup oldGroup){
 		Date date = new Date();
 
@@ -200,18 +220,26 @@ public class EvoSolver {
 
 		return true;
 	}	
-	
-	Model model;
 
-	private IntIterableRangeSet getSet(EvoAbstractTerm term){
+	/**
+	 * Returns the set variable, saved in the hashmap or calls a function to compute the corresponding set
+	 * @param term
+	 * @return
+	 */
+	private IntIterableRangeSet getSet(EvoAbstractTerm term, Date date){
 		if(term instanceof EvoSetVariable){
 			EvoSetVariable setTerm = (EvoSetVariable)term;
 			return setVariables.get(setTerm.getName());
+		}else{ // compute the set if it is not defined as a set variable
+			return FOOsolveSetTerm(term, date);
 		}
-
-		return null;
 	}
 
+	/**
+	 * Returns the variable defined in the given abstract term and saved in the hashmap
+	 * @param term
+	 * @return
+	 */
 	private Variable getVariable(EvoAbstractTerm term){
 		if(term instanceof EvoFeatureVariable){
 			EvoFeatureVariable featureVariableTerm = (EvoFeatureVariable)term;
@@ -223,152 +251,256 @@ public class EvoSolver {
 
 		return null;
 	}
-	private boolean solveSetTerm(EvoAbstractSetTerm term){
-		// TODO implement
-		if(term instanceof EvoSetCardinality){
-			EvoSetCardinality cardinalityTerm = (EvoSetCardinality)term;
-			IntIterableRangeSet set = getSet(cardinalityTerm.getElement());
 
-			System.err.println("SetCardinality not implemented");
-			return true;
+	private IntIterableRangeSet FOOsolveSetTerm(EvoAbstractTerm term, Date date){
+		if(term instanceof EvoSetIntersection){
+			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
 
-			// TODO implement
-		}else if(term instanceof EvoSetInclusion){
-			return true;
-			// TODO implement
-		}else if(term instanceof EvoSetIntersection){
-			PropIntersection intersection = new PropIntersection(null, null);
+			IntIterableRangeSet set1 = getSet(intersectionTerm.getLeftElement(), date);
+			IntIterableRangeSet set2 = getSet(intersectionTerm.getRightElement(), date);
 
+			return IntIterableSetUtils.intersection(set1, set2);
 		}else if(term instanceof EvoSetUnion){
 			EvoSetUnion unionTerm = (EvoSetUnion)term;
 
-			IntIterableRangeSet set1 = getSet(unionTerm.getLeftElement());
-			IntIterableRangeSet set2 = getSet(unionTerm.getRightElement());
+			IntIterableRangeSet set1 = getSet(unionTerm.getLeftElement(), date);
+			IntIterableRangeSet set2 = getSet(unionTerm.getRightElement(), date);
 
-			IntIterableRangeSet union = IntIterableSetUtils.union(set1, set2);
+			return IntIterableSetUtils.union(set1, set2);
 		}else if(term instanceof EvoSetDifference){
+			EvoSetDifference differenceTerm = (EvoSetDifference)term;
+
+			IntIterableRangeSet set1 = getSet(differenceTerm.getLeftElement(), date);
+			IntIterableRangeSet set2 = getSet(differenceTerm.getRightElement(), date);
+
+			IntIterableRangeSet result = new IntIterableRangeSet();
+			for(int i : set1){
+				if(!set2.contains(i))
+					result.add(i);
+			}	
+
+			return result;
 		}else if(term instanceof EvoSetSymmetricDifference){
-		}else if(term instanceof EvoSetElementOf){
-			EvoSetElementOf elementOfTerm = (EvoSetElementOf)term;
+			EvoSetSymmetricDifference differenceTerm = (EvoSetSymmetricDifference)term;
 
-			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
-			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement());
+			IntIterableRangeSet set1 = getSet(differenceTerm.getLeftElement(), date);
+			IntIterableRangeSet set2 = getSet(differenceTerm.getRightElement(), date);
 
-			return IntIterableSetUtils.includedIn(element, set);
-		}else if(term instanceof EvoSetNotElementOf){
-			EvoSetNotElementOf elementOfTerm = (EvoSetNotElementOf)term;
+			IntIterableRangeSet result = new IntIterableRangeSet();
+			for(int i : set1){
+				if(!set2.contains(i))
+					result.add(i);
+			}
 
-			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
-			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement());
+			for(int i : set2){
+				if(!set1.contains(i))
+					result.add(i);
+			}
 
-			return IntIterableSetUtils.notIncludedIn(element, set);
+			return result;
+		}else if(term instanceof EvoParentOf){
+			EvoParentOf parentOfTerm = (EvoParentOf)term;
+			EvoFeatureVariable variable = (EvoFeatureVariable)parentOfTerm.getVariable();
+
+			IntIterableRangeSet set = new IntIterableRangeSet();
+			List<HyFeature> children = new ArrayList<>();
+			for(HyFeatureChild featureChild : HyEvolutionUtil.getValidTemporalElements(variable.getFeature().getParentOf(), date)){
+				for(HyGroupComposition groupComposition : HyEvolutionUtil.getValidTemporalElements(featureChild.getChildGroup().getParentOf(), date)){
+					for(HyFeature feature : groupComposition.getFeatures())
+						if(HyEvolutionUtil.isValid(feature, date)){
+							children.add(feature);
+
+							if(featureVariables.containsKey(feature)){
+								set.add(featureVariables.get(feature).getValue());
+							}else{
+								IntVar intVar = model.intVar(featureVariables.size());
+								featureVariables.put(feature, intVar);
+
+								set.add(intVar.getValue());
+							}
+
+						}					
+				}
+			}
+
+			return set;
+		}else if(term instanceof EvoChildrenOf){
+			EvoChildrenOf childrenOfTerm = (EvoChildrenOf)term;
+			EvoFeatureVariable variable = (EvoFeatureVariable)childrenOfTerm.getVariable();
+
+			HyGroupComposition groupComposition = HyEvolutionUtil.getValidTemporalElement(variable.getFeature().getGroupMembership(), date);
+			HyFeatureChild featureChild = HyEvolutionUtil.getValidTemporalElement(groupComposition.getCompositionOf().getChildOf(), date);
+			HyFeature feature = featureChild.getParent();
+
+			IntIterableRangeSet set = new IntIterableRangeSet();
+			if(featureVariables.containsKey(feature)){
+				set.add(featureVariables.get(feature).getValue());
+			}else{
+				IntVar intVar = model.intVar(featureVariables.size());
+				featureVariables.put(feature, intVar);
+				set.add(intVar.getValue());
+			}			
+
+			return set;
 		}
 
-		return false;
+		return null;
 	}
 
-	private ILogical solveTerm(EvoAbstractTerm term, Date date){
+	private BoolVar solveSetTerm(EvoAbstractSetTerm term){
+		// TODO implement
+
+
+		return null;
+	}
+
+	
+	private void solveSetCardinality(EvoAbstractTerm term, Date date){
+		solveSetCardinality(term, date, (term instanceof EvoEqual));
+	}
+	private void solveSetCardinality(EvoAbstractTerm term, Date date, Boolean equal){
+			EvoEqual equalTerm = (EvoEqual)term;
+			
+			if(equalTerm.getLeftElement() instanceof EvoSetCardinality){
+				EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
+				IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);
+
+				if(equalTerm.getRightElement() instanceof EvoSetCardinality){
+					EvoSetCardinality rightCardinalityTerm = (EvoSetCardinality)term;
+					IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);	
+
+					model.addClauseTrue(model.boolVar((leftSet.size() == rightSet.size()) && equal));
+				}else if(equalTerm.getRightElement() instanceof EvoSize){
+					model.addClauseTrue(model.boolVar((leftSet.size() == ((EvoSize)equalTerm.getRightElement()).getSize()) && equal));
+				}
+			}else if(equalTerm.getRightElement() instanceof EvoSetCardinality){
+				EvoSetCardinality rightCardinalityTerm = (EvoSetCardinality)term;
+				IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);
+
+				if(equalTerm.getLeftElement() instanceof EvoSetCardinality){
+					EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
+					IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);	
+
+					model.addClauseTrue(model.boolVar((leftSet.size() == rightSet.size()) && equal));
+				}else if(equalTerm.getLeftElement() instanceof EvoSize){
+					model.addClauseTrue(model.boolVar(rightSet.size() == (((EvoSize)equalTerm.getLeftElement()).getSize()) && equal));
+				}
+			}	
+	}
+	private ILogical solveTerm(EvoAbstractTerm term, EvoAbstractTerm parentTerm, Date date){
 		if(term instanceof EvoAnd){
 			EvoAnd andTerm = (EvoAnd)term;
-			return LogOp.and(solveTerm(andTerm.getLeftElement(), date), solveTerm(andTerm.getRightElement(), date));
+
+			BoolVar a = model.boolVar();
+			return LogOp.and(solveTerm(andTerm.getLeftElement(), andTerm, date), solveTerm(andTerm.getRightElement(), andTerm, date));
 		}else if(term instanceof EvoOr){
-			EvoOr evoOr = (EvoOr)term;
-			return LogOp.or(solveTerm(evoOr.getLeftElement(), date), solveTerm(evoOr.getRightElement(), date));			
+			EvoOr orTerm = (EvoOr)term;
+			return LogOp.or(solveTerm(orTerm.getLeftElement(), orTerm, date), solveTerm(orTerm.getRightElement(), orTerm, date));			
 		}else if(term instanceof EvoXOr){
 			EvoXOr xorTerm = (EvoXOr)term;
-			return LogOp.xor(solveTerm(xorTerm.getLeftElement(), date), solveTerm(xorTerm.getRightElement(), date));
+			return LogOp.xor(solveTerm(xorTerm.getLeftElement(), xorTerm, date), solveTerm(xorTerm.getRightElement(), xorTerm, date));
 		}else if(term instanceof EvoNot){
 			EvoNot notTerm = (EvoNot)term;
 			BoolVar var1 = model.boolVar();
-			LogOp.reified(var1, solveTerm(notTerm.getElement(), date));
-			
-			model.addClauseFalse(var1);
+			LogOp.reified(var1, solveTerm(notTerm.getElement(), notTerm, date));
+
+			if(!model.addClauseFalse(var1)){
+				System.err.println("Error: not clause could not be added to the model");
+			}
 		}else if(term instanceof EvoEqual){
 			EvoEqual equalTerm = (EvoEqual)term;
 			BoolVar var1 = model.boolVar();
 			BoolVar var2 = model.boolVar();
-			
-			LogOp.reified(var1, solveTerm(equalTerm.getLeftElement(), date));
-			LogOp.reified(var2, solveTerm(equalTerm.getRightElement(), date));
-			
-			if(!model.addClausesBoolEq(var1, var2)){
-				System.err.println("Error: equal clause could not be added to the model");
+
+			if(equalTerm.getLeftElement() instanceof EvoSetCardinality || equalTerm.getRightElement() instanceof EvoSetCardinality){
+				solveSetCardinality(equalTerm, date);
+			}else{
+				LogOp.reified(var1, solveTerm(equalTerm.getLeftElement(), equalTerm, date));
+				LogOp.reified(var2, solveTerm(equalTerm.getRightElement(), equalTerm, date));
+
+				if(!model.addClausesBoolEq(var1, var2)){
+					System.err.println("Error: equal clause could not be added to the model");
+				}				
 			}
+
+
+		}else if(term instanceof EvoUnequal){
+			EvoUnequal unequalTerm = (EvoUnequal)term;
+
+			BoolVar var1 = model.boolVar();
+			BoolVar var2 = model.boolVar();
+			
+			if(unequalTerm.getLeftElement() instanceof EvoSetCardinality || unequalTerm.getRightElement() instanceof EvoSetCardinality){
+				solveSetCardinality(unequalTerm, date);
+			}else{
+				LogOp.reified(var1, solveTerm(unequalTerm.getLeftElement(), unequalTerm, date));
+				LogOp.reified(var2, solveTerm(unequalTerm.getRightElement(), unequalTerm, date));
+
+				if(!model.addClausesBoolNot(var1, var2)){
+					System.err.println("Error: unequal clause could not be added to the model");
+				}
+			}
+
+
 		}else if(term instanceof EvoImplication){
 			EvoImplication implicationTerm = (EvoImplication)term;
-			return LogOp.implies(solveTerm(implicationTerm.getLeftElement(), date), solveTerm(implicationTerm.getRightElement(), date));
+
+			return LogOp.implies(solveTerm(implicationTerm.getLeftElement(), implicationTerm, date), solveTerm(implicationTerm.getRightElement(), implicationTerm, date));
 		}else if(term instanceof EvoBiconditional){
 			EvoBiconditional biconditionalTerm = (EvoBiconditional)term;
-			return LogOp.ifOnlyIf(solveTerm(biconditionalTerm.getLeftElement(), date), solveTerm(biconditionalTerm.getRightElement(), date));
+
+			return LogOp.ifOnlyIf(solveTerm(biconditionalTerm.getLeftElement(), biconditionalTerm, date), solveTerm(biconditionalTerm.getRightElement(), biconditionalTerm, date));
 		}else if(term instanceof EvoFeatureType){
 			EvoFeatureType featureTypeTerm = (EvoFeatureType)term;
 
 			return model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null));
 		}else if(term instanceof EvoGroupType){	
 			EvoGroupType groupTypeTerm = (EvoGroupType)term;
-			
+
 			return model.boolVar("gt_"+(new Date()), determineValueOfGroupTypeOperation(groupTypeTerm, null));
 		}else if(term instanceof EvoSetElementOf){
 			EvoSetElementOf setElementOfTerm = (EvoSetElementOf)term;
-			
-			boolean value = IntIterableSetUtils.includedIn((IntVar)getVariable(setElementOfTerm.getLeftElement()), getSet(setElementOfTerm.getRightElement()));
+
+			boolean value = IntIterableSetUtils.includedIn((IntVar)getVariable(setElementOfTerm.getLeftElement()), getSet(setElementOfTerm.getRightElement(), date));
 			return model.boolVar(value);			 
-		}else if(term instanceof EvoParentOf){
-			EvoParentOf parentOfTerm = (EvoParentOf)term;
-			EvoFeatureVariable variable = (EvoFeatureVariable)parentOfTerm.getVariable();
-			
-			IntIterableRangeSet set = new IntIterableRangeSet();
-			List<HyFeature> children = new ArrayList<>();
-			for(HyFeatureChild featureChild : HyEvolutionUtil.getValidTemporalElements(variable.getFeature().getParentOf(), date)){
-				for(HyGroupComposition groupComposition : HyEvolutionUtil.getValidTemporalElements(featureChild.getChildGroup().getParentOf(), date)){
-					for(HyFeature feature : groupComposition.getFeatures())
-					if(HyEvolutionUtil.isValid(feature, date)){
-						children.add(feature);
-						
-						if(featureVariables.containsKey(feature)){
-							set.add(featureVariables.get(feature).getValue());
-						}else{
-							IntVar intVar = model.intVar(featureVariables.size());
-							featureVariables.put(feature, intVar);
-							
-							set.add(intVar.getValue());
-						}
-						
-					}					
-				}
-			}			
-		}else if(term instanceof EvoChildrenOf){
-			EvoChildrenOf childrenOfTerm = (EvoChildrenOf)term;
-			EvoFeatureVariable variable = (EvoFeatureVariable)childrenOfTerm.getVariable();
-			
-			HyGroupComposition groupComposition = HyEvolutionUtil.getValidTemporalElement(variable.getFeature().getGroupMembership(), date);
-			HyFeatureChild featureChild = HyEvolutionUtil.getValidTemporalElement(groupComposition.getCompositionOf().getChildOf(), date);
-			HyFeature feature = featureChild.getParent();
-			
-			
-			if(featureVariables.containsKey(feature)){
-				//return featureVariables.get(feature);
-			}else{
-				IntVar intVar = model.intVar(featureVariables.size());
-				featureVariables.put(feature, intVar);
-			}			
+		}else if(term instanceof EvoSetInclusion){
+			EvoSetInclusion inclusionTerm = (EvoSetInclusion)term;
+
+			IntIterableRangeSet set1 = getSet(inclusionTerm.getLeftElement(), date);
+			IntIterableRangeSet set2 = getSet(inclusionTerm.getRightElement(), date);
+
+			return model.boolVar(IntIterableSetUtils.includedIn(set1, set2));
+		}else if(term instanceof EvoSetElementOf){
+			EvoSetElementOf elementOfTerm = (EvoSetElementOf)term;
+
+			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
+			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement(), date);
+
+			return model.boolVar(IntIterableSetUtils.includedIn(element, set));
+		}else if(term instanceof EvoSetNotElementOf){
+			EvoSetNotElementOf elementOfTerm = (EvoSetNotElementOf)term;
+
+			IntVar element = (IntVar)getVariable(elementOfTerm.getLeftElement());
+			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement(), date);
+
+			return model.boolVar(IntIterableSetUtils.notIncludedIn(element, set));
 		}
 
 		return null;
 	}
 
-	public void solve(){
+	public void solve(EvoAbstractTerm term, Date date){
 		Model model = new Model("");
+		
+		ILogical formula = solveTerm(term, null, date);
+		BoolVar b = model.boolVar("partlyFormulaVar");
+		LogOp.reified(b, formula);
+		
+		model.addClauseTrue(b);
+		
 
 		BoolVar var1 = model.boolVar("f0", false);
 		BoolVar var2 = model.boolVar("f1", false);
-
-		//model.boolVar("featureType", determineValueOfFeatureTypeOperation())
-		model.addClauses(LogOp.or(var1, var2));
-		//model.addClauses(LogOp.implies(arg0, arg1))
-		//model.addCl
-		//model.addConstraint(Choco.reifiedConstraint(b, Choco.eq(x,y), Choco.TRUE)).reify();
-
 
 		Solver solver = model.getSolver();
 		solver.setSearch(Search.defaultSearch(model));
