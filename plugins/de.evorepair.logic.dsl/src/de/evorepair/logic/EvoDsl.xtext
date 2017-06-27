@@ -40,7 +40,7 @@ EvoAnd returns EvoAbstractTerm:
 	
 	
 EvoEqual returns EvoAbstractTerm:
-	EvoUnequal({EvoEqual.leftElement=current} ('=') rightElement=EvoUnequalSize)*;
+	EvoUnequal({EvoEqual.leftElement=current} ('==') rightElement=EvoUnequalSize)*;
 	
 	
 EvoUnequalSize returns EvoAbstractTerm:
@@ -98,19 +98,24 @@ EvoSetCardinality returns EvoAbstractTerm:
 	{EvoSetCardinality} (('|' element=EvoAbstractTerm '|') | ('size' '(' element=EvoAbstractTerm ')'));
 
 EvoElementOf returns EvoAbstractTerm:
-	EvoAbstractOneParameterTerm({EvoElementOf.leftElement=current} ('elementOf') rightElement=EvoAbstractOneParameterTerm)*;
+	EvoTerminal({EvoElementOf.leftElement=current} ('elementOf') rightElement=EvoTerminal)*;
 
 EvoForAll returns EvoAbstractTerm:
 	{EvoForAll}'forAll' '('
 		boundedVariables+=[evovar::EvoVariable | QualifiedName] (',' boundedVariables+=[evovar::EvoVariable | QualifiedName]) ':'
 		element=EvoAbstractTerm
 	')';
-
+EvoExists returns EvoAbstractTerm:
+	{EvoExits}'exists' '('
+		boundedVariables+=[evovar::EvoVariable | QualifiedName] ':'
+		element=EvoAbstractTerm
+	')'
+;
 
 EvoSatisfiable returns EvoAbstractTerm: 
 	({EvoSatisfiable}'satisfiable' '(' variables+=(EvoSetVariable | EvoApplicationConstraintTerm) (',' variables+=(EvoSetVariable | EvoApplicationConstraintTerm))* ')');
 	
-EvoAbstractOneParameterTerm returns EvoAbstractTerm:
+EvoTerminal returns EvoAbstractTerm:
 	EvoVariableTerm | 
 	EvoSetTerm | 
 	EvoApplicationConstraintTerm | 

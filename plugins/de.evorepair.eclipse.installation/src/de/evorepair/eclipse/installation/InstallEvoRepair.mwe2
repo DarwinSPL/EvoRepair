@@ -57,5 +57,5 @@ Workflow {
 	component = @de.evorepair.logic.GenerateEvoDsl {}
 	component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
 	component = @de.evorepair.operation.GenerateEvoOperationDsl {}
-	//component = @de.evorepair.guidance.GenerateGuidanceDsl {}
+	component = @de.evorepair.guidance.GenerateGuidanceDsl {}
 }

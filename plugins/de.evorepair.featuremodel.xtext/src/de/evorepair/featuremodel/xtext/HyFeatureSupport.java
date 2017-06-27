@@ -1,0 +1,14 @@
+package de.evorepair.featuremodel.xtext;
+
+import org.eclipse.xtext.resource.generic.AbstractGenericResourceSupport;
+
+import com.google.inject.Module;
+
+public class HyFeatureSupport extends AbstractGenericResourceSupport{
+
+	@Override
+	protected Module createGuiceModule() {
+		return new HyFeatureRuntimeModule();
+	}
+
+}

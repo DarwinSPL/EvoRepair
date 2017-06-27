@@ -7,10 +7,4 @@
 			class = "de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage"
 			genModel = "model/generated/EvoVariableDsl.genmodel" />
 	</extension>
-	<extension point="org.eclipse.emf.ecore.generated_package">
-		<package 
-			uri = "http://www.evorepair.de/evolution/variable/EvoVariableDsl"
-			class = "de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage"
-			genModel = "model/generated/EvoVariableDsl.genmodel" />
-	</extension>
 </plugin>

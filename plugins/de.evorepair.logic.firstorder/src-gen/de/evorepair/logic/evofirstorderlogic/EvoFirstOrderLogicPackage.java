@@ -550,22 +550,13 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_FORMULA_VARIABLE__NAME = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_VARIABLE__INDEX = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Evo Formula Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVO_FORMULA_VARIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 2;
+	int EVO_FORMULA_VARIABLE_FEATURE_COUNT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Evo Formula Variable</em>' class.
@@ -594,15 +585,6 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	 * @ordered
 	 */
 	int EVO_FORMULA_SET_VARIABLE__NAME = EvoVariablePackage.EVO_SET_VARIABLE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE__INDEX = EvoVariablePackage.EVO_SET_VARIABLE__INDEX;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.

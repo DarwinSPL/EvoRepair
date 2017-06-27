@@ -38,16 +38,14 @@ public class EvoVariableItemProvider
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource
-{
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableItemProvider(AdapterFactory adapterFactory)
-	{
+	public EvoVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,15 +56,11 @@ public class EvoVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addIndexPropertyDescriptor(object);
-			addVariableTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,8 +71,7 @@ public class EvoVariableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object)
-	{
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -95,60 +88,13 @@ public class EvoVariableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Index feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIndexPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EvoVariable_index_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EvoVariable_index_feature", "_UI_EvoVariable_type"),
-				 EvoVariablePackage.Literals.EVO_VARIABLE__INDEX,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Variable Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVariableTypePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EvoVariable_variableType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EvoVariable_variableType_feature", "_UI_EvoVariable_type"),
-				 EvoVariablePackage.Literals.EVO_VARIABLE__VARIABLE_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns EvoVariable.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvoVariable"));
 	}
 
@@ -159,8 +105,7 @@ public class EvoVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		String label = ((EvoVariable)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EvoVariable_type") :
@@ -176,15 +121,11 @@ public class EvoVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EvoVariable.class))
-		{
+		switch (notification.getFeatureID(EvoVariable.class)) {
 			case EvoVariablePackage.EVO_VARIABLE__NAME:
-			case EvoVariablePackage.EVO_VARIABLE__INDEX:
-			case EvoVariablePackage.EVO_VARIABLE__VARIABLE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -199,8 +140,7 @@ public class EvoVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -211,8 +151,7 @@ public class EvoVariableItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EvoVariableEditPlugin.INSTANCE;
 	}
 

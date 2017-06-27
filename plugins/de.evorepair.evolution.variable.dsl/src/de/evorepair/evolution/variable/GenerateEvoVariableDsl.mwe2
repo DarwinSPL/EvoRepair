@@ -3,25 +3,32 @@ module de.evorepair.evolution.variable.GenerateEvoVariableDsl
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
+import org.eclipse.xtext.generator.resourceFactory.ResourceFactoryFragment
+
+
 var rootPath = ".."
 
 Workflow {
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup{
-		scanClassPath=true
-		
-		uriMap = {
-            from = "platform:/plugin/de.evorepair.logic.dsl/model/generated/EvoDsl.genmodel"
-            to = "platform:/de.evorepair.logic.dsl/model/generated/EvoDsl.genmodel"
+		scanClassPath=true	
+		platformUri=rootPath	
+      
+        uriMap = {
+        	from = "platform:/plugin/eu.hyvar.feature/model/Feature.genmodel"
+        	to = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
         }
 		
-		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvoVariablePackage"
+		registerGeneratedEPackage = "eu.hyvar.feature.HyFeaturePackage"		
+		registerGenModelFile = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
 	}	
 	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
 				baseName = "de.evorepair.evolution.variable.dsl"
+				
 				rootPath = rootPath
+				
 				runtimeTest = {
 					enabled = true
 				}
@@ -42,13 +49,15 @@ Workflow {
 		
 		language = StandardLanguage {
 			name = "de.evorepair.evolution.variable.EvoVariableDsl"
+			
 			fileExtensions = "evovariable"
 			
 			referencedResource = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+			referencedResource = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
 			
-			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 			
-			fragment = ecore.EMFGeneratorFragment2 auto-inject {
+			scopeProvider = {				
+				generateXtendStub = true
 			}
 			
 			formatter = {

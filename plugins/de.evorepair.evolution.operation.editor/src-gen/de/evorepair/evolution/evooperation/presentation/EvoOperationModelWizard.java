@@ -91,8 +91,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoOperationModelWizard extends Wizard implements INewWizard
-{
+public class EvoOperationModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -173,8 +172,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void init(IWorkbench workbench, IStructuredSelection selection)
-	{
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(EvoOperationEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
@@ -187,18 +185,13 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<String> getInitialObjectNames()
-	{
-		if (initialObjectNames == null)
-		{
+	protected Collection<String> getInitialObjectNames() {
+		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : evoOperationPackage.getEClassifiers())
-			{
-				if (eClassifier instanceof EClass)
-				{
+			for (EClassifier eClassifier : evoOperationPackage.getEClassifiers()) {
+				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract())
-					{
+					if (!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}
@@ -214,8 +207,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EObject createInitialModel()
-	{
+	protected EObject createInitialModel() {
 		EClass eClass = (EClass)evoOperationPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = evoOperationFactory.create(eClass);
 		return rootObject;
@@ -228,10 +220,8 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 	@Override
-	public boolean performFinish()
-	{
-		try
-		{
+	public boolean performFinish() {
+		try {
 			// Remember the file.
 			//
 			final IFile modelFile = getModelFile();
@@ -239,13 +229,10 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 			// Do the work within an operation.
 			//
 			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation()
-				{
+				new WorkspaceModifyOperation() {
 					@Override
-					protected void execute(IProgressMonitor progressMonitor)
-					{
-						try
-						{
+					protected void execute(IProgressMonitor progressMonitor) {
+						try {
 							// Create a resource set
 							//
 							ResourceSet resourceSet = new ResourceSetImpl();
@@ -261,8 +248,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 							// Add the initial model object to the contents.
 							//
 							EObject rootObject = createInitialModel();
-							if (rootObject != null)
-							{
+							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
 
@@ -272,12 +258,10 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 							resource.save(options);
 						}
-						catch (Exception exception)
-						{
+						catch (Exception exception) {
 							EvoOperationEditorPlugin.INSTANCE.log(exception);
 						}
-						finally
-						{
+						finally {
 							progressMonitor.done();
 						}
 					}
@@ -290,14 +274,11 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
-			if (activePart instanceof ISetSelectionTarget)
-			{
+			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec
-					(new Runnable()
-					 {
-						 public void run()
-						 {
+					(new Runnable() {
+						 public void run() {
 							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
 						 }
 					 });
@@ -305,22 +286,19 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 
 			// Open an editor on the new file.
 			//
-			try
-			{
+			try {
 				page.openEditor
 					(new FileEditorInput(modelFile),
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
-			catch (PartInitException exception)
-			{
+			catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(), EvoOperationEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EvoOperationEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -332,16 +310,14 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class EvoOperationModelWizardNewFileCreationPage extends WizardNewFileCreationPage
-	{
+	public class EvoOperationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public EvoOperationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection)
-		{
+		public EvoOperationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -352,13 +328,10 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		protected boolean validatePage()
-		{
-			if (super.validatePage())
-			{
+		protected boolean validatePage() {
+			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
-				if (extension == null || !FILE_EXTENSIONS.contains(extension))
-				{
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
 					setErrorMessage(EvoOperationEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
@@ -373,8 +346,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public IFile getModelFile()
-		{
+		public IFile getModelFile() {
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
@@ -385,8 +357,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class EvoOperationModelWizardInitialObjectCreationPage extends WizardPage
-	{
+	public class EvoOperationModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -414,8 +385,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public EvoOperationModelWizardInitialObjectCreationPage(String pageId)
-		{
+		public EvoOperationModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -424,8 +394,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public void createControl(Composite parent)
-		{
+		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
 				GridLayout layout = new GridLayout();
@@ -457,13 +426,11 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 				initialObjectField.setLayoutData(data);
 			}
 
-			for (String objectName : getInitialObjectNames())
-			{
+			for (String objectName : getInitialObjectNames()) {
 				initialObjectField.add(getLabel(objectName));
 			}
 
-			if (initialObjectField.getItemCount() == 1)
-			{
+			if (initialObjectField.getItemCount() == 1) {
 				initialObjectField.select(0);
 			}
 			initialObjectField.addModifyListener(validator);
@@ -484,8 +451,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 				encodingField.setLayoutData(data);
 			}
 
-			for (String encoding : getEncodings())
-			{
+			for (String encoding : getEncodings()) {
 				encodingField.add(encoding);
 			}
 
@@ -502,10 +468,8 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		protected ModifyListener validator =
-			new ModifyListener()
-			{
-				public void modifyText(ModifyEvent e)
-				{
+			new ModifyListener() {
+				public void modifyText(ModifyEvent e) {
 					setPageComplete(validatePage());
 				}
 			};
@@ -515,8 +479,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected boolean validatePage()
-		{
+		protected boolean validatePage() {
 			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
@@ -526,18 +489,14 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		public void setVisible(boolean visible)
-		{
+		public void setVisible(boolean visible) {
 			super.setVisible(visible);
-			if (visible)
-			{
-				if (initialObjectField.getItemCount() == 1)
-				{
+			if (visible) {
+				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
 				}
-				else
-				{
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -549,14 +508,11 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public String getInitialObjectName()
-		{
+		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
-			for (String name : getInitialObjectNames())
-			{
-				if (getLabel(name).equals(label))
-				{
+			for (String name : getInitialObjectNames()) {
+				if (getLabel(name).equals(label)) {
 					return name;
 				}
 			}
@@ -568,8 +524,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public String getEncoding()
-		{
+		public String getEncoding() {
 			return encodingField.getText();
 		}
 
@@ -579,14 +534,11 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected String getLabel(String typeName)
-		{
-			try
-			{
+		protected String getLabel(String typeName) {
+			try {
 				return EvoOperationEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
-			catch(MissingResourceException mre)
-			{
+			catch(MissingResourceException mre) {
 				EvoOperationEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -597,13 +549,10 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected Collection<String> getEncodings()
-		{
-			if (encodings == null)
-			{
+		protected Collection<String> getEncodings() {
+			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(EvoOperationEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
-				{
+				for (StringTokenizer stringTokenizer = new StringTokenizer(EvoOperationEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -618,8 +567,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 		@Override
-	public void addPages()
-	{
+	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new EvoOperationModelWizardNewFileCreationPage("Whatever", selection);
@@ -630,25 +578,21 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
 		//
-		if (selection != null && !selection.isEmpty())
-		{
+		if (selection != null && !selection.isEmpty()) {
 			// Get the resource...
 			//
 			Object selectedElement = selection.iterator().next();
-			if (selectedElement instanceof IResource)
-			{
+			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
 				IResource selectedResource = (IResource)selectedElement;
-				if (selectedResource.getType() == IResource.FILE)
-				{
+				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject)
-				{
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
 					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
@@ -658,8 +602,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 					String defaultModelBaseFilename = EvoOperationEditorPlugin.INSTANCE.getString("_UI_EvoOperationEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
-					{
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -678,8 +621,7 @@ public class EvoOperationModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFile getModelFile()
-	{
+	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
 

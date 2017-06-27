@@ -44,6 +44,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "de.evorepair.guidance.GuidanceDsl"
+			
 			fileExtensions = "evoguidance"
 			referencedResource = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
 			
@@ -56,8 +57,6 @@ Workflow {
 			scopeProvider = {				
 				generateXtendStub = true
 			}
-			
-			
 			
 			formatter = {
 				generateStub = true

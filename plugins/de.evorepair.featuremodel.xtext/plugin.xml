@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.xtext.extension_resourceServiceProvider">
+      <resourceServiceProvider
+            class="de.evorepair.featuremodel.xtext.EvoExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceServiceProvider"
+            uriExtension="hyfeature">
+      </resourceServiceProvider>
+   </extension>
+
+</plugin>

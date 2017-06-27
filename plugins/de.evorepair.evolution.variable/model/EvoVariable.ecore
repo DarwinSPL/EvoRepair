@@ -13,7 +13,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoFeatureVariable" eSuperTypes="#//EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>

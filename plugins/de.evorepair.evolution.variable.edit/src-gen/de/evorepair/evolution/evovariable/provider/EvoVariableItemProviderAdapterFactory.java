@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
-{
+public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -64,8 +63,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableItemProviderAdapterFactory()
-	{
+	public EvoVariableItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -88,10 +86,8 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoVariableAdapter()
-	{
-		if (evoVariableItemProvider == null)
-		{
+	public Adapter createEvoVariableAdapter() {
+		if (evoVariableItemProvider == null) {
 			evoVariableItemProvider = new EvoVariableItemProvider(this);
 		}
 
@@ -113,10 +109,8 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoFeatureVariableAdapter()
-	{
-		if (evoFeatureVariableItemProvider == null)
-		{
+	public Adapter createEvoFeatureVariableAdapter() {
+		if (evoFeatureVariableItemProvider == null) {
 			evoFeatureVariableItemProvider = new EvoFeatureVariableItemProvider(this);
 		}
 
@@ -138,10 +132,8 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoGroupVariableAdapter()
-	{
-		if (evoGroupVariableItemProvider == null)
-		{
+	public Adapter createEvoGroupVariableAdapter() {
+		if (evoGroupVariableItemProvider == null) {
 			evoGroupVariableItemProvider = new EvoGroupVariableItemProvider(this);
 		}
 
@@ -163,14 +155,81 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createEvoSetVariableAdapter()
-	{
-		if (evoSetVariableItemProvider == null)
-		{
+	public Adapter createEvoSetVariableAdapter() {
+		if (evoSetVariableItemProvider == null) {
 			evoSetVariableItemProvider = new EvoSetVariableItemProvider(this);
 		}
 
 		return evoSetVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.evorepair.evolution.evovariable.EvoMappingVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EvoMappingVariableItemProvider evoMappingVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.evorepair.evolution.evovariable.EvoMappingVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEvoMappingVariableAdapter() {
+		if (evoMappingVariableItemProvider == null) {
+			evoMappingVariableItemProvider = new EvoMappingVariableItemProvider(this);
+		}
+
+		return evoMappingVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.evorepair.evolution.evovariable.EvoConfigurationVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EvoConfigurationVariableItemProvider evoConfigurationVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.evorepair.evolution.evovariable.EvoConfigurationVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEvoConfigurationVariableAdapter() {
+		if (evoConfigurationVariableItemProvider == null) {
+			evoConfigurationVariableItemProvider = new EvoConfigurationVariableItemProvider(this);
+		}
+
+		return evoConfigurationVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.evorepair.evolution.evovariable.EvoFeatureRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EvoFeatureRelationItemProvider evoFeatureRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.evorepair.evolution.evovariable.EvoFeatureRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEvoFeatureRelationAdapter() {
+		if (evoFeatureRelationItemProvider == null) {
+			evoFeatureRelationItemProvider = new EvoFeatureRelationItemProvider(this);
+		}
+
+		return evoFeatureRelationItemProvider;
 	}
 
 	/**
@@ -179,8 +238,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComposeableAdapterFactory getRootAdapterFactory()
-	{
+	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
@@ -190,8 +248,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
-	{
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -201,8 +258,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object type)
-	{
+	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
@@ -213,8 +269,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(Notifier notifier, Object type)
-	{
+	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
 
@@ -224,13 +279,10 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Object adapt(Object object, Object type)
-	{
-		if (isFactoryForType(type))
-		{
+	public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
-			{
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -244,8 +296,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
 
@@ -255,8 +306,7 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
 
@@ -266,12 +316,10 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void fireNotifyChanged(Notification notification)
-	{
+	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null)
-		{
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -282,12 +330,14 @@ public class EvoVariableItemProviderAdapterFactory extends EvoVariableAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void dispose()
-	{
+	public void dispose() {
 		if (evoVariableItemProvider != null) evoVariableItemProvider.dispose();
 		if (evoFeatureVariableItemProvider != null) evoFeatureVariableItemProvider.dispose();
 		if (evoGroupVariableItemProvider != null) evoGroupVariableItemProvider.dispose();
 		if (evoSetVariableItemProvider != null) evoSetVariableItemProvider.dispose();
+		if (evoMappingVariableItemProvider != null) evoMappingVariableItemProvider.dispose();
+		if (evoConfigurationVariableItemProvider != null) evoConfigurationVariableItemProvider.dispose();
+		if (evoFeatureRelationItemProvider != null) evoFeatureRelationItemProvider.dispose();
 	}
 
 }
