@@ -9,7 +9,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -23,6 +22,7 @@ import de.evorepair.evolution.evooperation.EvoOperationContainer;
 import de.evorepair.evolution.evovariable.EvoFeatureRelation;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.operation.evoOperationDsl.GrammarEntry;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
 import eu.hyvar.feature.HyFeatureModel;
 
 public class EvoToolbarButtonHandler extends AbstractHandler {
@@ -32,11 +32,24 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		return PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 	}
 	
-	private HyFeatureModel fakeModel(){
+	Resource featureModelResource;
+	private HyFeatureModel fakeModel(EvoGuidanceTable table){
+		for(EvoOperation operation : table.getTriggeringOperations()){
+			if(operation.getName().equals("DeleteFeatureWithCode")){
+				HyFeatureModel featureModel = (HyFeatureModel) featureModelResource.getContents().get(0);
+				
+				EvoFeatureVariable featureVariable = (EvoFeatureVariable)operation.getVariables().get(2);
+				featureVariable.setFeature(featureModel.getFeatures().get(2));
+				
+				EvoFeatureVariable parentVariable = (EvoFeatureVariable)operation.getVariables().get(3);
+				parentVariable.setFeature(featureModel.getFeatures().get(0));
+			}
+		}
 	    ResourceSet resSet = new ResourceSetImpl();
 	    Resource operationsResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.evooperation"), true);
 	    
-	    Resource featureModelResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.hyfeature"), true);
+	    
+	    /*
 	    try {
 	    	operationsResource.load(Collections.EMPTY_MAP);
 	    	featureModelResource.load(Collections.EMPTY_MAP);
@@ -58,6 +71,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	    */
 	    
 	    return null;	   
 	}
@@ -117,12 +131,16 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
        // solver.solve();
     	
-    	HyFeatureModel model = fakeModel();
+    	
     	ResourceSet resSet = new ResourceSetImpl();
+    	
+    	featureModelResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.hyfeature"), true);
   	    Resource guidanceResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.evoguidance"), true);
  	   
-  	  
   	    de.evorepair.guidance.guidancedsl.GrammarEntry e = (de.evorepair.guidance.guidancedsl.GrammarEntry)guidanceResource.getContents().get(0);
+  	    EvoGuidanceTable table = (EvoGuidanceTable)e.getTable().getTables().get(0);
+  	  HyFeatureModel model = fakeModel(table);
+  	    
     	solver.solve(e.getTable().getTables().get(0));
         
         return null;

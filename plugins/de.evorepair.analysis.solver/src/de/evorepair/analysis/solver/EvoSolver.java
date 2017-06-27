@@ -22,9 +22,11 @@ import de.evorepair.evolution.evovariable.EvoGroupVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
+import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
+import de.evorepair.logic.evofirstorderlogic.EvoAbstractTwoParameterTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAnd;
 import de.evorepair.logic.evofirstorderlogic.EvoBiconditional;
 import de.evorepair.logic.evofirstorderlogic.EvoChildrenOf;
@@ -42,6 +44,7 @@ import de.evorepair.logic.evofirstorderlogic.EvoSetInclusion;
 import de.evorepair.logic.evofirstorderlogic.EvoSetIntersection;
 import de.evorepair.logic.evofirstorderlogic.EvoSetNotElementOf;
 import de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference;
+import de.evorepair.logic.evofirstorderlogic.EvoSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoSetUnion;
 import de.evorepair.logic.evofirstorderlogic.EvoSize;
 import de.evorepair.logic.evofirstorderlogic.EvoUnequal;
@@ -127,16 +130,6 @@ public class EvoSolver {
 	 */
 	private String createVariableName(EvoOperation operation, EvoVariable variable){
 		return operation.getName() + "_" + variable.getName();
-	}
-
-	/**
-	 * Checks for all in the given guidance table defined anomalies if one occures
-	 * @param guidanceTable
-	 */
-	public void solve(EvoGuidanceTable guidanceTable){
-
-		// get all variables defined in each triggering operation and add them to the solver
-		collectVariables(guidanceTable);
 	}
 
 	/**
@@ -243,7 +236,10 @@ public class EvoSolver {
 	private Variable getVariable(EvoAbstractTerm term){
 		if(term instanceof EvoFeatureVariable){
 			EvoFeatureVariable featureVariableTerm = (EvoFeatureVariable)term;
-			return featureVariables.get(featureVariableTerm.getName());
+			return featureVariables.get(featureVariableTerm.getFeature());
+		}else if(term instanceof EvoVariableTerm){
+			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
+			return featureVariables.get(((EvoFeatureVariable)variableTerm.getVariable()).getFeature());
 		}else if(term instanceof EvoGroupVariable){
 			EvoGroupVariable groupVariableTerm = (EvoGroupVariable)term;
 			return groupVariables.get(groupVariableTerm.getName());
@@ -253,7 +249,20 @@ public class EvoSolver {
 	}
 
 	private IntIterableRangeSet FOOsolveSetTerm(EvoAbstractTerm term, Date date){
-		if(term instanceof EvoSetIntersection){
+		if(term instanceof EvoSetTerm){
+			EvoSetTerm setTerm = (EvoSetTerm)term;
+
+			IntIterableRangeSet result = new IntIterableRangeSet();
+			for(EvoAbstractTerm variable : setTerm.getVariables()){
+				EvoVariableTerm variableTerm = (EvoVariableTerm)variable;
+
+				if(variableTerm.getVariable() instanceof EvoFeatureVariable){
+					result.add(this.featureVariables.get(((EvoFeatureVariable)variableTerm.getVariable()).getFeature()).getValue());
+				}
+			}
+
+			return result;
+		}else if(term instanceof EvoSetIntersection){
 			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
 
 			IntIterableRangeSet set1 = getSet(intersectionTerm.getLeftElement(), date);
@@ -354,38 +363,54 @@ public class EvoSolver {
 		return null;
 	}
 
-	
-	private void solveSetCardinality(EvoAbstractTerm term, Date date){
-		solveSetCardinality(term, date, (term instanceof EvoEqual));
-	}
-	private void solveSetCardinality(EvoAbstractTerm term, Date date, Boolean equal){
-			EvoEqual equalTerm = (EvoEqual)term;
-			
-			if(equalTerm.getLeftElement() instanceof EvoSetCardinality){
-				EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
-				IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);
 
-				if(equalTerm.getRightElement() instanceof EvoSetCardinality){
-					EvoSetCardinality rightCardinalityTerm = (EvoSetCardinality)term;
-					IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);	
+	private void solveSetCardinality(EvoAbstractTerm term, EvoAbstractTwoParameterTerm relationTerm, Date date, Boolean equal){
 
-					model.addClauseTrue(model.boolVar((leftSet.size() == rightSet.size()) && equal));
-				}else if(equalTerm.getRightElement() instanceof EvoSize){
-					model.addClauseTrue(model.boolVar((leftSet.size() == ((EvoSize)equalTerm.getRightElement()).getSize()) && equal));
-				}
-			}else if(equalTerm.getRightElement() instanceof EvoSetCardinality){
+		if(relationTerm.getLeftElement() instanceof EvoSetCardinality){
+			EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
+			IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);
+
+			if(relationTerm.getRightElement() instanceof EvoSetCardinality){
 				EvoSetCardinality rightCardinalityTerm = (EvoSetCardinality)term;
-				IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);
+				IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);	
 
-				if(equalTerm.getLeftElement() instanceof EvoSetCardinality){
-					EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
-					IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);	
+				BoolVar result = model.boolVar(leftSet.size() == rightSet.size());
+				
+				if(equal)
+					model.addClauseTrue(result);
+				else
+					model.addClauseFalse(result);
+			}else if(relationTerm.getRightElement() instanceof EvoSize){
+				BoolVar result = model.boolVar(leftSet.size() == ((EvoSize)relationTerm.getRightElement()).getSize());
+				
+				if(equal)
+					model.addClauseTrue(result);
+				else
+					model.addClauseFalse(result);
+			}
+		}else if(relationTerm.getRightElement() instanceof EvoSetCardinality){
+			EvoSetCardinality rightCardinalityTerm = (EvoSetCardinality)term;
+			IntIterableRangeSet rightSet = getSet(rightCardinalityTerm.getElement(), date);
 
-					model.addClauseTrue(model.boolVar((leftSet.size() == rightSet.size()) && equal));
-				}else if(equalTerm.getLeftElement() instanceof EvoSize){
-					model.addClauseTrue(model.boolVar(rightSet.size() == (((EvoSize)equalTerm.getLeftElement()).getSize()) && equal));
-				}
-			}	
+			if(relationTerm.getLeftElement() instanceof EvoSetCardinality){
+				EvoSetCardinality leftCardinalityTerm = (EvoSetCardinality)term;
+				IntIterableRangeSet leftSet = getSet(leftCardinalityTerm.getElement(), date);	
+
+				BoolVar result = model.boolVar(leftSet.size() == rightSet.size());
+				
+				if(equal)
+					model.addClauseTrue(result);
+				else
+					model.addClauseFalse(result);
+			}else if(relationTerm.getLeftElement() instanceof EvoSize){
+				BoolVar result = model.boolVar(rightSet.size() == ((EvoSize)relationTerm.getRightElement()).getSize());
+				
+				if(equal)
+					model.addClauseTrue(result);
+				else
+					model.addClauseFalse(result);
+			}
+		}	
 	}
 	private ILogical solveTerm(EvoAbstractTerm term, EvoAbstractTerm parentTerm, Date date){
 		if(term instanceof EvoAnd){
@@ -412,9 +437,13 @@ public class EvoSolver {
 			BoolVar var1 = model.boolVar();
 			BoolVar var2 = model.boolVar();
 
-			if(equalTerm.getLeftElement() instanceof EvoSetCardinality || equalTerm.getRightElement() instanceof EvoSetCardinality){
-				solveSetCardinality(equalTerm, date);
-			}else{
+			if(equalTerm.getLeftElement() instanceof EvoSetCardinality){
+				solveSetCardinality(equalTerm.getLeftElement(), equalTerm, date, true);
+			}
+			if(equalTerm.getRightElement() instanceof EvoSetCardinality){
+				solveSetCardinality(equalTerm.getRightElement(), equalTerm, date, true);
+			}
+			if(!(equalTerm.getLeftElement() instanceof EvoSetCardinality || equalTerm.getRightElement() instanceof EvoSetCardinality)){
 				LogOp.reified(var1, solveTerm(equalTerm.getLeftElement(), equalTerm, date));
 				LogOp.reified(var2, solveTerm(equalTerm.getRightElement(), equalTerm, date));
 
@@ -429,10 +458,14 @@ public class EvoSolver {
 
 			BoolVar var1 = model.boolVar();
 			BoolVar var2 = model.boolVar();
-			
-			if(unequalTerm.getLeftElement() instanceof EvoSetCardinality || unequalTerm.getRightElement() instanceof EvoSetCardinality){
-				solveSetCardinality(unequalTerm, date);
-			}else{
+
+			if(unequalTerm.getLeftElement() instanceof EvoSetCardinality){
+				solveSetCardinality(unequalTerm.getLeftElement(), unequalTerm, date, false);
+			}
+			if(unequalTerm.getRightElement() instanceof EvoSetCardinality){
+				solveSetCardinality(unequalTerm.getRightElement(), unequalTerm, date, false);
+			}
+			if(!(unequalTerm.getLeftElement() instanceof EvoSetCardinality || unequalTerm.getRightElement() instanceof EvoSetCardinality)){
 				LogOp.reified(var1, solveTerm(unequalTerm.getLeftElement(), unequalTerm, date));
 				LogOp.reified(var2, solveTerm(unequalTerm.getRightElement(), unequalTerm, date));
 
@@ -461,8 +494,13 @@ public class EvoSolver {
 		}else if(term instanceof EvoSetElementOf){
 			EvoSetElementOf setElementOfTerm = (EvoSetElementOf)term;
 
+
 			boolean value = IntIterableSetUtils.includedIn((IntVar)getVariable(setElementOfTerm.getLeftElement()), getSet(setElementOfTerm.getRightElement(), date));
-			return model.boolVar(value);			 
+
+			BoolVar variable = model.boolVar(value);
+			model.addClauseTrue(variable);
+
+			return variable;			 
 		}else if(term instanceof EvoSetInclusion){
 			EvoSetInclusion inclusionTerm = (EvoSetInclusion)term;
 
@@ -489,15 +527,41 @@ public class EvoSolver {
 		return null;
 	}
 
+	/**
+	 * Checks for all in the given guidance table defined anomalies if one occures
+	 * @param guidanceTable
+	 */
+	public void solve(EvoGuidanceTable guidanceTable){
+		model = new Model("");
+
+		// get all variables defined in each triggering operation and add them to the solver
+		collectVariables(guidanceTable);
+
+		EvoAnomaly anomaly = guidanceTable.getAnomalies().get(0);
+		solveTerm(anomaly.getCondition().getTerm(), null, new Date());
+
+		Solver solver = model.getSolver();
+		solver.setSearch(Search.defaultSearch(model));
+		if(solver.solve()){
+			for(IntVar var : featureVariables.values()){
+				System.out.println(var.getName()+"  "+var.getValue());
+			}
+			System.out.println("Solutions ="+solver.getSolutionCount());
+		}else{
+			System.err.println(":(");
+		}
+	}
+
+	/*
 	public void solve(EvoAbstractTerm term, Date date){
-		Model model = new Model("");
-		
+		model = new Model("");
+
 		ILogical formula = solveTerm(term, null, date);
 		BoolVar b = model.boolVar("partlyFormulaVar");
 		LogOp.reified(b, formula);
-		
+
 		model.addClauseTrue(b);
-		
+
 
 		BoolVar var1 = model.boolVar("f0", false);
 		BoolVar var2 = model.boolVar("f1", false);
@@ -505,9 +569,10 @@ public class EvoSolver {
 		Solver solver = model.getSolver();
 		solver.setSearch(Search.defaultSearch(model));
 		if(solver.solve()){
-			System.out.println(":)");
+			System.out.println("Solutions ="+solver.getSolutionCount());
 		}else{
 			System.err.println(":(");
 		}
 	}
+	 */
 }
