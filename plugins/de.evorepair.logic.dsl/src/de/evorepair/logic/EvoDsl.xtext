@@ -72,15 +72,15 @@ EvoSetInclusionSize returns EvoAbstractTerm:
 
 
 EvoSetInclusion returns EvoAbstractTerm:
-	EvoSetIntersection({EvoBiconditional.leftElement=current} ('inclusion') rightElement=EvoSetIntersection)*;
+	EvoSetIntersection({EvoSetInclusion.leftElement=current} ('inclusion') rightElement=EvoSetIntersection)*;
 	
 
 EvoSetIntersection returns EvoAbstractTerm:
-	EvoSetUnion({EvoBiconditional.leftElement=current} ('intersection') rightElement=EvoSetUnion)*;
+	EvoSetUnion({EvoSetIntersection.leftElement=current} ('intersection') rightElement=EvoSetUnion)*;
 
 
 EvoSetUnion returns EvoAbstractTerm:
-	EvoSetDifference({EvoBiconditional.leftElement=current} ('union') rightElement=EvoSetDifference)*;
+	EvoSetDifference({EvoSetUnion.leftElement=current} ('union') rightElement=EvoSetDifference)*;
 
 
 EvoSetDifference returns EvoAbstractTerm:
@@ -98,7 +98,7 @@ EvoSetCardinality returns EvoAbstractTerm:
 	{EvoSetCardinality} (('|' element=EvoAbstractTerm '|') | ('size' '(' element=EvoAbstractTerm ')'));
 
 EvoElementOf returns EvoAbstractTerm:
-	EvoTerminal({EvoElementOf.leftElement=current} ('elementOf') rightElement=EvoTerminal)*;
+	EvoTerminal({EvoSetElementOf.leftElement=current} ('elementOf') rightElement=EvoTerminal)*;
 
 EvoForAll returns EvoAbstractTerm:
 	{EvoForAll}'forAll' '('
@@ -179,8 +179,8 @@ enum HyGroupTypeEnum returns hyfeature::HyGroupTypeEnum:
 	AND = 'and' | OR = 'or' | ALTERNATIVE = 'alternative'
 ;
 
-EvoSetTerm returns EvoAbstractTerm:
-	{EvoSetTerm} '{' variables+=EvoSetVariable (',' variables+=EvoSetVariable)* '}'
+EvoSetTerm:
+	'{' variables+=EvoSetVariable (',' variables+=EvoSetVariable)* '}'
 ;
 
 EvoSetVariable returns EvoAbstractTerm:

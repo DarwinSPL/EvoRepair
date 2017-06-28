@@ -12,6 +12,8 @@ Export-Package: de.evorepair.evolution.evovariable.provider
 Require-Bundle: org.eclipse.core.runtime,
  de.evorepair.evolution.variable;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
+ eu.hyvar.feature.configuration;visibility:=reexport,
+ eu.hyvar.feature.configuration.edit;visibility:=reexport,
  eu.hyvar.feature.data;visibility:=reexport,
  eu.hyvar.feature.data.edit;visibility:=reexport,
  eu.hyvar.evolution;visibility:=reexport,

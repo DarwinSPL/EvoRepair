@@ -160,6 +160,7 @@ import eu.hyvar.dataValues.provider.HyDataValuesItemProviderAdapterFactory;
 
 import eu.hyvar.evolution.provider.HyEvolutionItemProviderAdapterFactory;
 
+import eu.hyvar.feature.configuration.provider.HyConfigurationItemProviderAdapterFactory;
 import eu.hyvar.feature.provider.HyFeatureItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -708,6 +709,7 @@ public class EvoVariableEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EvoVariableItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new HyConfigurationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new HyDataValuesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new HyEvolutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new HyFeatureItemProviderAdapterFactory());

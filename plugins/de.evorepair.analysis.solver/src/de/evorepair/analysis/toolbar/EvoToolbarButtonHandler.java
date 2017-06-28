@@ -3,7 +3,7 @@ package de.evorepair.analysis.toolbar;
 
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -14,16 +14,19 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.xtext.ui.editor.XtextEditor;
 
+import de.evorepair.analysis.operator.EvoGuidanceActionOperator;
 import de.evorepair.analysis.solver.EvoSolver;
 import de.evorepair.evolution.evooperation.EvoOperation;
-import de.evorepair.evolution.evooperation.EvoOperationContainer;
+import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureRelation;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.operation.evoOperationDsl.GrammarEntry;
+import de.evorepair.evolution.evovariable.EvoGroupVariable;
+import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
 import eu.hyvar.feature.HyFeatureModel;
+import eu.hyvar.feature.configuration.HyConfiguration;
 
 public class EvoToolbarButtonHandler extends AbstractHandler {
 	EvoSolver solver = new EvoSolver();
@@ -33,45 +36,39 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 	}
 	
 	Resource featureModelResource;
+	Resource configurationModelResource;
+	
 	private HyFeatureModel fakeModel(EvoGuidanceTable table){
+		if(featureModelResource.isModified()){
+			featureModelResource.unload();
+			
+			try {
+				featureModelResource.load(null);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		for(EvoOperation operation : table.getTriggeringOperations()){
 			if(operation.getName().equals("DeleteFeatureWithCode")){
 				HyFeatureModel featureModel = (HyFeatureModel) featureModelResource.getContents().get(0);
+
+				HyConfiguration configuration = (HyConfiguration) configurationModelResource.getContents().get(0);
+				EvoConfigurationVariable configurationVariable = (EvoConfigurationVariable)operation.getVariables().get(1);
+				configurationVariable.setConfiguration(configuration);
 				
 				EvoFeatureVariable featureVariable = (EvoFeatureVariable)operation.getVariables().get(2);
 				featureVariable.setFeature(featureModel.getFeatures().get(2));
 				
 				EvoFeatureVariable parentVariable = (EvoFeatureVariable)operation.getVariables().get(3);
 				parentVariable.setFeature(featureModel.getFeatures().get(0));
+				
+				EvoGroupVariable groupVariable = (EvoGroupVariable)operation.getVariables().get(4);
+				groupVariable.setGroup(featureModel.getGroups().get(0));
 			}
 		}
-	    ResourceSet resSet = new ResourceSetImpl();
-	    Resource operationsResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.evooperation"), true);
-	    
-	    
-	    /*
-	    try {
-	    	operationsResource.load(Collections.EMPTY_MAP);
-	    	featureModelResource.load(Collections.EMPTY_MAP);
-			GrammarEntry model = (GrammarEntry) operationsResource.getContents().get(0);
-			
-			HyFeatureModel featureModel = (HyFeatureModel) featureModelResource.getContents().get(0);
-			
-			EvoOperationContainer container = (EvoOperationContainer)model.getContainer();
-			EvoOperation deleteFeatureWithCodeOperation = container.getOperations().get(0);
-			
-			EvoFeatureVariable featureVariable = (EvoFeatureVariable)deleteFeatureWithCodeOperation.getVariables().get(2);
-			featureVariable.setFeature(featureModel.getFeatures().get(2));
-			
-			EvoFeatureVariable parentVariable = (EvoFeatureVariable)deleteFeatureWithCodeOperation.getVariables().get(3);
-			parentVariable.setFeature(featureModel.getFeatures().get(0));
-			
-			return featureModel;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    */
+
 	    
 	    return null;	   
 	}
@@ -95,38 +92,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			}
 		}		
 	}
-	private void loadOperationFile(){
-		
-		IEditorPart part = getActiveEditor();
-		
-		if(part instanceof XtextEditor){
-		
-			
-			
-			/*
-			//Injector injector = new EvoOperationDslStandaloneSetupGenerated().createInjectorAndDoEMFRegistration();
-			//new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
-			Injector injector = new EvoOperationDslStandaloneSetupGenerated().createInjectorAndDoEMFRegistration();
-			XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
-			resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-			Resource resource = resourceSet.getResource(
-			    URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.evooperation"), true);
-			
-			GrammarEntry model = (GrammarEntry) resource.getContents().get(0);
-			EvoOperationContainer container = (EvoOperationContainer)model.getContainer();
-			for(EvoOperation operation : container.getOperations()){
-				for(EvoVariable variable : operation.getVariables()){
-					if(variable instanceof EvoFeatureVariable){
-						setFeatureVariable((EvoFeatureVariable)variable);
-					}
-				}
-			}
-			*/
-			
-		}
-		
-	
-	}
+
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
        // solver.solve();
@@ -135,13 +101,25 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
     	ResourceSet resSet = new ResourceSetImpl();
     	
     	featureModelResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.hyfeature"), true);
+    	
+    	configurationModelResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.hyconfigurationmodel"), true);
+    	
   	    Resource guidanceResource = resSet.getResource(URI.createURI("platform:/resource/de.evorepair.test.error.definition/FeatureModel.evoguidance"), true);
  	   
   	    de.evorepair.guidance.guidancedsl.GrammarEntry e = (de.evorepair.guidance.guidancedsl.GrammarEntry)guidanceResource.getContents().get(0);
   	    EvoGuidanceTable table = (EvoGuidanceTable)e.getTable().getTables().get(0);
-  	  HyFeatureModel model = fakeModel(table);
+
+  	    fakeModel(table);
   	    
-    	solver.solve(e.getTable().getTables().get(0));
+    	List<EvoAnomaly> anomalies = solver.solve(e.getTable().getTables().get(0));
+    	for(EvoAnomaly anomaly : anomalies){
+			for(EvoGuidanceElement guidance : anomaly.getGuidance()){
+				if(guidance.getAction() != null){
+					EvoGuidanceActionOperator operator = new EvoGuidanceActionOperator(configurationModelResource);
+					operator.perform(guidance.getAction().getTerm());
+				}
+			}
+    	}
         
         return null;
     }

@@ -15,6 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
+ eu.hyvar.feature.configuration.edit;visibility:=reexport,
  eu.hyvar.feature.data.edit;visibility:=reexport,
  eu.hyvar.evolution.edit;visibility:=reexport,
  eu.hyvar.feature.edit;visibility:=reexport

@@ -16,15 +16,17 @@ import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeSet;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
 
+import de.evorepair.analysis.operator.EvoGuidanceActionOperator;
 import de.evorepair.evolution.evooperation.EvoOperation;
+import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoGroupVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
-import de.evorepair.logic.evofirstorderlogic.EvoAbstractSetTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTwoParameterTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAnd;
@@ -57,20 +59,35 @@ import eu.hyvar.feature.HyFeatureType;
 import eu.hyvar.feature.HyGroup;
 import eu.hyvar.feature.HyGroupComposition;
 import eu.hyvar.feature.HyGroupType;
+import eu.hyvar.feature.configuration.HyConfigurationElement;
+import eu.hyvar.feature.configuration.HyFeatureSelected;
 
 public class EvoSolver {
 
-
+	/**
+	 * Contains all for the solver necessary features of a model. The key to identify the feature is a HyFeature
+	 */
 	HashMap<HyFeature, IntVar> featureVariables = new HashMap<>();
+	
+	/**
+	 * Contains all for the solver necessary groups of a model. The key to identify the group is a HyGroup
+	 */
 	HashMap<HyGroup, IntVar> groupVariables = new HashMap<>();
+	
+	/**
+	 * Contains all for the solver necessary sets of a model. The key to identify the group is a String
+	 */
 	HashMap<String, IntIterableRangeSet> setVariables = new HashMap<>();
 
+	/**
+	 * The model that contains all the clauses and is used by the solver for derivating the solution
+	 */
 	Model model;
 
 	/**
-	 * Adds a variable to the solver
-	 * @param operation
-	 * @param variable
+	 * Adds a variable to the solver. Depending on the type, a new feature, group or set variable is added
+	 * @param operation that contains the variable
+	 * @param variable the variable to add
 	 */
 	private void addVariable(EvoOperation operation, EvoVariable variable){
 		if(variable instanceof EvoFeatureVariable){
@@ -153,7 +170,7 @@ public class EvoSolver {
 
 		for(EvoVariableTerm variable : operation.getVariables()){
 			HyFeature feature = null;
-			if(variable.getType() == EvoVariableType.EVO_TARGET){
+			if(variable.getType() == EvoVariableType.EVO_TARGET || variable.getType() == EvoVariableType.EVO_IDENTIFIER){
 				EvoFeatureVariable featureVariable = (EvoFeatureVariable)variable.getVariable();
 				feature = featureVariable.getFeature();
 			}else if(variable.getType() == EvoVariableType.EVO_SOURCE){
@@ -161,7 +178,7 @@ public class EvoSolver {
 			}
 
 			if(feature != null){
-				if(getFeatureType(oldFeature, date).getType() != operation.getType())
+				if(getFeatureType(feature, date).getType() != operation.getType())
 					return false;
 			}else{ 
 				System.err.println("Error: feature in EvoVariableType operation could not be determined.");
@@ -194,7 +211,7 @@ public class EvoSolver {
 
 		for(EvoVariableTerm variable : operation.getVariables()){
 			HyGroup group = null;
-			if(variable.getType() == EvoVariableType.EVO_TARGET){
+			if(variable.getType() == EvoVariableType.EVO_TARGET || variable.getType() == EvoVariableType.EVO_IDENTIFIER){
 				EvoGroupVariable groupVariable = (EvoGroupVariable)variable.getVariable();
 				group = groupVariable.getGroup();
 			}else if(variable.getType() == EvoVariableType.EVO_SOURCE){
@@ -202,7 +219,7 @@ public class EvoSolver {
 			}
 
 			if(group != null){
-				if(getGroupType(oldGroup, date).getType() != operation.getType())
+				if(getGroupType(group, date).getType() != operation.getType())
 					return false;
 			}else{ 
 				System.err.println("Error: group in EvoGroupType operation could not be determined.");
@@ -224,7 +241,7 @@ public class EvoSolver {
 			EvoSetVariable setTerm = (EvoSetVariable)term;
 			return setVariables.get(setTerm.getName());
 		}else{ // compute the set if it is not defined as a set variable
-			return FOOsolveSetTerm(term, date);
+			return solveSetTerm(term, date);
 		}
 	}
 
@@ -248,8 +265,36 @@ public class EvoSolver {
 		return null;
 	}
 
-	private IntIterableRangeSet FOOsolveSetTerm(EvoAbstractTerm term, Date date){
-		if(term instanceof EvoSetTerm){
+	/**
+	 * Sometimes a set is not immediately visible and needs to be calculated: e.g. the intersection of two sets. 
+	 * This method derivates the solution of arbitrary (set) formulas and returns the resulting set
+	 * 
+	 * @param term
+	 * @param date
+	 * @return The derivated set
+	 */
+	private IntIterableRangeSet solveSetTerm(EvoAbstractTerm term, Date date){
+
+		if(term instanceof EvoVariableTerm){
+			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
+			EvoVariable variable = variableTerm.getVariable();
+			
+			if(variable instanceof EvoConfigurationVariable){
+				EvoConfigurationVariable configurationVariable = (EvoConfigurationVariable)variable;
+				
+				IntIterableRangeSet result = new IntIterableRangeSet();
+				for(HyConfigurationElement element : ((EvoConfigurationVariable) variable).getConfiguration().getElements()){
+					if(element instanceof HyFeatureSelected){
+						HyFeatureSelected feature = (HyFeatureSelected)element;
+						
+						IntVar var = featureVariables.get(feature.getSelectedFeature());
+						result.add(var.getValue());
+					}
+				}
+				
+				return result;
+			}
+		}else if(term instanceof EvoSetTerm){
 			EvoSetTerm setTerm = (EvoSetTerm)term;
 
 			IntIterableRangeSet result = new IntIterableRangeSet();
@@ -356,14 +401,13 @@ public class EvoSolver {
 		return null;
 	}
 
-	private BoolVar solveSetTerm(EvoAbstractSetTerm term){
-		// TODO implement
-
-
-		return null;
-	}
-
-
+	/**
+	 * Solves all cardinality based terms and adds corresponding clauses to the solver. 
+	 * @param term
+	 * @param relationTerm options are equal and unequal
+	 * @param date
+	 * @param equal boolean flag to indicate if cardinality has to be equal to a certain value or unequal to it
+	 */
 	private void solveSetCardinality(EvoAbstractTerm term, EvoAbstractTwoParameterTerm relationTerm, Date date, Boolean equal){
 
 		if(relationTerm.getLeftElement() instanceof EvoSetCardinality){
@@ -412,15 +456,38 @@ public class EvoSolver {
 			}
 		}	
 	}
+	
+	/**
+	 * walks through the formula and translates it into clauses that are added to the solver.
+	 * @param term
+	 * @param parentTerm
+	 * @param date
+	 * @return
+	 */
 	private ILogical solveTerm(EvoAbstractTerm term, EvoAbstractTerm parentTerm, Date date){
 		if(term instanceof EvoAnd){
 			EvoAnd andTerm = (EvoAnd)term;
 
-			BoolVar a = model.boolVar();
-			return LogOp.and(solveTerm(andTerm.getLeftElement(), andTerm, date), solveTerm(andTerm.getRightElement(), andTerm, date));
+			BoolVar result = model.boolVar();
+			
+			BoolVar v1 = (BoolVar)solveTerm(andTerm.getLeftElement(), andTerm, date);
+			BoolVar v2 = (BoolVar)solveTerm(andTerm.getRightElement(), andTerm, date);
+			
+			model.addClauseTrue(v1);
+			model.addClauseTrue(v2);
+			
+			return result;
 		}else if(term instanceof EvoOr){
 			EvoOr orTerm = (EvoOr)term;
-			return LogOp.or(solveTerm(orTerm.getLeftElement(), orTerm, date), solveTerm(orTerm.getRightElement(), orTerm, date));			
+			
+			BoolVar v1 = (BoolVar)solveTerm(orTerm.getLeftElement(), orTerm, date);
+			BoolVar v2 = (BoolVar)solveTerm(orTerm.getRightElement(), orTerm, date);
+			
+			BoolVar result = model.boolVar();
+			model.addClausesBoolOrEqVar(v1, v2, result);
+			model.addClauseTrue(result);
+			
+			return result;
 		}else if(term instanceof EvoXOr){
 			EvoXOr xorTerm = (EvoXOr)term;
 			return LogOp.xor(solveTerm(xorTerm.getLeftElement(), xorTerm, date), solveTerm(xorTerm.getRightElement(), xorTerm, date));
@@ -486,11 +553,21 @@ public class EvoSolver {
 		}else if(term instanceof EvoFeatureType){
 			EvoFeatureType featureTypeTerm = (EvoFeatureType)term;
 
-			return model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null));
+			BoolVar result = model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null));
+
+			if(parentTerm == null)
+				model.addClauseTrue(result);
+			
+			return result;
 		}else if(term instanceof EvoGroupType){	
 			EvoGroupType groupTypeTerm = (EvoGroupType)term;
 
-			return model.boolVar("gt_"+(new Date()), determineValueOfGroupTypeOperation(groupTypeTerm, null));
+			BoolVar result =  model.boolVar("gt_"+(new Date()), determineValueOfGroupTypeOperation(groupTypeTerm, null));
+			
+			if(parentTerm == null)
+				model.addClauseTrue(result);
+			
+			return result;
 		}else if(term instanceof EvoSetElementOf){
 			EvoSetElementOf setElementOfTerm = (EvoSetElementOf)term;
 
@@ -498,7 +575,12 @@ public class EvoSolver {
 			boolean value = IntIterableSetUtils.includedIn((IntVar)getVariable(setElementOfTerm.getLeftElement()), getSet(setElementOfTerm.getRightElement(), date));
 
 			BoolVar variable = model.boolVar(value);
-			model.addClauseTrue(variable);
+			
+			if(parentTerm == null)
+				model.addClauseTrue(variable);
+			
+			if(parentTerm instanceof EvoNot)
+				model.addClauseFalse(variable);
 
 			return variable;			 
 		}else if(term instanceof EvoSetInclusion){
@@ -507,7 +589,9 @@ public class EvoSolver {
 			IntIterableRangeSet set1 = getSet(inclusionTerm.getLeftElement(), date);
 			IntIterableRangeSet set2 = getSet(inclusionTerm.getRightElement(), date);
 
-			return model.boolVar(IntIterableSetUtils.includedIn(set1, set2));
+			BoolVar variable = model.boolVar(IntIterableSetUtils.includedIn(set1, set2));
+			model.addClauseTrue(variable);
+			return variable;
 		}else if(term instanceof EvoSetElementOf){
 			EvoSetElementOf elementOfTerm = (EvoSetElementOf)term;
 
@@ -531,48 +615,28 @@ public class EvoSolver {
 	 * Checks for all in the given guidance table defined anomalies if one occures
 	 * @param guidanceTable
 	 */
-	public void solve(EvoGuidanceTable guidanceTable){
+	public List<EvoAnomaly> solve(EvoGuidanceTable guidanceTable){
 		model = new Model("");
 
 		// get all variables defined in each triggering operation and add them to the solver
 		collectVariables(guidanceTable);
 
-		EvoAnomaly anomaly = guidanceTable.getAnomalies().get(0);
-		solveTerm(anomaly.getCondition().getTerm(), null, new Date());
+		List<EvoAnomaly> anomalies = new ArrayList<>();
+		
+		for(EvoAnomaly anomaly : guidanceTable.getAnomalies()){
+			solveTerm(anomaly.getCondition().getTerm(), null, new Date());
 
-		Solver solver = model.getSolver();
-		solver.setSearch(Search.defaultSearch(model));
-		if(solver.solve()){
-			for(IntVar var : featureVariables.values()){
-				System.out.println(var.getName()+"  "+var.getValue());
-			}
-			System.out.println("Solutions ="+solver.getSolutionCount());
-		}else{
-			System.err.println(":(");
+			Solver solver = model.getSolver();
+			solver.setSearch(Search.defaultSearch(model));
+			
+			// a condition for an anomaly was true so inform the user with the help of the guidance element
+			if(solver.solve()){
+				anomalies.add(anomaly);
+			}else{
+				System.err.println(":(");
+			}			
 		}
+
+		return anomalies;
 	}
-
-	/*
-	public void solve(EvoAbstractTerm term, Date date){
-		model = new Model("");
-
-		ILogical formula = solveTerm(term, null, date);
-		BoolVar b = model.boolVar("partlyFormulaVar");
-		LogOp.reified(b, formula);
-
-		model.addClauseTrue(b);
-
-
-		BoolVar var1 = model.boolVar("f0", false);
-		BoolVar var2 = model.boolVar("f1", false);
-
-		Solver solver = model.getSolver();
-		solver.setSearch(Search.defaultSearch(model));
-		if(solver.solve()){
-			System.out.println("Solutions ="+solver.getSolutionCount());
-		}else{
-			System.err.println(":(");
-		}
-	}
-	 */
 }

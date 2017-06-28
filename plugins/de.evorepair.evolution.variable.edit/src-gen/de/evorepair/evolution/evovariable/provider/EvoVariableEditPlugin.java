@@ -6,6 +6,7 @@ import eu.hyvar.dataValues.provider.DataValuesEditPlugin;
 
 import eu.hyvar.evolution.provider.EvolEditPlugin;
 
+import eu.hyvar.feature.configuration.provider.ConfigurationEditPlugin;
 import eu.hyvar.feature.provider.FeatureEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -44,6 +45,7 @@ public final class EvoVariableEditPlugin extends EMFPlugin {
 	public EvoVariableEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     ConfigurationEditPlugin.INSTANCE,
 		     DataValuesEditPlugin.INSTANCE,
 		     EvolEditPlugin.INSTANCE,
 		     FeatureEditPlugin.INSTANCE,

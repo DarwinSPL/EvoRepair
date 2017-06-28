@@ -7,30 +7,13 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: de.evorepair.evolution.evovariable; uses:="org.eclipse.emf.ecore,
-   eu.hyvar.feature,
-   org.eclipse.emf.common.util,
-   eu.hyvar.feature.mapping",
- de.evorepair.evolution.evovariable.impl; uses:="org.eclipse.emf.ecore,
-   eu.hyvar.feature,
-   org.eclipse.emf.ecore.impl,
-   de.evorepair.evolution.evovariable,
-   org.eclipse.emf.common.util,
-   eu.hyvar.feature.mapping",
- de.evorepair.evolution.evovariable.util; uses:="org.eclipse.emf.ecore,
-   de.evorepair.evolution.evovariable,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.common.notify.impl,
-   org.eclipse.emf.ecore.util"
+Export-Package: de.evorepair.evolution.evovariable,
+ de.evorepair.evolution.evovariable.impl,
+ de.evorepair.evolution.evovariable.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- eu.hyvar.context.information;visibility:=reexport,
+ eu.hyvar.feature.configuration;visibility:=reexport,
  eu.hyvar.feature.data;visibility:=reexport,
- org.deltaecore.core.decorebase;visibility:=reexport,
- org.deltaecore.core.decoredialect;visibility:=reexport,
- org.deltaecore.core.decore;visibility:=reexport,
  eu.hyvar.evolution;visibility:=reexport,
- eu.hyvar.feature.expression;visibility:=reexport,
- eu.hyvar.feature;visibility:=reexport,
- eu.hyvar.feature.mapping;visibility:=reexport
+ eu.hyvar.feature;visibility:=reexport
 Bundle-ActivationPolicy: lazy

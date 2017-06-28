@@ -9,10 +9,6 @@
     <genClasses ecoreClass="EvoDsl.ecore#//Start">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//Start/formula"/>
     </genClasses>
-    <genClasses ecoreClass="EvoDsl.ecore#//EvoElementOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoElementOf/leftElement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoElementOf/rightElement"/>
-    </genClasses>
     <genClasses ecoreClass="EvoDsl.ecore#//EvoExits">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoExits/boundedVariables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoDsl.ecore#//EvoExits/element"/>
