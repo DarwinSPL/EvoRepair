@@ -1066,7 +1066,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_ABSTRACT_QUANTIFIER_TERM__ELEMENT = EVO_ABSTRACT_TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Bounded Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Bounded Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1112,7 +1112,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_FOR_ALL__ELEMENT = EVO_ABSTRACT_QUANTIFIER_TERM__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Bounded Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Bounded Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1158,7 +1158,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_EXIST__ELEMENT = EVO_ABSTRACT_QUANTIFIER_TERM__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Bounded Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Bounded Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1204,7 +1204,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	int EVO_UNIQUE_EXISTS__ELEMENT = EVO_ABSTRACT_QUANTIFIER_TERM__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Bounded Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Bounded Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1966,10 +1966,10 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 	EClass getEvoAbstractQuantifierTerm();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoAbstractQuantifierTerm#getBoundedVariables <em>Bounded Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.evorepair.logic.evofirstorderlogic.EvoAbstractQuantifierTerm#getBoundedVariables <em>Bounded Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Bounded Variables</em>'.
+	 * @return the meta object for the containment reference list '<em>Bounded Variables</em>'.
 	 * @see de.evorepair.logic.evofirstorderlogic.EvoAbstractQuantifierTerm#getBoundedVariables()
 	 * @see #getEvoAbstractQuantifierTerm()
 	 * @generated
@@ -2570,7 +2570,7 @@ public interface EvoFirstOrderLogicPackage extends EPackage
 		EClass EVO_ABSTRACT_QUANTIFIER_TERM = eINSTANCE.getEvoAbstractQuantifierTerm();
 
 		/**
-		 * The meta object literal for the '<em><b>Bounded Variables</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Bounded Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -21,7 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +51,7 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll
 	protected EvoAbstractTerm element;
 
 	/**
-	 * The cached value of the '{@link #getBoundedVariables() <em>Bounded Variables</em>}' reference list.
+	 * The cached value of the '{@link #getBoundedVariables() <em>Bounded Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBoundedVariables()
@@ -137,7 +138,7 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll
 	{
 		if (boundedVariables == null)
 		{
-			boundedVariables = new EObjectResolvingEList<EvoVariable>(EvoVariable.class, this, EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES);
+			boundedVariables = new EObjectContainmentEList<EvoVariable>(EvoVariable.class, this, EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES);
 		}
 		return boundedVariables;
 	}
@@ -154,6 +155,8 @@ public class EvoForAllImpl extends EvoAbstractTermImpl implements EvoForAll
 		{
 			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__ELEMENT:
 				return basicSetElement(null, msgs);
+			case EvoFirstOrderLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES:
+				return ((InternalEList<?>)getBoundedVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

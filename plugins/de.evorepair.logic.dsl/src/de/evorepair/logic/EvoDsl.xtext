@@ -100,14 +100,18 @@ EvoSetCardinality returns EvoAbstractTerm:
 EvoElementOf returns EvoAbstractTerm:
 	EvoTerminal({EvoSetElementOf.leftElement=current} ('elementOf') rightElement=EvoTerminal)*;
 
+EvoBoundedFeatureVariable returns evovar::EvoFeatureVariable:
+	{evovar::EvoFeatureVariable}ID
+;
+
 EvoForAll returns EvoAbstractTerm:
 	{EvoForAll}'forAll' '('
-		boundedVariables+=[evovar::EvoVariable | QualifiedName] (',' boundedVariables+=[evovar::EvoVariable | QualifiedName]) ':'
+		boundedVariables += EvoBoundedFeatureVariable (',' boundedVariables += EvoBoundedFeatureVariable) ':'
 		element=EvoAbstractTerm
 	')';
 EvoExists returns EvoAbstractTerm:
 	{EvoExits}'exists' '('
-		boundedVariables+=[evovar::EvoVariable | QualifiedName] ':'
+		boundedVariables+=EvoBoundedFeatureVariable ':'
 		element=EvoAbstractTerm
 	')'
 ;

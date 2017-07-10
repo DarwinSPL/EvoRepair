@@ -16,7 +16,6 @@ import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeSet;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
 
-import de.evorepair.analysis.operator.EvoGuidanceActionOperator;
 import de.evorepair.evolution.evooperation.EvoOperation;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
@@ -34,6 +33,7 @@ import de.evorepair.logic.evofirstorderlogic.EvoBiconditional;
 import de.evorepair.logic.evofirstorderlogic.EvoChildrenOf;
 import de.evorepair.logic.evofirstorderlogic.EvoEqual;
 import de.evorepair.logic.evofirstorderlogic.EvoFeatureType;
+import de.evorepair.logic.evofirstorderlogic.EvoForAll;
 import de.evorepair.logic.evofirstorderlogic.EvoGroupType;
 import de.evorepair.logic.evofirstorderlogic.EvoImplication;
 import de.evorepair.logic.evofirstorderlogic.EvoNot;
@@ -606,6 +606,17 @@ public class EvoSolver {
 			IntIterableRangeSet set = getSet(elementOfTerm.getRightElement(), date);
 
 			return model.boolVar(IntIterableSetUtils.notIncludedIn(element, set));
+		}else if(term instanceof EvoForAll){
+			EvoForAll forAllTerm = (EvoForAll)term;
+			List<Variable> variables = new ArrayList<>();
+			
+			for(EvoVariable variable : forAllTerm.getBoundedVariables()){
+				variables.add(getVariable((EvoAbstractTerm)variable));
+			}
+			
+			BoolVar result = model.boolVar();
+			//model.addClausesBoolAndArrayEqVar(BOOLVARS, result)
+			//model.addClauseTrue(result);
 		}
 
 		return null;

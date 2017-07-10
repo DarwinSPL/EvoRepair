@@ -1224,7 +1224,7 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		initEClass(evoSetNotElementOfEClass, EvoSetNotElementOf.class, "EvoSetNotElementOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoAbstractQuantifierTermEClass, EvoAbstractQuantifierTerm.class, "EvoAbstractQuantifierTerm", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvoAbstractQuantifierTerm_BoundedVariables(), theEvoVariablePackage.getEvoVariable(), null, "boundedVariables", null, 1, -1, EvoAbstractQuantifierTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvoAbstractQuantifierTerm_BoundedVariables(), theEvoVariablePackage.getEvoVariable(), null, "boundedVariables", null, 1, -1, EvoAbstractQuantifierTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evoForAllEClass, EvoForAll.class, "EvoForAll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
