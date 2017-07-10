@@ -24,7 +24,6 @@ import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
-import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoAbstractTwoParameterTerm;
@@ -280,14 +279,20 @@ public class EvoSolver {
 			EvoVariable variable = variableTerm.getVariable();
 			
 			if(variable instanceof EvoConfigurationVariable){
-				EvoConfigurationVariable configurationVariable = (EvoConfigurationVariable)variable;
-				
 				IntIterableRangeSet result = new IntIterableRangeSet();
 				for(HyConfigurationElement element : ((EvoConfigurationVariable) variable).getConfiguration().getElements()){
 					if(element instanceof HyFeatureSelected){
 						HyFeatureSelected feature = (HyFeatureSelected)element;
 						
 						IntVar var = featureVariables.get(feature.getSelectedFeature());
+						
+						// feature variable was not added to the list, add it now
+						if(var == null) {
+							featureVariables.put(feature.getSelectedFeature(), model.intVar(featureVariables.size()));
+							
+							var = featureVariables.get(feature.getSelectedFeature());
+						}
+						
 						result.add(var.getValue());
 					}
 				}
@@ -628,6 +633,10 @@ public class EvoSolver {
 	 */
 	public List<EvoAnomaly> solve(EvoGuidanceTable guidanceTable){
 		model = new Model("");
+		
+		featureVariables.clear();
+		groupVariables.clear();
+		setVariables.clear();
 
 		// get all variables defined in each triggering operation and add them to the solver
 		collectVariables(guidanceTable);

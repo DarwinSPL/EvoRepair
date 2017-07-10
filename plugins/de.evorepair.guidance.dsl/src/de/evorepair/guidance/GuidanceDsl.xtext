@@ -14,49 +14,52 @@ import "http://darwinspl.de/evorepair/evolutionoperation/0.1" as evooperations
 GrammarEntry:
     table=EvoGuidanceContainer;
 
+
 EvoGuidanceContainer:
-	{EvoGuidanceContainer}(tables+=EvoGuidanceTable)*
-;
+	{EvoGuidanceContainer}(tables+=EvoGuidanceTable)*;
+	
+	
 EvoGuidanceTable returns EvoGuidanceTable: 
-	'guidance' '{'
+	'guidance_table' '=' '{'
 		'trigger' '=' '{'
-			triggeringOperations+=[evooperations::EvoOperation] ( "," triggeringOperations+=[evooperations::EvoOperation])*
+			triggeringOperations+=[evooperations::EvoOperation] ( ";" triggeringOperations+=[evooperations::EvoOperation])*
 		'}'
 		
 		'anomalies' '=' '{'
-			anomalies+=EvoAnomaly ( "," anomalies+=EvoAnomaly)*
+			anomalies+=EvoAnomaly
 		'}'
-	'}'
-;
+	'}';
 
 
 EvoAnomaly returns EvoAnomaly:
- 
-	'anomaly' id=ID '{'
+ 	'anomaly' id=ID '=' '{'
 		('type' type=EvoAnomalyType)?
 		('category' '=' category=EvoAnomalyCategory)?
 		'condition' '=' condition=EvoFormula
-		'guidance' '{' 
-			guidance+=EvoGuidanceElement ( "," guidance+=EvoGuidanceElement)* 
+		'guidances' '=' '{' 
+			guidance+=EvoGuidanceElement
 		'}' 
 	'}';
+	
+	
 EvoGuidanceElement:
-	'type' '=' type=EvoGuidanceType
-	('description' '=' description=STRING)?
-	('action' '=' action=EvoFormula)?
-;
+	'guidance' '=' '{'
+		'type' '=' type=EvoGuidanceType
+		('description' '=' description=STRING)?
+		('action' '=' action=EvoFormula)?
+	'}';
 
 @Override 
 EvoFormula returns EvoFormula:	
 	term=EvoAbstractTerm;
 
 enum EvoAnomalyType returns EvoAnomalyType:
-	DEFECT = 'Defect' | BEHAVIORAL_CHANGE = 'Behavioral Change'
-;
+	DEFECT = 'Defect' | BEHAVIORAL_CHANGE = 'Behavioral Change';
+
 
 enum EvoAnomalyCategory returns EvoAnomalyCategory:
-	CONFIGURATION = 'Configuration' | MAPPING = 'Mapping'
-;
+	CONFIGURATION = 'Configuration' | MAPPING = 'Mapping';
+
 
 enum EvoGuidanceType returns EvoGuidanceType:
 				REPAIR_SUGGESTION = 'Repair Suggestion' | WARNING = 'Warning';

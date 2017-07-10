@@ -11,40 +11,31 @@ Model:
 	variables+=EvoVariable*;
 
 EvoVariable:
-	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable
-;
+	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 
 
 EvoFeatureVariable: 
-	'feature' name=ID (relation=EvoFeatureRelation)? ('value' '=' feature=[feature::HyFeature | QualifiedName])?
-;
+	'feature' name=ID (relation=EvoFeatureRelation)? ('value' '=' feature=[feature::HyFeature | QualifiedName])?;
 
 EvoFeatureRelation:
-	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')'
-;
+	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')';
 
 EvoGroupVariable:
-	'group' name=ID ('value' '=' group=[feature::HyGroup | QualifiedName])?
-;
+	'group' name=ID ('value' '=' group=[feature::HyGroup | QualifiedName])?;
 
 EvoSetVariable: 
-	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
-;
+	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
 
 EvoMappingVariable:
-	'mapping' name=ID
-;
+	'mapping' name=ID;
 
 EvoConfigurationVariable:
-	'configuration' name=ID
-;
+	'configuration' name=ID;
 
 enum EvoFeatureVariableType:
 	EvoParent = 'parentOf' |
 	EvoSibling = 'siblingOf' |
-	EvoChild = 'childOf'	
-;
+	EvoChild = 'childOf';
 
 QualifiedName returns ecore::EString:
-	ID ("." ID)*
-;
+	ID ("." ID)*;

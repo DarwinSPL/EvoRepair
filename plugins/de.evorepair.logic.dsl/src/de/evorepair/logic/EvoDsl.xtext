@@ -20,12 +20,10 @@ EvoFormula returns EvoFormula:
 	'}';
 
 QualifiedName returns ecore::EString:
-	ID ("." ID)*
-;
+	ID ("." ID)*;
 
 EvoAbstractTerm:
-	EvoXOr
-;
+	EvoXOr;
 
 EvoXOr returns EvoAbstractTerm:
 	EvoOr({EvoXOr.leftElement=current} ('xor') rightElement=EvoOr)*;
@@ -84,48 +82,58 @@ EvoSetUnion returns EvoAbstractTerm:
 
 
 EvoSetDifference returns EvoAbstractTerm:
-	EvoSetSymmetricDifference({EvoSetDifference.leftElement=current} ('diff') rightElement=EvoSetSymmetricDifference)*;
+	EvoSetSymmetricDifference({EvoSetDifference.leftElement=current} ('difference') rightElement=EvoSetSymmetricDifference)*;
 
 
 EvoSetSymmetricDifference returns EvoAbstractTerm:
-	EvoSetCartesianProduct({EvoSetSymmetricDifference.leftElement=current} ('symdiff') rightElement=EvoSetCartesianProduct)*;
+	EvoSetCartesianProduct({EvoSetSymmetricDifference.leftElement=current} ('symmetric_difference') rightElement=EvoSetCartesianProduct)*;
 
 
 EvoSetCartesianProduct returns EvoAbstractTerm:
 	EvoElementOf({EvoSetCartesianProduct.leftElement=current} ('x') rightElement=EvoElementOf)*;
 
+
 EvoSetCardinality returns EvoAbstractTerm:
 	{EvoSetCardinality} (('|' element=EvoAbstractTerm '|') | ('size' '(' element=EvoAbstractTerm ')'));
+
 
 EvoElementOf returns EvoAbstractTerm:
 	EvoTerminal({EvoSetElementOf.leftElement=current} ('elementOf') rightElement=EvoTerminal)*;
 
-EvoBoundedFeatureVariable returns evovar::EvoFeatureVariable:
-	{evovar::EvoFeatureVariable}ID
-;
 
-EvoForAll returns EvoAbstractTerm:
-	{EvoForAll}'forAll' '('
-		boundedVariables += EvoBoundedFeatureVariable (',' boundedVariables += EvoBoundedFeatureVariable) ':'
+EvoFeatureVariable returns evovar::EvoFeatureVariable: 
+	'feature' name=ID;
+	
+	
+EvoForAll:
+	'forAll' '('
+		boundedVariables += EvoFeatureVariable (',' boundedVariables += EvoFeatureVariable) ':'
 		element=EvoAbstractTerm
 	')';
-EvoExists returns EvoAbstractTerm:
-	{EvoExits}'exists' '('
-		boundedVariables+=EvoBoundedFeatureVariable ':'
+	
+	
+EvoExists:
+	'exists' '('
+		boundedVariables+=EvoFeatureVariable ':'
 		element=EvoAbstractTerm
-	')'
-;
+	')';
+
+
+EvoNot:
+	'not' '(' element=EvoAbstractTerm ')';
+
 
 EvoSatisfiable returns EvoAbstractTerm: 
 	({EvoSatisfiable}'satisfiable' '(' variables+=(EvoSetVariable | EvoApplicationConstraintTerm) (',' variables+=(EvoSetVariable | EvoApplicationConstraintTerm))* ')');
-	
+
+
 EvoTerminal returns EvoAbstractTerm:
 	EvoVariableTerm | 
 	EvoSetTerm | 
 	EvoApplicationConstraintTerm | 
-	EvoAllMappingsVariable | 
-	EvoNot | 
 	EvoForAll |
+	EvoExists |
+	EvoNot |
 	EvoFeatureType | 
 	EvoGroupType | 
 	EvoSetCardinality |
@@ -136,10 +144,6 @@ EvoTerminal returns EvoAbstractTerm:
 	'(' EvoXOr ')';
 
 
-
-
-
-
 EvoSize returns EvoAbstractTerm:
 	{EvoSize}size=INT;
 
@@ -147,202 +151,52 @@ EvoSize returns EvoAbstractTerm:
 enum EvoVariableType returns evovar::EvoVariableType: 
 	EvoIdentifier = '@ident' |
 	EvoSource = '@pre' |
-	EvoTarget = '@post'
-;
+	EvoTarget = '@post';
+
 
 EvoVariableTerm returns EvoVariableTerm:
 	variable=[evovar::EvoVariable | QualifiedName](type=EvoVariableType)?;
 	
+	
 EvoApplicationConstraintTerm returns EvoVariableTerm:
 	'AC' '(' variable=[evovar::EvoMappingVariable | QualifiedName] ')';
 	
-
-
-EvoNot returns EvoAbstractTerm:
-	({EvoNot} 'not' element=EvoEqual);
-
-
-
+	
 EvoFeatureType returns EvoAbstractTerm:
 	({EvoFeatureType}'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '==' type=HyFeatureTypeEnum)
 ;
 
-
 enum HyFeatureTypeEnum returns hyfeature::HyFeatureTypeEnum:
-	OPTIONAL = 'optional' | MANDATORY = 'mandatory'
-;
+	OPTIONAL = 'optional' | MANDATORY = 'mandatory';
+
 
 EvoGroupType returns EvoAbstractTerm:
-	({EvoGroupType}'groupType' ('(' variables+=EvoGroupTerm (',' variables+=EvoGroupTerm)* ')') '==' type=HyGroupTypeEnum)
-;
+	({EvoGroupType}'groupType' ('(' variables+=EvoGroupTerm (',' variables+=EvoGroupTerm)* ')') '==' type=HyGroupTypeEnum);
+
 
 EvoGroupTerm returns EvoVariableTerm:
 	variable=[evovar::EvoGroupVariable | QualifiedName](type=EvoVariableType)?;
 
+
 enum HyGroupTypeEnum returns hyfeature::HyGroupTypeEnum:
-	AND = 'and' | OR = 'or' | ALTERNATIVE = 'alternative'
-;
+	AND = 'and' | OR = 'or' | ALTERNATIVE = 'alternative';
+
 
 EvoSetTerm:
-	'{' variables+=EvoSetVariable (',' variables+=EvoSetVariable)* '}'
-;
+	'{' variables+=EvoSetVariable (',' variables+=EvoSetVariable)* '}';
+
 
 EvoSetVariable returns EvoAbstractTerm:
-	EvoVariableTerm | EvoSetTerm | EvoNot
-;
+	EvoVariableTerm | EvoSetTerm | EvoNot;
 
-
-
-EvoAllMappingsVariable returns EvoAbstractTerm: 
-	{EvoAllMappingsVariable}'M' ('(' variables+=EvoSetVariable (',' variables+=EvoSetVariable)*')');
 
 EvoParentOf:
-	'parentOf' '(' variable=EvoVariableTerm ')'
-;
+	'parentOf' '(' variable=EvoVariableTerm ')';
+
 
 EvoSiblingsOf:
-	'sibilingsOf' '(' variable=EvoVariableTerm ')'
-;
+	'sibilingsOf' '(' variable=EvoVariableTerm ')';
+
 
 EvoChildrenOf: 
-	'childrenOf' '(' variable=EvoVariableTerm ')'
-;
-
-
-
-
-
-
-
-
-
-/*
-EvoElementOf returns EvoElementOf:
-	'EvoElementOf'
-	'{'
-		'leftElement' leftElement=EvoAbstractTerm
-		'rightElement' rightElement=EvoAbstractTerm
-	'}';
-
-EvoNotElementOf returns EvoNotElementOf:
-	'EvoNotElementOf'
-	'{'
-		'leftElement' leftElement=EvoAbstractTerm
-		'rightElement' rightElement=EvoAbstractTerm
-	'}';
-
-EvoComplement returns EvoComplement:
-	'EvoComplement'
-	'{'
-		'element' element=EvoAbstractTerm
-	'}';
-
-
-EvoForAll returns EvoForAll:
-	'EvoForAll'
-	'{'
-		'boundedVariable' boundedVariable=[EvoVariable|STRING]
-		'element' element=EvoAbstractTerm
-	'}';
-
-EvoExist returns EvoExist:
-	'EvoExist'
-	'{'
-		'boundedVariable' boundedVariable=[EvoVariable|STRING]
-		'element' element=EvoAbstractTerm
-	'}';
-
-EvoUniqueExists returns EvoUniqueExists:
-	'EvoUniqueExists'
-	'{'
-		'boundedVariable' boundedVariable=[EvoVariable|STRING]
-		'element' element=EvoAbstractTerm
-	'}';
-
-EvoIndexedIntegerVariable returns EvoIndexedIntegerVariable:
-	'EvoIndexedIntegerVariable'
-	name=STRING
-	'{'
-		'index' index=[EvoIntegerVariable|STRING]
-	'}';
-
-EvoIntegerVariable returns EvoIntegerVariable:
-	{EvoIntegerVariable}
-	'EvoIntegerVariable'
-	name=STRING;
-
-EvoVariableTerm returns EvoVariableTerm:
-	'EvoVariableTerm'
-	'{'
-		'variable' variable=[EvoVariable|STRING]
-	'}';
-
-EvoApplicationConstraintVariable returns EvoApplicationConstraintVariable:
-	{EvoApplicationConstraintVariable}
-	'EvoApplicationConstraintVariable'
-	name=STRING;
-
-EvoFeatureModelConstraintVariable returns EvoFeatureModelConstraintVariable:
-	{EvoFeatureModelConstraintVariable}
-	'EvoFeatureModelConstraintVariable'
-	name=STRING;
-
-EvoArbitratyFeatureVariable returns EvoArbitratyFeatureVariable:
-	{EvoArbitratyFeatureVariable}
-	'EvoArbitratyFeatureVariable'
-	name=STRING
-	'{'
-		('feature' feature=[feature::HyFeature|STRING])?
-	'}';
-
-EvoPredefinedVariable_Impl returns EvoPredefinedVariable:
-	{EvoPredefinedVariable}
-	(afterEvolution?='afterEvolution')?
-	'EvoPredefinedVariable'
-	name=STRING;
-
-EvoAllFeaturesVariable returns EvoAllFeaturesVariable:
-	{EvoAllFeaturesVariable}
-	'EvoAllFeaturesVariable'
-	name=STRING;
-
-EvoMappingVariable returns EvoMappingVariable:
-	(afterEvolution?='afterEvolution')?
-	'EvoMappingVariable'
-	name=STRING
-	'{'
-		'associatedMapping' associatedMapping=[mapping::HyMapping|STRING]
-	'}';
-
-EvoRequirementVariable returns EvoRequirementVariable:
-	{EvoRequirementVariable}
-	(afterEvolution?='afterEvolution')?
-	'EvoRequirementVariable'
-	name=STRING;
-*/
-
-
-
-/**
- * Rules for variables
- */
- /* 
- 
-EvoVariable returns EvoFormulaSetVariable:
-	EvoFormulaSetVariable;
-
-EvoVariableTerm returns EvoVariableTerm:
-	variable=[EvoFormulaVariable];
-	
-
-EvoFormulaSetVariable returns EvoFormulaSetVariable:
-	'set' name = ID ('_' index=INT) '=' '{' elements+=[EvoFormulaVariable] ( "," elements+=[EvoFormulaVariable])*  '}';
-	
-EvoInvolvedFeatureVariable returns EvoInvolvedFeatureVariable: 
-	'inv_feature' name = ID; 
-EvoMappingAssociatedAssetsVariable returns EvoMappingAssociatedAssetsVariable:
-	associatedMapping=[EvoMappingVariable];
-
-EvoMappingVariable returns EvoMappingVariable:
-	'mapping' mapping=STRING containingFeature=[EvoFormulaVariable];
-*/
+	'childrenOf' '(' variable=EvoVariableTerm ')';

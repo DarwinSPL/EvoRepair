@@ -6,16 +6,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="ecore:EClass platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoFormula"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoExits" eSuperTypes="platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm">
+  <eClassifiers xsi:type="ecore:EClass" name="EvoExists" eSuperTypes="platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="boundedVariables" upperBound="-1"
         eType="ecore:EClass platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.ecore#//EvoFeatureVariable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoAllMappingsVariable" eSuperTypes="platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="ecore:EClass platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoAbstractTerm"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
