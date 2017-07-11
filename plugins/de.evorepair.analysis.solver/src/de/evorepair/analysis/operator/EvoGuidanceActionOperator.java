@@ -19,6 +19,7 @@ import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.HyConfigurationElement;
+import eu.hyvar.feature.configuration.HyConfigurationFactory;
 import eu.hyvar.feature.configuration.HyFeatureSelected;
 
 /**
@@ -159,6 +160,27 @@ public class EvoGuidanceActionOperator {
 					elementsToRemove.add(element);
 			}
 		}
+		
+		for(HyFeature feature : features){
+			
+			boolean isSelected = false;
+			for(HyConfigurationElement element : configuration.getElements()) {
+				if(element instanceof HyFeatureSelected){
+					HyFeatureSelected featureSelected = (HyFeatureSelected)element;
+
+					if(featureSelected.getSelectedFeature().equals(feature))
+						isSelected = true;
+				}
+			}	
+			
+			if(!isSelected){
+				HyFeatureSelected newSelectedFeature = HyConfigurationFactory.eINSTANCE.createHyFeatureSelected();
+				newSelectedFeature.setSelectedFeature(feature);
+				
+				configuration.getElements().add(newSelectedFeature);
+			}
+		}
+
 
 		// remove all features within the obsolete list
 		configuration.getElements().removeAll(elementsToRemove);

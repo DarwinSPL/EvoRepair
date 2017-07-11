@@ -62,4 +62,4 @@ enum EvoAnomalyCategory returns EvoAnomalyCategory:
 
 
 enum EvoGuidanceType returns EvoGuidanceType:
-				REPAIR_SUGGESTION = 'Repair Suggestion' | WARNING = 'Warning';
+				AUTOMATIC_DEFAULT = 'Automatic Repair' | INTERACTIVE_DEFAULT = 'Repair' | INTERACTIVE = 'Warning';

@@ -22,6 +22,7 @@ import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceType;
 import de.evorepair.guidance.guidancedsl.GrammarEntry;
 import eu.hyvar.feature.HyFeatureModel;
 import eu.hyvar.feature.configuration.HyConfiguration;
@@ -127,10 +128,15 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
     	List<EvoAnomaly> anomalies = solver.solve(guidanceModel.getTable().getTables().get(0));
     	for(EvoAnomaly anomaly : anomalies){
 			for(EvoGuidanceElement guidance : anomaly.getGuidance()){
-				if(guidance.getAction() != null){
-					if(showRepairSuggestions()){
-						EvoGuidanceActionOperator operator = new EvoGuidanceActionOperator(configurationModelResource);
-						operator.perform(configurationModel, guidance.getAction().getTerm());
+				EvoGuidanceActionOperator operator = new EvoGuidanceActionOperator(configurationModelResource);
+				
+				if(guidance.getType() == EvoGuidanceType.AUTOMATIC_DEFAULT){
+					operator.perform(configurationModel, guidance.getAction().getTerm());
+				}else if(guidance.getType() == EvoGuidanceType.INTERACTIVE_DEFAULT){
+					if(guidance.getAction() != null){
+						if(showRepairSuggestions()){							
+							operator.perform(configurationModel, guidance.getAction().getTerm());
+						}
 					}
 				}
 			}
