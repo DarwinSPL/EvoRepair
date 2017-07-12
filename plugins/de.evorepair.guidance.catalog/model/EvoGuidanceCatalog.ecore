@@ -47,7 +47,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoGuidanceType">
     <eLiterals name="AUTOMATIC_DEFAULT" literal="AUTOMATIC_DEFAULT"/>
-    <eLiterals name="REPAIR_DEFAULT" value="1" literal="REPAIR_DEFAULT"/>
-    <eLiterals name="REPAIR" value="2" literal="REPAIR"/>
+    <eLiterals name="INTERACTIVE_DEFAULT" value="1" literal="INTERACTIVE_DEFAULT"/>
+    <eLiterals name="INTERACTIVE" value="2" literal="INTERACTIVE"/>
   </eClassifiers>
 </ecore:EPackage>
