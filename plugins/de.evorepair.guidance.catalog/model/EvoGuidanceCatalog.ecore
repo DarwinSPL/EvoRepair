@@ -46,7 +46,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoGuidanceType">
-    <eLiterals name="REPAIR_SUGGESTION"/>
-    <eLiterals name="WARNING" value="1"/>
+    <eLiterals name="AUTOMATIC_DEFAULT" literal="AUTOMATIC_DEFAULT"/>
+    <eLiterals name="REPAIR_DEFAULT" value="1" literal="REPAIR_DEFAULT"/>
+    <eLiterals name="REPAIR" value="2" literal="REPAIR"/>
   </eClassifiers>
 </ecore:EPackage>
