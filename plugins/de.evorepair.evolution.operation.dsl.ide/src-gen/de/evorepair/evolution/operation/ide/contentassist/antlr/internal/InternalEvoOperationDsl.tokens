@@ -2,7 +2,7 @@
 ')'=25
 ','=26
 '.'=31
-';'=20
+';'=19
 '='=18
 'childOf'=14
 'configuration'=30
@@ -17,7 +17,7 @@
 'value'=23
 'variables'=17
 '{'=16
-'}'=19
+'}'=20
 RULE_ANY_OTHER=11
 RULE_DATE=5
 RULE_ID=4

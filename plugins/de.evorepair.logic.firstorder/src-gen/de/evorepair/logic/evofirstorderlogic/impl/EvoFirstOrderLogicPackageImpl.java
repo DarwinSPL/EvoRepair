@@ -47,7 +47,13 @@ import de.evorepair.logic.evofirstorderlogic.EvoUniqueExists;
 import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
 import de.evorepair.logic.evofirstorderlogic.EvoXOr;
 
+import eu.hyvar.dataValues.HyDataValuesPackage;
+
+import eu.hyvar.evolution.HyEvolutionPackage;
+
 import eu.hyvar.feature.HyFeaturePackage;
+
+import eu.hyvar.feature.configuration.HyConfigurationPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -379,7 +385,12 @@ public class EvoFirstOrderLogicPackageImpl extends EPackageImpl implements EvoFi
 		isInited = true;
 
 		// Initialize simple dependencies
+		HyDataValuesPackage.eINSTANCE.eClass();
+		HyEvolutionPackage.eINSTANCE.eClass();
 		EvoOperationPackage.eINSTANCE.eClass();
+		EvoVariablePackage.eINSTANCE.eClass();
+		HyFeaturePackage.eINSTANCE.eClass();
+		HyConfigurationPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEvoFirstOrderLogicPackage.createPackageContents();

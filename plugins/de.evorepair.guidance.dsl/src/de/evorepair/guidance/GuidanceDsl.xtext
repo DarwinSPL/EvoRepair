@@ -20,33 +20,33 @@ EvoGuidanceContainer:
 	
 	
 EvoGuidanceTable returns EvoGuidanceTable: 
-	'guidance_table' '=' '{'
-		'trigger' '=' '{'
+	'guidance_table' '{'
+		'trigger'  '{'
 			triggeringOperations+=[evooperations::EvoOperation] ( ";" triggeringOperations+=[evooperations::EvoOperation])*
 		'}'
 		
-		'anomalies' '=' '{'
+		'anomalies' '{'
 			anomalies+=EvoAnomaly
 		'}'
 	'}';
 
 
 EvoAnomaly returns EvoAnomaly:
- 	'anomaly' id=ID '=' '{'
+ 	'anomaly' id=ID '{'
 		('type' type=EvoAnomalyType)?
-		('category' '=' category=EvoAnomalyCategory)?
-		'condition' '=' condition=EvoFormula
-		'guidances' '=' '{' 
-			guidance+=EvoGuidanceElement
+		('category' ':' category=EvoAnomalyCategory)?
+		'condition' ':' condition=EvoFormula
+		'guidances' '{' 
+			guidance+=EvoGuidanceElement (guidance+=EvoGuidanceElement)*
 		'}' 
 	'}';
 	
 	
 EvoGuidanceElement:
-	'guidance' '=' '{'
-		'type' '=' type=EvoGuidanceType
-		('description' '=' description=STRING)?
-		('action' '=' action=EvoFormula)?
+	'guidance' '{'
+		'type' ':' type=EvoGuidanceType
+		('description' ':' description=STRING)?
+		('action' ':' action=EvoFormula)?
 	'}';
 
 @Override 
@@ -54,12 +54,12 @@ EvoFormula returns EvoFormula:
 	term=EvoAbstractTerm;
 
 enum EvoAnomalyType returns EvoAnomalyType:
-	DEFECT = 'Defect' | BEHAVIORAL_CHANGE = 'Behavioral Change';
+	DEFECT = 'defect' | BEHAVIORAL_CHANGE = 'behavioral_change';
 
 
 enum EvoAnomalyCategory returns EvoAnomalyCategory:
-	CONFIGURATION = 'Configuration' | MAPPING = 'Mapping';
+	CONFIGURATION = 'configuration' | MAPPING = 'mapping';
 
 
 enum EvoGuidanceType returns EvoGuidanceType:
-				AUTOMATIC_DEFAULT = 'Automatic Repair' | INTERACTIVE_DEFAULT = 'Repair' | INTERACTIVE = 'Warning';
+				AUTOMATIC_DEFAULT = 'automatic_repair' | INTERACTIVE_DEFAULT = 'interactive_repair' | INTERACTIVE = 'warning';

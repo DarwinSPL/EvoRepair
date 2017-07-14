@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
@@ -91,7 +90,7 @@ public class EvoGuidanceActionOperator {
 
 			return result;
 		}else if(term instanceof EvoSetUnion){
-			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
+			EvoSetUnion intersectionTerm = (EvoSetUnion)term;
 
 			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getLeftElement());
 			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getRightElement());
@@ -149,7 +148,7 @@ public class EvoGuidanceActionOperator {
 	 * @param configuration to be modified. Be aware that the file will be overridden
 	 * @param features List of all features that will kept
 	 */
-	private void modifyConfiguration(HyConfiguration configuration, List<HyFeature> features){
+	private HyConfiguration modifyConfiguration(HyConfiguration configuration, List<HyFeature> features){
 		List<HyConfigurationElement> elementsToRemove = new ArrayList<>();
 
 		for(HyConfigurationElement element : configuration.getElements()) {
@@ -185,11 +184,11 @@ public class EvoGuidanceActionOperator {
 		// remove all features within the obsolete list
 		configuration.getElements().removeAll(elementsToRemove);
 
-		// save the modified configuration
-		EcoreIOUtil.saveModel(configuration);
+		return configuration;
 	}
 
-	public void perform(HyConfiguration configuration, EvoAbstractTerm term){
-		modifyConfiguration(configuration, solveSetTerm(term));
+	public HyConfiguration perform(HyConfiguration configuration, EvoAbstractTerm term){
+		
+		return modifyConfiguration(configuration, solveSetTerm(term));
 	}
 }
