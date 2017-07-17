@@ -40,7 +40,7 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
-		foo();
+		registerSuggestionViewerCloseListener();
 	}
 
 	/*
@@ -62,12 +62,10 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 
-	private void foo() {
+	private void registerSuggestionViewerCloseListener() {
 		IWorkbenchPage page = EclipseUtil.getActivePage();
 
-		//adding a listener
 		IPartListener2 pl = new IPartListener2() {
-			// ... Other methods
 			public void partClosed(IWorkbenchPartReference partRef)
 			{
 				if(partRef.getId().equals("de.evorepair.analysis.viewer.repair.suggestion.viewer")){ 

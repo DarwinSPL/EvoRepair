@@ -28,8 +28,14 @@ import eu.hyvar.feature.configuration.HyConfiguration;
 public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 	public static final String SUGGESTIONS_FOLDER = ".solutions";
 	
+	/**
+	 * Instance of the actual resource that will be overriden
+	 */
 	private HyConfiguration configuration;
 
+	/**
+	 * Contains all possible solutions for an anomaly that can be found in the solution folder
+	 */
 	java.util.List<HyConfiguration> suggestions = new ArrayList<>();
 
 	/**
@@ -50,6 +56,9 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 		this.configuration = configuration;
 	}
 
+	/**
+	 * Creates an editor that displays additional widgets on the right side of the editor
+	 */
 	@Override
 	public void createPartControl(Composite parent) {
 		Composite sash = new Composite(parent, SWT.NONE);
@@ -70,7 +79,14 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 		registerControlListeners();
 	}	
 	
-	protected Composite createConfigurationPanel(Composite parent) {
+	/**
+	 * Creates the right panel that displays a list with all possible solutions and a button 
+	 * to apply a particular suggestion
+	 * 
+	 * @param parent
+	 * @return
+	 */
+	private Composite createConfigurationPanel(Composite parent) {
 		Composite configurationPanel = new Composite(parent, SWT.NONE);
 		configurationPanel.setLayout(new GridLayout(1, false));
 
@@ -96,6 +112,9 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 		return configurationPanel;
 	}
 
+	/**
+	 * Sets the input of the editor. Also adds all possible solutions to the suggestions list
+	 */
 	@Override
 	protected void setInput(IEditorInput input) {
 		super.setInput(input);
@@ -119,6 +138,9 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 		}
 	}
 
+	/**
+	 * Register different listeners to react on user input
+	 */
 	@Override
 	public void registerControlListeners() {
 		super.registerControlListeners();
@@ -172,6 +194,11 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 		this.setPartName("Suggestions Viewer");
 	}
 
+	/**
+	 * applies a solution and replace the original configuration file
+	 * 
+	 * @param configuration
+	 */
 	private void applySuggestion(HyConfiguration configuration) {
 		this.configuration.getElements().clear();
 		
