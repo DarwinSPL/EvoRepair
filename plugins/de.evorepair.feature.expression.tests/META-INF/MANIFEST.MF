@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.evorepair.feature.expression.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.evorepair.feature.expression.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.evorepair.feature.expression,
+ eu.hyvar.feature.expression,
+ org.junit;bundle-version="4.12.0",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
