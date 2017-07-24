@@ -77,49 +77,24 @@ ruleModel returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='import'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getImportKeyword_0());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getModelAccess().getImportURIQualifiedNameParserRuleCall_1_0());
+			{
+				newCompositeNode(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_0());
+			}
+			lv_variables_0_0=ruleEvoVariable
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				lv_importURI_1_0=ruleQualifiedName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModelRule());
-					}
-					set(
-						$current,
-						"importURI",
-						lv_importURI_1_0,
-						"de.evorepair.evolution.variable.EvoVariableDsl.QualifiedName");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				add(
+					$current,
+					"variables",
+					lv_variables_0_0,
+					"de.evorepair.evolution.variable.EvoVariableDsl.EvoVariable");
+				afterParserOrEnumRuleCall();
+			}
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_2_0());
-				}
-				lv_variables_2_0=ruleEvoVariable
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModelRule());
-					}
-					add(
-						$current,
-						"variables",
-						lv_variables_2_0,
-						"de.evorepair.evolution.variable.EvoVariableDsl.EvoVariable");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-	)
+	)*
 ;
 
 // Entry rule entryRuleEvoVariable
@@ -243,13 +218,13 @@ ruleEvoFeatureVariable returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_3='value'
+			otherlv_3='reference'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getEvoFeatureVariableAccess().getValueKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getEvoFeatureVariableAccess().getReferenceKeyword_3_0());
 			}
-			otherlv_4='='
+			otherlv_4=':'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getEvoFeatureVariableAccess().getEqualsSignKeyword_3_1());
+				newLeafNode(otherlv_4, grammarAccess.getEvoFeatureVariableAccess().getColonKeyword_3_1());
 			}
 			(
 				(
@@ -258,12 +233,9 @@ ruleEvoFeatureVariable returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getEvoFeatureVariableRule());
 						}
 					}
+					otherlv_5=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0());
-					}
-					ruleQualifiedName
-					{
-						afterParserOrEnumRuleCall();
+						newLeafNode(otherlv_5, grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0());
 					}
 				)
 			)

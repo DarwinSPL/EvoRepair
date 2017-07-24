@@ -4,10 +4,10 @@
     editorDirectory="/de.evorepair.guidance.catalog.editor/src-gen" modelPluginID="de.evorepair.guidance.catalog"
     modelName="EvoGuidanceCatalog" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/de.evorepair.guidance.catalog.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel#//evofirstorderlogic ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//evooperation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.configuration/model/Configuration.genmodel#//configuration ../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.logic/model/EvoLogic.genmodel#//evologic ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//evooperation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
     operationReflection="true" importOrganizing="true">
   <foreignModel>EvoGuidanceCatalog.ecore</foreignModel>
-  <genPackages prefix="EvoguidanceCatalog" basePackage="de.evorepair.guidance" disposableProviderFactory="true"
+  <genPackages prefix="EvoGuidanceCatalog" basePackage="de.evorepair.guidance" disposableProviderFactory="true"
       ecorePackage="EvoGuidanceCatalog.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoAnomalyType">
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyType/DEFECT"/>
@@ -17,37 +17,26 @@
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/MAPPING"/>
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/CONFIGURATION"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation">
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE_IN_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_FEATURE_WITH_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE_IN_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_FEATURE_WITH_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_BUT_KEEP_CODE"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_ADDGROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_DELETE_AND_ADD_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_FEATURE_DELETE_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MERGE_FEATURES"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/SPLIT_FEATURES"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/MOVE_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/ADD_GROUP"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoTriggeringEvolutionOperation/DELETE_GROUP"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoGuidanceType">
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/REPAIR_SUGGESTION"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/WARNING"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/AUTOMATIC_DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/INTERACTIVE_DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/INTERACTIVE"/>
     </genEnums>
     <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoGuidanceTable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoGuidanceTable/triggeringEvolutionOperations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceTable/triggeringOperations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceTable/anomalies"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceTable/container"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoGuidanceContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoGuidanceContainer/tables"/>
     </genClasses>
     <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoAnomaly">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/category"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/guidance"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/id"/>
     </genClasses>
     <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoGuidanceElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoGuidanceElement/type"/>

@@ -7,7 +7,7 @@ Bundle-SymbolicName: de.evorepair.logic.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.evorepair.logic.dsl,
  de.evorepair.logic.dsl.ide,
- de.evorepair.logic.firstorder,
+ de.evorepair.logic,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

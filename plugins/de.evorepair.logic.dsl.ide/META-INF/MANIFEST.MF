@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: de.evorepair.logic.dsl.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.evorepair.logic.dsl,
- de.evorepair.logic.firstorder,
+ de.evorepair.logic,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime

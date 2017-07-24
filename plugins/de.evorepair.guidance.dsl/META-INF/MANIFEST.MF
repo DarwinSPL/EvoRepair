@@ -15,18 +15,20 @@ Require-Bundle: de.evorepair.guidance.catalog,
  org.antlr.runtime,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.guidance.formatting2,
  de.evorepair.guidance.serializer,
  de.evorepair.guidance.parser.antlr,
- de.evorepair.guidance.guidancedsl.util,
  de.evorepair.guidance.scoping,
  de.evorepair.guidance.services,
  de.evorepair.guidance.validation,
- de.evorepair.guidance.guidancedsl,
  de.evorepair.guidance.parser.antlr.internal,
  de.evorepair.guidance,
- de.evorepair.guidance.guidancedsl.impl,
- de.evorepair.guidance.generator
+ de.evorepair.guidance.generator,
+ de.evorepair.guidance.evo_guidance_dsl.util,
+ de.evorepair.guidance.evo_guidance_dsl.impl,
+ de.evorepair.guidance.evo_guidance_dsl
 Import-Package: org.apache.log4j

@@ -10,7 +10,7 @@
       <!-- @generated EvoGuidanceCatalog -->
       <package
             uri="http://darwinspl.de/evorepair/guidance/catalog/0.1"
-            class="de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogPackage"
+            class="de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogPackage"
             genModel="model/EvoGuidanceCatalog.genmodel"/>
    </extension>
 

@@ -19,7 +19,13 @@ Require-Bundle: de.evorepair.guidance.dsl,
  org.eclipse.xtend.lib;resolution:=optional,
  org.eclipse.xtext.xbase.lib,
  de.evorepair.logic.dsl.ui;bundle-version="1.0.0",
- de.evorepair.logic.dsl;bundle-version="1.0.0"
+ de.evorepair.logic.dsl;bundle-version="1.0.0",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ de.evorepair.feature.expression.dsl.ui;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair.dsl.ui;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair.dsl.ide;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.guidance.dsl.ui.internal,

@@ -7,7 +7,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://hyvar-project.eu/feature/1.0" as feature
 
 Model:
-	'import' importURI=QualifiedName
 	variables+=EvoVariable*;
 
 EvoVariable:
@@ -15,7 +14,7 @@ EvoVariable:
 
 
 EvoFeatureVariable: 
-	'feature' name=ID (relation=EvoFeatureRelation)? ('value' '=' feature=[feature::HyFeature | QualifiedName])?;
+	'feature' name=ID (relation=EvoFeatureRelation)? ('reference' ':' feature=[feature::HyFeature | STRING])?;
 
 EvoFeatureRelation:
 	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')';

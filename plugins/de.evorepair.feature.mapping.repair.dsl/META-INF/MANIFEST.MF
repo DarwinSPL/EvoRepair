@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.evorepair.feature.mapping.repair.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.evorepair.feature.mapping.repair.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ de.evorepair.logic.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common,
+ eu.hyvar.dataValues.resource.hydatavalue;bundle-version="1.0.0",
+ de.evorepair.evolution.variable;bundle-version="1.0.0",
+ de.evorepair.logic;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.evorepair.feature.mapping.repair.dsl.scoping,
+ de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl,
+ de.evorepair.feature.mapping.repair.dsl.generator,
+ de.evorepair.feature.mapping.repair.dsl.parser.antlr.internal,
+ de.evorepair.feature.mapping.repair.dsl,
+ de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl,
+ de.evorepair.feature.mapping.repair.dsl.parser.antlr,
+ de.evorepair.feature.mapping.repair.dsl.services,
+ de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.util,
+ de.evorepair.feature.mapping.repair.dsl.validation,
+ de.evorepair.feature.mapping.repair.dsl.serializer
+Import-Package: org.apache.log4j

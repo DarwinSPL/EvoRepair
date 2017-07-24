@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/de.evorepair.feature.mapping.repair/src-gen" editDirectory="/de.evorepair.feature.mapping.repair.edit/src-gen"
+    editorDirectory="/de.evorepair.feature.mapping.repair.editor/src-gen" modelPluginID="de.evorepair.feature.mapping.repair"
+    modelName="EvoMappingRepair" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/de.evorepair.feature.mapping.repair.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EvoMappingRepair.ecore</foreignModel>
+  <genPackages prefix="EvoMappingRepair" basePackage="de.evorepair.feature.mapping.repair"
+      disposableProviderFactory="true" ecorePackage="EvoMappingRepair.ecore#/">
+    <genClasses ecoreClass="EvoMappingRepair.ecore#//EvoMappingRepairExpression"/>
+    <genClasses ecoreClass="EvoMappingRepair.ecore#//EvoMappingKeep"/>
+    <genClasses ecoreClass="EvoMappingRepair.ecore#//EvoMappingReplace"/>
+  </genPackages>
+</genmodel:GenModel>

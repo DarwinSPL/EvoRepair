@@ -28,35 +28,18 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.Model");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportURIQualifiedNameParserRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
-		private final Assignment cVariablesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cVariablesEvoVariableParserRuleCall_2_0 = (RuleCall)cVariablesAssignment_2.eContents().get(0);
+		private final Assignment cVariablesAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cVariablesEvoVariableParserRuleCall_0 = (RuleCall)cVariablesAssignment.eContents().get(0);
 		
 		//Model:
-		//	'import' importURI=QualifiedName
 		//	variables+=EvoVariable*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'import' importURI=QualifiedName variables+=EvoVariable*
-		public Group getGroup() { return cGroup; }
-		
-		//'import'
-		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
-		
-		//importURI=QualifiedName
-		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
-		
-		//QualifiedName
-		public RuleCall getImportURIQualifiedNameParserRuleCall_1_0() { return cImportURIQualifiedNameParserRuleCall_1_0; }
-		
 		//variables+=EvoVariable*
-		public Assignment getVariablesAssignment_2() { return cVariablesAssignment_2; }
+		public Assignment getVariablesAssignment() { return cVariablesAssignment; }
 		
 		//EvoVariable
-		public RuleCall getVariablesEvoVariableParserRuleCall_2_0() { return cVariablesEvoVariableParserRuleCall_2_0; }
+		public RuleCall getVariablesEvoVariableParserRuleCall_0() { return cVariablesEvoVariableParserRuleCall_0; }
 	}
 	public class EvoVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoVariable");
@@ -98,17 +81,17 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRelationAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cRelationEvoFeatureRelationParserRuleCall_2_0 = (RuleCall)cRelationAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cReferenceKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cFeatureAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final CrossReference cFeatureHyFeatureCrossReference_3_2_0 = (CrossReference)cFeatureAssignment_3_2.eContents().get(0);
-		private final RuleCall cFeatureHyFeatureQualifiedNameParserRuleCall_3_2_0_1 = (RuleCall)cFeatureHyFeatureCrossReference_3_2_0.eContents().get(1);
+		private final RuleCall cFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1 = (RuleCall)cFeatureHyFeatureCrossReference_3_2_0.eContents().get(1);
 		
 		//EvoFeatureVariable:
-		//	'feature' name=ID relation=EvoFeatureRelation? ('value' '=' feature=[feature::HyFeature|QualifiedName])?;
+		//	'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'feature' name=ID relation=EvoFeatureRelation? ('value' '=' feature=[feature::HyFeature|QualifiedName])?
+		//'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?
 		public Group getGroup() { return cGroup; }
 		
 		//'feature'
@@ -126,23 +109,23 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EvoFeatureRelation
 		public RuleCall getRelationEvoFeatureRelationParserRuleCall_2_0() { return cRelationEvoFeatureRelationParserRuleCall_2_0; }
 		
-		//('value' '=' feature=[feature::HyFeature|QualifiedName])?
+		//('reference' ':' feature=[feature::HyFeature|STRING])?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'value'
-		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
+		//'reference'
+		public Keyword getReferenceKeyword_3_0() { return cReferenceKeyword_3_0; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		//':'
+		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
 		
-		//feature=[feature::HyFeature|QualifiedName]
+		//feature=[feature::HyFeature|STRING]
 		public Assignment getFeatureAssignment_3_2() { return cFeatureAssignment_3_2; }
 		
-		//[feature::HyFeature|QualifiedName]
+		//[feature::HyFeature|STRING]
 		public CrossReference getFeatureHyFeatureCrossReference_3_2_0() { return cFeatureHyFeatureCrossReference_3_2_0; }
 		
-		//QualifiedName
-		public RuleCall getFeatureHyFeatureQualifiedNameParserRuleCall_3_2_0_1() { return cFeatureHyFeatureQualifiedNameParserRuleCall_3_2_0_1; }
+		//STRING
+		public RuleCall getFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1() { return cFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1; }
 	}
 	public class EvoFeatureRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureRelation");
@@ -491,7 +474,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	'import' importURI=QualifiedName
 	//	variables+=EvoVariable*;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -512,7 +494,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoFeatureVariable:
-	//	'feature' name=ID relation=EvoFeatureRelation? ('value' '=' feature=[feature::HyFeature|QualifiedName])?;
+	//	'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?;
 	public EvoFeatureVariableElements getEvoFeatureVariableAccess() {
 		return pEvoFeatureVariable;
 	}

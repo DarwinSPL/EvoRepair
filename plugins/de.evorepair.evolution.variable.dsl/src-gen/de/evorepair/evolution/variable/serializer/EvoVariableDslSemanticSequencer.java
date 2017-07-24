@@ -105,7 +105,7 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     EvoFeatureVariable returns EvoFeatureVariable
 	 *
 	 * Constraint:
-	 *     (name=ID relation=EvoFeatureRelation? feature=[HyFeature|QualifiedName]?)
+	 *     (name=ID relation=EvoFeatureRelation? feature=[HyFeature|STRING]?)
 	 */
 	protected void sequence_EvoFeatureVariable(ISerializationContext context, EvoFeatureVariable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -162,7 +162,7 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (importURI=QualifiedName variables+=EvoVariable*)
+	 *     variables+=EvoVariable+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

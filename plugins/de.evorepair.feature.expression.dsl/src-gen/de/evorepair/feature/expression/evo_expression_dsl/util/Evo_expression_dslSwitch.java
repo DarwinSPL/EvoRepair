@@ -91,22 +91,6 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case Evo_expression_dslPackage.EVO_SET_ELEMENT_OF:
-      {
-        EvoSetElementOf evoSetElementOf = (EvoSetElementOf)theEObject;
-        T result = caseEvoSetElementOf(evoSetElementOf);
-        if (result == null) result = caseHyExpression(evoSetElementOf);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case Evo_expression_dslPackage.EVO_IMPLICATION:
-      {
-        EvoImplication evoImplication = (EvoImplication)theEObject;
-        T result = caseEvoImplication(evoImplication);
-        if (result == null) result = caseHyExpression(evoImplication);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -139,38 +123,6 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHyFeatureReferenceExpression(HyFeatureReferenceExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Evo Set Element Of</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Evo Set Element Of</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEvoSetElementOf(EvoSetElementOf object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Evo Implication</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Evo Implication</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEvoImplication(EvoImplication object)
   {
     return null;
   }

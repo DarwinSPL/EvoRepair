@@ -67,8 +67,6 @@ public class Evo_expression_dslFactoryImpl extends EFactoryImpl implements Evo_e
     {
       case Evo_expression_dslPackage.GRAMMAR_ENTRY: return createGrammarEntry();
       case Evo_expression_dslPackage.HY_FEATURE_REFERENCE_EXPRESSION: return createHyFeatureReferenceExpression();
-      case Evo_expression_dslPackage.EVO_SET_ELEMENT_OF: return createEvoSetElementOf();
-      case Evo_expression_dslPackage.EVO_IMPLICATION: return createEvoImplication();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -94,28 +92,6 @@ public class Evo_expression_dslFactoryImpl extends EFactoryImpl implements Evo_e
   {
     HyFeatureReferenceExpressionImpl hyFeatureReferenceExpression = new HyFeatureReferenceExpressionImpl();
     return hyFeatureReferenceExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EvoSetElementOf createEvoSetElementOf()
-  {
-    EvoSetElementOfImpl evoSetElementOf = new EvoSetElementOfImpl();
-    return evoSetElementOf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EvoImplication createEvoImplication()
-  {
-    EvoImplicationImpl evoImplication = new EvoImplicationImpl();
-    return evoImplication;
   }
 
   /**

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.evorepair.evolution.variable.evoVariableDsl.Model#getImportURI <em>Import URI</em>}</li>
  *   <li>{@link de.evorepair.evolution.variable.evoVariableDsl.Model#getVariables <em>Variables</em>}</li>
  * </ul>
  *
@@ -28,32 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Import URI</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Import URI</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Import URI</em>' attribute.
-   * @see #setImportURI(String)
-   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage#getModel_ImportURI()
-   * @model
-   * @generated
-   */
-  String getImportURI();
-
-  /**
-   * Sets the value of the '{@link de.evorepair.evolution.variable.evoVariableDsl.Model#getImportURI <em>Import URI</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Import URI</em>' attribute.
-   * @see #getImportURI()
-   * @generated
-   */
-  void setImportURI(String value);
-
   /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
    * The list contents are of type {@link de.evorepair.evolution.evovariable.EvoVariable}.

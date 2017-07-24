@@ -88,16 +88,6 @@ public class Evo_expression_dslAdapterFactory extends AdapterFactoryImpl
         return createHyFeatureReferenceExpressionAdapter();
       }
       @Override
-      public Adapter caseEvoSetElementOf(EvoSetElementOf object)
-      {
-        return createEvoSetElementOfAdapter();
-      }
-      @Override
-      public Adapter caseEvoImplication(EvoImplication object)
-      {
-        return createEvoImplicationAdapter();
-      }
-      @Override
       public Adapter caseEvoLogicDsl_GrammarEntry(de.evorepair.logic.evoLogicDsl.GrammarEntry object)
       {
         return createEvoLogicDsl_GrammarEntryAdapter();
@@ -155,36 +145,6 @@ public class Evo_expression_dslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHyFeatureReferenceExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.feature.expression.evo_expression_dsl.EvoSetElementOf <em>Evo Set Element Of</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.evorepair.feature.expression.evo_expression_dsl.EvoSetElementOf
-   * @generated
-   */
-  public Adapter createEvoSetElementOfAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.feature.expression.evo_expression_dsl.EvoImplication <em>Evo Implication</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.evorepair.feature.expression.evo_expression_dsl.EvoImplication
-   * @generated
-   */
-  public Adapter createEvoImplicationAdapter()
   {
     return null;
   }

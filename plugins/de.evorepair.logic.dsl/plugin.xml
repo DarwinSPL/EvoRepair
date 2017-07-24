@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-	<extension point="org.eclipse.emf.ecore.generated_package">
-		<package 
-			uri = "http://darwinspl.de/evorepair/logic/dsl"
-			class = "de.evorepair.logic.formuladsl.FormuladslPackage"
-			genModel = "model/generated/EvoDsl.genmodel" />
-	</extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="de.evorepair.logic.logicdsl.LogicDslPackage"
+            genModel="model/generated/EvoLogicDsl.genmodel"
+            uri="http://darwinspl.de/evorepair/logic/dsl">
+      </package>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EvoLogicDsl -->
+      <package
+            uri="http://darwinspl.de/evorepair/logic/dsl"
+            class="de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage"
+            genModel="model/generated/EvoLogicDsl.genmodel"/>
+   </extension>
+
 </plugin>

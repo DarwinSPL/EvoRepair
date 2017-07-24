@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.evorepair.de/feature/mapping/repair/dsl/MappingRepairDsl"
+			class = "de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslPackage"
+			genModel = "model/generated/EvoMappingRepairDsl.genmodel" />
+	</extension>
+</plugin>

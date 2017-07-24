@@ -8,18 +8,18 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
-import de.evorepair.logic.evofirstorderlogic.EvoAbstractTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoSetDifference;
-import de.evorepair.logic.evofirstorderlogic.EvoSetIntersection;
-import de.evorepair.logic.evofirstorderlogic.EvoSetSymmetricDifference;
-import de.evorepair.logic.evofirstorderlogic.EvoSetTerm;
-import de.evorepair.logic.evofirstorderlogic.EvoSetUnion;
-import de.evorepair.logic.evofirstorderlogic.EvoVariableTerm;
+import de.evorepair.logic.evologic.EvoSetDifference;
+import de.evorepair.logic.evologic.EvoSetIntersection;
+import de.evorepair.logic.evologic.EvoSetSymmetricDifference;
+import de.evorepair.logic.evologic.EvoSetTerm;
+import de.evorepair.logic.evologic.EvoSetUnion;
+import de.evorepair.logic.evologic.EvoVariableTerm;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.HyConfigurationElement;
 import eu.hyvar.feature.configuration.HyConfigurationFactory;
 import eu.hyvar.feature.configuration.HyFeatureSelected;
+import eu.hyvar.feature.expression.HyExpression;
 
 /**
  * Applies an action defined by a action operator and alters a configuration. The resource will be overridden
@@ -38,7 +38,7 @@ public class EvoGuidanceActionOperator {
 	 * @param term to be solved
 	 * @return List with features
 	 */
-	private List<HyFeature> solveSetTerm(EvoAbstractTerm term){
+	private List<HyFeature> solveSetTerm(HyExpression term){
 		if(term instanceof EvoVariableTerm){			
 			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
 			EvoVariable variable = variableTerm.getVariable();
@@ -65,7 +65,7 @@ public class EvoGuidanceActionOperator {
 			EvoSetTerm setTerm = (EvoSetTerm)term;
 
 			List<HyFeature> result = new ArrayList<>();
-			for(EvoAbstractTerm variable : setTerm.getVariables()){
+			for(HyExpression variable : setTerm.getVariables()){
 				EvoVariableTerm variableTerm = (EvoVariableTerm)variable;
 
 				if(variableTerm.getVariable() instanceof EvoFeatureVariable){
@@ -77,8 +77,8 @@ public class EvoGuidanceActionOperator {
 		}else if(term instanceof EvoSetIntersection){
 			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getLeftElement());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getRightElement());
+			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
+			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
 
 			List<HyFeature> result = new ArrayList<>();
 			for(HyFeature feature1 : set1){
@@ -92,8 +92,8 @@ public class EvoGuidanceActionOperator {
 		}else if(term instanceof EvoSetUnion){
 			EvoSetUnion intersectionTerm = (EvoSetUnion)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getLeftElement());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getRightElement());
+			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
+			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
 
 			List<HyFeature> result = new ArrayList<>();
 			for(HyFeature feature1 : set1){
@@ -109,8 +109,8 @@ public class EvoGuidanceActionOperator {
 		}else if(term instanceof EvoSetDifference){
 			EvoSetDifference differenceTerm = (EvoSetDifference)term;
 
-			List<HyFeature> set1 = solveSetTerm(differenceTerm.getLeftElement());
-			List<HyFeature> set2 = solveSetTerm(differenceTerm.getRightElement());
+			List<HyFeature> set1 = solveSetTerm(differenceTerm.getOperand1());
+			List<HyFeature> set2 = solveSetTerm(differenceTerm.getOperand2());
 
 			List<HyFeature> result = new ArrayList<>();
 			for(HyFeature feature1 : set1){
@@ -122,8 +122,8 @@ public class EvoGuidanceActionOperator {
 		}else if(term instanceof EvoSetSymmetricDifference){
 			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getLeftElement());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getRightElement());
+			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
+			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
 
 			List<HyFeature> result = new ArrayList<>();
 			for(HyFeature feature1 : set1){
@@ -187,7 +187,7 @@ public class EvoGuidanceActionOperator {
 		return configuration;
 	}
 
-	public HyConfiguration perform(HyConfiguration configuration, EvoAbstractTerm term){
+	public HyConfiguration perform(HyConfiguration configuration, HyExpression term){
 		
 		return modifyConfiguration(configuration, solveSetTerm(term));
 	}

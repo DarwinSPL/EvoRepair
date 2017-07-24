@@ -4,48 +4,48 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="evoexpression"
-			id="de.evorepair.feature.expression.ExpressionDsl"
+			id="de.evorepair.feature.expression.EvoExpressionDsl"
 			name="ExpressionDsl Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="de.evorepair.feature.expression.ExpressionDsl.validate">
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="de.evorepair.feature.expression.EvoExpressionDsl.validate">
 		<activeWhen>
 			<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 			</reference>
 		</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened" />
+				<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.XtextEditor.opened" />
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+		<definition id="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="de.evorepair.feature.expression.ExpressionDsl"
+						value="de.evorepair.feature.expression.EvoExpressionDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="de.evorepair.feature.expression.ExpressionDsl.XtextEditor.opened">
+		<definition id="de.evorepair.feature.expression.EvoExpressionDsl.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="de.evorepair.feature.expression.ExpressionDsl"
+						value="de.evorepair.feature.expression.EvoExpressionDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,22 +78,22 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl"
 			name="ExpressionDsl">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 		</page>
 		<page
-			category="de.evorepair.feature.expression.ExpressionDsl"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl.coloring"
+			category="de.evorepair.feature.expression.EvoExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.coloring"
 			name="Syntax Coloring">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 		</page>
 		<page
-			category="de.evorepair.feature.expression.ExpressionDsl"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl.templates"
+			category="de.evorepair.feature.expression.EvoExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.templates"
 			name="Templates">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 		</page>
@@ -101,8 +101,8 @@
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl"
 			name="ExpressionDsl">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 			<enabledWhen>
@@ -121,7 +121,7 @@
 		point="org.eclipse.ui.commands">
 	<command
 			description="Trigger expensive validation"
-			id="de.evorepair.feature.expression.ExpressionDsl.validate"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.validate"
 			name="Validate">
 	</command>
 	<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="de.evorepair.feature.expression.ExpressionDsl.validate"
+				 commandId="de.evorepair.feature.expression.EvoExpressionDsl.validate"
 				 style="push"
 				 tooltip="Trigger expensive validation">
 			<visibleWhen checkEnabled="false">
 				<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 				</reference>
 			</visibleWhen>
 		</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.XtextEditor.opened" />
+						<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -208,17 +208,17 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="evoexpression">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
 			uriExtension="evoexpression">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for de.evorepair.feature.expression.ExpressionDsl -->
+	<!-- marker definitions for de.evorepair.feature.expression.EvoExpressionDsl -->
 	<extension
 			id="expressiondsl.check.fast"
 			name="ExpressionDsl Problem"
@@ -242,23 +242,23 @@
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="evoexpression"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="de.evorepair.feature.expression.ExpressionDsl"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl.compiler.preferencePage"
+			category="de.evorepair.feature.expression.EvoExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.compiler.preferencePage"
 			name="Compiler">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="de.evorepair.feature.expression.ExpressionDsl"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl.compiler.propertyPage"
+			category="de.evorepair.feature.expression.EvoExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.compiler.propertyPage"
 			name="Compiler">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 			<enabledWhen>
@@ -271,20 +271,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="de.evorepair.feature.expression.ExpressionDsl.OpenGeneratedCode"
+				id="de.evorepair.feature.expression.EvoExpressionDsl.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened" />
+				<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -292,11 +292,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -316,16 +316,16 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened"/>
+					<reference definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for de.evorepair.feature.expression.ExpressionDsl -->
+	<!-- quickfix marker resolution generator for de.evorepair.feature.expression.EvoExpressionDsl -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="de.evorepair.feature.expression.dsl.ui.expressiondsl.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
@@ -333,7 +333,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="de.evorepair.feature.expression.dsl.ui.expressiondsl.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
@@ -341,7 +341,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="de.evorepair.feature.expression.dsl.ui.expressiondsl.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
@@ -352,11 +352,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+					definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -368,7 +368,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="de.evorepair.feature.expression.ExpressionDsl.Editor.opened">
+						definitionId="de.evorepair.feature.expression.EvoExpressionDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -376,28 +376,28 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="de.evorepair.feature.expression.ExpressionDsl"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="de.evorepair.feature.expression.ExpressionDsl.refactoring"
+			category="de.evorepair.feature.expression.EvoExpressionDsl"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="de.evorepair.feature.expression.EvoExpressionDsl.refactoring"
 			name="Refactoring">
 			<keywordReference id="de.evorepair.feature.expression.ui.keyword_ExpressionDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="de.evorepair.feature.expression.ExpressionDsl.compare.contentViewers"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+		<viewer id="de.evorepair.feature.expression.EvoExpressionDsl.compare.contentViewers"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="evoexpression">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="de.evorepair.feature.expression.ExpressionDsl.compare.contentMergeViewers"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+		<viewer id="de.evorepair.feature.expression.EvoExpressionDsl.compare.contentMergeViewers"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="evoexpression" label="ExpressionDsl Compare">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="de.evorepair.feature.expression.ExpressionDsl.editors.documentProviders"
-			class="de.evorepair.feature.expression.ui.ExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+		<provider id="de.evorepair.feature.expression.EvoExpressionDsl.editors.documentProviders"
+			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
 			extensions="evoexpression">
 		</provider>
 	</extension>

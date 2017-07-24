@@ -4,7 +4,7 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package 
 			uri = "http://darwinspl.de/evorepair/guidance/dsl"
-			class = "de.evorepair.guidance.guidancedsl.GuidancedslPackage"
-			genModel = "model/generated/GuidanceDsl.genmodel" />
+			class = "de.evorepair.guidance.evo_guidance_dsl.Evo_guidance_dslPackage"
+			genModel = "model/generated/EvoGuidanceDsl.genmodel" />
 	</extension>
 </plugin>

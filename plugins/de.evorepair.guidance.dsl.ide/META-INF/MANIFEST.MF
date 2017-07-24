@@ -10,8 +10,12 @@ Require-Bundle: de.evorepair.guidance.dsl,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime,
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.expression.dsl.ide;bundle-version="1.0.0",
+ de.evorepair.logic.dsl;bundle-version="1.0.0",
  de.evorepair.logic.dsl.ide;bundle-version="1.0.0",
- de.evorepair.logic.dsl;bundle-version="1.0.0"
+ de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair.dsl.ide;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.guidance.ide.contentassist.antlr.internal,
  de.evorepair.guidance.ide.contentassist.antlr

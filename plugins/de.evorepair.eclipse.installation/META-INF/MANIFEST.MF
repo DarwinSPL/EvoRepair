@@ -10,8 +10,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  de.evorepair.evolution.operation;bundle-version="1.0.0",
  de.evorepair.evolution.variable.dsl;bundle-version="1.0.0",
- de.evorepair.guidance.dsl;bundle-version="1.0.0",
  de.evorepair.logic.dsl;bundle-version="1.0.0",
  de.evorepair.evolution.operation.dsl;bundle-version="1.0.0",
- de.evorepair.feature.expression;bundle-version="1.0.0"
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ de.evorepair.guidance.dsl;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

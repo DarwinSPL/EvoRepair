@@ -6,21 +6,22 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.evorepair.analysis.solver.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.evorepair.logic.firstorder;bundle-version="1.0.0",
+ de.evorepair.logic;bundle-version="1.0.0",
  de.evorepair.guidance.catalog;bundle-version="1.0.0",
- de.evorepair.evolution.variable.dsl,
  com.google.inject,
- de.evorepair.evolution.operation.dsl,
  org.eclipse.xtext,
  org.eclipse.xtext.ui,
- de.evorepair.guidance.dsl;bundle-version="1.0.0",
  eu.hyvar.feature.configuration,
  org.eclipse.ui.workbench,
  org.eclipse.ui.ide;bundle-version="3.11.0",
  de.darwinspl.feature.graphical.base;bundle-version="1.0.0",
  de.evorepair.analysis.viewer,
  de.darwinspl.feature.graphical.configurator.editor;bundle-version="1.0.0",
- de.darwinspl.feature.graphical.configurator.viewer;bundle-version="1.0.0"
+ de.darwinspl.feature.graphical.configurator.viewer;bundle-version="1.0.0",
+ de.evorepair.evolution.variable.dsl,
+ de.evorepair.evolution.operation.dsl,
+ de.evorepair.guidance.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.evorepair.analysis.toolbar

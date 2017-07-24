@@ -5,8 +5,6 @@ package de.evorepair.feature.expression.evo_expression_dsl.impl;
 
 import de.evorepair.evolution.evovariable.EvoVariablePackage;
 
-import de.evorepair.feature.expression.evo_expression_dsl.EvoImplication;
-import de.evorepair.feature.expression.evo_expression_dsl.EvoSetElementOf;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslFactory;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPackage;
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
@@ -55,20 +53,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
    * @generated
    */
   private EClass hyFeatureReferenceExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass evoSetElementOfEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass evoImplicationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -189,66 +173,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEvoSetElementOf()
-  {
-    return evoSetElementOfEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoSetElementOf_Operand1()
-  {
-    return (EReference)evoSetElementOfEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoSetElementOf_Operand2()
-  {
-    return (EReference)evoSetElementOfEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getEvoImplication()
-  {
-    return evoImplicationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoImplication_Operand1()
-  {
-    return (EReference)evoImplicationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoImplication_Operand2()
-  {
-    return (EReference)evoImplicationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Evo_expression_dslFactory getEvo_expression_dslFactory()
   {
     return (Evo_expression_dslFactory)getEFactoryInstance();
@@ -279,14 +203,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
 
     hyFeatureReferenceExpressionEClass = createEClass(HY_FEATURE_REFERENCE_EXPRESSION);
     createEReference(hyFeatureReferenceExpressionEClass, HY_FEATURE_REFERENCE_EXPRESSION__FEATURE);
-
-    evoSetElementOfEClass = createEClass(EVO_SET_ELEMENT_OF);
-    createEReference(evoSetElementOfEClass, EVO_SET_ELEMENT_OF__OPERAND1);
-    createEReference(evoSetElementOfEClass, EVO_SET_ELEMENT_OF__OPERAND2);
-
-    evoImplicationEClass = createEClass(EVO_IMPLICATION);
-    createEReference(evoImplicationEClass, EVO_IMPLICATION__OPERAND1);
-    createEReference(evoImplicationEClass, EVO_IMPLICATION__OPERAND2);
   }
 
   /**
@@ -325,8 +241,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     // Add supertypes to classes
     grammarEntryEClass.getESuperTypes().add(theEvoLogicDslPackage.getGrammarEntry());
     hyFeatureReferenceExpressionEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
-    evoSetElementOfEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
-    evoImplicationEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(grammarEntryEClass, GrammarEntry.class, "GrammarEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -334,14 +248,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
 
     initEClass(hyFeatureReferenceExpressionEClass, HyFeatureReferenceExpression.class, "HyFeatureReferenceExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHyFeatureReferenceExpression_Feature(), theHyFeaturePackage.getHyFeature(), null, "feature", null, 0, 1, HyFeatureReferenceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(evoSetElementOfEClass, EvoSetElementOf.class, "EvoSetElementOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEvoSetElementOf_Operand1(), theHyExpressionPackage.getHyExpression(), null, "operand1", null, 0, 1, EvoSetElementOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEvoSetElementOf_Operand2(), theHyExpressionPackage.getHyExpression(), null, "operand2", null, 0, 1, EvoSetElementOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(evoImplicationEClass, EvoImplication.class, "EvoImplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEvoImplication_Operand1(), theHyExpressionPackage.getHyExpression(), null, "operand1", null, 0, 1, EvoImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEvoImplication_Operand2(), theHyExpressionPackage.getHyExpression(), null, "operand2", null, 0, 1, EvoImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

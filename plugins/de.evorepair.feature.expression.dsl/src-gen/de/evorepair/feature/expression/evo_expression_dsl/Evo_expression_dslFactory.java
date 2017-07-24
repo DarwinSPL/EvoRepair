@@ -42,24 +42,6 @@ public interface Evo_expression_dslFactory extends EFactory
   HyFeatureReferenceExpression createHyFeatureReferenceExpression();
 
   /**
-   * Returns a new object of class '<em>Evo Set Element Of</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Evo Set Element Of</em>'.
-   * @generated
-   */
-  EvoSetElementOf createEvoSetElementOf();
-
-  /**
-   * Returns a new object of class '<em>Evo Implication</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Evo Implication</em>'.
-   * @generated
-   */
-  EvoImplication createEvoImplication();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -35,9 +35,8 @@ public class EvoOperationDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoFeatureVariableTypeAccess().getAlternatives(), "rule__EvoFeatureVariableType__Alternatives");
 					put(grammarAccess.getEvoOperationContainerAccess().getGroup(), "rule__EvoOperationContainer__Group__0");
 					put(grammarAccess.getEvoOperationAccess().getGroup(), "rule__EvoOperation__Group__0");
-					put(grammarAccess.getEvoOperationAccess().getGroup_7(), "rule__EvoOperation__Group_7__0");
-					put(grammarAccess.getEvoOperationAccess().getGroup_10(), "rule__EvoOperation__Group_10__0");
-					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getEvoOperationAccess().getGroup_6(), "rule__EvoOperation__Group_6__0");
+					put(grammarAccess.getEvoOperationAccess().getGroup_9(), "rule__EvoOperation__Group_9__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup(), "rule__EvoFeatureVariable__Group__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_3(), "rule__EvoFeatureVariable__Group_3__0");
 					put(grammarAccess.getEvoFeatureRelationAccess().getGroup(), "rule__EvoFeatureRelation__Group__0");
@@ -55,11 +54,10 @@ public class EvoOperationDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoOperationContainerAccess().getOperationsAssignment_0(), "rule__EvoOperationContainer__OperationsAssignment_0");
 					put(grammarAccess.getEvoOperationContainerAccess().getOperationsAssignment_1(), "rule__EvoOperationContainer__OperationsAssignment_1");
 					put(grammarAccess.getEvoOperationAccess().getNameAssignment_1(), "rule__EvoOperation__NameAssignment_1");
-					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_6(), "rule__EvoOperation__VariablesAssignment_6");
-					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_7_1(), "rule__EvoOperation__VariablesAssignment_7_1");
-					put(grammarAccess.getEvoOperationAccess().getDateAssignment_10_2(), "rule__EvoOperation__DateAssignment_10_2");
-					put(grammarAccess.getModelAccess().getImportURIAssignment_1(), "rule__Model__ImportURIAssignment_1");
-					put(grammarAccess.getModelAccess().getVariablesAssignment_2(), "rule__Model__VariablesAssignment_2");
+					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_5(), "rule__EvoOperation__VariablesAssignment_5");
+					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_6_1(), "rule__EvoOperation__VariablesAssignment_6_1");
+					put(grammarAccess.getEvoOperationAccess().getDateAssignment_9_2(), "rule__EvoOperation__DateAssignment_9_2");
+					put(grammarAccess.getModelAccess().getVariablesAssignment(), "rule__Model__VariablesAssignment");
 					put(grammarAccess.getEvoFeatureVariableAccess().getNameAssignment_1(), "rule__EvoFeatureVariable__NameAssignment_1");
 					put(grammarAccess.getEvoFeatureVariableAccess().getRelationAssignment_2(), "rule__EvoFeatureVariable__RelationAssignment_2");
 					put(grammarAccess.getEvoFeatureVariableAccess().getFeatureAssignment_3_2(), "rule__EvoFeatureVariable__FeatureAssignment_3_2");

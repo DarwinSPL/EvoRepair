@@ -7,8 +7,8 @@ import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
-import de.evorepair.feature.expression.ExpressionDslRuntimeModule;
-import de.evorepair.feature.expression.ui.ExpressionDslUiModule;
+import de.evorepair.feature.expression.EvoExpressionDslRuntimeModule;
+import de.evorepair.feature.expression.ui.EvoExpressionDslUiModule;
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -23,7 +23,7 @@ import org.osgi.framework.BundleContext;
  */
 public class DslActivator extends AbstractUIPlugin {
 
-	public static final String DE_EVOREPAIR_FEATURE_EXPRESSION_EXPRESSIONDSL = "de.evorepair.feature.expression.ExpressionDsl";
+	public static final String DE_EVOREPAIR_FEATURE_EXPRESSION_EVOEXPRESSIONDSL = "de.evorepair.feature.expression.EvoExpressionDsl";
 	
 	private static final Logger logger = Logger.getLogger(DslActivator.class);
 	
@@ -73,15 +73,15 @@ public class DslActivator extends AbstractUIPlugin {
 	}
 	
 	protected Module getRuntimeModule(String grammar) {
-		if (DE_EVOREPAIR_FEATURE_EXPRESSION_EXPRESSIONDSL.equals(grammar)) {
-			return new ExpressionDslRuntimeModule();
+		if (DE_EVOREPAIR_FEATURE_EXPRESSION_EVOEXPRESSIONDSL.equals(grammar)) {
+			return new EvoExpressionDslRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected Module getUiModule(String grammar) {
-		if (DE_EVOREPAIR_FEATURE_EXPRESSION_EXPRESSIONDSL.equals(grammar)) {
-			return new ExpressionDslUiModule(this);
+		if (DE_EVOREPAIR_FEATURE_EXPRESSION_EVOEXPRESSIONDSL.equals(grammar)) {
+			return new EvoExpressionDslUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}

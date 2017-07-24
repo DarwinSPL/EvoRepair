@@ -17,14 +17,13 @@ EvoOperationContainer:
     	
 EvoOperation:
 	'operation' name=ID '{'
-		'variables' '=' '{' 
+		'variables' '{' 
 			variables+=EvoVariable (';' variables+=EvoVariable)* ';'
 		'}'
-		('timestamp' '=' date=DATE)?
+		('date' ':' date=DATE)?
 		
 	'}';
 
 terminal DATE returns ecore::EDate:
-	STRING
-;
+	('0'..'9')('/')('0' | '1')('0'..'9')('/')('0'..'9')*;
 

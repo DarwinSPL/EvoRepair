@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mappingRepairDsl" nsURI="http://www.evorepair.de/feature/mapping/repair/dsl/MappingRepairDsl"
+    nsPrefix="mappingRepairDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="MappingRepairGrammarEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoMappingKeep" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoMappingReplace" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

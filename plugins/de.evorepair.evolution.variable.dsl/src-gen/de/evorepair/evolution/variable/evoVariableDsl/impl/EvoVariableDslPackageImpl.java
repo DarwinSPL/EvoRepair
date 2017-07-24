@@ -17,11 +17,9 @@ import eu.hyvar.feature.HyFeaturePackage;
 
 import eu.hyvar.feature.configuration.HyConfigurationPackage;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -90,7 +88,6 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
 
     // Initialize simple dependencies
     EvoVariablePackage.eINSTANCE.eClass();
-    EcorePackage.eINSTANCE.eClass();
     HyFeaturePackage.eINSTANCE.eClass();
     HyConfigurationPackage.eINSTANCE.eClass();
     HyDataValuesPackage.eINSTANCE.eClass();
@@ -126,19 +123,9 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModel_ImportURI()
-  {
-    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getModel_Variables()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -172,7 +159,6 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__IMPORT_URI);
     createEReference(modelEClass, MODEL__VARIABLES);
   }
 
@@ -201,7 +187,6 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
-    EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
     EvoVariablePackage theEvoVariablePackage = (EvoVariablePackage)EPackage.Registry.INSTANCE.getEPackage(EvoVariablePackage.eNS_URI);
 
     // Create type parameters
@@ -212,7 +197,6 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_ImportURI(), theEcorePackage.getEString(), "importURI", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Variables(), theEvoVariablePackage.getEvoVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

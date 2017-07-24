@@ -16,15 +16,15 @@ Workflow {
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 		registerGenModelFile = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
-		registerGenModelFile = "platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 	}
 	
-	
+	/* 
 	component = DirectoryCleaner {
 		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen"
 		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen"
-		directory = "platform:/resource/de.evorepair.evolution.guidance.catalog/src-gen"
-		directory = "platform:/resource/de.evorepair.evolution.logic.firstorder/src-gen"
+		directory = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
+		directory = "platform:/resource/de.evorepair.logic/src-gen"
 		
 	}
 	
@@ -47,16 +47,20 @@ Workflow {
 		srcPath = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
 	}
 	
+	
 	// Generate Logic Code
 	component = EcoreGenerator {
-		genModel = "platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel"
-		srcPath = "platform:/resource/de.evorepair.logic.firstorder/src-gen"
+		genModel = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
+		srcPath = "platform:/resource/de.evorepair.logic/src-gen"
 	}
+
+*/
 	
 	// Generate DSLs
-	component = @de.evorepair.logic.GenerateEvoDsl {}
-	component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
-	component = @de.evorepair.operation.GenerateEvoOperationDsl {}
-	component = @de.evorepair.guidance.GenerateGuidanceDsl {}
+	//component = @de.evorepair.logic.GenerateEvoLogicDsl {}
+	//component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
+	//component = @de.evorepair.operation.GenerateEvoOperationDsl {}
 	component = @de.evorepair.feature.expression.GenerateExpressionDsl {}
+	component = @de.evorepair.guidance.GenerateGuidanceDsl {}
+	
 }

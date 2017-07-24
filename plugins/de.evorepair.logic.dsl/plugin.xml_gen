@@ -4,7 +4,7 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package 
 			uri = "http://darwinspl.de/evorepair/logic/dsl"
-			class = "de.evorepair.logic.formuladsl.FormuladslPackage"
-			genModel = "model/generated/EvoDsl.genmodel" />
+			class = "de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage"
+			genModel = "model/generated/EvoLogicDsl.genmodel" />
 	</extension>
 </plugin>

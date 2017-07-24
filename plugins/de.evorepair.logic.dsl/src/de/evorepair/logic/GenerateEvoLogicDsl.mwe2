@@ -1,4 +1,4 @@
-module de.evorepair.logic.GenerateEvoDsl
+module de.evorepair.logic.GenerateEvoLogicDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
@@ -24,6 +24,7 @@ Workflow {
         
 		platformUri = "${runtimeProject}/.."
 		
+		registerGeneratedEPackage = "eu.hyvar.feature.expression.HyExpressionPackage"
 		registerGeneratedEPackage = "de.evorepair.evolution.evooperation.EvoOperationPackage"
 		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvoVariablePackage"
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
@@ -53,12 +54,13 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
-			name = "de.evorepair.logic.EvoDsl"
-			fileExtensions = "evodsl"
+			name = "de.evorepair.logic.EvoLogicDsl"
+			fileExtensions = "evologicdsl"
 			
 			referencedResource = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
 			referencedResource = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
-			referencedResource = "platform:/resource/de.evorepair.logic.firstorder/model/EvoFirstOrder.genmodel"
+			referencedResource = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
+			referencedResource = "platform:/resource/eu.hyvar.feature.expression/model/Expression.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
@@ -69,6 +71,7 @@ Workflow {
 			serializer = {
 				generateStub = true
 			}
+			
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}

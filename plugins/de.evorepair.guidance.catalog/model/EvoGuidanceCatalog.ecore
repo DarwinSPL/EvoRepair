@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evoguidancecatalog" nsURI="http://darwinspl.de/evorepair/guidance/catalog/0.1"
     nsPrefix="evoguidancecatalog">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
-    <details key="evofirstorderlogic" value="../../de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#/"/>
+    <details key="evologic" value="../../de.evorepair.logic/model/EvoLogic.ecore#/"/>
     <details key="evooperation" value="../../de.evorepair.evolution.operation/model/EvoOperation.ecore#/"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoAnomalyType">
@@ -30,7 +30,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EvoAnomalyType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//EvoAnomalyCategory"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-        eType="ecore:EClass ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoFormula"
+        eType="ecore:EClass ../../de.evorepair.logic/model/EvoLogic.ecore#//EvoFormula"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" lowerBound="1"
         upperBound="-1" eType="#//EvoGuidanceElement" containment="true"/>
@@ -42,7 +42,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EvoGuidanceElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EvoGuidanceType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass ../../de.evorepair.logic.firstorder/model/EvoFirstOrder.ecore#//EvoFormula"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass ../../de.evorepair.logic/model/EvoLogic.ecore#//EvoFormula"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoGuidanceType">

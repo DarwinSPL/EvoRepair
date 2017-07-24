@@ -7,9 +7,9 @@
 			class="de.evorepair.evolution.operation.ui.EvoOperationDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="evooperation"
+			extensions="evooperation,hymapping"
 			id="de.evorepair.evolution.operation.EvoOperationDsl"
-			name="EvoOperationDsl Editor">
+			name="EvoRepair OperationEditor">
 		</editor>
 	</extension>
 	<extension

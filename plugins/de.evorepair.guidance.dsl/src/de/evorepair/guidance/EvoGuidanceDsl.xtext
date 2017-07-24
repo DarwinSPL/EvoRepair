@@ -1,0 +1,93 @@
+grammar de.evorepair.guidance.EvoGuidanceDsl with de.evorepair.feature.mapping.repair.dsl.EvoMappingRepairDsl
+
+import "http://darwinspl.de/evorepair/guidance/catalog/0.1"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://hyvar-project.eu/feature/1.0" as dw_feature
+import "http://hyvar-project.eu/feature/expression/1.0" as dw_expression
+import "http://darwinspl.de/evorepair/logic/0.4" as evo_logic
+import "http://darwinspl.de/evorepair/variable/0.2" as evo_variables
+import "http://darwinspl.de/evorepair/evolutionoperation/0.1" as evo_operations
+
+generate evo_guidance_dsl "http://darwinspl.de/evorepair/guidance/dsl" 
+
+
+@Override
+GrammarEntry:
+    table=EvoGuidanceContainer;
+
+
+EvoGuidanceContainer:
+	{EvoGuidanceContainer}(tables+=EvoGuidanceTable)*;
+	
+	
+EvoGuidanceTable returns EvoGuidanceTable: 
+	'guidance_table' '{'
+		'trigger'  '{'
+			triggeringOperations+=[evo_operations::EvoOperation] ( ";" triggeringOperations+=[evo_operations::EvoOperation])*
+		'}'
+		
+		'anomalies' '{'
+			anomalies+=EvoAnomaly (anomalies+=EvoAnomaly)*
+		'}'
+	'}';
+
+
+EvoAnomaly returns EvoAnomaly:
+	EvoMappingAnomaly | EvoConfigurationAnomaly;
+	
+	
+EvoMappingAnomaly:
+ 	'mapping' id=ID '{'
+		('type' type=EvoAnomalyType ';')?
+		'condition' ':' condition=EvoConfigurationFormula ';'
+		'guidances' '{' 
+			guidance+=EvoMappingGuidanceElement (guidance+=EvoMappingGuidanceElement)*
+		'}' 
+	'}';
+
+
+EvoConfigurationAnomaly:
+ 	'configuration' id=ID '{'
+		('type' type=EvoAnomalyType ';')?
+		'condition' ':' condition=EvoConfigurationFormula ';'
+		'guidances' '{' 
+			guidance+=EvoConfigurationGuidanceElement (guidance+=EvoConfigurationGuidanceElement)*
+		'}' 
+	'}';
+		
+	
+EvoMappingGuidanceElement returns EvoGuidanceElement:
+	'guidance' '{'
+		'type' ':' type=EvoGuidanceType ';'
+		('description' ':' description=STRING ';')?
+		('action' ':' action=EvoMappingFormula ';')?
+	'}';
+
+
+EvoConfigurationGuidanceElement returns EvoGuidanceElement:
+	'guidance' '{'
+		'type' ':' type=EvoGuidanceType ';'
+		('description' ':' description=STRING ';')?
+		('action' ':' action=EvoConfigurationFormula ';')?
+	'}';
+
+
+EvoMappingFormula returns evo_logic::EvoFormula:
+	term=EvoMappingRepairDsl::EvoMappingRepairExpression
+;
+
+
+EvoConfigurationFormula returns evo_logic::EvoFormula:
+	term=EvoLogicDsl::EvoExpression
+;
+
+enum EvoAnomalyType returns EvoAnomalyType:
+	DEFECT = 'defect' | BEHAVIORAL_CHANGE = 'behavioral_change';
+
+
+enum EvoAnomalyCategory returns EvoAnomalyCategory:
+	CONFIGURATION = 'configuration' | MAPPING = 'mapping';
+
+
+enum EvoGuidanceType returns EvoGuidanceType:
+				AUTOMATIC_DEFAULT = 'automatic_repair' | INTERACTIVE_DEFAULT = 'interactive_repair' | INTERACTIVE = 'warning';

@@ -4,48 +4,48 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="evodsl"
-			id="de.evorepair.logic.EvoDsl"
-			name="EvoDsl Editor">
+			extensions="evologicdsl"
+			id="de.evorepair.logic.EvoLogicDsl"
+			name="EvoLogicDsl Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="de.evorepair.logic.EvoDsl.validate">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="de.evorepair.logic.EvoLogicDsl.validate">
 		<activeWhen>
 			<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 			</reference>
 		</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened" />
+				<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="de.evorepair.logic.EvoDsl.XtextEditor.opened" />
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="de.evorepair.logic.EvoDsl.Editor.opened">
+		<definition id="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="de.evorepair.logic.EvoDsl"
+						value="de.evorepair.logic.EvoLogicDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="de.evorepair.logic.EvoDsl.XtextEditor.opened">
+		<definition id="de.evorepair.logic.EvoLogicDsl.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="de.evorepair.logic.EvoDsl"
+						value="de.evorepair.logic.EvoLogicDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,33 +78,33 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="de.evorepair.logic.EvoDsl"
-			name="EvoDsl">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl"
+			name="EvoLogicDsl">
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 		</page>
 		<page
-			category="de.evorepair.logic.EvoDsl"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="de.evorepair.logic.EvoDsl.coloring"
+			category="de.evorepair.logic.EvoLogicDsl"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl.coloring"
 			name="Syntax Coloring">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 		</page>
 		<page
-			category="de.evorepair.logic.EvoDsl"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="de.evorepair.logic.EvoDsl.templates"
+			category="de.evorepair.logic.EvoLogicDsl"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl.templates"
 			name="Templates">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 		</page>
 	</extension>
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="de.evorepair.logic.EvoDsl"
-			name="EvoDsl">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl"
+			name="EvoLogicDsl">
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -114,14 +114,14 @@
 	<extension
 		point="org.eclipse.ui.keywords">
 		<keyword
-			id="de.evorepair.logic.ui.keyword_EvoDsl"
-			label="EvoDsl"/>
+			id="de.evorepair.logic.ui.keyword_EvoLogicDsl"
+			label="EvoLogicDsl"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
 	<command
 			description="Trigger expensive validation"
-			id="de.evorepair.logic.EvoDsl.validate"
+			id="de.evorepair.logic.EvoLogicDsl.validate"
 			name="Validate">
 	</command>
 	<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="de.evorepair.logic.EvoDsl.validate"
+				 commandId="de.evorepair.logic.EvoLogicDsl.validate"
 				 style="push"
 				 tooltip="Trigger expensive validation">
 			<visibleWhen checkEnabled="false">
 				<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 				</reference>
 			</visibleWhen>
 		</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="de.evorepair.logic.EvoDsl.XtextEditor.opened" />
+						<reference definitionId="de.evorepair.logic.EvoLogicDsl.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -208,59 +208,59 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="evodsl">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="evologicdsl">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="evodsl">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="evologicdsl">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for de.evorepair.logic.EvoDsl -->
+	<!-- marker definitions for de.evorepair.logic.EvoLogicDsl -->
 	<extension
-			id="evodsl.check.fast"
-			name="EvoDsl Problem"
+			id="evologicdsl.check.fast"
+			name="EvoLogicDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="evodsl.check.normal"
-			name="EvoDsl Problem"
+			id="evologicdsl.check.normal"
+			name="EvoLogicDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="evodsl.check.expensive"
-			name="EvoDsl Problem"
+			id="evologicdsl.check.expensive"
+			name="EvoLogicDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="evodsl"/>
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="evologicdsl"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="de.evorepair.logic.EvoDsl"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="de.evorepair.logic.EvoDsl.compiler.preferencePage"
+			category="de.evorepair.logic.EvoLogicDsl"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl.compiler.preferencePage"
 			name="Compiler">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="de.evorepair.logic.EvoDsl"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="de.evorepair.logic.EvoDsl.compiler.propertyPage"
+			category="de.evorepair.logic.EvoLogicDsl"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl.compiler.propertyPage"
 			name="Compiler">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -271,20 +271,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="de.evorepair.logic.EvoDsl.OpenGeneratedCode"
+				id="de.evorepair.logic.EvoLogicDsl.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened" />
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened" />
+				<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -292,11 +292,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -316,33 +316,33 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="de.evorepair.logic.EvoDsl.Editor.opened"/>
+					<reference definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for de.evorepair.logic.EvoDsl -->
+	<!-- quickfix marker resolution generator for de.evorepair.logic.EvoLogicDsl -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="de.evorepair.logic.dsl.ui.evodsl.check.fast">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="de.evorepair.logic.dsl.ui.evologicdsl.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="de.evorepair.logic.dsl.ui.evodsl.check.normal">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="de.evorepair.logic.dsl.ui.evologicdsl.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="de.evorepair.logic.dsl.ui.evodsl.check.expensive">
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="de.evorepair.logic.dsl.ui.evologicdsl.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
@@ -352,11 +352,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+					definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -368,7 +368,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="de.evorepair.logic.EvoDsl.Editor.opened">
+						definitionId="de.evorepair.logic.EvoLogicDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -376,34 +376,34 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="de.evorepair.logic.EvoDsl"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="de.evorepair.logic.EvoDsl.refactoring"
+			category="de.evorepair.logic.EvoLogicDsl"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="de.evorepair.logic.EvoLogicDsl.refactoring"
 			name="Refactoring">
-			<keywordReference id="de.evorepair.logic.ui.keyword_EvoDsl"/>
+			<keywordReference id="de.evorepair.logic.ui.keyword_EvoLogicDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="de.evorepair.logic.EvoDsl.compare.contentViewers"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="evodsl">
+		<viewer id="de.evorepair.logic.EvoLogicDsl.compare.contentViewers"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="evologicdsl">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="de.evorepair.logic.EvoDsl.compare.contentMergeViewers"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="evodsl" label="EvoDsl Compare">
+		<viewer id="de.evorepair.logic.EvoLogicDsl.compare.contentMergeViewers"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="evologicdsl" label="EvoLogicDsl Compare">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="de.evorepair.logic.EvoDsl.editors.documentProviders"
-			class="de.evorepair.logic.ui.EvoDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="evodsl">
+		<provider id="de.evorepair.logic.EvoLogicDsl.editors.documentProviders"
+			class="de.evorepair.logic.ui.EvoLogicDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="evologicdsl">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
-			extension="evodsl"
+			extension="evologicdsl"
 			type="text">
 		</fileTypes>
 	</extension>

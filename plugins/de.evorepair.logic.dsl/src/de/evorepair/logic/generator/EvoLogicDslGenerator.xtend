@@ -13,7 +13,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
-class EvoDslGenerator extends AbstractGenerator {
+class EvoLogicDslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 

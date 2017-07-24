@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EvoMappingRepair -->
+      <package
+            uri="http://darwinspl.de/evorepair/mapping/repair/0.1"
+            class="de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage"
+            genModel="model/EvoMappingRepair.genmodel"/>
+   </extension>
+
+</plugin>

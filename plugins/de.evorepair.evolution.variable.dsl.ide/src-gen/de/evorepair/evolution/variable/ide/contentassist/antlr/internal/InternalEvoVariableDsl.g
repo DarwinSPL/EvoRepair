@@ -65,9 +65,9 @@ ruleModel
 	}
 	:
 	(
-		{ before(grammarAccess.getModelAccess().getGroup()); }
-		(rule__Model__Group__0)
-		{ after(grammarAccess.getModelAccess().getGroup()); }
+		{ before(grammarAccess.getModelAccess().getVariablesAssignment()); }
+		(rule__Model__VariablesAssignment)*
+		{ after(grammarAccess.getModelAccess().getVariablesAssignment()); }
 	)
 ;
 finally {
@@ -356,87 +356,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Model__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Model__Group__0__Impl
-	rule__Model__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getModelAccess().getImportKeyword_0()); }
-	'import'
-	{ after(grammarAccess.getModelAccess().getImportKeyword_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Model__Group__1__Impl
-	rule__Model__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getModelAccess().getImportURIAssignment_1()); }
-	(rule__Model__ImportURIAssignment_1)
-	{ after(grammarAccess.getModelAccess().getImportURIAssignment_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Model__Group__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getModelAccess().getVariablesAssignment_2()); }
-	(rule__Model__VariablesAssignment_2)*
-	{ after(grammarAccess.getModelAccess().getVariablesAssignment_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 rule__EvoFeatureVariable__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -563,9 +482,9 @@ rule__EvoFeatureVariable__Group_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoFeatureVariableAccess().getValueKeyword_3_0()); }
-	'value'
-	{ after(grammarAccess.getEvoFeatureVariableAccess().getValueKeyword_3_0()); }
+	{ before(grammarAccess.getEvoFeatureVariableAccess().getReferenceKeyword_3_0()); }
+	'reference'
+	{ after(grammarAccess.getEvoFeatureVariableAccess().getReferenceKeyword_3_0()); }
 )
 ;
 finally {
@@ -590,9 +509,9 @@ rule__EvoFeatureVariable__Group_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoFeatureVariableAccess().getEqualsSignKeyword_3_1()); }
-	'='
-	{ after(grammarAccess.getEvoFeatureVariableAccess().getEqualsSignKeyword_3_1()); }
+	{ before(grammarAccess.getEvoFeatureVariableAccess().getColonKeyword_3_1()); }
+	':'
+	{ after(grammarAccess.getEvoFeatureVariableAccess().getColonKeyword_3_1()); }
 )
 ;
 finally {
@@ -1436,30 +1355,15 @@ finally {
 }
 
 
-rule__Model__ImportURIAssignment_1
+rule__Model__VariablesAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getModelAccess().getImportURIQualifiedNameParserRuleCall_1_0()); }
-		ruleQualifiedName
-		{ after(grammarAccess.getModelAccess().getImportURIQualifiedNameParserRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__VariablesAssignment_2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_2_0()); }
+		{ before(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_0()); }
 		ruleEvoVariable
-		{ after(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_2_0()); }
+		{ after(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -1504,9 +1408,9 @@ rule__EvoFeatureVariable__FeatureAssignment_3_2
 	(
 		{ before(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0()); }
 		(
-			{ before(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureQualifiedNameParserRuleCall_3_2_0_1()); }
-			ruleQualifiedName
-			{ after(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureQualifiedNameParserRuleCall_3_2_0_1()); }
+			{ before(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1()); }
+			RULE_STRING
+			{ after(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1()); }
 		)
 		{ after(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0()); }
 	)

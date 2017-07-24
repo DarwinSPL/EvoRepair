@@ -10,7 +10,6 @@ import de.evorepair.evolution.variable.evoVariableDsl.Model;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -32,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl#getImportURI <em>Import URI</em>}</li>
  *   <li>{@link de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  *
@@ -40,26 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
-  /**
-   * The default value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImportURI()
-   * @generated
-   * @ordered
-   */
-  protected static final String IMPORT_URI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImportURI()
-   * @generated
-   * @ordered
-   */
-  protected String importURI = IMPORT_URI_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -89,29 +66,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return EvoVariableDslPackage.Literals.MODEL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getImportURI()
-  {
-    return importURI;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setImportURI(String newImportURI)
-  {
-    String oldImportURI = importURI;
-    importURI = newImportURI;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvoVariableDslPackage.MODEL__IMPORT_URI, oldImportURI, importURI));
   }
 
   /**
@@ -154,8 +108,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EvoVariableDslPackage.MODEL__IMPORT_URI:
-        return getImportURI();
       case EvoVariableDslPackage.MODEL__VARIABLES:
         return getVariables();
     }
@@ -173,9 +125,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EvoVariableDslPackage.MODEL__IMPORT_URI:
-        setImportURI((String)newValue);
-        return;
       case EvoVariableDslPackage.MODEL__VARIABLES:
         getVariables().clear();
         getVariables().addAll((Collection<? extends EvoVariable>)newValue);
@@ -194,9 +143,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EvoVariableDslPackage.MODEL__IMPORT_URI:
-        setImportURI(IMPORT_URI_EDEFAULT);
-        return;
       case EvoVariableDslPackage.MODEL__VARIABLES:
         getVariables().clear();
         return;
@@ -214,29 +160,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EvoVariableDslPackage.MODEL__IMPORT_URI:
-        return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
       case EvoVariableDslPackage.MODEL__VARIABLES:
         return variables != null && !variables.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (importURI: ");
-    result.append(importURI);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModelImpl
