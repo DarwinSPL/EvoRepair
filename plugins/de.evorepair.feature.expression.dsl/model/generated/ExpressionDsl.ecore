@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evo_expression_dsl" nsURI="http://darwinspl.de/evorepair/feature/expression/dsl"
+    nsPrefix="evo_expression_dsl">
+  <eClassifiers xsi:type="ecore:EClass" name="GrammarEntry" eSuperTypes="platform:/resource/de.evorepair.logic.dsl/model/generated/EvoLogicDsl.ecore#//GrammarEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HyFeatureReferenceExpression" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass platform:/resource/eu.hyvar.feature/model/Feature.ecore#//HyFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSetElementOf" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoImplication" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
