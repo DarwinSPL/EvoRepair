@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Evo HyFeature Reference Resolver UI
+Bundle-SymbolicName: de.evorepair.xtext.util.ui.hyfeature;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.osgi,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared;bundle-version="2.12.0",
+ eu.hyvar.feature.editor,
+ de.evorepair.xtext.util.hyfeature,
+ org.eclipse.ui.workbench
+Import-Package: org.apache.log4j;version="1.2.15"
+Bundle-Activator: de.evorepair.xtext.util.ui.hyfeature.Activator
+Bundle-ActivationPolicy: lazy
