@@ -95,8 +95,7 @@ EvoMappingTerminal returns dw_expression::HyExpression:
 	EvoMappingBooleanValueExpression |
 	EvoMappingMimumumExpression | 
 	EvoMappingMaximumExpression |
-	EvoMappingNot
-	;
+	EvoMappingNot;
 	
 
 
@@ -105,11 +104,11 @@ EvoMappingNestedExpression returns dw_expression::HyNestedExpression:
 	
 	
 EvoMappingNegation returns dw_expression::HyNegationExpression:
-	'-' operand=EvoMappingExpression;
+	'-' operand=EvoMappingTerminal;
 
 
 EvoMappingNot returns dw_expression::HyNotExpression:
-	'!' operand=EvoMappingExpression;
+	'!' operand=EvoMappingTerminal;
 	
 
 EvoMappingFeatureReferenceExpression returns HyFeatureReferenceExpression:

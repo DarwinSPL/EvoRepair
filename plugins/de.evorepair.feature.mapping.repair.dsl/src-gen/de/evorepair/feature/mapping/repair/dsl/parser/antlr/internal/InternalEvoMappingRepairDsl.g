@@ -1429,9 +1429,9 @@ ruleEvoMappingNegation returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
 				}
-				lv_operand_1_0=ruleEvoMappingExpression
+				lv_operand_1_0=ruleEvoMappingTerminal
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvoMappingNegationRule());
@@ -1440,7 +1440,7 @@ ruleEvoMappingNegation returns [EObject current=null]
 						$current,
 						"operand",
 						lv_operand_1_0,
-						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingExpression");
+						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1471,9 +1471,9 @@ ruleEvoMappingNot returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvoMappingNotAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEvoMappingNotAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
 				}
-				lv_operand_1_0=ruleEvoMappingExpression
+				lv_operand_1_0=ruleEvoMappingTerminal
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvoMappingNotRule());
@@ -1482,7 +1482,7 @@ ruleEvoMappingNot returns [EObject current=null]
 						$current,
 						"operand",
 						lv_operand_1_0,
-						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingExpression");
+						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3382,47 +3382,6 @@ ruleEvoElementOf returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleEvoFeatureVariable
-entryRuleEvoFeatureVariable returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEvoFeatureVariableRule()); }
-	iv_ruleEvoFeatureVariable=ruleEvoFeatureVariable
-	{ $current=$iv_ruleEvoFeatureVariable.current; }
-	EOF;
-
-// Rule EvoFeatureVariable
-ruleEvoFeatureVariable returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='feature'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoFeatureVariableAccess().getFeatureKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getEvoFeatureVariableAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEvoFeatureVariableRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-	)
-;
-
 // Entry rule entryRuleEvoForAll
 entryRuleEvoForAll returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getEvoForAllRule()); }
@@ -3450,9 +3409,9 @@ ruleEvoForAll returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoFeatureVariableParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoVariableTermParserRuleCall_2_0());
 				}
-				lv_boundedVariables_2_0=ruleEvoFeatureVariable
+				lv_boundedVariables_2_0=ruleEvoVariableTerm
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvoForAllRule());
@@ -3461,7 +3420,7 @@ ruleEvoForAll returns [EObject current=null]
 						$current,
 						"boundedVariables",
 						lv_boundedVariables_2_0,
-						"de.evorepair.logic.EvoLogicDsl.EvoFeatureVariable");
+						"de.evorepair.logic.EvoLogicDsl.EvoVariableTerm");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3474,9 +3433,9 @@ ruleEvoForAll returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoFeatureVariableParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoVariableTermParserRuleCall_3_1_0());
 					}
-					lv_boundedVariables_4_0=ruleEvoFeatureVariable
+					lv_boundedVariables_4_0=ruleEvoVariableTerm
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEvoForAllRule());
@@ -3485,7 +3444,7 @@ ruleEvoForAll returns [EObject current=null]
 							$current,
 							"boundedVariables",
 							lv_boundedVariables_4_0,
-							"de.evorepair.logic.EvoLogicDsl.EvoFeatureVariable");
+							"de.evorepair.logic.EvoLogicDsl.EvoVariableTerm");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -3548,9 +3507,9 @@ ruleEvoExists returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvoExistsAccess().getBoundedVariablesEvoFeatureVariableParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getEvoExistsAccess().getBoundedVariablesEvoVariableTermParserRuleCall_2_0());
 				}
-				lv_boundedVariables_2_0=ruleEvoFeatureVariable
+				lv_boundedVariables_2_0=ruleEvoVariableTerm
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvoExistsRule());
@@ -3559,7 +3518,7 @@ ruleEvoExists returns [EObject current=null]
 						$current,
 						"boundedVariables",
 						lv_boundedVariables_2_0,
-						"de.evorepair.logic.EvoLogicDsl.EvoFeatureVariable");
+						"de.evorepair.logic.EvoLogicDsl.EvoVariableTerm");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3610,37 +3569,65 @@ ruleEvoNot returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='not'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoNotAccess().getNotKeyword_0());
-		}
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEvoNotAccess().getLeftParenthesisKeyword_1());
-		}
 		(
+			otherlv_0='not'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getEvoNotAccess().getNotKeyword_0_0());
+			}
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getEvoNotAccess().getLeftParenthesisKeyword_0_1());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getEvoNotAccess().getOperandEvoExpressionParserRuleCall_2_0());
-				}
-				lv_operand_2_0=ruleEvoExpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEvoNotRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getEvoNotAccess().getOperandEvoExpressionParserRuleCall_0_2_0());
 					}
-					set(
-						$current,
-						"operand",
-						lv_operand_2_0,
-						"de.evorepair.logic.EvoLogicDsl.EvoExpression");
-					afterParserOrEnumRuleCall();
-				}
+					lv_operand_2_0=ruleEvoExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEvoNotRule());
+						}
+						set(
+							$current,
+							"operand",
+							lv_operand_2_0,
+							"de.evorepair.logic.EvoLogicDsl.EvoExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_3=')'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getEvoNotAccess().getRightParenthesisKeyword_0_3());
+			}
+		)
+		    |
+		(
+			otherlv_4='!'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getEvoNotAccess().getExclamationMarkKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEvoNotAccess().getOperandEvoVariableTermParserRuleCall_1_1_0());
+					}
+					lv_operand_5_0=ruleEvoVariableTerm
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEvoNotRule());
+						}
+						set(
+							$current,
+							"operand",
+							lv_operand_5_0,
+							"de.evorepair.logic.EvoLogicDsl.EvoVariableTerm");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
-		otherlv_3=')'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getEvoNotAccess().getRightParenthesisKeyword_3());
-		}
 	)
 ;
 

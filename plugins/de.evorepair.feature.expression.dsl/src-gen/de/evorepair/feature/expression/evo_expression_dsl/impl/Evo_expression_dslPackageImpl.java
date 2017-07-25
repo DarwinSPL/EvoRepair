@@ -10,7 +10,7 @@ import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPack
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
 import de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression;
 
-import de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage;
+import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
 
 import de.evorepair.logic.evologic.EvoLogicPackage;
 
@@ -103,14 +103,14 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     isInited = true;
 
     // Initialize simple dependencies
-    EvoLogicDslPackage.eINSTANCE.eClass();
+    Evo_logic_dslPackage.eINSTANCE.eClass();
     HyExpressionPackage.eINSTANCE.eClass();
     HyFeaturePackage.eINSTANCE.eClass();
     EvoLogicPackage.eINSTANCE.eClass();
-    EvoVariablePackage.eINSTANCE.eClass();
     HyDataValuesPackage.eINSTANCE.eClass();
     HyContextInformationPackage.eINSTANCE.eClass();
     HyEvolutionPackage.eINSTANCE.eClass();
+    EvoVariablePackage.eINSTANCE.eClass();
     HyConfigurationPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -230,7 +230,7 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
-    EvoLogicDslPackage theEvoLogicDslPackage = (EvoLogicDslPackage)EPackage.Registry.INSTANCE.getEPackage(EvoLogicDslPackage.eNS_URI);
+    Evo_logic_dslPackage theEvo_logic_dslPackage = (Evo_logic_dslPackage)EPackage.Registry.INSTANCE.getEPackage(Evo_logic_dslPackage.eNS_URI);
     HyExpressionPackage theHyExpressionPackage = (HyExpressionPackage)EPackage.Registry.INSTANCE.getEPackage(HyExpressionPackage.eNS_URI);
     HyFeaturePackage theHyFeaturePackage = (HyFeaturePackage)EPackage.Registry.INSTANCE.getEPackage(HyFeaturePackage.eNS_URI);
 
@@ -239,7 +239,7 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    grammarEntryEClass.getESuperTypes().add(theEvoLogicDslPackage.getGrammarEntry());
+    grammarEntryEClass.getESuperTypes().add(theEvo_logic_dslPackage.getGrammarEntry());
     hyFeatureReferenceExpressionEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 
     // Initialize classes and features; add operations and parameters

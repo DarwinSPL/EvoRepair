@@ -460,7 +460,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'-' operand=EvoMappingExpression;
+	//	'-' operand=EvoMappingTerminal;
 	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
 	}
@@ -470,7 +470,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoMappingNot dw_expression::HyNotExpression:
-	//	'!' operand=EvoMappingExpression;
+	//	'!' operand=EvoMappingTerminal;
 	public EvoExpressionDslGrammarAccess.EvoMappingNotElements getEvoMappingNotAccess() {
 		return gaEvoExpressionDsl.getEvoMappingNotAccess();
 	}
@@ -892,19 +892,9 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoElementOfAccess().getRule();
 	}
 	
-	//EvoFeatureVariable evo_variable::EvoFeatureVariable:
-	//	'feature' name=ID;
-	public EvoLogicDslGrammarAccess.EvoFeatureVariableElements getEvoFeatureVariableAccess() {
-		return gaEvoLogicDsl.getEvoFeatureVariableAccess();
-	}
-	
-	public ParserRule getEvoFeatureVariableRule() {
-		return getEvoFeatureVariableAccess().getRule();
-	}
-	
 	//EvoForAll:
 	//	'forAll' '('
-	//	boundedVariables+=EvoFeatureVariable (',' boundedVariables+=EvoFeatureVariable) ':'
+	//	boundedVariables+=EvoVariableTerm (',' boundedVariables+=EvoVariableTerm) ':'
 	//	operand=EvoExpression
 	//	')';
 	public EvoLogicDslGrammarAccess.EvoForAllElements getEvoForAllAccess() {
@@ -917,7 +907,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	
 	//EvoExists:
 	//	'exists' '('
-	//	boundedVariables+=EvoFeatureVariable ':'
+	//	boundedVariables+=EvoVariableTerm ':'
 	//	element=EvoExpression
 	//	')';
 	public EvoLogicDslGrammarAccess.EvoExistsElements getEvoExistsAccess() {
@@ -928,8 +918,8 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoExistsAccess().getRule();
 	}
 	
-	//EvoNot:
-	//	'not' '(' operand=EvoExpression ')';
+	//EvoNot dw_expression::HyNotExpression:
+	//	'not' '(' operand=EvoExpression ')' | '!' operand=EvoVariableTerm;
 	public EvoLogicDslGrammarAccess.EvoNotElements getEvoNotAccess() {
 		return gaEvoLogicDsl.getEvoNotAccess();
 	}

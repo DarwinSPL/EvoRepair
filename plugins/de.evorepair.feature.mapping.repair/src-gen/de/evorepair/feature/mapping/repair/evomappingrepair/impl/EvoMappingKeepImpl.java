@@ -30,7 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implements EvoMappingKeep {
+public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implements EvoMappingKeep
+{
 	/**
 	 * The cached value of the '{@link #getOperand() <em>Operand</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -46,7 +47,8 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoMappingKeepImpl() {
+	protected EvoMappingKeepImpl()
+	{
 		super();
 	}
 
@@ -56,7 +58,8 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoMappingRepairPackage.Literals.EVO_MAPPING_KEEP;
 	}
 
@@ -65,7 +68,8 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HyExpression getOperand() {
+	public HyExpression getOperand()
+	{
 		return operand;
 	}
 
@@ -74,10 +78,12 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperand(HyExpression newOperand, NotificationChain msgs) {
+	public NotificationChain basicSetOperand(HyExpression newOperand, NotificationChain msgs)
+	{
 		HyExpression oldOperand = operand;
 		operand = newOperand;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND, oldOperand, newOperand);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -89,8 +95,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperand(HyExpression newOperand) {
-		if (newOperand != operand) {
+	public void setOperand(HyExpression newOperand)
+	{
+		if (newOperand != operand)
+		{
 			NotificationChain msgs = null;
 			if (operand != null)
 				msgs = ((InternalEObject)operand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND, null, msgs);
@@ -109,8 +117,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND:
 				return basicSetOperand(null, msgs);
 		}
@@ -123,8 +133,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND:
 				return getOperand();
 		}
@@ -137,8 +149,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND:
 				setOperand((HyExpression)newValue);
 				return;
@@ -152,8 +166,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND:
 				setOperand((HyExpression)null);
 				return;
@@ -167,8 +183,10 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND:
 				return operand != null;
 		}
@@ -181,9 +199,12 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == HyUnaryExpression.class) {
-			switch (derivedFeatureID) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == HyUnaryExpression.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND: return HyExpressionPackage.HY_UNARY_EXPRESSION__OPERAND;
 				default: return -1;
 			}
@@ -197,9 +218,12 @@ public class EvoMappingKeepImpl extends EvoMappingRepairExpressionImpl implement
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == HyUnaryExpression.class) {
-			switch (baseFeatureID) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == HyUnaryExpression.class)
+		{
+			switch (baseFeatureID)
+			{
 				case HyExpressionPackage.HY_UNARY_EXPRESSION__OPERAND: return EvoMappingRepairPackage.EVO_MAPPING_KEEP__OPERAND;
 				default: return -1;
 			}

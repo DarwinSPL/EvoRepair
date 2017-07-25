@@ -3,7 +3,7 @@
  */
 package de.evorepair.feature.expression.evo_expression_dsl;
 
-import de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage;
+import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
 
 import eu.hyvar.feature.expression.HyExpressionPackage;
 
@@ -77,7 +77,7 @@ public interface Evo_expression_dslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRAMMAR_ENTRY__FORMULA = EvoLogicDslPackage.GRAMMAR_ENTRY__FORMULA;
+  int GRAMMAR_ENTRY__FORMULA = Evo_logic_dslPackage.GRAMMAR_ENTRY__FORMULA;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -86,7 +86,7 @@ public interface Evo_expression_dslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRAMMAR_ENTRY__EXPRESSION = EvoLogicDslPackage.GRAMMAR_ENTRY_FEATURE_COUNT + 0;
+  int GRAMMAR_ENTRY__EXPRESSION = Evo_logic_dslPackage.GRAMMAR_ENTRY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Grammar Entry</em>' class.
@@ -95,7 +95,7 @@ public interface Evo_expression_dslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRAMMAR_ENTRY_FEATURE_COUNT = EvoLogicDslPackage.GRAMMAR_ENTRY_FEATURE_COUNT + 1;
+  int GRAMMAR_ENTRY_FEATURE_COUNT = Evo_logic_dslPackage.GRAMMAR_ENTRY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.evorepair.feature.expression.evo_expression_dsl.impl.HyFeatureReferenceExpressionImpl <em>Hy Feature Reference Expression</em>}' class.

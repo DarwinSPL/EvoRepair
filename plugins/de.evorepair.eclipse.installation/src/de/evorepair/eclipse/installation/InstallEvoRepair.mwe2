@@ -5,8 +5,10 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.emf.mwe2.ecore.EcoreGenerator
 
-
-
+/**
+ * Install EvoRepair by running this workflow. It creates all necessary models and generates the corresponding
+ * languages. To run this workflow, select "Run As" -> "MWE2 Workflow". Be aware that you must install Xtext(>2.12) first.
+ */
 Workflow {	
 	bean = StandaloneSetup {
 		platformUri = ".."
@@ -17,15 +19,24 @@ Workflow {
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 		registerGenModelFile = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
 		registerGenModelFile = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
 	}
 	
-	/* 
+	
 	component = DirectoryCleaner {
+		// clean directories of all models
 		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen"
 		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen"
 		directory = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
 		directory = "platform:/resource/de.evorepair.logic/src-gen"
 		
+		// clean directories of all dsls
+		directory = "platform:/resource/de.evorepair.evolution.operation.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.variable.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.expression.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.feature.mapping.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.guidance.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.logic.dsl/src-gen"
 	}
 	
 	
@@ -35,16 +46,25 @@ Workflow {
 		srcPath = "platform:/resource/de.evorepair.evolution.operation/src-gen"
 	}
 	
+	
 	// Generate Variable Code
 	component = EcoreGenerator {
 		genModel = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 		srcPath = "platform:/resource/de.evorepair.evolution.variable/src-gen"
 	}
 	
+	
 	// Generate Guidance Catalog Code
 	component = EcoreGenerator {
 		genModel = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
 		srcPath = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
+	}
+	
+	
+	// Generate Mapping Repair Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
+		srcPath = "platform:/resource/de.evorepair.feature.mapping.repair/src-gen"
 	}
 	
 	
@@ -54,13 +74,12 @@ Workflow {
 		srcPath = "platform:/resource/de.evorepair.logic/src-gen"
 	}
 
-*/
 	
 	// Generate DSLs
-	//component = @de.evorepair.logic.GenerateEvoLogicDsl {}
-	//component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
-	//component = @de.evorepair.operation.GenerateEvoOperationDsl {}
-	component = @de.evorepair.feature.expression.GenerateExpressionDsl {}
-	component = @de.evorepair.guidance.GenerateGuidanceDsl {}
-	
+	component = @de.evorepair.logic.GenerateEvoLogicDsl {}
+	component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
+	component = @de.evorepair.operation.GenerateEvoOperationDsl {}
+	component = @de.evorepair.feature.expression.GenerateEvoExpressionDsl {}
+	component = @de.evorepair.guidance.GenerateEvoGuidanceDsl {}
+	component = @de.evorepair.feature.mapping.repair.dsl.GenerateEvoMappingRepairDsl {}
 }

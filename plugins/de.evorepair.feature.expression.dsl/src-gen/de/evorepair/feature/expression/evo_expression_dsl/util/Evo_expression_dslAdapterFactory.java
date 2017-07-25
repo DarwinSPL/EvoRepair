@@ -88,9 +88,9 @@ public class Evo_expression_dslAdapterFactory extends AdapterFactoryImpl
         return createHyFeatureReferenceExpressionAdapter();
       }
       @Override
-      public Adapter caseEvoLogicDsl_GrammarEntry(de.evorepair.logic.evoLogicDsl.GrammarEntry object)
+      public Adapter caseEvo_logic_dsl_GrammarEntry(de.evorepair.logic.evo_logic_dsl.GrammarEntry object)
       {
-        return createEvoLogicDsl_GrammarEntryAdapter();
+        return createEvo_logic_dsl_GrammarEntryAdapter();
       }
       @Override
       public Adapter caseHyExpression(HyExpression object)
@@ -150,16 +150,16 @@ public class Evo_expression_dslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.logic.evoLogicDsl.GrammarEntry <em>Grammar Entry</em>}'.
+   * Creates a new adapter for an object of class '{@link de.evorepair.logic.evo_logic_dsl.GrammarEntry <em>Grammar Entry</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.evorepair.logic.evoLogicDsl.GrammarEntry
+   * @see de.evorepair.logic.evo_logic_dsl.GrammarEntry
    * @generated
    */
-  public Adapter createEvoLogicDsl_GrammarEntryAdapter()
+  public Adapter createEvo_logic_dsl_GrammarEntryAdapter()
   {
     return null;
   }

@@ -17,7 +17,6 @@ public abstract class AbstractEvoMappingRepairDslValidator extends EvoExpression
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://hyvar-project.eu/feature/expression/1.0"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://hyvar-project.eu/feature/dataValues/1.0"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/logic/0.4"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/variable/0.2"));
 		return result;
 	}
 	

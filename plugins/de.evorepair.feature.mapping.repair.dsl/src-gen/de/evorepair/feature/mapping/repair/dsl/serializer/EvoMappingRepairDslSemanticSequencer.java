@@ -4,8 +4,6 @@
 package de.evorepair.feature.mapping.repair.dsl.serializer;
 
 import com.google.inject.Inject;
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.evovariable.EvoVariablePackage;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPackage;
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
 import de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression;
@@ -15,33 +13,32 @@ import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplac
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslPackage;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairGrammarEntry;
 import de.evorepair.feature.mapping.repair.dsl.services.EvoMappingRepairDslGrammarAccess;
-import de.evorepair.logic.evoLogicDsl.EvoAnd;
-import de.evorepair.logic.evoLogicDsl.EvoBiconditional;
-import de.evorepair.logic.evoLogicDsl.EvoChildrenOf;
-import de.evorepair.logic.evoLogicDsl.EvoEqual;
-import de.evorepair.logic.evoLogicDsl.EvoExists;
-import de.evorepair.logic.evoLogicDsl.EvoFeatureType;
-import de.evorepair.logic.evoLogicDsl.EvoForAll;
-import de.evorepair.logic.evoLogicDsl.EvoGroupType;
-import de.evorepair.logic.evoLogicDsl.EvoImplication;
-import de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage;
-import de.evorepair.logic.evoLogicDsl.EvoNot;
-import de.evorepair.logic.evoLogicDsl.EvoOr;
-import de.evorepair.logic.evoLogicDsl.EvoParentOf;
-import de.evorepair.logic.evoLogicDsl.EvoSatisfiable;
-import de.evorepair.logic.evoLogicDsl.EvoSetCardinality;
-import de.evorepair.logic.evoLogicDsl.EvoSetCartesianProduct;
-import de.evorepair.logic.evoLogicDsl.EvoSetDifference;
-import de.evorepair.logic.evoLogicDsl.EvoSetElementOf;
-import de.evorepair.logic.evoLogicDsl.EvoSetInclusion;
-import de.evorepair.logic.evoLogicDsl.EvoSetIntersection;
-import de.evorepair.logic.evoLogicDsl.EvoSetSymmetricDifference;
-import de.evorepair.logic.evoLogicDsl.EvoSetTerm;
-import de.evorepair.logic.evoLogicDsl.EvoSetUnion;
-import de.evorepair.logic.evoLogicDsl.EvoSiblingsOf;
-import de.evorepair.logic.evoLogicDsl.EvoSize;
-import de.evorepair.logic.evoLogicDsl.EvoUnequal;
-import de.evorepair.logic.evoLogicDsl.EvoXOr;
+import de.evorepair.logic.evo_logic_dsl.EvoAnd;
+import de.evorepair.logic.evo_logic_dsl.EvoBiconditional;
+import de.evorepair.logic.evo_logic_dsl.EvoChildrenOf;
+import de.evorepair.logic.evo_logic_dsl.EvoEqual;
+import de.evorepair.logic.evo_logic_dsl.EvoExists;
+import de.evorepair.logic.evo_logic_dsl.EvoFeatureType;
+import de.evorepair.logic.evo_logic_dsl.EvoForAll;
+import de.evorepair.logic.evo_logic_dsl.EvoGroupType;
+import de.evorepair.logic.evo_logic_dsl.EvoImplication;
+import de.evorepair.logic.evo_logic_dsl.EvoOr;
+import de.evorepair.logic.evo_logic_dsl.EvoParentOf;
+import de.evorepair.logic.evo_logic_dsl.EvoSatisfiable;
+import de.evorepair.logic.evo_logic_dsl.EvoSetCardinality;
+import de.evorepair.logic.evo_logic_dsl.EvoSetCartesianProduct;
+import de.evorepair.logic.evo_logic_dsl.EvoSetDifference;
+import de.evorepair.logic.evo_logic_dsl.EvoSetElementOf;
+import de.evorepair.logic.evo_logic_dsl.EvoSetInclusion;
+import de.evorepair.logic.evo_logic_dsl.EvoSetIntersection;
+import de.evorepair.logic.evo_logic_dsl.EvoSetSymmetricDifference;
+import de.evorepair.logic.evo_logic_dsl.EvoSetTerm;
+import de.evorepair.logic.evo_logic_dsl.EvoSetUnion;
+import de.evorepair.logic.evo_logic_dsl.EvoSiblingsOf;
+import de.evorepair.logic.evo_logic_dsl.EvoSize;
+import de.evorepair.logic.evo_logic_dsl.EvoUnequal;
+import de.evorepair.logic.evo_logic_dsl.EvoXOr;
+import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
 import de.evorepair.logic.evologic.EvoFormula;
 import de.evorepair.logic.evologic.EvoLogicPackage;
 import de.evorepair.logic.evologic.EvoVariableTerm;
@@ -120,87 +117,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				sequence_EvoMappingNumberValue(context, (HyNumberValue) semanticObject); 
 				return; 
 			}
-		else if (epackage == EvoLogicDslPackage.eINSTANCE)
-			switch (semanticObject.eClass().getClassifierID()) {
-			case EvoLogicDslPackage.EVO_AND:
-				sequence_EvoAnd(context, (EvoAnd) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_BICONDITIONAL:
-				sequence_EvoBiconditional(context, (EvoBiconditional) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_CHILDREN_OF:
-				sequence_EvoChildrenOf(context, (EvoChildrenOf) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_EQUAL:
-				sequence_EvoEqual(context, (EvoEqual) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_EXISTS:
-				sequence_EvoExists(context, (EvoExists) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_FEATURE_TYPE:
-				sequence_EvoFeatureType(context, (EvoFeatureType) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_FOR_ALL:
-				sequence_EvoForAll(context, (EvoForAll) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_GROUP_TYPE:
-				sequence_EvoGroupType(context, (EvoGroupType) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_IMPLICATION:
-				sequence_EvoImplication(context, (EvoImplication) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_NOT:
-				sequence_EvoNot(context, (EvoNot) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_OR:
-				sequence_EvoOr(context, (EvoOr) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_PARENT_OF:
-				sequence_EvoParentOf(context, (EvoParentOf) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SATISFIABLE:
-				sequence_EvoSatisfiable(context, (EvoSatisfiable) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_CARDINALITY:
-				sequence_EvoSetCardinality(context, (EvoSetCardinality) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_CARTESIAN_PRODUCT:
-				sequence_EvoSetCartesianProduct(context, (EvoSetCartesianProduct) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_DIFFERENCE:
-				sequence_EvoSetDifference(context, (EvoSetDifference) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_ELEMENT_OF:
-				sequence_EvoElementOf(context, (EvoSetElementOf) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_INCLUSION:
-				sequence_EvoSetInclusion(context, (EvoSetInclusion) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_INTERSECTION:
-				sequence_EvoSetIntersection(context, (EvoSetIntersection) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_SYMMETRIC_DIFFERENCE:
-				sequence_EvoSetSymmetricDifference(context, (EvoSetSymmetricDifference) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_TERM:
-				sequence_EvoSetTerm(context, (EvoSetTerm) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SET_UNION:
-				sequence_EvoSetUnion(context, (EvoSetUnion) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SIBLINGS_OF:
-				sequence_EvoSiblingsOf(context, (EvoSiblingsOf) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_SIZE:
-				sequence_EvoSize(context, (EvoSize) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_UNEQUAL:
-				sequence_EvoUnequal(context, (EvoUnequal) semanticObject); 
-				return; 
-			case EvoLogicDslPackage.EVO_XOR:
-				sequence_EvoXOr(context, (EvoXOr) semanticObject); 
-				return; 
-			}
 		else if (epackage == Evo_expression_dslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case Evo_expression_dslPackage.GRAMMAR_ENTRY:
@@ -208,6 +124,84 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				return; 
 			case Evo_expression_dslPackage.HY_FEATURE_REFERENCE_EXPRESSION:
 				sequence_EvoMappingFeatureReferenceExpression(context, (HyFeatureReferenceExpression) semanticObject); 
+				return; 
+			}
+		else if (epackage == Evo_logic_dslPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case Evo_logic_dslPackage.EVO_AND:
+				sequence_EvoAnd(context, (EvoAnd) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_BICONDITIONAL:
+				sequence_EvoBiconditional(context, (EvoBiconditional) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_CHILDREN_OF:
+				sequence_EvoChildrenOf(context, (EvoChildrenOf) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_EQUAL:
+				sequence_EvoEqual(context, (EvoEqual) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_EXISTS:
+				sequence_EvoExists(context, (EvoExists) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_FEATURE_TYPE:
+				sequence_EvoFeatureType(context, (EvoFeatureType) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_FOR_ALL:
+				sequence_EvoForAll(context, (EvoForAll) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_GROUP_TYPE:
+				sequence_EvoGroupType(context, (EvoGroupType) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_IMPLICATION:
+				sequence_EvoImplication(context, (EvoImplication) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_OR:
+				sequence_EvoOr(context, (EvoOr) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_PARENT_OF:
+				sequence_EvoParentOf(context, (EvoParentOf) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SATISFIABLE:
+				sequence_EvoSatisfiable(context, (EvoSatisfiable) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_CARDINALITY:
+				sequence_EvoSetCardinality(context, (EvoSetCardinality) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_CARTESIAN_PRODUCT:
+				sequence_EvoSetCartesianProduct(context, (EvoSetCartesianProduct) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_DIFFERENCE:
+				sequence_EvoSetDifference(context, (EvoSetDifference) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_ELEMENT_OF:
+				sequence_EvoElementOf(context, (EvoSetElementOf) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_INCLUSION:
+				sequence_EvoSetInclusion(context, (EvoSetInclusion) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_INTERSECTION:
+				sequence_EvoSetIntersection(context, (EvoSetIntersection) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_SYMMETRIC_DIFFERENCE:
+				sequence_EvoSetSymmetricDifference(context, (EvoSetSymmetricDifference) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_TERM:
+				sequence_EvoSetTerm(context, (EvoSetTerm) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SET_UNION:
+				sequence_EvoSetUnion(context, (EvoSetUnion) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SIBLINGS_OF:
+				sequence_EvoSiblingsOf(context, (EvoSiblingsOf) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_SIZE:
+				sequence_EvoSize(context, (EvoSize) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_UNEQUAL:
+				sequence_EvoUnequal(context, (EvoUnequal) semanticObject); 
+				return; 
+			case Evo_logic_dslPackage.EVO_XOR:
+				sequence_EvoXOr(context, (EvoXOr) semanticObject); 
 				return; 
 			}
 		else if (epackage == EvoLogicPackage.eINSTANCE)
@@ -267,12 +261,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 					return; 
 				}
 				else break;
-			}
-		else if (epackage == EvoVariablePackage.eINSTANCE)
-			switch (semanticObject.eClass().getClassifierID()) {
-			case EvoVariablePackage.EVO_FEATURE_VARIABLE:
-				sequence_EvoFeatureVariable(context, (EvoFeatureVariable) semanticObject); 
-				return; 
 			}
 		else if (epackage == HyExpressionPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -343,8 +331,84 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				sequence_EvoMappingUnequal(context, (HyNotEqualExpression) semanticObject); 
 				return; 
 			case HyExpressionPackage.HY_NOT_EXPRESSION:
-				sequence_EvoMappingNot(context, (HyNotExpression) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getEvoMappingExpressionRule()
+						|| rule == grammarAccess.getEvoMappingOrRule()
+						|| action == grammarAccess.getEvoMappingOrAccess().getHyOrExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingAndRule()
+						|| action == grammarAccess.getEvoMappingAndAccess().getHyAndExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingEqualRule()
+						|| action == grammarAccess.getEvoMappingEqualAccess().getHyEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingUnequalRule()
+						|| action == grammarAccess.getEvoMappingUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingImplicationRule()
+						|| action == grammarAccess.getEvoMappingImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingEquivalenceRule()
+						|| action == grammarAccess.getEvoMappingEquivalenceAccess().getHyEquivalenceExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingLessExpressionRule()
+						|| action == grammarAccess.getEvoMappingLessExpressionAccess().getHyLessExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingIfPossibleExpressionRule()
+						|| action == grammarAccess.getEvoMappingIfPossibleExpressionAccess().getHyIfPossibleExpressionOperandsAction_1_1()
+						|| rule == grammarAccess.getEvoMappingLessOrEqualExpressionRule()
+						|| action == grammarAccess.getEvoMappingLessOrEqualExpressionAccess().getHyLessOrEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingGreaterExpressionRule()
+						|| action == grammarAccess.getEvoMappingGreaterExpressionAccess().getHyGreaterExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingGreaterOrEqualExpressionRule()
+						|| action == grammarAccess.getEvoMappingGreaterOrEqualExpressionAccess().getHyGreaterOrEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingSubtractionExpressionRule()
+						|| action == grammarAccess.getEvoMappingSubtractionExpressionAccess().getHySubtractionExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingAdditionExpressionRule()
+						|| action == grammarAccess.getEvoMappingAdditionExpressionAccess().getHyAdditionExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingModuloExpressionRule()
+						|| action == grammarAccess.getEvoMappingModuloExpressionAccess().getHyModuloExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingMultiplicationExpressionRule()
+						|| action == grammarAccess.getEvoMappingMultiplicationExpressionAccess().getHyMultiplicationExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingDivisionExpressionRule()
+						|| action == grammarAccess.getEvoMappingDivisionExpressionAccess().getHyDivisionExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoMappingTerminalRule()
+						|| rule == grammarAccess.getEvoMappingNotRule()) {
+					sequence_EvoMappingNot(context, (HyNotExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getEvoExpressionRule()
+						|| rule == grammarAccess.getEvoXOrRule()
+						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoOrRule()
+						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoAndRule()
+						|| action == grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoEqualRule()
+						|| action == grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoUnequalSizeRule()
+						|| rule == grammarAccess.getEvoUnequalRule()
+						|| action == grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoImplicationSizeRule()
+						|| rule == grammarAccess.getEvoImplicationRule()
+						|| action == grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoBiconditionalSizeRule()
+						|| rule == grammarAccess.getEvoBiconditionalRule()
+						|| action == grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetInclusionSizeRule()
+						|| rule == grammarAccess.getEvoSetInclusionRule()
+						|| action == grammarAccess.getEvoSetInclusionAccess().getEvoSetInclusionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetIntersectionRule()
+						|| action == grammarAccess.getEvoSetIntersectionAccess().getEvoSetIntersectionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetUnionRule()
+						|| action == grammarAccess.getEvoSetUnionAccess().getEvoSetUnionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetDifferenceRule()
+						|| action == grammarAccess.getEvoSetDifferenceAccess().getEvoSetDifferenceOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetSymmetricDifferenceRule()
+						|| action == grammarAccess.getEvoSetSymmetricDifferenceAccess().getEvoSetSymmetricDifferenceOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetCartesianProductRule()
+						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoElementOfRule()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoNotRule()
+						|| rule == grammarAccess.getEvoTerminalRule()
+						|| rule == grammarAccess.getEvoSetVariableRule()) {
+					sequence_EvoNot(context, (HyNotExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case HyExpressionPackage.HY_OR_EXPRESSION:
 				sequence_EvoMappingOr(context, (HyOrExpression) semanticObject); 
 				return; 

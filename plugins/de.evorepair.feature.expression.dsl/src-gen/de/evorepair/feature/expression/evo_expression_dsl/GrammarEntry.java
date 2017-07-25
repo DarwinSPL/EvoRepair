@@ -21,7 +21,7 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model
  * @generated
  */
-public interface GrammarEntry extends de.evorepair.logic.evoLogicDsl.GrammarEntry
+public interface GrammarEntry extends de.evorepair.logic.evo_logic_dsl.GrammarEntry
 {
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

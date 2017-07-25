@@ -16,13 +16,15 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoMappingRepairExpressionImpl extends HyExpressionImpl implements EvoMappingRepairExpression {
+public class EvoMappingRepairExpressionImpl extends HyExpressionImpl implements EvoMappingRepairExpression
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoMappingRepairExpressionImpl() {
+	protected EvoMappingRepairExpressionImpl()
+	{
 		super();
 	}
 
@@ -32,7 +34,8 @@ public class EvoMappingRepairExpressionImpl extends HyExpressionImpl implements 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
+	protected EClass eStaticClass()
+	{
 		return EvoMappingRepairPackage.Literals.EVO_MAPPING_REPAIR_EXPRESSION;
 	}
 

@@ -79,7 +79,7 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
       {
         GrammarEntry grammarEntry = (GrammarEntry)theEObject;
         T result = caseGrammarEntry(grammarEntry);
-        if (result == null) result = caseEvoLogicDsl_GrammarEntry(grammarEntry);
+        if (result == null) result = caseEvo_logic_dsl_GrammarEntry(grammarEntry);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,7 +138,7 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEvoLogicDsl_GrammarEntry(de.evorepair.logic.evoLogicDsl.GrammarEntry object)
+  public T caseEvo_logic_dsl_GrammarEntry(de.evorepair.logic.evo_logic_dsl.GrammarEntry object)
   {
     return null;
   }

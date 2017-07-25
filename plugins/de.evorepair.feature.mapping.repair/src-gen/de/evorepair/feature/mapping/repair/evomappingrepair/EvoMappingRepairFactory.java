@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.EFactory;
  * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage
  * @generated
  */
-public interface EvoMappingRepairFactory extends EFactory {
+public interface EvoMappingRepairFactory extends EFactory
+{
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

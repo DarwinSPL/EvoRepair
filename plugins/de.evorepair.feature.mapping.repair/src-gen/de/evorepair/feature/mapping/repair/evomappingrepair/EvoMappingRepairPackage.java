@@ -23,7 +23,8 @@ import org.eclipse.emf.ecore.EPackage;
  * @model kind="package"
  * @generated
  */
-public interface EvoMappingRepairPackage extends EPackage {
+public interface EvoMappingRepairPackage extends EPackage
+{
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -220,7 +221,8 @@ public interface EvoMappingRepairPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals
+	{
 		/**
 		 * The meta object literal for the '{@link de.evorepair.feature.mapping.repair.evomappingrepair.impl.EvoMappingRepairExpressionImpl <em>Expression</em>}' class.
 		 * <!-- begin-user-doc -->

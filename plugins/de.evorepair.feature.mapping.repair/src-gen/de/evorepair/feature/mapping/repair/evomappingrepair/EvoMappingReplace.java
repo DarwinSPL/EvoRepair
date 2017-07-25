@@ -14,5 +14,6 @@ import eu.hyvar.feature.expression.HyBinaryExpression;
  * @model
  * @generated
  */
-public interface EvoMappingReplace extends EvoMappingRepairExpression, HyBinaryExpression {
+public interface EvoMappingReplace extends EvoMappingRepairExpression, HyBinaryExpression
+{
 } // EvoMappingReplace

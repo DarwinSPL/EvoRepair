@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage
  * @generated
  */
-public class EvoMappingRepairSwitch<T> extends Switch<T> {
+public class EvoMappingRepairSwitch<T> extends Switch<T>
+{
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -41,8 +42,10 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairSwitch() {
-		if (modelPackage == null) {
+	public EvoMappingRepairSwitch()
+	{
+		if (modelPackage == null)
+		{
 			modelPackage = EvoMappingRepairPackage.eINSTANCE;
 		}
 	}
@@ -56,7 +59,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
+	protected boolean isSwitchFor(EPackage ePackage)
+	{
 		return ePackage == modelPackage;
 	}
 
@@ -68,16 +72,20 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case EvoMappingRepairPackage.EVO_MAPPING_REPAIR_EXPRESSION: {
+	protected T doSwitch(int classifierID, EObject theEObject)
+	{
+		switch (classifierID)
+		{
+			case EvoMappingRepairPackage.EVO_MAPPING_REPAIR_EXPRESSION:
+			{
 				EvoMappingRepairExpression evoMappingRepairExpression = (EvoMappingRepairExpression)theEObject;
 				T result = caseEvoMappingRepairExpression(evoMappingRepairExpression);
 				if (result == null) result = caseHyExpression(evoMappingRepairExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoMappingRepairPackage.EVO_MAPPING_KEEP: {
+			case EvoMappingRepairPackage.EVO_MAPPING_KEEP:
+			{
 				EvoMappingKeep evoMappingKeep = (EvoMappingKeep)theEObject;
 				T result = caseEvoMappingKeep(evoMappingKeep);
 				if (result == null) result = caseEvoMappingRepairExpression(evoMappingKeep);
@@ -86,7 +94,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EvoMappingRepairPackage.EVO_MAPPING_REPLACE: {
+			case EvoMappingRepairPackage.EVO_MAPPING_REPLACE:
+			{
 				EvoMappingReplace evoMappingReplace = (EvoMappingReplace)theEObject;
 				T result = caseEvoMappingReplace(evoMappingReplace);
 				if (result == null) result = caseEvoMappingRepairExpression(evoMappingReplace);
@@ -110,7 +119,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoMappingRepairExpression(EvoMappingRepairExpression object) {
+	public T caseEvoMappingRepairExpression(EvoMappingRepairExpression object)
+	{
 		return null;
 	}
 
@@ -125,7 +135,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoMappingKeep(EvoMappingKeep object) {
+	public T caseEvoMappingKeep(EvoMappingKeep object)
+	{
 		return null;
 	}
 
@@ -140,7 +151,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEvoMappingReplace(EvoMappingReplace object) {
+	public T caseEvoMappingReplace(EvoMappingReplace object)
+	{
 		return null;
 	}
 
@@ -155,7 +167,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHyExpression(HyExpression object) {
+	public T caseHyExpression(HyExpression object)
+	{
 		return null;
 	}
 
@@ -170,7 +183,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHyUnaryExpression(HyUnaryExpression object) {
+	public T caseHyUnaryExpression(HyUnaryExpression object)
+	{
 		return null;
 	}
 
@@ -185,7 +199,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHyBinaryExpression(HyBinaryExpression object) {
+	public T caseHyBinaryExpression(HyBinaryExpression object)
+	{
 		return null;
 	}
 
@@ -201,7 +216,8 @@ public class EvoMappingRepairSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T defaultCase(EObject object)
+	{
 		return null;
 	}
 

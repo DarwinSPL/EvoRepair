@@ -14,5 +14,6 @@ import eu.hyvar.feature.expression.HyUnaryExpression;
  * @model
  * @generated
  */
-public interface EvoMappingKeep extends EvoMappingRepairExpression, HyUnaryExpression {
+public interface EvoMappingKeep extends EvoMappingRepairExpression, HyUnaryExpression
+{
 } // EvoMappingKeep

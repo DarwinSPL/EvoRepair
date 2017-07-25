@@ -1,4 +1,4 @@
-module de.evorepair.feature.mapping.repair.dsl.GenerateMappingRepairDsl
+module de.evorepair.feature.mapping.repair.dsl.GenerateEvoMappingRepairDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*

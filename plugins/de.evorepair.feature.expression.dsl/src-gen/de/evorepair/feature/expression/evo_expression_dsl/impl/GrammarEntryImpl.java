@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class GrammarEntryImpl extends de.evorepair.logic.evoLogicDsl.impl.GrammarEntryImpl implements GrammarEntry
+public class GrammarEntryImpl extends de.evorepair.logic.evo_logic_dsl.impl.GrammarEntryImpl implements GrammarEntry
 {
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.

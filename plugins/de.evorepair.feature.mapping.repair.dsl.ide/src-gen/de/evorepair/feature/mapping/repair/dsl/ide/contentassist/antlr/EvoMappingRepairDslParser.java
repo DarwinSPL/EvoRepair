@@ -44,6 +44,7 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoBiconditionalSizeAccess().getAlternatives(), "rule__EvoBiconditionalSize__Alternatives");
 					put(grammarAccess.getEvoSetInclusionSizeAccess().getAlternatives(), "rule__EvoSetInclusionSize__Alternatives");
 					put(grammarAccess.getEvoSetCardinalityAccess().getAlternatives_1(), "rule__EvoSetCardinality__Alternatives_1");
+					put(grammarAccess.getEvoNotAccess().getAlternatives(), "rule__EvoNot__Alternatives");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAlternatives_3_0(), "rule__EvoSatisfiable__VariablesAlternatives_3_0");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAlternatives_4_1_0(), "rule__EvoSatisfiable__VariablesAlternatives_4_1_0");
 					put(grammarAccess.getEvoTerminalAccess().getAlternatives(), "rule__EvoTerminal__Alternatives");
@@ -144,11 +145,11 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoSetCardinalityAccess().getGroup_1_1(), "rule__EvoSetCardinality__Group_1_1__0");
 					put(grammarAccess.getEvoElementOfAccess().getGroup(), "rule__EvoElementOf__Group__0");
 					put(grammarAccess.getEvoElementOfAccess().getGroup_1(), "rule__EvoElementOf__Group_1__0");
-					put(grammarAccess.getEvoFeatureVariableAccess().getGroup(), "rule__EvoFeatureVariable__Group__0");
 					put(grammarAccess.getEvoForAllAccess().getGroup(), "rule__EvoForAll__Group__0");
 					put(grammarAccess.getEvoForAllAccess().getGroup_3(), "rule__EvoForAll__Group_3__0");
 					put(grammarAccess.getEvoExistsAccess().getGroup(), "rule__EvoExists__Group__0");
-					put(grammarAccess.getEvoNotAccess().getGroup(), "rule__EvoNot__Group__0");
+					put(grammarAccess.getEvoNotAccess().getGroup_0(), "rule__EvoNot__Group_0__0");
+					put(grammarAccess.getEvoNotAccess().getGroup_1(), "rule__EvoNot__Group_1__0");
 					put(grammarAccess.getEvoSatisfiableAccess().getGroup(), "rule__EvoSatisfiable__Group__0");
 					put(grammarAccess.getEvoSatisfiableAccess().getGroup_4(), "rule__EvoSatisfiable__Group_4__0");
 					put(grammarAccess.getEvoTerminalAccess().getGroup_13(), "rule__EvoTerminal__Group_13__0");
@@ -237,13 +238,13 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoSetCardinalityAccess().getOperandAssignment_1_0_1(), "rule__EvoSetCardinality__OperandAssignment_1_0_1");
 					put(grammarAccess.getEvoSetCardinalityAccess().getOperandAssignment_1_1_2(), "rule__EvoSetCardinality__OperandAssignment_1_1_2");
 					put(grammarAccess.getEvoElementOfAccess().getOperand2Assignment_1_2(), "rule__EvoElementOf__Operand2Assignment_1_2");
-					put(grammarAccess.getEvoFeatureVariableAccess().getNameAssignment_1(), "rule__EvoFeatureVariable__NameAssignment_1");
 					put(grammarAccess.getEvoForAllAccess().getBoundedVariablesAssignment_2(), "rule__EvoForAll__BoundedVariablesAssignment_2");
 					put(grammarAccess.getEvoForAllAccess().getBoundedVariablesAssignment_3_1(), "rule__EvoForAll__BoundedVariablesAssignment_3_1");
 					put(grammarAccess.getEvoForAllAccess().getOperandAssignment_5(), "rule__EvoForAll__OperandAssignment_5");
 					put(grammarAccess.getEvoExistsAccess().getBoundedVariablesAssignment_2(), "rule__EvoExists__BoundedVariablesAssignment_2");
 					put(grammarAccess.getEvoExistsAccess().getElementAssignment_4(), "rule__EvoExists__ElementAssignment_4");
-					put(grammarAccess.getEvoNotAccess().getOperandAssignment_2(), "rule__EvoNot__OperandAssignment_2");
+					put(grammarAccess.getEvoNotAccess().getOperandAssignment_0_2(), "rule__EvoNot__OperandAssignment_0_2");
+					put(grammarAccess.getEvoNotAccess().getOperandAssignment_1_1(), "rule__EvoNot__OperandAssignment_1_1");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAssignment_3(), "rule__EvoSatisfiable__VariablesAssignment_3");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAssignment_4_1(), "rule__EvoSatisfiable__VariablesAssignment_4_1");
 					put(grammarAccess.getEvoSizeAccess().getSizeAssignment_1(), "rule__EvoSize__SizeAssignment_1");

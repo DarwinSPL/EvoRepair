@@ -1,4 +1,4 @@
-module de.evorepair.feature.expression.GenerateExpressionDsl
+module de.evorepair.feature.expression.GenerateEvoExpressionDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
@@ -49,10 +49,6 @@ Workflow {
 
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
-	
-    		formatter = {
-				generateStub = true
 			}
 
 			serializer = {

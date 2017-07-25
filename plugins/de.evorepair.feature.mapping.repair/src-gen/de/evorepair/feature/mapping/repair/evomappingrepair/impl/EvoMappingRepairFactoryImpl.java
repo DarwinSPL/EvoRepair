@@ -18,21 +18,26 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMappingRepairFactory {
+public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMappingRepairFactory
+{
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EvoMappingRepairFactory init() {
-		try {
+	public static EvoMappingRepairFactory init()
+	{
+		try
+		{
 			EvoMappingRepairFactory theEvoMappingRepairFactory = (EvoMappingRepairFactory)EPackage.Registry.INSTANCE.getEFactory(EvoMappingRepairPackage.eNS_URI);
-			if (theEvoMappingRepairFactory != null) {
+			if (theEvoMappingRepairFactory != null)
+			{
 				return theEvoMappingRepairFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EvoMappingRepairFactoryImpl();
@@ -44,7 +49,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairFactoryImpl() {
+	public EvoMappingRepairFactoryImpl()
+	{
 		super();
 	}
 
@@ -54,8 +60,10 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
+	public EObject create(EClass eClass)
+	{
+		switch (eClass.getClassifierID())
+		{
 			case EvoMappingRepairPackage.EVO_MAPPING_REPAIR_EXPRESSION: return createEvoMappingRepairExpression();
 			case EvoMappingRepairPackage.EVO_MAPPING_KEEP: return createEvoMappingKeep();
 			case EvoMappingRepairPackage.EVO_MAPPING_REPLACE: return createEvoMappingReplace();
@@ -69,7 +77,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairExpression createEvoMappingRepairExpression() {
+	public EvoMappingRepairExpression createEvoMappingRepairExpression()
+	{
 		EvoMappingRepairExpressionImpl evoMappingRepairExpression = new EvoMappingRepairExpressionImpl();
 		return evoMappingRepairExpression;
 	}
@@ -79,7 +88,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingKeep createEvoMappingKeep() {
+	public EvoMappingKeep createEvoMappingKeep()
+	{
 		EvoMappingKeepImpl evoMappingKeep = new EvoMappingKeepImpl();
 		return evoMappingKeep;
 	}
@@ -89,7 +99,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingReplace createEvoMappingReplace() {
+	public EvoMappingReplace createEvoMappingReplace()
+	{
 		EvoMappingReplaceImpl evoMappingReplace = new EvoMappingReplaceImpl();
 		return evoMappingReplace;
 	}
@@ -99,7 +110,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairPackage getEvoMappingRepairPackage() {
+	public EvoMappingRepairPackage getEvoMappingRepairPackage()
+	{
 		return (EvoMappingRepairPackage)getEPackage();
 	}
 
@@ -110,7 +122,8 @@ public class EvoMappingRepairFactoryImpl extends EFactoryImpl implements EvoMapp
 	 * @generated
 	 */
 	@Deprecated
-	public static EvoMappingRepairPackage getPackage() {
+	public static EvoMappingRepairPackage getPackage()
+	{
 		return EvoMappingRepairPackage.eINSTANCE;
 	}
 

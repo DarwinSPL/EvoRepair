@@ -19,7 +19,6 @@ Require-Bundle: org.eclipse.xtext,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.evolution.operation.evoOperationDsl.util,
  de.evorepair.evolution.operation.scoping,
- de.evorepair.evolution.operation.formatting2,
  de.evorepair.evolution.operation.generator,
  de.evorepair.evolution.operation.evoOperationDsl,
  de.evorepair.evolution.operation.services,

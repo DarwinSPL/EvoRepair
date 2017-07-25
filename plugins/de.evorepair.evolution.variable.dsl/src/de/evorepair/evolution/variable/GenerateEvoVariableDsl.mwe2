@@ -54,22 +54,13 @@ Workflow {
 			
 			referencedResource = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 			referencedResource = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
-			
-			
-			scopeProvider = {				
-				generateXtendStub = true
-			}
-			
-			formatter = {
-				generateStub = true
-			}
 
 			serializer = {
 				generateStub = false
 			}
 			
 			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				generateStub = false
 			}
 		}
 	}

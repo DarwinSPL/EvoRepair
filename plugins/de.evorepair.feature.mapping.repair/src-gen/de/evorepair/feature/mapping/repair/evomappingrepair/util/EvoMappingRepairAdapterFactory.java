@@ -23,7 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage
  * @generated
  */
-public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
+public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl
+{
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -38,8 +39,10 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairAdapterFactory() {
-		if (modelPackage == null) {
+	public EvoMappingRepairAdapterFactory()
+	{
+		if (modelPackage == null)
+		{
 			modelPackage = EvoMappingRepairPackage.eINSTANCE;
 		}
 	}
@@ -53,11 +56,14 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+	public boolean isFactoryForType(Object object)
+	{
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -70,33 +76,41 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected EvoMappingRepairSwitch<Adapter> modelSwitch =
-		new EvoMappingRepairSwitch<Adapter>() {
+		new EvoMappingRepairSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseEvoMappingRepairExpression(EvoMappingRepairExpression object) {
+			public Adapter caseEvoMappingRepairExpression(EvoMappingRepairExpression object)
+			{
 				return createEvoMappingRepairExpressionAdapter();
 			}
 			@Override
-			public Adapter caseEvoMappingKeep(EvoMappingKeep object) {
+			public Adapter caseEvoMappingKeep(EvoMappingKeep object)
+			{
 				return createEvoMappingKeepAdapter();
 			}
 			@Override
-			public Adapter caseEvoMappingReplace(EvoMappingReplace object) {
+			public Adapter caseEvoMappingReplace(EvoMappingReplace object)
+			{
 				return createEvoMappingReplaceAdapter();
 			}
 			@Override
-			public Adapter caseHyExpression(HyExpression object) {
+			public Adapter caseHyExpression(HyExpression object)
+			{
 				return createHyExpressionAdapter();
 			}
 			@Override
-			public Adapter caseHyUnaryExpression(HyUnaryExpression object) {
+			public Adapter caseHyUnaryExpression(HyUnaryExpression object)
+			{
 				return createHyUnaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseHyBinaryExpression(HyBinaryExpression object) {
+			public Adapter caseHyBinaryExpression(HyBinaryExpression object)
+			{
 				return createHyBinaryExpressionAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};
@@ -110,7 +124,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	@Override
-	public Adapter createAdapter(Notifier target) {
+	public Adapter createAdapter(Notifier target)
+	{
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
@@ -125,7 +140,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairExpression
 	 * @generated
 	 */
-	public Adapter createEvoMappingRepairExpressionAdapter() {
+	public Adapter createEvoMappingRepairExpressionAdapter()
+	{
 		return null;
 	}
 
@@ -139,7 +155,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingKeep
 	 * @generated
 	 */
-	public Adapter createEvoMappingKeepAdapter() {
+	public Adapter createEvoMappingKeepAdapter()
+	{
 		return null;
 	}
 
@@ -153,7 +170,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace
 	 * @generated
 	 */
-	public Adapter createEvoMappingReplaceAdapter() {
+	public Adapter createEvoMappingReplaceAdapter()
+	{
 		return null;
 	}
 
@@ -167,7 +185,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see eu.hyvar.feature.expression.HyExpression
 	 * @generated
 	 */
-	public Adapter createHyExpressionAdapter() {
+	public Adapter createHyExpressionAdapter()
+	{
 		return null;
 	}
 
@@ -181,7 +200,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see eu.hyvar.feature.expression.HyUnaryExpression
 	 * @generated
 	 */
-	public Adapter createHyUnaryExpressionAdapter() {
+	public Adapter createHyUnaryExpressionAdapter()
+	{
 		return null;
 	}
 
@@ -195,7 +215,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @see eu.hyvar.feature.expression.HyBinaryExpression
 	 * @generated
 	 */
-	public Adapter createHyBinaryExpressionAdapter() {
+	public Adapter createHyBinaryExpressionAdapter()
+	{
 		return null;
 	}
 
@@ -207,7 +228,8 @@ public class EvoMappingRepairAdapterFactory extends AdapterFactoryImpl {
 	 * @return the new adapter.
 	 * @generated
 	 */
-	public Adapter createEObjectAdapter() {
+	public Adapter createEObjectAdapter()
+	{
 		return null;
 	}
 

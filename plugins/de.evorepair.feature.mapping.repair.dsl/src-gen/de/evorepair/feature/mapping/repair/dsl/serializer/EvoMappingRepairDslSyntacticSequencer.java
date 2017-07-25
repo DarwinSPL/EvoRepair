@@ -55,11 +55,12 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '!' operand=EvoVariableTerm
 	 *     (rule start) (ambiguity) 'AC' '(' variable=[EvoMappingVariable|QualifiedName]
 	 *     (rule start) (ambiguity) 'childrenOf' '(' variable=EvoVariableTerm
-	 *     (rule start) (ambiguity) 'exists' '(' boundedVariables+=EvoFeatureVariable
+	 *     (rule start) (ambiguity) 'exists' '(' boundedVariables+=EvoVariableTerm
 	 *     (rule start) (ambiguity) 'featureType' '(' variables+=EvoVariableTerm
-	 *     (rule start) (ambiguity) 'forAll' '(' boundedVariables+=EvoFeatureVariable
+	 *     (rule start) (ambiguity) 'forAll' '(' boundedVariables+=EvoVariableTerm
 	 *     (rule start) (ambiguity) 'groupType' '(' variables+=EvoGroupTerm
 	 *     (rule start) (ambiguity) 'not' '(' operand=EvoExpression
 	 *     (rule start) (ambiguity) 'parentOf' '(' variable=EvoVariableTerm

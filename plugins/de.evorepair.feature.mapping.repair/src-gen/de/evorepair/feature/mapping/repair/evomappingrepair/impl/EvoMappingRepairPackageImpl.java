@@ -29,7 +29,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMappingRepairPackage {
+public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMappingRepairPackage
+{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +67,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * @see #init()
 	 * @generated
 	 */
-	private EvoMappingRepairPackageImpl() {
+	private EvoMappingRepairPackageImpl()
+	{
 		super(eNS_URI, EvoMappingRepairFactory.eINSTANCE);
 	}
 
@@ -89,7 +91,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static EvoMappingRepairPackage init() {
+	public static EvoMappingRepairPackage init()
+	{
 		if (isInited) return (EvoMappingRepairPackage)EPackage.Registry.INSTANCE.getEPackage(EvoMappingRepairPackage.eNS_URI);
 
 		// Obtain or create and register package
@@ -124,7 +127,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoMappingRepairExpression() {
+	public EClass getEvoMappingRepairExpression()
+	{
 		return evoMappingRepairExpressionEClass;
 	}
 
@@ -133,7 +137,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoMappingKeep() {
+	public EClass getEvoMappingKeep()
+	{
 		return evoMappingKeepEClass;
 	}
 
@@ -142,7 +147,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoMappingReplace() {
+	public EClass getEvoMappingReplace()
+	{
 		return evoMappingReplaceEClass;
 	}
 
@@ -151,7 +157,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingRepairFactory getEvoMappingRepairFactory() {
+	public EvoMappingRepairFactory getEvoMappingRepairFactory()
+	{
 		return (EvoMappingRepairFactory)getEFactoryInstance();
 	}
 
@@ -169,7 +176,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
+	public void createPackageContents()
+	{
 		if (isCreated) return;
 		isCreated = true;
 
@@ -195,7 +203,8 @@ public class EvoMappingRepairPackageImpl extends EPackageImpl implements EvoMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents() {
+	public void initializePackageContents()
+	{
 		if (isInitialized) return;
 		isInitialized = true;
 
