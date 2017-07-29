@@ -5,7 +5,7 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: de.evorepair.feature.expression.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: de.evorepair.feature.expression,
+Require-Bundle: de.evorepair.feature.expression.dsl,
  eu.hyvar.feature.expression,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide

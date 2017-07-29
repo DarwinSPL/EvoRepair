@@ -7028,9 +7028,9 @@ rule__EvoAnd__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
@@ -7163,9 +7163,9 @@ rule__EvoEqual__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
@@ -7298,9 +7298,9 @@ rule__EvoUnequal__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
@@ -7433,9 +7433,9 @@ rule__EvoImplication__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
@@ -7568,9 +7568,9 @@ rule__EvoBiconditional__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
@@ -8919,7 +8919,7 @@ rule__EvoForAll__Group__3__Impl
 :
 (
 	{ before(grammarAccess.getEvoForAllAccess().getGroup_3()); }
-	(rule__EvoForAll__Group_3__0)
+	(rule__EvoForAll__Group_3__0)*
 	{ after(grammarAccess.getEvoForAllAccess().getGroup_3()); }
 )
 ;
@@ -9188,9 +9188,9 @@ rule__EvoExists__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoExistsAccess().getElementAssignment_4()); }
-	(rule__EvoExists__ElementAssignment_4)
-	{ after(grammarAccess.getEvoExistsAccess().getElementAssignment_4()); }
+	{ before(grammarAccess.getEvoExistsAccess().getOperandAssignment_4()); }
+	(rule__EvoExists__OperandAssignment_4)
+	{ after(grammarAccess.getEvoExistsAccess().getOperandAssignment_4()); }
 )
 ;
 finally {
@@ -12067,15 +12067,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EvoExists__ElementAssignment_4
+rule__EvoExists__OperandAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEvoExistsAccess().getElementEvoExpressionParserRuleCall_4_0()); }
+		{ before(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0()); }
 		ruleEvoExpression
-		{ after(grammarAccess.getEvoExistsAccess().getElementEvoExpressionParserRuleCall_4_0()); }
+		{ after(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0()); }
 	)
 ;
 finally {

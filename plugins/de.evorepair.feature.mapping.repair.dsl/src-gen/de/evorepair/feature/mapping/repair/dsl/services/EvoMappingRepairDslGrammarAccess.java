@@ -722,7 +722,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoAnd dw_expression::HyExpression:
-	//	EvoEqual ({EvoAnd.operand1=current} '&&' operand2=EvoEqual)*;
+	//	EvoEqual ({dw_expression::HyAndExpression.operand1=current} '&&' operand2=EvoEqual)*;
 	public EvoLogicDslGrammarAccess.EvoAndElements getEvoAndAccess() {
 		return gaEvoLogicDsl.getEvoAndAccess();
 	}
@@ -732,7 +732,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoEqual dw_expression::HyExpression:
-	//	EvoUnequal ({EvoEqual.operand1=current} '==' operand2=EvoUnequalSize)*;
+	//	EvoUnequal ({dw_expression::HyEqualExpression.operand1=current} '==' operand2=EvoUnequalSize)*;
 	public EvoLogicDslGrammarAccess.EvoEqualElements getEvoEqualAccess() {
 		return gaEvoLogicDsl.getEvoEqualAccess();
 	}
@@ -752,7 +752,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoUnequal dw_expression::HyExpression:
-	//	EvoImplication ({EvoUnequal.operand1=current} '!=' operand2=EvoImplicationSize)*;
+	//	EvoImplication ({dw_expression::HyNotEqualExpression.operand1=current} '!=' operand2=EvoImplicationSize)*;
 	public EvoLogicDslGrammarAccess.EvoUnequalElements getEvoUnequalAccess() {
 		return gaEvoLogicDsl.getEvoUnequalAccess();
 	}
@@ -772,7 +772,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoImplication dw_expression::HyExpression:
-	//	EvoBiconditional ({EvoImplication.operand1=current} '=>' operand2=EvoBiconditionalSize)*;
+	//	EvoBiconditional ({dw_expression::HyImpliesExpression.operand1=current} '=>' operand2=EvoBiconditionalSize)*;
 	public EvoLogicDslGrammarAccess.EvoImplicationElements getEvoImplicationAccess() {
 		return gaEvoLogicDsl.getEvoImplicationAccess();
 	}
@@ -792,7 +792,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoBiconditional dw_expression::HyExpression:
-	//	EvoSetInclusion ({EvoBiconditional.operand1=current} '<=>' operand2=EvoSetInclusionSize)*;
+	//	EvoSetInclusion ({evo_logic::EvoBinaryExpression.operand1=current} '<=>' operand2=EvoSetInclusionSize)*;
 	public EvoLogicDslGrammarAccess.EvoBiconditionalElements getEvoBiconditionalAccess() {
 		return gaEvoLogicDsl.getEvoBiconditionalAccess();
 	}
@@ -822,7 +822,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetIntersection dw_expression::HyExpression:
-	//	EvoSetUnion ({EvoSetIntersection.operand1=current} 'intersection' operand2=EvoSetUnion)*;
+	//	EvoSetUnion ({evo_logic::EvoSetIntersection.operand1=current} 'intersection' operand2=EvoSetUnion)*;
 	public EvoLogicDslGrammarAccess.EvoSetIntersectionElements getEvoSetIntersectionAccess() {
 		return gaEvoLogicDsl.getEvoSetIntersectionAccess();
 	}
@@ -832,7 +832,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetUnion dw_expression::HyExpression:
-	//	EvoSetDifference ({EvoSetUnion.operand1=current} 'union' operand2=EvoSetDifference)*;
+	//	EvoSetDifference ({evo_logic::EvoSetUnion.operand1=current} 'union' operand2=EvoSetDifference)*;
 	public EvoLogicDslGrammarAccess.EvoSetUnionElements getEvoSetUnionAccess() {
 		return gaEvoLogicDsl.getEvoSetUnionAccess();
 	}
@@ -842,7 +842,8 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetDifference dw_expression::HyExpression:
-	//	EvoSetSymmetricDifference ({EvoSetDifference.operand1=current} 'difference' operand2=EvoSetSymmetricDifference)*;
+	//	EvoSetSymmetricDifference ({evo_logic::EvoSetDifference.operand1=current} 'difference'
+	//	operand2=EvoSetSymmetricDifference)*;
 	public EvoLogicDslGrammarAccess.EvoSetDifferenceElements getEvoSetDifferenceAccess() {
 		return gaEvoLogicDsl.getEvoSetDifferenceAccess();
 	}
@@ -852,7 +853,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetSymmetricDifference dw_expression::HyExpression:
-	//	EvoSetCartesianProduct ({EvoSetSymmetricDifference.operand1=current} 'symmetric_difference'
+	//	EvoSetCartesianProduct ({evo_logic::EvoSetSymmetricDifference.operand1=current} 'symmetric_difference'
 	//	operand2=EvoSetCartesianProduct)*;
 	public EvoLogicDslGrammarAccess.EvoSetSymmetricDifferenceElements getEvoSetSymmetricDifferenceAccess() {
 		return gaEvoLogicDsl.getEvoSetSymmetricDifferenceAccess();
@@ -863,7 +864,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetCartesianProduct dw_expression::HyExpression:
-	//	EvoElementOf ({EvoSetCartesianProduct.operand1=current} 'x' operand2=EvoElementOf)*;
+	//	EvoElementOf ({evo_logic::EvoSetCartesianProduct.operand1=current} 'x' operand2=EvoElementOf)*;
 	public EvoLogicDslGrammarAccess.EvoSetCartesianProductElements getEvoSetCartesianProductAccess() {
 		return gaEvoLogicDsl.getEvoSetCartesianProductAccess();
 	}
@@ -873,7 +874,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoSetCardinality dw_expression::HyExpression:
-	//	{EvoSetCardinality} ('|' operand=EvoExpression '|' | 'size' '(' operand=EvoExpression ')');
+	//	{evo_logic::EvoSetCardinality} ('|' operand=EvoExpression '|' | 'size' '(' operand=EvoExpression ')');
 	public EvoLogicDslGrammarAccess.EvoSetCardinalityElements getEvoSetCardinalityAccess() {
 		return gaEvoLogicDsl.getEvoSetCardinalityAccess();
 	}
@@ -883,7 +884,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoElementOf dw_expression::HyExpression:
-	//	EvoTerminal ({EvoSetElementOf.operand1=current} 'elementOf' operand2=EvoTerminal)*;
+	//	EvoTerminal ({evo_logic::EvoSetElementOf.operand1=current} 'elementOf' operand2=EvoTerminal)*;
 	public EvoLogicDslGrammarAccess.EvoElementOfElements getEvoElementOfAccess() {
 		return gaEvoLogicDsl.getEvoElementOfAccess();
 	}
@@ -892,9 +893,9 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoElementOfAccess().getRule();
 	}
 	
-	//EvoForAll:
+	//EvoForAll evo_logic::EvoForAll:
 	//	'forAll' '('
-	//	boundedVariables+=EvoVariableTerm (',' boundedVariables+=EvoVariableTerm) ':'
+	//	boundedVariables+=EvoVariableTerm (',' boundedVariables+=EvoVariableTerm)* ':'
 	//	operand=EvoExpression
 	//	')';
 	public EvoLogicDslGrammarAccess.EvoForAllElements getEvoForAllAccess() {
@@ -905,10 +906,10 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoForAllAccess().getRule();
 	}
 	
-	//EvoExists:
+	//EvoExists evo_logic::EvoExist:
 	//	'exists' '('
 	//	boundedVariables+=EvoVariableTerm ':'
-	//	element=EvoExpression
+	//	operand=EvoExpression
 	//	')';
 	public EvoLogicDslGrammarAccess.EvoExistsElements getEvoExistsAccess() {
 		return gaEvoLogicDsl.getEvoExistsAccess();
@@ -994,7 +995,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoFeatureType dw_expression::HyExpression:
-	//	{EvoFeatureType} 'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '=='
+	//	{evo_logic::EvoFeatureType} 'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '=='
 	//	type=HyFeatureTypeEnum;
 	public EvoLogicDslGrammarAccess.EvoFeatureTypeElements getEvoFeatureTypeAccess() {
 		return gaEvoLogicDsl.getEvoFeatureTypeAccess();

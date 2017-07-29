@@ -77,12 +77,14 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 				HyConfiguration configuration = (HyConfiguration) configurationModelResource.getContents().get(0);
 				EvoConfigurationVariable configurationVariable = (EvoConfigurationVariable)operation.getVariables().get(0);
 				configurationVariable.setConfiguration(configuration);
+				/*
 				
 				EvoFeatureVariable featureVariable = (EvoFeatureVariable)operation.getVariables().get(1);
 				featureVariable.setFeature(featureModel.getFeatures().get(2));
 				
 				EvoFeatureVariable parentVariable = (EvoFeatureVariable)operation.getVariables().get(2);
 				parentVariable.setFeature(featureModel.getFeatures().get(0));
+				*/
 			}
 		}
 

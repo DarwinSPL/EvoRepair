@@ -12,12 +12,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.evorepair.guidance.evoguidancecatalog.presentation.EvoguidanceCatalogModelWizardID"
-            name="%_UI_EvoguidanceCatalogModelWizard_label"
-            class="de.evorepair.guidance.evoguidancecatalog.presentation.EvoguidanceCatalogModelWizard"
+            id="de.evorepair.guidance.evoguidancecatalog.presentation.EvoGuidanceCatalogModelWizardID"
+            name="%_UI_EvoGuidanceCatalogModelWizard_label"
+            class="de.evorepair.guidance.evoguidancecatalog.presentation.EvoGuidanceCatalogModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EvoguidanceCatalogModelFile.gif">
-         <description>%_UI_EvoguidanceCatalogModelWizard_description</description>
+            icon="icons/full/obj16/EvoGuidanceCatalogModelFile.gif">
+         <description>%_UI_EvoGuidanceCatalogModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated EvoGuidanceCatalog -->
       <editor
-            id="de.evorepair.guidance.evoguidancecatalog.presentation.EvoguidanceCatalogEditorID"
-            name="%_UI_EvoguidanceCatalogEditor_label"
-            icon="icons/full/obj16/EvoguidanceCatalogModelFile.gif"
+            id="de.evorepair.guidance.evoguidancecatalog.presentation.EvoGuidanceCatalogEditorID"
+            name="%_UI_EvoGuidanceCatalogEditor_label"
+            icon="icons/full/obj16/EvoGuidanceCatalogModelFile.gif"
             extensions="evoguidancecatalog"
-            class="de.evorepair.guidance.evoguidancecatalog.presentation.EvoguidanceCatalogEditor"
-            contributorClass="de.evorepair.guidance.evoguidancecatalog.presentation.EvoguidanceCatalogActionBarContributor">
+            class="de.evorepair.guidance.evoguidancecatalog.presentation.EvoGuidanceCatalogEditor"
+            contributorClass="de.evorepair.guidance.evoguidancecatalog.presentation.EvoGuidanceCatalogActionBarContributor">
       </editor>
    </extension>
 

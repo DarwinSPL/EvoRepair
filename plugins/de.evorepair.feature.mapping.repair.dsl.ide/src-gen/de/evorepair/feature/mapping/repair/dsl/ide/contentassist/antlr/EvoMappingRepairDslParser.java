@@ -242,7 +242,7 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoForAllAccess().getBoundedVariablesAssignment_3_1(), "rule__EvoForAll__BoundedVariablesAssignment_3_1");
 					put(grammarAccess.getEvoForAllAccess().getOperandAssignment_5(), "rule__EvoForAll__OperandAssignment_5");
 					put(grammarAccess.getEvoExistsAccess().getBoundedVariablesAssignment_2(), "rule__EvoExists__BoundedVariablesAssignment_2");
-					put(grammarAccess.getEvoExistsAccess().getElementAssignment_4(), "rule__EvoExists__ElementAssignment_4");
+					put(grammarAccess.getEvoExistsAccess().getOperandAssignment_4(), "rule__EvoExists__OperandAssignment_4");
 					put(grammarAccess.getEvoNotAccess().getOperandAssignment_0_2(), "rule__EvoNot__OperandAssignment_0_2");
 					put(grammarAccess.getEvoNotAccess().getOperandAssignment_1_1(), "rule__EvoNot__OperandAssignment_1_1");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAssignment_3(), "rule__EvoSatisfiable__VariablesAssignment_3");

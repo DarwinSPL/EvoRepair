@@ -21633,13 +21633,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:7030:1: ( () )
             // InternalEvoMappingRepairDsl.g:7031:2: ()
             {
-             before(grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0()); 
+             before(grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()); 
             // InternalEvoMappingRepairDsl.g:7032:2: ()
             // InternalEvoMappingRepairDsl.g:7032:3: 
             {
             }
 
-             after(grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0()); 
+             after(grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()); 
 
             }
 
@@ -22040,13 +22040,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:7165:1: ( () )
             // InternalEvoMappingRepairDsl.g:7166:2: ()
             {
-             before(grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0()); 
+             before(grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0()); 
             // InternalEvoMappingRepairDsl.g:7167:2: ()
             // InternalEvoMappingRepairDsl.g:7167:3: 
             {
             }
 
-             after(grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0()); 
+             after(grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0()); 
 
             }
 
@@ -22447,13 +22447,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:7300:1: ( () )
             // InternalEvoMappingRepairDsl.g:7301:2: ()
             {
-             before(grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0()); 
+             before(grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()); 
             // InternalEvoMappingRepairDsl.g:7302:2: ()
             // InternalEvoMappingRepairDsl.g:7302:3: 
             {
             }
 
-             after(grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0()); 
+             after(grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()); 
 
             }
 
@@ -22854,13 +22854,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:7435:1: ( () )
             // InternalEvoMappingRepairDsl.g:7436:2: ()
             {
-             before(grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0()); 
+             before(grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()); 
             // InternalEvoMappingRepairDsl.g:7437:2: ()
             // InternalEvoMappingRepairDsl.g:7437:3: 
             {
             }
 
-             after(grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0()); 
+             after(grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()); 
 
             }
 
@@ -23261,13 +23261,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:7570:1: ( () )
             // InternalEvoMappingRepairDsl.g:7571:2: ()
             {
-             before(grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0()); 
+             before(grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0()); 
             // InternalEvoMappingRepairDsl.g:7572:2: ()
             // InternalEvoMappingRepairDsl.g:7572:3: 
             {
             }
 
-             after(grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0()); 
+             after(grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0()); 
 
             }
 
@@ -27139,7 +27139,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:8880:1: ( rule__EvoForAll__Group__2__Impl rule__EvoForAll__Group__3 )
             // InternalEvoMappingRepairDsl.g:8881:2: rule__EvoForAll__Group__2__Impl rule__EvoForAll__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_78);
             rule__EvoForAll__Group__2__Impl();
 
             state._fsp--;
@@ -27253,29 +27253,47 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoForAll__Group__3__Impl"
-    // InternalEvoMappingRepairDsl.g:8915:1: rule__EvoForAll__Group__3__Impl : ( ( rule__EvoForAll__Group_3__0 ) ) ;
+    // InternalEvoMappingRepairDsl.g:8915:1: rule__EvoForAll__Group__3__Impl : ( ( rule__EvoForAll__Group_3__0 )* ) ;
     public final void rule__EvoForAll__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:8919:1: ( ( ( rule__EvoForAll__Group_3__0 ) ) )
-            // InternalEvoMappingRepairDsl.g:8920:1: ( ( rule__EvoForAll__Group_3__0 ) )
+            // InternalEvoMappingRepairDsl.g:8919:1: ( ( ( rule__EvoForAll__Group_3__0 )* ) )
+            // InternalEvoMappingRepairDsl.g:8920:1: ( ( rule__EvoForAll__Group_3__0 )* )
             {
-            // InternalEvoMappingRepairDsl.g:8920:1: ( ( rule__EvoForAll__Group_3__0 ) )
-            // InternalEvoMappingRepairDsl.g:8921:2: ( rule__EvoForAll__Group_3__0 )
+            // InternalEvoMappingRepairDsl.g:8920:1: ( ( rule__EvoForAll__Group_3__0 )* )
+            // InternalEvoMappingRepairDsl.g:8921:2: ( rule__EvoForAll__Group_3__0 )*
             {
              before(grammarAccess.getEvoForAllAccess().getGroup_3()); 
-            // InternalEvoMappingRepairDsl.g:8922:2: ( rule__EvoForAll__Group_3__0 )
-            // InternalEvoMappingRepairDsl.g:8922:3: rule__EvoForAll__Group_3__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__EvoForAll__Group_3__0();
+            // InternalEvoMappingRepairDsl.g:8922:2: ( rule__EvoForAll__Group_3__0 )*
+            loop55:
+            do {
+                int alt55=2;
+                int LA55_0 = input.LA(1);
 
-            state._fsp--;
+                if ( (LA55_0==38) ) {
+                    alt55=1;
+                }
 
 
-            }
+                switch (alt55) {
+            	case 1 :
+            	    // InternalEvoMappingRepairDsl.g:8922:3: rule__EvoForAll__Group_3__0
+            	    {
+            	    pushFollow(FOLLOW_24);
+            	    rule__EvoForAll__Group_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop55;
+                }
+            } while (true);
 
              after(grammarAccess.getEvoForAllAccess().getGroup_3()); 
 
@@ -27844,7 +27862,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9123:1: ( rule__EvoExists__Group__2__Impl rule__EvoExists__Group__3 )
             // InternalEvoMappingRepairDsl.g:9124:2: rule__EvoExists__Group__2__Impl rule__EvoExists__Group__3
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_79);
             rule__EvoExists__Group__2__Impl();
 
             state._fsp--;
@@ -28033,31 +28051,31 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoExists__Group__4__Impl"
-    // InternalEvoMappingRepairDsl.g:9185:1: rule__EvoExists__Group__4__Impl : ( ( rule__EvoExists__ElementAssignment_4 ) ) ;
+    // InternalEvoMappingRepairDsl.g:9185:1: rule__EvoExists__Group__4__Impl : ( ( rule__EvoExists__OperandAssignment_4 ) ) ;
     public final void rule__EvoExists__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:9189:1: ( ( ( rule__EvoExists__ElementAssignment_4 ) ) )
-            // InternalEvoMappingRepairDsl.g:9190:1: ( ( rule__EvoExists__ElementAssignment_4 ) )
+            // InternalEvoMappingRepairDsl.g:9189:1: ( ( ( rule__EvoExists__OperandAssignment_4 ) ) )
+            // InternalEvoMappingRepairDsl.g:9190:1: ( ( rule__EvoExists__OperandAssignment_4 ) )
             {
-            // InternalEvoMappingRepairDsl.g:9190:1: ( ( rule__EvoExists__ElementAssignment_4 ) )
-            // InternalEvoMappingRepairDsl.g:9191:2: ( rule__EvoExists__ElementAssignment_4 )
+            // InternalEvoMappingRepairDsl.g:9190:1: ( ( rule__EvoExists__OperandAssignment_4 ) )
+            // InternalEvoMappingRepairDsl.g:9191:2: ( rule__EvoExists__OperandAssignment_4 )
             {
-             before(grammarAccess.getEvoExistsAccess().getElementAssignment_4()); 
-            // InternalEvoMappingRepairDsl.g:9192:2: ( rule__EvoExists__ElementAssignment_4 )
-            // InternalEvoMappingRepairDsl.g:9192:3: rule__EvoExists__ElementAssignment_4
+             before(grammarAccess.getEvoExistsAccess().getOperandAssignment_4()); 
+            // InternalEvoMappingRepairDsl.g:9192:2: ( rule__EvoExists__OperandAssignment_4 )
+            // InternalEvoMappingRepairDsl.g:9192:3: rule__EvoExists__OperandAssignment_4
             {
             pushFollow(FOLLOW_2);
-            rule__EvoExists__ElementAssignment_4();
+            rule__EvoExists__OperandAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEvoExistsAccess().getElementAssignment_4()); 
+             after(grammarAccess.getEvoExistsAccess().getOperandAssignment_4()); 
 
             }
 
@@ -28619,7 +28637,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9393:1: ( rule__EvoSatisfiable__Group__0__Impl rule__EvoSatisfiable__Group__1 )
             // InternalEvoMappingRepairDsl.g:9394:2: rule__EvoSatisfiable__Group__0__Impl rule__EvoSatisfiable__Group__1
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_80);
             rule__EvoSatisfiable__Group__0__Impl();
 
             state._fsp--;
@@ -28769,7 +28787,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9447:1: ( rule__EvoSatisfiable__Group__2__Impl rule__EvoSatisfiable__Group__3 )
             // InternalEvoMappingRepairDsl.g:9448:2: rule__EvoSatisfiable__Group__2__Impl rule__EvoSatisfiable__Group__3
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_81);
             rule__EvoSatisfiable__Group__2__Impl();
 
             state._fsp--;
@@ -28972,17 +28990,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoSatisfiableAccess().getGroup_4()); 
             // InternalEvoMappingRepairDsl.g:9516:2: ( rule__EvoSatisfiable__Group_4__0 )*
-            loop55:
+            loop56:
             do {
-                int alt55=2;
-                int LA55_0 = input.LA(1);
+                int alt56=2;
+                int LA56_0 = input.LA(1);
 
-                if ( (LA55_0==38) ) {
-                    alt55=1;
+                if ( (LA56_0==38) ) {
+                    alt56=1;
                 }
 
 
-                switch (alt55) {
+                switch (alt56) {
             	case 1 :
             	    // InternalEvoMappingRepairDsl.g:9516:3: rule__EvoSatisfiable__Group_4__0
             	    {
@@ -28996,7 +29014,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             	    break;
 
             	default :
-            	    break loop55;
+            	    break loop56;
                 }
             } while (true);
 
@@ -29102,7 +29120,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9555:1: ( rule__EvoSatisfiable__Group_4__0__Impl rule__EvoSatisfiable__Group_4__1 )
             // InternalEvoMappingRepairDsl.g:9556:2: rule__EvoSatisfiable__Group_4__0__Impl rule__EvoSatisfiable__Group_4__1
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_81);
             rule__EvoSatisfiable__Group_4__0__Impl();
 
             state._fsp--;
@@ -29636,7 +29654,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9744:1: ( rule__EvoVariableTerm__Group__0__Impl rule__EvoVariableTerm__Group__1 )
             // InternalEvoMappingRepairDsl.g:9745:2: rule__EvoVariableTerm__Group__0__Impl rule__EvoVariableTerm__Group__1
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_82);
             rule__EvoVariableTerm__Group__0__Impl();
 
             state._fsp--;
@@ -29759,13 +29777,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoVariableTermAccess().getTypeAssignment_1()); 
             // InternalEvoMappingRepairDsl.g:9785:2: ( rule__EvoVariableTerm__TypeAssignment_1 )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-            if ( ((LA56_0>=18 && LA56_0<=20)) ) {
-                alt56=1;
+            if ( ((LA57_0>=18 && LA57_0<=20)) ) {
+                alt57=1;
             }
-            switch (alt56) {
+            switch (alt57) {
                 case 1 :
                     // InternalEvoMappingRepairDsl.g:9785:3: rule__EvoVariableTerm__TypeAssignment_1
                     {
@@ -30117,7 +30135,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9906:1: ( rule__EvoFeatureType__Group__0__Impl rule__EvoFeatureType__Group__1 )
             // InternalEvoMappingRepairDsl.g:9907:2: rule__EvoFeatureType__Group__0__Impl rule__EvoFeatureType__Group__1
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_83);
             rule__EvoFeatureType__Group__0__Impl();
 
             state._fsp--;
@@ -30352,7 +30370,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:9987:1: ( rule__EvoFeatureType__Group__3__Impl rule__EvoFeatureType__Group__4 )
             // InternalEvoMappingRepairDsl.g:9988:2: rule__EvoFeatureType__Group__3__Impl rule__EvoFeatureType__Group__4
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_84);
             rule__EvoFeatureType__Group__3__Impl();
 
             state._fsp--;
@@ -30710,17 +30728,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoFeatureTypeAccess().getGroup_2_2()); 
             // InternalEvoMappingRepairDsl.g:10110:2: ( rule__EvoFeatureType__Group_2_2__0 )*
-            loop57:
+            loop58:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( (LA57_0==38) ) {
-                    alt57=1;
+                if ( (LA58_0==38) ) {
+                    alt58=1;
                 }
 
 
-                switch (alt57) {
+                switch (alt58) {
             	case 1 :
             	    // InternalEvoMappingRepairDsl.g:10110:3: rule__EvoFeatureType__Group_2_2__0
             	    {
@@ -30734,7 +30752,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             	    break;
 
             	default :
-            	    break loop57;
+            	    break loop58;
                 }
             } while (true);
 
@@ -30995,7 +31013,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10203:1: ( rule__EvoGroupType__Group__0__Impl rule__EvoGroupType__Group__1 )
             // InternalEvoMappingRepairDsl.g:10204:2: rule__EvoGroupType__Group__0__Impl rule__EvoGroupType__Group__1
             {
-            pushFollow(FOLLOW_84);
+            pushFollow(FOLLOW_85);
             rule__EvoGroupType__Group__0__Impl();
 
             state._fsp--;
@@ -31230,7 +31248,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10284:1: ( rule__EvoGroupType__Group__3__Impl rule__EvoGroupType__Group__4 )
             // InternalEvoMappingRepairDsl.g:10285:2: rule__EvoGroupType__Group__3__Impl rule__EvoGroupType__Group__4
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_86);
             rule__EvoGroupType__Group__3__Impl();
 
             state._fsp--;
@@ -31588,17 +31606,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoGroupTypeAccess().getGroup_2_2()); 
             // InternalEvoMappingRepairDsl.g:10407:2: ( rule__EvoGroupType__Group_2_2__0 )*
-            loop58:
+            loop59:
             do {
-                int alt58=2;
-                int LA58_0 = input.LA(1);
+                int alt59=2;
+                int LA59_0 = input.LA(1);
 
-                if ( (LA58_0==38) ) {
-                    alt58=1;
+                if ( (LA59_0==38) ) {
+                    alt59=1;
                 }
 
 
-                switch (alt58) {
+                switch (alt59) {
             	case 1 :
             	    // InternalEvoMappingRepairDsl.g:10407:3: rule__EvoGroupType__Group_2_2__0
             	    {
@@ -31612,7 +31630,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             	    break;
 
             	default :
-            	    break loop58;
+            	    break loop59;
                 }
             } while (true);
 
@@ -31873,7 +31891,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10500:1: ( rule__EvoGroupTerm__Group__0__Impl rule__EvoGroupTerm__Group__1 )
             // InternalEvoMappingRepairDsl.g:10501:2: rule__EvoGroupTerm__Group__0__Impl rule__EvoGroupTerm__Group__1
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_82);
             rule__EvoGroupTerm__Group__0__Impl();
 
             state._fsp--;
@@ -31996,13 +32014,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoGroupTermAccess().getTypeAssignment_1()); 
             // InternalEvoMappingRepairDsl.g:10541:2: ( rule__EvoGroupTerm__TypeAssignment_1 )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( ((LA59_0>=18 && LA59_0<=20)) ) {
-                alt59=1;
+            if ( ((LA60_0>=18 && LA60_0<=20)) ) {
+                alt60=1;
             }
-            switch (alt59) {
+            switch (alt60) {
                 case 1 :
                     // InternalEvoMappingRepairDsl.g:10541:3: rule__EvoGroupTerm__TypeAssignment_1
                     {
@@ -32049,7 +32067,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10554:1: ( rule__EvoSetTerm__Group__0__Impl rule__EvoSetTerm__Group__1 )
             // InternalEvoMappingRepairDsl.g:10555:2: rule__EvoSetTerm__Group__0__Impl rule__EvoSetTerm__Group__1
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_87);
             rule__EvoSetTerm__Group__0__Impl();
 
             state._fsp--;
@@ -32124,7 +32142,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10581:1: ( rule__EvoSetTerm__Group__1__Impl rule__EvoSetTerm__Group__2 )
             // InternalEvoMappingRepairDsl.g:10582:2: rule__EvoSetTerm__Group__1__Impl rule__EvoSetTerm__Group__2
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_88);
             rule__EvoSetTerm__Group__1__Impl();
 
             state._fsp--;
@@ -32209,7 +32227,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10608:1: ( rule__EvoSetTerm__Group__2__Impl rule__EvoSetTerm__Group__3 )
             // InternalEvoMappingRepairDsl.g:10609:2: rule__EvoSetTerm__Group__2__Impl rule__EvoSetTerm__Group__3
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_88);
             rule__EvoSetTerm__Group__2__Impl();
 
             state._fsp--;
@@ -32252,17 +32270,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             {
              before(grammarAccess.getEvoSetTermAccess().getGroup_2()); 
             // InternalEvoMappingRepairDsl.g:10623:2: ( rule__EvoSetTerm__Group_2__0 )*
-            loop60:
+            loop61:
             do {
-                int alt60=2;
-                int LA60_0 = input.LA(1);
+                int alt61=2;
+                int LA61_0 = input.LA(1);
 
-                if ( (LA60_0==38) ) {
-                    alt60=1;
+                if ( (LA61_0==38) ) {
+                    alt61=1;
                 }
 
 
-                switch (alt60) {
+                switch (alt61) {
             	case 1 :
             	    // InternalEvoMappingRepairDsl.g:10623:3: rule__EvoSetTerm__Group_2__0
             	    {
@@ -32276,7 +32294,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             	    break;
 
             	default :
-            	    break loop60;
+            	    break loop61;
                 }
             } while (true);
 
@@ -32382,7 +32400,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:10662:1: ( rule__EvoSetTerm__Group_2__0__Impl rule__EvoSetTerm__Group_2__1 )
             // InternalEvoMappingRepairDsl.g:10663:2: rule__EvoSetTerm__Group_2__0__Impl rule__EvoSetTerm__Group_2__1
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_87);
             rule__EvoSetTerm__Group_2__0__Impl();
 
             state._fsp--;
@@ -36184,9 +36202,9 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
     // $ANTLR end "rule__EvoExists__BoundedVariablesAssignment_2"
 
 
-    // $ANTLR start "rule__EvoExists__ElementAssignment_4"
-    // InternalEvoMappingRepairDsl.g:12070:1: rule__EvoExists__ElementAssignment_4 : ( ruleEvoExpression ) ;
-    public final void rule__EvoExists__ElementAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__EvoExists__OperandAssignment_4"
+    // InternalEvoMappingRepairDsl.g:12070:1: rule__EvoExists__OperandAssignment_4 : ( ruleEvoExpression ) ;
+    public final void rule__EvoExists__OperandAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -36197,13 +36215,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
             // InternalEvoMappingRepairDsl.g:12075:2: ( ruleEvoExpression )
             // InternalEvoMappingRepairDsl.g:12076:3: ruleEvoExpression
             {
-             before(grammarAccess.getEvoExistsAccess().getElementEvoExpressionParserRuleCall_4_0()); 
+             before(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
             ruleEvoExpression();
 
             state._fsp--;
 
-             after(grammarAccess.getEvoExistsAccess().getElementEvoExpressionParserRuleCall_4_0()); 
+             after(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0()); 
 
             }
 
@@ -36222,7 +36240,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
         }
         return ;
     }
-    // $ANTLR end "rule__EvoExists__ElementAssignment_4"
+    // $ANTLR end "rule__EvoExists__OperandAssignment_4"
 
 
     // $ANTLR start "rule__EvoNot__OperandAssignment_0_2"
@@ -37288,15 +37306,16 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
     public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x8000000000000000L});
     public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000100000000010L,0x00000000000004A0L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x00000000001C0000L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000003800000L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000100000000010L,0x0000000000000420L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000004000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000004000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000100000000010L,0x00000000000004A0L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x00000000001C0000L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000003800000L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000100000000010L,0x0000000000000420L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000004000000000L,0x0000000000000800L});
 
 }

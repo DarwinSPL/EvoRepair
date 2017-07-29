@@ -37,11 +37,11 @@ EvoOr returns dw_expression::HyExpression:
 	
 	
 EvoAnd returns dw_expression::HyExpression:
-	EvoEqual({EvoAnd.operand1=current} ('&&') operand2=EvoEqual)*;
+	EvoEqual({dw_expression::HyAndExpression.operand1=current} ('&&') operand2=EvoEqual)*;
 	
 	
 EvoEqual returns dw_expression::HyExpression:
-	EvoUnequal({EvoEqual.operand1=current} ('==') operand2=EvoUnequalSize)*;
+	EvoUnequal({dw_expression::HyEqualExpression.operand1=current} ('==') operand2=EvoUnequalSize)*;
 	
 	
 EvoUnequalSize returns dw_expression::HyExpression:
@@ -49,7 +49,7 @@ EvoUnequalSize returns dw_expression::HyExpression:
 
 
 EvoUnequal returns dw_expression::HyExpression:
-	EvoImplication({EvoUnequal.operand1=current} ('!=') operand2=EvoImplicationSize)* ;
+	EvoImplication({dw_expression::HyNotEqualExpression.operand1=current} ('!=') operand2=EvoImplicationSize)* ;
 
 
 EvoImplicationSize returns dw_expression::HyExpression:
@@ -57,7 +57,7 @@ EvoImplicationSize returns dw_expression::HyExpression:
 
 
 EvoImplication returns dw_expression::HyExpression:
-	EvoBiconditional({EvoImplication.operand1=current} ('=>') operand2=EvoBiconditionalSize)*;
+	EvoBiconditional({dw_expression::HyImpliesExpression.operand1=current} ('=>') operand2=EvoBiconditionalSize)*;
 	
 	
 EvoBiconditionalSize returns dw_expression::HyExpression:
@@ -65,7 +65,7 @@ EvoBiconditionalSize returns dw_expression::HyExpression:
 		
 		
 EvoBiconditional returns dw_expression::HyExpression:
-	EvoSetInclusion({EvoBiconditional.operand1=current} ('<=>') operand2=EvoSetInclusionSize)*;
+	EvoSetInclusion({evo_logic::EvoBinaryExpression.operand1=current} ('<=>') operand2=EvoSetInclusionSize)*;
 	
 	
 EvoSetInclusionSize returns dw_expression::HyExpression:
@@ -77,46 +77,46 @@ EvoSetInclusion returns dw_expression::HyExpression:
 	
 
 EvoSetIntersection returns dw_expression::HyExpression:
-	EvoSetUnion({EvoSetIntersection.operand1=current} ('intersection') operand2=EvoSetUnion)*;
+	EvoSetUnion({evo_logic::EvoSetIntersection.operand1=current} ('intersection') operand2=EvoSetUnion)*;
 
 
 EvoSetUnion returns dw_expression::HyExpression:
-	EvoSetDifference({EvoSetUnion.operand1=current} ('union') operand2=EvoSetDifference)*;
+	EvoSetDifference({evo_logic::EvoSetUnion.operand1=current} ('union') operand2=EvoSetDifference)*;
 
 
 EvoSetDifference returns dw_expression::HyExpression:
-	EvoSetSymmetricDifference({EvoSetDifference.operand1=current} ('difference') operand2=EvoSetSymmetricDifference)*;
+	EvoSetSymmetricDifference({evo_logic::EvoSetDifference.operand1=current} ('difference') operand2=EvoSetSymmetricDifference)*;
 
 
 EvoSetSymmetricDifference returns dw_expression::HyExpression:
-	EvoSetCartesianProduct({EvoSetSymmetricDifference.operand1=current} ('symmetric_difference') operand2=EvoSetCartesianProduct)*;
+	EvoSetCartesianProduct({evo_logic::EvoSetSymmetricDifference.operand1=current} ('symmetric_difference') operand2=EvoSetCartesianProduct)*;
 
 
 EvoSetCartesianProduct returns dw_expression::HyExpression:
-	EvoElementOf({EvoSetCartesianProduct.operand1=current} ('x') operand2=EvoElementOf)*;
+	EvoElementOf({evo_logic::EvoSetCartesianProduct.operand1=current} ('x') operand2=EvoElementOf)*;
 
 
 EvoSetCardinality returns dw_expression::HyExpression:
-	{EvoSetCardinality} (('|' operand=EvoExpression '|') | ('size' '(' operand=EvoExpression ')'));
+	{evo_logic::EvoSetCardinality} (('|' operand=EvoExpression '|') | ('size' '(' operand=EvoExpression ')'));
 
 
 EvoElementOf returns dw_expression::HyExpression:
-	EvoTerminal({EvoSetElementOf.operand1=current} ('elementOf') operand2=EvoTerminal)*;
+	EvoTerminal({evo_logic::EvoSetElementOf.operand1=current} ('elementOf') operand2=EvoTerminal)*;
 
 
 
 	
-EvoForAll:
+EvoForAll returns evo_logic::EvoForAll:
 	'forAll' '('
-		boundedVariables += EvoVariableTerm (',' boundedVariables += EvoVariableTerm) ':'
+		boundedVariables += EvoVariableTerm (',' boundedVariables += EvoVariableTerm)* ':'
 		operand=EvoExpression
 	')';
 	
 	
-EvoExists:
+EvoExists returns evo_logic::EvoExist:
 	'exists' '('
 		boundedVariables+=EvoVariableTerm ':'
-		element=EvoExpression
+		operand=EvoExpression
 	')';
 
 
@@ -165,7 +165,7 @@ EvoApplicationConstraintTerm returns evo_logic::EvoVariableTerm:
 	
 	
 EvoFeatureType returns dw_expression::HyExpression:
-	({EvoFeatureType}'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '==' type=HyFeatureTypeEnum)
+	({evo_logic::EvoFeatureType}'featureType' ('(' variables+=EvoVariableTerm (',' variables+=EvoVariableTerm)* ')') '==' type=HyFeatureTypeEnum)
 ;
 
 enum HyFeatureTypeEnum returns dw_feature::HyFeatureTypeEnum:

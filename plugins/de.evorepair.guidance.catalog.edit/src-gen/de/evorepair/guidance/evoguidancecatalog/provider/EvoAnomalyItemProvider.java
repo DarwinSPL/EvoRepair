@@ -4,10 +4,10 @@ package de.evorepair.guidance.evoguidancecatalog.provider;
 
 
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
-import de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogFactory;
-import de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogPackage;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogFactory;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogPackage;
 
-import de.evorepair.logic.evofirstorderlogic.EvoFirstOrderLogicFactory;
+import de.evorepair.logic.evologic.EvoLogicFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -85,7 +85,7 @@ public class EvoAnomalyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoAnomaly_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoAnomaly_type_feature", "_UI_EvoAnomaly_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__TYPE,
+				 EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__TYPE,
 				 true,
 				 false,
 				 false,
@@ -107,7 +107,7 @@ public class EvoAnomalyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoAnomaly_category_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoAnomaly_category_feature", "_UI_EvoAnomaly_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__CATEGORY,
+				 EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__CATEGORY,
 				 true,
 				 false,
 				 false,
@@ -129,7 +129,7 @@ public class EvoAnomalyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoAnomaly_id_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoAnomaly_id_feature", "_UI_EvoAnomaly_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__ID,
+				 EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__ID,
 				 true,
 				 false,
 				 false,
@@ -150,8 +150,8 @@ public class EvoAnomalyItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__CONDITION);
-			childrenFeatures.add(EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__GUIDANCE);
+			childrenFeatures.add(EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__CONDITION);
+			childrenFeatures.add(EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__GUIDANCE);
 		}
 		return childrenFeatures;
 	}
@@ -207,13 +207,13 @@ public class EvoAnomalyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EvoAnomaly.class)) {
-			case EvoguidanceCatalogPackage.EVO_ANOMALY__TYPE:
-			case EvoguidanceCatalogPackage.EVO_ANOMALY__CATEGORY:
-			case EvoguidanceCatalogPackage.EVO_ANOMALY__ID:
+			case EvoGuidanceCatalogPackage.EVO_ANOMALY__TYPE:
+			case EvoGuidanceCatalogPackage.EVO_ANOMALY__CATEGORY:
+			case EvoGuidanceCatalogPackage.EVO_ANOMALY__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EvoguidanceCatalogPackage.EVO_ANOMALY__CONDITION:
-			case EvoguidanceCatalogPackage.EVO_ANOMALY__GUIDANCE:
+			case EvoGuidanceCatalogPackage.EVO_ANOMALY__CONDITION:
+			case EvoGuidanceCatalogPackage.EVO_ANOMALY__GUIDANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -233,13 +233,13 @@ public class EvoAnomalyItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__CONDITION,
-				 EvoFirstOrderLogicFactory.eINSTANCE.createEvoFormula()));
+				(EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__CONDITION,
+				 EvoLogicFactory.eINSTANCE.createEvoFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EvoguidanceCatalogPackage.Literals.EVO_ANOMALY__GUIDANCE,
-				 EvoguidanceCatalogFactory.eINSTANCE.createEvoGuidanceElement()));
+				(EvoGuidanceCatalogPackage.Literals.EVO_ANOMALY__GUIDANCE,
+				 EvoGuidanceCatalogFactory.eINSTANCE.createEvoGuidanceElement()));
 	}
 
 	/**

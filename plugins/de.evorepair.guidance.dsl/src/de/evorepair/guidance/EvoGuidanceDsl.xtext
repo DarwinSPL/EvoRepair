@@ -38,7 +38,7 @@ EvoAnomaly returns EvoAnomaly:
 	
 EvoMappingAnomaly:
  	'mapping' id=ID '{'
-		('type' type=EvoAnomalyType ';')?
+		('type' ':' type=EvoAnomalyType ';')?
 		'condition' ':' condition=EvoConfigurationFormula ';'
 		'guidances' '{' 
 			guidance+=EvoMappingGuidanceElement (guidance+=EvoMappingGuidanceElement)*

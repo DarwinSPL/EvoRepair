@@ -3,9 +3,9 @@
 package de.evorepair.guidance.evoguidancecatalog.provider;
 
 
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogPackage;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceType;
-import de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -81,7 +81,7 @@ public class EvoGuidanceElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoGuidanceElement_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoGuidanceElement_type_feature", "_UI_EvoGuidanceElement_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__TYPE,
+				 EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__TYPE,
 				 true,
 				 false,
 				 false,
@@ -103,7 +103,7 @@ public class EvoGuidanceElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoGuidanceElement_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoGuidanceElement_description_feature", "_UI_EvoGuidanceElement_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__DESCRIPTION,
+				 EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -125,7 +125,7 @@ public class EvoGuidanceElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoGuidanceElement_action_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoGuidanceElement_action_feature", "_UI_EvoGuidanceElement_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__ACTION,
+				 EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_ELEMENT__ACTION,
 				 true,
 				 false,
 				 true,
@@ -173,8 +173,8 @@ public class EvoGuidanceElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EvoGuidanceElement.class)) {
-			case EvoguidanceCatalogPackage.EVO_GUIDANCE_ELEMENT__TYPE:
-			case EvoguidanceCatalogPackage.EVO_GUIDANCE_ELEMENT__DESCRIPTION:
+			case EvoGuidanceCatalogPackage.EVO_GUIDANCE_ELEMENT__TYPE:
+			case EvoGuidanceCatalogPackage.EVO_GUIDANCE_ELEMENT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

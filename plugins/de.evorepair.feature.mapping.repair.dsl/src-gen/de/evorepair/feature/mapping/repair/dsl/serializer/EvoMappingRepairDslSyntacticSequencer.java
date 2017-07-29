@@ -71,10 +71,7 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     (rule start) (ambiguity) '{' variables+=EvoSetVariable
 	 *     (rule start) (ambiguity) '|' operand=EvoExpression
 	 *     (rule start) (ambiguity) variable=[EvoVariable|QualifiedName]
-	 *     (rule start) (ambiguity) {EvoAnd.operand1=}
-	 *     (rule start) (ambiguity) {EvoBiconditional.operand1=}
-	 *     (rule start) (ambiguity) {EvoEqual.operand1=}
-	 *     (rule start) (ambiguity) {EvoImplication.operand1=}
+	 *     (rule start) (ambiguity) {EvoBinaryExpression.operand1=}
 	 *     (rule start) (ambiguity) {EvoOr.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetCartesianProduct.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetDifference.operand1=}
@@ -83,8 +80,11 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     (rule start) (ambiguity) {EvoSetIntersection.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetSymmetricDifference.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetUnion.operand1=}
-	 *     (rule start) (ambiguity) {EvoUnequal.operand1=}
 	 *     (rule start) (ambiguity) {EvoXOr.operand1=}
+	 *     (rule start) (ambiguity) {HyAndExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyEqualExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyImpliesExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyNotEqualExpression.operand1=}
 	 */
 	protected void emit_EvoTerminal_LeftParenthesisKeyword_13_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -95,10 +95,7 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) {EvoAnd.operand1=}
-	 *     (rule start) (ambiguity) {EvoBiconditional.operand1=}
-	 *     (rule start) (ambiguity) {EvoEqual.operand1=}
-	 *     (rule start) (ambiguity) {EvoImplication.operand1=}
+	 *     (rule start) (ambiguity) {EvoBinaryExpression.operand1=}
 	 *     (rule start) (ambiguity) {EvoOr.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetCartesianProduct.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetDifference.operand1=}
@@ -107,8 +104,11 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     (rule start) (ambiguity) {EvoSetIntersection.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetSymmetricDifference.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetUnion.operand1=}
-	 *     (rule start) (ambiguity) {EvoUnequal.operand1=}
 	 *     (rule start) (ambiguity) {EvoXOr.operand1=}
+	 *     (rule start) (ambiguity) {HyAndExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyEqualExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyImpliesExpression.operand1=}
+	 *     (rule start) (ambiguity) {HyNotEqualExpression.operand1=}
 	 */
 	protected void emit_EvoTerminal_LeftParenthesisKeyword_13_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

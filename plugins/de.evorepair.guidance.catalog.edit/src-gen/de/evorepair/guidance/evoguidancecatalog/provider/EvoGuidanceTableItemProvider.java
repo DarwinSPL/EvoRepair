@@ -3,9 +3,9 @@
 package de.evorepair.guidance.evoguidancecatalog.provider;
 
 
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogFactory;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogPackage;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
-import de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogFactory;
-import de.evorepair.guidance.evoguidancecatalog.EvoguidanceCatalogPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -80,7 +80,7 @@ public class EvoGuidanceTableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EvoGuidanceTable_triggeringOperations_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EvoGuidanceTable_triggeringOperations_feature", "_UI_EvoGuidanceTable_type"),
-				 EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__TRIGGERING_OPERATIONS,
+				 EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__TRIGGERING_OPERATIONS,
 				 true,
 				 false,
 				 true,
@@ -101,7 +101,7 @@ public class EvoGuidanceTableItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__ANOMALIES);
+			childrenFeatures.add(EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__ANOMALIES);
 		}
 		return childrenFeatures;
 	}
@@ -154,7 +154,7 @@ public class EvoGuidanceTableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EvoGuidanceTable.class)) {
-			case EvoguidanceCatalogPackage.EVO_GUIDANCE_TABLE__ANOMALIES:
+			case EvoGuidanceCatalogPackage.EVO_GUIDANCE_TABLE__ANOMALIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -174,8 +174,8 @@ public class EvoGuidanceTableItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EvoguidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__ANOMALIES,
-				 EvoguidanceCatalogFactory.eINSTANCE.createEvoAnomaly()));
+				(EvoGuidanceCatalogPackage.Literals.EVO_GUIDANCE_TABLE__ANOMALIES,
+				 EvoGuidanceCatalogFactory.eINSTANCE.createEvoAnomaly()));
 	}
 
 	/**

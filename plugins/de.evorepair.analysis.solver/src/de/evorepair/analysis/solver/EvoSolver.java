@@ -14,11 +14,14 @@ import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeSet;
+import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSet;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
 
 import de.evorepair.evolution.evooperation.EvoOperation;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
+import de.evorepair.evolution.evovariable.EvoFeatureRelation;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
+import de.evorepair.evolution.evovariable.EvoFeatureVariableType;
 import de.evorepair.evolution.evovariable.EvoGroupVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
@@ -88,7 +91,7 @@ public class EvoSolver {
 	 * @param operation that contains the variable
 	 * @param variable the variable to add
 	 */
-	private void addVariable(EvoOperation operation, EvoVariable variable){
+	private void addVariable(EvoOperation operation, EvoVariable variable, boolean bounded){
 		if(variable instanceof EvoFeatureVariable){
 			EvoFeatureVariable featureVariable = (EvoFeatureVariable)variable;
 
@@ -113,7 +116,7 @@ public class EvoSolver {
 						!groupVariables.containsKey(childKey) && 
 						!setVariables.containsKey(childKey)){
 
-					addVariable(operation, childVariable);
+					addVariable(operation, childVariable, false);
 
 					if(featureVariables.containsKey(childKey))
 						set.add(featureVariables.get(childKey).getValue());
@@ -133,7 +136,7 @@ public class EvoSolver {
 	private void collectVariables(EvoGuidanceTable guidanceTable){
 		for(EvoOperation operation : guidanceTable.getTriggeringOperations()){
 			for(EvoVariable variable : operation.getVariables()){
-				addVariable(operation, variable);
+				addVariable(operation, variable, false);
 			}
 		}
 	}		
@@ -164,14 +167,23 @@ public class EvoSolver {
 	 * @param oldFeature
 	 * @return
 	 */
-	public boolean determineValueOfFeatureTypeOperation(EvoFeatureType operation, HyFeature oldFeature){
+	public boolean determineValueOfFeatureTypeOperation(EvoFeatureType operation, HyFeature oldFeature, Variable replacedByVariable, EvoVariable variableToBeReplaced){
 		Date date = new Date();
 
 		for(EvoVariableTerm variable : operation.getVariables()){
 			HyFeature feature = null;
 			if(variable.getType() == EvoVariableType.EVO_TARGET || variable.getType() == EvoVariableType.EVO_IDENTIFIER){
 				EvoFeatureVariable featureVariable = (EvoFeatureVariable)variable.getVariable();
-				feature = featureVariable.getFeature();
+				
+				// find the HyFeature of the replacement variable
+				if(featureVariable.equals(variableToBeReplaced)) {
+					for(HyFeature key : this.featureVariables.keySet()) {
+						if(featureVariables.get(key).equals(replacedByVariable)){
+							feature = key;
+						}
+					}
+				}else
+					feature = featureVariable.getFeature();
 			}else if(variable.getType() == EvoVariableType.EVO_SOURCE){
 				feature = oldFeature;
 			}
@@ -245,20 +257,88 @@ public class EvoSolver {
 	}
 
 	/**
-	 * Returns the variable defined in the given abstract term and saved in the hashmap
+	 * Returns the variables defined in the given abstract term and saved in the hashmap
 	 * @param term
 	 * @return
 	 */
-	private Variable getVariable(HyExpression term){
+	private List<Variable> getVariable(HyExpression term, Date date, boolean bounded, Variable replacedByVariable, EvoVariable variableToBeReplaced){
+		List<Variable> result = new ArrayList<>();
+		
 		if(term instanceof EvoFeatureVariable){
 			EvoFeatureVariable featureVariableTerm = (EvoFeatureVariable)term;
-			return featureVariables.get(featureVariableTerm.getFeature());
+			
+			if(((EvoFeatureVariable)term).equals(variableToBeReplaced)) {
+				result.add(replacedByVariable);
+				return result;
+			}else {
+				result.add(featureVariables.get(featureVariableTerm.getFeature()));
+				return result;				
+			}
+				
+
 		}else if(term instanceof EvoVariableTerm){
 			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
-			return featureVariables.get(((EvoFeatureVariable)variableTerm.getVariable()).getFeature());
+			EvoFeatureVariable featureVariable = (EvoFeatureVariable)variableTerm.getVariable();
+			HyFeature feature = featureVariable.getFeature();
+			
+			/*
+			 * In case that the reference to the HyFeature was not set check if a relationship to 
+			 * another variable exist and resolve it
+			 */
+			if(feature == null) {	
+				if(((EvoFeatureVariable)variableTerm.getVariable()).equals(variableToBeReplaced)) {
+					result.add(replacedByVariable);
+					return result;
+				}
+				
+				if(featureVariable.getRelation() != null) {
+					EvoFeatureRelation relation = featureVariable.getRelation();
+					
+					if(relation.getFeatureType() == EvoFeatureVariableType.EVO_CHILD) {
+						for(EvoFeatureVariable relatedFeatureVariable : relation.getRelatedFeatures()) {
+							// find currently valid parent feature
+							if(HyEvolutionUtil.isValid(relatedFeatureVariable.getFeature(), date)) {
+								HyFeature parent = relatedFeatureVariable.getFeature();
+								for(HyFeatureChild child : HyEvolutionUtil.getValidTemporalElements(parent.getParentOf(), date)) {
+									for(HyGroupComposition composition : HyEvolutionUtil.getValidTemporalElements(child.getChildGroup().getParentOf(), date)) {
+										int index = 0; 
+										for(HyFeature childFeature : HyEvolutionUtil.getValidTemporalElements(composition.getFeatures(), date)) {		
+											// add the feature to the solver
+											if(!featureVariables.containsKey(childFeature)) {												
+												String parentName = HyEvolutionUtil.getValidTemporalElement(parent.getNames(), date).getName();
+												String childName = HyEvolutionUtil.getValidTemporalElement(childFeature.getNames(), date).getName();
+												featureVariables.put(childFeature, model.intVar(parentName+'_'+childName, featureVariables.size()));
+											}
+											result.add(featureVariables.get(childFeature));
+										}
+									}
+								}
+							}
+						}
+					}
+					
+					return result;
+				// throw an error because the variable doesn't have a relation reference and cannot be established	
+				} else {
+					// TODO error handling
+				}
+				
+			}else {
+				if(((EvoFeatureVariable)term).equals(variableToBeReplaced)) {
+					result.add(replacedByVariable);
+					return result;
+				}else {
+					result.add(featureVariables.get(feature));
+					return result;				
+				}
+			}
+			
+			
+			
 		}else if(term instanceof EvoGroupVariable){
 			EvoGroupVariable groupVariableTerm = (EvoGroupVariable)term;
-			return groupVariables.get(groupVariableTerm.getName());
+			result.add( groupVariables.get(groupVariableTerm.getName()));
+			return result;
 		}
 
 		return null;
@@ -469,14 +549,14 @@ public class EvoSolver {
 	 * @param date
 	 * @return
 	 */
-	private ILogical solveTerm(HyExpression term, HyExpression parentTerm, Date date){
+	private ILogical solveTerm(HyExpression term, HyExpression parentTerm, Date date, Variable replacedByVariable, EvoVariable variableToBeReplaced){
 		if(term instanceof HyAndExpression){
 			HyAndExpression andTerm = (HyAndExpression)term;
 
 			BoolVar result = model.boolVar();
 			
-			BoolVar v1 = (BoolVar)solveTerm(andTerm.getOperand1(), andTerm, date);
-			BoolVar v2 = (BoolVar)solveTerm(andTerm.getOperand2(), andTerm, date);
+			BoolVar v1 = (BoolVar)solveTerm(andTerm.getOperand1(), andTerm, date, replacedByVariable, variableToBeReplaced);
+			BoolVar v2 = (BoolVar)solveTerm(andTerm.getOperand2(), andTerm, date, replacedByVariable, variableToBeReplaced);
 			
 			model.addClauseTrue(v1);
 			model.addClauseTrue(v2);
@@ -485,8 +565,8 @@ public class EvoSolver {
 		}else if(term instanceof HyOrExpression){
 			HyOrExpression orTerm = (HyOrExpression)term;
 			
-			BoolVar v1 = (BoolVar)solveTerm(orTerm.getOperand1(), orTerm, date);
-			BoolVar v2 = (BoolVar)solveTerm(orTerm.getOperand2(), orTerm, date);
+			BoolVar v1 = (BoolVar)solveTerm(orTerm.getOperand1(), orTerm, date, replacedByVariable, variableToBeReplaced);
+			BoolVar v2 = (BoolVar)solveTerm(orTerm.getOperand2(), orTerm, date, replacedByVariable, variableToBeReplaced);
 			
 			BoolVar result = model.boolVar();
 			model.addClausesBoolOrEqVar(v1, v2, result);
@@ -495,11 +575,12 @@ public class EvoSolver {
 			return result;
 		}else if(term instanceof EvoXOr){
 			EvoXOr xorTerm = (EvoXOr)term;
-			return LogOp.xor(solveTerm(xorTerm.getOperand1(), xorTerm, date), solveTerm(xorTerm.getOperand2(), xorTerm, date));
+			return LogOp.xor(solveTerm(xorTerm.getOperand1(), xorTerm, date, replacedByVariable, variableToBeReplaced), 
+							 solveTerm(xorTerm.getOperand2(), xorTerm, date, replacedByVariable, variableToBeReplaced));
 		}else if(term instanceof HyNotExpression){
 			HyNotExpression notTerm = (HyNotExpression)term;
 			BoolVar var1 = model.boolVar();
-			LogOp.reified(var1, solveTerm(notTerm.getOperand(), notTerm, date));
+			LogOp.reified(var1, solveTerm(notTerm.getOperand(), notTerm, date, replacedByVariable, variableToBeReplaced));
 
 			if(!model.addClauseFalse(var1)){
 				System.err.println("Error: not clause could not be added to the model");
@@ -516,8 +597,8 @@ public class EvoSolver {
 				solveSetCardinality(equalTerm.getOperand2(), equalTerm, date, true);
 			}
 			if(!(equalTerm.getOperand1() instanceof EvoSetCardinality || equalTerm.getOperand2() instanceof EvoSetCardinality)){
-				LogOp.reified(var1, solveTerm(equalTerm.getOperand1(), equalTerm, date));
-				LogOp.reified(var2, solveTerm(equalTerm.getOperand2(), equalTerm, date));
+				LogOp.reified(var1, solveTerm(equalTerm.getOperand1(), equalTerm, date, replacedByVariable, variableToBeReplaced));
+				LogOp.reified(var2, solveTerm(equalTerm.getOperand2(), equalTerm, date, replacedByVariable, variableToBeReplaced));
 
 				if(!model.addClausesBoolEq(var1, var2)){
 					System.err.println("Error: equal clause could not be added to the model");
@@ -538,8 +619,8 @@ public class EvoSolver {
 				solveSetCardinality(unequalTerm.getOperand2(), unequalTerm, date, false);
 			}
 			if(!(unequalTerm.getOperand1() instanceof EvoSetCardinality || unequalTerm.getOperand2() instanceof EvoSetCardinality)){
-				LogOp.reified(var1, solveTerm(unequalTerm.getOperand1(), unequalTerm, date));
-				LogOp.reified(var2, solveTerm(unequalTerm.getOperand2(), unequalTerm, date));
+				LogOp.reified(var1, solveTerm(unequalTerm.getOperand1(), unequalTerm, date, replacedByVariable, variableToBeReplaced));
+				LogOp.reified(var2, solveTerm(unequalTerm.getOperand2(), unequalTerm, date, replacedByVariable, variableToBeReplaced));
 
 				if(!model.addClausesBoolNot(var1, var2)){
 					System.err.println("Error: unequal clause could not be added to the model");
@@ -550,15 +631,17 @@ public class EvoSolver {
 		}else if(term instanceof HyImpliesExpression){
 			HyImpliesExpression implicationTerm = (HyImpliesExpression)term;
 
-			return LogOp.implies(solveTerm(implicationTerm.getOperand1(), implicationTerm, date), solveTerm(implicationTerm.getOperand2(), implicationTerm, date));
+			return LogOp.implies(solveTerm(implicationTerm.getOperand1(), implicationTerm, date, replacedByVariable, variableToBeReplaced), 
+								 solveTerm(implicationTerm.getOperand2(), implicationTerm, date, replacedByVariable, variableToBeReplaced));
 		}else if(term instanceof EvoBiconditional){
 			EvoBiconditional biconditionalTerm = (EvoBiconditional)term;
 
-			return LogOp.ifOnlyIf(solveTerm(biconditionalTerm.getOperand1(), biconditionalTerm, date), solveTerm(biconditionalTerm.getOperand2(), biconditionalTerm, date));
+			return LogOp.ifOnlyIf(solveTerm(biconditionalTerm.getOperand1(), biconditionalTerm, date, replacedByVariable, variableToBeReplaced), 
+								  solveTerm(biconditionalTerm.getOperand2(), biconditionalTerm, date, replacedByVariable, variableToBeReplaced));
 		}else if(term instanceof EvoFeatureType){
 			EvoFeatureType featureTypeTerm = (EvoFeatureType)term;
 
-			BoolVar result = model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null));
+			BoolVar result = model.boolVar("ft_"+(new Date()), determineValueOfFeatureTypeOperation(featureTypeTerm, null, replacedByVariable, variableToBeReplaced));
 
 			if(parentTerm == null)
 				model.addClauseTrue(result);
@@ -576,8 +659,9 @@ public class EvoSolver {
 		}else if(term instanceof EvoSetElementOf){
 			EvoSetElementOf setElementOfTerm = (EvoSetElementOf)term;
 
-
-			boolean value = IntIterableSetUtils.includedIn((IntVar)getVariable(setElementOfTerm.getOperand1()), getSet(setElementOfTerm.getOperand2(), date));
+			IntIterableRangeSet set = getSet(setElementOfTerm.getOperand2(), date);
+			IntVar var = (IntVar)getVariable(setElementOfTerm.getOperand1(), date, false, replacedByVariable, variableToBeReplaced).get(0);
+			boolean value = IntIterableSetUtils.includedIn(var, set);
 
 			BoolVar variable = model.boolVar(value);
 			
@@ -596,18 +680,11 @@ public class EvoSolver {
 
 			BoolVar variable = model.boolVar(IntIterableSetUtils.includedIn(set1, set2));
 			model.addClauseTrue(variable);
-			return variable;
-		}else if(term instanceof EvoSetElementOf){
-			EvoSetElementOf elementOfTerm = (EvoSetElementOf)term;
-
-			IntVar element = (IntVar)getVariable(elementOfTerm.getOperand1());
-			IntIterableRangeSet set = getSet(elementOfTerm.getOperand2(), date);
-
-			return model.boolVar(IntIterableSetUtils.includedIn(element, set));
+			return variable;		
 		}else if(term instanceof EvoSetNotElementOf){
 			EvoSetNotElementOf elementOfTerm = (EvoSetNotElementOf)term;
 
-			IntVar element = (IntVar)getVariable(elementOfTerm.getOperand1());
+			IntVar element = (IntVar)getVariable(elementOfTerm.getOperand1(), date, false, replacedByVariable, variableToBeReplaced).get(0);
 			IntIterableRangeSet set = getSet(elementOfTerm.getOperand2(), date);
 
 			return model.boolVar(IntIterableSetUtils.notIncludedIn(element, set));
@@ -615,13 +692,26 @@ public class EvoSolver {
 			EvoForAll forAllTerm = (EvoForAll)term;
 			List<Variable> variables = new ArrayList<>();
 			
-			for(EvoVariable variable : forAllTerm.getBoundedVariables()){
-				variables.add(getVariable((HyExpression)variable));
-			}
-			
 			BoolVar result = model.boolVar();
-			//model.addClausesBoolAndArrayEqVar(BOOLVARS, result)
-			//model.addClauseTrue(result);
+			
+			List<BoolVar> operationResults = new ArrayList<>();
+			for(EvoVariableTerm variableTerm : forAllTerm.getBoundedVariables()){
+				List<Variable> resolvedVariables = getVariable(variableTerm, date, false, replacedByVariable, variableToBeReplaced);
+				
+				for(Variable resolvedVariable: resolvedVariables) {
+					operationResults.add((BoolVar)solveTerm(forAllTerm.getOperand(), forAllTerm, date, resolvedVariable, variableTerm.getVariable()));
+				}
+
+				
+				
+			}
+			 
+			BoolVar[] operationResultsArray = new BoolVar[operationResults.size()];
+			operationResultsArray = operationResults.toArray(operationResultsArray);
+			
+			model.addClausesBoolAndArrayEqVar(operationResultsArray, result);
+			model.addClauseTrue(result);
+			return result;
 		}
 
 		return null;
@@ -644,7 +734,7 @@ public class EvoSolver {
 		List<EvoAnomaly> anomalies = new ArrayList<>();
 		
 		for(EvoAnomaly anomaly : guidanceTable.getAnomalies()){
-			solveTerm(anomaly.getCondition().getTerm(), null, new Date());
+			solveTerm(anomaly.getCondition().getTerm(), null, new Date(), null, null);
 
 			Solver solver = model.getSolver();
 			solver.setSearch(Search.defaultSearch(model));

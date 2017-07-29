@@ -6,11 +6,17 @@ import de.evorepair.evolution.evooperation.provider.EvoOperationEditPlugin;
 
 import de.evorepair.evolution.evovariable.provider.EvoVariableEditPlugin;
 
-import de.evorepair.logic.evofirstorderlogic.provider.EvoFirstOrderEditPlugin;
+import de.evorepair.logic.evologic.provider.EvoLogicEditPlugin;
+
+import eu.hyvar.context.provider.ContextInformationEditPlugin;
 
 import eu.hyvar.dataValues.provider.DataValuesEditPlugin;
 
 import eu.hyvar.evolution.provider.EvolEditPlugin;
+
+import eu.hyvar.feature.configuration.provider.ConfigurationEditPlugin;
+
+import eu.hyvar.feature.expression.provider.ExpressionEditPlugin;
 
 import eu.hyvar.feature.provider.FeatureEditPlugin;
 
@@ -19,8 +25,6 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the EvoGuidanceCatalog editor plugin.
@@ -54,12 +58,14 @@ public final class EvoGuidanceCatalogEditorPlugin extends EMFPlugin {
 	public EvoGuidanceCatalogEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				ConfigurationEditPlugin.INSTANCE,
+				ContextInformationEditPlugin.INSTANCE,
 				DataValuesEditPlugin.INSTANCE,
-				EcoreEditPlugin.INSTANCE,
-				EvoFirstOrderEditPlugin.INSTANCE,
 				EvolEditPlugin.INSTANCE,
+				EvoLogicEditPlugin.INSTANCE,
 				EvoOperationEditPlugin.INSTANCE,
 				EvoVariableEditPlugin.INSTANCE,
+				ExpressionEditPlugin.INSTANCE,
 				FeatureEditPlugin.INSTANCE,
 			});
 	}

@@ -2467,7 +2467,7 @@ ruleEvoAnd returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoAndAccess().getEvoAndOperand1Action_1_0(),
+						grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -2526,7 +2526,7 @@ ruleEvoEqual returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoEqualAccess().getEvoEqualOperand1Action_1_0(),
+						grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -2621,7 +2621,7 @@ ruleEvoUnequal returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoUnequalAccess().getEvoUnequalOperand1Action_1_0(),
+						grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -2716,7 +2716,7 @@ ruleEvoImplication returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoImplicationAccess().getEvoImplicationOperand1Action_1_0(),
+						grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -2811,7 +2811,7 @@ ruleEvoBiconditional returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoBiconditionalAccess().getEvoBiconditionalOperand1Action_1_0(),
+						grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -3449,7 +3449,7 @@ ruleEvoForAll returns [EObject current=null]
 					}
 				)
 			)
-		)
+		)*
 		otherlv_5=':'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getEvoForAllAccess().getColonKeyword_4());
@@ -3530,17 +3530,17 @@ ruleEvoExists returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvoExistsAccess().getElementEvoExpressionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0());
 				}
-				lv_element_4_0=ruleEvoExpression
+				lv_operand_4_0=ruleEvoExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvoExistsRule());
 					}
 					set(
 						$current,
-						"element",
-						lv_element_4_0,
+						"operand",
+						lv_operand_4_0,
 						"de.evorepair.logic.EvoLogicDsl.EvoExpression");
 					afterParserOrEnumRuleCall();
 				}
