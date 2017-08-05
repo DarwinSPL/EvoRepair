@@ -33,7 +33,7 @@ EvoXOr returns dw_expression::HyExpression:
 	
 	
 EvoOr returns dw_expression::HyExpression:
-	EvoAnd({EvoOr.operand1=current} ('||') operand2=EvoAnd)*;
+	EvoAnd({dw_expression::HyOrExpression.operand1=current} ('||') operand2=EvoAnd)*;
 	
 	
 EvoAnd returns dw_expression::HyExpression:

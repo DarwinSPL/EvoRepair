@@ -31,7 +31,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "de.evorepair.feature.expression.EvoExpressionDsl"
-			fileExtensions = "evoexpression"
+			fileExtensions = "evoexpression,hymapping"
 		
 			referencedResource = "platform:/resource/de.evorepair.logic.dsl/model/generated/EvoLogicDsl.genmodel"
 			

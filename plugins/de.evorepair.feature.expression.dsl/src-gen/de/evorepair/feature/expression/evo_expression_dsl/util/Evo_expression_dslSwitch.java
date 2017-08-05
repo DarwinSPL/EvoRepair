@@ -5,8 +5,6 @@ package de.evorepair.feature.expression.evo_expression_dsl.util;
 
 import de.evorepair.feature.expression.evo_expression_dsl.*;
 
-import eu.hyvar.feature.expression.HyExpression;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -83,14 +81,6 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case Evo_expression_dslPackage.HY_FEATURE_REFERENCE_EXPRESSION:
-      {
-        HyFeatureReferenceExpression hyFeatureReferenceExpression = (HyFeatureReferenceExpression)theEObject;
-        T result = caseHyFeatureReferenceExpression(hyFeatureReferenceExpression);
-        if (result == null) result = caseHyExpression(hyFeatureReferenceExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -112,22 +102,6 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Hy Feature Reference Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hy Feature Reference Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHyFeatureReferenceExpression(HyFeatureReferenceExpression object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Grammar Entry</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -139,22 +113,6 @@ public class Evo_expression_dslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEvo_logic_dsl_GrammarEntry(de.evorepair.logic.evo_logic_dsl.GrammarEntry object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Hy Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hy Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHyExpression(HyExpression object)
   {
     return null;
   }

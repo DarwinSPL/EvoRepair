@@ -8,7 +8,6 @@ import de.evorepair.evolution.evovariable.EvoVariablePackage;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslFactory;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPackage;
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
-import de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression;
 
 import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
 
@@ -46,13 +45,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
    * @generated
    */
   private EClass grammarEntryEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass hyFeatureReferenceExpressionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -105,12 +97,12 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     // Initialize simple dependencies
     Evo_logic_dslPackage.eINSTANCE.eClass();
     HyExpressionPackage.eINSTANCE.eClass();
-    HyFeaturePackage.eINSTANCE.eClass();
     EvoLogicPackage.eINSTANCE.eClass();
+    HyFeaturePackage.eINSTANCE.eClass();
     HyDataValuesPackage.eINSTANCE.eClass();
     HyContextInformationPackage.eINSTANCE.eClass();
-    HyEvolutionPackage.eINSTANCE.eClass();
     EvoVariablePackage.eINSTANCE.eClass();
+    HyEvolutionPackage.eINSTANCE.eClass();
     HyConfigurationPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -153,26 +145,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getHyFeatureReferenceExpression()
-  {
-    return hyFeatureReferenceExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getHyFeatureReferenceExpression_Feature()
-  {
-    return (EReference)hyFeatureReferenceExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Evo_expression_dslFactory getEvo_expression_dslFactory()
   {
     return (Evo_expression_dslFactory)getEFactoryInstance();
@@ -200,9 +172,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     // Create classes and their features
     grammarEntryEClass = createEClass(GRAMMAR_ENTRY);
     createEReference(grammarEntryEClass, GRAMMAR_ENTRY__EXPRESSION);
-
-    hyFeatureReferenceExpressionEClass = createEClass(HY_FEATURE_REFERENCE_EXPRESSION);
-    createEReference(hyFeatureReferenceExpressionEClass, HY_FEATURE_REFERENCE_EXPRESSION__FEATURE);
   }
 
   /**
@@ -232,7 +201,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     // Obtain other dependent packages
     Evo_logic_dslPackage theEvo_logic_dslPackage = (Evo_logic_dslPackage)EPackage.Registry.INSTANCE.getEPackage(Evo_logic_dslPackage.eNS_URI);
     HyExpressionPackage theHyExpressionPackage = (HyExpressionPackage)EPackage.Registry.INSTANCE.getEPackage(HyExpressionPackage.eNS_URI);
-    HyFeaturePackage theHyFeaturePackage = (HyFeaturePackage)EPackage.Registry.INSTANCE.getEPackage(HyFeaturePackage.eNS_URI);
 
     // Create type parameters
 
@@ -240,14 +208,10 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
 
     // Add supertypes to classes
     grammarEntryEClass.getESuperTypes().add(theEvo_logic_dslPackage.getGrammarEntry());
-    hyFeatureReferenceExpressionEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(grammarEntryEClass, GrammarEntry.class, "GrammarEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGrammarEntry_Expression(), theHyExpressionPackage.getHyExpression(), null, "expression", null, 0, 1, GrammarEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(hyFeatureReferenceExpressionEClass, HyFeatureReferenceExpression.class, "HyFeatureReferenceExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getHyFeatureReferenceExpression_Feature(), theHyFeaturePackage.getHyFeature(), null, "feature", null, 0, 1, HyFeatureReferenceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

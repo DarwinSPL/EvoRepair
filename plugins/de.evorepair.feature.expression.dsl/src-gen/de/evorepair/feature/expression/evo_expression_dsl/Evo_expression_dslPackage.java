@@ -5,8 +5,6 @@ package de.evorepair.feature.expression.evo_expression_dsl;
 
 import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
 
-import eu.hyvar.feature.expression.HyExpressionPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -97,34 +95,6 @@ public interface Evo_expression_dslPackage extends EPackage
    */
   int GRAMMAR_ENTRY_FEATURE_COUNT = Evo_logic_dslPackage.GRAMMAR_ENTRY_FEATURE_COUNT + 1;
 
-  /**
-   * The meta object id for the '{@link de.evorepair.feature.expression.evo_expression_dsl.impl.HyFeatureReferenceExpressionImpl <em>Hy Feature Reference Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.evorepair.feature.expression.evo_expression_dsl.impl.HyFeatureReferenceExpressionImpl
-   * @see de.evorepair.feature.expression.evo_expression_dsl.impl.Evo_expression_dslPackageImpl#getHyFeatureReferenceExpression()
-   * @generated
-   */
-  int HY_FEATURE_REFERENCE_EXPRESSION = 1;
-
-  /**
-   * The feature id for the '<em><b>Feature</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HY_FEATURE_REFERENCE_EXPRESSION__FEATURE = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Hy Feature Reference Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HY_FEATURE_REFERENCE_EXPRESSION_FEATURE_COUNT = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 1;
-
 
   /**
    * Returns the meta object for class '{@link de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry <em>Grammar Entry</em>}'.
@@ -146,27 +116,6 @@ public interface Evo_expression_dslPackage extends EPackage
    * @generated
    */
   EReference getGrammarEntry_Expression();
-
-  /**
-   * Returns the meta object for class '{@link de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression <em>Hy Feature Reference Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Hy Feature Reference Expression</em>'.
-   * @see de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression
-   * @generated
-   */
-  EClass getHyFeatureReferenceExpression();
-
-  /**
-   * Returns the meta object for the reference '{@link de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression#getFeature <em>Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Feature</em>'.
-   * @see de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression#getFeature()
-   * @see #getHyFeatureReferenceExpression()
-   * @generated
-   */
-  EReference getHyFeatureReferenceExpression_Feature();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -208,24 +157,6 @@ public interface Evo_expression_dslPackage extends EPackage
      * @generated
      */
     EReference GRAMMAR_ENTRY__EXPRESSION = eINSTANCE.getGrammarEntry_Expression();
-
-    /**
-     * The meta object literal for the '{@link de.evorepair.feature.expression.evo_expression_dsl.impl.HyFeatureReferenceExpressionImpl <em>Hy Feature Reference Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.evorepair.feature.expression.evo_expression_dsl.impl.HyFeatureReferenceExpressionImpl
-     * @see de.evorepair.feature.expression.evo_expression_dsl.impl.Evo_expression_dslPackageImpl#getHyFeatureReferenceExpression()
-     * @generated
-     */
-    EClass HY_FEATURE_REFERENCE_EXPRESSION = eINSTANCE.getHyFeatureReferenceExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference HY_FEATURE_REFERENCE_EXPRESSION__FEATURE = eINSTANCE.getHyFeatureReferenceExpression_Feature();
 
   }
 

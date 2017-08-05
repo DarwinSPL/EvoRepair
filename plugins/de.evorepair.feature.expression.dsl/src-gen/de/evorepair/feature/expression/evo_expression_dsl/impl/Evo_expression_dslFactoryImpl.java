@@ -66,7 +66,6 @@ public class Evo_expression_dslFactoryImpl extends EFactoryImpl implements Evo_e
     switch (eClass.getClassifierID())
     {
       case Evo_expression_dslPackage.GRAMMAR_ENTRY: return createGrammarEntry();
-      case Evo_expression_dslPackage.HY_FEATURE_REFERENCE_EXPRESSION: return createHyFeatureReferenceExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -81,17 +80,6 @@ public class Evo_expression_dslFactoryImpl extends EFactoryImpl implements Evo_e
   {
     GrammarEntryImpl grammarEntry = new GrammarEntryImpl();
     return grammarEntry;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public HyFeatureReferenceExpression createHyFeatureReferenceExpression()
-  {
-    HyFeatureReferenceExpressionImpl hyFeatureReferenceExpression = new HyFeatureReferenceExpressionImpl();
-    return hyFeatureReferenceExpression;
   }
 
   /**

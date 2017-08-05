@@ -479,7 +479,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoMappingNotAccess().getRule();
 	}
 	
-	//EvoMappingFeatureReferenceExpression HyFeatureReferenceExpression:
+	//EvoMappingFeatureReferenceExpression dw_expression::HyFeatureReferenceExpression:
 	//	feature=[dw_feature::HyFeature|STRING];
 	public EvoExpressionDslGrammarAccess.EvoMappingFeatureReferenceExpressionElements getEvoMappingFeatureReferenceExpressionAccess() {
 		return gaEvoExpressionDsl.getEvoMappingFeatureReferenceExpressionAccess();
@@ -712,7 +712,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoOr dw_expression::HyExpression:
-	//	EvoAnd ({EvoOr.operand1=current} '||' operand2=EvoAnd)*;
+	//	EvoAnd ({dw_expression::HyOrExpression.operand1=current} '||' operand2=EvoAnd)*;
 	public EvoLogicDslGrammarAccess.EvoOrElements getEvoOrAccess() {
 		return gaEvoLogicDsl.getEvoOrAccess();
 	}

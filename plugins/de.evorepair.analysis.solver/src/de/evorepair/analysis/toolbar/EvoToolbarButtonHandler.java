@@ -1,7 +1,6 @@
 package de.evorepair.analysis.toolbar;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -10,8 +9,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorInput;
@@ -20,30 +19,41 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.xtext.resource.XtextResourceSet;
 
-import de.christophseidl.util.ecore.EcoreIOUtil;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+
 import de.darwinspl.feature.graphical.base.editor.DwGraphicalFeatureModelViewer;
-import de.evorepair.analysis.operator.EvoGuidanceActionOperator;
+import de.evorepair.analysis.operator.EvoGuidanceMappingActionOperator;
 import de.evorepair.analysis.solver.EvoSolver;
 import de.evorepair.analysis.solver.eclipse.EclipseUtil;
 import de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer;
 import de.evorepair.evolution.evooperation.EvoOperation;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.guidance.evo_guidance_dsl.GrammarEntry;
-import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
-import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceElement;
+import de.evorepair.feature.expression.dsl.ui.internal.DslActivator;
+import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
-import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceType;
 import eu.hyvar.feature.HyFeatureModel;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.util.HyConfigurationUtil;
+import eu.hyvar.feature.expression.HyAndExpression;
+import eu.hyvar.feature.expression.HyExpressionFactory;
+import eu.hyvar.feature.expression.HyFeatureReferenceExpression;
+import eu.hyvar.feature.expression.HyNestedExpression;
+import eu.hyvar.feature.expression.HyOrExpression;
 
 public class EvoToolbarButtonHandler extends AbstractHandler {
 	EvoSolver solver = new EvoSolver();
 	
-
+    @Inject
+    private XtextResourceSet resourceSet;
 	
+	public EvoToolbarButtonHandler() {
+		super();
+	}
+
+
 	protected HyFeatureModel getFeatureModelFromActiveEditor(){
 		IEditorPart activeEditorPart = EclipseUtil.getActiveEditor();
 		
@@ -151,12 +161,66 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
     	HyFeatureModel featureModel = getFeatureModelFromActiveEditor();
     	
+		Injector injector = DslActivator.getInstance().getInjector(DslActivator.DE_EVOREPAIR_FEATURE_EXPRESSION_EVOEXPRESSIONDSL);
+	    XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+	    
+	    URI uri = featureModel.eResource().getURI().trimFileExtension().appendFileExtension("evoexpression");
+	    Resource xtextResource = resourceSet.getResource(uri, true);
+	    
+	    URI uri2 = featureModel.eResource().getURI().trimFileExtension().appendSegment("_Replacement").appendFileExtension("evoexpression");
+	    Resource xtextResource2 = resourceSet.getResource(uri2, true);
+    	
+	    GrammarEntry entry = (GrammarEntry)xtextResource.getContents().get(0);
+	    
+	    HyAndExpression and1 = HyExpressionFactory.eINSTANCE.createHyAndExpression();
+	    HyOrExpression or = HyExpressionFactory.eINSTANCE.createHyOrExpression();
+	    HyAndExpression and2 = HyExpressionFactory.eINSTANCE.createHyAndExpression();
+	    HyNestedExpression nested = HyExpressionFactory.eINSTANCE.createHyNestedExpression();
+	    
+	    HyFeatureReferenceExpression f1 = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
+	    f1.setFeature(featureModel.getFeatures().get(0));
+	    
+	    HyFeatureReferenceExpression f2 = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
+	    f2.setFeature(featureModel.getFeatures().get(1));
+	    
+	    HyFeatureReferenceExpression f3 = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
+	    f3.setFeature(featureModel.getFeatures().get(2));
+	    
+	    HyFeatureReferenceExpression f4 = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
+	    f4.setFeature(featureModel.getFeatures().get(3));
+	    
+	    //and1.setOperand1(f1);
+	    //and1.setOperand2(or);
+	    
+	    //or.setOperand1(f2);
+	    //or.setOperand2(nested);
+	    
+	    //nested.setOperand(and2);
+	    and2.setOperand1(f3);
+	    and2.setOperand2(f4);
+	    
+	    //entry.setExpression(and1);
+	    
+	    EvoGuidanceMappingActionOperator operator = new EvoGuidanceMappingActionOperator();
+	    boolean result = operator.perform(entry.getExpression(), ((GrammarEntry)xtextResource2.getContents().get(0)).getExpression());
+	    
+	    MessageDialog dialog = new MessageDialog(EclipseUtil.getActiveEditor().getEditorSite().getShell(), "Result", null,
+    		    result ? ":)" : ":(", MessageDialog.WARNING, new String[] { "Yaaay",
+    	    		    "Biiiidu", }, 0);
+    	dialog.open();
+	    
+    	return null;
+    	/*
+    	
+    	
     	// display an error in case that the user calls the solver without an active editor within eclipse
     	if(featureModel == null){
     		MessageDialog.openError(EclipseUtil.getActiveEditor().getSite().getShell(), "No active feature model editor", "You must open an active editor with a feature model in order to call "
     				+ "the solver");
     		return null;
     	}
+    	
+    	HyMapping mappingModel = EcoreIOUtil.loadAccompanyingModel(featureModel.eResource(), HyMappingModelUtil.getMappingModelFileExtensionForXmi());
     	
     	// load accompanying models
     	HyConfiguration configurationModel = EcoreIOUtil.loadAccompanyingModel(featureModel.eResource(), HyConfigurationUtil.getConfigurationModelFileExtensionForXmi());
@@ -186,7 +250,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
         			// needed for the name of the solution configurations
         			int index = 0;
             		for(EvoGuidanceElement guidance : anomaly.getGuidance()){
-        				EvoGuidanceActionOperator operator = new EvoGuidanceActionOperator(configurationModelResource);
+        				EvoGuidanceConfigurationActionOperator operator = new EvoGuidanceConfigurationActionOperator(configurationModelResource);
         				
         				HyConfiguration copy = EcoreUtil.copy(configurationModel);
 						HyConfiguration modifiedConfiguration = operator.perform(copy, guidance.getAction().getTerm());
@@ -204,7 +268,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
         		
         	// if an automatic repair operation should be performed, overwrite the original configuration
         	} else if (guidanceCount == 1 && anomaly.getGuidance().get(0).getType() == EvoGuidanceType.AUTOMATIC_DEFAULT) {
-        		EvoGuidanceActionOperator operator = new EvoGuidanceActionOperator(configurationModelResource);
+        		EvoGuidanceConfigurationActionOperator operator = new EvoGuidanceConfigurationActionOperator(configurationModelResource);
 
 				HyConfiguration modifiedConfiguration = operator.perform(configurationModel, anomaly.getGuidance().get(0).getAction().getTerm());
 				
@@ -214,6 +278,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}
         
         return null;
+        */
     }
     
     /**

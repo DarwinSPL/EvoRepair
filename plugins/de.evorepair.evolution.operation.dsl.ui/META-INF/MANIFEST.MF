@@ -21,6 +21,7 @@ Require-Bundle: de.evorepair.evolution.operation.dsl,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.evolution.operation.dsl.ui.internal,
- de.evorepair.evolution.operation.ui.quickfix,
- de.evorepair.evolution.operation.ui.contentassist
+ de.evorepair.evolution.operation.ui,
+ de.evorepair.evolution.operation.ui.contentassist,
+ de.evorepair.evolution.operation.ui.quickfix
 Bundle-Activator: de.evorepair.evolution.operation.dsl.ui.internal.DslActivator

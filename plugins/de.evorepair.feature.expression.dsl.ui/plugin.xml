@@ -7,9 +7,9 @@
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="evoexpression"
+			extensions="evoexpression,hymapping"
 			id="de.evorepair.feature.expression.EvoExpressionDsl"
-			name="ExpressionDsl Editor">
+			name="EvoExpressionDsl Editor">
 		</editor>
 	</extension>
 	<extension

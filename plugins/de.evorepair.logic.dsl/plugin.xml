@@ -9,12 +9,4 @@
             uri="http://darwinspl.de/evorepair/logic/dsl">
       </package>
    </extension>
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated EvoLogicDsl -->
-      <package
-            uri="http://darwinspl.de/evorepair/logic/dsl"
-            class="de.evorepair.logic.evoLogicDsl.EvoLogicDslPackage"
-            genModel="model/generated/EvoLogicDsl.genmodel"/>
-   </extension>
-
 </plugin>

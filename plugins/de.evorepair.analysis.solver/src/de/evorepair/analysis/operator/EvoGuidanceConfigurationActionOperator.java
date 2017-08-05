@@ -26,10 +26,10 @@ import eu.hyvar.feature.expression.HyExpression;
  * @author Gil Engel
  *
  */
-public class EvoGuidanceActionOperator {
+public class EvoGuidanceConfigurationActionOperator {
 	Resource configurationResource;
 
-	public EvoGuidanceActionOperator(Resource configurationResource){
+	public EvoGuidanceConfigurationActionOperator(Resource configurationResource){
 		this.configurationResource = configurationResource;
 	}
 
@@ -187,8 +187,7 @@ public class EvoGuidanceActionOperator {
 		return configuration;
 	}
 
-	public HyConfiguration perform(HyConfiguration configuration, HyExpression term){
-		
+	public HyConfiguration perform(HyConfiguration configuration, HyExpression term){		
 		return modifyConfiguration(configuration, solveSetTerm(term));
 	}
 }

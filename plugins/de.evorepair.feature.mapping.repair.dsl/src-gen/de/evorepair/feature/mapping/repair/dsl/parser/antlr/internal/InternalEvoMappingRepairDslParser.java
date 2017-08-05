@@ -6389,7 +6389,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0(),
+            	    						grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0(),
             	    						current);
             	    				
 

@@ -33,15 +33,6 @@ public interface Evo_expression_dslFactory extends EFactory
   GrammarEntry createGrammarEntry();
 
   /**
-   * Returns a new object of class '<em>Hy Feature Reference Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hy Feature Reference Expression</em>'.
-   * @generated
-   */
-  HyFeatureReferenceExpression createHyFeatureReferenceExpression();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

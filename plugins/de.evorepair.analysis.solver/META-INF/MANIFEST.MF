@@ -21,7 +21,10 @@ Require-Bundle: org.eclipse.ui,
  de.evorepair.evolution.variable.dsl,
  de.evorepair.evolution.operation.dsl,
  de.evorepair.guidance.dsl;bundle-version="1.0.0",
- de.evorepair.feature.expression.dsl;bundle-version="1.0.0"
+ de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ de.evorepair.evolution.operation.dsl.ui,
+ de.evorepair.feature.expression.dsl.ui,
+ de.evorepair.logic.dsl;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.evorepair.analysis.toolbar

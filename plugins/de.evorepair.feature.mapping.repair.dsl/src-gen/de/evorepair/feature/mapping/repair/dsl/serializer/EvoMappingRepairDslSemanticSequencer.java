@@ -6,7 +6,6 @@ package de.evorepair.feature.mapping.repair.dsl.serializer;
 import com.google.inject.Inject;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPackage;
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
-import de.evorepair.feature.expression.evo_expression_dsl.HyFeatureReferenceExpression;
 import de.evorepair.feature.expression.serializer.EvoExpressionDslSemanticSequencer;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace;
@@ -15,7 +14,6 @@ import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairGra
 import de.evorepair.feature.mapping.repair.dsl.services.EvoMappingRepairDslGrammarAccess;
 import de.evorepair.logic.evo_logic_dsl.EvoChildrenOf;
 import de.evorepair.logic.evo_logic_dsl.EvoGroupType;
-import de.evorepair.logic.evo_logic_dsl.EvoOr;
 import de.evorepair.logic.evo_logic_dsl.EvoParentOf;
 import de.evorepair.logic.evo_logic_dsl.EvoSatisfiable;
 import de.evorepair.logic.evo_logic_dsl.EvoSetInclusion;
@@ -54,6 +52,7 @@ import eu.hyvar.feature.expression.HyDivisionExpression;
 import eu.hyvar.feature.expression.HyEqualExpression;
 import eu.hyvar.feature.expression.HyEquivalenceExpression;
 import eu.hyvar.feature.expression.HyExpressionPackage;
+import eu.hyvar.feature.expression.HyFeatureReferenceExpression;
 import eu.hyvar.feature.expression.HyGreaterExpression;
 import eu.hyvar.feature.expression.HyGreaterOrEqualExpression;
 import eu.hyvar.feature.expression.HyIfPossibleExpression;
@@ -118,9 +117,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 			case Evo_expression_dslPackage.GRAMMAR_ENTRY:
 				sequence_GrammarEntry(context, (GrammarEntry) semanticObject); 
 				return; 
-			case Evo_expression_dslPackage.HY_FEATURE_REFERENCE_EXPRESSION:
-				sequence_EvoMappingFeatureReferenceExpression(context, (HyFeatureReferenceExpression) semanticObject); 
-				return; 
 			}
 		else if (epackage == Evo_logic_dslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -129,9 +125,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				return; 
 			case Evo_logic_dslPackage.EVO_GROUP_TYPE:
 				sequence_EvoGroupType(context, (EvoGroupType) semanticObject); 
-				return; 
-			case Evo_logic_dslPackage.EVO_OR:
-				sequence_EvoOr(context, (EvoOr) semanticObject); 
 				return; 
 			case Evo_logic_dslPackage.EVO_PARENT_OF:
 				sequence_EvoParentOf(context, (EvoParentOf) semanticObject); 
@@ -202,7 +195,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -256,7 +249,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -318,7 +311,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -365,6 +358,9 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 			case HyExpressionPackage.HY_EQUIVALENCE_EXPRESSION:
 				sequence_EvoMappingEquivalence(context, (HyEquivalenceExpression) semanticObject); 
 				return; 
+			case HyExpressionPackage.HY_FEATURE_REFERENCE_EXPRESSION:
+				sequence_EvoMappingFeatureReferenceExpression(context, (HyFeatureReferenceExpression) semanticObject); 
+				return; 
 			case HyExpressionPackage.HY_GREATER_EXPRESSION:
 				sequence_EvoMappingGreaterExpression(context, (HyGreaterExpression) semanticObject); 
 				return; 
@@ -379,7 +375,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -468,7 +464,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -545,7 +541,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoXOrRule()
 						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoOrRule()
-						|| action == grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoAndRule()
 						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoEqualRule()
@@ -582,8 +578,50 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				}
 				else break;
 			case HyExpressionPackage.HY_OR_EXPRESSION:
-				sequence_EvoMappingOr(context, (HyOrExpression) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getEvoMappingExpressionRule()
+						|| rule == grammarAccess.getEvoMappingOrRule()
+						|| action == grammarAccess.getEvoMappingOrAccess().getHyOrExpressionOperand1Action_1_0()) {
+					sequence_EvoMappingOr(context, (HyOrExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getEvoExpressionRule()
+						|| rule == grammarAccess.getEvoXOrRule()
+						|| action == grammarAccess.getEvoXOrAccess().getEvoXOrOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoOrRule()
+						|| action == grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoAndRule()
+						|| action == grammarAccess.getEvoAndAccess().getHyAndExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoEqualRule()
+						|| action == grammarAccess.getEvoEqualAccess().getHyEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoUnequalSizeRule()
+						|| rule == grammarAccess.getEvoUnequalRule()
+						|| action == grammarAccess.getEvoUnequalAccess().getHyNotEqualExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoImplicationSizeRule()
+						|| rule == grammarAccess.getEvoImplicationRule()
+						|| action == grammarAccess.getEvoImplicationAccess().getHyImpliesExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoBiconditionalSizeRule()
+						|| rule == grammarAccess.getEvoBiconditionalRule()
+						|| action == grammarAccess.getEvoBiconditionalAccess().getEvoBinaryExpressionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetInclusionSizeRule()
+						|| rule == grammarAccess.getEvoSetInclusionRule()
+						|| action == grammarAccess.getEvoSetInclusionAccess().getEvoSetInclusionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetIntersectionRule()
+						|| action == grammarAccess.getEvoSetIntersectionAccess().getEvoSetIntersectionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetUnionRule()
+						|| action == grammarAccess.getEvoSetUnionAccess().getEvoSetUnionOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetDifferenceRule()
+						|| action == grammarAccess.getEvoSetDifferenceAccess().getEvoSetDifferenceOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetSymmetricDifferenceRule()
+						|| action == grammarAccess.getEvoSetSymmetricDifferenceAccess().getEvoSetSymmetricDifferenceOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoSetCartesianProductRule()
+						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoElementOfRule()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| rule == grammarAccess.getEvoTerminalRule()) {
+					sequence_EvoOr(context, (HyOrExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case HyExpressionPackage.HY_RELATIVE_VERSION_RESTRICTION:
 				sequence_EvoMappingRelativeVersionRestriction(context, (HyRelativeVersionRestriction) semanticObject); 
 				return; 

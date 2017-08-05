@@ -111,7 +111,7 @@ EvoMappingNot returns dw_expression::HyNotExpression:
 	'!' operand=EvoMappingTerminal;
 	
 
-EvoMappingFeatureReferenceExpression returns HyFeatureReferenceExpression:
+EvoMappingFeatureReferenceExpression returns dw_expression::HyFeatureReferenceExpression:
 	feature=[dw_feature::HyFeature | STRING]; // (versionRestriction=EvoMappingVersionRestriction)?;
 	
 	

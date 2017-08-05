@@ -6893,9 +6893,9 @@ rule__EvoOr__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()); }
+	{ before(grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()); }
 	()
-	{ after(grammarAccess.getEvoOrAccess().getEvoOrOperand1Action_1_0()); }
+	{ after(grammarAccess.getEvoOrAccess().getHyOrExpressionOperand1Action_1_0()); }
 )
 ;
 finally {
