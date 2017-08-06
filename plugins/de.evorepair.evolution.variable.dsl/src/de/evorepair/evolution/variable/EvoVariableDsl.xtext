@@ -13,22 +13,22 @@ EvoVariable:
 	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 
 
-EvoFeatureVariable: 
+EvoFeatureVariable returns EvoFeatureVariable: 
 	'feature' name=ID (relation=EvoFeatureRelation)? ('reference' ':' feature=[feature::HyFeature | STRING])?;
 
-EvoFeatureRelation:
+EvoFeatureRelation returns EvoFeatureRelation:
 	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')';
 
-EvoGroupVariable:
+EvoGroupVariable returns EvoGroupVariable:
 	'group' name=ID ('value' '=' group=[feature::HyGroup | QualifiedName])?;
 
-EvoSetVariable: 
+EvoSetVariable returns EvoSetVariable: 
 	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
 
-EvoMappingVariable:
-	'mapping' name=ID;
+EvoMappingVariable returns EvoMappingVariable:
+	'mapping' name=ID ('(' mapping=STRING ')')?;
 
-EvoConfigurationVariable:
+EvoConfigurationVariable returns EvoConfigurationVariable:
 	'configuration' name=ID;
 
 enum EvoFeatureVariableType:

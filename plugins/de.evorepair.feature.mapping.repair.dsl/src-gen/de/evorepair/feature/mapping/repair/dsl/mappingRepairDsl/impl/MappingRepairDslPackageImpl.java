@@ -3,8 +3,6 @@
  */
 package de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl;
 
-import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep;
-import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslFactory;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslPackage;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairGrammarEntry;
@@ -39,20 +37,6 @@ public class MappingRepairDslPackageImpl extends EPackageImpl implements Mapping
    * @generated
    */
   private EClass mappingRepairGrammarEntryEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass evoMappingKeepEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass evoMappingReplaceEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -149,56 +133,6 @@ public class MappingRepairDslPackageImpl extends EPackageImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEvoMappingKeep()
-  {
-    return evoMappingKeepEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoMappingKeep_Operand()
-  {
-    return (EReference)evoMappingKeepEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getEvoMappingReplace()
-  {
-    return evoMappingReplaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoMappingReplace_Operand1()
-  {
-    return (EReference)evoMappingReplaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvoMappingReplace_Operand2()
-  {
-    return (EReference)evoMappingReplaceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public MappingRepairDslFactory getMappingRepairDslFactory()
   {
     return (MappingRepairDslFactory)getEFactoryInstance();
@@ -226,13 +160,6 @@ public class MappingRepairDslPackageImpl extends EPackageImpl implements Mapping
     // Create classes and their features
     mappingRepairGrammarEntryEClass = createEClass(MAPPING_REPAIR_GRAMMAR_ENTRY);
     createEReference(mappingRepairGrammarEntryEClass, MAPPING_REPAIR_GRAMMAR_ENTRY__ACTION);
-
-    evoMappingKeepEClass = createEClass(EVO_MAPPING_KEEP);
-    createEReference(evoMappingKeepEClass, EVO_MAPPING_KEEP__OPERAND);
-
-    evoMappingReplaceEClass = createEClass(EVO_MAPPING_REPLACE);
-    createEReference(evoMappingReplaceEClass, EVO_MAPPING_REPLACE__OPERAND1);
-    createEReference(evoMappingReplaceEClass, EVO_MAPPING_REPLACE__OPERAND2);
   }
 
   /**
@@ -267,19 +194,10 @@ public class MappingRepairDslPackageImpl extends EPackageImpl implements Mapping
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    evoMappingKeepEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
-    evoMappingReplaceEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(mappingRepairGrammarEntryEClass, MappingRepairGrammarEntry.class, "MappingRepairGrammarEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMappingRepairGrammarEntry_Action(), theHyExpressionPackage.getHyExpression(), null, "action", null, 0, 1, MappingRepairGrammarEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(evoMappingKeepEClass, EvoMappingKeep.class, "EvoMappingKeep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEvoMappingKeep_Operand(), theHyExpressionPackage.getHyExpression(), null, "operand", null, 0, 1, EvoMappingKeep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(evoMappingReplaceEClass, EvoMappingReplace.class, "EvoMappingReplace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEvoMappingReplace_Operand1(), theHyExpressionPackage.getHyExpression(), null, "operand1", null, 0, 1, EvoMappingReplace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEvoMappingReplace_Operand2(), theHyExpressionPackage.getHyExpression(), null, "operand2", null, 0, 1, EvoMappingReplace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

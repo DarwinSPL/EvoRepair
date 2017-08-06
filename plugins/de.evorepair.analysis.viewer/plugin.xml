@@ -7,7 +7,7 @@
             class="de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer"
             default="false"
             extensions="hyfeature, hyconfigurationmodel"
-            id="de.evorepair.analysis.viewer.repair.suggestion.viewer"
+            id="de.evorepair.analysis.configuration.viewer.repair.suggestion.viewer"
             name="EvoRepair: Repairsuggestion Viewer">
       </editor>
    </extension>

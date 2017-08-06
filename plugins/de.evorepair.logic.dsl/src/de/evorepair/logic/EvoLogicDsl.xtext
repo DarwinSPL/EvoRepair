@@ -101,7 +101,7 @@ EvoSetCardinality returns dw_expression::HyExpression:
 
 
 EvoElementOf returns dw_expression::HyExpression:
-	EvoTerminal({evo_logic::EvoSetElementOf.operand1=current} ('elementOf') operand2=EvoTerminal)*;
+	EvoTerminal({evo_logic::EvoElementOf.operand1=current} ('elementOf') operand2=(EvoTerminal | EvoAllMappingTerminal | EvoAllConfigurationTerminal))*;
 
 
 
@@ -144,6 +144,11 @@ EvoTerminal returns dw_expression::HyExpression:
 	EvoSatisfiable |
 	'(' EvoXOr ')';
 	
+EvoAllMappingTerminal returns dw_expression::HyExpression:
+	{evo_logic::EvoAllMappings}'All_Mappings';
+	
+EvoAllConfigurationTerminal returns dw_expression::HyExpression:
+	{evo_logic::EvoAllConfigurations}'All_Configurations';
 
 
 EvoSize returns dw_expression::HyExpression:

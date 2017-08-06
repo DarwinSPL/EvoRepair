@@ -27,7 +27,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EvoSetSymmetricDifference" eSuperTypes="#//EvoAbstractSetTerm #//EvoBinaryExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoSetCartesianProduct" eSuperTypes="#//EvoAbstractSetTerm #//EvoBinaryExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoSetCardinality" eSuperTypes="#//EvoAbstractSetTerm ../../eu.hyvar.feature.expression/model/Expression.ecore#//HyUnaryExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EvoSetElementOf" eSuperTypes="#//EvoAbstractSetTerm #//EvoBinaryExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoElementOf" eSuperTypes="#//EvoAbstractSetTerm #//EvoBinaryExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoSetNotElementOf" eSuperTypes="#//EvoAbstractSetTerm #//EvoBinaryExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvoAbstractQuantifierTerm" abstract="true"
       interface="true" eSuperTypes="../../eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression ../../eu.hyvar.feature.expression/model/Expression.ecore#//HyUnaryExpression">
@@ -84,4 +84,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//EvoVariableTerm" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoAllMappings" eSuperTypes="../../eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoAllConfigurations" eSuperTypes="../../eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"/>
 </ecore:EPackage>

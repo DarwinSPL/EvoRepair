@@ -13,7 +13,14 @@ Export-Package: de.evorepair.evolution.evovariable,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  eu.hyvar.feature.configuration;visibility:=reexport,
+ eu.hyvar.context.information;visibility:=reexport,
+ eu.hyvar.feature.mapping;bundle-version="1.0.0";visibility:=reexport,
  eu.hyvar.feature.data;visibility:=reexport,
+ org.deltaecore.core.decorebase;visibility:=reexport,
+ org.deltaecore.core.decoredialect;visibility:=reexport,
+ org.deltaecore.core.decore;visibility:=reexport,
  eu.hyvar.evolution;visibility:=reexport,
- eu.hyvar.feature;visibility:=reexport
+ eu.hyvar.feature.expression;visibility:=reexport,
+ eu.hyvar.feature;visibility:=reexport,
+ org.deltaecore.core.decore.resource.decore;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

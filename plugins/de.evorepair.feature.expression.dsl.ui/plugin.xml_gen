@@ -7,7 +7,7 @@
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="evoexpression,hymapping"
+			extensions="evoexpression"
 			id="de.evorepair.feature.expression.EvoExpressionDsl"
 			name="EvoExpressionDsl Editor">
 		</editor>
@@ -218,19 +218,6 @@
 			uriExtension="evoexpression">
 		</resourceServiceProvider>
 	</extension>
-	<extension
-		point="org.eclipse.emf.ecore.extension_parser">
-		<parser
-			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="hymapping">
-		</parser>
-	</extension>
-	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-		<resourceServiceProvider
-			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="hymapping">
-		</resourceServiceProvider>
-	</extension>
 	<!-- marker definitions for de.evorepair.feature.expression.EvoExpressionDsl -->
 	<extension
 			id="evoexpressiondsl.check.fast"
@@ -256,7 +243,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="evoexpression,hymapping"/>
+			fileExtensions="evoexpression"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
@@ -399,28 +386,24 @@
 	<extension point="org.eclipse.compare.contentViewers">
 		<viewer id="de.evorepair.feature.expression.EvoExpressionDsl.compare.contentViewers"
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="evoexpression,hymapping">
+			extensions="evoexpression">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="de.evorepair.feature.expression.EvoExpressionDsl.compare.contentMergeViewers"
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="evoexpression,hymapping" label="EvoExpressionDsl Compare">
+			extensions="evoexpression" label="EvoExpressionDsl Compare">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="de.evorepair.feature.expression.EvoExpressionDsl.editors.documentProviders"
 			class="de.evorepair.feature.expression.ui.EvoExpressionDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="evoexpression,hymapping">
+			extensions="evoexpression">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
 			extension="evoexpression"
-			type="text">
-		</fileTypes>
-		<fileTypes
-			extension="hymapping"
 			type="text">
 		</fileTypes>
 	</extension>

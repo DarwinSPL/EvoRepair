@@ -72,9 +72,9 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *     (rule start) (ambiguity) '|' operand=EvoExpression
 	 *     (rule start) (ambiguity) variable=[EvoVariable|QualifiedName]
 	 *     (rule start) (ambiguity) {EvoBinaryExpression.operand1=}
+	 *     (rule start) (ambiguity) {EvoElementOf.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetCartesianProduct.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetDifference.operand1=}
-	 *     (rule start) (ambiguity) {EvoSetElementOf.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetInclusion.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetIntersection.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetSymmetricDifference.operand1=}
@@ -96,9 +96,9 @@ public class EvoMappingRepairDslSyntacticSequencer extends AbstractSyntacticSequ
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) {EvoBinaryExpression.operand1=}
+	 *     (rule start) (ambiguity) {EvoElementOf.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetCartesianProduct.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetDifference.operand1=}
-	 *     (rule start) (ambiguity) {EvoSetElementOf.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetInclusion.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetIntersection.operand1=}
 	 *     (rule start) (ambiguity) {EvoSetSymmetricDifference.operand1=}

@@ -66,8 +66,6 @@ public class MappingRepairDslFactoryImpl extends EFactoryImpl implements Mapping
     switch (eClass.getClassifierID())
     {
       case MappingRepairDslPackage.MAPPING_REPAIR_GRAMMAR_ENTRY: return createMappingRepairGrammarEntry();
-      case MappingRepairDslPackage.EVO_MAPPING_KEEP: return createEvoMappingKeep();
-      case MappingRepairDslPackage.EVO_MAPPING_REPLACE: return createEvoMappingReplace();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -82,28 +80,6 @@ public class MappingRepairDslFactoryImpl extends EFactoryImpl implements Mapping
   {
     MappingRepairGrammarEntryImpl mappingRepairGrammarEntry = new MappingRepairGrammarEntryImpl();
     return mappingRepairGrammarEntry;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EvoMappingKeep createEvoMappingKeep()
-  {
-    EvoMappingKeepImpl evoMappingKeep = new EvoMappingKeepImpl();
-    return evoMappingKeep;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EvoMappingReplace createEvoMappingReplace()
-  {
-    EvoMappingReplaceImpl evoMappingReplace = new EvoMappingReplaceImpl();
-    return evoMappingReplace;
   }
 
   /**

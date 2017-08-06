@@ -509,6 +509,34 @@ ruleEvoMappingVariable returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEvoMappingVariableAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					lv_mapping_3_0=RULE_STRING
+					{
+						newLeafNode(lv_mapping_3_0, grammarAccess.getEvoMappingVariableAccess().getMappingSTRINGTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEvoMappingVariableRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"mapping",
+							lv_mapping_3_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_4=')'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getEvoMappingVariableAccess().getRightParenthesisKeyword_2_2());
+			}
+		)?
 	)
 ;
 

@@ -68,7 +68,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		private final RuleCall cOperandEvoMappingExpressionParserRuleCall_2_0 = (RuleCall)cOperandAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//EvoMappingKeep:
+		//EvoMappingKeep evo_mappingrepair::EvoMappingKeep:
 		//	'keep' '(' operand=EvoMappingExpression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -104,7 +104,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		private final RuleCall cOperand2EvoMappingExpressionParserRuleCall_6_0 = (RuleCall)cOperand2Assignment_6.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		//EvoMappingReplace:
+		//EvoMappingReplace evo_mappingrepair::EvoMappingReplace:
 		//	'replace' '(' operand1=EvoMappingExpression ')' 'with' '(' operand2=EvoMappingExpression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -226,7 +226,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoMappingRepairExpressionAccess().getRule();
 	}
 	
-	//EvoMappingKeep:
+	//EvoMappingKeep evo_mappingrepair::EvoMappingKeep:
 	//	'keep' '(' operand=EvoMappingExpression ')';
 	public EvoMappingKeepElements getEvoMappingKeepAccess() {
 		return pEvoMappingKeep;
@@ -236,7 +236,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoMappingKeepAccess().getRule();
 	}
 	
-	//EvoMappingReplace:
+	//EvoMappingReplace evo_mappingrepair::EvoMappingReplace:
 	//	'replace' '(' operand1=EvoMappingExpression ')' 'with' '(' operand2=EvoMappingExpression ')';
 	public EvoMappingReplaceElements getEvoMappingReplaceAccess() {
 		return pEvoMappingReplace;
@@ -884,7 +884,8 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoElementOf dw_expression::HyExpression:
-	//	EvoTerminal ({evo_logic::EvoSetElementOf.operand1=current} 'elementOf' operand2=EvoTerminal)*;
+	//	EvoTerminal ({evo_logic::EvoElementOf.operand1=current} 'elementOf' operand2=(EvoTerminal | EvoAllMappingTerminal |
+	//	EvoAllConfigurationTerminal))*;
 	public EvoLogicDslGrammarAccess.EvoElementOfElements getEvoElementOfAccess() {
 		return gaEvoLogicDsl.getEvoElementOfAccess();
 	}
@@ -950,6 +951,26 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	
 	public ParserRule getEvoTerminalRule() {
 		return getEvoTerminalAccess().getRule();
+	}
+	
+	//EvoAllMappingTerminal dw_expression::HyExpression:
+	//	{evo_logic::EvoAllMappings} 'All_Mappings';
+	public EvoLogicDslGrammarAccess.EvoAllMappingTerminalElements getEvoAllMappingTerminalAccess() {
+		return gaEvoLogicDsl.getEvoAllMappingTerminalAccess();
+	}
+	
+	public ParserRule getEvoAllMappingTerminalRule() {
+		return getEvoAllMappingTerminalAccess().getRule();
+	}
+	
+	//EvoAllConfigurationTerminal dw_expression::HyExpression:
+	//	{evo_logic::EvoAllConfigurations} 'All_Configurations';
+	public EvoLogicDslGrammarAccess.EvoAllConfigurationTerminalElements getEvoAllConfigurationTerminalAccess() {
+		return gaEvoLogicDsl.getEvoAllConfigurationTerminalAccess();
+	}
+	
+	public ParserRule getEvoAllConfigurationTerminalRule() {
+		return getEvoAllConfigurationTerminalAccess().getRule();
 	}
 	
 	//EvoSize dw_expression::HyExpression:

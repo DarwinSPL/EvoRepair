@@ -3,8 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evovariable" nsURI="http://darwinspl.de/evorepair/variable/0.2"
     nsPrefix="evovariable">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="configuration_0" value="../../eu.hyvar.feature.configuration/model/Configuration.ecore#/"/>
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
     <details key="feature_0" value="../../eu.hyvar.feature/model/Feature.ecore#/"/>
+    <details key="mapping_0" value="../../eu.hyvar.feature.mapping/model/Mapping.ecore#/"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoVariableType">
     <eLiterals name="EvoIdentifier"/>

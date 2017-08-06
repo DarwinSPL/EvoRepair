@@ -5,8 +5,6 @@ package de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.util;
 
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.*;
 
-import eu.hyvar.feature.expression.HyExpression;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -83,21 +81,6 @@ public class MappingRepairDslAdapterFactory extends AdapterFactoryImpl
         return createMappingRepairGrammarEntryAdapter();
       }
       @Override
-      public Adapter caseEvoMappingKeep(EvoMappingKeep object)
-      {
-        return createEvoMappingKeepAdapter();
-      }
-      @Override
-      public Adapter caseEvoMappingReplace(EvoMappingReplace object)
-      {
-        return createEvoMappingReplaceAdapter();
-      }
-      @Override
-      public Adapter caseHyExpression(HyExpression object)
-      {
-        return createHyExpressionAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -130,51 +113,6 @@ public class MappingRepairDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMappingRepairGrammarEntryAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep <em>Evo Mapping Keep</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep
-   * @generated
-   */
-  public Adapter createEvoMappingKeepAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace <em>Evo Mapping Replace</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace
-   * @generated
-   */
-  public Adapter createEvoMappingReplaceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eu.hyvar.feature.expression.HyExpression <em>Hy Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eu.hyvar.feature.expression.HyExpression
-   * @generated
-   */
-  public Adapter createHyExpressionAdapter()
   {
     return null;
   }

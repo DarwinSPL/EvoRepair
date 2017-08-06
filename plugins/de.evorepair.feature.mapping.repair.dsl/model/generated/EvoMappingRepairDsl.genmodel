@@ -9,12 +9,5 @@
     <genClasses ecoreClass="EvoMappingRepairDsl.ecore#//MappingRepairGrammarEntry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoMappingRepairDsl.ecore#//MappingRepairGrammarEntry/action"/>
     </genClasses>
-    <genClasses ecoreClass="EvoMappingRepairDsl.ecore#//EvoMappingKeep">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoMappingRepairDsl.ecore#//EvoMappingKeep/operand"/>
-    </genClasses>
-    <genClasses ecoreClass="EvoMappingRepairDsl.ecore#//EvoMappingReplace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoMappingRepairDsl.ecore#//EvoMappingReplace/operand1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoMappingRepairDsl.ecore#//EvoMappingReplace/operand2"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>

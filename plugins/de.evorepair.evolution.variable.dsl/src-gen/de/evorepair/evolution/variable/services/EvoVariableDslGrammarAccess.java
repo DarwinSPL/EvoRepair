@@ -308,12 +308,17 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cMappingAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMappingSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cMappingAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//EvoMappingVariable:
-		//	'mapping' name=ID;
+		//	'mapping' name=ID ('(' mapping=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'mapping' name=ID
+		//'mapping' name=ID ('(' mapping=STRING ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//'mapping'
@@ -324,6 +329,21 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//('(' mapping=STRING ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//mapping=STRING
+		public Assignment getMappingAssignment_2_1() { return cMappingAssignment_2_1; }
+		
+		//STRING
+		public RuleCall getMappingSTRINGTerminalRuleCall_2_1_0() { return cMappingSTRINGTerminalRuleCall_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 	}
 	public class EvoConfigurationVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoConfigurationVariable");
@@ -535,7 +555,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoMappingVariable:
-	//	'mapping' name=ID;
+	//	'mapping' name=ID ('(' mapping=STRING ')')?;
 	public EvoMappingVariableElements getEvoMappingVariableAccess() {
 		return pEvoMappingVariable;
 	}

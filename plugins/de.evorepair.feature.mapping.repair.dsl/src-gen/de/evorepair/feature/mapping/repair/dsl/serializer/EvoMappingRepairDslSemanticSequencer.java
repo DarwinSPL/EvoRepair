@@ -7,11 +7,12 @@ import com.google.inject.Inject;
 import de.evorepair.feature.expression.evo_expression_dsl.Evo_expression_dslPackage;
 import de.evorepair.feature.expression.evo_expression_dsl.GrammarEntry;
 import de.evorepair.feature.expression.serializer.EvoExpressionDslSemanticSequencer;
-import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep;
-import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslPackage;
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairGrammarEntry;
 import de.evorepair.feature.mapping.repair.dsl.services.EvoMappingRepairDslGrammarAccess;
+import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingKeep;
+import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage;
+import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
 import de.evorepair.logic.evo_logic_dsl.EvoChildrenOf;
 import de.evorepair.logic.evo_logic_dsl.EvoGroupType;
 import de.evorepair.logic.evo_logic_dsl.EvoParentOf;
@@ -22,7 +23,10 @@ import de.evorepair.logic.evo_logic_dsl.EvoSiblingsOf;
 import de.evorepair.logic.evo_logic_dsl.EvoSize;
 import de.evorepair.logic.evo_logic_dsl.EvoXOr;
 import de.evorepair.logic.evo_logic_dsl.Evo_logic_dslPackage;
+import de.evorepair.logic.evologic.EvoAllConfigurations;
+import de.evorepair.logic.evologic.EvoAllMappings;
 import de.evorepair.logic.evologic.EvoBinaryExpression;
+import de.evorepair.logic.evologic.EvoElementOf;
 import de.evorepair.logic.evologic.EvoExist;
 import de.evorepair.logic.evologic.EvoFeatureType;
 import de.evorepair.logic.evologic.EvoForAll;
@@ -31,7 +35,6 @@ import de.evorepair.logic.evologic.EvoLogicPackage;
 import de.evorepair.logic.evologic.EvoSetCardinality;
 import de.evorepair.logic.evologic.EvoSetCartesianProduct;
 import de.evorepair.logic.evologic.EvoSetDifference;
-import de.evorepair.logic.evologic.EvoSetElementOf;
 import de.evorepair.logic.evologic.EvoSetIntersection;
 import de.evorepair.logic.evologic.EvoSetSymmetricDifference;
 import de.evorepair.logic.evologic.EvoSetUnion;
@@ -150,8 +153,17 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 			}
 		else if (epackage == EvoLogicPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case EvoLogicPackage.EVO_ALL_CONFIGURATIONS:
+				sequence_EvoAllConfigurationTerminal(context, (EvoAllConfigurations) semanticObject); 
+				return; 
+			case EvoLogicPackage.EVO_ALL_MAPPINGS:
+				sequence_EvoAllMappingTerminal(context, (EvoAllMappings) semanticObject); 
+				return; 
 			case EvoLogicPackage.EVO_BINARY_EXPRESSION:
 				sequence_EvoBiconditional(context, (EvoBinaryExpression) semanticObject); 
+				return; 
+			case EvoLogicPackage.EVO_ELEMENT_OF:
+				sequence_EvoElementOf(context, (EvoElementOf) semanticObject); 
 				return; 
 			case EvoLogicPackage.EVO_EXIST:
 				sequence_EvoExists(context, (EvoExist) semanticObject); 
@@ -173,9 +185,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 				return; 
 			case EvoLogicPackage.EVO_SET_DIFFERENCE:
 				sequence_EvoSetDifference(context, (EvoSetDifference) semanticObject); 
-				return; 
-			case EvoLogicPackage.EVO_SET_ELEMENT_OF:
-				sequence_EvoElementOf(context, (EvoSetElementOf) semanticObject); 
 				return; 
 			case EvoLogicPackage.EVO_SET_INTERSECTION:
 				sequence_EvoSetIntersection(context, (EvoSetIntersection) semanticObject); 
@@ -223,7 +232,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoApplicationConstraintTerm_EvoVariableTerm(context, (EvoVariableTerm) semanticObject); 
 					return; 
@@ -238,6 +247,15 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 					return; 
 				}
 				else break;
+			}
+		else if (epackage == EvoMappingRepairPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case EvoMappingRepairPackage.EVO_MAPPING_KEEP:
+				sequence_EvoMappingKeep(context, (EvoMappingKeep) semanticObject); 
+				return; 
+			case EvoMappingRepairPackage.EVO_MAPPING_REPLACE:
+				sequence_EvoMappingReplace(context, (EvoMappingReplace) semanticObject); 
+				return; 
 			}
 		else if (epackage == HyExpressionPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -277,7 +295,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoAnd(context, (HyAndExpression) semanticObject); 
 					return; 
@@ -339,7 +357,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoEqual(context, (HyEqualExpression) semanticObject); 
 					return; 
@@ -403,7 +421,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoImplication(context, (HyImpliesExpression) semanticObject); 
 					return; 
@@ -492,7 +510,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoUnequal(context, (HyNotEqualExpression) semanticObject); 
 					return; 
@@ -569,7 +587,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoNotRule()
 						|| rule == grammarAccess.getEvoTerminalRule()
 						|| rule == grammarAccess.getEvoSetVariableRule()) {
@@ -616,7 +634,7 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 						|| rule == grammarAccess.getEvoSetCartesianProductRule()
 						|| action == grammarAccess.getEvoSetCartesianProductAccess().getEvoSetCartesianProductOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoElementOfRule()
-						|| action == grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0()
+						|| action == grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0()
 						|| rule == grammarAccess.getEvoTerminalRule()) {
 					sequence_EvoOr(context, (HyOrExpression) semanticObject); 
 					return; 
@@ -637,12 +655,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 			}
 		else if (epackage == MappingRepairDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case MappingRepairDslPackage.EVO_MAPPING_KEEP:
-				sequence_EvoMappingKeep(context, (EvoMappingKeep) semanticObject); 
-				return; 
-			case MappingRepairDslPackage.EVO_MAPPING_REPLACE:
-				sequence_EvoMappingReplace(context, (EvoMappingReplace) semanticObject); 
-				return; 
 			case MappingRepairDslPackage.MAPPING_REPAIR_GRAMMAR_ENTRY:
 				sequence_MappingRepairGrammarEntry(context, (MappingRepairGrammarEntry) semanticObject); 
 				return; 
@@ -661,8 +673,8 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 	 */
 	protected void sequence_EvoMappingKeep(ISerializationContext context, EvoMappingKeep semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_KEEP__OPERAND) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_KEEP__OPERAND));
+			if (transientValues.isValueTransient(semanticObject, HyExpressionPackage.Literals.HY_UNARY_EXPRESSION__OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HyExpressionPackage.Literals.HY_UNARY_EXPRESSION__OPERAND));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEvoMappingKeepAccess().getOperandEvoMappingExpressionParserRuleCall_2_0(), semanticObject.getOperand());
@@ -680,10 +692,10 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 	 */
 	protected void sequence_EvoMappingReplace(ISerializationContext context, EvoMappingReplace semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_REPLACE__OPERAND1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_REPLACE__OPERAND1));
-			if (transientValues.isValueTransient(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_REPLACE__OPERAND2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MappingRepairDslPackage.Literals.EVO_MAPPING_REPLACE__OPERAND2));
+			if (transientValues.isValueTransient(semanticObject, HyExpressionPackage.Literals.HY_BINARY_EXPRESSION__OPERAND1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HyExpressionPackage.Literals.HY_BINARY_EXPRESSION__OPERAND1));
+			if (transientValues.isValueTransient(semanticObject, HyExpressionPackage.Literals.HY_BINARY_EXPRESSION__OPERAND2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HyExpressionPackage.Literals.HY_BINARY_EXPRESSION__OPERAND2));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEvoMappingReplaceAccess().getOperand1EvoMappingExpressionParserRuleCall_2_0(), semanticObject.getOperand1());

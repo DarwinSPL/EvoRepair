@@ -5,8 +5,6 @@ package de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.util;
 
 import de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.*;
 
-import eu.hyvar.feature.expression.HyExpression;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -82,22 +80,6 @@ public class MappingRepairDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MappingRepairDslPackage.EVO_MAPPING_KEEP:
-      {
-        EvoMappingKeep evoMappingKeep = (EvoMappingKeep)theEObject;
-        T result = caseEvoMappingKeep(evoMappingKeep);
-        if (result == null) result = caseHyExpression(evoMappingKeep);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MappingRepairDslPackage.EVO_MAPPING_REPLACE:
-      {
-        EvoMappingReplace evoMappingReplace = (EvoMappingReplace)theEObject;
-        T result = caseEvoMappingReplace(evoMappingReplace);
-        if (result == null) result = caseHyExpression(evoMappingReplace);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -114,54 +96,6 @@ public class MappingRepairDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMappingRepairGrammarEntry(MappingRepairGrammarEntry object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Evo Mapping Keep</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Evo Mapping Keep</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEvoMappingKeep(EvoMappingKeep object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Evo Mapping Replace</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Evo Mapping Replace</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEvoMappingReplace(EvoMappingReplace object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Hy Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hy Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHyExpression(HyExpression object)
   {
     return null;
   }

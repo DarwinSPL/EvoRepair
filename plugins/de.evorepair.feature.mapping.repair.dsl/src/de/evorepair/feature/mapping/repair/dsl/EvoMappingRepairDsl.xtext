@@ -13,11 +13,11 @@ EvoMappingRepairExpression returns dw_expression::HyExpression:
 	EvoMappingKeep | EvoMappingReplace;
 
 
-EvoMappingKeep:
+EvoMappingKeep returns evo_mappingrepair::EvoMappingKeep:
 	'keep''(' operand=EvoMappingExpression ')';
 
 
-EvoMappingReplace:
+EvoMappingReplace returns evo_mappingrepair::EvoMappingReplace:
 	'replace''(' operand1=EvoMappingExpression ')' 'with''(' operand2=EvoMappingExpression ')';
 
 

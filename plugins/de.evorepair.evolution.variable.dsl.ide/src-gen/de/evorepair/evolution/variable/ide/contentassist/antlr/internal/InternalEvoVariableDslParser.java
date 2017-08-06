@@ -3531,17 +3531,22 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoMappingVariable__Group__1"
-    // InternalEvoVariableDsl.g:1169:1: rule__EvoMappingVariable__Group__1 : rule__EvoMappingVariable__Group__1__Impl ;
+    // InternalEvoVariableDsl.g:1169:1: rule__EvoMappingVariable__Group__1 : rule__EvoMappingVariable__Group__1__Impl rule__EvoMappingVariable__Group__2 ;
     public final void rule__EvoMappingVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1173:1: ( rule__EvoMappingVariable__Group__1__Impl )
-            // InternalEvoVariableDsl.g:1174:2: rule__EvoMappingVariable__Group__1__Impl
+            // InternalEvoVariableDsl.g:1173:1: ( rule__EvoMappingVariable__Group__1__Impl rule__EvoMappingVariable__Group__2 )
+            // InternalEvoVariableDsl.g:1174:2: rule__EvoMappingVariable__Group__1__Impl rule__EvoMappingVariable__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_8);
             rule__EvoMappingVariable__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__Group__2();
 
             state._fsp--;
 
@@ -3564,21 +3569,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoMappingVariable__Group__1__Impl"
-    // InternalEvoVariableDsl.g:1180:1: rule__EvoMappingVariable__Group__1__Impl : ( ( rule__EvoMappingVariable__NameAssignment_1 ) ) ;
+    // InternalEvoVariableDsl.g:1181:1: rule__EvoMappingVariable__Group__1__Impl : ( ( rule__EvoMappingVariable__NameAssignment_1 ) ) ;
     public final void rule__EvoMappingVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1184:1: ( ( ( rule__EvoMappingVariable__NameAssignment_1 ) ) )
-            // InternalEvoVariableDsl.g:1185:1: ( ( rule__EvoMappingVariable__NameAssignment_1 ) )
+            // InternalEvoVariableDsl.g:1185:1: ( ( ( rule__EvoMappingVariable__NameAssignment_1 ) ) )
+            // InternalEvoVariableDsl.g:1186:1: ( ( rule__EvoMappingVariable__NameAssignment_1 ) )
             {
-            // InternalEvoVariableDsl.g:1185:1: ( ( rule__EvoMappingVariable__NameAssignment_1 ) )
-            // InternalEvoVariableDsl.g:1186:2: ( rule__EvoMappingVariable__NameAssignment_1 )
+            // InternalEvoVariableDsl.g:1186:1: ( ( rule__EvoMappingVariable__NameAssignment_1 ) )
+            // InternalEvoVariableDsl.g:1187:2: ( rule__EvoMappingVariable__NameAssignment_1 )
             {
              before(grammarAccess.getEvoMappingVariableAccess().getNameAssignment_1()); 
-            // InternalEvoVariableDsl.g:1187:2: ( rule__EvoMappingVariable__NameAssignment_1 )
-            // InternalEvoVariableDsl.g:1187:3: rule__EvoMappingVariable__NameAssignment_1
+            // InternalEvoVariableDsl.g:1188:2: ( rule__EvoMappingVariable__NameAssignment_1 )
+            // InternalEvoVariableDsl.g:1188:3: rule__EvoMappingVariable__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EvoMappingVariable__NameAssignment_1();
@@ -3610,15 +3615,336 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__EvoMappingVariable__Group__1__Impl"
 
 
+    // $ANTLR start "rule__EvoMappingVariable__Group__2"
+    // InternalEvoVariableDsl.g:1196:1: rule__EvoMappingVariable__Group__2 : rule__EvoMappingVariable__Group__2__Impl ;
+    public final void rule__EvoMappingVariable__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1200:1: ( rule__EvoMappingVariable__Group__2__Impl )
+            // InternalEvoVariableDsl.g:1201:2: rule__EvoMappingVariable__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group__2"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group__2__Impl"
+    // InternalEvoVariableDsl.g:1207:1: rule__EvoMappingVariable__Group__2__Impl : ( ( rule__EvoMappingVariable__Group_2__0 )? ) ;
+    public final void rule__EvoMappingVariable__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1211:1: ( ( ( rule__EvoMappingVariable__Group_2__0 )? ) )
+            // InternalEvoVariableDsl.g:1212:1: ( ( rule__EvoMappingVariable__Group_2__0 )? )
+            {
+            // InternalEvoVariableDsl.g:1212:1: ( ( rule__EvoMappingVariable__Group_2__0 )? )
+            // InternalEvoVariableDsl.g:1213:2: ( rule__EvoMappingVariable__Group_2__0 )?
+            {
+             before(grammarAccess.getEvoMappingVariableAccess().getGroup_2()); 
+            // InternalEvoVariableDsl.g:1214:2: ( rule__EvoMappingVariable__Group_2__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==17) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalEvoVariableDsl.g:1214:3: rule__EvoMappingVariable__Group_2__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__EvoMappingVariable__Group_2__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getEvoMappingVariableAccess().getGroup_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group__2__Impl"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__0"
+    // InternalEvoVariableDsl.g:1223:1: rule__EvoMappingVariable__Group_2__0 : rule__EvoMappingVariable__Group_2__0__Impl rule__EvoMappingVariable__Group_2__1 ;
+    public final void rule__EvoMappingVariable__Group_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1227:1: ( rule__EvoMappingVariable__Group_2__0__Impl rule__EvoMappingVariable__Group_2__1 )
+            // InternalEvoVariableDsl.g:1228:2: rule__EvoMappingVariable__Group_2__0__Impl rule__EvoMappingVariable__Group_2__1
+            {
+            pushFollow(FOLLOW_7);
+            rule__EvoMappingVariable__Group_2__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__Group_2__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__0"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__0__Impl"
+    // InternalEvoVariableDsl.g:1235:1: rule__EvoMappingVariable__Group_2__0__Impl : ( '(' ) ;
+    public final void rule__EvoMappingVariable__Group_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1239:1: ( ( '(' ) )
+            // InternalEvoVariableDsl.g:1240:1: ( '(' )
+            {
+            // InternalEvoVariableDsl.g:1240:1: ( '(' )
+            // InternalEvoVariableDsl.g:1241:2: '('
+            {
+             before(grammarAccess.getEvoMappingVariableAccess().getLeftParenthesisKeyword_2_0()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getEvoMappingVariableAccess().getLeftParenthesisKeyword_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__0__Impl"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__1"
+    // InternalEvoVariableDsl.g:1250:1: rule__EvoMappingVariable__Group_2__1 : rule__EvoMappingVariable__Group_2__1__Impl rule__EvoMappingVariable__Group_2__2 ;
+    public final void rule__EvoMappingVariable__Group_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1254:1: ( rule__EvoMappingVariable__Group_2__1__Impl rule__EvoMappingVariable__Group_2__2 )
+            // InternalEvoVariableDsl.g:1255:2: rule__EvoMappingVariable__Group_2__1__Impl rule__EvoMappingVariable__Group_2__2
+            {
+            pushFollow(FOLLOW_13);
+            rule__EvoMappingVariable__Group_2__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__Group_2__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__1"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__1__Impl"
+    // InternalEvoVariableDsl.g:1262:1: rule__EvoMappingVariable__Group_2__1__Impl : ( ( rule__EvoMappingVariable__MappingAssignment_2_1 ) ) ;
+    public final void rule__EvoMappingVariable__Group_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1266:1: ( ( ( rule__EvoMappingVariable__MappingAssignment_2_1 ) ) )
+            // InternalEvoVariableDsl.g:1267:1: ( ( rule__EvoMappingVariable__MappingAssignment_2_1 ) )
+            {
+            // InternalEvoVariableDsl.g:1267:1: ( ( rule__EvoMappingVariable__MappingAssignment_2_1 ) )
+            // InternalEvoVariableDsl.g:1268:2: ( rule__EvoMappingVariable__MappingAssignment_2_1 )
+            {
+             before(grammarAccess.getEvoMappingVariableAccess().getMappingAssignment_2_1()); 
+            // InternalEvoVariableDsl.g:1269:2: ( rule__EvoMappingVariable__MappingAssignment_2_1 )
+            // InternalEvoVariableDsl.g:1269:3: rule__EvoMappingVariable__MappingAssignment_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__MappingAssignment_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEvoMappingVariableAccess().getMappingAssignment_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__1__Impl"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__2"
+    // InternalEvoVariableDsl.g:1277:1: rule__EvoMappingVariable__Group_2__2 : rule__EvoMappingVariable__Group_2__2__Impl ;
+    public final void rule__EvoMappingVariable__Group_2__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1281:1: ( rule__EvoMappingVariable__Group_2__2__Impl )
+            // InternalEvoVariableDsl.g:1282:2: rule__EvoMappingVariable__Group_2__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingVariable__Group_2__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__2"
+
+
+    // $ANTLR start "rule__EvoMappingVariable__Group_2__2__Impl"
+    // InternalEvoVariableDsl.g:1288:1: rule__EvoMappingVariable__Group_2__2__Impl : ( ')' ) ;
+    public final void rule__EvoMappingVariable__Group_2__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1292:1: ( ( ')' ) )
+            // InternalEvoVariableDsl.g:1293:1: ( ')' )
+            {
+            // InternalEvoVariableDsl.g:1293:1: ( ')' )
+            // InternalEvoVariableDsl.g:1294:2: ')'
+            {
+             before(grammarAccess.getEvoMappingVariableAccess().getRightParenthesisKeyword_2_2()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getEvoMappingVariableAccess().getRightParenthesisKeyword_2_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__Group_2__2__Impl"
+
+
     // $ANTLR start "rule__EvoConfigurationVariable__Group__0"
-    // InternalEvoVariableDsl.g:1196:1: rule__EvoConfigurationVariable__Group__0 : rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1 ;
+    // InternalEvoVariableDsl.g:1304:1: rule__EvoConfigurationVariable__Group__0 : rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1 ;
     public final void rule__EvoConfigurationVariable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1200:1: ( rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1 )
-            // InternalEvoVariableDsl.g:1201:2: rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1
+            // InternalEvoVariableDsl.g:1308:1: ( rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1 )
+            // InternalEvoVariableDsl.g:1309:2: rule__EvoConfigurationVariable__Group__0__Impl rule__EvoConfigurationVariable__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__EvoConfigurationVariable__Group__0__Impl();
@@ -3649,17 +3975,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoConfigurationVariable__Group__0__Impl"
-    // InternalEvoVariableDsl.g:1208:1: rule__EvoConfigurationVariable__Group__0__Impl : ( 'configuration' ) ;
+    // InternalEvoVariableDsl.g:1316:1: rule__EvoConfigurationVariable__Group__0__Impl : ( 'configuration' ) ;
     public final void rule__EvoConfigurationVariable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1212:1: ( ( 'configuration' ) )
-            // InternalEvoVariableDsl.g:1213:1: ( 'configuration' )
+            // InternalEvoVariableDsl.g:1320:1: ( ( 'configuration' ) )
+            // InternalEvoVariableDsl.g:1321:1: ( 'configuration' )
             {
-            // InternalEvoVariableDsl.g:1213:1: ( 'configuration' )
-            // InternalEvoVariableDsl.g:1214:2: 'configuration'
+            // InternalEvoVariableDsl.g:1321:1: ( 'configuration' )
+            // InternalEvoVariableDsl.g:1322:2: 'configuration'
             {
              before(grammarAccess.getEvoConfigurationVariableAccess().getConfigurationKeyword_0()); 
             match(input,25,FOLLOW_2); 
@@ -3686,14 +4012,14 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoConfigurationVariable__Group__1"
-    // InternalEvoVariableDsl.g:1223:1: rule__EvoConfigurationVariable__Group__1 : rule__EvoConfigurationVariable__Group__1__Impl ;
+    // InternalEvoVariableDsl.g:1331:1: rule__EvoConfigurationVariable__Group__1 : rule__EvoConfigurationVariable__Group__1__Impl ;
     public final void rule__EvoConfigurationVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1227:1: ( rule__EvoConfigurationVariable__Group__1__Impl )
-            // InternalEvoVariableDsl.g:1228:2: rule__EvoConfigurationVariable__Group__1__Impl
+            // InternalEvoVariableDsl.g:1335:1: ( rule__EvoConfigurationVariable__Group__1__Impl )
+            // InternalEvoVariableDsl.g:1336:2: rule__EvoConfigurationVariable__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EvoConfigurationVariable__Group__1__Impl();
@@ -3719,21 +4045,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoConfigurationVariable__Group__1__Impl"
-    // InternalEvoVariableDsl.g:1234:1: rule__EvoConfigurationVariable__Group__1__Impl : ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) ) ;
+    // InternalEvoVariableDsl.g:1342:1: rule__EvoConfigurationVariable__Group__1__Impl : ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) ) ;
     public final void rule__EvoConfigurationVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1238:1: ( ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) ) )
-            // InternalEvoVariableDsl.g:1239:1: ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) )
+            // InternalEvoVariableDsl.g:1346:1: ( ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) ) )
+            // InternalEvoVariableDsl.g:1347:1: ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) )
             {
-            // InternalEvoVariableDsl.g:1239:1: ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) )
-            // InternalEvoVariableDsl.g:1240:2: ( rule__EvoConfigurationVariable__NameAssignment_1 )
+            // InternalEvoVariableDsl.g:1347:1: ( ( rule__EvoConfigurationVariable__NameAssignment_1 ) )
+            // InternalEvoVariableDsl.g:1348:2: ( rule__EvoConfigurationVariable__NameAssignment_1 )
             {
              before(grammarAccess.getEvoConfigurationVariableAccess().getNameAssignment_1()); 
-            // InternalEvoVariableDsl.g:1241:2: ( rule__EvoConfigurationVariable__NameAssignment_1 )
-            // InternalEvoVariableDsl.g:1241:3: rule__EvoConfigurationVariable__NameAssignment_1
+            // InternalEvoVariableDsl.g:1349:2: ( rule__EvoConfigurationVariable__NameAssignment_1 )
+            // InternalEvoVariableDsl.g:1349:3: rule__EvoConfigurationVariable__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EvoConfigurationVariable__NameAssignment_1();
@@ -3766,14 +4092,14 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalEvoVariableDsl.g:1250:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // InternalEvoVariableDsl.g:1358:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1254:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalEvoVariableDsl.g:1255:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalEvoVariableDsl.g:1362:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalEvoVariableDsl.g:1363:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
             pushFollow(FOLLOW_14);
             rule__QualifiedName__Group__0__Impl();
@@ -3804,17 +4130,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalEvoVariableDsl.g:1262:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1370:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1266:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1267:1: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1374:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1375:1: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1267:1: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1268:2: RULE_ID
+            // InternalEvoVariableDsl.g:1375:1: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1376:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3841,14 +4167,14 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalEvoVariableDsl.g:1277:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // InternalEvoVariableDsl.g:1385:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1281:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalEvoVariableDsl.g:1282:2: rule__QualifiedName__Group__1__Impl
+            // InternalEvoVariableDsl.g:1389:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalEvoVariableDsl.g:1390:2: rule__QualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group__1__Impl();
@@ -3874,33 +4200,33 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalEvoVariableDsl.g:1288:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // InternalEvoVariableDsl.g:1396:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1292:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalEvoVariableDsl.g:1293:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalEvoVariableDsl.g:1400:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalEvoVariableDsl.g:1401:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // InternalEvoVariableDsl.g:1293:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalEvoVariableDsl.g:1294:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalEvoVariableDsl.g:1401:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalEvoVariableDsl.g:1402:2: ( rule__QualifiedName__Group_1__0 )*
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // InternalEvoVariableDsl.g:1295:2: ( rule__QualifiedName__Group_1__0 )*
-            loop9:
+            // InternalEvoVariableDsl.g:1403:2: ( rule__QualifiedName__Group_1__0 )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==26) ) {
-                    alt9=1;
+                if ( (LA10_0==26) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalEvoVariableDsl.g:1295:3: rule__QualifiedName__Group_1__0
+            	    // InternalEvoVariableDsl.g:1403:3: rule__QualifiedName__Group_1__0
             	    {
             	    pushFollow(FOLLOW_15);
             	    rule__QualifiedName__Group_1__0();
@@ -3912,7 +4238,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -3939,14 +4265,14 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalEvoVariableDsl.g:1304:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // InternalEvoVariableDsl.g:1412:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1308:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalEvoVariableDsl.g:1309:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // InternalEvoVariableDsl.g:1416:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalEvoVariableDsl.g:1417:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_4);
             rule__QualifiedName__Group_1__0__Impl();
@@ -3977,17 +4303,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalEvoVariableDsl.g:1316:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalEvoVariableDsl.g:1424:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1320:1: ( ( '.' ) )
-            // InternalEvoVariableDsl.g:1321:1: ( '.' )
+            // InternalEvoVariableDsl.g:1428:1: ( ( '.' ) )
+            // InternalEvoVariableDsl.g:1429:1: ( '.' )
             {
-            // InternalEvoVariableDsl.g:1321:1: ( '.' )
-            // InternalEvoVariableDsl.g:1322:2: '.'
+            // InternalEvoVariableDsl.g:1429:1: ( '.' )
+            // InternalEvoVariableDsl.g:1430:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             match(input,26,FOLLOW_2); 
@@ -4014,14 +4340,14 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalEvoVariableDsl.g:1331:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // InternalEvoVariableDsl.g:1439:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1335:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalEvoVariableDsl.g:1336:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalEvoVariableDsl.g:1443:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalEvoVariableDsl.g:1444:2: rule__QualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group_1__1__Impl();
@@ -4047,17 +4373,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalEvoVariableDsl.g:1342:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1450:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1346:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1347:1: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1454:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1455:1: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1347:1: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1348:2: RULE_ID
+            // InternalEvoVariableDsl.g:1455:1: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1456:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4084,17 +4410,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Model__VariablesAssignment"
-    // InternalEvoVariableDsl.g:1358:1: rule__Model__VariablesAssignment : ( ruleEvoVariable ) ;
+    // InternalEvoVariableDsl.g:1466:1: rule__Model__VariablesAssignment : ( ruleEvoVariable ) ;
     public final void rule__Model__VariablesAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1362:1: ( ( ruleEvoVariable ) )
-            // InternalEvoVariableDsl.g:1363:2: ( ruleEvoVariable )
+            // InternalEvoVariableDsl.g:1470:1: ( ( ruleEvoVariable ) )
+            // InternalEvoVariableDsl.g:1471:2: ( ruleEvoVariable )
             {
-            // InternalEvoVariableDsl.g:1363:2: ( ruleEvoVariable )
-            // InternalEvoVariableDsl.g:1364:3: ruleEvoVariable
+            // InternalEvoVariableDsl.g:1471:2: ( ruleEvoVariable )
+            // InternalEvoVariableDsl.g:1472:3: ruleEvoVariable
             {
              before(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -4125,17 +4451,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureVariable__NameAssignment_1"
-    // InternalEvoVariableDsl.g:1373:1: rule__EvoFeatureVariable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1481:1: rule__EvoFeatureVariable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EvoFeatureVariable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1377:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1378:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1485:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1486:2: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1378:2: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1379:3: RULE_ID
+            // InternalEvoVariableDsl.g:1486:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1487:3: RULE_ID
             {
              before(grammarAccess.getEvoFeatureVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4162,17 +4488,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureVariable__RelationAssignment_2"
-    // InternalEvoVariableDsl.g:1388:1: rule__EvoFeatureVariable__RelationAssignment_2 : ( ruleEvoFeatureRelation ) ;
+    // InternalEvoVariableDsl.g:1496:1: rule__EvoFeatureVariable__RelationAssignment_2 : ( ruleEvoFeatureRelation ) ;
     public final void rule__EvoFeatureVariable__RelationAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1392:1: ( ( ruleEvoFeatureRelation ) )
-            // InternalEvoVariableDsl.g:1393:2: ( ruleEvoFeatureRelation )
+            // InternalEvoVariableDsl.g:1500:1: ( ( ruleEvoFeatureRelation ) )
+            // InternalEvoVariableDsl.g:1501:2: ( ruleEvoFeatureRelation )
             {
-            // InternalEvoVariableDsl.g:1393:2: ( ruleEvoFeatureRelation )
-            // InternalEvoVariableDsl.g:1394:3: ruleEvoFeatureRelation
+            // InternalEvoVariableDsl.g:1501:2: ( ruleEvoFeatureRelation )
+            // InternalEvoVariableDsl.g:1502:3: ruleEvoFeatureRelation
             {
              before(grammarAccess.getEvoFeatureVariableAccess().getRelationEvoFeatureRelationParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4203,21 +4529,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureVariable__FeatureAssignment_3_2"
-    // InternalEvoVariableDsl.g:1403:1: rule__EvoFeatureVariable__FeatureAssignment_3_2 : ( ( RULE_STRING ) ) ;
+    // InternalEvoVariableDsl.g:1511:1: rule__EvoFeatureVariable__FeatureAssignment_3_2 : ( ( RULE_STRING ) ) ;
     public final void rule__EvoFeatureVariable__FeatureAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1407:1: ( ( ( RULE_STRING ) ) )
-            // InternalEvoVariableDsl.g:1408:2: ( ( RULE_STRING ) )
+            // InternalEvoVariableDsl.g:1515:1: ( ( ( RULE_STRING ) ) )
+            // InternalEvoVariableDsl.g:1516:2: ( ( RULE_STRING ) )
             {
-            // InternalEvoVariableDsl.g:1408:2: ( ( RULE_STRING ) )
-            // InternalEvoVariableDsl.g:1409:3: ( RULE_STRING )
+            // InternalEvoVariableDsl.g:1516:2: ( ( RULE_STRING ) )
+            // InternalEvoVariableDsl.g:1517:3: ( RULE_STRING )
             {
              before(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0()); 
-            // InternalEvoVariableDsl.g:1410:3: ( RULE_STRING )
-            // InternalEvoVariableDsl.g:1411:4: RULE_STRING
+            // InternalEvoVariableDsl.g:1518:3: ( RULE_STRING )
+            // InternalEvoVariableDsl.g:1519:4: RULE_STRING
             {
              before(grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -4248,17 +4574,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureRelation__FeatureTypeAssignment_0"
-    // InternalEvoVariableDsl.g:1422:1: rule__EvoFeatureRelation__FeatureTypeAssignment_0 : ( ruleEvoFeatureVariableType ) ;
+    // InternalEvoVariableDsl.g:1530:1: rule__EvoFeatureRelation__FeatureTypeAssignment_0 : ( ruleEvoFeatureVariableType ) ;
     public final void rule__EvoFeatureRelation__FeatureTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1426:1: ( ( ruleEvoFeatureVariableType ) )
-            // InternalEvoVariableDsl.g:1427:2: ( ruleEvoFeatureVariableType )
+            // InternalEvoVariableDsl.g:1534:1: ( ( ruleEvoFeatureVariableType ) )
+            // InternalEvoVariableDsl.g:1535:2: ( ruleEvoFeatureVariableType )
             {
-            // InternalEvoVariableDsl.g:1427:2: ( ruleEvoFeatureVariableType )
-            // InternalEvoVariableDsl.g:1428:3: ruleEvoFeatureVariableType
+            // InternalEvoVariableDsl.g:1535:2: ( ruleEvoFeatureVariableType )
+            // InternalEvoVariableDsl.g:1536:3: ruleEvoFeatureVariableType
             {
              before(grammarAccess.getEvoFeatureRelationAccess().getFeatureTypeEvoFeatureVariableTypeEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4289,21 +4615,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureRelation__RelatedFeaturesAssignment_2"
-    // InternalEvoVariableDsl.g:1437:1: rule__EvoFeatureRelation__RelatedFeaturesAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalEvoVariableDsl.g:1545:1: rule__EvoFeatureRelation__RelatedFeaturesAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__EvoFeatureRelation__RelatedFeaturesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1441:1: ( ( ( RULE_ID ) ) )
-            // InternalEvoVariableDsl.g:1442:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1549:1: ( ( ( RULE_ID ) ) )
+            // InternalEvoVariableDsl.g:1550:2: ( ( RULE_ID ) )
             {
-            // InternalEvoVariableDsl.g:1442:2: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1443:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1550:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1551:3: ( RULE_ID )
             {
              before(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_2_0()); 
-            // InternalEvoVariableDsl.g:1444:3: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1445:4: RULE_ID
+            // InternalEvoVariableDsl.g:1552:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1553:4: RULE_ID
             {
              before(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4334,21 +4660,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoFeatureRelation__RelatedFeaturesAssignment_3_1"
-    // InternalEvoVariableDsl.g:1456:1: rule__EvoFeatureRelation__RelatedFeaturesAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // InternalEvoVariableDsl.g:1564:1: rule__EvoFeatureRelation__RelatedFeaturesAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__EvoFeatureRelation__RelatedFeaturesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1460:1: ( ( ( RULE_ID ) ) )
-            // InternalEvoVariableDsl.g:1461:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1568:1: ( ( ( RULE_ID ) ) )
+            // InternalEvoVariableDsl.g:1569:2: ( ( RULE_ID ) )
             {
-            // InternalEvoVariableDsl.g:1461:2: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1462:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1569:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1570:3: ( RULE_ID )
             {
              before(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0()); 
-            // InternalEvoVariableDsl.g:1463:3: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1464:4: RULE_ID
+            // InternalEvoVariableDsl.g:1571:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1572:4: RULE_ID
             {
              before(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableIDTerminalRuleCall_3_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4379,17 +4705,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoGroupVariable__NameAssignment_1"
-    // InternalEvoVariableDsl.g:1475:1: rule__EvoGroupVariable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1583:1: rule__EvoGroupVariable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EvoGroupVariable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1479:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1480:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1587:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1588:2: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1480:2: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1481:3: RULE_ID
+            // InternalEvoVariableDsl.g:1588:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1589:3: RULE_ID
             {
              before(grammarAccess.getEvoGroupVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4416,21 +4742,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoGroupVariable__GroupAssignment_2_2"
-    // InternalEvoVariableDsl.g:1490:1: rule__EvoGroupVariable__GroupAssignment_2_2 : ( ( ruleQualifiedName ) ) ;
+    // InternalEvoVariableDsl.g:1598:1: rule__EvoGroupVariable__GroupAssignment_2_2 : ( ( ruleQualifiedName ) ) ;
     public final void rule__EvoGroupVariable__GroupAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1494:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalEvoVariableDsl.g:1495:2: ( ( ruleQualifiedName ) )
+            // InternalEvoVariableDsl.g:1602:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalEvoVariableDsl.g:1603:2: ( ( ruleQualifiedName ) )
             {
-            // InternalEvoVariableDsl.g:1495:2: ( ( ruleQualifiedName ) )
-            // InternalEvoVariableDsl.g:1496:3: ( ruleQualifiedName )
+            // InternalEvoVariableDsl.g:1603:2: ( ( ruleQualifiedName ) )
+            // InternalEvoVariableDsl.g:1604:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupCrossReference_2_2_0()); 
-            // InternalEvoVariableDsl.g:1497:3: ( ruleQualifiedName )
-            // InternalEvoVariableDsl.g:1498:4: ruleQualifiedName
+            // InternalEvoVariableDsl.g:1605:3: ( ruleQualifiedName )
+            // InternalEvoVariableDsl.g:1606:4: ruleQualifiedName
             {
              before(grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupQualifiedNameParserRuleCall_2_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -4465,17 +4791,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoSetVariable__NameAssignment_1"
-    // InternalEvoVariableDsl.g:1509:1: rule__EvoSetVariable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1617:1: rule__EvoSetVariable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EvoSetVariable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1513:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1514:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1621:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1622:2: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1514:2: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1515:3: RULE_ID
+            // InternalEvoVariableDsl.g:1622:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1623:3: RULE_ID
             {
              before(grammarAccess.getEvoSetVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4502,21 +4828,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoSetVariable__ElementsAssignment_2_1"
-    // InternalEvoVariableDsl.g:1524:1: rule__EvoSetVariable__ElementsAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalEvoVariableDsl.g:1632:1: rule__EvoSetVariable__ElementsAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__EvoSetVariable__ElementsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1528:1: ( ( ( RULE_ID ) ) )
-            // InternalEvoVariableDsl.g:1529:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1636:1: ( ( ( RULE_ID ) ) )
+            // InternalEvoVariableDsl.g:1637:2: ( ( RULE_ID ) )
             {
-            // InternalEvoVariableDsl.g:1529:2: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1530:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1637:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1638:3: ( RULE_ID )
             {
              before(grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableCrossReference_2_1_0()); 
-            // InternalEvoVariableDsl.g:1531:3: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1532:4: RULE_ID
+            // InternalEvoVariableDsl.g:1639:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1640:4: RULE_ID
             {
              before(grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4547,21 +4873,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoSetVariable__ElementsAssignment_2_2_1"
-    // InternalEvoVariableDsl.g:1543:1: rule__EvoSetVariable__ElementsAssignment_2_2_1 : ( ( RULE_ID ) ) ;
+    // InternalEvoVariableDsl.g:1651:1: rule__EvoSetVariable__ElementsAssignment_2_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__EvoSetVariable__ElementsAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1547:1: ( ( ( RULE_ID ) ) )
-            // InternalEvoVariableDsl.g:1548:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1655:1: ( ( ( RULE_ID ) ) )
+            // InternalEvoVariableDsl.g:1656:2: ( ( RULE_ID ) )
             {
-            // InternalEvoVariableDsl.g:1548:2: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1549:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1656:2: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1657:3: ( RULE_ID )
             {
              before(grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableCrossReference_2_2_1_0()); 
-            // InternalEvoVariableDsl.g:1550:3: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1551:4: RULE_ID
+            // InternalEvoVariableDsl.g:1658:3: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1659:4: RULE_ID
             {
              before(grammarAccess.getEvoSetVariableAccess().getElementsEvoVariableIDTerminalRuleCall_2_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4592,17 +4918,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__EvoMappingVariable__NameAssignment_1"
-    // InternalEvoVariableDsl.g:1562:1: rule__EvoMappingVariable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1670:1: rule__EvoMappingVariable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EvoMappingVariable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1566:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1567:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1674:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1675:2: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1567:2: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1568:3: RULE_ID
+            // InternalEvoVariableDsl.g:1675:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1676:3: RULE_ID
             {
              before(grammarAccess.getEvoMappingVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4628,18 +4954,55 @@ public class InternalEvoVariableDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__EvoMappingVariable__NameAssignment_1"
 
 
+    // $ANTLR start "rule__EvoMappingVariable__MappingAssignment_2_1"
+    // InternalEvoVariableDsl.g:1685:1: rule__EvoMappingVariable__MappingAssignment_2_1 : ( RULE_STRING ) ;
+    public final void rule__EvoMappingVariable__MappingAssignment_2_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoVariableDsl.g:1689:1: ( ( RULE_STRING ) )
+            // InternalEvoVariableDsl.g:1690:2: ( RULE_STRING )
+            {
+            // InternalEvoVariableDsl.g:1690:2: ( RULE_STRING )
+            // InternalEvoVariableDsl.g:1691:3: RULE_STRING
+            {
+             before(grammarAccess.getEvoMappingVariableAccess().getMappingSTRINGTerminalRuleCall_2_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getEvoMappingVariableAccess().getMappingSTRINGTerminalRuleCall_2_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingVariable__MappingAssignment_2_1"
+
+
     // $ANTLR start "rule__EvoConfigurationVariable__NameAssignment_1"
-    // InternalEvoVariableDsl.g:1577:1: rule__EvoConfigurationVariable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalEvoVariableDsl.g:1700:1: rule__EvoConfigurationVariable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EvoConfigurationVariable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoVariableDsl.g:1581:1: ( ( RULE_ID ) )
-            // InternalEvoVariableDsl.g:1582:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1704:1: ( ( RULE_ID ) )
+            // InternalEvoVariableDsl.g:1705:2: ( RULE_ID )
             {
-            // InternalEvoVariableDsl.g:1582:2: ( RULE_ID )
-            // InternalEvoVariableDsl.g:1583:3: RULE_ID
+            // InternalEvoVariableDsl.g:1705:2: ( RULE_ID )
+            // InternalEvoVariableDsl.g:1706:3: RULE_ID
             {
              before(grammarAccess.getEvoConfigurationVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 

@@ -14,8 +14,8 @@ import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeSet;
-import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSet;
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
+import org.eclipse.emf.common.util.URI;
 
 import de.evorepair.evolution.evooperation.EvoOperation;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
@@ -23,20 +23,22 @@ import de.evorepair.evolution.evovariable.EvoFeatureRelation;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariableType;
 import de.evorepair.evolution.evovariable.EvoGroupVariable;
+import de.evorepair.evolution.evovariable.EvoMappingVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
+import de.evorepair.logic.evologic.EvoAllMappings;
 import de.evorepair.logic.evologic.EvoBiconditional;
 import de.evorepair.logic.evologic.EvoChildrenOf;
+import de.evorepair.logic.evologic.EvoElementOf;
 import de.evorepair.logic.evologic.EvoFeatureType;
 import de.evorepair.logic.evologic.EvoForAll;
 import de.evorepair.logic.evologic.EvoGroupType;
 import de.evorepair.logic.evologic.EvoParentOf;
 import de.evorepair.logic.evologic.EvoSetCardinality;
 import de.evorepair.logic.evologic.EvoSetDifference;
-import de.evorepair.logic.evologic.EvoSetElementOf;
 import de.evorepair.logic.evologic.EvoSetInclusion;
 import de.evorepair.logic.evologic.EvoSetIntersection;
 import de.evorepair.logic.evologic.EvoSetNotElementOf;
@@ -49,6 +51,7 @@ import de.evorepair.logic.evologic.EvoXOr;
 import eu.hyvar.evolution.util.HyEvolutionUtil;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.HyFeatureChild;
+import eu.hyvar.feature.HyFeatureModel;
 import eu.hyvar.feature.HyFeatureType;
 import eu.hyvar.feature.HyGroup;
 import eu.hyvar.feature.HyGroupComposition;
@@ -65,7 +68,8 @@ import eu.hyvar.feature.expression.HyNotExpression;
 import eu.hyvar.feature.expression.HyOrExpression;
 
 public class EvoSolver {
-
+	HyFeatureModel featureModel;
+	
 	/**
 	 * Contains all for the solver necessary features of a model. The key to identify the feature is a HyFeature
 	 */
@@ -85,6 +89,13 @@ public class EvoSolver {
 	 * The model that contains all the clauses and is used by the solver for derivating the solution
 	 */
 	Model model;
+	
+	
+
+	public EvoSolver(HyFeatureModel featureModel) {
+		super();
+		this.featureModel = featureModel;
+	}
 
 	/**
 	 * Adds a variable to the solver. Depending on the type, a new feature, group or set variable is added
@@ -656,22 +667,43 @@ public class EvoSolver {
 				model.addClauseTrue(result);
 			
 			return result;
-		}else if(term instanceof EvoSetElementOf){
-			EvoSetElementOf setElementOfTerm = (EvoSetElementOf)term;
+		}else if(term instanceof EvoElementOf){
+			EvoElementOf setElementOfTerm = (EvoElementOf)term;
 
-			IntIterableRangeSet set = getSet(setElementOfTerm.getOperand2(), date);
-			IntVar var = (IntVar)getVariable(setElementOfTerm.getOperand1(), date, false, replacedByVariable, variableToBeReplaced).get(0);
-			boolean value = IntIterableSetUtils.includedIn(var, set);
+			if(setElementOfTerm.getOperand1() instanceof EvoVariableTerm && setElementOfTerm.getOperand2() instanceof EvoAllMappings &&
+					((EvoVariableTerm)setElementOfTerm.getOperand1()).getVariable() instanceof EvoMappingVariable) {
+				
+				EvoMappingVariable mappingVariable = ((EvoMappingVariable)((EvoVariableTerm)setElementOfTerm.getOperand1()).getVariable());
+				List<String> uriFragments = featureModel.eResource().getURI().segmentsList();
+				uriFragments = uriFragments.subList(0, uriFragments.size()-1);
+				
+				String uri = "platform:/"+String.join("/", uriFragments);
+				uri += mappingVariable.getMapping();
+				
+				try {
+					featureModel.eResource().getResourceSet().getResource(URI.createURI(uri), true);
+				}catch(Exception e) {
+					BoolVar result = model.boolVar(true);
+					model.addClauseTrue(result);
+				}
+				
+				BoolVar result = model.boolVar(true);
+				model.addClauseTrue(result);
+			}else {
+				IntIterableRangeSet set = getSet(setElementOfTerm.getOperand2(), date);
+				IntVar var = (IntVar)getVariable(setElementOfTerm.getOperand1(), date, false, replacedByVariable, variableToBeReplaced).get(0);
+				boolean value = IntIterableSetUtils.includedIn(var, set);
+	
+				BoolVar variable = model.boolVar(value);
+				
+				if(parentTerm == null)
+					model.addClauseTrue(variable);
+				
+				if(parentTerm instanceof HyNotExpression)
+					model.addClauseFalse(variable);
 
-			BoolVar variable = model.boolVar(value);
-			
-			if(parentTerm == null)
-				model.addClauseTrue(variable);
-			
-			if(parentTerm instanceof HyNotExpression)
-				model.addClauseFalse(variable);
-
-			return variable;			 
+				return variable;	
+			}
 		}else if(term instanceof EvoSetInclusion){
 			EvoSetInclusion inclusionTerm = (EvoSetInclusion)term;
 
@@ -734,17 +766,19 @@ public class EvoSolver {
 		List<EvoAnomaly> anomalies = new ArrayList<>();
 		
 		for(EvoAnomaly anomaly : guidanceTable.getAnomalies()){
-			solveTerm(anomaly.getCondition().getTerm(), null, new Date(), null, null);
-
-			Solver solver = model.getSolver();
-			solver.setSearch(Search.defaultSearch(model));
-			
-			// a condition for an anomaly was true so inform the user with the help of the guidance element
-			if(solver.solve()){
-				anomalies.add(anomaly);
-			}else{
-				System.err.println(":(");
-			}			
+			//if(anomaly instanceof EvoConfigurationAnomaly) {
+				solveTerm(anomaly.getCondition().getTerm(), null, new Date(), null, null);
+	
+				Solver solver = model.getSolver();
+				solver.setSearch(Search.defaultSearch(model));
+				
+				// a condition for an anomaly was true so inform the user with the help of the guidance element
+				if(solver.solve()){
+					anomalies.add(anomaly);
+				}else{
+					System.err.println(":(");
+				}			
+			//}
 		}
 
 		return anomalies;

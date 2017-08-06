@@ -131,16 +131,10 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     EvoMappingVariable returns EvoMappingVariable
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID mapping=STRING?)
 	 */
 	protected void sequence_EvoMappingVariable(ISerializationContext context, EvoMappingVariable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEvoMappingVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

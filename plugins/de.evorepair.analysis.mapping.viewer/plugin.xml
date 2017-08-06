@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.evorepair.analysis.mapping.viewer.viewer.EvoMappingRepairSuggestionViewer"
+            default="false"
+            extensions="hymapping, hymappingmodel"
+            id="de.evorepair.analysis.mapping.viewer.repair.suggestion.viewer"
+            name="EvoRepair: Mapping Suggestion Viewer">
+      </editor>
+   </extension>
+
+
+</plugin>

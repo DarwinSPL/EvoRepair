@@ -3,8 +3,6 @@
  */
 package de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl;
 
-import eu.hyvar.feature.expression.HyExpressionPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -86,71 +84,6 @@ public interface MappingRepairDslPackage extends EPackage
    */
   int MAPPING_REPAIR_GRAMMAR_ENTRY_FEATURE_COUNT = 1;
 
-  /**
-   * The meta object id for the '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingKeepImpl <em>Evo Mapping Keep</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingKeepImpl
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.MappingRepairDslPackageImpl#getEvoMappingKeep()
-   * @generated
-   */
-  int EVO_MAPPING_KEEP = 1;
-
-  /**
-   * The feature id for the '<em><b>Operand</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVO_MAPPING_KEEP__OPERAND = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Evo Mapping Keep</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVO_MAPPING_KEEP_FEATURE_COUNT = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingReplaceImpl <em>Evo Mapping Replace</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingReplaceImpl
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.MappingRepairDslPackageImpl#getEvoMappingReplace()
-   * @generated
-   */
-  int EVO_MAPPING_REPLACE = 2;
-
-  /**
-   * The feature id for the '<em><b>Operand1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVO_MAPPING_REPLACE__OPERAND1 = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Operand2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVO_MAPPING_REPLACE__OPERAND2 = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Evo Mapping Replace</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVO_MAPPING_REPLACE_FEATURE_COUNT = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 2;
-
 
   /**
    * Returns the meta object for class '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairGrammarEntry <em>Mapping Repair Grammar Entry</em>}'.
@@ -172,59 +105,6 @@ public interface MappingRepairDslPackage extends EPackage
    * @generated
    */
   EReference getMappingRepairGrammarEntry_Action();
-
-  /**
-   * Returns the meta object for class '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep <em>Evo Mapping Keep</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Evo Mapping Keep</em>'.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep
-   * @generated
-   */
-  EClass getEvoMappingKeep();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep#getOperand <em>Operand</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operand</em>'.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingKeep#getOperand()
-   * @see #getEvoMappingKeep()
-   * @generated
-   */
-  EReference getEvoMappingKeep_Operand();
-
-  /**
-   * Returns the meta object for class '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace <em>Evo Mapping Replace</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Evo Mapping Replace</em>'.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace
-   * @generated
-   */
-  EClass getEvoMappingReplace();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace#getOperand1 <em>Operand1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operand1</em>'.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace#getOperand1()
-   * @see #getEvoMappingReplace()
-   * @generated
-   */
-  EReference getEvoMappingReplace_Operand1();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace#getOperand2 <em>Operand2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operand2</em>'.
-   * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.EvoMappingReplace#getOperand2()
-   * @see #getEvoMappingReplace()
-   * @generated
-   */
-  EReference getEvoMappingReplace_Operand2();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -266,50 +146,6 @@ public interface MappingRepairDslPackage extends EPackage
      * @generated
      */
     EReference MAPPING_REPAIR_GRAMMAR_ENTRY__ACTION = eINSTANCE.getMappingRepairGrammarEntry_Action();
-
-    /**
-     * The meta object literal for the '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingKeepImpl <em>Evo Mapping Keep</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingKeepImpl
-     * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.MappingRepairDslPackageImpl#getEvoMappingKeep()
-     * @generated
-     */
-    EClass EVO_MAPPING_KEEP = eINSTANCE.getEvoMappingKeep();
-
-    /**
-     * The meta object literal for the '<em><b>Operand</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EVO_MAPPING_KEEP__OPERAND = eINSTANCE.getEvoMappingKeep_Operand();
-
-    /**
-     * The meta object literal for the '{@link de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingReplaceImpl <em>Evo Mapping Replace</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.EvoMappingReplaceImpl
-     * @see de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl.MappingRepairDslPackageImpl#getEvoMappingReplace()
-     * @generated
-     */
-    EClass EVO_MAPPING_REPLACE = eINSTANCE.getEvoMappingReplace();
-
-    /**
-     * The meta object literal for the '<em><b>Operand1</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EVO_MAPPING_REPLACE__OPERAND1 = eINSTANCE.getEvoMappingReplace_Operand1();
-
-    /**
-     * The meta object literal for the '<em><b>Operand2</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EVO_MAPPING_REPLACE__OPERAND2 = eINSTANCE.getEvoMappingReplace_Operand2();
 
   }
 

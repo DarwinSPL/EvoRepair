@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Viewer
-Bundle-SymbolicName: de.evorepair.analysis.viewer;singleton:=true
+Bundle-SymbolicName: de.evorepair.analysis.configuration.viewer;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.evorepair.analysis.viewer.Activator
 Require-Bundle: org.eclipse.ui.ide;bundle-version="3.13.0",

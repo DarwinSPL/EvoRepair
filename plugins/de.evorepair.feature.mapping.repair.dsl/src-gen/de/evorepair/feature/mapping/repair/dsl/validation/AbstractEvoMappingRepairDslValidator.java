@@ -15,6 +15,7 @@ public abstract class AbstractEvoMappingRepairDslValidator extends EvoExpression
 		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 		result.add(de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.MappingRepairDslPackage.eINSTANCE);
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://hyvar-project.eu/feature/expression/1.0"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/mapping/repair/0.1"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://hyvar-project.eu/feature/dataValues/1.0"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://darwinspl.de/evorepair/logic/0.4"));
 		return result;

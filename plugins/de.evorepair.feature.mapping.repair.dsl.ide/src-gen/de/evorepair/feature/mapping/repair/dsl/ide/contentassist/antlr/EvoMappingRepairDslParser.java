@@ -44,6 +44,7 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoBiconditionalSizeAccess().getAlternatives(), "rule__EvoBiconditionalSize__Alternatives");
 					put(grammarAccess.getEvoSetInclusionSizeAccess().getAlternatives(), "rule__EvoSetInclusionSize__Alternatives");
 					put(grammarAccess.getEvoSetCardinalityAccess().getAlternatives_1(), "rule__EvoSetCardinality__Alternatives_1");
+					put(grammarAccess.getEvoElementOfAccess().getOperand2Alternatives_1_2_0(), "rule__EvoElementOf__Operand2Alternatives_1_2_0");
 					put(grammarAccess.getEvoNotAccess().getAlternatives(), "rule__EvoNot__Alternatives");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAlternatives_3_0(), "rule__EvoSatisfiable__VariablesAlternatives_3_0");
 					put(grammarAccess.getEvoSatisfiableAccess().getVariablesAlternatives_4_1_0(), "rule__EvoSatisfiable__VariablesAlternatives_4_1_0");
@@ -153,6 +154,8 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoSatisfiableAccess().getGroup(), "rule__EvoSatisfiable__Group__0");
 					put(grammarAccess.getEvoSatisfiableAccess().getGroup_4(), "rule__EvoSatisfiable__Group_4__0");
 					put(grammarAccess.getEvoTerminalAccess().getGroup_13(), "rule__EvoTerminal__Group_13__0");
+					put(grammarAccess.getEvoAllMappingTerminalAccess().getGroup(), "rule__EvoAllMappingTerminal__Group__0");
+					put(grammarAccess.getEvoAllConfigurationTerminalAccess().getGroup(), "rule__EvoAllConfigurationTerminal__Group__0");
 					put(grammarAccess.getEvoSizeAccess().getGroup(), "rule__EvoSize__Group__0");
 					put(grammarAccess.getEvoVariableTermAccess().getGroup(), "rule__EvoVariableTerm__Group__0");
 					put(grammarAccess.getEvoApplicationConstraintTermAccess().getGroup(), "rule__EvoApplicationConstraintTerm__Group__0");

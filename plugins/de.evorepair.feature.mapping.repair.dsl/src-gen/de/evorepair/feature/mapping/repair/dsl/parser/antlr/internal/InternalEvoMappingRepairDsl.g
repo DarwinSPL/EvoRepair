@@ -3351,7 +3351,7 @@ ruleEvoElementOf returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEvoElementOfAccess().getEvoSetElementOfOperand1Action_1_0(),
+						grammarAccess.getEvoElementOfAccess().getEvoElementOfOperand1Action_1_0(),
 						$current);
 				}
 			)
@@ -3361,21 +3361,55 @@ ruleEvoElementOf returns [EObject current=null]
 			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoTerminalParserRuleCall_1_2_0());
-					}
-					lv_operand2_3_0=ruleEvoTerminal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEvoElementOfRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoTerminalParserRuleCall_1_2_0_0());
 						}
-						set(
-							$current,
-							"operand2",
-							lv_operand2_3_0,
-							"de.evorepair.logic.EvoLogicDsl.EvoTerminal");
-						afterParserOrEnumRuleCall();
-					}
+						lv_operand2_3_1=ruleEvoTerminal
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEvoElementOfRule());
+							}
+							set(
+								$current,
+								"operand2",
+								lv_operand2_3_1,
+								"de.evorepair.logic.EvoLogicDsl.EvoTerminal");
+							afterParserOrEnumRuleCall();
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoAllMappingTerminalParserRuleCall_1_2_0_1());
+						}
+						lv_operand2_3_2=ruleEvoAllMappingTerminal
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEvoElementOfRule());
+							}
+							set(
+								$current,
+								"operand2",
+								lv_operand2_3_2,
+								"de.evorepair.logic.EvoLogicDsl.EvoAllMappingTerminal");
+							afterParserOrEnumRuleCall();
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoAllConfigurationTerminalParserRuleCall_1_2_0_2());
+						}
+						lv_operand2_3_3=ruleEvoAllConfigurationTerminal
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEvoElementOfRule());
+							}
+							set(
+								$current,
+								"operand2",
+								lv_operand2_3_3,
+								"de.evorepair.logic.EvoLogicDsl.EvoAllConfigurationTerminal");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
 		)*
@@ -3900,6 +3934,66 @@ ruleEvoTerminal returns [EObject current=null]
 				newLeafNode(otherlv_15, grammarAccess.getEvoTerminalAccess().getRightParenthesisKeyword_13_2());
 			}
 		)
+	)
+;
+
+// Entry rule entryRuleEvoAllMappingTerminal
+entryRuleEvoAllMappingTerminal returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoAllMappingTerminalRule()); }
+	iv_ruleEvoAllMappingTerminal=ruleEvoAllMappingTerminal
+	{ $current=$iv_ruleEvoAllMappingTerminal.current; }
+	EOF;
+
+// Rule EvoAllMappingTerminal
+ruleEvoAllMappingTerminal returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEvoAllMappingTerminalAccess().getEvoAllMappingsAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='All_Mappings'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEvoAllMappingTerminalAccess().getAll_MappingsKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleEvoAllConfigurationTerminal
+entryRuleEvoAllConfigurationTerminal returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoAllConfigurationTerminalRule()); }
+	iv_ruleEvoAllConfigurationTerminal=ruleEvoAllConfigurationTerminal
+	{ $current=$iv_ruleEvoAllConfigurationTerminal.current; }
+	EOF;
+
+// Rule EvoAllConfigurationTerminal
+ruleEvoAllConfigurationTerminal returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEvoAllConfigurationTerminalAccess().getEvoAllConfigurationsAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='All_Configurations'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEvoAllConfigurationTerminalAccess().getAll_ConfigurationsKeyword_1());
+		}
 	)
 ;
 

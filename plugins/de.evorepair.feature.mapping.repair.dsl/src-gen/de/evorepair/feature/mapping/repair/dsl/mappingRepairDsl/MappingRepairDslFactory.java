@@ -33,24 +33,6 @@ public interface MappingRepairDslFactory extends EFactory
   MappingRepairGrammarEntry createMappingRepairGrammarEntry();
 
   /**
-   * Returns a new object of class '<em>Evo Mapping Keep</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Evo Mapping Keep</em>'.
-   * @generated
-   */
-  EvoMappingKeep createEvoMappingKeep();
-
-  /**
-   * Returns a new object of class '<em>Evo Mapping Replace</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Evo Mapping Replace</em>'.
-   * @generated
-   */
-  EvoMappingReplace createEvoMappingReplace();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

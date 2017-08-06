@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.workbench,
  org.eclipse.ui.ide;bundle-version="3.11.0",
  de.darwinspl.feature.graphical.base;bundle-version="1.0.0",
- de.evorepair.analysis.viewer,
+ de.evorepair.analysis.configuration.viewer,
  de.darwinspl.feature.graphical.configurator.editor;bundle-version="1.0.0",
  de.darwinspl.feature.graphical.configurator.viewer;bundle-version="1.0.0",
  de.evorepair.evolution.variable.dsl,
@@ -24,7 +24,9 @@ Require-Bundle: org.eclipse.ui,
  de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
  de.evorepair.evolution.operation.dsl.ui,
  de.evorepair.feature.expression.dsl.ui,
- de.evorepair.logic.dsl;bundle-version="1.0.0"
+ de.evorepair.logic.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair,
+ org.eclipse.emf.workspace;bundle-version="1.5.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.evorepair.analysis.toolbar
