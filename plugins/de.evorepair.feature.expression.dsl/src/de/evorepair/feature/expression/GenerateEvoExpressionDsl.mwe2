@@ -8,8 +8,13 @@ var rootPath = ".."
 Workflow {
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup{
 		scanClassPath=true
-
-        registerGeneratedEPackage = "eu.hyvar.feature.mapping.MappingPackage"
+		
+        uriMap = {
+        	from = "platform:/eu.hyvar.feature.mapping/model/Mapping.genmodel"
+        	to = "platform:/resource/eu.hyvar.feature.mapping/model/Mapping.genmodel"
+        }     
+        
+        registerGeneratedEPackage = "eu.hyvar.feature.mapping.MappingPackage"  
    	}	
    	
 	component = XtextGenerator {

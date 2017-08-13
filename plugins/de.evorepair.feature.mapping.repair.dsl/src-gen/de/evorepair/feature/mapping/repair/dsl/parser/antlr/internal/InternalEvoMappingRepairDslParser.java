@@ -3356,8 +3356,120 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
     // $ANTLR end "ruleEvoMappingDivisionExpression"
 
 
+    // $ANTLR start "entryRuleEvoMappingNegation"
+    // InternalEvoMappingRepairDsl.g:1247:1: entryRuleEvoMappingNegation returns [EObject current=null] : iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF ;
+    public final EObject entryRuleEvoMappingNegation() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleEvoMappingNegation = null;
+
+
+        try {
+            // InternalEvoMappingRepairDsl.g:1247:59: (iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF )
+            // InternalEvoMappingRepairDsl.g:1248:2: iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF
+            {
+             newCompositeNode(grammarAccess.getEvoMappingNegationRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEvoMappingNegation=ruleEvoMappingNegation();
+
+            state._fsp--;
+
+             current =iv_ruleEvoMappingNegation; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEvoMappingNegation"
+
+
+    // $ANTLR start "ruleEvoMappingNegation"
+    // InternalEvoMappingRepairDsl.g:1254:1: ruleEvoMappingNegation returns [EObject current=null] : (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
+    public final EObject ruleEvoMappingNegation() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_operand_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalEvoMappingRepairDsl.g:1260:2: ( (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
+            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            {
+            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            // InternalEvoMappingRepairDsl.g:1262:3: otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
+            {
+            otherlv_0=(Token)match(input,29,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
+            		
+            // InternalEvoMappingRepairDsl.g:1266:3: ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
+            // InternalEvoMappingRepairDsl.g:1267:4: (lv_operand_1_0= ruleEvoMappingTerminal )
+            {
+            // InternalEvoMappingRepairDsl.g:1267:4: (lv_operand_1_0= ruleEvoMappingTerminal )
+            // InternalEvoMappingRepairDsl.g:1268:5: lv_operand_1_0= ruleEvoMappingTerminal
+            {
+
+            					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_operand_1_0=ruleEvoMappingTerminal();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getEvoMappingNegationRule());
+            					}
+            					set(
+            						current,
+            						"operand",
+            						lv_operand_1_0,
+            						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEvoMappingNegation"
+
+
     // $ANTLR start "entryRuleEvoMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:1247:1: entryRuleEvoMappingTerminal returns [EObject current=null] : iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF ;
+    // InternalEvoMappingRepairDsl.g:1289:1: entryRuleEvoMappingTerminal returns [EObject current=null] : iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF ;
     public final EObject entryRuleEvoMappingTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -3365,8 +3477,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1247:59: (iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF )
-            // InternalEvoMappingRepairDsl.g:1248:2: iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF
+            // InternalEvoMappingRepairDsl.g:1289:59: (iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF )
+            // InternalEvoMappingRepairDsl.g:1290:2: iv_ruleEvoMappingTerminal= ruleEvoMappingTerminal EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingTerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -3393,7 +3505,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:1254:1: ruleEvoMappingTerminal returns [EObject current=null] : (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) ;
+    // InternalEvoMappingRepairDsl.g:1296:1: ruleEvoMappingTerminal returns [EObject current=null] : (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) ;
     public final EObject ruleEvoMappingTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -3424,15 +3536,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1260:2: ( (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) )
-            // InternalEvoMappingRepairDsl.g:1261:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
+            // InternalEvoMappingRepairDsl.g:1302:2: ( (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) )
+            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
             {
-            // InternalEvoMappingRepairDsl.g:1261:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
+            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
             int alt19=11;
             alt19 = dfa19.predict(input);
             switch (alt19) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:1262:3: this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1304:3: this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingFeatureReferenceExpressionParserRuleCall_0());
@@ -3450,7 +3562,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:1271:3: this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression
+                    // InternalEvoMappingRepairDsl.g:1313:3: this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNestedExpressionParserRuleCall_1());
@@ -3468,7 +3580,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:1280:3: this_EvoMappingNegation_2= ruleEvoMappingNegation
+                    // InternalEvoMappingRepairDsl.g:1322:3: this_EvoMappingNegation_2= ruleEvoMappingNegation
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNegationParserRuleCall_2());
@@ -3486,7 +3598,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalEvoMappingRepairDsl.g:1289:3: this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1331:3: this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3());
@@ -3504,7 +3616,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalEvoMappingRepairDsl.g:1298:3: this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1340:3: this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingContextInformationReferenceExpressionParserRuleCall_4());
@@ -3522,7 +3634,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 6 :
-                    // InternalEvoMappingRepairDsl.g:1307:3: this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1349:3: this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingAttributeReferenceExpressionParserRuleCall_5());
@@ -3540,7 +3652,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 7 :
-                    // InternalEvoMappingRepairDsl.g:1316:3: this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression
+                    // InternalEvoMappingRepairDsl.g:1358:3: this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingValueExpressionParserRuleCall_6());
@@ -3558,7 +3670,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 8 :
-                    // InternalEvoMappingRepairDsl.g:1325:3: this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression
+                    // InternalEvoMappingRepairDsl.g:1367:3: this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingBooleanValueExpressionParserRuleCall_7());
@@ -3576,7 +3688,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 9 :
-                    // InternalEvoMappingRepairDsl.g:1334:3: this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression
+                    // InternalEvoMappingRepairDsl.g:1376:3: this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMimumumExpressionParserRuleCall_8());
@@ -3594,7 +3706,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 10 :
-                    // InternalEvoMappingRepairDsl.g:1343:3: this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression
+                    // InternalEvoMappingRepairDsl.g:1385:3: this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMaximumExpressionParserRuleCall_9());
@@ -3612,7 +3724,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 11 :
-                    // InternalEvoMappingRepairDsl.g:1352:3: this_EvoMappingNot_10= ruleEvoMappingNot
+                    // InternalEvoMappingRepairDsl.g:1394:3: this_EvoMappingNot_10= ruleEvoMappingNot
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNotParserRuleCall_10());
@@ -3652,7 +3764,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:1364:1: entryRuleEvoMappingNestedExpression returns [EObject current=null] : iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1406:1: entryRuleEvoMappingNestedExpression returns [EObject current=null] : iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF ;
     public final EObject entryRuleEvoMappingNestedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3660,8 +3772,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1364:67: (iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1365:2: iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF
+            // InternalEvoMappingRepairDsl.g:1406:67: (iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1407:2: iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingNestedExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -3688,7 +3800,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:1371:1: ruleEvoMappingNestedExpression returns [EObject current=null] : (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:1413:1: ruleEvoMappingNestedExpression returns [EObject current=null] : (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
     public final EObject ruleEvoMappingNestedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3701,21 +3813,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1377:2: ( (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
-            // InternalEvoMappingRepairDsl.g:1378:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:1419:2: ( (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
+            // InternalEvoMappingRepairDsl.g:1420:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:1378:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
-            // InternalEvoMappingRepairDsl.g:1379:3: otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
+            // InternalEvoMappingRepairDsl.g:1420:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:1421:3: otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
             {
             otherlv_0=(Token)match(input,13,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNestedExpressionAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1383:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
-            // InternalEvoMappingRepairDsl.g:1384:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:1425:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
+            // InternalEvoMappingRepairDsl.g:1426:4: (lv_operand_1_0= ruleEvoMappingExpression )
             {
-            // InternalEvoMappingRepairDsl.g:1384:4: (lv_operand_1_0= ruleEvoMappingExpression )
-            // InternalEvoMappingRepairDsl.g:1385:5: lv_operand_1_0= ruleEvoMappingExpression
+            // InternalEvoMappingRepairDsl.g:1426:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:1427:5: lv_operand_1_0= ruleEvoMappingExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
@@ -3766,118 +3878,6 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         return current;
     }
     // $ANTLR end "ruleEvoMappingNestedExpression"
-
-
-    // $ANTLR start "entryRuleEvoMappingNegation"
-    // InternalEvoMappingRepairDsl.g:1410:1: entryRuleEvoMappingNegation returns [EObject current=null] : iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF ;
-    public final EObject entryRuleEvoMappingNegation() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleEvoMappingNegation = null;
-
-
-        try {
-            // InternalEvoMappingRepairDsl.g:1410:59: (iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF )
-            // InternalEvoMappingRepairDsl.g:1411:2: iv_ruleEvoMappingNegation= ruleEvoMappingNegation EOF
-            {
-             newCompositeNode(grammarAccess.getEvoMappingNegationRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleEvoMappingNegation=ruleEvoMappingNegation();
-
-            state._fsp--;
-
-             current =iv_ruleEvoMappingNegation; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleEvoMappingNegation"
-
-
-    // $ANTLR start "ruleEvoMappingNegation"
-    // InternalEvoMappingRepairDsl.g:1417:1: ruleEvoMappingNegation returns [EObject current=null] : (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
-    public final EObject ruleEvoMappingNegation() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        EObject lv_operand_1_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalEvoMappingRepairDsl.g:1423:2: ( (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
-            // InternalEvoMappingRepairDsl.g:1424:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
-            {
-            // InternalEvoMappingRepairDsl.g:1424:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
-            // InternalEvoMappingRepairDsl.g:1425:3: otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
-            {
-            otherlv_0=(Token)match(input,29,FOLLOW_4); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
-            		
-            // InternalEvoMappingRepairDsl.g:1429:3: ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
-            // InternalEvoMappingRepairDsl.g:1430:4: (lv_operand_1_0= ruleEvoMappingTerminal )
-            {
-            // InternalEvoMappingRepairDsl.g:1430:4: (lv_operand_1_0= ruleEvoMappingTerminal )
-            // InternalEvoMappingRepairDsl.g:1431:5: lv_operand_1_0= ruleEvoMappingTerminal
-            {
-
-            					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_operand_1_0=ruleEvoMappingTerminal();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getEvoMappingNegationRule());
-            					}
-            					set(
-            						current,
-            						"operand",
-            						lv_operand_1_0,
-            						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleEvoMappingNegation"
 
 
     // $ANTLR start "entryRuleEvoMappingNot"
@@ -12928,14 +12928,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
     protected DFA19 dfa19 = new DFA19(this);
     protected DFA22 dfa22 = new DFA22(this);
     static final String dfa_1s = "\15\uffff";
-    static final String dfa_2s = "\1\uffff\1\14\13\uffff";
+    static final String dfa_2s = "\1\uffff\1\13\13\uffff";
     static final String dfa_3s = "\1\4\1\16\13\uffff";
     static final String dfa_4s = "\1\55\1\51\13\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\7\1\10\1\11\1\12\1\13\1\6\1\1";
+    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\7\1\10\1\11\1\12\1\13\1\1\1\6";
     static final String dfa_6s = "\15\uffff}>";
     static final String[] dfa_7s = {
             "\1\1\1\uffff\1\6\6\uffff\1\2\17\uffff\1\3\4\uffff\1\12\1\4\2\uffff\2\7\1\5\3\uffff\1\10\1\11",
-            "\1\14\2\uffff\21\14\7\uffff\1\13",
+            "\1\13\2\uffff\21\13\7\uffff\1\14",
             "",
             "",
             "",
@@ -12971,7 +12971,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "1261:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )";
+            return "1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )";
         }
     }
     static final String dfa_8s = "\10\uffff";

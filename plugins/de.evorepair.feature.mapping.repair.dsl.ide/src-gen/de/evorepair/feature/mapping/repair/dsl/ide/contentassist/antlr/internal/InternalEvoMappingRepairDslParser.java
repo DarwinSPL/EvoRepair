@@ -1750,12 +1750,89 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
     // $ANTLR end "ruleEvoMappingDivisionExpression"
 
 
+    // $ANTLR start "entryRuleEvoMappingNegation"
+    // InternalEvoMappingRepairDsl.g:578:1: entryRuleEvoMappingNegation : ruleEvoMappingNegation EOF ;
+    public final void entryRuleEvoMappingNegation() throws RecognitionException {
+        try {
+            // InternalEvoMappingRepairDsl.g:579:1: ( ruleEvoMappingNegation EOF )
+            // InternalEvoMappingRepairDsl.g:580:1: ruleEvoMappingNegation EOF
+            {
+             before(grammarAccess.getEvoMappingNegationRule()); 
+            pushFollow(FOLLOW_1);
+            ruleEvoMappingNegation();
+
+            state._fsp--;
+
+             after(grammarAccess.getEvoMappingNegationRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleEvoMappingNegation"
+
+
+    // $ANTLR start "ruleEvoMappingNegation"
+    // InternalEvoMappingRepairDsl.g:587:1: ruleEvoMappingNegation : ( ( rule__EvoMappingNegation__Group__0 ) ) ;
+    public final void ruleEvoMappingNegation() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:591:2: ( ( ( rule__EvoMappingNegation__Group__0 ) ) )
+            // InternalEvoMappingRepairDsl.g:592:2: ( ( rule__EvoMappingNegation__Group__0 ) )
+            {
+            // InternalEvoMappingRepairDsl.g:592:2: ( ( rule__EvoMappingNegation__Group__0 ) )
+            // InternalEvoMappingRepairDsl.g:593:3: ( rule__EvoMappingNegation__Group__0 )
+            {
+             before(grammarAccess.getEvoMappingNegationAccess().getGroup()); 
+            // InternalEvoMappingRepairDsl.g:594:3: ( rule__EvoMappingNegation__Group__0 )
+            // InternalEvoMappingRepairDsl.g:594:4: rule__EvoMappingNegation__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingNegation__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEvoMappingNegationAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleEvoMappingNegation"
+
+
     // $ANTLR start "entryRuleEvoMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:578:1: entryRuleEvoMappingTerminal : ruleEvoMappingTerminal EOF ;
+    // InternalEvoMappingRepairDsl.g:603:1: entryRuleEvoMappingTerminal : ruleEvoMappingTerminal EOF ;
     public final void entryRuleEvoMappingTerminal() throws RecognitionException {
         try {
-            // InternalEvoMappingRepairDsl.g:579:1: ( ruleEvoMappingTerminal EOF )
-            // InternalEvoMappingRepairDsl.g:580:1: ruleEvoMappingTerminal EOF
+            // InternalEvoMappingRepairDsl.g:604:1: ( ruleEvoMappingTerminal EOF )
+            // InternalEvoMappingRepairDsl.g:605:1: ruleEvoMappingTerminal EOF
             {
              before(grammarAccess.getEvoMappingTerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -1781,21 +1858,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "ruleEvoMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:587:1: ruleEvoMappingTerminal : ( ( rule__EvoMappingTerminal__Alternatives ) ) ;
+    // InternalEvoMappingRepairDsl.g:612:1: ruleEvoMappingTerminal : ( ( rule__EvoMappingTerminal__Alternatives ) ) ;
     public final void ruleEvoMappingTerminal() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:591:2: ( ( ( rule__EvoMappingTerminal__Alternatives ) ) )
-            // InternalEvoMappingRepairDsl.g:592:2: ( ( rule__EvoMappingTerminal__Alternatives ) )
+            // InternalEvoMappingRepairDsl.g:616:2: ( ( ( rule__EvoMappingTerminal__Alternatives ) ) )
+            // InternalEvoMappingRepairDsl.g:617:2: ( ( rule__EvoMappingTerminal__Alternatives ) )
             {
-            // InternalEvoMappingRepairDsl.g:592:2: ( ( rule__EvoMappingTerminal__Alternatives ) )
-            // InternalEvoMappingRepairDsl.g:593:3: ( rule__EvoMappingTerminal__Alternatives )
+            // InternalEvoMappingRepairDsl.g:617:2: ( ( rule__EvoMappingTerminal__Alternatives ) )
+            // InternalEvoMappingRepairDsl.g:618:3: ( rule__EvoMappingTerminal__Alternatives )
             {
              before(grammarAccess.getEvoMappingTerminalAccess().getAlternatives()); 
-            // InternalEvoMappingRepairDsl.g:594:3: ( rule__EvoMappingTerminal__Alternatives )
-            // InternalEvoMappingRepairDsl.g:594:4: rule__EvoMappingTerminal__Alternatives
+            // InternalEvoMappingRepairDsl.g:619:3: ( rule__EvoMappingTerminal__Alternatives )
+            // InternalEvoMappingRepairDsl.g:619:4: rule__EvoMappingTerminal__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__EvoMappingTerminal__Alternatives();
@@ -1828,11 +1905,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "entryRuleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:603:1: entryRuleEvoMappingNestedExpression : ruleEvoMappingNestedExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:628:1: entryRuleEvoMappingNestedExpression : ruleEvoMappingNestedExpression EOF ;
     public final void entryRuleEvoMappingNestedExpression() throws RecognitionException {
         try {
-            // InternalEvoMappingRepairDsl.g:604:1: ( ruleEvoMappingNestedExpression EOF )
-            // InternalEvoMappingRepairDsl.g:605:1: ruleEvoMappingNestedExpression EOF
+            // InternalEvoMappingRepairDsl.g:629:1: ( ruleEvoMappingNestedExpression EOF )
+            // InternalEvoMappingRepairDsl.g:630:1: ruleEvoMappingNestedExpression EOF
             {
              before(grammarAccess.getEvoMappingNestedExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -1858,21 +1935,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "ruleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:612:1: ruleEvoMappingNestedExpression : ( ( rule__EvoMappingNestedExpression__Group__0 ) ) ;
+    // InternalEvoMappingRepairDsl.g:637:1: ruleEvoMappingNestedExpression : ( ( rule__EvoMappingNestedExpression__Group__0 ) ) ;
     public final void ruleEvoMappingNestedExpression() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:616:2: ( ( ( rule__EvoMappingNestedExpression__Group__0 ) ) )
-            // InternalEvoMappingRepairDsl.g:617:2: ( ( rule__EvoMappingNestedExpression__Group__0 ) )
+            // InternalEvoMappingRepairDsl.g:641:2: ( ( ( rule__EvoMappingNestedExpression__Group__0 ) ) )
+            // InternalEvoMappingRepairDsl.g:642:2: ( ( rule__EvoMappingNestedExpression__Group__0 ) )
             {
-            // InternalEvoMappingRepairDsl.g:617:2: ( ( rule__EvoMappingNestedExpression__Group__0 ) )
-            // InternalEvoMappingRepairDsl.g:618:3: ( rule__EvoMappingNestedExpression__Group__0 )
+            // InternalEvoMappingRepairDsl.g:642:2: ( ( rule__EvoMappingNestedExpression__Group__0 ) )
+            // InternalEvoMappingRepairDsl.g:643:3: ( rule__EvoMappingNestedExpression__Group__0 )
             {
              before(grammarAccess.getEvoMappingNestedExpressionAccess().getGroup()); 
-            // InternalEvoMappingRepairDsl.g:619:3: ( rule__EvoMappingNestedExpression__Group__0 )
-            // InternalEvoMappingRepairDsl.g:619:4: rule__EvoMappingNestedExpression__Group__0
+            // InternalEvoMappingRepairDsl.g:644:3: ( rule__EvoMappingNestedExpression__Group__0 )
+            // InternalEvoMappingRepairDsl.g:644:4: rule__EvoMappingNestedExpression__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__EvoMappingNestedExpression__Group__0();
@@ -1902,83 +1979,6 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
         return ;
     }
     // $ANTLR end "ruleEvoMappingNestedExpression"
-
-
-    // $ANTLR start "entryRuleEvoMappingNegation"
-    // InternalEvoMappingRepairDsl.g:628:1: entryRuleEvoMappingNegation : ruleEvoMappingNegation EOF ;
-    public final void entryRuleEvoMappingNegation() throws RecognitionException {
-        try {
-            // InternalEvoMappingRepairDsl.g:629:1: ( ruleEvoMappingNegation EOF )
-            // InternalEvoMappingRepairDsl.g:630:1: ruleEvoMappingNegation EOF
-            {
-             before(grammarAccess.getEvoMappingNegationRule()); 
-            pushFollow(FOLLOW_1);
-            ruleEvoMappingNegation();
-
-            state._fsp--;
-
-             after(grammarAccess.getEvoMappingNegationRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleEvoMappingNegation"
-
-
-    // $ANTLR start "ruleEvoMappingNegation"
-    // InternalEvoMappingRepairDsl.g:637:1: ruleEvoMappingNegation : ( ( rule__EvoMappingNegation__Group__0 ) ) ;
-    public final void ruleEvoMappingNegation() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:641:2: ( ( ( rule__EvoMappingNegation__Group__0 ) ) )
-            // InternalEvoMappingRepairDsl.g:642:2: ( ( rule__EvoMappingNegation__Group__0 ) )
-            {
-            // InternalEvoMappingRepairDsl.g:642:2: ( ( rule__EvoMappingNegation__Group__0 ) )
-            // InternalEvoMappingRepairDsl.g:643:3: ( rule__EvoMappingNegation__Group__0 )
-            {
-             before(grammarAccess.getEvoMappingNegationAccess().getGroup()); 
-            // InternalEvoMappingRepairDsl.g:644:3: ( rule__EvoMappingNegation__Group__0 )
-            // InternalEvoMappingRepairDsl.g:644:4: rule__EvoMappingNegation__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__EvoMappingNegation__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getEvoMappingNegationAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleEvoMappingNegation"
 
 
     // $ANTLR start "entryRuleEvoMappingNot"
@@ -16394,15 +16394,170 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
     // $ANTLR end "rule__EvoMappingDivisionExpression__Group_1__2__Impl"
 
 
+    // $ANTLR start "rule__EvoMappingNegation__Group__0"
+    // InternalEvoMappingRepairDsl.g:5227:1: rule__EvoMappingNegation__Group__0 : rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1 ;
+    public final void rule__EvoMappingNegation__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:5231:1: ( rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1 )
+            // InternalEvoMappingRepairDsl.g:5232:2: rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__EvoMappingNegation__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingNegation__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingNegation__Group__0"
+
+
+    // $ANTLR start "rule__EvoMappingNegation__Group__0__Impl"
+    // InternalEvoMappingRepairDsl.g:5239:1: rule__EvoMappingNegation__Group__0__Impl : ( '-' ) ;
+    public final void rule__EvoMappingNegation__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:5243:1: ( ( '-' ) )
+            // InternalEvoMappingRepairDsl.g:5244:1: ( '-' )
+            {
+            // InternalEvoMappingRepairDsl.g:5244:1: ( '-' )
+            // InternalEvoMappingRepairDsl.g:5245:2: '-'
+            {
+             before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
+            match(input,39,FOLLOW_2); 
+             after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingNegation__Group__0__Impl"
+
+
+    // $ANTLR start "rule__EvoMappingNegation__Group__1"
+    // InternalEvoMappingRepairDsl.g:5254:1: rule__EvoMappingNegation__Group__1 : rule__EvoMappingNegation__Group__1__Impl ;
+    public final void rule__EvoMappingNegation__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:5258:1: ( rule__EvoMappingNegation__Group__1__Impl )
+            // InternalEvoMappingRepairDsl.g:5259:2: rule__EvoMappingNegation__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingNegation__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingNegation__Group__1"
+
+
+    // $ANTLR start "rule__EvoMappingNegation__Group__1__Impl"
+    // InternalEvoMappingRepairDsl.g:5265:1: rule__EvoMappingNegation__Group__1__Impl : ( ( rule__EvoMappingNegation__OperandAssignment_1 ) ) ;
+    public final void rule__EvoMappingNegation__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:5269:1: ( ( ( rule__EvoMappingNegation__OperandAssignment_1 ) ) )
+            // InternalEvoMappingRepairDsl.g:5270:1: ( ( rule__EvoMappingNegation__OperandAssignment_1 ) )
+            {
+            // InternalEvoMappingRepairDsl.g:5270:1: ( ( rule__EvoMappingNegation__OperandAssignment_1 ) )
+            // InternalEvoMappingRepairDsl.g:5271:2: ( rule__EvoMappingNegation__OperandAssignment_1 )
+            {
+             before(grammarAccess.getEvoMappingNegationAccess().getOperandAssignment_1()); 
+            // InternalEvoMappingRepairDsl.g:5272:2: ( rule__EvoMappingNegation__OperandAssignment_1 )
+            // InternalEvoMappingRepairDsl.g:5272:3: rule__EvoMappingNegation__OperandAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__EvoMappingNegation__OperandAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEvoMappingNegationAccess().getOperandAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingNegation__Group__1__Impl"
+
+
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__0"
-    // InternalEvoMappingRepairDsl.g:5227:1: rule__EvoMappingNestedExpression__Group__0 : rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1 ;
+    // InternalEvoMappingRepairDsl.g:5281:1: rule__EvoMappingNestedExpression__Group__0 : rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1 ;
     public final void rule__EvoMappingNestedExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5231:1: ( rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1 )
-            // InternalEvoMappingRepairDsl.g:5232:2: rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1
+            // InternalEvoMappingRepairDsl.g:5285:1: ( rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1 )
+            // InternalEvoMappingRepairDsl.g:5286:2: rule__EvoMappingNestedExpression__Group__0__Impl rule__EvoMappingNestedExpression__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__EvoMappingNestedExpression__Group__0__Impl();
@@ -16433,17 +16588,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__0__Impl"
-    // InternalEvoMappingRepairDsl.g:5239:1: rule__EvoMappingNestedExpression__Group__0__Impl : ( '(' ) ;
+    // InternalEvoMappingRepairDsl.g:5293:1: rule__EvoMappingNestedExpression__Group__0__Impl : ( '(' ) ;
     public final void rule__EvoMappingNestedExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5243:1: ( ( '(' ) )
-            // InternalEvoMappingRepairDsl.g:5244:1: ( '(' )
+            // InternalEvoMappingRepairDsl.g:5297:1: ( ( '(' ) )
+            // InternalEvoMappingRepairDsl.g:5298:1: ( '(' )
             {
-            // InternalEvoMappingRepairDsl.g:5244:1: ( '(' )
-            // InternalEvoMappingRepairDsl.g:5245:2: '('
+            // InternalEvoMappingRepairDsl.g:5298:1: ( '(' )
+            // InternalEvoMappingRepairDsl.g:5299:2: '('
             {
              before(grammarAccess.getEvoMappingNestedExpressionAccess().getLeftParenthesisKeyword_0()); 
             match(input,27,FOLLOW_2); 
@@ -16470,14 +16625,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__1"
-    // InternalEvoMappingRepairDsl.g:5254:1: rule__EvoMappingNestedExpression__Group__1 : rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2 ;
+    // InternalEvoMappingRepairDsl.g:5308:1: rule__EvoMappingNestedExpression__Group__1 : rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2 ;
     public final void rule__EvoMappingNestedExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5258:1: ( rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2 )
-            // InternalEvoMappingRepairDsl.g:5259:2: rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2
+            // InternalEvoMappingRepairDsl.g:5312:1: ( rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2 )
+            // InternalEvoMappingRepairDsl.g:5313:2: rule__EvoMappingNestedExpression__Group__1__Impl rule__EvoMappingNestedExpression__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__EvoMappingNestedExpression__Group__1__Impl();
@@ -16508,21 +16663,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__1__Impl"
-    // InternalEvoMappingRepairDsl.g:5266:1: rule__EvoMappingNestedExpression__Group__1__Impl : ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) ) ;
+    // InternalEvoMappingRepairDsl.g:5320:1: rule__EvoMappingNestedExpression__Group__1__Impl : ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) ) ;
     public final void rule__EvoMappingNestedExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5270:1: ( ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) ) )
-            // InternalEvoMappingRepairDsl.g:5271:1: ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) )
+            // InternalEvoMappingRepairDsl.g:5324:1: ( ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) ) )
+            // InternalEvoMappingRepairDsl.g:5325:1: ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) )
             {
-            // InternalEvoMappingRepairDsl.g:5271:1: ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) )
-            // InternalEvoMappingRepairDsl.g:5272:2: ( rule__EvoMappingNestedExpression__OperandAssignment_1 )
+            // InternalEvoMappingRepairDsl.g:5325:1: ( ( rule__EvoMappingNestedExpression__OperandAssignment_1 ) )
+            // InternalEvoMappingRepairDsl.g:5326:2: ( rule__EvoMappingNestedExpression__OperandAssignment_1 )
             {
              before(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandAssignment_1()); 
-            // InternalEvoMappingRepairDsl.g:5273:2: ( rule__EvoMappingNestedExpression__OperandAssignment_1 )
-            // InternalEvoMappingRepairDsl.g:5273:3: rule__EvoMappingNestedExpression__OperandAssignment_1
+            // InternalEvoMappingRepairDsl.g:5327:2: ( rule__EvoMappingNestedExpression__OperandAssignment_1 )
+            // InternalEvoMappingRepairDsl.g:5327:3: rule__EvoMappingNestedExpression__OperandAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EvoMappingNestedExpression__OperandAssignment_1();
@@ -16555,14 +16710,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__2"
-    // InternalEvoMappingRepairDsl.g:5281:1: rule__EvoMappingNestedExpression__Group__2 : rule__EvoMappingNestedExpression__Group__2__Impl ;
+    // InternalEvoMappingRepairDsl.g:5335:1: rule__EvoMappingNestedExpression__Group__2 : rule__EvoMappingNestedExpression__Group__2__Impl ;
     public final void rule__EvoMappingNestedExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5285:1: ( rule__EvoMappingNestedExpression__Group__2__Impl )
-            // InternalEvoMappingRepairDsl.g:5286:2: rule__EvoMappingNestedExpression__Group__2__Impl
+            // InternalEvoMappingRepairDsl.g:5339:1: ( rule__EvoMappingNestedExpression__Group__2__Impl )
+            // InternalEvoMappingRepairDsl.g:5340:2: rule__EvoMappingNestedExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EvoMappingNestedExpression__Group__2__Impl();
@@ -16588,17 +16743,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__EvoMappingNestedExpression__Group__2__Impl"
-    // InternalEvoMappingRepairDsl.g:5292:1: rule__EvoMappingNestedExpression__Group__2__Impl : ( ')' ) ;
+    // InternalEvoMappingRepairDsl.g:5346:1: rule__EvoMappingNestedExpression__Group__2__Impl : ( ')' ) ;
     public final void rule__EvoMappingNestedExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:5296:1: ( ( ')' ) )
-            // InternalEvoMappingRepairDsl.g:5297:1: ( ')' )
+            // InternalEvoMappingRepairDsl.g:5350:1: ( ( ')' ) )
+            // InternalEvoMappingRepairDsl.g:5351:1: ( ')' )
             {
-            // InternalEvoMappingRepairDsl.g:5297:1: ( ')' )
-            // InternalEvoMappingRepairDsl.g:5298:2: ')'
+            // InternalEvoMappingRepairDsl.g:5351:1: ( ')' )
+            // InternalEvoMappingRepairDsl.g:5352:2: ')'
             {
              before(grammarAccess.getEvoMappingNestedExpressionAccess().getRightParenthesisKeyword_2()); 
             match(input,28,FOLLOW_2); 
@@ -16622,161 +16777,6 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
         return ;
     }
     // $ANTLR end "rule__EvoMappingNestedExpression__Group__2__Impl"
-
-
-    // $ANTLR start "rule__EvoMappingNegation__Group__0"
-    // InternalEvoMappingRepairDsl.g:5308:1: rule__EvoMappingNegation__Group__0 : rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1 ;
-    public final void rule__EvoMappingNegation__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:5312:1: ( rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1 )
-            // InternalEvoMappingRepairDsl.g:5313:2: rule__EvoMappingNegation__Group__0__Impl rule__EvoMappingNegation__Group__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__EvoMappingNegation__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__EvoMappingNegation__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__EvoMappingNegation__Group__0"
-
-
-    // $ANTLR start "rule__EvoMappingNegation__Group__0__Impl"
-    // InternalEvoMappingRepairDsl.g:5320:1: rule__EvoMappingNegation__Group__0__Impl : ( '-' ) ;
-    public final void rule__EvoMappingNegation__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:5324:1: ( ( '-' ) )
-            // InternalEvoMappingRepairDsl.g:5325:1: ( '-' )
-            {
-            // InternalEvoMappingRepairDsl.g:5325:1: ( '-' )
-            // InternalEvoMappingRepairDsl.g:5326:2: '-'
-            {
-             before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
-            match(input,39,FOLLOW_2); 
-             after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__EvoMappingNegation__Group__0__Impl"
-
-
-    // $ANTLR start "rule__EvoMappingNegation__Group__1"
-    // InternalEvoMappingRepairDsl.g:5335:1: rule__EvoMappingNegation__Group__1 : rule__EvoMappingNegation__Group__1__Impl ;
-    public final void rule__EvoMappingNegation__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:5339:1: ( rule__EvoMappingNegation__Group__1__Impl )
-            // InternalEvoMappingRepairDsl.g:5340:2: rule__EvoMappingNegation__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__EvoMappingNegation__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__EvoMappingNegation__Group__1"
-
-
-    // $ANTLR start "rule__EvoMappingNegation__Group__1__Impl"
-    // InternalEvoMappingRepairDsl.g:5346:1: rule__EvoMappingNegation__Group__1__Impl : ( ( rule__EvoMappingNegation__OperandAssignment_1 ) ) ;
-    public final void rule__EvoMappingNegation__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:5350:1: ( ( ( rule__EvoMappingNegation__OperandAssignment_1 ) ) )
-            // InternalEvoMappingRepairDsl.g:5351:1: ( ( rule__EvoMappingNegation__OperandAssignment_1 ) )
-            {
-            // InternalEvoMappingRepairDsl.g:5351:1: ( ( rule__EvoMappingNegation__OperandAssignment_1 ) )
-            // InternalEvoMappingRepairDsl.g:5352:2: ( rule__EvoMappingNegation__OperandAssignment_1 )
-            {
-             before(grammarAccess.getEvoMappingNegationAccess().getOperandAssignment_1()); 
-            // InternalEvoMappingRepairDsl.g:5353:2: ( rule__EvoMappingNegation__OperandAssignment_1 )
-            // InternalEvoMappingRepairDsl.g:5353:3: rule__EvoMappingNegation__OperandAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__EvoMappingNegation__OperandAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getEvoMappingNegationAccess().getOperandAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__EvoMappingNegation__Group__1__Impl"
 
 
     // $ANTLR start "rule__EvoMappingNot__Group__0"
@@ -34848,59 +34848,18 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
     // $ANTLR end "rule__EvoMappingDivisionExpression__Operand2Assignment_1_2"
 
 
-    // $ANTLR start "rule__EvoMappingNestedExpression__OperandAssignment_1"
-    // InternalEvoMappingRepairDsl.g:11521:1: rule__EvoMappingNestedExpression__OperandAssignment_1 : ( ruleEvoMappingExpression ) ;
-    public final void rule__EvoMappingNestedExpression__OperandAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEvoMappingRepairDsl.g:11525:1: ( ( ruleEvoMappingExpression ) )
-            // InternalEvoMappingRepairDsl.g:11526:2: ( ruleEvoMappingExpression )
-            {
-            // InternalEvoMappingRepairDsl.g:11526:2: ( ruleEvoMappingExpression )
-            // InternalEvoMappingRepairDsl.g:11527:3: ruleEvoMappingExpression
-            {
-             before(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEvoMappingExpression();
-
-            state._fsp--;
-
-             after(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__EvoMappingNestedExpression__OperandAssignment_1"
-
-
     // $ANTLR start "rule__EvoMappingNegation__OperandAssignment_1"
-    // InternalEvoMappingRepairDsl.g:11536:1: rule__EvoMappingNegation__OperandAssignment_1 : ( ruleEvoMappingTerminal ) ;
+    // InternalEvoMappingRepairDsl.g:11521:1: rule__EvoMappingNegation__OperandAssignment_1 : ( ruleEvoMappingTerminal ) ;
     public final void rule__EvoMappingNegation__OperandAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoMappingRepairDsl.g:11540:1: ( ( ruleEvoMappingTerminal ) )
-            // InternalEvoMappingRepairDsl.g:11541:2: ( ruleEvoMappingTerminal )
+            // InternalEvoMappingRepairDsl.g:11525:1: ( ( ruleEvoMappingTerminal ) )
+            // InternalEvoMappingRepairDsl.g:11526:2: ( ruleEvoMappingTerminal )
             {
-            // InternalEvoMappingRepairDsl.g:11541:2: ( ruleEvoMappingTerminal )
-            // InternalEvoMappingRepairDsl.g:11542:3: ruleEvoMappingTerminal
+            // InternalEvoMappingRepairDsl.g:11526:2: ( ruleEvoMappingTerminal )
+            // InternalEvoMappingRepairDsl.g:11527:3: ruleEvoMappingTerminal
             {
              before(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34928,6 +34887,47 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalContentAs
         return ;
     }
     // $ANTLR end "rule__EvoMappingNegation__OperandAssignment_1"
+
+
+    // $ANTLR start "rule__EvoMappingNestedExpression__OperandAssignment_1"
+    // InternalEvoMappingRepairDsl.g:11536:1: rule__EvoMappingNestedExpression__OperandAssignment_1 : ( ruleEvoMappingExpression ) ;
+    public final void rule__EvoMappingNestedExpression__OperandAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEvoMappingRepairDsl.g:11540:1: ( ( ruleEvoMappingExpression ) )
+            // InternalEvoMappingRepairDsl.g:11541:2: ( ruleEvoMappingExpression )
+            {
+            // InternalEvoMappingRepairDsl.g:11541:2: ( ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:11542:3: ruleEvoMappingExpression
+            {
+             before(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEvoMappingExpression();
+
+            state._fsp--;
+
+             after(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EvoMappingNestedExpression__OperandAssignment_1"
 
 
     // $ANTLR start "rule__EvoMappingNot__OperandAssignment_1"

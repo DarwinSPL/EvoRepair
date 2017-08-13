@@ -34,7 +34,8 @@ Workflow {
 		directory = "platform:/resource/de.evorepair.evolution.operation.dsl/src-gen"
 		directory = "platform:/resource/de.evorepair.evolution.variable.dsl/src-gen"
 		directory = "platform:/resource/de.evorepair.expression.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.feature.mapping.dsl/src-gen"
+		//directory = "platform:/resource/de.evorepair.feature.mapping.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.feature.mapping.repair.dsl/src-gen"
 		directory = "platform:/resource/de.evorepair.guidance.dsl/src-gen"
 		directory = "platform:/resource/de.evorepair.logic.dsl/src-gen"
 	}
@@ -78,8 +79,10 @@ Workflow {
 	// Generate DSLs
 	component = @de.evorepair.logic.GenerateEvoLogicDsl {}
 	component = @de.evorepair.evolution.variable.GenerateEvoVariableDsl {}
-	component = @de.evorepair.operation.GenerateEvoOperationDsl {}
+	component = @de.evorepair.evolution.operation.GenerateEvoOperationDsl {}
 	component = @de.evorepair.feature.expression.GenerateEvoExpressionDsl {}
-	component = @de.evorepair.guidance.GenerateEvoGuidanceDsl {}
+	//component = @de.evorepair.feature.mapping.GenerateDwMappingDsl {}
 	component = @de.evorepair.feature.mapping.repair.dsl.GenerateEvoMappingRepairDsl {}
+	component = @de.evorepair.guidance.GenerateEvoGuidanceDsl {}
+	
 }

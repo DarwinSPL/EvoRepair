@@ -436,6 +436,16 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 		return getEvoMappingDivisionExpressionAccess().getRule();
 	}
 	
+	//EvoMappingNegation dw_expression::HyNegationExpression:
+	//	'-' operand=EvoMappingTerminal;
+	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
+		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
+	}
+	
+	public ParserRule getEvoMappingNegationRule() {
+		return getEvoMappingNegationAccess().getRule();
+	}
+	
 	//EvoMappingTerminal dw_expression::HyExpression:
 	//	EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
 	//	EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
@@ -457,16 +467,6 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	
 	public ParserRule getEvoMappingNestedExpressionRule() {
 		return getEvoMappingNestedExpressionAccess().getRule();
-	}
-	
-	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'-' operand=EvoMappingTerminal;
-	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
-		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
-	}
-	
-	public ParserRule getEvoMappingNegationRule() {
-		return getEvoMappingNegationAccess().getRule();
 	}
 	
 	//EvoMappingNot dw_expression::HyNotExpression:

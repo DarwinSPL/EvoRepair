@@ -1243,6 +1243,48 @@ ruleEvoMappingDivisionExpression returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleEvoMappingNegation
+entryRuleEvoMappingNegation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoMappingNegationRule()); }
+	iv_ruleEvoMappingNegation=ruleEvoMappingNegation
+	{ $current=$iv_ruleEvoMappingNegation.current; }
+	EOF;
+
+// Rule EvoMappingNegation
+ruleEvoMappingNegation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='-'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
+				}
+				lv_operand_1_0=ruleEvoMappingTerminal
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEvoMappingNegationRule());
+					}
+					set(
+						$current,
+						"operand",
+						lv_operand_1_0,
+						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleEvoMappingTerminal
 entryRuleEvoMappingTerminal returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getEvoMappingTerminalRule()); }
@@ -1403,48 +1445,6 @@ ruleEvoMappingNestedExpression returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getEvoMappingNestedExpressionAccess().getRightParenthesisKeyword_2());
 		}
-	)
-;
-
-// Entry rule entryRuleEvoMappingNegation
-entryRuleEvoMappingNegation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEvoMappingNegationRule()); }
-	iv_ruleEvoMappingNegation=ruleEvoMappingNegation
-	{ $current=$iv_ruleEvoMappingNegation.current; }
-	EOF;
-
-// Rule EvoMappingNegation
-ruleEvoMappingNegation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='-'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEvoMappingNegationAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
-				}
-				lv_operand_1_0=ruleEvoMappingTerminal
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEvoMappingNegationRule());
-					}
-					set(
-						$current,
-						"operand",
-						lv_operand_1_0,
-						"de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 

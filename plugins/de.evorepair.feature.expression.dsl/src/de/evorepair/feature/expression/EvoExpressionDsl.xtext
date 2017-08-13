@@ -8,6 +8,8 @@ import "http://hyvar-project.eu/feature/expression/1.0" as dw_expression
 import "http://hyvar-project.eu/feature/dataValues/1.0" as dw_data
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+import "http://hyvar-project.eu/feature/mapping/1.0" as dw_mapping
+
 generate evo_expression_dsl "http://darwinspl.de/evorepair/feature/expression/dsl"
 
 @Override
@@ -82,7 +84,9 @@ EvoMappingMultiplicationExpression returns dw_expression::HyExpression:
 EvoMappingDivisionExpression returns dw_expression::HyExpression: 
 	EvoMappingTerminal({dw_expression::HyDivisionExpression.operand1=current} ('/') operand2=EvoMappingTerminal)*;
 
-	
+EvoMappingNegation returns dw_expression::HyNegationExpression:
+	'-' operand=EvoMappingTerminal;
+
 
 EvoMappingTerminal returns dw_expression::HyExpression:	
 	EvoMappingFeatureReferenceExpression |
@@ -103,8 +107,6 @@ EvoMappingNestedExpression returns dw_expression::HyNestedExpression:
 	'(' operand=EvoMappingExpression ')';
 	
 	
-EvoMappingNegation returns dw_expression::HyNegationExpression:
-	'-' operand=EvoMappingTerminal;
 
 
 EvoMappingNot returns dw_expression::HyNotExpression:

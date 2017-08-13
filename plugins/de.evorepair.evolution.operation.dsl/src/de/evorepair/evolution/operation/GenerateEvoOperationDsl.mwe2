@@ -1,4 +1,4 @@
-module de.evorepair.operation.GenerateEvoOperationDsl
+module de.evorepair.evolution.operation.GenerateEvoOperationDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*

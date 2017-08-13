@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.xtext,
  de.evorepair.evolution.operation.dsl;bundle-version="1.0.0",
  de.evorepair.evolution.variable.dsl;bundle-version="1.0.0",
  de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.dsl;bundle-version="1.0.0",
  de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0",
  de.evorepair.guidance.dsl;bundle-version="1.0.0",
  de.evorepair.logic.dsl;bundle-version="1.0.0"

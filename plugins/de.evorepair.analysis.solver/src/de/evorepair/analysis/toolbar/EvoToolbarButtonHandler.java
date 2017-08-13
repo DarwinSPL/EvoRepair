@@ -180,46 +180,6 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}		
 	}
 
-	/*
-	private void f() {
-	   	HyFeatureModel featureModel = getFeatureModelFromActiveEditor();
-
-			Injector injector = DslActivator.getInstance().getInjector(DslActivator.DE_EVOREPAIR_FEATURE_EXPRESSION_EVOEXPRESSIONDSL);
-		    XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
-
-		    URI uri = featureModel.eResource().getURI().trimFileExtension().appendFileExtension("evoexpression");
-		    Resource xtextResource = resourceSet.getResource(uri, true);
-
-		    URI uri2 = featureModel.eResource().getURI().trimFileExtension().appendSegment("_Find").appendFileExtension("evoexpression");
-		    Resource xtextResource2 = resourceSet.getResource(uri2, true);
-
-		    URI uri3 = featureModel.eResource().getURI().trimFileExtension().appendSegment("_Replacement").appendFileExtension("evoexpression");
-		    Resource xtextResource3 = resourceSet.getResource(uri3, true);
-
-		    HyMapping entry = (HyMapping)xtextResource.getContents().get(0);
-		    HyMapping entry2 = (HyMapping)xtextResource2.getContents().get(0);
-		    HyMapping entry3 = (HyMapping)xtextResource3.getContents().get(0);
-
-		    EvoGuidanceMappingActionOperator operator = new EvoGuidanceMappingActionOperator();
-		    boolean result = operator.perform(entry.getExpression(), entry2.getExpression(), entry3.getExpression());
-
-		    if(result) {
-
-
-			    MessageDialog dialog = new MessageDialog(EclipseUtil.getActiveEditor().getEditorSite().getShell(), "Result", null,
-			    		EcoreIOUtil.saveModel(entry) ? "saving :)" : "saving :(", MessageDialog.WARNING, new String[] { "Yaaay",
-		    	    		    "Biiiidu", }, 0);
-			    dialog.open();
-		    }
-
-
-		    MessageDialog dialog = new MessageDialog(EclipseUtil.getActiveEditor().getEditorSite().getShell(), "Result", null,
-	    		    result ? ":)" : ":(", MessageDialog.WARNING, new String[] { "Yaaay",
-	    	    		    "Biiiidu", }, 0);
-	    	dialog.open();
-	}
-	 */
-
 	private IFile getSolutionFile(IFolder folder, int index, EObject model) {
 		return folder.getFile("solution"+index+"."+((model instanceof HyConfiguration) ? HyConfigurationUtil.getConfigurationModelFileExtensionForXmi() :
 			HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax()));
@@ -295,6 +255,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					if(anomaly instanceof EvoConfigurationAnomaly) {
 						for(IFile file : getAccompanyingFiles(featureModel, HyConfigurationUtil.getConfigurationModelFileExtensionForXmi())) {
 							HyConfiguration configurationModel = EcoreIOUtil.loadModel(file);
+							
 							// needed for the name of the solution configurations
 							int index = 0;
 							for(EvoGuidanceElement guidance : anomaly.getGuidance()){
@@ -329,13 +290,11 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 									IFile modifiedConfigurationFile = getSolutionFile(solutionFolder, index, copy);
 									EcoreIOUtil.saveModelAs(modifiedMapping, modifiedConfigurationFile);
 
+									index++;
 								}
 
-								index++;
+								openSolutionViewer(mappingModel, getSolutionFile(solutionFolder, 0, mappingModel));
 							}
-
-							openSolutionViewer(mappingModel, getSolutionFile(solutionFolder, 0, mappingModel));
-
 						}
 					}
 

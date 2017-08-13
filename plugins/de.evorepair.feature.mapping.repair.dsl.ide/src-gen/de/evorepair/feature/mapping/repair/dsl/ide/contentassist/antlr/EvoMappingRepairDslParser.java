@@ -89,8 +89,8 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoMappingMultiplicationExpressionAccess().getGroup_1(), "rule__EvoMappingMultiplicationExpression__Group_1__0");
 					put(grammarAccess.getEvoMappingDivisionExpressionAccess().getGroup(), "rule__EvoMappingDivisionExpression__Group__0");
 					put(grammarAccess.getEvoMappingDivisionExpressionAccess().getGroup_1(), "rule__EvoMappingDivisionExpression__Group_1__0");
-					put(grammarAccess.getEvoMappingNestedExpressionAccess().getGroup(), "rule__EvoMappingNestedExpression__Group__0");
 					put(grammarAccess.getEvoMappingNegationAccess().getGroup(), "rule__EvoMappingNegation__Group__0");
+					put(grammarAccess.getEvoMappingNestedExpressionAccess().getGroup(), "rule__EvoMappingNestedExpression__Group__0");
 					put(grammarAccess.getEvoMappingNotAccess().getGroup(), "rule__EvoMappingNot__Group__0");
 					put(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getGroup(), "rule__EvoMappingConditionalFeatureReferenceExpression__Group__0");
 					put(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getGroup(), "rule__EvoMappingRelativeVersionRestriction__Group__0");
@@ -192,8 +192,8 @@ public class EvoMappingRepairDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoMappingModuloExpressionAccess().getOperand2Assignment_1_2(), "rule__EvoMappingModuloExpression__Operand2Assignment_1_2");
 					put(grammarAccess.getEvoMappingMultiplicationExpressionAccess().getOperand2Assignment_1_2(), "rule__EvoMappingMultiplicationExpression__Operand2Assignment_1_2");
 					put(grammarAccess.getEvoMappingDivisionExpressionAccess().getOperand2Assignment_1_2(), "rule__EvoMappingDivisionExpression__Operand2Assignment_1_2");
-					put(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandAssignment_1(), "rule__EvoMappingNestedExpression__OperandAssignment_1");
 					put(grammarAccess.getEvoMappingNegationAccess().getOperandAssignment_1(), "rule__EvoMappingNegation__OperandAssignment_1");
+					put(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandAssignment_1(), "rule__EvoMappingNestedExpression__OperandAssignment_1");
 					put(grammarAccess.getEvoMappingNotAccess().getOperandAssignment_1(), "rule__EvoMappingNot__OperandAssignment_1");
 					put(grammarAccess.getEvoMappingFeatureReferenceExpressionAccess().getFeatureAssignment(), "rule__EvoMappingFeatureReferenceExpression__FeatureAssignment");
 					put(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getFeatureAssignment_1(), "rule__EvoMappingConditionalFeatureReferenceExpression__FeatureAssignment_1");

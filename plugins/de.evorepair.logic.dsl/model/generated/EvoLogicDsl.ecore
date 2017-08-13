@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evo_logic_dsl" nsURI="http://darwinspl.de/evorepair/logic/dsl"
+    nsPrefix="evo_logic_dsl">
+  <eClassifiers xsi:type="ecore:EClass" name="GrammarEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="ecore:EClass platform:/resource/de.evorepair.logic/model/EvoLogic.ecore#//EvoFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSetTerm" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoParentOf" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass platform:/resource/de.evorepair.logic/model/EvoLogic.ecore#//EvoVariableTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSiblingsOf" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass platform:/resource/de.evorepair.logic/model/EvoLogic.ecore#//EvoVariableTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoChildrenOf" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass platform:/resource/de.evorepair.logic/model/EvoLogic.ecore#//EvoVariableTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoXOr" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSetInclusion" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSatisfiable" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="ecore:EClass platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoSize" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvoGroupType" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="ecore:EClass platform:/resource/de.evorepair.logic/model/EvoLogic.ecore#//EvoVariableTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum platform:/resource/eu.hyvar.feature/model/Feature.ecore#//HyGroupTypeEnum"/>
+  </eClassifiers>
+</ecore:EPackage>

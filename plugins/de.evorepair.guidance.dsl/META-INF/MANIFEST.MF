@@ -17,7 +17,8 @@ Require-Bundle: de.evorepair.guidance.catalog,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  de.evorepair.feature.expression.dsl;bundle-version="1.0.0",
- de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0"
+ de.evorepair.feature.mapping.repair.dsl;bundle-version="1.0.0",
+ de.evorepair.feature.mapping.repair
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.guidance.formatting2,
  de.evorepair.guidance.serializer,
