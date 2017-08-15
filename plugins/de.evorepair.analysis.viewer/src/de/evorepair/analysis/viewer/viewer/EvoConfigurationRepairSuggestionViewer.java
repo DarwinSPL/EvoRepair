@@ -25,7 +25,7 @@ import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.darwinspl.feature.graphical.configurator.viewer.DwFeatureModelConfiguratorViewer;
 import eu.hyvar.feature.configuration.HyConfiguration;
 
-public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
+public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 	public static final String SUGGESTIONS_FOLDER = ".solutions";
 	
 	/**
@@ -121,7 +121,7 @@ public class EvoRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 
 		IResource resource = ((IFileEditorInput)input).getFile();
 
-		IFolder folder = resource.getProject().getFolder(EvoRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
 		IResource[] files;
 		try {
 			files = folder.members();

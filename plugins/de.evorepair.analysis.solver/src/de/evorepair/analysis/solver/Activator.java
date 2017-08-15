@@ -13,11 +13,12 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import de.evorepair.analysis.solver.eclipse.EclipseUtil;
-import de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer;
+import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 
 /**
  * The activator class controls the plug-in life cycle
  */
+@SuppressWarnings("restriction")
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
@@ -74,7 +75,7 @@ public class Activator extends AbstractUIPlugin {
 					IResource resource;
 					try {
 						resource = ((IFileEditorInput)reference.getEditorInput()).getFile();
-						IFolder folder = resource.getProject().getFolder(EvoRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+						IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
 						folder.delete(true, null);
 					} catch (PartInitException e) {
 						// TODO Auto-generated catch block

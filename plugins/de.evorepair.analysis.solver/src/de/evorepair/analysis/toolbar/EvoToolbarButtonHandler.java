@@ -1,6 +1,8 @@
 package de.evorepair.analysis.toolbar;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -31,11 +34,9 @@ import de.evorepair.analysis.operator.EvoGuidanceConfigurationActionOperator;
 import de.evorepair.analysis.operator.EvoGuidanceMappingActionOperator;
 import de.evorepair.analysis.solver.EvoSolver;
 import de.evorepair.analysis.solver.eclipse.EclipseUtil;
-import de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer;
+import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 import de.evorepair.evolution.evooperation.EvoOperation;
-import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.evovariable.EvoMappingVariable;
 import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
 import de.evorepair.guidance.evo_guidance_dsl.EvoConfigurationAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
@@ -123,7 +124,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 		IResource resource = ((IFileEditorInput)input).getFile();
 		try {
-			IFolder folder = resource.getProject().getFolder(EvoRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+			IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
 
 			if(!folder.exists())
 				folder.create(true, false, null);
@@ -148,7 +149,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		for(int i=0; i<descriptors.length; i++) {
 			if(descriptors[i].getId().equals("de.evorepair.analysis.viewer.repair.suggestion.viewer")) {
 				try {
-					EvoRepairSuggestionViewer viewer = (EvoRepairSuggestionViewer)EclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
+					EvoConfigurationRepairSuggestionViewer viewer = (EvoConfigurationRepairSuggestionViewer)EclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
 					viewer.setConfiguration(configuration);
 				} catch (PartInitException e) {
 					e.printStackTrace();
@@ -161,22 +162,14 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		IEditorDescriptor[] descriptors = PlatformUI.getWorkbench().
 				getEditorRegistry().getEditors("model."+featureModelFile.getFileExtension());
 
-		for(int i=0; i<descriptors.length; i++) {
-			try {
-				EclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
-			} catch (PartInitException e) {
-				e.printStackTrace();
-			}
-			/*
-			if(descriptors[i].getId().equals("de.evorepair.analysis.viewer.repair.suggestion.viewer")) {
+		for(int i=0; i<descriptors.length; i++) {			
+			if(descriptors[i].getId().equals("de.evorepair.analysis.mapping.viewer.repair.suggestion.viewer")) {
 				try {
-					EvoRepairSuggestionViewer viewer = (EvoRepairSuggestionViewer)EclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
-					//viewer.setConfiguration(configuration);
+					EclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
 				} catch (PartInitException e) {
 					e.printStackTrace();
 				}
-			}
-			 */
+			}			 
 		}		
 	}
 
@@ -208,6 +201,21 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}
 	}
 
+	
+	private void saveDescriptionFile(String content, URI uri) {
+		if(content == null) content = "";
+		
+		uri = uri.trimFileExtension().appendFileExtension("description");
+	    byte[] bytes = content.getBytes();
+	    InputStream source = new ByteArrayInputStream(bytes);
+	    
+		try {
+			EcoreIOUtil.getFile(uri).create(source, IResource.FORCE, null);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
+	}
 	/**
 	 * Searches in all guidance tables in the same folder as the feature model for defined anomalies 
 	 * and shows suggestions in case multiple solutions for an anomaly are found
@@ -288,6 +296,8 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 									HyMappingModel modifiedMapping = operator.perform(mappingModel, replaceOperation);
 
 									IFile modifiedConfigurationFile = getSolutionFile(solutionFolder, index, copy);
+									
+									saveDescriptionFile(guidance.getDescription(), EcoreIOUtil.createURIFromFile(modifiedConfigurationFile));
 									EcoreIOUtil.saveModelAs(modifiedMapping, modifiedConfigurationFile);
 
 									index++;
@@ -300,7 +310,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 
 
-					// if an automatic repair operation should be performed, overwrite the original configuration
+				// if an automatic repair operation should be performed, overwrite the original configuration
 				} else if (guidanceCount == 1 && anomaly.getGuidance().get(0).getType() == EvoGuidanceType.AUTOMATIC_DEFAULT) {
 
 

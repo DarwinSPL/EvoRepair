@@ -4,7 +4,7 @@
 package de.evorepair.logic.formatting2
 
 import com.google.inject.Inject
-import de.evorepair.logic.evoLogicDsl.GrammarEntry
+import de.evorepair.logic.evo_logic_dsl.GrammarEntry
 import de.evorepair.logic.evologic.EvoFormula
 import de.evorepair.logic.services.EvoLogicDslGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
@@ -24,5 +24,5 @@ class EvoLogicDslFormatter extends AbstractFormatter2 {
 		evoFormula.getTerm.format;
 	}
 	
-	// TODO: implement for EvoXOr, EvoOr, EvoAnd, EvoEqual, EvoUnequal, EvoImplication, EvoBiconditional, EvoSetInclusion, EvoSetIntersection, EvoSetUnion, EvoSetDifference, EvoSetSymmetricDifference, EvoSetCartesianProduct, EvoSetCardinality, EvoSetElementOf, EvoForAll, EvoExists, EvoNot, EvoSatisfiable, EvoFeatureType, EvoGroupType, EvoSetTerm, EvoParentOf, EvoSiblingsOf, EvoChildrenOf
+	// TODO: implement for EvoXOr, HyOrExpression, HyAndExpression, HyEqualExpression, HyNotEqualExpression, HyImpliesExpression, EvoBinaryExpression, EvoSetInclusion, EvoSetIntersection, EvoSetUnion, EvoSetDifference, EvoSetSymmetricDifference, EvoSetCartesianProduct, EvoSetCardinality, EvoElementOf, EvoForAll, EvoExist, HyNotExpression, EvoSatisfiable, EvoFeatureType, EvoGroupType, EvoSetTerm, EvoParentOf, EvoSiblingsOf, EvoChildrenOf
 }

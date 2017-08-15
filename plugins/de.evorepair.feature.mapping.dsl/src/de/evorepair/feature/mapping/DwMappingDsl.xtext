@@ -12,10 +12,5 @@ HyMappingModel returns dw_mapping::HyMappingModel:
 DEDeltaInvokation returns de_core::DEDeltaInvokation: 
 	'<' delta=[de_core::DEDelta | ID] '>';
 
-// Xtext doesn't allow the access to rules of multiple inherited languages. 
-// Therefore this is a exact copy of the ID as defined in Terminals
-terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-
-
 HyMapping returns dw_mapping::HyMapping:
 	expression=EvoMappingExpression ':' deltaInvokations+=DEDeltaInvokation ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-"  | "eternity" "-" validUntil=DATE)  "]")?;

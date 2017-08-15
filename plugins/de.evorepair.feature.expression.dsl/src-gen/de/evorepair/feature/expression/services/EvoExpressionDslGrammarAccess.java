@@ -650,19 +650,19 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	public class EvoMappingNegationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingNegation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cHyphenMinusHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cOperandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOperandEvoMappingTerminalParserRuleCall_1_0 = (RuleCall)cOperandAssignment_1.eContents().get(0);
 		
 		//EvoMappingNegation dw_expression::HyNegationExpression:
-		//	'-' operand=EvoMappingTerminal;
+		//	'--' operand=EvoMappingTerminal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'-' operand=EvoMappingTerminal
+		//'--' operand=EvoMappingTerminal
 		public Group getGroup() { return cGroup; }
 		
-		//'-'
-		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		//'--'
+		public Keyword getHyphenMinusHyphenMinusKeyword_0() { return cHyphenMinusHyphenMinusKeyword_0; }
 		
 		//operand=EvoMappingTerminal
 		public Assignment getOperandAssignment_1() { return cOperandAssignment_1; }
@@ -674,25 +674,26 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingTerminal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cEvoMappingFeatureReferenceExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cEvoMappingNestedExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cEvoMappingNegationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cEvoMappingContextInformationReferenceExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cEvoMappingAttributeReferenceExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cEvoMappingValueExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cEvoMappingBooleanValueExpressionParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cEvoMappingMimumumExpressionParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cEvoMappingMaximumExpressionParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cEvoMappingNotParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cEvoVariableTermParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEvoMappingNestedExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEvoMappingNegationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cEvoMappingContextInformationReferenceExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cEvoMappingAttributeReferenceExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cEvoMappingValueExpressionParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cEvoMappingBooleanValueExpressionParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cEvoMappingMimumumExpressionParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cEvoMappingMaximumExpressionParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cEvoMappingNotParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		
 		//EvoMappingTerminal dw_expression::HyExpression:
-		//	EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
+		//	EvoMappingFeatureReferenceExpression | EvoVariableTerm | EvoMappingNestedExpression | EvoMappingNegation |
 		//	EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
 		//	EvoMappingAttributeReferenceExpression | EvoMappingValueExpression | EvoMappingBooleanValueExpression |
 		//	EvoMappingMimumumExpression | EvoMappingMaximumExpression | EvoMappingNot;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
+		//EvoMappingFeatureReferenceExpression | EvoVariableTerm | EvoMappingNestedExpression | EvoMappingNegation |
 		//EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
 		//EvoMappingAttributeReferenceExpression | EvoMappingValueExpression | EvoMappingBooleanValueExpression |
 		//EvoMappingMimumumExpression | EvoMappingMaximumExpression | EvoMappingNot
@@ -701,35 +702,38 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		//EvoMappingFeatureReferenceExpression
 		public RuleCall getEvoMappingFeatureReferenceExpressionParserRuleCall_0() { return cEvoMappingFeatureReferenceExpressionParserRuleCall_0; }
 		
+		//EvoVariableTerm
+		public RuleCall getEvoVariableTermParserRuleCall_1() { return cEvoVariableTermParserRuleCall_1; }
+		
 		//EvoMappingNestedExpression
-		public RuleCall getEvoMappingNestedExpressionParserRuleCall_1() { return cEvoMappingNestedExpressionParserRuleCall_1; }
+		public RuleCall getEvoMappingNestedExpressionParserRuleCall_2() { return cEvoMappingNestedExpressionParserRuleCall_2; }
 		
 		//EvoMappingNegation
-		public RuleCall getEvoMappingNegationParserRuleCall_2() { return cEvoMappingNegationParserRuleCall_2; }
+		public RuleCall getEvoMappingNegationParserRuleCall_3() { return cEvoMappingNegationParserRuleCall_3; }
 		
 		//EvoMappingConditionalFeatureReferenceExpression
-		public RuleCall getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3() { return cEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3; }
+		public RuleCall getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_4() { return cEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_4; }
 		
 		//EvoMappingContextInformationReferenceExpression
-		public RuleCall getEvoMappingContextInformationReferenceExpressionParserRuleCall_4() { return cEvoMappingContextInformationReferenceExpressionParserRuleCall_4; }
+		public RuleCall getEvoMappingContextInformationReferenceExpressionParserRuleCall_5() { return cEvoMappingContextInformationReferenceExpressionParserRuleCall_5; }
 		
 		//EvoMappingAttributeReferenceExpression
-		public RuleCall getEvoMappingAttributeReferenceExpressionParserRuleCall_5() { return cEvoMappingAttributeReferenceExpressionParserRuleCall_5; }
+		public RuleCall getEvoMappingAttributeReferenceExpressionParserRuleCall_6() { return cEvoMappingAttributeReferenceExpressionParserRuleCall_6; }
 		
 		//EvoMappingValueExpression
-		public RuleCall getEvoMappingValueExpressionParserRuleCall_6() { return cEvoMappingValueExpressionParserRuleCall_6; }
+		public RuleCall getEvoMappingValueExpressionParserRuleCall_7() { return cEvoMappingValueExpressionParserRuleCall_7; }
 		
 		//EvoMappingBooleanValueExpression
-		public RuleCall getEvoMappingBooleanValueExpressionParserRuleCall_7() { return cEvoMappingBooleanValueExpressionParserRuleCall_7; }
+		public RuleCall getEvoMappingBooleanValueExpressionParserRuleCall_8() { return cEvoMappingBooleanValueExpressionParserRuleCall_8; }
 		
 		//EvoMappingMimumumExpression
-		public RuleCall getEvoMappingMimumumExpressionParserRuleCall_8() { return cEvoMappingMimumumExpressionParserRuleCall_8; }
+		public RuleCall getEvoMappingMimumumExpressionParserRuleCall_9() { return cEvoMappingMimumumExpressionParserRuleCall_9; }
 		
 		//EvoMappingMaximumExpression
-		public RuleCall getEvoMappingMaximumExpressionParserRuleCall_9() { return cEvoMappingMaximumExpressionParserRuleCall_9; }
+		public RuleCall getEvoMappingMaximumExpressionParserRuleCall_10() { return cEvoMappingMaximumExpressionParserRuleCall_10; }
 		
 		//EvoMappingNot
-		public RuleCall getEvoMappingNotParserRuleCall_10() { return cEvoMappingNotParserRuleCall_10; }
+		public RuleCall getEvoMappingNotParserRuleCall_11() { return cEvoMappingNotParserRuleCall_11; }
 	}
 	public class EvoMappingNestedExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingNestedExpression");
@@ -1798,7 +1802,7 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'-' operand=EvoMappingTerminal;
+	//	'--' operand=EvoMappingTerminal;
 	public EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return pEvoMappingNegation;
 	}
@@ -1808,7 +1812,7 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//EvoMappingTerminal dw_expression::HyExpression:
-	//	EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
+	//	EvoMappingFeatureReferenceExpression | EvoVariableTerm | EvoMappingNestedExpression | EvoMappingNegation |
 	//	EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
 	//	EvoMappingAttributeReferenceExpression | EvoMappingValueExpression | EvoMappingBooleanValueExpression |
 	//	EvoMappingMimumumExpression | EvoMappingMaximumExpression | EvoMappingNot;
@@ -2024,7 +2028,7 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//terminal DATE returns ecore::EDate:
-	//	'0'..'9' '/' ('0' | '1') '0'..'9' '/' '0'..'9'*;
+	//	'0'..'9'* '/' ('0' | '1') '0'..'9' '/' ('0' '1'..'9') | '0'..'2' '1'..'9' | '3' '0'..'1';
 	public TerminalRule getDATERule() {
 		return tDATE;
 	}

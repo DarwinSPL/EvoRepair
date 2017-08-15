@@ -1092,9 +1092,9 @@ ruleEvoMappingNegation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='-'
+		otherlv_0='--'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0());
 		}
 		(
 			(
@@ -1144,92 +1144,101 @@ ruleEvoMappingTerminal returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNestedExpressionParserRuleCall_1());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoVariableTermParserRuleCall_1());
 		}
-		this_EvoMappingNestedExpression_1=ruleEvoMappingNestedExpression
+		this_EvoVariableTerm_1=ruleEvoVariableTerm
 		{
-			$current = $this_EvoMappingNestedExpression_1.current;
+			$current = $this_EvoVariableTerm_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNegationParserRuleCall_2());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNestedExpressionParserRuleCall_2());
 		}
-		this_EvoMappingNegation_2=ruleEvoMappingNegation
+		this_EvoMappingNestedExpression_2=ruleEvoMappingNestedExpression
 		{
-			$current = $this_EvoMappingNegation_2.current;
+			$current = $this_EvoMappingNestedExpression_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNegationParserRuleCall_3());
 		}
-		this_EvoMappingConditionalFeatureReferenceExpression_3=ruleEvoMappingConditionalFeatureReferenceExpression
+		this_EvoMappingNegation_3=ruleEvoMappingNegation
 		{
-			$current = $this_EvoMappingConditionalFeatureReferenceExpression_3.current;
+			$current = $this_EvoMappingNegation_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingContextInformationReferenceExpressionParserRuleCall_4());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_4());
 		}
-		this_EvoMappingContextInformationReferenceExpression_4=ruleEvoMappingContextInformationReferenceExpression
+		this_EvoMappingConditionalFeatureReferenceExpression_4=ruleEvoMappingConditionalFeatureReferenceExpression
 		{
-			$current = $this_EvoMappingContextInformationReferenceExpression_4.current;
+			$current = $this_EvoMappingConditionalFeatureReferenceExpression_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingAttributeReferenceExpressionParserRuleCall_5());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingContextInformationReferenceExpressionParserRuleCall_5());
 		}
-		this_EvoMappingAttributeReferenceExpression_5=ruleEvoMappingAttributeReferenceExpression
+		this_EvoMappingContextInformationReferenceExpression_5=ruleEvoMappingContextInformationReferenceExpression
 		{
-			$current = $this_EvoMappingAttributeReferenceExpression_5.current;
+			$current = $this_EvoMappingContextInformationReferenceExpression_5.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingValueExpressionParserRuleCall_6());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingAttributeReferenceExpressionParserRuleCall_6());
 		}
-		this_EvoMappingValueExpression_6=ruleEvoMappingValueExpression
+		this_EvoMappingAttributeReferenceExpression_6=ruleEvoMappingAttributeReferenceExpression
 		{
-			$current = $this_EvoMappingValueExpression_6.current;
+			$current = $this_EvoMappingAttributeReferenceExpression_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingBooleanValueExpressionParserRuleCall_7());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingValueExpressionParserRuleCall_7());
 		}
-		this_EvoMappingBooleanValueExpression_7=ruleEvoMappingBooleanValueExpression
+		this_EvoMappingValueExpression_7=ruleEvoMappingValueExpression
 		{
-			$current = $this_EvoMappingBooleanValueExpression_7.current;
+			$current = $this_EvoMappingValueExpression_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMimumumExpressionParserRuleCall_8());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingBooleanValueExpressionParserRuleCall_8());
 		}
-		this_EvoMappingMimumumExpression_8=ruleEvoMappingMimumumExpression
+		this_EvoMappingBooleanValueExpression_8=ruleEvoMappingBooleanValueExpression
 		{
-			$current = $this_EvoMappingMimumumExpression_8.current;
+			$current = $this_EvoMappingBooleanValueExpression_8.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMaximumExpressionParserRuleCall_9());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMimumumExpressionParserRuleCall_9());
 		}
-		this_EvoMappingMaximumExpression_9=ruleEvoMappingMaximumExpression
+		this_EvoMappingMimumumExpression_9=ruleEvoMappingMimumumExpression
 		{
-			$current = $this_EvoMappingMaximumExpression_9.current;
+			$current = $this_EvoMappingMimumumExpression_9.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNotParserRuleCall_10());
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMaximumExpressionParserRuleCall_10());
 		}
-		this_EvoMappingNot_10=ruleEvoMappingNot
+		this_EvoMappingMaximumExpression_10=ruleEvoMappingMaximumExpression
 		{
-			$current = $this_EvoMappingNot_10.current;
+			$current = $this_EvoMappingMaximumExpression_10.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNotParserRuleCall_11());
+		}
+		this_EvoMappingNot_11=ruleEvoMappingNot
+		{
+			$current = $this_EvoMappingNot_11.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -4657,7 +4666,7 @@ ruleHyGroupTypeEnum returns [Enumerator current=null]
 	)
 ;
 
-RULE_DATE : '0'..'9' '/' ('0'|'1') '0'..'9' '/' ('0'..'9')*;
+RULE_DATE : (('0'..'9')* '/' ('0'|'1') '0'..'9' '/' '0' '1'..'9'|'0'..'2' '1'..'9'|'3' '0'..'1');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

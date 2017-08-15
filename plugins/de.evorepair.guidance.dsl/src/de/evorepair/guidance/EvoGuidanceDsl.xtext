@@ -59,7 +59,7 @@ EvoConfigurationAnomaly:
 EvoMappingGuidanceElement returns EvoGuidanceElement:
 	'guidance' '{'
 		'type' ':' type=EvoGuidanceType ';'
-		('description' ':' description=STRING ';')?
+		'description' ':' description=STRING ';'
 		('action' ':' action=EvoMappingFormula ';')?
 	'}';
 
@@ -67,7 +67,7 @@ EvoMappingGuidanceElement returns EvoGuidanceElement:
 EvoConfigurationGuidanceElement returns EvoGuidanceElement:
 	'guidance' '{'
 		'type' ':' type=EvoGuidanceType ';'
-		('description' ':' description=STRING ';')?
+		'description' ':' description=STRING ';'
 		('action' ':' action=EvoConfigurationFormula ';')?
 	'}';
 

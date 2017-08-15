@@ -60,6 +60,10 @@ Workflow {
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
+			
+			formatter = {
+				generateStub = true
+			}
 
 			serializer = {
 				generateStub = false

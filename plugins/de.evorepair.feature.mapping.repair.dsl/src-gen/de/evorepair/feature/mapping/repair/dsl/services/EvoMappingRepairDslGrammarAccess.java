@@ -437,7 +437,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'-' operand=EvoMappingTerminal;
+	//	'--' operand=EvoMappingTerminal;
 	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
 	}
@@ -447,7 +447,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoMappingTerminal dw_expression::HyExpression:
-	//	EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
+	//	EvoMappingFeatureReferenceExpression | EvoVariableTerm | EvoMappingNestedExpression | EvoMappingNegation |
 	//	EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
 	//	EvoMappingAttributeReferenceExpression | EvoMappingValueExpression | EvoMappingBooleanValueExpression |
 	//	EvoMappingMimumumExpression | EvoMappingMaximumExpression | EvoMappingNot;
@@ -663,7 +663,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//terminal DATE returns ecore::EDate:
-	//	'0'..'9' '/' ('0' | '1') '0'..'9' '/' '0'..'9'*;
+	//	'0'..'9'* '/' ('0' | '1') '0'..'9' '/' ('0' '1'..'9') | '0'..'2' '1'..'9' | '3' '0'..'1';
 	public TerminalRule getDATERule() {
 		return gaEvoExpressionDsl.getDATERule();
 	}

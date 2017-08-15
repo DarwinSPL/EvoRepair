@@ -28,5 +28,6 @@ Export-Package: de.evorepair.logic,
  de.evorepair.logic.validation,
  de.evorepair.logic.evo_logic_dsl.impl,
  de.evorepair.logic.evo_logic_dsl,
- de.evorepair.logic.evo_logic_dsl.util
+ de.evorepair.logic.evo_logic_dsl.util,
+ de.evorepair.logic.formatting2
 Import-Package: org.apache.log4j

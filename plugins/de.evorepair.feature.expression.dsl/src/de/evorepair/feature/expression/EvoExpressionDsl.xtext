@@ -85,11 +85,12 @@ EvoMappingDivisionExpression returns dw_expression::HyExpression:
 	EvoMappingTerminal({dw_expression::HyDivisionExpression.operand1=current} ('/') operand2=EvoMappingTerminal)*;
 
 EvoMappingNegation returns dw_expression::HyNegationExpression:
-	'-' operand=EvoMappingTerminal;
+	'--' operand=EvoMappingTerminal;
 
 
 EvoMappingTerminal returns dw_expression::HyExpression:	
 	EvoMappingFeatureReferenceExpression |
+	EvoVariableTerm |
 	EvoMappingNestedExpression |
 	EvoMappingNegation |
 	EvoMappingConditionalFeatureReferenceExpression |
@@ -186,5 +187,5 @@ EvoMappingMaximumExpression returns dw_expression::HyMaximumExpression:
 
 
 terminal DATE returns ecore::EDate:
-	('0'..'9')('/')('0' | '1')('0'..'9')('/')('0'..'9')*;
+	('0'..'9')*('/')('0' | '1')('0'..'9')('/')('0'('1'..'9'))|(('0'..'2')('1'..'9'))|('3'('0'..'1'));
 	

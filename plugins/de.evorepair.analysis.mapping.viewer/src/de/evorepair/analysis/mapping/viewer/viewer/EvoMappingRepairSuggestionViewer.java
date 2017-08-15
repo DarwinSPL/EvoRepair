@@ -1,11 +1,10 @@
 package de.evorepair.analysis.mapping.viewer.viewer;
 
-import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -13,16 +12,21 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
@@ -34,12 +38,11 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
-import org.eclipse.xtext.util.StringInputStream;
 
 import com.google.inject.Injector;
 
 import de.christophseidl.util.ecore.EcoreIOUtil;
-import de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer;
+import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 import de.evorepair.feature.mapping.dsl.ui.internal.DslActivator;
 import eu.hyvar.feature.mapping.HyMappingModel;
 
@@ -49,19 +52,17 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	 * Instance of the actual resource that will be overriden
 	 */
 	private HyMappingModel mappingModel;
-	
+
 	protected HyMappingModel selectedMappingModel;
 
 	XtextResource mappingResource;
-
-	IFile mappingFile;
 
 	/**
 	 * the widget that shows all possible suggestions
 	 */
 	List suggestionList;	
-	
-	
+
+
 	/**
 	 * Contains all possible solutions for an anomaly that can be found in the solution folder
 	 */
@@ -71,20 +72,19 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	 * Button to apply the selected suggestion
 	 */
 	Button applyButton;
-	
-	EmbeddedEditorModelAccess model2;
-	
-	EmbeddedEditor editor2;
+
+	Label suggestionDescriptionLabel;
+
+	EmbeddedEditorModelAccess suggestionModel;
+
+	EmbeddedEditor suggestionEditor;
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -96,51 +96,45 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 	@Override
 	public boolean isDirty() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isSaveAsAllowed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	private String getFileContent(IFile file) {
-		String text = "";
+	private String getFileContent(XtextResource resource) {
+		ByteArrayOutputStream fileContent = new ByteArrayOutputStream();
 		try {
-			FileInputStream stream = (FileInputStream)file.getContents();
+			resource.save(fileContent,  new HashMap<Object, Object>());
+			return fileContent.toString();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "Error With Mapping File";
+		}
+	}
+
+	private String getDescriptionFileContent(IFile file) {
+		try {
 			
-			BufferedReader br = new BufferedReader( new InputStreamReader(stream));
-
-			{
-				StringBuilder sb = new StringBuilder();
-				String line;
-				while(( line = br.readLine()) != null ) {
-					sb.append( line );
-				}
-				return sb.toString();
+			StringBuilder sb = new StringBuilder();
+			FileInputStream input = (FileInputStream)file.getContents();
+			int character;
+			while((character = input.read())!=-1) {
+		         
+	            // converts integer to character
+	            sb.append((char)character);
 			}
-		} catch (IOException | CoreException e) {
+			
+			return sb.toString();
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		return text;
-	}
-	
-	private void writeContentToFile(String content, IFile file) {
-		
-		InputStream input = new StringInputStream(content);
-		try {
-			file.setContents(input, IResource.FORCE, null);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return "";
 		}
 	}
 
 
-	@SuppressWarnings("restriction")
 	@Override
 	public void createPartControl(Composite parent) {
 
@@ -155,7 +149,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		Composite splitComposite = new Composite(containerSashForm, SWT.NONE);
 		splitComposite.setLayout(fillLayout); 
 
-		createMappingPanel(containerSashForm);
+		createMappingPanel(containerSashForm, fillLayout);
 
 		SashForm splitEditorComposite = new SashForm(splitComposite, SWT.VERTICAL);
 
@@ -164,17 +158,21 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		containerSashForm.setSashWidth(4);
 
 
+		createEditorPanel(splitEditorComposite, fillLayout);
 
-		Composite firstEditorComposite = new Composite(splitEditorComposite, SWT.NONE);
+		registerControlListeners();
+	}	
+
+	private void createEditorPanel(SashForm parent, FillLayout fillLayout) {
+		Composite firstEditorComposite = new Composite(parent, SWT.NONE);
 		firstEditorComposite.setLayout(fillLayout);
 
-		Composite secondEditorComposite = new Composite(splitEditorComposite, SWT.NONE);
+		Composite secondEditorComposite = new Composite(parent, SWT.NONE);
 		secondEditorComposite.setLayout(fillLayout);
 
-		splitEditorComposite.setWeights(new int[] { 2, 2});
+		parent.setWeights(new int[] { 2, 2});
 
-		splitEditorComposite.setSashWidth(4);
-
+		parent.setSashWidth(4);
 
 		DslActivator activator = DslActivator.getInstance();
 		Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_FEATURE_MAPPING_DWMAPPINGDSL);
@@ -183,29 +181,49 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		provider.setRealResource(mappingResource);
 		EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
 
-		EmbeddedEditor editor = factory.newEditor(provider).readOnly().withParent(firstEditorComposite);
+
+		// Configuring default font
+		Font defaultFont = JFaceResources.getFont(JFaceResources.TEXT_FONT);
+
+		EmbeddedEditor editor = factory.newEditor(provider).readOnly().showLineNumbers().withParent(firstEditorComposite);
+		editor.getViewer().getTextWidget().setFont(defaultFont);
+		editor.createPartialEditor("", getFileContent(mappingResource), "", false);
+
+		suggestionEditor = factory.newEditor(provider).readOnly().withParent(secondEditorComposite);	
+		suggestionEditor.getViewer().getTextWidget().setFont(defaultFont);
+		suggestionModel = suggestionEditor.createPartialEditor("", "", "", false);
+
+	}
+
+
+	private Composite createMappingPanel(Composite parent, FillLayout fillLayout) {
+		
+		/*
+		SashForm splitEditorComposite = new SashForm(parent, SWT.VERTICAL);
+		splitEditorComposite.setLayout(fillLayout);
+
+		splitEditorComposite.setWeights(new int[] { 3, 1});
+		splitEditorComposite.setSashWidth(4);		
+		
+		Composite configurationPanel = new Composite(splitEditorComposite, SWT.NONE);
+		//configurationPanel.setLayout(new GridLayout(1, false));
+
+
 
 		
 
 
+
+
+
+
+		return splitEditorComposite;
+		*/
 		
-		EmbeddedEditorModelAccess model = editor.createPartialEditor("", getFileContent(mappingFile), "", false);
-
-		editor2 = factory.newEditor(provider).readOnly().withParent(secondEditorComposite);	
-		model2 = editor2.createPartialEditor("", "", "", false);
-		
-		registerControlListeners();
-	}	
-
-
-	private Composite createMappingPanel(Composite parent) {
-		Composite configurationPanel = new Composite(parent, SWT.NONE);
-		configurationPanel.setLayout(new GridLayout(1, false));
-
-		suggestionList = new List(configurationPanel, SWT.BORDER | SWT.V_SCROLL);
+		SashForm sashForm2 = new SashForm(parent, SWT.VERTICAL);
+		suggestionList = new List(sashForm2, SWT.BORDER | SWT.V_SCROLL);
 		suggestionList.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
-		
+	
 		int index = 0;
 		for(HyMappingModel mapping : suggestions) {
 			suggestionList.add("Repair Suggestion "+index);
@@ -214,22 +232,34 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 				suggestionList.select(index);
 
 			index++;
-		}
-
-		applyButton = new Button(configurationPanel, SWT.PUSH);
+		}		
+		
+		Composite descriptionPanel = new Composite(sashForm2, SWT.NONE);
+		descriptionPanel.setLayout(new GridLayout(1, true));
+		
+		suggestionDescriptionLabel = new Label(descriptionPanel, SWT.LEFT | SWT.WRAP | SWT.BORDER);
+		suggestionDescriptionLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		suggestionDescriptionLabel.setText("Descriptions goes here");
+		
+		applyButton = new Button(descriptionPanel, SWT.PUSH);
 		applyButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 		applyButton.setText("Apply Suggestion");
-
-		return configurationPanel;
+		
+		/*
+	    final Label labelA = new Label(sashForm2, SWT.BORDER | SWT.CENTER);
+	    labelA.setText("Label in pane A");
+	    final Label labelB = new Label(sashForm2, SWT.BORDER |SWT.CENTER);
+	    labelB.setText("Label in pane B");		
+	    */
+		
+	    return sashForm2;
 	}
 
 
 	@Override
 	public void setFocus() {
-		// TODO Auto-generated method stub
-
 	}
-	
+
 	/**
 	 * Register different listeners to react on user input
 	 */
@@ -241,18 +271,24 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 				int[] selections = suggestionList.getSelectionIndices();
 
 				selectedMappingModel = suggestions.get(selections[0]);
-				
+
+
+				URI decriptionFileURI = EcoreIOUtil.createURIFromFile(EcoreIOUtil.getFile(selectedMappingModel.eResource()))
+						.trimFileExtension().appendFileExtension("description");
+				String description = getDescriptionFileContent(EcoreIOUtil.getFile(decriptionFileURI));
+				suggestionDescriptionLabel.setText(description);
+
 				DslActivator activator = DslActivator.getInstance();
 				Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_FEATURE_MAPPING_DWMAPPINGDSL);
 				XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 				resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 				XtextResource resource = (XtextResource)resourceSet.getResource(selectedMappingModel.eResource().getURI(),  true);
-				
-				editor2.getDocument().setInput(resource);
-				
-				model2.updateModel("", getFileContent(EcoreIOUtil.getFile(resource)), "");
-				
-				
+
+				suggestionEditor.getDocument().setInput(resource);
+
+				suggestionModel.updateModel("", getFileContent(resource), "");
+				suggestionEditor.getViewer().setSelectedRange(0, 0);
+
 			}
 
 			public void widgetDefaultSelected(SelectionEvent event) {
@@ -261,7 +297,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 				selectedMappingModel = suggestions.get(selections[0]);
 			}
 		});
-	
+
 		applyButton.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent event) {
@@ -276,7 +312,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 				applySuggestion(suggestions.get(selections[0]));
 			}
 		});
-		
+
 		selectedMappingModel.eAdapters().add(new EContentAdapter() {
 			@Override
 			public void notifyChanged(Notification notification) {
@@ -292,37 +328,37 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 		IResource resource = ((IFileEditorInput)input).getFile();
 
-		mappingFile = (IFile)resource;
-		
 		selectedMappingModel = EcoreIOUtil.loadModel(((IFileEditorInput)input).getFile());
 		mappingModel = selectedMappingModel;
 		mappingResource = (XtextResource)selectedMappingModel.eResource();
 
-		
 
-
-		IFolder folder = resource.getProject().getFolder(EvoRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
 		IResource[] files;
 		try {
 			files = folder.members();
 
 			for(int i=0; i<files.length; i++) {
 				if(files[i] instanceof IFile) {
-					HyMappingModel suggestion = EcoreIOUtil.loadModel((IFile)files[i]);
-					suggestions.add(suggestion);
+					if(!files[i].getFileExtension().equals("description")) {
+						HyMappingModel suggestion = EcoreIOUtil.loadModel((IFile)files[i]);
+						suggestions.add(suggestion);
+					}
 				}
 			}		
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * applies a solution and replace the original configuration file
 	 * 
 	 * @param configuration
 	 */
-	private void applySuggestion(HyMappingModel mapping) {
-		writeContentToFile(model2.getEditablePart(), mappingFile);
+	private void applySuggestion(HyMappingModel mappingModel) {
+		this.mappingModel.getMappings().clear();
+		this.mappingModel.getMappings().addAll(mappingModel.getMappings());
+		EcoreIOUtil.saveModel(this.mappingModel);
 	}
 }

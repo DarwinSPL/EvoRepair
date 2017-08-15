@@ -197,7 +197,6 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final HyMappingModelElements pHyMappingModel;
 	private final DEDeltaInvokationElements pDEDeltaInvokation;
-	private final TerminalRule tID;
 	private final HyMappingElements pHyMapping;
 	
 	private final Grammar grammar;
@@ -219,7 +218,6 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pHyMappingModel = new HyMappingModelElements();
 		this.pDEDeltaInvokation = new DEDeltaInvokationElements();
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.mapping.DwMappingDsl.ID");
 		this.pHyMapping = new HyMappingElements();
 	}
 	
@@ -276,12 +274,6 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDEDeltaInvokationRule() {
 		return getDEDeltaInvokationAccess().getRule();
-	}
-	
-	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
-	public TerminalRule getIDRule() {
-		return tID;
 	}
 	
 	//HyMapping dw_mapping::HyMapping:
@@ -486,7 +478,7 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'-' operand=EvoMappingTerminal;
+	//	'--' operand=EvoMappingTerminal;
 	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
 	}
@@ -496,7 +488,7 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoMappingTerminal dw_expression::HyExpression:
-	//	EvoMappingFeatureReferenceExpression | EvoMappingNestedExpression | EvoMappingNegation |
+	//	EvoMappingFeatureReferenceExpression | EvoVariableTerm | EvoMappingNestedExpression | EvoMappingNegation |
 	//	EvoMappingConditionalFeatureReferenceExpression | EvoMappingContextInformationReferenceExpression |
 	//	EvoMappingAttributeReferenceExpression | EvoMappingValueExpression | EvoMappingBooleanValueExpression |
 	//	EvoMappingMimumumExpression | EvoMappingMaximumExpression | EvoMappingNot;
@@ -661,7 +653,7 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoMappingEnum dw_data::HyEnum:
-	//	"Enum(" name=super::ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
+	//	"Enum(" name=ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
 	public EvoExpressionDslGrammarAccess.EvoMappingEnumElements getEvoMappingEnumAccess() {
 		return gaEvoExpressionDsl.getEvoMappingEnumAccess();
 	}
@@ -671,8 +663,8 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoMappingEnumLiteral dw_data::HyEnumLiteral:
-	//	"EnumLiteral(" name=super::ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" |
-	//	"eternity" "-" validUntil=DATE) "]")?;
+	//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity"
+	//	"-" validUntil=DATE) "]")?;
 	public EvoExpressionDslGrammarAccess.EvoMappingEnumLiteralElements getEvoMappingEnumLiteralAccess() {
 		return gaEvoExpressionDsl.getEvoMappingEnumLiteralAccess();
 	}
@@ -712,7 +704,7 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal DATE returns ecore::EDate:
-	//	'0'..'9' '/' ('0' | '1') '0'..'9' '/' '0'..'9'*;
+	//	'0'..'9'* '/' ('0' | '1') '0'..'9' '/' ('0' '1'..'9') | '0'..'2' '1'..'9' | '3' '0'..'1';
 	public TerminalRule getDATERule() {
 		return gaEvoExpressionDsl.getDATERule();
 	}
@@ -731,7 +723,7 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QualifiedName:
-	//	super::ID ("." super::ID)*;
+	//	ID ("." ID)*;
 	public EvoLogicDslGrammarAccess.QualifiedNameElements getQualifiedNameAccess() {
 		return gaEvoLogicDsl.getQualifiedNameAccess();
 	}
@@ -1164,6 +1156,12 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEvoChildrenOfRule() {
 		return getEvoChildrenOfAccess().getRule();
+	}
+	
+	//terminal ID:
+	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	public TerminalRule getIDRule() {
+		return gaTerminals.getIDRule();
 	}
 	
 	//terminal INT returns ecore::EInt:

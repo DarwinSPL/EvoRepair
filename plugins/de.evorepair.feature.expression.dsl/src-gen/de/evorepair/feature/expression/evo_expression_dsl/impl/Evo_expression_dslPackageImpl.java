@@ -28,6 +28,7 @@ import eu.hyvar.feature.expression.HyExpressionPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -98,6 +99,7 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     Evo_logic_dslPackage.eINSTANCE.eClass();
     HyExpressionPackage.eINSTANCE.eClass();
     EvoLogicPackage.eINSTANCE.eClass();
+    EcorePackage.eINSTANCE.eClass();
     HyFeaturePackage.eINSTANCE.eClass();
     HyDataValuesPackage.eINSTANCE.eClass();
     HyContextInformationPackage.eINSTANCE.eClass();

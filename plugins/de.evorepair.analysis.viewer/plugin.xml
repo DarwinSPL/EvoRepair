@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer"
+            class="de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer"
             default="false"
             extensions="hyfeature, hyconfigurationmodel"
             id="de.evorepair.analysis.configuration.viewer.repair.suggestion.viewer"

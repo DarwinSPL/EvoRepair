@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_DATE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'keep'", "'('", "')'", "'replace'", "'with'", "'||'", "'&&'", "'=='", "'!='", "'->'", "'<->'", "'<'", "'ifPossible('", "','", "'<='", "'>'", "'>='", "'-'", "'+'", "'%'", "'*'", "'/'", "'!'", "'?'", "'['", "']'", "'true'", "'false'", "'context:'", "'.'", "'EnumLiteral('", "'eternity'", "'min('", "'max('", "'xor'", "'=>'", "'<=>'", "'inclusion'", "'intersection'", "'union'", "'difference'", "'symmetric_difference'", "'x'", "'|'", "'size'", "'elementOf'", "'forAll'", "':'", "'exists'", "'not'", "'satisfiable'", "'All_Mappings'", "'All_Configurations'", "'AC'", "'featureType'", "'groupType'", "'{'", "'}'", "'parentOf'", "'sibilingsOf'", "'childrenOf'", "'='", "'@ident'", "'@pre'", "'@post'", "'optional'", "'mandatory'", "'and'", "'or'", "'alternative'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_DATE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'keep'", "'('", "')'", "'replace'", "'with'", "'||'", "'&&'", "'=='", "'!='", "'->'", "'<->'", "'<'", "'ifPossible('", "','", "'<='", "'>'", "'>='", "'-'", "'+'", "'%'", "'*'", "'/'", "'--'", "'!'", "'?'", "'['", "']'", "'true'", "'false'", "'context:'", "'.'", "'EnumLiteral('", "'eternity'", "'min('", "'max('", "'xor'", "'=>'", "'<=>'", "'inclusion'", "'intersection'", "'union'", "'difference'", "'symmetric_difference'", "'x'", "'|'", "'size'", "'elementOf'", "'forAll'", "':'", "'exists'", "'not'", "'satisfiable'", "'All_Mappings'", "'All_Configurations'", "'AC'", "'featureType'", "'groupType'", "'{'", "'}'", "'parentOf'", "'sibilingsOf'", "'childrenOf'", "'='", "'@ident'", "'@pre'", "'@post'", "'optional'", "'mandatory'", "'and'", "'or'", "'alternative'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -91,6 +91,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
     public static final int T__76=76;
     public static final int T__80=80;
     public static final int T__81=81;
+    public static final int T__82=82;
     public static final int RULE_WS=10;
     public static final int RULE_ANY_OTHER=11;
     public static final int T__48=48;
@@ -3393,7 +3394,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingNegation"
-    // InternalEvoMappingRepairDsl.g:1254:1: ruleEvoMappingNegation returns [EObject current=null] : (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:1254:1: ruleEvoMappingNegation returns [EObject current=null] : (otherlv_0= '--' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
     public final EObject ruleEvoMappingNegation() throws RecognitionException {
         EObject current = null;
 
@@ -3405,15 +3406,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1260:2: ( (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
-            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            // InternalEvoMappingRepairDsl.g:1260:2: ( (otherlv_0= '--' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
+            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '--' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
-            // InternalEvoMappingRepairDsl.g:1262:3: otherlv_0= '-' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
+            // InternalEvoMappingRepairDsl.g:1261:2: (otherlv_0= '--' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            // InternalEvoMappingRepairDsl.g:1262:3: otherlv_0= '--' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_4); 
+            otherlv_0=(Token)match(input,34,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0());
             		
             // InternalEvoMappingRepairDsl.g:1266:3: ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
             // InternalEvoMappingRepairDsl.g:1267:4: (lv_operand_1_0= ruleEvoMappingTerminal )
@@ -3505,42 +3506,44 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:1296:1: ruleEvoMappingTerminal returns [EObject current=null] : (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) ;
+    // InternalEvoMappingRepairDsl.g:1296:1: ruleEvoMappingTerminal returns [EObject current=null] : (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoVariableTerm_1= ruleEvoVariableTerm | this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression | this_EvoMappingNegation_3= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression | this_EvoMappingNot_11= ruleEvoMappingNot ) ;
     public final EObject ruleEvoMappingTerminal() throws RecognitionException {
         EObject current = null;
 
         EObject this_EvoMappingFeatureReferenceExpression_0 = null;
 
-        EObject this_EvoMappingNestedExpression_1 = null;
+        EObject this_EvoVariableTerm_1 = null;
 
-        EObject this_EvoMappingNegation_2 = null;
+        EObject this_EvoMappingNestedExpression_2 = null;
 
-        EObject this_EvoMappingConditionalFeatureReferenceExpression_3 = null;
+        EObject this_EvoMappingNegation_3 = null;
 
-        EObject this_EvoMappingContextInformationReferenceExpression_4 = null;
+        EObject this_EvoMappingConditionalFeatureReferenceExpression_4 = null;
 
-        EObject this_EvoMappingAttributeReferenceExpression_5 = null;
+        EObject this_EvoMappingContextInformationReferenceExpression_5 = null;
 
-        EObject this_EvoMappingValueExpression_6 = null;
+        EObject this_EvoMappingAttributeReferenceExpression_6 = null;
 
-        EObject this_EvoMappingBooleanValueExpression_7 = null;
+        EObject this_EvoMappingValueExpression_7 = null;
 
-        EObject this_EvoMappingMimumumExpression_8 = null;
+        EObject this_EvoMappingBooleanValueExpression_8 = null;
 
-        EObject this_EvoMappingMaximumExpression_9 = null;
+        EObject this_EvoMappingMimumumExpression_9 = null;
 
-        EObject this_EvoMappingNot_10 = null;
+        EObject this_EvoMappingMaximumExpression_10 = null;
+
+        EObject this_EvoMappingNot_11 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1302:2: ( (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot ) )
-            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
+            // InternalEvoMappingRepairDsl.g:1302:2: ( (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoVariableTerm_1= ruleEvoVariableTerm | this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression | this_EvoMappingNegation_3= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression | this_EvoMappingNot_11= ruleEvoMappingNot ) )
+            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoVariableTerm_1= ruleEvoVariableTerm | this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression | this_EvoMappingNegation_3= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression | this_EvoMappingNot_11= ruleEvoMappingNot )
             {
-            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )
-            int alt19=11;
+            // InternalEvoMappingRepairDsl.g:1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoVariableTerm_1= ruleEvoVariableTerm | this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression | this_EvoMappingNegation_3= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression | this_EvoMappingNot_11= ruleEvoMappingNot )
+            int alt19=12;
             alt19 = dfa19.predict(input);
             switch (alt19) {
                 case 1 :
@@ -3562,180 +3565,198 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:1313:3: this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression
+                    // InternalEvoMappingRepairDsl.g:1313:3: this_EvoVariableTerm_1= ruleEvoVariableTerm
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNestedExpressionParserRuleCall_1());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoVariableTermParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingNestedExpression_1=ruleEvoMappingNestedExpression();
+                    this_EvoVariableTerm_1=ruleEvoVariableTerm();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingNestedExpression_1;
+                    			current = this_EvoVariableTerm_1;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:1322:3: this_EvoMappingNegation_2= ruleEvoMappingNegation
+                    // InternalEvoMappingRepairDsl.g:1322:3: this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNegationParserRuleCall_2());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNestedExpressionParserRuleCall_2());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingNegation_2=ruleEvoMappingNegation();
+                    this_EvoMappingNestedExpression_2=ruleEvoMappingNestedExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingNegation_2;
+                    			current = this_EvoMappingNestedExpression_2;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 4 :
-                    // InternalEvoMappingRepairDsl.g:1331:3: this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1331:3: this_EvoMappingNegation_3= ruleEvoMappingNegation
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_3());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNegationParserRuleCall_3());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingConditionalFeatureReferenceExpression_3=ruleEvoMappingConditionalFeatureReferenceExpression();
+                    this_EvoMappingNegation_3=ruleEvoMappingNegation();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingConditionalFeatureReferenceExpression_3;
+                    			current = this_EvoMappingNegation_3;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 5 :
-                    // InternalEvoMappingRepairDsl.g:1340:3: this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1340:3: this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingContextInformationReferenceExpressionParserRuleCall_4());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingConditionalFeatureReferenceExpressionParserRuleCall_4());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingContextInformationReferenceExpression_4=ruleEvoMappingContextInformationReferenceExpression();
+                    this_EvoMappingConditionalFeatureReferenceExpression_4=ruleEvoMappingConditionalFeatureReferenceExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingContextInformationReferenceExpression_4;
+                    			current = this_EvoMappingConditionalFeatureReferenceExpression_4;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 6 :
-                    // InternalEvoMappingRepairDsl.g:1349:3: this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression
+                    // InternalEvoMappingRepairDsl.g:1349:3: this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingAttributeReferenceExpressionParserRuleCall_5());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingContextInformationReferenceExpressionParserRuleCall_5());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingAttributeReferenceExpression_5=ruleEvoMappingAttributeReferenceExpression();
+                    this_EvoMappingContextInformationReferenceExpression_5=ruleEvoMappingContextInformationReferenceExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingAttributeReferenceExpression_5;
+                    			current = this_EvoMappingContextInformationReferenceExpression_5;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 7 :
-                    // InternalEvoMappingRepairDsl.g:1358:3: this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression
+                    // InternalEvoMappingRepairDsl.g:1358:3: this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingValueExpressionParserRuleCall_6());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingAttributeReferenceExpressionParserRuleCall_6());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingValueExpression_6=ruleEvoMappingValueExpression();
+                    this_EvoMappingAttributeReferenceExpression_6=ruleEvoMappingAttributeReferenceExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingValueExpression_6;
+                    			current = this_EvoMappingAttributeReferenceExpression_6;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 8 :
-                    // InternalEvoMappingRepairDsl.g:1367:3: this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression
+                    // InternalEvoMappingRepairDsl.g:1367:3: this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingBooleanValueExpressionParserRuleCall_7());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingValueExpressionParserRuleCall_7());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingBooleanValueExpression_7=ruleEvoMappingBooleanValueExpression();
+                    this_EvoMappingValueExpression_7=ruleEvoMappingValueExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingBooleanValueExpression_7;
+                    			current = this_EvoMappingValueExpression_7;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 9 :
-                    // InternalEvoMappingRepairDsl.g:1376:3: this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression
+                    // InternalEvoMappingRepairDsl.g:1376:3: this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMimumumExpressionParserRuleCall_8());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingBooleanValueExpressionParserRuleCall_8());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingMimumumExpression_8=ruleEvoMappingMimumumExpression();
+                    this_EvoMappingBooleanValueExpression_8=ruleEvoMappingBooleanValueExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingMimumumExpression_8;
+                    			current = this_EvoMappingBooleanValueExpression_8;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 10 :
-                    // InternalEvoMappingRepairDsl.g:1385:3: this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression
+                    // InternalEvoMappingRepairDsl.g:1385:3: this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMaximumExpressionParserRuleCall_9());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMimumumExpressionParserRuleCall_9());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingMaximumExpression_9=ruleEvoMappingMaximumExpression();
+                    this_EvoMappingMimumumExpression_9=ruleEvoMappingMimumumExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingMaximumExpression_9;
+                    			current = this_EvoMappingMimumumExpression_9;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 11 :
-                    // InternalEvoMappingRepairDsl.g:1394:3: this_EvoMappingNot_10= ruleEvoMappingNot
+                    // InternalEvoMappingRepairDsl.g:1394:3: this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression
                     {
 
-                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNotParserRuleCall_10());
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingMaximumExpressionParserRuleCall_10());
                     		
                     pushFollow(FOLLOW_2);
-                    this_EvoMappingNot_10=ruleEvoMappingNot();
+                    this_EvoMappingMaximumExpression_10=ruleEvoMappingMaximumExpression();
 
                     state._fsp--;
 
 
-                    			current = this_EvoMappingNot_10;
+                    			current = this_EvoMappingMaximumExpression_10;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 12 :
+                    // InternalEvoMappingRepairDsl.g:1403:3: this_EvoMappingNot_11= ruleEvoMappingNot
+                    {
+
+                    			newCompositeNode(grammarAccess.getEvoMappingTerminalAccess().getEvoMappingNotParserRuleCall_11());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_EvoMappingNot_11=ruleEvoMappingNot();
+
+                    state._fsp--;
+
+
+                    			current = this_EvoMappingNot_11;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -3764,7 +3785,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:1406:1: entryRuleEvoMappingNestedExpression returns [EObject current=null] : iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1415:1: entryRuleEvoMappingNestedExpression returns [EObject current=null] : iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF ;
     public final EObject entryRuleEvoMappingNestedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3772,8 +3793,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1406:67: (iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1407:2: iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF
+            // InternalEvoMappingRepairDsl.g:1415:67: (iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1416:2: iv_ruleEvoMappingNestedExpression= ruleEvoMappingNestedExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingNestedExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -3800,7 +3821,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingNestedExpression"
-    // InternalEvoMappingRepairDsl.g:1413:1: ruleEvoMappingNestedExpression returns [EObject current=null] : (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:1422:1: ruleEvoMappingNestedExpression returns [EObject current=null] : (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
     public final EObject ruleEvoMappingNestedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3813,21 +3834,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1419:2: ( (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
-            // InternalEvoMappingRepairDsl.g:1420:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:1428:2: ( (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
+            // InternalEvoMappingRepairDsl.g:1429:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:1420:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
-            // InternalEvoMappingRepairDsl.g:1421:3: otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
+            // InternalEvoMappingRepairDsl.g:1429:2: (otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:1430:3: otherlv_0= '(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
             {
             otherlv_0=(Token)match(input,13,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNestedExpressionAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1425:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
-            // InternalEvoMappingRepairDsl.g:1426:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:1434:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
+            // InternalEvoMappingRepairDsl.g:1435:4: (lv_operand_1_0= ruleEvoMappingExpression )
             {
-            // InternalEvoMappingRepairDsl.g:1426:4: (lv_operand_1_0= ruleEvoMappingExpression )
-            // InternalEvoMappingRepairDsl.g:1427:5: lv_operand_1_0= ruleEvoMappingExpression
+            // InternalEvoMappingRepairDsl.g:1435:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:1436:5: lv_operand_1_0= ruleEvoMappingExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingNestedExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
@@ -3881,7 +3902,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingNot"
-    // InternalEvoMappingRepairDsl.g:1452:1: entryRuleEvoMappingNot returns [EObject current=null] : iv_ruleEvoMappingNot= ruleEvoMappingNot EOF ;
+    // InternalEvoMappingRepairDsl.g:1461:1: entryRuleEvoMappingNot returns [EObject current=null] : iv_ruleEvoMappingNot= ruleEvoMappingNot EOF ;
     public final EObject entryRuleEvoMappingNot() throws RecognitionException {
         EObject current = null;
 
@@ -3889,8 +3910,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1452:54: (iv_ruleEvoMappingNot= ruleEvoMappingNot EOF )
-            // InternalEvoMappingRepairDsl.g:1453:2: iv_ruleEvoMappingNot= ruleEvoMappingNot EOF
+            // InternalEvoMappingRepairDsl.g:1461:54: (iv_ruleEvoMappingNot= ruleEvoMappingNot EOF )
+            // InternalEvoMappingRepairDsl.g:1462:2: iv_ruleEvoMappingNot= ruleEvoMappingNot EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingNotRule()); 
             pushFollow(FOLLOW_1);
@@ -3917,7 +3938,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingNot"
-    // InternalEvoMappingRepairDsl.g:1459:1: ruleEvoMappingNot returns [EObject current=null] : (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:1468:1: ruleEvoMappingNot returns [EObject current=null] : (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) ;
     public final EObject ruleEvoMappingNot() throws RecognitionException {
         EObject current = null;
 
@@ -3929,21 +3950,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1465:2: ( (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
-            // InternalEvoMappingRepairDsl.g:1466:2: (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            // InternalEvoMappingRepairDsl.g:1474:2: ( (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) ) )
+            // InternalEvoMappingRepairDsl.g:1475:2: (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:1466:2: (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
-            // InternalEvoMappingRepairDsl.g:1467:3: otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
+            // InternalEvoMappingRepairDsl.g:1475:2: (otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) ) )
+            // InternalEvoMappingRepairDsl.g:1476:3: otherlv_0= '!' ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_4); 
+            otherlv_0=(Token)match(input,35,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNotAccess().getExclamationMarkKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1471:3: ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
-            // InternalEvoMappingRepairDsl.g:1472:4: (lv_operand_1_0= ruleEvoMappingTerminal )
+            // InternalEvoMappingRepairDsl.g:1480:3: ( (lv_operand_1_0= ruleEvoMappingTerminal ) )
+            // InternalEvoMappingRepairDsl.g:1481:4: (lv_operand_1_0= ruleEvoMappingTerminal )
             {
-            // InternalEvoMappingRepairDsl.g:1472:4: (lv_operand_1_0= ruleEvoMappingTerminal )
-            // InternalEvoMappingRepairDsl.g:1473:5: lv_operand_1_0= ruleEvoMappingTerminal
+            // InternalEvoMappingRepairDsl.g:1481:4: (lv_operand_1_0= ruleEvoMappingTerminal )
+            // InternalEvoMappingRepairDsl.g:1482:5: lv_operand_1_0= ruleEvoMappingTerminal
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingNotAccess().getOperandEvoMappingTerminalParserRuleCall_1_0());
@@ -3993,7 +4014,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingFeatureReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1494:1: entryRuleEvoMappingFeatureReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1503:1: entryRuleEvoMappingFeatureReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF ;
     public final EObject entryRuleEvoMappingFeatureReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4001,8 +4022,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1494:77: (iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1495:2: iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF
+            // InternalEvoMappingRepairDsl.g:1503:77: (iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1504:2: iv_ruleEvoMappingFeatureReferenceExpression= ruleEvoMappingFeatureReferenceExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingFeatureReferenceExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4029,7 +4050,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingFeatureReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1501:1: ruleEvoMappingFeatureReferenceExpression returns [EObject current=null] : ( (otherlv_0= RULE_STRING ) ) ;
+    // InternalEvoMappingRepairDsl.g:1510:1: ruleEvoMappingFeatureReferenceExpression returns [EObject current=null] : ( (otherlv_0= RULE_STRING ) ) ;
     public final EObject ruleEvoMappingFeatureReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4039,14 +4060,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1507:2: ( ( (otherlv_0= RULE_STRING ) ) )
-            // InternalEvoMappingRepairDsl.g:1508:2: ( (otherlv_0= RULE_STRING ) )
+            // InternalEvoMappingRepairDsl.g:1516:2: ( ( (otherlv_0= RULE_STRING ) ) )
+            // InternalEvoMappingRepairDsl.g:1517:2: ( (otherlv_0= RULE_STRING ) )
             {
-            // InternalEvoMappingRepairDsl.g:1508:2: ( (otherlv_0= RULE_STRING ) )
-            // InternalEvoMappingRepairDsl.g:1509:3: (otherlv_0= RULE_STRING )
+            // InternalEvoMappingRepairDsl.g:1517:2: ( (otherlv_0= RULE_STRING ) )
+            // InternalEvoMappingRepairDsl.g:1518:3: (otherlv_0= RULE_STRING )
             {
-            // InternalEvoMappingRepairDsl.g:1509:3: (otherlv_0= RULE_STRING )
-            // InternalEvoMappingRepairDsl.g:1510:4: otherlv_0= RULE_STRING
+            // InternalEvoMappingRepairDsl.g:1518:3: (otherlv_0= RULE_STRING )
+            // InternalEvoMappingRepairDsl.g:1519:4: otherlv_0= RULE_STRING
             {
 
             				if (current==null) {
@@ -4083,7 +4104,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingConditionalFeatureReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1524:1: entryRuleEvoMappingConditionalFeatureReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1533:1: entryRuleEvoMappingConditionalFeatureReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF ;
     public final EObject entryRuleEvoMappingConditionalFeatureReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4091,8 +4112,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1524:88: (iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1525:2: iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF
+            // InternalEvoMappingRepairDsl.g:1533:88: (iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1534:2: iv_ruleEvoMappingConditionalFeatureReferenceExpression= ruleEvoMappingConditionalFeatureReferenceExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4119,7 +4140,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingConditionalFeatureReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1531:1: ruleEvoMappingConditionalFeatureReferenceExpression returns [EObject current=null] : (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? ) ;
+    // InternalEvoMappingRepairDsl.g:1540:1: ruleEvoMappingConditionalFeatureReferenceExpression returns [EObject current=null] : (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? ) ;
     public final EObject ruleEvoMappingConditionalFeatureReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4131,21 +4152,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1537:2: ( (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? ) )
-            // InternalEvoMappingRepairDsl.g:1538:2: (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? )
+            // InternalEvoMappingRepairDsl.g:1546:2: ( (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? ) )
+            // InternalEvoMappingRepairDsl.g:1547:2: (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? )
             {
-            // InternalEvoMappingRepairDsl.g:1538:2: (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? )
-            // InternalEvoMappingRepairDsl.g:1539:3: otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )?
+            // InternalEvoMappingRepairDsl.g:1547:2: (otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )? )
+            // InternalEvoMappingRepairDsl.g:1548:3: otherlv_0= '?' ( ( ruleQualifiedName ) ) ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )?
             {
-            otherlv_0=(Token)match(input,35,FOLLOW_24); 
+            otherlv_0=(Token)match(input,36,FOLLOW_24); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getQuestionMarkKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1543:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:1544:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1552:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:1553:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:1544:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:1545:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:1553:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1554:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -4169,19 +4190,19 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:1559:3: ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )?
+            // InternalEvoMappingRepairDsl.g:1568:3: ( (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction ) )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
-            if ( (LA20_0==36||LA20_0==39) ) {
+            if ( (LA20_0==37||LA20_0==40) ) {
                 alt20=1;
             }
             switch (alt20) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:1560:4: (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction )
+                    // InternalEvoMappingRepairDsl.g:1569:4: (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction )
                     {
-                    // InternalEvoMappingRepairDsl.g:1560:4: (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction )
-                    // InternalEvoMappingRepairDsl.g:1561:5: lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction
+                    // InternalEvoMappingRepairDsl.g:1569:4: (lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction )
+                    // InternalEvoMappingRepairDsl.g:1570:5: lv_versionRestriction_2_0= ruleEvoMappingVersionRestriction
                     {
 
                     					newCompositeNode(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getVersionRestrictionEvoMappingVersionRestrictionParserRuleCall_2_0());
@@ -4234,7 +4255,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingVersionRestriction"
-    // InternalEvoMappingRepairDsl.g:1582:1: entryRuleEvoMappingVersionRestriction returns [EObject current=null] : iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF ;
+    // InternalEvoMappingRepairDsl.g:1591:1: entryRuleEvoMappingVersionRestriction returns [EObject current=null] : iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF ;
     public final EObject entryRuleEvoMappingVersionRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4242,8 +4263,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1582:69: (iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF )
-            // InternalEvoMappingRepairDsl.g:1583:2: iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF
+            // InternalEvoMappingRepairDsl.g:1591:69: (iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF )
+            // InternalEvoMappingRepairDsl.g:1592:2: iv_ruleEvoMappingVersionRestriction= ruleEvoMappingVersionRestriction EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingVersionRestrictionRule()); 
             pushFollow(FOLLOW_1);
@@ -4270,7 +4291,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingVersionRestriction"
-    // InternalEvoMappingRepairDsl.g:1589:1: ruleEvoMappingVersionRestriction returns [EObject current=null] : (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction ) ;
+    // InternalEvoMappingRepairDsl.g:1598:1: ruleEvoMappingVersionRestriction returns [EObject current=null] : (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction ) ;
     public final EObject ruleEvoMappingVersionRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4283,21 +4304,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1595:2: ( (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction ) )
-            // InternalEvoMappingRepairDsl.g:1596:2: (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction )
+            // InternalEvoMappingRepairDsl.g:1604:2: ( (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction ) )
+            // InternalEvoMappingRepairDsl.g:1605:2: (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction )
             {
-            // InternalEvoMappingRepairDsl.g:1596:2: (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction )
+            // InternalEvoMappingRepairDsl.g:1605:2: (this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction | this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==36) ) {
+            if ( (LA21_0==37) ) {
                 int LA21_1 = input.LA(2);
 
-                if ( (LA21_1==38) ) {
-                    alt21=2;
-                }
-                else if ( (LA21_1==23||(LA21_1>=26 && LA21_1<=28)||LA21_1==73) ) {
+                if ( (LA21_1==23||(LA21_1>=26 && LA21_1<=28)||LA21_1==74) ) {
                     alt21=1;
+                }
+                else if ( (LA21_1==39) ) {
+                    alt21=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -4306,7 +4327,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     throw nvae;
                 }
             }
-            else if ( (LA21_0==39) ) {
+            else if ( (LA21_0==40) ) {
                 alt21=2;
             }
             else {
@@ -4317,7 +4338,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt21) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:1597:3: this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction
+                    // InternalEvoMappingRepairDsl.g:1606:3: this_EvoMappingRelativeVersionRestriction_0= ruleEvoMappingRelativeVersionRestriction
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingVersionRestrictionAccess().getEvoMappingRelativeVersionRestrictionParserRuleCall_0());
@@ -4335,7 +4356,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:1606:3: this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction
+                    // InternalEvoMappingRepairDsl.g:1615:3: this_EvoMappingVersionRangeRestriction_1= ruleEvoMappingVersionRangeRestriction
                     {
 
                     			newCompositeNode(grammarAccess.getEvoMappingVersionRestrictionAccess().getEvoMappingVersionRangeRestrictionParserRuleCall_1());
@@ -4375,7 +4396,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingRelativeVersionRestriction"
-    // InternalEvoMappingRepairDsl.g:1618:1: entryRuleEvoMappingRelativeVersionRestriction returns [EObject current=null] : iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF ;
+    // InternalEvoMappingRepairDsl.g:1627:1: entryRuleEvoMappingRelativeVersionRestriction returns [EObject current=null] : iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF ;
     public final EObject entryRuleEvoMappingRelativeVersionRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4383,8 +4404,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1618:77: (iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF )
-            // InternalEvoMappingRepairDsl.g:1619:2: iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF
+            // InternalEvoMappingRepairDsl.g:1627:77: (iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF )
+            // InternalEvoMappingRepairDsl.g:1628:2: iv_ruleEvoMappingRelativeVersionRestriction= ruleEvoMappingRelativeVersionRestriction EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingRelativeVersionRestrictionRule()); 
             pushFollow(FOLLOW_1);
@@ -4411,7 +4432,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingRelativeVersionRestriction"
-    // InternalEvoMappingRepairDsl.g:1625:1: ruleEvoMappingRelativeVersionRestriction returns [EObject current=null] : (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' ) ;
+    // InternalEvoMappingRepairDsl.g:1634:1: ruleEvoMappingRelativeVersionRestriction returns [EObject current=null] : (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' ) ;
     public final EObject ruleEvoMappingRelativeVersionRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4425,21 +4446,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1631:2: ( (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' ) )
-            // InternalEvoMappingRepairDsl.g:1632:2: (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' )
+            // InternalEvoMappingRepairDsl.g:1640:2: ( (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' ) )
+            // InternalEvoMappingRepairDsl.g:1641:2: (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' )
             {
-            // InternalEvoMappingRepairDsl.g:1632:2: (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' )
-            // InternalEvoMappingRepairDsl.g:1633:3: otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']'
+            // InternalEvoMappingRepairDsl.g:1641:2: (otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']' )
+            // InternalEvoMappingRepairDsl.g:1642:3: otherlv_0= '[' ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) ) ( (otherlv_2= RULE_ID ) ) otherlv_3= ']'
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_26); 
+            otherlv_0=(Token)match(input,37,FOLLOW_26); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getLeftSquareBracketKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1637:3: ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) )
-            // InternalEvoMappingRepairDsl.g:1638:4: (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator )
+            // InternalEvoMappingRepairDsl.g:1646:3: ( (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator ) )
+            // InternalEvoMappingRepairDsl.g:1647:4: (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator )
             {
-            // InternalEvoMappingRepairDsl.g:1638:4: (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator )
-            // InternalEvoMappingRepairDsl.g:1639:5: lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator
+            // InternalEvoMappingRepairDsl.g:1647:4: (lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator )
+            // InternalEvoMappingRepairDsl.g:1648:5: lv_operator_1_0= ruleEvoMappingRelativeVersionRestrictionOperator
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getOperatorEvoMappingRelativeVersionRestrictionOperatorEnumRuleCall_1_0());
@@ -4466,11 +4487,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:1656:3: ( (otherlv_2= RULE_ID ) )
-            // InternalEvoMappingRepairDsl.g:1657:4: (otherlv_2= RULE_ID )
+            // InternalEvoMappingRepairDsl.g:1665:3: ( (otherlv_2= RULE_ID ) )
+            // InternalEvoMappingRepairDsl.g:1666:4: (otherlv_2= RULE_ID )
             {
-            // InternalEvoMappingRepairDsl.g:1657:4: (otherlv_2= RULE_ID )
-            // InternalEvoMappingRepairDsl.g:1658:5: otherlv_2= RULE_ID
+            // InternalEvoMappingRepairDsl.g:1666:4: (otherlv_2= RULE_ID )
+            // InternalEvoMappingRepairDsl.g:1667:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -4487,7 +4508,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_3=(Token)match(input,37,FOLLOW_2); 
+            otherlv_3=(Token)match(input,38,FOLLOW_2); 
 
             			newLeafNode(otherlv_3, grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getRightSquareBracketKeyword_3());
             		
@@ -4514,7 +4535,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingVersionRangeRestriction"
-    // InternalEvoMappingRepairDsl.g:1677:1: entryRuleEvoMappingVersionRangeRestriction returns [EObject current=null] : iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF ;
+    // InternalEvoMappingRepairDsl.g:1686:1: entryRuleEvoMappingVersionRangeRestriction returns [EObject current=null] : iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF ;
     public final EObject entryRuleEvoMappingVersionRangeRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4522,8 +4543,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1677:74: (iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF )
-            // InternalEvoMappingRepairDsl.g:1678:2: iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF
+            // InternalEvoMappingRepairDsl.g:1686:74: (iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF )
+            // InternalEvoMappingRepairDsl.g:1687:2: iv_ruleEvoMappingVersionRangeRestriction= ruleEvoMappingVersionRangeRestriction EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingVersionRangeRestrictionRule()); 
             pushFollow(FOLLOW_1);
@@ -4550,7 +4571,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingVersionRangeRestriction"
-    // InternalEvoMappingRepairDsl.g:1684:1: ruleEvoMappingVersionRangeRestriction returns [EObject current=null] : ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) ) ;
+    // InternalEvoMappingRepairDsl.g:1693:1: ruleEvoMappingVersionRangeRestriction returns [EObject current=null] : ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) ) ;
     public final EObject ruleEvoMappingVersionRangeRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4566,30 +4587,30 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1690:2: ( ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) ) )
-            // InternalEvoMappingRepairDsl.g:1691:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )
+            // InternalEvoMappingRepairDsl.g:1699:2: ( ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) ) )
+            // InternalEvoMappingRepairDsl.g:1700:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )
             {
-            // InternalEvoMappingRepairDsl.g:1691:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )
+            // InternalEvoMappingRepairDsl.g:1700:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )
             int alt22=3;
             alt22 = dfa22.predict(input);
             switch (alt22) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:1692:3: (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) )
+                    // InternalEvoMappingRepairDsl.g:1701:3: (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) )
                     {
-                    // InternalEvoMappingRepairDsl.g:1692:3: (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) )
-                    // InternalEvoMappingRepairDsl.g:1693:4: otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1701:3: (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) )
+                    // InternalEvoMappingRepairDsl.g:1702:4: otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) )
                     {
-                    otherlv_0=(Token)match(input,36,FOLLOW_28); 
+                    otherlv_0=(Token)match(input,37,FOLLOW_28); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLeftSquareBracketKeyword_0_0());
                     			
-                    // InternalEvoMappingRepairDsl.g:1697:4: ( (lv_lowerIncluded_1_0= 'true' ) )
-                    // InternalEvoMappingRepairDsl.g:1698:5: (lv_lowerIncluded_1_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1706:4: ( (lv_lowerIncluded_1_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1707:5: (lv_lowerIncluded_1_0= 'true' )
                     {
-                    // InternalEvoMappingRepairDsl.g:1698:5: (lv_lowerIncluded_1_0= 'true' )
-                    // InternalEvoMappingRepairDsl.g:1699:6: lv_lowerIncluded_1_0= 'true'
+                    // InternalEvoMappingRepairDsl.g:1707:5: (lv_lowerIncluded_1_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1708:6: lv_lowerIncluded_1_0= 'true'
                     {
-                    lv_lowerIncluded_1_0=(Token)match(input,38,FOLLOW_2); 
+                    lv_lowerIncluded_1_0=(Token)match(input,39,FOLLOW_2); 
 
                     						newLeafNode(lv_lowerIncluded_1_0, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLowerIncludedTrueKeyword_0_1_0());
                     					
@@ -4612,20 +4633,20 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:1713:3: (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) )
+                    // InternalEvoMappingRepairDsl.g:1722:3: (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) )
                     {
-                    // InternalEvoMappingRepairDsl.g:1713:3: (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) )
-                    // InternalEvoMappingRepairDsl.g:1714:4: otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1722:3: (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) )
+                    // InternalEvoMappingRepairDsl.g:1723:4: otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) )
                     {
-                    otherlv_2=(Token)match(input,39,FOLLOW_24); 
+                    otherlv_2=(Token)match(input,40,FOLLOW_24); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getFalseKeyword_1_0());
                     			
-                    // InternalEvoMappingRepairDsl.g:1718:4: ( ( ruleQualifiedName ) )
-                    // InternalEvoMappingRepairDsl.g:1719:5: ( ruleQualifiedName )
+                    // InternalEvoMappingRepairDsl.g:1727:4: ( ( ruleQualifiedName ) )
+                    // InternalEvoMappingRepairDsl.g:1728:5: ( ruleQualifiedName )
                     {
-                    // InternalEvoMappingRepairDsl.g:1719:5: ( ruleQualifiedName )
-                    // InternalEvoMappingRepairDsl.g:1720:6: ruleQualifiedName
+                    // InternalEvoMappingRepairDsl.g:1728:5: ( ruleQualifiedName )
+                    // InternalEvoMappingRepairDsl.g:1729:6: ruleQualifiedName
                     {
 
                     						if (current==null) {
@@ -4653,13 +4674,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     				newLeafNode(otherlv_4, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getHyphenMinusKeyword_1_2());
                     			
-                    // InternalEvoMappingRepairDsl.g:1738:4: ( (lv_upperIncluded_5_0= 'true' ) )
-                    // InternalEvoMappingRepairDsl.g:1739:5: (lv_upperIncluded_5_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1747:4: ( (lv_upperIncluded_5_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1748:5: (lv_upperIncluded_5_0= 'true' )
                     {
-                    // InternalEvoMappingRepairDsl.g:1739:5: (lv_upperIncluded_5_0= 'true' )
-                    // InternalEvoMappingRepairDsl.g:1740:6: lv_upperIncluded_5_0= 'true'
+                    // InternalEvoMappingRepairDsl.g:1748:5: (lv_upperIncluded_5_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1749:6: lv_upperIncluded_5_0= 'true'
                     {
-                    lv_upperIncluded_5_0=(Token)match(input,38,FOLLOW_2); 
+                    lv_upperIncluded_5_0=(Token)match(input,39,FOLLOW_2); 
 
                     						newLeafNode(lv_upperIncluded_5_0, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getUpperIncludedTrueKeyword_1_3_0());
                     					
@@ -4682,20 +4703,20 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:1754:3: (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' )
+                    // InternalEvoMappingRepairDsl.g:1763:3: (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' )
                     {
-                    // InternalEvoMappingRepairDsl.g:1754:3: (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' )
-                    // InternalEvoMappingRepairDsl.g:1755:4: otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']'
+                    // InternalEvoMappingRepairDsl.g:1763:3: (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' )
+                    // InternalEvoMappingRepairDsl.g:1764:4: otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']'
                     {
-                    otherlv_6=(Token)match(input,39,FOLLOW_24); 
+                    otherlv_6=(Token)match(input,40,FOLLOW_24); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getFalseKeyword_2_0());
                     			
-                    // InternalEvoMappingRepairDsl.g:1759:4: ( ( ruleQualifiedName ) )
-                    // InternalEvoMappingRepairDsl.g:1760:5: ( ruleQualifiedName )
+                    // InternalEvoMappingRepairDsl.g:1768:4: ( ( ruleQualifiedName ) )
+                    // InternalEvoMappingRepairDsl.g:1769:5: ( ruleQualifiedName )
                     {
-                    // InternalEvoMappingRepairDsl.g:1760:5: ( ruleQualifiedName )
-                    // InternalEvoMappingRepairDsl.g:1761:6: ruleQualifiedName
+                    // InternalEvoMappingRepairDsl.g:1769:5: ( ruleQualifiedName )
+                    // InternalEvoMappingRepairDsl.g:1770:6: ruleQualifiedName
                     {
 
                     						if (current==null) {
@@ -4719,7 +4740,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     }
 
-                    otherlv_8=(Token)match(input,37,FOLLOW_2); 
+                    otherlv_8=(Token)match(input,38,FOLLOW_2); 
 
                     				newLeafNode(otherlv_8, grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getRightSquareBracketKeyword_2_2());
                     			
@@ -4752,7 +4773,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingContextInformationReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1784:1: entryRuleEvoMappingContextInformationReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1793:1: entryRuleEvoMappingContextInformationReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF ;
     public final EObject entryRuleEvoMappingContextInformationReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4760,8 +4781,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1784:88: (iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1785:2: iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF
+            // InternalEvoMappingRepairDsl.g:1793:88: (iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1794:2: iv_ruleEvoMappingContextInformationReferenceExpression= ruleEvoMappingContextInformationReferenceExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingContextInformationReferenceExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4788,7 +4809,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingContextInformationReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1791:1: ruleEvoMappingContextInformationReferenceExpression returns [EObject current=null] : (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:1800:1: ruleEvoMappingContextInformationReferenceExpression returns [EObject current=null] : (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) ) ;
     public final EObject ruleEvoMappingContextInformationReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4798,21 +4819,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1797:2: ( (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) ) )
-            // InternalEvoMappingRepairDsl.g:1798:2: (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) )
+            // InternalEvoMappingRepairDsl.g:1806:2: ( (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) ) )
+            // InternalEvoMappingRepairDsl.g:1807:2: (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:1798:2: (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) )
-            // InternalEvoMappingRepairDsl.g:1799:3: otherlv_0= 'context:' ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:1807:2: (otherlv_0= 'context:' ( ( ruleQualifiedName ) ) )
+            // InternalEvoMappingRepairDsl.g:1808:3: otherlv_0= 'context:' ( ( ruleQualifiedName ) )
             {
-            otherlv_0=(Token)match(input,40,FOLLOW_24); 
+            otherlv_0=(Token)match(input,41,FOLLOW_24); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingContextInformationReferenceExpressionAccess().getContextKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:1803:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:1804:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1812:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:1813:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:1804:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:1805:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:1813:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1814:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -4859,7 +4880,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingAttributeReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1823:1: entryRuleEvoMappingAttributeReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1832:1: entryRuleEvoMappingAttributeReferenceExpression returns [EObject current=null] : iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF ;
     public final EObject entryRuleEvoMappingAttributeReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4867,8 +4888,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1823:79: (iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1824:2: iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF
+            // InternalEvoMappingRepairDsl.g:1832:79: (iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1833:2: iv_ruleEvoMappingAttributeReferenceExpression= ruleEvoMappingAttributeReferenceExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingAttributeReferenceExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4895,7 +4916,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingAttributeReferenceExpression"
-    // InternalEvoMappingRepairDsl.g:1830:1: ruleEvoMappingAttributeReferenceExpression returns [EObject current=null] : ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:1839:1: ruleEvoMappingAttributeReferenceExpression returns [EObject current=null] : ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) ) ;
     public final EObject ruleEvoMappingAttributeReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4906,17 +4927,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1836:2: ( ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) ) )
-            // InternalEvoMappingRepairDsl.g:1837:2: ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) )
+            // InternalEvoMappingRepairDsl.g:1845:2: ( ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) ) )
+            // InternalEvoMappingRepairDsl.g:1846:2: ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:1837:2: ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) )
-            // InternalEvoMappingRepairDsl.g:1838:3: ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:1846:2: ( ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) ) )
+            // InternalEvoMappingRepairDsl.g:1847:3: ( (otherlv_0= RULE_STRING ) ) otherlv_1= '.' ( ( ruleQualifiedName ) )
             {
-            // InternalEvoMappingRepairDsl.g:1838:3: ( (otherlv_0= RULE_STRING ) )
-            // InternalEvoMappingRepairDsl.g:1839:4: (otherlv_0= RULE_STRING )
+            // InternalEvoMappingRepairDsl.g:1847:3: ( (otherlv_0= RULE_STRING ) )
+            // InternalEvoMappingRepairDsl.g:1848:4: (otherlv_0= RULE_STRING )
             {
-            // InternalEvoMappingRepairDsl.g:1839:4: (otherlv_0= RULE_STRING )
-            // InternalEvoMappingRepairDsl.g:1840:5: otherlv_0= RULE_STRING
+            // InternalEvoMappingRepairDsl.g:1848:4: (otherlv_0= RULE_STRING )
+            // InternalEvoMappingRepairDsl.g:1849:5: otherlv_0= RULE_STRING
             {
 
             					if (current==null) {
@@ -4933,15 +4954,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,41,FOLLOW_24); 
+            otherlv_1=(Token)match(input,42,FOLLOW_24); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoMappingAttributeReferenceExpressionAccess().getFullStopKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:1855:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:1856:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1864:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:1865:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:1856:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:1857:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:1865:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:1866:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -4988,7 +5009,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingValueExpression"
-    // InternalEvoMappingRepairDsl.g:1875:1: entryRuleEvoMappingValueExpression returns [EObject current=null] : iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1884:1: entryRuleEvoMappingValueExpression returns [EObject current=null] : iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF ;
     public final EObject entryRuleEvoMappingValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4996,8 +5017,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1875:66: (iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1876:2: iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF
+            // InternalEvoMappingRepairDsl.g:1884:66: (iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1885:2: iv_ruleEvoMappingValueExpression= ruleEvoMappingValueExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingValueExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -5024,7 +5045,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingValueExpression"
-    // InternalEvoMappingRepairDsl.g:1882:1: ruleEvoMappingValueExpression returns [EObject current=null] : ( (lv_value_0_0= ruleEvoMappingNumberValue ) ) ;
+    // InternalEvoMappingRepairDsl.g:1891:1: ruleEvoMappingValueExpression returns [EObject current=null] : ( (lv_value_0_0= ruleEvoMappingNumberValue ) ) ;
     public final EObject ruleEvoMappingValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5035,14 +5056,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1888:2: ( ( (lv_value_0_0= ruleEvoMappingNumberValue ) ) )
-            // InternalEvoMappingRepairDsl.g:1889:2: ( (lv_value_0_0= ruleEvoMappingNumberValue ) )
+            // InternalEvoMappingRepairDsl.g:1897:2: ( ( (lv_value_0_0= ruleEvoMappingNumberValue ) ) )
+            // InternalEvoMappingRepairDsl.g:1898:2: ( (lv_value_0_0= ruleEvoMappingNumberValue ) )
             {
-            // InternalEvoMappingRepairDsl.g:1889:2: ( (lv_value_0_0= ruleEvoMappingNumberValue ) )
-            // InternalEvoMappingRepairDsl.g:1890:3: (lv_value_0_0= ruleEvoMappingNumberValue )
+            // InternalEvoMappingRepairDsl.g:1898:2: ( (lv_value_0_0= ruleEvoMappingNumberValue ) )
+            // InternalEvoMappingRepairDsl.g:1899:3: (lv_value_0_0= ruleEvoMappingNumberValue )
             {
-            // InternalEvoMappingRepairDsl.g:1890:3: (lv_value_0_0= ruleEvoMappingNumberValue )
-            // InternalEvoMappingRepairDsl.g:1891:4: lv_value_0_0= ruleEvoMappingNumberValue
+            // InternalEvoMappingRepairDsl.g:1899:3: (lv_value_0_0= ruleEvoMappingNumberValue )
+            // InternalEvoMappingRepairDsl.g:1900:4: lv_value_0_0= ruleEvoMappingNumberValue
             {
 
             				newCompositeNode(grammarAccess.getEvoMappingValueExpressionAccess().getValueEvoMappingNumberValueParserRuleCall_0());
@@ -5089,7 +5110,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingBooleanValueExpression"
-    // InternalEvoMappingRepairDsl.g:1911:1: entryRuleEvoMappingBooleanValueExpression returns [EObject current=null] : iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:1920:1: entryRuleEvoMappingBooleanValueExpression returns [EObject current=null] : iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF ;
     public final EObject entryRuleEvoMappingBooleanValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5097,8 +5118,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1911:73: (iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF )
-            // InternalEvoMappingRepairDsl.g:1912:2: iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF
+            // InternalEvoMappingRepairDsl.g:1920:73: (iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF )
+            // InternalEvoMappingRepairDsl.g:1921:2: iv_ruleEvoMappingBooleanValueExpression= ruleEvoMappingBooleanValueExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingBooleanValueExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -5125,7 +5146,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingBooleanValueExpression"
-    // InternalEvoMappingRepairDsl.g:1918:1: ruleEvoMappingBooleanValueExpression returns [EObject current=null] : ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) ) ;
+    // InternalEvoMappingRepairDsl.g:1927:1: ruleEvoMappingBooleanValueExpression returns [EObject current=null] : ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) ) ;
     public final EObject ruleEvoMappingBooleanValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5136,14 +5157,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1924:2: ( ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) ) )
-            // InternalEvoMappingRepairDsl.g:1925:2: ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) )
+            // InternalEvoMappingRepairDsl.g:1933:2: ( ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) ) )
+            // InternalEvoMappingRepairDsl.g:1934:2: ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) )
             {
-            // InternalEvoMappingRepairDsl.g:1925:2: ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) )
-            // InternalEvoMappingRepairDsl.g:1926:3: () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' )
+            // InternalEvoMappingRepairDsl.g:1934:2: ( () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' ) )
+            // InternalEvoMappingRepairDsl.g:1935:3: () ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' )
             {
-            // InternalEvoMappingRepairDsl.g:1926:3: ()
-            // InternalEvoMappingRepairDsl.g:1927:4: 
+            // InternalEvoMappingRepairDsl.g:1935:3: ()
+            // InternalEvoMappingRepairDsl.g:1936:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5153,14 +5174,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:1933:3: ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' )
+            // InternalEvoMappingRepairDsl.g:1942:3: ( ( (lv_value_1_0= 'true' ) ) | otherlv_2= 'false' )
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==38) ) {
+            if ( (LA23_0==39) ) {
                 alt23=1;
             }
-            else if ( (LA23_0==39) ) {
+            else if ( (LA23_0==40) ) {
                 alt23=2;
             }
             else {
@@ -5171,15 +5192,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt23) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:1934:4: ( (lv_value_1_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1943:4: ( (lv_value_1_0= 'true' ) )
                     {
-                    // InternalEvoMappingRepairDsl.g:1934:4: ( (lv_value_1_0= 'true' ) )
-                    // InternalEvoMappingRepairDsl.g:1935:5: (lv_value_1_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1943:4: ( (lv_value_1_0= 'true' ) )
+                    // InternalEvoMappingRepairDsl.g:1944:5: (lv_value_1_0= 'true' )
                     {
-                    // InternalEvoMappingRepairDsl.g:1935:5: (lv_value_1_0= 'true' )
-                    // InternalEvoMappingRepairDsl.g:1936:6: lv_value_1_0= 'true'
+                    // InternalEvoMappingRepairDsl.g:1944:5: (lv_value_1_0= 'true' )
+                    // InternalEvoMappingRepairDsl.g:1945:6: lv_value_1_0= 'true'
                     {
-                    lv_value_1_0=(Token)match(input,38,FOLLOW_2); 
+                    lv_value_1_0=(Token)match(input,39,FOLLOW_2); 
 
                     						newLeafNode(lv_value_1_0, grammarAccess.getEvoMappingBooleanValueExpressionAccess().getValueTrueKeyword_1_0_0());
                     					
@@ -5199,9 +5220,9 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:1949:4: otherlv_2= 'false'
+                    // InternalEvoMappingRepairDsl.g:1958:4: otherlv_2= 'false'
                     {
-                    otherlv_2=(Token)match(input,39,FOLLOW_2); 
+                    otherlv_2=(Token)match(input,40,FOLLOW_2); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getEvoMappingBooleanValueExpressionAccess().getFalseKeyword_1_1());
                     			
@@ -5234,7 +5255,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingNumberValue"
-    // InternalEvoMappingRepairDsl.g:1958:1: entryRuleEvoMappingNumberValue returns [EObject current=null] : iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF ;
+    // InternalEvoMappingRepairDsl.g:1967:1: entryRuleEvoMappingNumberValue returns [EObject current=null] : iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF ;
     public final EObject entryRuleEvoMappingNumberValue() throws RecognitionException {
         EObject current = null;
 
@@ -5242,8 +5263,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1958:62: (iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF )
-            // InternalEvoMappingRepairDsl.g:1959:2: iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF
+            // InternalEvoMappingRepairDsl.g:1967:62: (iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF )
+            // InternalEvoMappingRepairDsl.g:1968:2: iv_ruleEvoMappingNumberValue= ruleEvoMappingNumberValue EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingNumberValueRule()); 
             pushFollow(FOLLOW_1);
@@ -5270,7 +5291,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingNumberValue"
-    // InternalEvoMappingRepairDsl.g:1965:1: ruleEvoMappingNumberValue returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // InternalEvoMappingRepairDsl.g:1974:1: ruleEvoMappingNumberValue returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleEvoMappingNumberValue() throws RecognitionException {
         EObject current = null;
 
@@ -5280,14 +5301,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:1971:2: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // InternalEvoMappingRepairDsl.g:1972:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalEvoMappingRepairDsl.g:1980:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalEvoMappingRepairDsl.g:1981:2: ( (lv_value_0_0= RULE_INT ) )
             {
-            // InternalEvoMappingRepairDsl.g:1972:2: ( (lv_value_0_0= RULE_INT ) )
-            // InternalEvoMappingRepairDsl.g:1973:3: (lv_value_0_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:1981:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalEvoMappingRepairDsl.g:1982:3: (lv_value_0_0= RULE_INT )
             {
-            // InternalEvoMappingRepairDsl.g:1973:3: (lv_value_0_0= RULE_INT )
-            // InternalEvoMappingRepairDsl.g:1974:4: lv_value_0_0= RULE_INT
+            // InternalEvoMappingRepairDsl.g:1982:3: (lv_value_0_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:1983:4: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -5329,7 +5350,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingEnumLiteral"
-    // InternalEvoMappingRepairDsl.g:1993:1: entryRuleEvoMappingEnumLiteral returns [EObject current=null] : iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF ;
+    // InternalEvoMappingRepairDsl.g:2002:1: entryRuleEvoMappingEnumLiteral returns [EObject current=null] : iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF ;
     public final EObject entryRuleEvoMappingEnumLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -5337,8 +5358,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:1993:62: (iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF )
-            // InternalEvoMappingRepairDsl.g:1994:2: iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF
+            // InternalEvoMappingRepairDsl.g:2002:62: (iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF )
+            // InternalEvoMappingRepairDsl.g:2003:2: iv_ruleEvoMappingEnumLiteral= ruleEvoMappingEnumLiteral EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingEnumLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -5365,7 +5386,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingEnumLiteral"
-    // InternalEvoMappingRepairDsl.g:2000:1: ruleEvoMappingEnumLiteral returns [EObject current=null] : (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? ) ;
+    // InternalEvoMappingRepairDsl.g:2009:1: ruleEvoMappingEnumLiteral returns [EObject current=null] : (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? ) ;
     public final EObject ruleEvoMappingEnumLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -5389,21 +5410,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2006:2: ( (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? ) )
-            // InternalEvoMappingRepairDsl.g:2007:2: (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? )
+            // InternalEvoMappingRepairDsl.g:2015:2: ( (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? ) )
+            // InternalEvoMappingRepairDsl.g:2016:2: (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? )
             {
-            // InternalEvoMappingRepairDsl.g:2007:2: (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? )
-            // InternalEvoMappingRepairDsl.g:2008:3: otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )?
+            // InternalEvoMappingRepairDsl.g:2016:2: (otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )? )
+            // InternalEvoMappingRepairDsl.g:2017:3: otherlv_0= 'EnumLiteral(' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ',' ( (lv_value_3_0= RULE_INT ) ) otherlv_4= ')' (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )?
             {
-            otherlv_0=(Token)match(input,42,FOLLOW_24); 
+            otherlv_0=(Token)match(input,43,FOLLOW_24); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingEnumLiteralAccess().getEnumLiteralKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:2012:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalEvoMappingRepairDsl.g:2013:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoMappingRepairDsl.g:2021:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalEvoMappingRepairDsl.g:2022:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalEvoMappingRepairDsl.g:2013:4: (lv_name_1_0= RULE_ID )
-            // InternalEvoMappingRepairDsl.g:2014:5: lv_name_1_0= RULE_ID
+            // InternalEvoMappingRepairDsl.g:2022:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoMappingRepairDsl.g:2023:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_31); 
 
@@ -5429,11 +5450,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_2, grammarAccess.getEvoMappingEnumLiteralAccess().getCommaKeyword_2());
             		
-            // InternalEvoMappingRepairDsl.g:2034:3: ( (lv_value_3_0= RULE_INT ) )
-            // InternalEvoMappingRepairDsl.g:2035:4: (lv_value_3_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:2043:3: ( (lv_value_3_0= RULE_INT ) )
+            // InternalEvoMappingRepairDsl.g:2044:4: (lv_value_3_0= RULE_INT )
             {
-            // InternalEvoMappingRepairDsl.g:2035:4: (lv_value_3_0= RULE_INT )
-            // InternalEvoMappingRepairDsl.g:2036:5: lv_value_3_0= RULE_INT
+            // InternalEvoMappingRepairDsl.g:2044:4: (lv_value_3_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:2045:5: lv_value_3_0= RULE_INT
             {
             lv_value_3_0=(Token)match(input,RULE_INT,FOLLOW_5); 
 
@@ -5459,22 +5480,22 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_4, grammarAccess.getEvoMappingEnumLiteralAccess().getRightParenthesisKeyword_4());
             		
-            // InternalEvoMappingRepairDsl.g:2056:3: (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )?
+            // InternalEvoMappingRepairDsl.g:2065:3: (otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']' )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==36) ) {
+            if ( (LA25_0==37) ) {
                 alt25=1;
             }
             switch (alt25) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:2057:4: otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']'
+                    // InternalEvoMappingRepairDsl.g:2066:4: otherlv_5= '[' ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) ) otherlv_14= ']'
                     {
-                    otherlv_5=(Token)match(input,36,FOLLOW_34); 
+                    otherlv_5=(Token)match(input,37,FOLLOW_34); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getEvoMappingEnumLiteralAccess().getLeftSquareBracketKeyword_5_0());
                     			
-                    // InternalEvoMappingRepairDsl.g:2061:4: ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) )
+                    // InternalEvoMappingRepairDsl.g:2070:4: ( ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) ) | ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' ) | (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) ) )
                     int alt24=3;
                     int LA24_0 = input.LA(1);
 
@@ -5487,7 +5508,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                             if ( (LA24_3==RULE_DATE) ) {
                                 alt24=1;
                             }
-                            else if ( (LA24_3==37) ) {
+                            else if ( (LA24_3==38) ) {
                                 alt24=2;
                             }
                             else {
@@ -5504,7 +5525,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                             throw nvae;
                         }
                     }
-                    else if ( (LA24_0==43) ) {
+                    else if ( (LA24_0==44) ) {
                         alt24=3;
                     }
                     else {
@@ -5515,16 +5536,16 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     switch (alt24) {
                         case 1 :
-                            // InternalEvoMappingRepairDsl.g:2062:5: ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) )
+                            // InternalEvoMappingRepairDsl.g:2071:5: ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) )
                             {
-                            // InternalEvoMappingRepairDsl.g:2062:5: ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) )
-                            // InternalEvoMappingRepairDsl.g:2063:6: ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2071:5: ( ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) ) )
+                            // InternalEvoMappingRepairDsl.g:2072:6: ( (lv_validSince_6_0= RULE_DATE ) ) otherlv_7= '-' ( (lv_validUntil_8_0= RULE_DATE ) )
                             {
-                            // InternalEvoMappingRepairDsl.g:2063:6: ( (lv_validSince_6_0= RULE_DATE ) )
-                            // InternalEvoMappingRepairDsl.g:2064:7: (lv_validSince_6_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2072:6: ( (lv_validSince_6_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2073:7: (lv_validSince_6_0= RULE_DATE )
                             {
-                            // InternalEvoMappingRepairDsl.g:2064:7: (lv_validSince_6_0= RULE_DATE )
-                            // InternalEvoMappingRepairDsl.g:2065:8: lv_validSince_6_0= RULE_DATE
+                            // InternalEvoMappingRepairDsl.g:2073:7: (lv_validSince_6_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2074:8: lv_validSince_6_0= RULE_DATE
                             {
                             lv_validSince_6_0=(Token)match(input,RULE_DATE,FOLLOW_29); 
 
@@ -5550,11 +5571,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                             						newLeafNode(otherlv_7, grammarAccess.getEvoMappingEnumLiteralAccess().getHyphenMinusKeyword_5_1_0_1());
                             					
-                            // InternalEvoMappingRepairDsl.g:2085:6: ( (lv_validUntil_8_0= RULE_DATE ) )
-                            // InternalEvoMappingRepairDsl.g:2086:7: (lv_validUntil_8_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2094:6: ( (lv_validUntil_8_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2095:7: (lv_validUntil_8_0= RULE_DATE )
                             {
-                            // InternalEvoMappingRepairDsl.g:2086:7: (lv_validUntil_8_0= RULE_DATE )
-                            // InternalEvoMappingRepairDsl.g:2087:8: lv_validUntil_8_0= RULE_DATE
+                            // InternalEvoMappingRepairDsl.g:2095:7: (lv_validUntil_8_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2096:8: lv_validUntil_8_0= RULE_DATE
                             {
                             lv_validUntil_8_0=(Token)match(input,RULE_DATE,FOLLOW_27); 
 
@@ -5583,16 +5604,16 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                             }
                             break;
                         case 2 :
-                            // InternalEvoMappingRepairDsl.g:2105:5: ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' )
+                            // InternalEvoMappingRepairDsl.g:2114:5: ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' )
                             {
-                            // InternalEvoMappingRepairDsl.g:2105:5: ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' )
-                            // InternalEvoMappingRepairDsl.g:2106:6: ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-'
+                            // InternalEvoMappingRepairDsl.g:2114:5: ( ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-' )
+                            // InternalEvoMappingRepairDsl.g:2115:6: ( (lv_validSince_9_0= RULE_DATE ) ) otherlv_10= '-'
                             {
-                            // InternalEvoMappingRepairDsl.g:2106:6: ( (lv_validSince_9_0= RULE_DATE ) )
-                            // InternalEvoMappingRepairDsl.g:2107:7: (lv_validSince_9_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2115:6: ( (lv_validSince_9_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2116:7: (lv_validSince_9_0= RULE_DATE )
                             {
-                            // InternalEvoMappingRepairDsl.g:2107:7: (lv_validSince_9_0= RULE_DATE )
-                            // InternalEvoMappingRepairDsl.g:2108:8: lv_validSince_9_0= RULE_DATE
+                            // InternalEvoMappingRepairDsl.g:2116:7: (lv_validSince_9_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2117:8: lv_validSince_9_0= RULE_DATE
                             {
                             lv_validSince_9_0=(Token)match(input,RULE_DATE,FOLLOW_29); 
 
@@ -5625,12 +5646,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                             }
                             break;
                         case 3 :
-                            // InternalEvoMappingRepairDsl.g:2130:5: (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) )
+                            // InternalEvoMappingRepairDsl.g:2139:5: (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) )
                             {
-                            // InternalEvoMappingRepairDsl.g:2130:5: (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) )
-                            // InternalEvoMappingRepairDsl.g:2131:6: otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2139:5: (otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) ) )
+                            // InternalEvoMappingRepairDsl.g:2140:6: otherlv_11= 'eternity' otherlv_12= '-' ( (lv_validUntil_13_0= RULE_DATE ) )
                             {
-                            otherlv_11=(Token)match(input,43,FOLLOW_29); 
+                            otherlv_11=(Token)match(input,44,FOLLOW_29); 
 
                             						newLeafNode(otherlv_11, grammarAccess.getEvoMappingEnumLiteralAccess().getEternityKeyword_5_1_2_0());
                             					
@@ -5638,11 +5659,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                             						newLeafNode(otherlv_12, grammarAccess.getEvoMappingEnumLiteralAccess().getHyphenMinusKeyword_5_1_2_1());
                             					
-                            // InternalEvoMappingRepairDsl.g:2139:6: ( (lv_validUntil_13_0= RULE_DATE ) )
-                            // InternalEvoMappingRepairDsl.g:2140:7: (lv_validUntil_13_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2148:6: ( (lv_validUntil_13_0= RULE_DATE ) )
+                            // InternalEvoMappingRepairDsl.g:2149:7: (lv_validUntil_13_0= RULE_DATE )
                             {
-                            // InternalEvoMappingRepairDsl.g:2140:7: (lv_validUntil_13_0= RULE_DATE )
-                            // InternalEvoMappingRepairDsl.g:2141:8: lv_validUntil_13_0= RULE_DATE
+                            // InternalEvoMappingRepairDsl.g:2149:7: (lv_validUntil_13_0= RULE_DATE )
+                            // InternalEvoMappingRepairDsl.g:2150:8: lv_validUntil_13_0= RULE_DATE
                             {
                             lv_validUntil_13_0=(Token)match(input,RULE_DATE,FOLLOW_27); 
 
@@ -5673,7 +5694,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     }
 
-                    otherlv_14=(Token)match(input,37,FOLLOW_2); 
+                    otherlv_14=(Token)match(input,38,FOLLOW_2); 
 
                     				newLeafNode(otherlv_14, grammarAccess.getEvoMappingEnumLiteralAccess().getRightSquareBracketKeyword_5_2());
                     			
@@ -5706,7 +5727,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingMimumumExpression"
-    // InternalEvoMappingRepairDsl.g:2168:1: entryRuleEvoMappingMimumumExpression returns [EObject current=null] : iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:2177:1: entryRuleEvoMappingMimumumExpression returns [EObject current=null] : iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF ;
     public final EObject entryRuleEvoMappingMimumumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5714,8 +5735,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2168:68: (iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF )
-            // InternalEvoMappingRepairDsl.g:2169:2: iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF
+            // InternalEvoMappingRepairDsl.g:2177:68: (iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF )
+            // InternalEvoMappingRepairDsl.g:2178:2: iv_ruleEvoMappingMimumumExpression= ruleEvoMappingMimumumExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingMimumumExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -5742,7 +5763,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingMimumumExpression"
-    // InternalEvoMappingRepairDsl.g:2175:1: ruleEvoMappingMimumumExpression returns [EObject current=null] : (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:2184:1: ruleEvoMappingMimumumExpression returns [EObject current=null] : (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
     public final EObject ruleEvoMappingMimumumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5755,21 +5776,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2181:2: ( (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
-            // InternalEvoMappingRepairDsl.g:2182:2: (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:2190:2: ( (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
+            // InternalEvoMappingRepairDsl.g:2191:2: (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:2182:2: (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
-            // InternalEvoMappingRepairDsl.g:2183:3: otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
+            // InternalEvoMappingRepairDsl.g:2191:2: (otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:2192:3: otherlv_0= 'min(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_4); 
+            otherlv_0=(Token)match(input,45,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingMimumumExpressionAccess().getMinKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:2187:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
-            // InternalEvoMappingRepairDsl.g:2188:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:2196:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
+            // InternalEvoMappingRepairDsl.g:2197:4: (lv_operand_1_0= ruleEvoMappingExpression )
             {
-            // InternalEvoMappingRepairDsl.g:2188:4: (lv_operand_1_0= ruleEvoMappingExpression )
-            // InternalEvoMappingRepairDsl.g:2189:5: lv_operand_1_0= ruleEvoMappingExpression
+            // InternalEvoMappingRepairDsl.g:2197:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:2198:5: lv_operand_1_0= ruleEvoMappingExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingMimumumExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
@@ -5823,7 +5844,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoMappingMaximumExpression"
-    // InternalEvoMappingRepairDsl.g:2214:1: entryRuleEvoMappingMaximumExpression returns [EObject current=null] : iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:2223:1: entryRuleEvoMappingMaximumExpression returns [EObject current=null] : iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF ;
     public final EObject entryRuleEvoMappingMaximumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5831,8 +5852,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2214:68: (iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF )
-            // InternalEvoMappingRepairDsl.g:2215:2: iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF
+            // InternalEvoMappingRepairDsl.g:2223:68: (iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF )
+            // InternalEvoMappingRepairDsl.g:2224:2: iv_ruleEvoMappingMaximumExpression= ruleEvoMappingMaximumExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingMaximumExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -5859,7 +5880,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingMaximumExpression"
-    // InternalEvoMappingRepairDsl.g:2221:1: ruleEvoMappingMaximumExpression returns [EObject current=null] : (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:2230:1: ruleEvoMappingMaximumExpression returns [EObject current=null] : (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) ;
     public final EObject ruleEvoMappingMaximumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5872,21 +5893,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2227:2: ( (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
-            // InternalEvoMappingRepairDsl.g:2228:2: (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:2236:2: ( (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' ) )
+            // InternalEvoMappingRepairDsl.g:2237:2: (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:2228:2: (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
-            // InternalEvoMappingRepairDsl.g:2229:3: otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
+            // InternalEvoMappingRepairDsl.g:2237:2: (otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')' )
+            // InternalEvoMappingRepairDsl.g:2238:3: otherlv_0= 'max(' ( (lv_operand_1_0= ruleEvoMappingExpression ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,45,FOLLOW_4); 
+            otherlv_0=(Token)match(input,46,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingMaximumExpressionAccess().getMaxKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:2233:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
-            // InternalEvoMappingRepairDsl.g:2234:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:2242:3: ( (lv_operand_1_0= ruleEvoMappingExpression ) )
+            // InternalEvoMappingRepairDsl.g:2243:4: (lv_operand_1_0= ruleEvoMappingExpression )
             {
-            // InternalEvoMappingRepairDsl.g:2234:4: (lv_operand_1_0= ruleEvoMappingExpression )
-            // InternalEvoMappingRepairDsl.g:2235:5: lv_operand_1_0= ruleEvoMappingExpression
+            // InternalEvoMappingRepairDsl.g:2243:4: (lv_operand_1_0= ruleEvoMappingExpression )
+            // InternalEvoMappingRepairDsl.g:2244:5: lv_operand_1_0= ruleEvoMappingExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoMappingMaximumExpressionAccess().getOperandEvoMappingExpressionParserRuleCall_1_0());
@@ -5940,7 +5961,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalEvoMappingRepairDsl.g:2260:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // InternalEvoMappingRepairDsl.g:2269:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -5948,8 +5969,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2260:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalEvoMappingRepairDsl.g:2261:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalEvoMappingRepairDsl.g:2269:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // InternalEvoMappingRepairDsl.g:2270:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             pushFollow(FOLLOW_1);
@@ -5976,7 +5997,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalEvoMappingRepairDsl.g:2267:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalEvoMappingRepairDsl.g:2276:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -5988,11 +6009,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2273:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalEvoMappingRepairDsl.g:2274:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalEvoMappingRepairDsl.g:2282:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalEvoMappingRepairDsl.g:2283:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalEvoMappingRepairDsl.g:2274:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalEvoMappingRepairDsl.g:2275:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalEvoMappingRepairDsl.g:2283:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalEvoMappingRepairDsl.g:2284:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -6001,22 +6022,22 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
             		
-            // InternalEvoMappingRepairDsl.g:2282:3: (kw= '.' this_ID_2= RULE_ID )*
+            // InternalEvoMappingRepairDsl.g:2291:3: (kw= '.' this_ID_2= RULE_ID )*
             loop26:
             do {
                 int alt26=2;
                 int LA26_0 = input.LA(1);
 
-                if ( (LA26_0==41) ) {
+                if ( (LA26_0==42) ) {
                     alt26=1;
                 }
 
 
                 switch (alt26) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2283:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalEvoMappingRepairDsl.g:2292:4: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,41,FOLLOW_24); 
+            	    kw=(Token)match(input,42,FOLLOW_24); 
 
             	    				current.merge(kw);
             	    				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
@@ -6060,7 +6081,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoExpression"
-    // InternalEvoMappingRepairDsl.g:2300:1: entryRuleEvoExpression returns [EObject current=null] : iv_ruleEvoExpression= ruleEvoExpression EOF ;
+    // InternalEvoMappingRepairDsl.g:2309:1: entryRuleEvoExpression returns [EObject current=null] : iv_ruleEvoExpression= ruleEvoExpression EOF ;
     public final EObject entryRuleEvoExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6068,8 +6089,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2300:54: (iv_ruleEvoExpression= ruleEvoExpression EOF )
-            // InternalEvoMappingRepairDsl.g:2301:2: iv_ruleEvoExpression= ruleEvoExpression EOF
+            // InternalEvoMappingRepairDsl.g:2309:54: (iv_ruleEvoExpression= ruleEvoExpression EOF )
+            // InternalEvoMappingRepairDsl.g:2310:2: iv_ruleEvoExpression= ruleEvoExpression EOF
             {
              newCompositeNode(grammarAccess.getEvoExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -6096,7 +6117,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoExpression"
-    // InternalEvoMappingRepairDsl.g:2307:1: ruleEvoExpression returns [EObject current=null] : this_EvoXOr_0= ruleEvoXOr ;
+    // InternalEvoMappingRepairDsl.g:2316:1: ruleEvoExpression returns [EObject current=null] : this_EvoXOr_0= ruleEvoXOr ;
     public final EObject ruleEvoExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6107,8 +6128,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2313:2: (this_EvoXOr_0= ruleEvoXOr )
-            // InternalEvoMappingRepairDsl.g:2314:2: this_EvoXOr_0= ruleEvoXOr
+            // InternalEvoMappingRepairDsl.g:2322:2: (this_EvoXOr_0= ruleEvoXOr )
+            // InternalEvoMappingRepairDsl.g:2323:2: this_EvoXOr_0= ruleEvoXOr
             {
 
             		newCompositeNode(grammarAccess.getEvoExpressionAccess().getEvoXOrParserRuleCall());
@@ -6142,7 +6163,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoXOr"
-    // InternalEvoMappingRepairDsl.g:2325:1: entryRuleEvoXOr returns [EObject current=null] : iv_ruleEvoXOr= ruleEvoXOr EOF ;
+    // InternalEvoMappingRepairDsl.g:2334:1: entryRuleEvoXOr returns [EObject current=null] : iv_ruleEvoXOr= ruleEvoXOr EOF ;
     public final EObject entryRuleEvoXOr() throws RecognitionException {
         EObject current = null;
 
@@ -6150,8 +6171,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2325:47: (iv_ruleEvoXOr= ruleEvoXOr EOF )
-            // InternalEvoMappingRepairDsl.g:2326:2: iv_ruleEvoXOr= ruleEvoXOr EOF
+            // InternalEvoMappingRepairDsl.g:2334:47: (iv_ruleEvoXOr= ruleEvoXOr EOF )
+            // InternalEvoMappingRepairDsl.g:2335:2: iv_ruleEvoXOr= ruleEvoXOr EOF
             {
              newCompositeNode(grammarAccess.getEvoXOrRule()); 
             pushFollow(FOLLOW_1);
@@ -6178,7 +6199,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoXOr"
-    // InternalEvoMappingRepairDsl.g:2332:1: ruleEvoXOr returns [EObject current=null] : (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2341:1: ruleEvoXOr returns [EObject current=null] : (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* ) ;
     public final EObject ruleEvoXOr() throws RecognitionException {
         EObject current = null;
 
@@ -6192,11 +6213,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2338:2: ( (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2339:2: (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2347:2: ( (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2348:2: (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2339:2: (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2340:3: this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )*
+            // InternalEvoMappingRepairDsl.g:2348:2: (this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2349:3: this_EvoOr_0= ruleEvoOr ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoXOrAccess().getEvoOrParserRuleCall_0());
@@ -6210,23 +6231,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoOr_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2348:3: ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )*
+            // InternalEvoMappingRepairDsl.g:2357:3: ( () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) ) )*
             loop27:
             do {
                 int alt27=2;
                 int LA27_0 = input.LA(1);
 
-                if ( (LA27_0==46) ) {
+                if ( (LA27_0==47) ) {
                     alt27=1;
                 }
 
 
                 switch (alt27) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2349:4: () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) )
+            	    // InternalEvoMappingRepairDsl.g:2358:4: () otherlv_2= 'xor' ( (lv_operand2_3_0= ruleEvoOr ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2349:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2350:5: 
+            	    // InternalEvoMappingRepairDsl.g:2358:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2359:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -6236,15 +6257,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,46,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,47,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoXOrAccess().getXorKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2360:4: ( (lv_operand2_3_0= ruleEvoOr ) )
-            	    // InternalEvoMappingRepairDsl.g:2361:5: (lv_operand2_3_0= ruleEvoOr )
+            	    // InternalEvoMappingRepairDsl.g:2369:4: ( (lv_operand2_3_0= ruleEvoOr ) )
+            	    // InternalEvoMappingRepairDsl.g:2370:5: (lv_operand2_3_0= ruleEvoOr )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2361:5: (lv_operand2_3_0= ruleEvoOr )
-            	    // InternalEvoMappingRepairDsl.g:2362:6: lv_operand2_3_0= ruleEvoOr
+            	    // InternalEvoMappingRepairDsl.g:2370:5: (lv_operand2_3_0= ruleEvoOr )
+            	    // InternalEvoMappingRepairDsl.g:2371:6: lv_operand2_3_0= ruleEvoOr
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoXOrAccess().getOperand2EvoOrParserRuleCall_1_2_0());
@@ -6303,7 +6324,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoOr"
-    // InternalEvoMappingRepairDsl.g:2384:1: entryRuleEvoOr returns [EObject current=null] : iv_ruleEvoOr= ruleEvoOr EOF ;
+    // InternalEvoMappingRepairDsl.g:2393:1: entryRuleEvoOr returns [EObject current=null] : iv_ruleEvoOr= ruleEvoOr EOF ;
     public final EObject entryRuleEvoOr() throws RecognitionException {
         EObject current = null;
 
@@ -6311,8 +6332,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2384:46: (iv_ruleEvoOr= ruleEvoOr EOF )
-            // InternalEvoMappingRepairDsl.g:2385:2: iv_ruleEvoOr= ruleEvoOr EOF
+            // InternalEvoMappingRepairDsl.g:2393:46: (iv_ruleEvoOr= ruleEvoOr EOF )
+            // InternalEvoMappingRepairDsl.g:2394:2: iv_ruleEvoOr= ruleEvoOr EOF
             {
              newCompositeNode(grammarAccess.getEvoOrRule()); 
             pushFollow(FOLLOW_1);
@@ -6339,7 +6360,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoOr"
-    // InternalEvoMappingRepairDsl.g:2391:1: ruleEvoOr returns [EObject current=null] : (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2400:1: ruleEvoOr returns [EObject current=null] : (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* ) ;
     public final EObject ruleEvoOr() throws RecognitionException {
         EObject current = null;
 
@@ -6353,11 +6374,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2397:2: ( (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2398:2: (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2406:2: ( (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2407:2: (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2398:2: (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2399:3: this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )*
+            // InternalEvoMappingRepairDsl.g:2407:2: (this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2408:3: this_EvoAnd_0= ruleEvoAnd ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoOrAccess().getEvoAndParserRuleCall_0());
@@ -6371,7 +6392,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoAnd_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2407:3: ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )*
+            // InternalEvoMappingRepairDsl.g:2416:3: ( () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) ) )*
             loop28:
             do {
                 int alt28=2;
@@ -6384,10 +6405,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt28) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2408:4: () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) )
+            	    // InternalEvoMappingRepairDsl.g:2417:4: () otherlv_2= '||' ( (lv_operand2_3_0= ruleEvoAnd ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2408:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2409:5: 
+            	    // InternalEvoMappingRepairDsl.g:2417:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2418:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -6401,11 +6422,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoOrAccess().getVerticalLineVerticalLineKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2419:4: ( (lv_operand2_3_0= ruleEvoAnd ) )
-            	    // InternalEvoMappingRepairDsl.g:2420:5: (lv_operand2_3_0= ruleEvoAnd )
+            	    // InternalEvoMappingRepairDsl.g:2428:4: ( (lv_operand2_3_0= ruleEvoAnd ) )
+            	    // InternalEvoMappingRepairDsl.g:2429:5: (lv_operand2_3_0= ruleEvoAnd )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2420:5: (lv_operand2_3_0= ruleEvoAnd )
-            	    // InternalEvoMappingRepairDsl.g:2421:6: lv_operand2_3_0= ruleEvoAnd
+            	    // InternalEvoMappingRepairDsl.g:2429:5: (lv_operand2_3_0= ruleEvoAnd )
+            	    // InternalEvoMappingRepairDsl.g:2430:6: lv_operand2_3_0= ruleEvoAnd
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoOrAccess().getOperand2EvoAndParserRuleCall_1_2_0());
@@ -6464,7 +6485,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoAnd"
-    // InternalEvoMappingRepairDsl.g:2443:1: entryRuleEvoAnd returns [EObject current=null] : iv_ruleEvoAnd= ruleEvoAnd EOF ;
+    // InternalEvoMappingRepairDsl.g:2452:1: entryRuleEvoAnd returns [EObject current=null] : iv_ruleEvoAnd= ruleEvoAnd EOF ;
     public final EObject entryRuleEvoAnd() throws RecognitionException {
         EObject current = null;
 
@@ -6472,8 +6493,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2443:47: (iv_ruleEvoAnd= ruleEvoAnd EOF )
-            // InternalEvoMappingRepairDsl.g:2444:2: iv_ruleEvoAnd= ruleEvoAnd EOF
+            // InternalEvoMappingRepairDsl.g:2452:47: (iv_ruleEvoAnd= ruleEvoAnd EOF )
+            // InternalEvoMappingRepairDsl.g:2453:2: iv_ruleEvoAnd= ruleEvoAnd EOF
             {
              newCompositeNode(grammarAccess.getEvoAndRule()); 
             pushFollow(FOLLOW_1);
@@ -6500,7 +6521,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoAnd"
-    // InternalEvoMappingRepairDsl.g:2450:1: ruleEvoAnd returns [EObject current=null] : (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2459:1: ruleEvoAnd returns [EObject current=null] : (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* ) ;
     public final EObject ruleEvoAnd() throws RecognitionException {
         EObject current = null;
 
@@ -6514,11 +6535,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2456:2: ( (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2457:2: (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2465:2: ( (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2466:2: (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2457:2: (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2458:3: this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )*
+            // InternalEvoMappingRepairDsl.g:2466:2: (this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2467:3: this_EvoEqual_0= ruleEvoEqual ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoAndAccess().getEvoEqualParserRuleCall_0());
@@ -6532,7 +6553,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoEqual_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2466:3: ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )*
+            // InternalEvoMappingRepairDsl.g:2475:3: ( () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) ) )*
             loop29:
             do {
                 int alt29=2;
@@ -6545,10 +6566,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt29) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2467:4: () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) )
+            	    // InternalEvoMappingRepairDsl.g:2476:4: () otherlv_2= '&&' ( (lv_operand2_3_0= ruleEvoEqual ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2467:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2468:5: 
+            	    // InternalEvoMappingRepairDsl.g:2476:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2477:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -6562,11 +6583,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoAndAccess().getAmpersandAmpersandKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2478:4: ( (lv_operand2_3_0= ruleEvoEqual ) )
-            	    // InternalEvoMappingRepairDsl.g:2479:5: (lv_operand2_3_0= ruleEvoEqual )
+            	    // InternalEvoMappingRepairDsl.g:2487:4: ( (lv_operand2_3_0= ruleEvoEqual ) )
+            	    // InternalEvoMappingRepairDsl.g:2488:5: (lv_operand2_3_0= ruleEvoEqual )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2479:5: (lv_operand2_3_0= ruleEvoEqual )
-            	    // InternalEvoMappingRepairDsl.g:2480:6: lv_operand2_3_0= ruleEvoEqual
+            	    // InternalEvoMappingRepairDsl.g:2488:5: (lv_operand2_3_0= ruleEvoEqual )
+            	    // InternalEvoMappingRepairDsl.g:2489:6: lv_operand2_3_0= ruleEvoEqual
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoAndAccess().getOperand2EvoEqualParserRuleCall_1_2_0());
@@ -6625,7 +6646,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoEqual"
-    // InternalEvoMappingRepairDsl.g:2502:1: entryRuleEvoEqual returns [EObject current=null] : iv_ruleEvoEqual= ruleEvoEqual EOF ;
+    // InternalEvoMappingRepairDsl.g:2511:1: entryRuleEvoEqual returns [EObject current=null] : iv_ruleEvoEqual= ruleEvoEqual EOF ;
     public final EObject entryRuleEvoEqual() throws RecognitionException {
         EObject current = null;
 
@@ -6633,8 +6654,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2502:49: (iv_ruleEvoEqual= ruleEvoEqual EOF )
-            // InternalEvoMappingRepairDsl.g:2503:2: iv_ruleEvoEqual= ruleEvoEqual EOF
+            // InternalEvoMappingRepairDsl.g:2511:49: (iv_ruleEvoEqual= ruleEvoEqual EOF )
+            // InternalEvoMappingRepairDsl.g:2512:2: iv_ruleEvoEqual= ruleEvoEqual EOF
             {
              newCompositeNode(grammarAccess.getEvoEqualRule()); 
             pushFollow(FOLLOW_1);
@@ -6661,7 +6682,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoEqual"
-    // InternalEvoMappingRepairDsl.g:2509:1: ruleEvoEqual returns [EObject current=null] : (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2518:1: ruleEvoEqual returns [EObject current=null] : (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* ) ;
     public final EObject ruleEvoEqual() throws RecognitionException {
         EObject current = null;
 
@@ -6675,11 +6696,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2515:2: ( (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2516:2: (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2524:2: ( (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2525:2: (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2516:2: (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2517:3: this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2525:2: (this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2526:3: this_EvoUnequal_0= ruleEvoUnequal ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoEqualAccess().getEvoUnequalParserRuleCall_0());
@@ -6693,7 +6714,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoUnequal_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2525:3: ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2534:3: ( () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) ) )*
             loop30:
             do {
                 int alt30=2;
@@ -6706,10 +6727,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt30) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2526:4: () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2535:4: () otherlv_2= '==' ( (lv_operand2_3_0= ruleEvoUnequalSize ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2526:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2527:5: 
+            	    // InternalEvoMappingRepairDsl.g:2535:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2536:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -6723,11 +6744,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoEqualAccess().getEqualsSignEqualsSignKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2537:4: ( (lv_operand2_3_0= ruleEvoUnequalSize ) )
-            	    // InternalEvoMappingRepairDsl.g:2538:5: (lv_operand2_3_0= ruleEvoUnequalSize )
+            	    // InternalEvoMappingRepairDsl.g:2546:4: ( (lv_operand2_3_0= ruleEvoUnequalSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2547:5: (lv_operand2_3_0= ruleEvoUnequalSize )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2538:5: (lv_operand2_3_0= ruleEvoUnequalSize )
-            	    // InternalEvoMappingRepairDsl.g:2539:6: lv_operand2_3_0= ruleEvoUnequalSize
+            	    // InternalEvoMappingRepairDsl.g:2547:5: (lv_operand2_3_0= ruleEvoUnequalSize )
+            	    // InternalEvoMappingRepairDsl.g:2548:6: lv_operand2_3_0= ruleEvoUnequalSize
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoEqualAccess().getOperand2EvoUnequalSizeParserRuleCall_1_2_0());
@@ -6786,7 +6807,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoUnequalSize"
-    // InternalEvoMappingRepairDsl.g:2561:1: entryRuleEvoUnequalSize returns [EObject current=null] : iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF ;
+    // InternalEvoMappingRepairDsl.g:2570:1: entryRuleEvoUnequalSize returns [EObject current=null] : iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF ;
     public final EObject entryRuleEvoUnequalSize() throws RecognitionException {
         EObject current = null;
 
@@ -6794,8 +6815,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2561:55: (iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF )
-            // InternalEvoMappingRepairDsl.g:2562:2: iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF
+            // InternalEvoMappingRepairDsl.g:2570:55: (iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF )
+            // InternalEvoMappingRepairDsl.g:2571:2: iv_ruleEvoUnequalSize= ruleEvoUnequalSize EOF
             {
              newCompositeNode(grammarAccess.getEvoUnequalSizeRule()); 
             pushFollow(FOLLOW_1);
@@ -6822,7 +6843,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoUnequalSize"
-    // InternalEvoMappingRepairDsl.g:2568:1: ruleEvoUnequalSize returns [EObject current=null] : (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize ) ;
+    // InternalEvoMappingRepairDsl.g:2577:1: ruleEvoUnequalSize returns [EObject current=null] : (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize ) ;
     public final EObject ruleEvoUnequalSize() throws RecognitionException {
         EObject current = null;
 
@@ -6835,14 +6856,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2574:2: ( (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize ) )
-            // InternalEvoMappingRepairDsl.g:2575:2: (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2583:2: ( (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize ) )
+            // InternalEvoMappingRepairDsl.g:2584:2: (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize )
             {
-            // InternalEvoMappingRepairDsl.g:2575:2: (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2584:2: (this_EvoUnequal_0= ruleEvoUnequal | this_EvoSize_1= ruleEvoSize )
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_ID||LA31_0==13||LA31_0==34||(LA31_0>=55 && LA31_0<=56)||LA31_0==58||(LA31_0>=60 && LA31_0<=62)||(LA31_0>=65 && LA31_0<=68)||(LA31_0>=70 && LA31_0<=72)) ) {
+            if ( (LA31_0==RULE_ID||LA31_0==13||LA31_0==35||(LA31_0>=56 && LA31_0<=57)||LA31_0==59||(LA31_0>=61 && LA31_0<=63)||(LA31_0>=66 && LA31_0<=69)||(LA31_0>=71 && LA31_0<=73)) ) {
                 alt31=1;
             }
             else if ( (LA31_0==RULE_INT) ) {
@@ -6856,7 +6877,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt31) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:2576:3: this_EvoUnequal_0= ruleEvoUnequal
+                    // InternalEvoMappingRepairDsl.g:2585:3: this_EvoUnequal_0= ruleEvoUnequal
                     {
 
                     			newCompositeNode(grammarAccess.getEvoUnequalSizeAccess().getEvoUnequalParserRuleCall_0());
@@ -6874,7 +6895,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:2585:3: this_EvoSize_1= ruleEvoSize
+                    // InternalEvoMappingRepairDsl.g:2594:3: this_EvoSize_1= ruleEvoSize
                     {
 
                     			newCompositeNode(grammarAccess.getEvoUnequalSizeAccess().getEvoSizeParserRuleCall_1());
@@ -6914,7 +6935,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoUnequal"
-    // InternalEvoMappingRepairDsl.g:2597:1: entryRuleEvoUnequal returns [EObject current=null] : iv_ruleEvoUnequal= ruleEvoUnequal EOF ;
+    // InternalEvoMappingRepairDsl.g:2606:1: entryRuleEvoUnequal returns [EObject current=null] : iv_ruleEvoUnequal= ruleEvoUnequal EOF ;
     public final EObject entryRuleEvoUnequal() throws RecognitionException {
         EObject current = null;
 
@@ -6922,8 +6943,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2597:51: (iv_ruleEvoUnequal= ruleEvoUnequal EOF )
-            // InternalEvoMappingRepairDsl.g:2598:2: iv_ruleEvoUnequal= ruleEvoUnequal EOF
+            // InternalEvoMappingRepairDsl.g:2606:51: (iv_ruleEvoUnequal= ruleEvoUnequal EOF )
+            // InternalEvoMappingRepairDsl.g:2607:2: iv_ruleEvoUnequal= ruleEvoUnequal EOF
             {
              newCompositeNode(grammarAccess.getEvoUnequalRule()); 
             pushFollow(FOLLOW_1);
@@ -6950,7 +6971,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoUnequal"
-    // InternalEvoMappingRepairDsl.g:2604:1: ruleEvoUnequal returns [EObject current=null] : (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2613:1: ruleEvoUnequal returns [EObject current=null] : (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* ) ;
     public final EObject ruleEvoUnequal() throws RecognitionException {
         EObject current = null;
 
@@ -6964,11 +6985,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2610:2: ( (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2611:2: (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2619:2: ( (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2620:2: (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2611:2: (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2612:3: this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2620:2: (this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2621:3: this_EvoImplication_0= ruleEvoImplication ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoUnequalAccess().getEvoImplicationParserRuleCall_0());
@@ -6982,7 +7003,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoImplication_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2620:3: ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2629:3: ( () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) ) )*
             loop32:
             do {
                 int alt32=2;
@@ -6995,10 +7016,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt32) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2621:4: () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2630:4: () otherlv_2= '!=' ( (lv_operand2_3_0= ruleEvoImplicationSize ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2621:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2622:5: 
+            	    // InternalEvoMappingRepairDsl.g:2630:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2631:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -7012,11 +7033,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoUnequalAccess().getExclamationMarkEqualsSignKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2632:4: ( (lv_operand2_3_0= ruleEvoImplicationSize ) )
-            	    // InternalEvoMappingRepairDsl.g:2633:5: (lv_operand2_3_0= ruleEvoImplicationSize )
+            	    // InternalEvoMappingRepairDsl.g:2641:4: ( (lv_operand2_3_0= ruleEvoImplicationSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2642:5: (lv_operand2_3_0= ruleEvoImplicationSize )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2633:5: (lv_operand2_3_0= ruleEvoImplicationSize )
-            	    // InternalEvoMappingRepairDsl.g:2634:6: lv_operand2_3_0= ruleEvoImplicationSize
+            	    // InternalEvoMappingRepairDsl.g:2642:5: (lv_operand2_3_0= ruleEvoImplicationSize )
+            	    // InternalEvoMappingRepairDsl.g:2643:6: lv_operand2_3_0= ruleEvoImplicationSize
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoUnequalAccess().getOperand2EvoImplicationSizeParserRuleCall_1_2_0());
@@ -7075,7 +7096,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoImplicationSize"
-    // InternalEvoMappingRepairDsl.g:2656:1: entryRuleEvoImplicationSize returns [EObject current=null] : iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF ;
+    // InternalEvoMappingRepairDsl.g:2665:1: entryRuleEvoImplicationSize returns [EObject current=null] : iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF ;
     public final EObject entryRuleEvoImplicationSize() throws RecognitionException {
         EObject current = null;
 
@@ -7083,8 +7104,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2656:59: (iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF )
-            // InternalEvoMappingRepairDsl.g:2657:2: iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF
+            // InternalEvoMappingRepairDsl.g:2665:59: (iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF )
+            // InternalEvoMappingRepairDsl.g:2666:2: iv_ruleEvoImplicationSize= ruleEvoImplicationSize EOF
             {
              newCompositeNode(grammarAccess.getEvoImplicationSizeRule()); 
             pushFollow(FOLLOW_1);
@@ -7111,7 +7132,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoImplicationSize"
-    // InternalEvoMappingRepairDsl.g:2663:1: ruleEvoImplicationSize returns [EObject current=null] : (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize ) ;
+    // InternalEvoMappingRepairDsl.g:2672:1: ruleEvoImplicationSize returns [EObject current=null] : (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize ) ;
     public final EObject ruleEvoImplicationSize() throws RecognitionException {
         EObject current = null;
 
@@ -7124,14 +7145,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2669:2: ( (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize ) )
-            // InternalEvoMappingRepairDsl.g:2670:2: (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2678:2: ( (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize ) )
+            // InternalEvoMappingRepairDsl.g:2679:2: (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize )
             {
-            // InternalEvoMappingRepairDsl.g:2670:2: (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2679:2: (this_EvoImplication_0= ruleEvoImplication | this_EvoSize_1= ruleEvoSize )
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==RULE_ID||LA33_0==13||LA33_0==34||(LA33_0>=55 && LA33_0<=56)||LA33_0==58||(LA33_0>=60 && LA33_0<=62)||(LA33_0>=65 && LA33_0<=68)||(LA33_0>=70 && LA33_0<=72)) ) {
+            if ( (LA33_0==RULE_ID||LA33_0==13||LA33_0==35||(LA33_0>=56 && LA33_0<=57)||LA33_0==59||(LA33_0>=61 && LA33_0<=63)||(LA33_0>=66 && LA33_0<=69)||(LA33_0>=71 && LA33_0<=73)) ) {
                 alt33=1;
             }
             else if ( (LA33_0==RULE_INT) ) {
@@ -7145,7 +7166,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt33) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:2671:3: this_EvoImplication_0= ruleEvoImplication
+                    // InternalEvoMappingRepairDsl.g:2680:3: this_EvoImplication_0= ruleEvoImplication
                     {
 
                     			newCompositeNode(grammarAccess.getEvoImplicationSizeAccess().getEvoImplicationParserRuleCall_0());
@@ -7163,7 +7184,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:2680:3: this_EvoSize_1= ruleEvoSize
+                    // InternalEvoMappingRepairDsl.g:2689:3: this_EvoSize_1= ruleEvoSize
                     {
 
                     			newCompositeNode(grammarAccess.getEvoImplicationSizeAccess().getEvoSizeParserRuleCall_1());
@@ -7203,7 +7224,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoImplication"
-    // InternalEvoMappingRepairDsl.g:2692:1: entryRuleEvoImplication returns [EObject current=null] : iv_ruleEvoImplication= ruleEvoImplication EOF ;
+    // InternalEvoMappingRepairDsl.g:2701:1: entryRuleEvoImplication returns [EObject current=null] : iv_ruleEvoImplication= ruleEvoImplication EOF ;
     public final EObject entryRuleEvoImplication() throws RecognitionException {
         EObject current = null;
 
@@ -7211,8 +7232,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2692:55: (iv_ruleEvoImplication= ruleEvoImplication EOF )
-            // InternalEvoMappingRepairDsl.g:2693:2: iv_ruleEvoImplication= ruleEvoImplication EOF
+            // InternalEvoMappingRepairDsl.g:2701:55: (iv_ruleEvoImplication= ruleEvoImplication EOF )
+            // InternalEvoMappingRepairDsl.g:2702:2: iv_ruleEvoImplication= ruleEvoImplication EOF
             {
              newCompositeNode(grammarAccess.getEvoImplicationRule()); 
             pushFollow(FOLLOW_1);
@@ -7239,7 +7260,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoImplication"
-    // InternalEvoMappingRepairDsl.g:2699:1: ruleEvoImplication returns [EObject current=null] : (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2708:1: ruleEvoImplication returns [EObject current=null] : (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* ) ;
     public final EObject ruleEvoImplication() throws RecognitionException {
         EObject current = null;
 
@@ -7253,11 +7274,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2705:2: ( (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2706:2: (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2714:2: ( (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2715:2: (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2706:2: (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2707:3: this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2715:2: (this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2716:3: this_EvoBiconditional_0= ruleEvoBiconditional ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoImplicationAccess().getEvoBiconditionalParserRuleCall_0());
@@ -7271,23 +7292,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoBiconditional_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2715:3: ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2724:3: ( () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) ) )*
             loop34:
             do {
                 int alt34=2;
                 int LA34_0 = input.LA(1);
 
-                if ( (LA34_0==47) ) {
+                if ( (LA34_0==48) ) {
                     alt34=1;
                 }
 
 
                 switch (alt34) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2716:4: () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2725:4: () otherlv_2= '=>' ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2716:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2717:5: 
+            	    // InternalEvoMappingRepairDsl.g:2725:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2726:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -7297,15 +7318,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,47,FOLLOW_39); 
+            	    otherlv_2=(Token)match(input,48,FOLLOW_39); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoImplicationAccess().getEqualsSignGreaterThanSignKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2727:4: ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) )
-            	    // InternalEvoMappingRepairDsl.g:2728:5: (lv_operand2_3_0= ruleEvoBiconditionalSize )
+            	    // InternalEvoMappingRepairDsl.g:2736:4: ( (lv_operand2_3_0= ruleEvoBiconditionalSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2737:5: (lv_operand2_3_0= ruleEvoBiconditionalSize )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2728:5: (lv_operand2_3_0= ruleEvoBiconditionalSize )
-            	    // InternalEvoMappingRepairDsl.g:2729:6: lv_operand2_3_0= ruleEvoBiconditionalSize
+            	    // InternalEvoMappingRepairDsl.g:2737:5: (lv_operand2_3_0= ruleEvoBiconditionalSize )
+            	    // InternalEvoMappingRepairDsl.g:2738:6: lv_operand2_3_0= ruleEvoBiconditionalSize
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoImplicationAccess().getOperand2EvoBiconditionalSizeParserRuleCall_1_2_0());
@@ -7364,7 +7385,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoBiconditionalSize"
-    // InternalEvoMappingRepairDsl.g:2751:1: entryRuleEvoBiconditionalSize returns [EObject current=null] : iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF ;
+    // InternalEvoMappingRepairDsl.g:2760:1: entryRuleEvoBiconditionalSize returns [EObject current=null] : iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF ;
     public final EObject entryRuleEvoBiconditionalSize() throws RecognitionException {
         EObject current = null;
 
@@ -7372,8 +7393,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2751:61: (iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF )
-            // InternalEvoMappingRepairDsl.g:2752:2: iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF
+            // InternalEvoMappingRepairDsl.g:2760:61: (iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF )
+            // InternalEvoMappingRepairDsl.g:2761:2: iv_ruleEvoBiconditionalSize= ruleEvoBiconditionalSize EOF
             {
              newCompositeNode(grammarAccess.getEvoBiconditionalSizeRule()); 
             pushFollow(FOLLOW_1);
@@ -7400,7 +7421,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoBiconditionalSize"
-    // InternalEvoMappingRepairDsl.g:2758:1: ruleEvoBiconditionalSize returns [EObject current=null] : (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize ) ;
+    // InternalEvoMappingRepairDsl.g:2767:1: ruleEvoBiconditionalSize returns [EObject current=null] : (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize ) ;
     public final EObject ruleEvoBiconditionalSize() throws RecognitionException {
         EObject current = null;
 
@@ -7413,14 +7434,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2764:2: ( (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize ) )
-            // InternalEvoMappingRepairDsl.g:2765:2: (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2773:2: ( (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize ) )
+            // InternalEvoMappingRepairDsl.g:2774:2: (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize )
             {
-            // InternalEvoMappingRepairDsl.g:2765:2: (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2774:2: (this_EvoBiconditional_0= ruleEvoBiconditional | this_EvoSize_1= ruleEvoSize )
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( (LA35_0==RULE_ID||LA35_0==13||LA35_0==34||(LA35_0>=55 && LA35_0<=56)||LA35_0==58||(LA35_0>=60 && LA35_0<=62)||(LA35_0>=65 && LA35_0<=68)||(LA35_0>=70 && LA35_0<=72)) ) {
+            if ( (LA35_0==RULE_ID||LA35_0==13||LA35_0==35||(LA35_0>=56 && LA35_0<=57)||LA35_0==59||(LA35_0>=61 && LA35_0<=63)||(LA35_0>=66 && LA35_0<=69)||(LA35_0>=71 && LA35_0<=73)) ) {
                 alt35=1;
             }
             else if ( (LA35_0==RULE_INT) ) {
@@ -7434,7 +7455,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt35) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:2766:3: this_EvoBiconditional_0= ruleEvoBiconditional
+                    // InternalEvoMappingRepairDsl.g:2775:3: this_EvoBiconditional_0= ruleEvoBiconditional
                     {
 
                     			newCompositeNode(grammarAccess.getEvoBiconditionalSizeAccess().getEvoBiconditionalParserRuleCall_0());
@@ -7452,7 +7473,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:2775:3: this_EvoSize_1= ruleEvoSize
+                    // InternalEvoMappingRepairDsl.g:2784:3: this_EvoSize_1= ruleEvoSize
                     {
 
                     			newCompositeNode(grammarAccess.getEvoBiconditionalSizeAccess().getEvoSizeParserRuleCall_1());
@@ -7492,7 +7513,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoBiconditional"
-    // InternalEvoMappingRepairDsl.g:2787:1: entryRuleEvoBiconditional returns [EObject current=null] : iv_ruleEvoBiconditional= ruleEvoBiconditional EOF ;
+    // InternalEvoMappingRepairDsl.g:2796:1: entryRuleEvoBiconditional returns [EObject current=null] : iv_ruleEvoBiconditional= ruleEvoBiconditional EOF ;
     public final EObject entryRuleEvoBiconditional() throws RecognitionException {
         EObject current = null;
 
@@ -7500,8 +7521,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2787:57: (iv_ruleEvoBiconditional= ruleEvoBiconditional EOF )
-            // InternalEvoMappingRepairDsl.g:2788:2: iv_ruleEvoBiconditional= ruleEvoBiconditional EOF
+            // InternalEvoMappingRepairDsl.g:2796:57: (iv_ruleEvoBiconditional= ruleEvoBiconditional EOF )
+            // InternalEvoMappingRepairDsl.g:2797:2: iv_ruleEvoBiconditional= ruleEvoBiconditional EOF
             {
              newCompositeNode(grammarAccess.getEvoBiconditionalRule()); 
             pushFollow(FOLLOW_1);
@@ -7528,7 +7549,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoBiconditional"
-    // InternalEvoMappingRepairDsl.g:2794:1: ruleEvoBiconditional returns [EObject current=null] : (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2803:1: ruleEvoBiconditional returns [EObject current=null] : (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* ) ;
     public final EObject ruleEvoBiconditional() throws RecognitionException {
         EObject current = null;
 
@@ -7542,11 +7563,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2800:2: ( (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2801:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2809:2: ( (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2810:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2801:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2802:3: this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2810:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2811:3: this_EvoSetInclusion_0= ruleEvoSetInclusion ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoBiconditionalAccess().getEvoSetInclusionParserRuleCall_0());
@@ -7560,23 +7581,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetInclusion_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2810:3: ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )*
+            // InternalEvoMappingRepairDsl.g:2819:3: ( () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) ) )*
             loop36:
             do {
                 int alt36=2;
                 int LA36_0 = input.LA(1);
 
-                if ( (LA36_0==48) ) {
+                if ( (LA36_0==49) ) {
                     alt36=1;
                 }
 
 
                 switch (alt36) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2811:4: () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2820:4: () otherlv_2= '<=>' ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2811:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2812:5: 
+            	    // InternalEvoMappingRepairDsl.g:2820:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2821:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -7586,15 +7607,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,48,FOLLOW_39); 
+            	    otherlv_2=(Token)match(input,49,FOLLOW_39); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoBiconditionalAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2822:4: ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) )
-            	    // InternalEvoMappingRepairDsl.g:2823:5: (lv_operand2_3_0= ruleEvoSetInclusionSize )
+            	    // InternalEvoMappingRepairDsl.g:2831:4: ( (lv_operand2_3_0= ruleEvoSetInclusionSize ) )
+            	    // InternalEvoMappingRepairDsl.g:2832:5: (lv_operand2_3_0= ruleEvoSetInclusionSize )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2823:5: (lv_operand2_3_0= ruleEvoSetInclusionSize )
-            	    // InternalEvoMappingRepairDsl.g:2824:6: lv_operand2_3_0= ruleEvoSetInclusionSize
+            	    // InternalEvoMappingRepairDsl.g:2832:5: (lv_operand2_3_0= ruleEvoSetInclusionSize )
+            	    // InternalEvoMappingRepairDsl.g:2833:6: lv_operand2_3_0= ruleEvoSetInclusionSize
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoBiconditionalAccess().getOperand2EvoSetInclusionSizeParserRuleCall_1_2_0());
@@ -7653,7 +7674,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetInclusionSize"
-    // InternalEvoMappingRepairDsl.g:2846:1: entryRuleEvoSetInclusionSize returns [EObject current=null] : iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF ;
+    // InternalEvoMappingRepairDsl.g:2855:1: entryRuleEvoSetInclusionSize returns [EObject current=null] : iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF ;
     public final EObject entryRuleEvoSetInclusionSize() throws RecognitionException {
         EObject current = null;
 
@@ -7661,8 +7682,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2846:60: (iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF )
-            // InternalEvoMappingRepairDsl.g:2847:2: iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF
+            // InternalEvoMappingRepairDsl.g:2855:60: (iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF )
+            // InternalEvoMappingRepairDsl.g:2856:2: iv_ruleEvoSetInclusionSize= ruleEvoSetInclusionSize EOF
             {
              newCompositeNode(grammarAccess.getEvoSetInclusionSizeRule()); 
             pushFollow(FOLLOW_1);
@@ -7689,7 +7710,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetInclusionSize"
-    // InternalEvoMappingRepairDsl.g:2853:1: ruleEvoSetInclusionSize returns [EObject current=null] : (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize ) ;
+    // InternalEvoMappingRepairDsl.g:2862:1: ruleEvoSetInclusionSize returns [EObject current=null] : (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize ) ;
     public final EObject ruleEvoSetInclusionSize() throws RecognitionException {
         EObject current = null;
 
@@ -7702,14 +7723,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2859:2: ( (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize ) )
-            // InternalEvoMappingRepairDsl.g:2860:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2868:2: ( (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize ) )
+            // InternalEvoMappingRepairDsl.g:2869:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize )
             {
-            // InternalEvoMappingRepairDsl.g:2860:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize )
+            // InternalEvoMappingRepairDsl.g:2869:2: (this_EvoSetInclusion_0= ruleEvoSetInclusion | this_EvoSize_1= ruleEvoSize )
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( (LA37_0==RULE_ID||LA37_0==13||LA37_0==34||(LA37_0>=55 && LA37_0<=56)||LA37_0==58||(LA37_0>=60 && LA37_0<=62)||(LA37_0>=65 && LA37_0<=68)||(LA37_0>=70 && LA37_0<=72)) ) {
+            if ( (LA37_0==RULE_ID||LA37_0==13||LA37_0==35||(LA37_0>=56 && LA37_0<=57)||LA37_0==59||(LA37_0>=61 && LA37_0<=63)||(LA37_0>=66 && LA37_0<=69)||(LA37_0>=71 && LA37_0<=73)) ) {
                 alt37=1;
             }
             else if ( (LA37_0==RULE_INT) ) {
@@ -7723,7 +7744,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt37) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:2861:3: this_EvoSetInclusion_0= ruleEvoSetInclusion
+                    // InternalEvoMappingRepairDsl.g:2870:3: this_EvoSetInclusion_0= ruleEvoSetInclusion
                     {
 
                     			newCompositeNode(grammarAccess.getEvoSetInclusionSizeAccess().getEvoSetInclusionParserRuleCall_0());
@@ -7741,7 +7762,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:2870:3: this_EvoSize_1= ruleEvoSize
+                    // InternalEvoMappingRepairDsl.g:2879:3: this_EvoSize_1= ruleEvoSize
                     {
 
                     			newCompositeNode(grammarAccess.getEvoSetInclusionSizeAccess().getEvoSizeParserRuleCall_1());
@@ -7781,7 +7802,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetInclusion"
-    // InternalEvoMappingRepairDsl.g:2882:1: entryRuleEvoSetInclusion returns [EObject current=null] : iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF ;
+    // InternalEvoMappingRepairDsl.g:2891:1: entryRuleEvoSetInclusion returns [EObject current=null] : iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF ;
     public final EObject entryRuleEvoSetInclusion() throws RecognitionException {
         EObject current = null;
 
@@ -7789,8 +7810,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2882:56: (iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF )
-            // InternalEvoMappingRepairDsl.g:2883:2: iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF
+            // InternalEvoMappingRepairDsl.g:2891:56: (iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF )
+            // InternalEvoMappingRepairDsl.g:2892:2: iv_ruleEvoSetInclusion= ruleEvoSetInclusion EOF
             {
              newCompositeNode(grammarAccess.getEvoSetInclusionRule()); 
             pushFollow(FOLLOW_1);
@@ -7817,7 +7838,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetInclusion"
-    // InternalEvoMappingRepairDsl.g:2889:1: ruleEvoSetInclusion returns [EObject current=null] : (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2898:1: ruleEvoSetInclusion returns [EObject current=null] : (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* ) ;
     public final EObject ruleEvoSetInclusion() throws RecognitionException {
         EObject current = null;
 
@@ -7831,11 +7852,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2895:2: ( (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2896:2: (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2904:2: ( (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2905:2: (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2896:2: (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2897:3: this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )*
+            // InternalEvoMappingRepairDsl.g:2905:2: (this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2906:3: this_EvoSetIntersection_0= ruleEvoSetIntersection ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetInclusionAccess().getEvoSetIntersectionParserRuleCall_0());
@@ -7849,23 +7870,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetIntersection_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2905:3: ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )*
+            // InternalEvoMappingRepairDsl.g:2914:3: ( () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) ) )*
             loop38:
             do {
                 int alt38=2;
                 int LA38_0 = input.LA(1);
 
-                if ( (LA38_0==49) ) {
+                if ( (LA38_0==50) ) {
                     alt38=1;
                 }
 
 
                 switch (alt38) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2906:4: () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) )
+            	    // InternalEvoMappingRepairDsl.g:2915:4: () otherlv_2= 'inclusion' ( (lv_operand2_3_0= ruleEvoSetIntersection ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2906:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2907:5: 
+            	    // InternalEvoMappingRepairDsl.g:2915:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2916:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -7875,15 +7896,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,49,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,50,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetInclusionAccess().getInclusionKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2917:4: ( (lv_operand2_3_0= ruleEvoSetIntersection ) )
-            	    // InternalEvoMappingRepairDsl.g:2918:5: (lv_operand2_3_0= ruleEvoSetIntersection )
+            	    // InternalEvoMappingRepairDsl.g:2926:4: ( (lv_operand2_3_0= ruleEvoSetIntersection ) )
+            	    // InternalEvoMappingRepairDsl.g:2927:5: (lv_operand2_3_0= ruleEvoSetIntersection )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2918:5: (lv_operand2_3_0= ruleEvoSetIntersection )
-            	    // InternalEvoMappingRepairDsl.g:2919:6: lv_operand2_3_0= ruleEvoSetIntersection
+            	    // InternalEvoMappingRepairDsl.g:2927:5: (lv_operand2_3_0= ruleEvoSetIntersection )
+            	    // InternalEvoMappingRepairDsl.g:2928:6: lv_operand2_3_0= ruleEvoSetIntersection
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetInclusionAccess().getOperand2EvoSetIntersectionParserRuleCall_1_2_0());
@@ -7942,7 +7963,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetIntersection"
-    // InternalEvoMappingRepairDsl.g:2941:1: entryRuleEvoSetIntersection returns [EObject current=null] : iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF ;
+    // InternalEvoMappingRepairDsl.g:2950:1: entryRuleEvoSetIntersection returns [EObject current=null] : iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF ;
     public final EObject entryRuleEvoSetIntersection() throws RecognitionException {
         EObject current = null;
 
@@ -7950,8 +7971,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:2941:59: (iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF )
-            // InternalEvoMappingRepairDsl.g:2942:2: iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF
+            // InternalEvoMappingRepairDsl.g:2950:59: (iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF )
+            // InternalEvoMappingRepairDsl.g:2951:2: iv_ruleEvoSetIntersection= ruleEvoSetIntersection EOF
             {
              newCompositeNode(grammarAccess.getEvoSetIntersectionRule()); 
             pushFollow(FOLLOW_1);
@@ -7978,7 +7999,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetIntersection"
-    // InternalEvoMappingRepairDsl.g:2948:1: ruleEvoSetIntersection returns [EObject current=null] : (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:2957:1: ruleEvoSetIntersection returns [EObject current=null] : (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* ) ;
     public final EObject ruleEvoSetIntersection() throws RecognitionException {
         EObject current = null;
 
@@ -7992,11 +8013,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:2954:2: ( (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:2955:2: (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2963:2: ( (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:2964:2: (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:2955:2: (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* )
-            // InternalEvoMappingRepairDsl.g:2956:3: this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )*
+            // InternalEvoMappingRepairDsl.g:2964:2: (this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )* )
+            // InternalEvoMappingRepairDsl.g:2965:3: this_EvoSetUnion_0= ruleEvoSetUnion ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetIntersectionAccess().getEvoSetUnionParserRuleCall_0());
@@ -8010,23 +8031,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetUnion_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:2964:3: ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )*
+            // InternalEvoMappingRepairDsl.g:2973:3: ( () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) ) )*
             loop39:
             do {
                 int alt39=2;
                 int LA39_0 = input.LA(1);
 
-                if ( (LA39_0==50) ) {
+                if ( (LA39_0==51) ) {
                     alt39=1;
                 }
 
 
                 switch (alt39) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:2965:4: () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) )
+            	    // InternalEvoMappingRepairDsl.g:2974:4: () otherlv_2= 'intersection' ( (lv_operand2_3_0= ruleEvoSetUnion ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2965:4: ()
-            	    // InternalEvoMappingRepairDsl.g:2966:5: 
+            	    // InternalEvoMappingRepairDsl.g:2974:4: ()
+            	    // InternalEvoMappingRepairDsl.g:2975:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -8036,15 +8057,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,50,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,51,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetIntersectionAccess().getIntersectionKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:2976:4: ( (lv_operand2_3_0= ruleEvoSetUnion ) )
-            	    // InternalEvoMappingRepairDsl.g:2977:5: (lv_operand2_3_0= ruleEvoSetUnion )
+            	    // InternalEvoMappingRepairDsl.g:2985:4: ( (lv_operand2_3_0= ruleEvoSetUnion ) )
+            	    // InternalEvoMappingRepairDsl.g:2986:5: (lv_operand2_3_0= ruleEvoSetUnion )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:2977:5: (lv_operand2_3_0= ruleEvoSetUnion )
-            	    // InternalEvoMappingRepairDsl.g:2978:6: lv_operand2_3_0= ruleEvoSetUnion
+            	    // InternalEvoMappingRepairDsl.g:2986:5: (lv_operand2_3_0= ruleEvoSetUnion )
+            	    // InternalEvoMappingRepairDsl.g:2987:6: lv_operand2_3_0= ruleEvoSetUnion
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetIntersectionAccess().getOperand2EvoSetUnionParserRuleCall_1_2_0());
@@ -8103,7 +8124,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetUnion"
-    // InternalEvoMappingRepairDsl.g:3000:1: entryRuleEvoSetUnion returns [EObject current=null] : iv_ruleEvoSetUnion= ruleEvoSetUnion EOF ;
+    // InternalEvoMappingRepairDsl.g:3009:1: entryRuleEvoSetUnion returns [EObject current=null] : iv_ruleEvoSetUnion= ruleEvoSetUnion EOF ;
     public final EObject entryRuleEvoSetUnion() throws RecognitionException {
         EObject current = null;
 
@@ -8111,8 +8132,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3000:52: (iv_ruleEvoSetUnion= ruleEvoSetUnion EOF )
-            // InternalEvoMappingRepairDsl.g:3001:2: iv_ruleEvoSetUnion= ruleEvoSetUnion EOF
+            // InternalEvoMappingRepairDsl.g:3009:52: (iv_ruleEvoSetUnion= ruleEvoSetUnion EOF )
+            // InternalEvoMappingRepairDsl.g:3010:2: iv_ruleEvoSetUnion= ruleEvoSetUnion EOF
             {
              newCompositeNode(grammarAccess.getEvoSetUnionRule()); 
             pushFollow(FOLLOW_1);
@@ -8139,7 +8160,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetUnion"
-    // InternalEvoMappingRepairDsl.g:3007:1: ruleEvoSetUnion returns [EObject current=null] : (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:3016:1: ruleEvoSetUnion returns [EObject current=null] : (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* ) ;
     public final EObject ruleEvoSetUnion() throws RecognitionException {
         EObject current = null;
 
@@ -8153,11 +8174,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3013:2: ( (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:3014:2: (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3022:2: ( (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:3023:2: (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:3014:2: (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* )
-            // InternalEvoMappingRepairDsl.g:3015:3: this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )*
+            // InternalEvoMappingRepairDsl.g:3023:2: (this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3024:3: this_EvoSetDifference_0= ruleEvoSetDifference ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetUnionAccess().getEvoSetDifferenceParserRuleCall_0());
@@ -8171,23 +8192,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetDifference_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:3023:3: ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )*
+            // InternalEvoMappingRepairDsl.g:3032:3: ( () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) ) )*
             loop40:
             do {
                 int alt40=2;
                 int LA40_0 = input.LA(1);
 
-                if ( (LA40_0==51) ) {
+                if ( (LA40_0==52) ) {
                     alt40=1;
                 }
 
 
                 switch (alt40) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3024:4: () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) )
+            	    // InternalEvoMappingRepairDsl.g:3033:4: () otherlv_2= 'union' ( (lv_operand2_3_0= ruleEvoSetDifference ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3024:4: ()
-            	    // InternalEvoMappingRepairDsl.g:3025:5: 
+            	    // InternalEvoMappingRepairDsl.g:3033:4: ()
+            	    // InternalEvoMappingRepairDsl.g:3034:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -8197,15 +8218,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,51,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,52,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetUnionAccess().getUnionKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3035:4: ( (lv_operand2_3_0= ruleEvoSetDifference ) )
-            	    // InternalEvoMappingRepairDsl.g:3036:5: (lv_operand2_3_0= ruleEvoSetDifference )
+            	    // InternalEvoMappingRepairDsl.g:3044:4: ( (lv_operand2_3_0= ruleEvoSetDifference ) )
+            	    // InternalEvoMappingRepairDsl.g:3045:5: (lv_operand2_3_0= ruleEvoSetDifference )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3036:5: (lv_operand2_3_0= ruleEvoSetDifference )
-            	    // InternalEvoMappingRepairDsl.g:3037:6: lv_operand2_3_0= ruleEvoSetDifference
+            	    // InternalEvoMappingRepairDsl.g:3045:5: (lv_operand2_3_0= ruleEvoSetDifference )
+            	    // InternalEvoMappingRepairDsl.g:3046:6: lv_operand2_3_0= ruleEvoSetDifference
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetUnionAccess().getOperand2EvoSetDifferenceParserRuleCall_1_2_0());
@@ -8264,7 +8285,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetDifference"
-    // InternalEvoMappingRepairDsl.g:3059:1: entryRuleEvoSetDifference returns [EObject current=null] : iv_ruleEvoSetDifference= ruleEvoSetDifference EOF ;
+    // InternalEvoMappingRepairDsl.g:3068:1: entryRuleEvoSetDifference returns [EObject current=null] : iv_ruleEvoSetDifference= ruleEvoSetDifference EOF ;
     public final EObject entryRuleEvoSetDifference() throws RecognitionException {
         EObject current = null;
 
@@ -8272,8 +8293,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3059:57: (iv_ruleEvoSetDifference= ruleEvoSetDifference EOF )
-            // InternalEvoMappingRepairDsl.g:3060:2: iv_ruleEvoSetDifference= ruleEvoSetDifference EOF
+            // InternalEvoMappingRepairDsl.g:3068:57: (iv_ruleEvoSetDifference= ruleEvoSetDifference EOF )
+            // InternalEvoMappingRepairDsl.g:3069:2: iv_ruleEvoSetDifference= ruleEvoSetDifference EOF
             {
              newCompositeNode(grammarAccess.getEvoSetDifferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -8300,7 +8321,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetDifference"
-    // InternalEvoMappingRepairDsl.g:3066:1: ruleEvoSetDifference returns [EObject current=null] : (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:3075:1: ruleEvoSetDifference returns [EObject current=null] : (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* ) ;
     public final EObject ruleEvoSetDifference() throws RecognitionException {
         EObject current = null;
 
@@ -8314,11 +8335,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3072:2: ( (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:3073:2: (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3081:2: ( (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:3082:2: (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:3073:2: (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* )
-            // InternalEvoMappingRepairDsl.g:3074:3: this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )*
+            // InternalEvoMappingRepairDsl.g:3082:2: (this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3083:3: this_EvoSetSymmetricDifference_0= ruleEvoSetSymmetricDifference ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetDifferenceAccess().getEvoSetSymmetricDifferenceParserRuleCall_0());
@@ -8332,23 +8353,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetSymmetricDifference_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:3082:3: ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )*
+            // InternalEvoMappingRepairDsl.g:3091:3: ( () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) ) )*
             loop41:
             do {
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==52) ) {
+                if ( (LA41_0==53) ) {
                     alt41=1;
                 }
 
 
                 switch (alt41) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3083:4: () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) )
+            	    // InternalEvoMappingRepairDsl.g:3092:4: () otherlv_2= 'difference' ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3083:4: ()
-            	    // InternalEvoMappingRepairDsl.g:3084:5: 
+            	    // InternalEvoMappingRepairDsl.g:3092:4: ()
+            	    // InternalEvoMappingRepairDsl.g:3093:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -8358,15 +8379,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,52,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,53,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetDifferenceAccess().getDifferenceKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3094:4: ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) )
-            	    // InternalEvoMappingRepairDsl.g:3095:5: (lv_operand2_3_0= ruleEvoSetSymmetricDifference )
+            	    // InternalEvoMappingRepairDsl.g:3103:4: ( (lv_operand2_3_0= ruleEvoSetSymmetricDifference ) )
+            	    // InternalEvoMappingRepairDsl.g:3104:5: (lv_operand2_3_0= ruleEvoSetSymmetricDifference )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3095:5: (lv_operand2_3_0= ruleEvoSetSymmetricDifference )
-            	    // InternalEvoMappingRepairDsl.g:3096:6: lv_operand2_3_0= ruleEvoSetSymmetricDifference
+            	    // InternalEvoMappingRepairDsl.g:3104:5: (lv_operand2_3_0= ruleEvoSetSymmetricDifference )
+            	    // InternalEvoMappingRepairDsl.g:3105:6: lv_operand2_3_0= ruleEvoSetSymmetricDifference
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetDifferenceAccess().getOperand2EvoSetSymmetricDifferenceParserRuleCall_1_2_0());
@@ -8425,7 +8446,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetSymmetricDifference"
-    // InternalEvoMappingRepairDsl.g:3118:1: entryRuleEvoSetSymmetricDifference returns [EObject current=null] : iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF ;
+    // InternalEvoMappingRepairDsl.g:3127:1: entryRuleEvoSetSymmetricDifference returns [EObject current=null] : iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF ;
     public final EObject entryRuleEvoSetSymmetricDifference() throws RecognitionException {
         EObject current = null;
 
@@ -8433,8 +8454,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3118:66: (iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF )
-            // InternalEvoMappingRepairDsl.g:3119:2: iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF
+            // InternalEvoMappingRepairDsl.g:3127:66: (iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF )
+            // InternalEvoMappingRepairDsl.g:3128:2: iv_ruleEvoSetSymmetricDifference= ruleEvoSetSymmetricDifference EOF
             {
              newCompositeNode(grammarAccess.getEvoSetSymmetricDifferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -8461,7 +8482,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetSymmetricDifference"
-    // InternalEvoMappingRepairDsl.g:3125:1: ruleEvoSetSymmetricDifference returns [EObject current=null] : (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:3134:1: ruleEvoSetSymmetricDifference returns [EObject current=null] : (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* ) ;
     public final EObject ruleEvoSetSymmetricDifference() throws RecognitionException {
         EObject current = null;
 
@@ -8475,11 +8496,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3131:2: ( (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:3132:2: (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3140:2: ( (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:3141:2: (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:3132:2: (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* )
-            // InternalEvoMappingRepairDsl.g:3133:3: this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )*
+            // InternalEvoMappingRepairDsl.g:3141:2: (this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3142:3: this_EvoSetCartesianProduct_0= ruleEvoSetCartesianProduct ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetSymmetricDifferenceAccess().getEvoSetCartesianProductParserRuleCall_0());
@@ -8493,23 +8514,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoSetCartesianProduct_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:3141:3: ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )*
+            // InternalEvoMappingRepairDsl.g:3150:3: ( () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) ) )*
             loop42:
             do {
                 int alt42=2;
                 int LA42_0 = input.LA(1);
 
-                if ( (LA42_0==53) ) {
+                if ( (LA42_0==54) ) {
                     alt42=1;
                 }
 
 
                 switch (alt42) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3142:4: () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) )
+            	    // InternalEvoMappingRepairDsl.g:3151:4: () otherlv_2= 'symmetric_difference' ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3142:4: ()
-            	    // InternalEvoMappingRepairDsl.g:3143:5: 
+            	    // InternalEvoMappingRepairDsl.g:3151:4: ()
+            	    // InternalEvoMappingRepairDsl.g:3152:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -8519,15 +8540,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,53,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,54,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetSymmetricDifferenceAccess().getSymmetric_differenceKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3153:4: ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) )
-            	    // InternalEvoMappingRepairDsl.g:3154:5: (lv_operand2_3_0= ruleEvoSetCartesianProduct )
+            	    // InternalEvoMappingRepairDsl.g:3162:4: ( (lv_operand2_3_0= ruleEvoSetCartesianProduct ) )
+            	    // InternalEvoMappingRepairDsl.g:3163:5: (lv_operand2_3_0= ruleEvoSetCartesianProduct )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3154:5: (lv_operand2_3_0= ruleEvoSetCartesianProduct )
-            	    // InternalEvoMappingRepairDsl.g:3155:6: lv_operand2_3_0= ruleEvoSetCartesianProduct
+            	    // InternalEvoMappingRepairDsl.g:3163:5: (lv_operand2_3_0= ruleEvoSetCartesianProduct )
+            	    // InternalEvoMappingRepairDsl.g:3164:6: lv_operand2_3_0= ruleEvoSetCartesianProduct
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetSymmetricDifferenceAccess().getOperand2EvoSetCartesianProductParserRuleCall_1_2_0());
@@ -8586,7 +8607,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetCartesianProduct"
-    // InternalEvoMappingRepairDsl.g:3177:1: entryRuleEvoSetCartesianProduct returns [EObject current=null] : iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF ;
+    // InternalEvoMappingRepairDsl.g:3186:1: entryRuleEvoSetCartesianProduct returns [EObject current=null] : iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF ;
     public final EObject entryRuleEvoSetCartesianProduct() throws RecognitionException {
         EObject current = null;
 
@@ -8594,8 +8615,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3177:63: (iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF )
-            // InternalEvoMappingRepairDsl.g:3178:2: iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF
+            // InternalEvoMappingRepairDsl.g:3186:63: (iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF )
+            // InternalEvoMappingRepairDsl.g:3187:2: iv_ruleEvoSetCartesianProduct= ruleEvoSetCartesianProduct EOF
             {
              newCompositeNode(grammarAccess.getEvoSetCartesianProductRule()); 
             pushFollow(FOLLOW_1);
@@ -8622,7 +8643,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetCartesianProduct"
-    // InternalEvoMappingRepairDsl.g:3184:1: ruleEvoSetCartesianProduct returns [EObject current=null] : (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:3193:1: ruleEvoSetCartesianProduct returns [EObject current=null] : (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* ) ;
     public final EObject ruleEvoSetCartesianProduct() throws RecognitionException {
         EObject current = null;
 
@@ -8636,11 +8657,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3190:2: ( (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:3191:2: (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3199:2: ( (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:3200:2: (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:3191:2: (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* )
-            // InternalEvoMappingRepairDsl.g:3192:3: this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )*
+            // InternalEvoMappingRepairDsl.g:3200:2: (this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3201:3: this_EvoElementOf_0= ruleEvoElementOf ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoSetCartesianProductAccess().getEvoElementOfParserRuleCall_0());
@@ -8654,23 +8675,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoElementOf_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:3200:3: ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )*
+            // InternalEvoMappingRepairDsl.g:3209:3: ( () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) ) )*
             loop43:
             do {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( (LA43_0==54) ) {
+                if ( (LA43_0==55) ) {
                     alt43=1;
                 }
 
 
                 switch (alt43) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3201:4: () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) )
+            	    // InternalEvoMappingRepairDsl.g:3210:4: () otherlv_2= 'x' ( (lv_operand2_3_0= ruleEvoElementOf ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3201:4: ()
-            	    // InternalEvoMappingRepairDsl.g:3202:5: 
+            	    // InternalEvoMappingRepairDsl.g:3210:4: ()
+            	    // InternalEvoMappingRepairDsl.g:3211:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -8680,15 +8701,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,54,FOLLOW_38); 
+            	    otherlv_2=(Token)match(input,55,FOLLOW_38); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetCartesianProductAccess().getXKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3212:4: ( (lv_operand2_3_0= ruleEvoElementOf ) )
-            	    // InternalEvoMappingRepairDsl.g:3213:5: (lv_operand2_3_0= ruleEvoElementOf )
+            	    // InternalEvoMappingRepairDsl.g:3221:4: ( (lv_operand2_3_0= ruleEvoElementOf ) )
+            	    // InternalEvoMappingRepairDsl.g:3222:5: (lv_operand2_3_0= ruleEvoElementOf )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3213:5: (lv_operand2_3_0= ruleEvoElementOf )
-            	    // InternalEvoMappingRepairDsl.g:3214:6: lv_operand2_3_0= ruleEvoElementOf
+            	    // InternalEvoMappingRepairDsl.g:3222:5: (lv_operand2_3_0= ruleEvoElementOf )
+            	    // InternalEvoMappingRepairDsl.g:3223:6: lv_operand2_3_0= ruleEvoElementOf
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetCartesianProductAccess().getOperand2EvoElementOfParserRuleCall_1_2_0());
@@ -8747,7 +8768,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetCardinality"
-    // InternalEvoMappingRepairDsl.g:3236:1: entryRuleEvoSetCardinality returns [EObject current=null] : iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF ;
+    // InternalEvoMappingRepairDsl.g:3245:1: entryRuleEvoSetCardinality returns [EObject current=null] : iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF ;
     public final EObject entryRuleEvoSetCardinality() throws RecognitionException {
         EObject current = null;
 
@@ -8755,8 +8776,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3236:58: (iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF )
-            // InternalEvoMappingRepairDsl.g:3237:2: iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF
+            // InternalEvoMappingRepairDsl.g:3245:58: (iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF )
+            // InternalEvoMappingRepairDsl.g:3246:2: iv_ruleEvoSetCardinality= ruleEvoSetCardinality EOF
             {
              newCompositeNode(grammarAccess.getEvoSetCardinalityRule()); 
             pushFollow(FOLLOW_1);
@@ -8783,7 +8804,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetCardinality"
-    // InternalEvoMappingRepairDsl.g:3243:1: ruleEvoSetCardinality returns [EObject current=null] : ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:3252:1: ruleEvoSetCardinality returns [EObject current=null] : ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) ) ;
     public final EObject ruleEvoSetCardinality() throws RecognitionException {
         EObject current = null;
 
@@ -8801,14 +8822,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3249:2: ( ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) ) )
-            // InternalEvoMappingRepairDsl.g:3250:2: ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) )
+            // InternalEvoMappingRepairDsl.g:3258:2: ( ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) ) )
+            // InternalEvoMappingRepairDsl.g:3259:2: ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:3250:2: ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) )
-            // InternalEvoMappingRepairDsl.g:3251:3: () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3259:2: ( () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ) )
+            // InternalEvoMappingRepairDsl.g:3260:3: () ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
             {
-            // InternalEvoMappingRepairDsl.g:3251:3: ()
-            // InternalEvoMappingRepairDsl.g:3252:4: 
+            // InternalEvoMappingRepairDsl.g:3260:3: ()
+            // InternalEvoMappingRepairDsl.g:3261:4: 
             {
 
             				current = forceCreateModelElement(
@@ -8818,14 +8839,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:3258:3: ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3267:3: ( (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' ) | (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( (LA44_0==55) ) {
+            if ( (LA44_0==56) ) {
                 alt44=1;
             }
-            else if ( (LA44_0==56) ) {
+            else if ( (LA44_0==57) ) {
                 alt44=2;
             }
             else {
@@ -8836,20 +8857,20 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt44) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:3259:4: (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' )
+                    // InternalEvoMappingRepairDsl.g:3268:4: (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' )
                     {
-                    // InternalEvoMappingRepairDsl.g:3259:4: (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' )
-                    // InternalEvoMappingRepairDsl.g:3260:5: otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|'
+                    // InternalEvoMappingRepairDsl.g:3268:4: (otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|' )
+                    // InternalEvoMappingRepairDsl.g:3269:5: otherlv_1= '|' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= '|'
                     {
-                    otherlv_1=(Token)match(input,55,FOLLOW_38); 
+                    otherlv_1=(Token)match(input,56,FOLLOW_38); 
 
                     					newLeafNode(otherlv_1, grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_0());
                     				
-                    // InternalEvoMappingRepairDsl.g:3264:5: ( (lv_operand_2_0= ruleEvoExpression ) )
-                    // InternalEvoMappingRepairDsl.g:3265:6: (lv_operand_2_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3273:5: ( (lv_operand_2_0= ruleEvoExpression ) )
+                    // InternalEvoMappingRepairDsl.g:3274:6: (lv_operand_2_0= ruleEvoExpression )
                     {
-                    // InternalEvoMappingRepairDsl.g:3265:6: (lv_operand_2_0= ruleEvoExpression )
-                    // InternalEvoMappingRepairDsl.g:3266:7: lv_operand_2_0= ruleEvoExpression
+                    // InternalEvoMappingRepairDsl.g:3274:6: (lv_operand_2_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3275:7: lv_operand_2_0= ruleEvoExpression
                     {
 
                     							newCompositeNode(grammarAccess.getEvoSetCardinalityAccess().getOperandEvoExpressionParserRuleCall_1_0_1_0());
@@ -8876,7 +8897,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     }
 
-                    otherlv_3=(Token)match(input,55,FOLLOW_2); 
+                    otherlv_3=(Token)match(input,56,FOLLOW_2); 
 
                     					newLeafNode(otherlv_3, grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_2());
                     				
@@ -8887,12 +8908,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:3289:4: (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
+                    // InternalEvoMappingRepairDsl.g:3298:4: (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
                     {
-                    // InternalEvoMappingRepairDsl.g:3289:4: (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
-                    // InternalEvoMappingRepairDsl.g:3290:5: otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')'
+                    // InternalEvoMappingRepairDsl.g:3298:4: (otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
+                    // InternalEvoMappingRepairDsl.g:3299:5: otherlv_4= 'size' otherlv_5= '(' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')'
                     {
-                    otherlv_4=(Token)match(input,56,FOLLOW_3); 
+                    otherlv_4=(Token)match(input,57,FOLLOW_3); 
 
                     					newLeafNode(otherlv_4, grammarAccess.getEvoSetCardinalityAccess().getSizeKeyword_1_1_0());
                     				
@@ -8900,11 +8921,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     					newLeafNode(otherlv_5, grammarAccess.getEvoSetCardinalityAccess().getLeftParenthesisKeyword_1_1_1());
                     				
-                    // InternalEvoMappingRepairDsl.g:3298:5: ( (lv_operand_6_0= ruleEvoExpression ) )
-                    // InternalEvoMappingRepairDsl.g:3299:6: (lv_operand_6_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3307:5: ( (lv_operand_6_0= ruleEvoExpression ) )
+                    // InternalEvoMappingRepairDsl.g:3308:6: (lv_operand_6_0= ruleEvoExpression )
                     {
-                    // InternalEvoMappingRepairDsl.g:3299:6: (lv_operand_6_0= ruleEvoExpression )
-                    // InternalEvoMappingRepairDsl.g:3300:7: lv_operand_6_0= ruleEvoExpression
+                    // InternalEvoMappingRepairDsl.g:3308:6: (lv_operand_6_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3309:7: lv_operand_6_0= ruleEvoExpression
                     {
 
                     							newCompositeNode(grammarAccess.getEvoSetCardinalityAccess().getOperandEvoExpressionParserRuleCall_1_1_2_0());
@@ -8967,7 +8988,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoElementOf"
-    // InternalEvoMappingRepairDsl.g:3327:1: entryRuleEvoElementOf returns [EObject current=null] : iv_ruleEvoElementOf= ruleEvoElementOf EOF ;
+    // InternalEvoMappingRepairDsl.g:3336:1: entryRuleEvoElementOf returns [EObject current=null] : iv_ruleEvoElementOf= ruleEvoElementOf EOF ;
     public final EObject entryRuleEvoElementOf() throws RecognitionException {
         EObject current = null;
 
@@ -8975,8 +8996,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3327:53: (iv_ruleEvoElementOf= ruleEvoElementOf EOF )
-            // InternalEvoMappingRepairDsl.g:3328:2: iv_ruleEvoElementOf= ruleEvoElementOf EOF
+            // InternalEvoMappingRepairDsl.g:3336:53: (iv_ruleEvoElementOf= ruleEvoElementOf EOF )
+            // InternalEvoMappingRepairDsl.g:3337:2: iv_ruleEvoElementOf= ruleEvoElementOf EOF
             {
              newCompositeNode(grammarAccess.getEvoElementOfRule()); 
             pushFollow(FOLLOW_1);
@@ -9003,7 +9024,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoElementOf"
-    // InternalEvoMappingRepairDsl.g:3334:1: ruleEvoElementOf returns [EObject current=null] : (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* ) ;
+    // InternalEvoMappingRepairDsl.g:3343:1: ruleEvoElementOf returns [EObject current=null] : (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* ) ;
     public final EObject ruleEvoElementOf() throws RecognitionException {
         EObject current = null;
 
@@ -9021,11 +9042,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3340:2: ( (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* ) )
-            // InternalEvoMappingRepairDsl.g:3341:2: (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3349:2: ( (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* ) )
+            // InternalEvoMappingRepairDsl.g:3350:2: (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* )
             {
-            // InternalEvoMappingRepairDsl.g:3341:2: (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* )
-            // InternalEvoMappingRepairDsl.g:3342:3: this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )*
+            // InternalEvoMappingRepairDsl.g:3350:2: (this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )* )
+            // InternalEvoMappingRepairDsl.g:3351:3: this_EvoTerminal_0= ruleEvoTerminal ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEvoElementOfAccess().getEvoTerminalParserRuleCall_0());
@@ -9039,23 +9060,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             			current = this_EvoTerminal_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEvoMappingRepairDsl.g:3350:3: ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )*
+            // InternalEvoMappingRepairDsl.g:3359:3: ( () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) ) )*
             loop46:
             do {
                 int alt46=2;
                 int LA46_0 = input.LA(1);
 
-                if ( (LA46_0==57) ) {
+                if ( (LA46_0==58) ) {
                     alt46=1;
                 }
 
 
                 switch (alt46) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3351:4: () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) )
+            	    // InternalEvoMappingRepairDsl.g:3360:4: () otherlv_2= 'elementOf' ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3351:4: ()
-            	    // InternalEvoMappingRepairDsl.g:3352:5: 
+            	    // InternalEvoMappingRepairDsl.g:3360:4: ()
+            	    // InternalEvoMappingRepairDsl.g:3361:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -9065,45 +9086,45 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    }
 
-            	    otherlv_2=(Token)match(input,57,FOLLOW_50); 
+            	    otherlv_2=(Token)match(input,58,FOLLOW_50); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoElementOfAccess().getElementOfKeyword_1_1());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3362:4: ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) )
-            	    // InternalEvoMappingRepairDsl.g:3363:5: ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) )
+            	    // InternalEvoMappingRepairDsl.g:3371:4: ( ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) ) )
+            	    // InternalEvoMappingRepairDsl.g:3372:5: ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3363:5: ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) )
-            	    // InternalEvoMappingRepairDsl.g:3364:6: (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal )
+            	    // InternalEvoMappingRepairDsl.g:3372:5: ( (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal ) )
+            	    // InternalEvoMappingRepairDsl.g:3373:6: (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3364:6: (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal )
+            	    // InternalEvoMappingRepairDsl.g:3373:6: (lv_operand2_3_1= ruleEvoTerminal | lv_operand2_3_2= ruleEvoAllMappingTerminal | lv_operand2_3_3= ruleEvoAllConfigurationTerminal )
             	    int alt45=3;
             	    switch ( input.LA(1) ) {
             	    case RULE_ID:
             	    case 13:
-            	    case 34:
-            	    case 55:
+            	    case 35:
             	    case 56:
-            	    case 58:
-            	    case 60:
+            	    case 57:
+            	    case 59:
             	    case 61:
             	    case 62:
-            	    case 65:
+            	    case 63:
             	    case 66:
             	    case 67:
             	    case 68:
-            	    case 70:
+            	    case 69:
             	    case 71:
             	    case 72:
+            	    case 73:
             	        {
             	        alt45=1;
             	        }
             	        break;
-            	    case 63:
+            	    case 64:
             	        {
             	        alt45=2;
             	        }
             	        break;
-            	    case 64:
+            	    case 65:
             	        {
             	        alt45=3;
             	        }
@@ -9117,7 +9138,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             	    switch (alt45) {
             	        case 1 :
-            	            // InternalEvoMappingRepairDsl.g:3365:7: lv_operand2_3_1= ruleEvoTerminal
+            	            // InternalEvoMappingRepairDsl.g:3374:7: lv_operand2_3_1= ruleEvoTerminal
             	            {
 
             	            							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoTerminalParserRuleCall_1_2_0_0());
@@ -9142,7 +9163,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             	            }
             	            break;
             	        case 2 :
-            	            // InternalEvoMappingRepairDsl.g:3381:7: lv_operand2_3_2= ruleEvoAllMappingTerminal
+            	            // InternalEvoMappingRepairDsl.g:3390:7: lv_operand2_3_2= ruleEvoAllMappingTerminal
             	            {
 
             	            							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoAllMappingTerminalParserRuleCall_1_2_0_1());
@@ -9167,7 +9188,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             	            }
             	            break;
             	        case 3 :
-            	            // InternalEvoMappingRepairDsl.g:3397:7: lv_operand2_3_3= ruleEvoAllConfigurationTerminal
+            	            // InternalEvoMappingRepairDsl.g:3406:7: lv_operand2_3_3= ruleEvoAllConfigurationTerminal
             	            {
 
             	            							newCompositeNode(grammarAccess.getEvoElementOfAccess().getOperand2EvoAllConfigurationTerminalParserRuleCall_1_2_0_2());
@@ -9232,7 +9253,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoForAll"
-    // InternalEvoMappingRepairDsl.g:3420:1: entryRuleEvoForAll returns [EObject current=null] : iv_ruleEvoForAll= ruleEvoForAll EOF ;
+    // InternalEvoMappingRepairDsl.g:3429:1: entryRuleEvoForAll returns [EObject current=null] : iv_ruleEvoForAll= ruleEvoForAll EOF ;
     public final EObject entryRuleEvoForAll() throws RecognitionException {
         EObject current = null;
 
@@ -9240,8 +9261,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3420:50: (iv_ruleEvoForAll= ruleEvoForAll EOF )
-            // InternalEvoMappingRepairDsl.g:3421:2: iv_ruleEvoForAll= ruleEvoForAll EOF
+            // InternalEvoMappingRepairDsl.g:3429:50: (iv_ruleEvoForAll= ruleEvoForAll EOF )
+            // InternalEvoMappingRepairDsl.g:3430:2: iv_ruleEvoForAll= ruleEvoForAll EOF
             {
              newCompositeNode(grammarAccess.getEvoForAllRule()); 
             pushFollow(FOLLOW_1);
@@ -9268,7 +9289,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoForAll"
-    // InternalEvoMappingRepairDsl.g:3427:1: ruleEvoForAll returns [EObject current=null] : (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:3436:1: ruleEvoForAll returns [EObject current=null] : (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) ;
     public final EObject ruleEvoForAll() throws RecognitionException {
         EObject current = null;
 
@@ -9288,13 +9309,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3433:2: ( (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
-            // InternalEvoMappingRepairDsl.g:3434:2: (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
+            // InternalEvoMappingRepairDsl.g:3442:2: ( (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3443:2: (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:3434:2: (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
-            // InternalEvoMappingRepairDsl.g:3435:3: otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')'
+            // InternalEvoMappingRepairDsl.g:3443:2: (otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')' )
+            // InternalEvoMappingRepairDsl.g:3444:3: otherlv_0= 'forAll' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )* otherlv_5= ':' ( (lv_operand_6_0= ruleEvoExpression ) ) otherlv_7= ')'
             {
-            otherlv_0=(Token)match(input,58,FOLLOW_3); 
+            otherlv_0=(Token)match(input,59,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoForAllAccess().getForAllKeyword_0());
             		
@@ -9302,11 +9323,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoForAllAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:3443:3: ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:3444:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:3452:3: ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:3453:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:3444:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:3445:5: lv_boundedVariables_2_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:3453:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:3454:5: lv_boundedVariables_2_0= ruleEvoVariableTerm
             {
 
             					newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoVariableTermParserRuleCall_2_0());
@@ -9333,7 +9354,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:3462:3: (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )*
+            // InternalEvoMappingRepairDsl.g:3471:3: (otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) ) )*
             loop47:
             do {
                 int alt47=2;
@@ -9346,17 +9367,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt47) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3463:4: otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:3472:4: otherlv_3= ',' ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) )
             	    {
             	    otherlv_3=(Token)match(input,25,FOLLOW_24); 
 
             	    				newLeafNode(otherlv_3, grammarAccess.getEvoForAllAccess().getCommaKeyword_3_0());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3467:4: ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) )
-            	    // InternalEvoMappingRepairDsl.g:3468:5: (lv_boundedVariables_4_0= ruleEvoVariableTerm )
+            	    // InternalEvoMappingRepairDsl.g:3476:4: ( (lv_boundedVariables_4_0= ruleEvoVariableTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:3477:5: (lv_boundedVariables_4_0= ruleEvoVariableTerm )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3468:5: (lv_boundedVariables_4_0= ruleEvoVariableTerm )
-            	    // InternalEvoMappingRepairDsl.g:3469:6: lv_boundedVariables_4_0= ruleEvoVariableTerm
+            	    // InternalEvoMappingRepairDsl.g:3477:5: (lv_boundedVariables_4_0= ruleEvoVariableTerm )
+            	    // InternalEvoMappingRepairDsl.g:3478:6: lv_boundedVariables_4_0= ruleEvoVariableTerm
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoForAllAccess().getBoundedVariablesEvoVariableTermParserRuleCall_3_1_0());
@@ -9392,15 +9413,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,59,FOLLOW_38); 
+            otherlv_5=(Token)match(input,60,FOLLOW_38); 
 
             			newLeafNode(otherlv_5, grammarAccess.getEvoForAllAccess().getColonKeyword_4());
             		
-            // InternalEvoMappingRepairDsl.g:3491:3: ( (lv_operand_6_0= ruleEvoExpression ) )
-            // InternalEvoMappingRepairDsl.g:3492:4: (lv_operand_6_0= ruleEvoExpression )
+            // InternalEvoMappingRepairDsl.g:3500:3: ( (lv_operand_6_0= ruleEvoExpression ) )
+            // InternalEvoMappingRepairDsl.g:3501:4: (lv_operand_6_0= ruleEvoExpression )
             {
-            // InternalEvoMappingRepairDsl.g:3492:4: (lv_operand_6_0= ruleEvoExpression )
-            // InternalEvoMappingRepairDsl.g:3493:5: lv_operand_6_0= ruleEvoExpression
+            // InternalEvoMappingRepairDsl.g:3501:4: (lv_operand_6_0= ruleEvoExpression )
+            // InternalEvoMappingRepairDsl.g:3502:5: lv_operand_6_0= ruleEvoExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoForAllAccess().getOperandEvoExpressionParserRuleCall_5_0());
@@ -9454,7 +9475,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoExists"
-    // InternalEvoMappingRepairDsl.g:3518:1: entryRuleEvoExists returns [EObject current=null] : iv_ruleEvoExists= ruleEvoExists EOF ;
+    // InternalEvoMappingRepairDsl.g:3527:1: entryRuleEvoExists returns [EObject current=null] : iv_ruleEvoExists= ruleEvoExists EOF ;
     public final EObject entryRuleEvoExists() throws RecognitionException {
         EObject current = null;
 
@@ -9462,8 +9483,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3518:50: (iv_ruleEvoExists= ruleEvoExists EOF )
-            // InternalEvoMappingRepairDsl.g:3519:2: iv_ruleEvoExists= ruleEvoExists EOF
+            // InternalEvoMappingRepairDsl.g:3527:50: (iv_ruleEvoExists= ruleEvoExists EOF )
+            // InternalEvoMappingRepairDsl.g:3528:2: iv_ruleEvoExists= ruleEvoExists EOF
             {
              newCompositeNode(grammarAccess.getEvoExistsRule()); 
             pushFollow(FOLLOW_1);
@@ -9490,7 +9511,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoExists"
-    // InternalEvoMappingRepairDsl.g:3525:1: ruleEvoExists returns [EObject current=null] : (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:3534:1: ruleEvoExists returns [EObject current=null] : (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' ) ;
     public final EObject ruleEvoExists() throws RecognitionException {
         EObject current = null;
 
@@ -9507,13 +9528,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3531:2: ( (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' ) )
-            // InternalEvoMappingRepairDsl.g:3532:2: (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' )
+            // InternalEvoMappingRepairDsl.g:3540:2: ( (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3541:2: (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:3532:2: (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' )
-            // InternalEvoMappingRepairDsl.g:3533:3: otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')'
+            // InternalEvoMappingRepairDsl.g:3541:2: (otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')' )
+            // InternalEvoMappingRepairDsl.g:3542:3: otherlv_0= 'exists' otherlv_1= '(' ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) ) otherlv_3= ':' ( (lv_operand_4_0= ruleEvoExpression ) ) otherlv_5= ')'
             {
-            otherlv_0=(Token)match(input,60,FOLLOW_3); 
+            otherlv_0=(Token)match(input,61,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoExistsAccess().getExistsKeyword_0());
             		
@@ -9521,11 +9542,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoExistsAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:3541:3: ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:3542:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:3550:3: ( (lv_boundedVariables_2_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:3551:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:3542:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:3543:5: lv_boundedVariables_2_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:3551:4: (lv_boundedVariables_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:3552:5: lv_boundedVariables_2_0= ruleEvoVariableTerm
             {
 
             					newCompositeNode(grammarAccess.getEvoExistsAccess().getBoundedVariablesEvoVariableTermParserRuleCall_2_0());
@@ -9552,15 +9573,15 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_3=(Token)match(input,59,FOLLOW_38); 
+            otherlv_3=(Token)match(input,60,FOLLOW_38); 
 
             			newLeafNode(otherlv_3, grammarAccess.getEvoExistsAccess().getColonKeyword_3());
             		
-            // InternalEvoMappingRepairDsl.g:3564:3: ( (lv_operand_4_0= ruleEvoExpression ) )
-            // InternalEvoMappingRepairDsl.g:3565:4: (lv_operand_4_0= ruleEvoExpression )
+            // InternalEvoMappingRepairDsl.g:3573:3: ( (lv_operand_4_0= ruleEvoExpression ) )
+            // InternalEvoMappingRepairDsl.g:3574:4: (lv_operand_4_0= ruleEvoExpression )
             {
-            // InternalEvoMappingRepairDsl.g:3565:4: (lv_operand_4_0= ruleEvoExpression )
-            // InternalEvoMappingRepairDsl.g:3566:5: lv_operand_4_0= ruleEvoExpression
+            // InternalEvoMappingRepairDsl.g:3574:4: (lv_operand_4_0= ruleEvoExpression )
+            // InternalEvoMappingRepairDsl.g:3575:5: lv_operand_4_0= ruleEvoExpression
             {
 
             					newCompositeNode(grammarAccess.getEvoExistsAccess().getOperandEvoExpressionParserRuleCall_4_0());
@@ -9614,7 +9635,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoNot"
-    // InternalEvoMappingRepairDsl.g:3591:1: entryRuleEvoNot returns [EObject current=null] : iv_ruleEvoNot= ruleEvoNot EOF ;
+    // InternalEvoMappingRepairDsl.g:3600:1: entryRuleEvoNot returns [EObject current=null] : iv_ruleEvoNot= ruleEvoNot EOF ;
     public final EObject entryRuleEvoNot() throws RecognitionException {
         EObject current = null;
 
@@ -9622,8 +9643,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3591:47: (iv_ruleEvoNot= ruleEvoNot EOF )
-            // InternalEvoMappingRepairDsl.g:3592:2: iv_ruleEvoNot= ruleEvoNot EOF
+            // InternalEvoMappingRepairDsl.g:3600:47: (iv_ruleEvoNot= ruleEvoNot EOF )
+            // InternalEvoMappingRepairDsl.g:3601:2: iv_ruleEvoNot= ruleEvoNot EOF
             {
              newCompositeNode(grammarAccess.getEvoNotRule()); 
             pushFollow(FOLLOW_1);
@@ -9650,7 +9671,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoNot"
-    // InternalEvoMappingRepairDsl.g:3598:1: ruleEvoNot returns [EObject current=null] : ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:3607:1: ruleEvoNot returns [EObject current=null] : ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) ) ;
     public final EObject ruleEvoNot() throws RecognitionException {
         EObject current = null;
 
@@ -9667,17 +9688,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3604:2: ( ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) ) )
-            // InternalEvoMappingRepairDsl.g:3605:2: ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) )
+            // InternalEvoMappingRepairDsl.g:3613:2: ( ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) ) )
+            // InternalEvoMappingRepairDsl.g:3614:2: ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:3605:2: ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) )
+            // InternalEvoMappingRepairDsl.g:3614:2: ( (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' ) | (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) ) )
             int alt48=2;
             int LA48_0 = input.LA(1);
 
-            if ( (LA48_0==61) ) {
+            if ( (LA48_0==62) ) {
                 alt48=1;
             }
-            else if ( (LA48_0==34) ) {
+            else if ( (LA48_0==35) ) {
                 alt48=2;
             }
             else {
@@ -9688,12 +9709,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt48) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:3606:3: (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' )
+                    // InternalEvoMappingRepairDsl.g:3615:3: (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' )
                     {
-                    // InternalEvoMappingRepairDsl.g:3606:3: (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' )
-                    // InternalEvoMappingRepairDsl.g:3607:4: otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')'
+                    // InternalEvoMappingRepairDsl.g:3615:3: (otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')' )
+                    // InternalEvoMappingRepairDsl.g:3616:4: otherlv_0= 'not' otherlv_1= '(' ( (lv_operand_2_0= ruleEvoExpression ) ) otherlv_3= ')'
                     {
-                    otherlv_0=(Token)match(input,61,FOLLOW_3); 
+                    otherlv_0=(Token)match(input,62,FOLLOW_3); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getEvoNotAccess().getNotKeyword_0_0());
                     			
@@ -9701,11 +9722,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                     				newLeafNode(otherlv_1, grammarAccess.getEvoNotAccess().getLeftParenthesisKeyword_0_1());
                     			
-                    // InternalEvoMappingRepairDsl.g:3615:4: ( (lv_operand_2_0= ruleEvoExpression ) )
-                    // InternalEvoMappingRepairDsl.g:3616:5: (lv_operand_2_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3624:4: ( (lv_operand_2_0= ruleEvoExpression ) )
+                    // InternalEvoMappingRepairDsl.g:3625:5: (lv_operand_2_0= ruleEvoExpression )
                     {
-                    // InternalEvoMappingRepairDsl.g:3616:5: (lv_operand_2_0= ruleEvoExpression )
-                    // InternalEvoMappingRepairDsl.g:3617:6: lv_operand_2_0= ruleEvoExpression
+                    // InternalEvoMappingRepairDsl.g:3625:5: (lv_operand_2_0= ruleEvoExpression )
+                    // InternalEvoMappingRepairDsl.g:3626:6: lv_operand_2_0= ruleEvoExpression
                     {
 
                     						newCompositeNode(grammarAccess.getEvoNotAccess().getOperandEvoExpressionParserRuleCall_0_2_0());
@@ -9743,20 +9764,20 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:3640:3: (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) )
+                    // InternalEvoMappingRepairDsl.g:3649:3: (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) )
                     {
-                    // InternalEvoMappingRepairDsl.g:3640:3: (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) )
-                    // InternalEvoMappingRepairDsl.g:3641:4: otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) )
+                    // InternalEvoMappingRepairDsl.g:3649:3: (otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) ) )
+                    // InternalEvoMappingRepairDsl.g:3650:4: otherlv_4= '!' ( (lv_operand_5_0= ruleEvoVariableTerm ) )
                     {
-                    otherlv_4=(Token)match(input,34,FOLLOW_24); 
+                    otherlv_4=(Token)match(input,35,FOLLOW_24); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getEvoNotAccess().getExclamationMarkKeyword_1_0());
                     			
-                    // InternalEvoMappingRepairDsl.g:3645:4: ( (lv_operand_5_0= ruleEvoVariableTerm ) )
-                    // InternalEvoMappingRepairDsl.g:3646:5: (lv_operand_5_0= ruleEvoVariableTerm )
+                    // InternalEvoMappingRepairDsl.g:3654:4: ( (lv_operand_5_0= ruleEvoVariableTerm ) )
+                    // InternalEvoMappingRepairDsl.g:3655:5: (lv_operand_5_0= ruleEvoVariableTerm )
                     {
-                    // InternalEvoMappingRepairDsl.g:3646:5: (lv_operand_5_0= ruleEvoVariableTerm )
-                    // InternalEvoMappingRepairDsl.g:3647:6: lv_operand_5_0= ruleEvoVariableTerm
+                    // InternalEvoMappingRepairDsl.g:3655:5: (lv_operand_5_0= ruleEvoVariableTerm )
+                    // InternalEvoMappingRepairDsl.g:3656:6: lv_operand_5_0= ruleEvoVariableTerm
                     {
 
                     						newCompositeNode(grammarAccess.getEvoNotAccess().getOperandEvoVariableTermParserRuleCall_1_1_0());
@@ -9812,7 +9833,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSatisfiable"
-    // InternalEvoMappingRepairDsl.g:3669:1: entryRuleEvoSatisfiable returns [EObject current=null] : iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF ;
+    // InternalEvoMappingRepairDsl.g:3678:1: entryRuleEvoSatisfiable returns [EObject current=null] : iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF ;
     public final EObject entryRuleEvoSatisfiable() throws RecognitionException {
         EObject current = null;
 
@@ -9820,8 +9841,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3669:55: (iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF )
-            // InternalEvoMappingRepairDsl.g:3670:2: iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF
+            // InternalEvoMappingRepairDsl.g:3678:55: (iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF )
+            // InternalEvoMappingRepairDsl.g:3679:2: iv_ruleEvoSatisfiable= ruleEvoSatisfiable EOF
             {
              newCompositeNode(grammarAccess.getEvoSatisfiableRule()); 
             pushFollow(FOLLOW_1);
@@ -9848,7 +9869,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSatisfiable"
-    // InternalEvoMappingRepairDsl.g:3676:1: ruleEvoSatisfiable returns [EObject current=null] : ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:3685:1: ruleEvoSatisfiable returns [EObject current=null] : ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' ) ;
     public final EObject ruleEvoSatisfiable() throws RecognitionException {
         EObject current = null;
 
@@ -9869,14 +9890,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3682:2: ( ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' ) )
-            // InternalEvoMappingRepairDsl.g:3683:2: ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' )
+            // InternalEvoMappingRepairDsl.g:3691:2: ( ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3692:2: ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:3683:2: ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' )
-            // InternalEvoMappingRepairDsl.g:3684:3: () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')'
+            // InternalEvoMappingRepairDsl.g:3692:2: ( () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')' )
+            // InternalEvoMappingRepairDsl.g:3693:3: () otherlv_1= 'satisfiable' otherlv_2= '(' ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) ) (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )* otherlv_6= ')'
             {
-            // InternalEvoMappingRepairDsl.g:3684:3: ()
-            // InternalEvoMappingRepairDsl.g:3685:4: 
+            // InternalEvoMappingRepairDsl.g:3693:3: ()
+            // InternalEvoMappingRepairDsl.g:3694:4: 
             {
 
             				current = forceCreateModelElement(
@@ -9886,7 +9907,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,62,FOLLOW_3); 
+            otherlv_1=(Token)match(input,63,FOLLOW_3); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoSatisfiableAccess().getSatisfiableKeyword_1());
             		
@@ -9894,20 +9915,20 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_2, grammarAccess.getEvoSatisfiableAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalEvoMappingRepairDsl.g:3699:3: ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) )
-            // InternalEvoMappingRepairDsl.g:3700:4: ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) )
+            // InternalEvoMappingRepairDsl.g:3708:3: ( ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) ) )
+            // InternalEvoMappingRepairDsl.g:3709:4: ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) )
             {
-            // InternalEvoMappingRepairDsl.g:3700:4: ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) )
-            // InternalEvoMappingRepairDsl.g:3701:5: (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm )
+            // InternalEvoMappingRepairDsl.g:3709:4: ( (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm ) )
+            // InternalEvoMappingRepairDsl.g:3710:5: (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm )
             {
-            // InternalEvoMappingRepairDsl.g:3701:5: (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm )
+            // InternalEvoMappingRepairDsl.g:3710:5: (lv_variables_3_1= ruleEvoSetVariable | lv_variables_3_2= ruleEvoApplicationConstraintTerm )
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( (LA49_0==RULE_ID||LA49_0==34||LA49_0==61||LA49_0==68) ) {
+            if ( (LA49_0==RULE_ID||LA49_0==35||LA49_0==62||LA49_0==69) ) {
                 alt49=1;
             }
-            else if ( (LA49_0==65) ) {
+            else if ( (LA49_0==66) ) {
                 alt49=2;
             }
             else {
@@ -9918,7 +9939,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt49) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:3702:6: lv_variables_3_1= ruleEvoSetVariable
+                    // InternalEvoMappingRepairDsl.g:3711:6: lv_variables_3_1= ruleEvoSetVariable
                     {
 
                     						newCompositeNode(grammarAccess.getEvoSatisfiableAccess().getVariablesEvoSetVariableParserRuleCall_3_0_0());
@@ -9943,7 +9964,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:3718:6: lv_variables_3_2= ruleEvoApplicationConstraintTerm
+                    // InternalEvoMappingRepairDsl.g:3727:6: lv_variables_3_2= ruleEvoApplicationConstraintTerm
                     {
 
                     						newCompositeNode(grammarAccess.getEvoSatisfiableAccess().getVariablesEvoApplicationConstraintTermParserRuleCall_3_0_1());
@@ -9976,7 +9997,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:3736:3: (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )*
+            // InternalEvoMappingRepairDsl.g:3745:3: (otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) ) )*
             loop51:
             do {
                 int alt51=2;
@@ -9989,26 +10010,26 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt51) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:3737:4: otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) )
+            	    // InternalEvoMappingRepairDsl.g:3746:4: otherlv_4= ',' ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) )
             	    {
             	    otherlv_4=(Token)match(input,25,FOLLOW_53); 
 
             	    				newLeafNode(otherlv_4, grammarAccess.getEvoSatisfiableAccess().getCommaKeyword_4_0());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:3741:4: ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) )
-            	    // InternalEvoMappingRepairDsl.g:3742:5: ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:3750:4: ( ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) ) )
+            	    // InternalEvoMappingRepairDsl.g:3751:5: ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3742:5: ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) )
-            	    // InternalEvoMappingRepairDsl.g:3743:6: (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm )
+            	    // InternalEvoMappingRepairDsl.g:3751:5: ( (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:3752:6: (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:3743:6: (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm )
+            	    // InternalEvoMappingRepairDsl.g:3752:6: (lv_variables_5_1= ruleEvoSetVariable | lv_variables_5_2= ruleEvoApplicationConstraintTerm )
             	    int alt50=2;
             	    int LA50_0 = input.LA(1);
 
-            	    if ( (LA50_0==RULE_ID||LA50_0==34||LA50_0==61||LA50_0==68) ) {
+            	    if ( (LA50_0==RULE_ID||LA50_0==35||LA50_0==62||LA50_0==69) ) {
             	        alt50=1;
             	    }
-            	    else if ( (LA50_0==65) ) {
+            	    else if ( (LA50_0==66) ) {
             	        alt50=2;
             	    }
             	    else {
@@ -10019,7 +10040,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             	    }
             	    switch (alt50) {
             	        case 1 :
-            	            // InternalEvoMappingRepairDsl.g:3744:7: lv_variables_5_1= ruleEvoSetVariable
+            	            // InternalEvoMappingRepairDsl.g:3753:7: lv_variables_5_1= ruleEvoSetVariable
             	            {
 
             	            							newCompositeNode(grammarAccess.getEvoSatisfiableAccess().getVariablesEvoSetVariableParserRuleCall_4_1_0_0());
@@ -10044,7 +10065,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             	            }
             	            break;
             	        case 2 :
-            	            // InternalEvoMappingRepairDsl.g:3760:7: lv_variables_5_2= ruleEvoApplicationConstraintTerm
+            	            // InternalEvoMappingRepairDsl.g:3769:7: lv_variables_5_2= ruleEvoApplicationConstraintTerm
             	            {
 
             	            							newCompositeNode(grammarAccess.getEvoSatisfiableAccess().getVariablesEvoApplicationConstraintTermParserRuleCall_4_1_0_1());
@@ -10113,7 +10134,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoTerminal"
-    // InternalEvoMappingRepairDsl.g:3787:1: entryRuleEvoTerminal returns [EObject current=null] : iv_ruleEvoTerminal= ruleEvoTerminal EOF ;
+    // InternalEvoMappingRepairDsl.g:3796:1: entryRuleEvoTerminal returns [EObject current=null] : iv_ruleEvoTerminal= ruleEvoTerminal EOF ;
     public final EObject entryRuleEvoTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10121,8 +10142,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3787:52: (iv_ruleEvoTerminal= ruleEvoTerminal EOF )
-            // InternalEvoMappingRepairDsl.g:3788:2: iv_ruleEvoTerminal= ruleEvoTerminal EOF
+            // InternalEvoMappingRepairDsl.g:3796:52: (iv_ruleEvoTerminal= ruleEvoTerminal EOF )
+            // InternalEvoMappingRepairDsl.g:3797:2: iv_ruleEvoTerminal= ruleEvoTerminal EOF
             {
              newCompositeNode(grammarAccess.getEvoTerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -10149,7 +10170,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoTerminal"
-    // InternalEvoMappingRepairDsl.g:3794:1: ruleEvoTerminal returns [EObject current=null] : (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) ) ;
+    // InternalEvoMappingRepairDsl.g:3803:1: ruleEvoTerminal returns [EObject current=null] : (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) ) ;
     public final EObject ruleEvoTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10188,10 +10209,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3800:2: ( (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) ) )
-            // InternalEvoMappingRepairDsl.g:3801:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3809:2: ( (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) ) )
+            // InternalEvoMappingRepairDsl.g:3810:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) )
             {
-            // InternalEvoMappingRepairDsl.g:3801:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) )
+            // InternalEvoMappingRepairDsl.g:3810:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm | this_EvoForAll_3= ruleEvoForAll | this_EvoExists_4= ruleEvoExists | this_EvoNot_5= ruleEvoNot | this_EvoFeatureType_6= ruleEvoFeatureType | this_EvoGroupType_7= ruleEvoGroupType | this_EvoSetCardinality_8= ruleEvoSetCardinality | this_EvoChildrenOf_9= ruleEvoChildrenOf | this_EvoParentOf_10= ruleEvoParentOf | this_EvoSiblingsOf_11= ruleEvoSiblingsOf | this_EvoSatisfiable_12= ruleEvoSatisfiable | (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' ) )
             int alt52=14;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -10199,64 +10220,64 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                 alt52=1;
                 }
                 break;
-            case 68:
+            case 69:
                 {
                 alt52=2;
                 }
                 break;
-            case 65:
+            case 66:
                 {
                 alt52=3;
                 }
                 break;
-            case 58:
+            case 59:
                 {
                 alt52=4;
                 }
                 break;
-            case 60:
+            case 61:
                 {
                 alt52=5;
                 }
                 break;
-            case 34:
-            case 61:
+            case 35:
+            case 62:
                 {
                 alt52=6;
                 }
                 break;
-            case 66:
+            case 67:
                 {
                 alt52=7;
                 }
                 break;
-            case 67:
+            case 68:
                 {
                 alt52=8;
                 }
                 break;
-            case 55:
             case 56:
+            case 57:
                 {
                 alt52=9;
                 }
                 break;
-            case 72:
+            case 73:
                 {
                 alt52=10;
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 alt52=11;
                 }
                 break;
-            case 71:
+            case 72:
                 {
                 alt52=12;
                 }
                 break;
-            case 62:
+            case 63:
                 {
                 alt52=13;
                 }
@@ -10275,7 +10296,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             switch (alt52) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:3802:3: this_EvoVariableTerm_0= ruleEvoVariableTerm
+                    // InternalEvoMappingRepairDsl.g:3811:3: this_EvoVariableTerm_0= ruleEvoVariableTerm
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoVariableTermParserRuleCall_0());
@@ -10293,7 +10314,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:3811:3: this_EvoSetTerm_1= ruleEvoSetTerm
+                    // InternalEvoMappingRepairDsl.g:3820:3: this_EvoSetTerm_1= ruleEvoSetTerm
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoSetTermParserRuleCall_1());
@@ -10311,7 +10332,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:3820:3: this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm
+                    // InternalEvoMappingRepairDsl.g:3829:3: this_EvoApplicationConstraintTerm_2= ruleEvoApplicationConstraintTerm
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoApplicationConstraintTermParserRuleCall_2());
@@ -10329,7 +10350,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalEvoMappingRepairDsl.g:3829:3: this_EvoForAll_3= ruleEvoForAll
+                    // InternalEvoMappingRepairDsl.g:3838:3: this_EvoForAll_3= ruleEvoForAll
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoForAllParserRuleCall_3());
@@ -10347,7 +10368,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalEvoMappingRepairDsl.g:3838:3: this_EvoExists_4= ruleEvoExists
+                    // InternalEvoMappingRepairDsl.g:3847:3: this_EvoExists_4= ruleEvoExists
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoExistsParserRuleCall_4());
@@ -10365,7 +10386,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 6 :
-                    // InternalEvoMappingRepairDsl.g:3847:3: this_EvoNot_5= ruleEvoNot
+                    // InternalEvoMappingRepairDsl.g:3856:3: this_EvoNot_5= ruleEvoNot
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoNotParserRuleCall_5());
@@ -10383,7 +10404,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 7 :
-                    // InternalEvoMappingRepairDsl.g:3856:3: this_EvoFeatureType_6= ruleEvoFeatureType
+                    // InternalEvoMappingRepairDsl.g:3865:3: this_EvoFeatureType_6= ruleEvoFeatureType
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoFeatureTypeParserRuleCall_6());
@@ -10401,7 +10422,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 8 :
-                    // InternalEvoMappingRepairDsl.g:3865:3: this_EvoGroupType_7= ruleEvoGroupType
+                    // InternalEvoMappingRepairDsl.g:3874:3: this_EvoGroupType_7= ruleEvoGroupType
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoGroupTypeParserRuleCall_7());
@@ -10419,7 +10440,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 9 :
-                    // InternalEvoMappingRepairDsl.g:3874:3: this_EvoSetCardinality_8= ruleEvoSetCardinality
+                    // InternalEvoMappingRepairDsl.g:3883:3: this_EvoSetCardinality_8= ruleEvoSetCardinality
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoSetCardinalityParserRuleCall_8());
@@ -10437,7 +10458,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 10 :
-                    // InternalEvoMappingRepairDsl.g:3883:3: this_EvoChildrenOf_9= ruleEvoChildrenOf
+                    // InternalEvoMappingRepairDsl.g:3892:3: this_EvoChildrenOf_9= ruleEvoChildrenOf
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoChildrenOfParserRuleCall_9());
@@ -10455,7 +10476,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 11 :
-                    // InternalEvoMappingRepairDsl.g:3892:3: this_EvoParentOf_10= ruleEvoParentOf
+                    // InternalEvoMappingRepairDsl.g:3901:3: this_EvoParentOf_10= ruleEvoParentOf
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoParentOfParserRuleCall_10());
@@ -10473,7 +10494,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 12 :
-                    // InternalEvoMappingRepairDsl.g:3901:3: this_EvoSiblingsOf_11= ruleEvoSiblingsOf
+                    // InternalEvoMappingRepairDsl.g:3910:3: this_EvoSiblingsOf_11= ruleEvoSiblingsOf
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoSiblingsOfParserRuleCall_11());
@@ -10491,7 +10512,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 13 :
-                    // InternalEvoMappingRepairDsl.g:3910:3: this_EvoSatisfiable_12= ruleEvoSatisfiable
+                    // InternalEvoMappingRepairDsl.g:3919:3: this_EvoSatisfiable_12= ruleEvoSatisfiable
                     {
 
                     			newCompositeNode(grammarAccess.getEvoTerminalAccess().getEvoSatisfiableParserRuleCall_12());
@@ -10509,10 +10530,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 14 :
-                    // InternalEvoMappingRepairDsl.g:3919:3: (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' )
+                    // InternalEvoMappingRepairDsl.g:3928:3: (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' )
                     {
-                    // InternalEvoMappingRepairDsl.g:3919:3: (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' )
-                    // InternalEvoMappingRepairDsl.g:3920:4: otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')'
+                    // InternalEvoMappingRepairDsl.g:3928:3: (otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')' )
+                    // InternalEvoMappingRepairDsl.g:3929:4: otherlv_13= '(' this_EvoXOr_14= ruleEvoXOr otherlv_15= ')'
                     {
                     otherlv_13=(Token)match(input,13,FOLLOW_38); 
 
@@ -10563,7 +10584,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoAllMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:3941:1: entryRuleEvoAllMappingTerminal returns [EObject current=null] : iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF ;
+    // InternalEvoMappingRepairDsl.g:3950:1: entryRuleEvoAllMappingTerminal returns [EObject current=null] : iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF ;
     public final EObject entryRuleEvoAllMappingTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10571,8 +10592,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3941:62: (iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF )
-            // InternalEvoMappingRepairDsl.g:3942:2: iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF
+            // InternalEvoMappingRepairDsl.g:3950:62: (iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF )
+            // InternalEvoMappingRepairDsl.g:3951:2: iv_ruleEvoAllMappingTerminal= ruleEvoAllMappingTerminal EOF
             {
              newCompositeNode(grammarAccess.getEvoAllMappingTerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -10599,7 +10620,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoAllMappingTerminal"
-    // InternalEvoMappingRepairDsl.g:3948:1: ruleEvoAllMappingTerminal returns [EObject current=null] : ( () otherlv_1= 'All_Mappings' ) ;
+    // InternalEvoMappingRepairDsl.g:3957:1: ruleEvoAllMappingTerminal returns [EObject current=null] : ( () otherlv_1= 'All_Mappings' ) ;
     public final EObject ruleEvoAllMappingTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10609,14 +10630,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3954:2: ( ( () otherlv_1= 'All_Mappings' ) )
-            // InternalEvoMappingRepairDsl.g:3955:2: ( () otherlv_1= 'All_Mappings' )
+            // InternalEvoMappingRepairDsl.g:3963:2: ( ( () otherlv_1= 'All_Mappings' ) )
+            // InternalEvoMappingRepairDsl.g:3964:2: ( () otherlv_1= 'All_Mappings' )
             {
-            // InternalEvoMappingRepairDsl.g:3955:2: ( () otherlv_1= 'All_Mappings' )
-            // InternalEvoMappingRepairDsl.g:3956:3: () otherlv_1= 'All_Mappings'
+            // InternalEvoMappingRepairDsl.g:3964:2: ( () otherlv_1= 'All_Mappings' )
+            // InternalEvoMappingRepairDsl.g:3965:3: () otherlv_1= 'All_Mappings'
             {
-            // InternalEvoMappingRepairDsl.g:3956:3: ()
-            // InternalEvoMappingRepairDsl.g:3957:4: 
+            // InternalEvoMappingRepairDsl.g:3965:3: ()
+            // InternalEvoMappingRepairDsl.g:3966:4: 
             {
 
             				current = forceCreateModelElement(
@@ -10626,7 +10647,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,63,FOLLOW_2); 
+            otherlv_1=(Token)match(input,64,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoAllMappingTerminalAccess().getAll_MappingsKeyword_1());
             		
@@ -10653,7 +10674,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoAllConfigurationTerminal"
-    // InternalEvoMappingRepairDsl.g:3971:1: entryRuleEvoAllConfigurationTerminal returns [EObject current=null] : iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF ;
+    // InternalEvoMappingRepairDsl.g:3980:1: entryRuleEvoAllConfigurationTerminal returns [EObject current=null] : iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF ;
     public final EObject entryRuleEvoAllConfigurationTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10661,8 +10682,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:3971:68: (iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF )
-            // InternalEvoMappingRepairDsl.g:3972:2: iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF
+            // InternalEvoMappingRepairDsl.g:3980:68: (iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF )
+            // InternalEvoMappingRepairDsl.g:3981:2: iv_ruleEvoAllConfigurationTerminal= ruleEvoAllConfigurationTerminal EOF
             {
              newCompositeNode(grammarAccess.getEvoAllConfigurationTerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -10689,7 +10710,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoAllConfigurationTerminal"
-    // InternalEvoMappingRepairDsl.g:3978:1: ruleEvoAllConfigurationTerminal returns [EObject current=null] : ( () otherlv_1= 'All_Configurations' ) ;
+    // InternalEvoMappingRepairDsl.g:3987:1: ruleEvoAllConfigurationTerminal returns [EObject current=null] : ( () otherlv_1= 'All_Configurations' ) ;
     public final EObject ruleEvoAllConfigurationTerminal() throws RecognitionException {
         EObject current = null;
 
@@ -10699,14 +10720,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:3984:2: ( ( () otherlv_1= 'All_Configurations' ) )
-            // InternalEvoMappingRepairDsl.g:3985:2: ( () otherlv_1= 'All_Configurations' )
+            // InternalEvoMappingRepairDsl.g:3993:2: ( ( () otherlv_1= 'All_Configurations' ) )
+            // InternalEvoMappingRepairDsl.g:3994:2: ( () otherlv_1= 'All_Configurations' )
             {
-            // InternalEvoMappingRepairDsl.g:3985:2: ( () otherlv_1= 'All_Configurations' )
-            // InternalEvoMappingRepairDsl.g:3986:3: () otherlv_1= 'All_Configurations'
+            // InternalEvoMappingRepairDsl.g:3994:2: ( () otherlv_1= 'All_Configurations' )
+            // InternalEvoMappingRepairDsl.g:3995:3: () otherlv_1= 'All_Configurations'
             {
-            // InternalEvoMappingRepairDsl.g:3986:3: ()
-            // InternalEvoMappingRepairDsl.g:3987:4: 
+            // InternalEvoMappingRepairDsl.g:3995:3: ()
+            // InternalEvoMappingRepairDsl.g:3996:4: 
             {
 
             				current = forceCreateModelElement(
@@ -10716,7 +10737,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,64,FOLLOW_2); 
+            otherlv_1=(Token)match(input,65,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoAllConfigurationTerminalAccess().getAll_ConfigurationsKeyword_1());
             		
@@ -10743,7 +10764,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSize"
-    // InternalEvoMappingRepairDsl.g:4001:1: entryRuleEvoSize returns [EObject current=null] : iv_ruleEvoSize= ruleEvoSize EOF ;
+    // InternalEvoMappingRepairDsl.g:4010:1: entryRuleEvoSize returns [EObject current=null] : iv_ruleEvoSize= ruleEvoSize EOF ;
     public final EObject entryRuleEvoSize() throws RecognitionException {
         EObject current = null;
 
@@ -10751,8 +10772,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4001:48: (iv_ruleEvoSize= ruleEvoSize EOF )
-            // InternalEvoMappingRepairDsl.g:4002:2: iv_ruleEvoSize= ruleEvoSize EOF
+            // InternalEvoMappingRepairDsl.g:4010:48: (iv_ruleEvoSize= ruleEvoSize EOF )
+            // InternalEvoMappingRepairDsl.g:4011:2: iv_ruleEvoSize= ruleEvoSize EOF
             {
              newCompositeNode(grammarAccess.getEvoSizeRule()); 
             pushFollow(FOLLOW_1);
@@ -10779,7 +10800,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSize"
-    // InternalEvoMappingRepairDsl.g:4008:1: ruleEvoSize returns [EObject current=null] : ( () ( (lv_size_1_0= RULE_INT ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:4017:1: ruleEvoSize returns [EObject current=null] : ( () ( (lv_size_1_0= RULE_INT ) ) ) ;
     public final EObject ruleEvoSize() throws RecognitionException {
         EObject current = null;
 
@@ -10789,14 +10810,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4014:2: ( ( () ( (lv_size_1_0= RULE_INT ) ) ) )
-            // InternalEvoMappingRepairDsl.g:4015:2: ( () ( (lv_size_1_0= RULE_INT ) ) )
+            // InternalEvoMappingRepairDsl.g:4023:2: ( ( () ( (lv_size_1_0= RULE_INT ) ) ) )
+            // InternalEvoMappingRepairDsl.g:4024:2: ( () ( (lv_size_1_0= RULE_INT ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:4015:2: ( () ( (lv_size_1_0= RULE_INT ) ) )
-            // InternalEvoMappingRepairDsl.g:4016:3: () ( (lv_size_1_0= RULE_INT ) )
+            // InternalEvoMappingRepairDsl.g:4024:2: ( () ( (lv_size_1_0= RULE_INT ) ) )
+            // InternalEvoMappingRepairDsl.g:4025:3: () ( (lv_size_1_0= RULE_INT ) )
             {
-            // InternalEvoMappingRepairDsl.g:4016:3: ()
-            // InternalEvoMappingRepairDsl.g:4017:4: 
+            // InternalEvoMappingRepairDsl.g:4025:3: ()
+            // InternalEvoMappingRepairDsl.g:4026:4: 
             {
 
             				current = forceCreateModelElement(
@@ -10806,11 +10827,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4023:3: ( (lv_size_1_0= RULE_INT ) )
-            // InternalEvoMappingRepairDsl.g:4024:4: (lv_size_1_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:4032:3: ( (lv_size_1_0= RULE_INT ) )
+            // InternalEvoMappingRepairDsl.g:4033:4: (lv_size_1_0= RULE_INT )
             {
-            // InternalEvoMappingRepairDsl.g:4024:4: (lv_size_1_0= RULE_INT )
-            // InternalEvoMappingRepairDsl.g:4025:5: lv_size_1_0= RULE_INT
+            // InternalEvoMappingRepairDsl.g:4033:4: (lv_size_1_0= RULE_INT )
+            // InternalEvoMappingRepairDsl.g:4034:5: lv_size_1_0= RULE_INT
             {
             lv_size_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -10855,7 +10876,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoVariableTerm"
-    // InternalEvoMappingRepairDsl.g:4045:1: entryRuleEvoVariableTerm returns [EObject current=null] : iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF ;
+    // InternalEvoMappingRepairDsl.g:4054:1: entryRuleEvoVariableTerm returns [EObject current=null] : iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF ;
     public final EObject entryRuleEvoVariableTerm() throws RecognitionException {
         EObject current = null;
 
@@ -10863,8 +10884,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4045:56: (iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF )
-            // InternalEvoMappingRepairDsl.g:4046:2: iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF
+            // InternalEvoMappingRepairDsl.g:4054:56: (iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF )
+            // InternalEvoMappingRepairDsl.g:4055:2: iv_ruleEvoVariableTerm= ruleEvoVariableTerm EOF
             {
              newCompositeNode(grammarAccess.getEvoVariableTermRule()); 
             pushFollow(FOLLOW_1);
@@ -10891,7 +10912,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoVariableTerm"
-    // InternalEvoMappingRepairDsl.g:4052:1: ruleEvoVariableTerm returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) ;
+    // InternalEvoMappingRepairDsl.g:4061:1: ruleEvoVariableTerm returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) ;
     public final EObject ruleEvoVariableTerm() throws RecognitionException {
         EObject current = null;
 
@@ -10902,17 +10923,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4058:2: ( ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) )
-            // InternalEvoMappingRepairDsl.g:4059:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
+            // InternalEvoMappingRepairDsl.g:4067:2: ( ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) )
+            // InternalEvoMappingRepairDsl.g:4068:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
             {
-            // InternalEvoMappingRepairDsl.g:4059:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
-            // InternalEvoMappingRepairDsl.g:4060:3: ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )?
+            // InternalEvoMappingRepairDsl.g:4068:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
+            // InternalEvoMappingRepairDsl.g:4069:3: ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )?
             {
-            // InternalEvoMappingRepairDsl.g:4060:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:4061:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4069:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:4070:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:4061:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:4062:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:4070:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4071:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -10936,19 +10957,19 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4076:3: ( (lv_type_1_0= ruleEvoVariableType ) )?
+            // InternalEvoMappingRepairDsl.g:4085:3: ( (lv_type_1_0= ruleEvoVariableType ) )?
             int alt53=2;
             int LA53_0 = input.LA(1);
 
-            if ( ((LA53_0>=74 && LA53_0<=76)) ) {
+            if ( ((LA53_0>=75 && LA53_0<=77)) ) {
                 alt53=1;
             }
             switch (alt53) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4077:4: (lv_type_1_0= ruleEvoVariableType )
+                    // InternalEvoMappingRepairDsl.g:4086:4: (lv_type_1_0= ruleEvoVariableType )
                     {
-                    // InternalEvoMappingRepairDsl.g:4077:4: (lv_type_1_0= ruleEvoVariableType )
-                    // InternalEvoMappingRepairDsl.g:4078:5: lv_type_1_0= ruleEvoVariableType
+                    // InternalEvoMappingRepairDsl.g:4086:4: (lv_type_1_0= ruleEvoVariableType )
+                    // InternalEvoMappingRepairDsl.g:4087:5: lv_type_1_0= ruleEvoVariableType
                     {
 
                     					newCompositeNode(grammarAccess.getEvoVariableTermAccess().getTypeEvoVariableTypeEnumRuleCall_1_0());
@@ -11001,7 +11022,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoApplicationConstraintTerm"
-    // InternalEvoMappingRepairDsl.g:4099:1: entryRuleEvoApplicationConstraintTerm returns [EObject current=null] : iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF ;
+    // InternalEvoMappingRepairDsl.g:4108:1: entryRuleEvoApplicationConstraintTerm returns [EObject current=null] : iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF ;
     public final EObject entryRuleEvoApplicationConstraintTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11009,8 +11030,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4099:69: (iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF )
-            // InternalEvoMappingRepairDsl.g:4100:2: iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF
+            // InternalEvoMappingRepairDsl.g:4108:69: (iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF )
+            // InternalEvoMappingRepairDsl.g:4109:2: iv_ruleEvoApplicationConstraintTerm= ruleEvoApplicationConstraintTerm EOF
             {
              newCompositeNode(grammarAccess.getEvoApplicationConstraintTermRule()); 
             pushFollow(FOLLOW_1);
@@ -11037,7 +11058,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoApplicationConstraintTerm"
-    // InternalEvoMappingRepairDsl.g:4106:1: ruleEvoApplicationConstraintTerm returns [EObject current=null] : (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:4115:1: ruleEvoApplicationConstraintTerm returns [EObject current=null] : (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' ) ;
     public final EObject ruleEvoApplicationConstraintTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11049,13 +11070,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4112:2: ( (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' ) )
-            // InternalEvoMappingRepairDsl.g:4113:2: (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4121:2: ( (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' ) )
+            // InternalEvoMappingRepairDsl.g:4122:2: (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:4113:2: (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' )
-            // InternalEvoMappingRepairDsl.g:4114:3: otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')'
+            // InternalEvoMappingRepairDsl.g:4122:2: (otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4123:3: otherlv_0= 'AC' otherlv_1= '(' ( ( ruleQualifiedName ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,65,FOLLOW_3); 
+            otherlv_0=(Token)match(input,66,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoApplicationConstraintTermAccess().getACKeyword_0());
             		
@@ -11063,11 +11084,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoApplicationConstraintTermAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4122:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:4123:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4131:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:4132:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:4123:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:4124:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:4132:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4133:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -11118,7 +11139,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoFeatureType"
-    // InternalEvoMappingRepairDsl.g:4146:1: entryRuleEvoFeatureType returns [EObject current=null] : iv_ruleEvoFeatureType= ruleEvoFeatureType EOF ;
+    // InternalEvoMappingRepairDsl.g:4155:1: entryRuleEvoFeatureType returns [EObject current=null] : iv_ruleEvoFeatureType= ruleEvoFeatureType EOF ;
     public final EObject entryRuleEvoFeatureType() throws RecognitionException {
         EObject current = null;
 
@@ -11126,8 +11147,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4146:55: (iv_ruleEvoFeatureType= ruleEvoFeatureType EOF )
-            // InternalEvoMappingRepairDsl.g:4147:2: iv_ruleEvoFeatureType= ruleEvoFeatureType EOF
+            // InternalEvoMappingRepairDsl.g:4155:55: (iv_ruleEvoFeatureType= ruleEvoFeatureType EOF )
+            // InternalEvoMappingRepairDsl.g:4156:2: iv_ruleEvoFeatureType= ruleEvoFeatureType EOF
             {
              newCompositeNode(grammarAccess.getEvoFeatureTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -11154,7 +11175,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoFeatureType"
-    // InternalEvoMappingRepairDsl.g:4153:1: ruleEvoFeatureType returns [EObject current=null] : ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:4162:1: ruleEvoFeatureType returns [EObject current=null] : ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) ) ;
     public final EObject ruleEvoFeatureType() throws RecognitionException {
         EObject current = null;
 
@@ -11174,14 +11195,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4159:2: ( ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) ) )
-            // InternalEvoMappingRepairDsl.g:4160:2: ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) )
+            // InternalEvoMappingRepairDsl.g:4168:2: ( ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) ) )
+            // InternalEvoMappingRepairDsl.g:4169:2: ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:4160:2: ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) )
-            // InternalEvoMappingRepairDsl.g:4161:3: () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) )
+            // InternalEvoMappingRepairDsl.g:4169:2: ( () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) ) )
+            // InternalEvoMappingRepairDsl.g:4170:3: () otherlv_1= 'featureType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyFeatureTypeEnum ) )
             {
-            // InternalEvoMappingRepairDsl.g:4161:3: ()
-            // InternalEvoMappingRepairDsl.g:4162:4: 
+            // InternalEvoMappingRepairDsl.g:4170:3: ()
+            // InternalEvoMappingRepairDsl.g:4171:4: 
             {
 
             				current = forceCreateModelElement(
@@ -11191,22 +11212,22 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,66,FOLLOW_3); 
+            otherlv_1=(Token)match(input,67,FOLLOW_3); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoFeatureTypeAccess().getFeatureTypeKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4172:3: (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' )
-            // InternalEvoMappingRepairDsl.g:4173:4: otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')'
+            // InternalEvoMappingRepairDsl.g:4181:3: (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')' )
+            // InternalEvoMappingRepairDsl.g:4182:4: otherlv_2= '(' ( (lv_variables_3_0= ruleEvoVariableTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )* otherlv_6= ')'
             {
             otherlv_2=(Token)match(input,13,FOLLOW_24); 
 
             				newLeafNode(otherlv_2, grammarAccess.getEvoFeatureTypeAccess().getLeftParenthesisKeyword_2_0());
             			
-            // InternalEvoMappingRepairDsl.g:4177:4: ( (lv_variables_3_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:4178:5: (lv_variables_3_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4186:4: ( (lv_variables_3_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:4187:5: (lv_variables_3_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:4178:5: (lv_variables_3_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:4179:6: lv_variables_3_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:4187:5: (lv_variables_3_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4188:6: lv_variables_3_0= ruleEvoVariableTerm
             {
 
             						newCompositeNode(grammarAccess.getEvoFeatureTypeAccess().getVariablesEvoVariableTermParserRuleCall_2_1_0());
@@ -11233,7 +11254,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4196:4: (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )*
+            // InternalEvoMappingRepairDsl.g:4205:4: (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) ) )*
             loop54:
             do {
                 int alt54=2;
@@ -11246,17 +11267,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt54) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:4197:5: otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:4206:5: otherlv_4= ',' ( (lv_variables_5_0= ruleEvoVariableTerm ) )
             	    {
             	    otherlv_4=(Token)match(input,25,FOLLOW_24); 
 
             	    					newLeafNode(otherlv_4, grammarAccess.getEvoFeatureTypeAccess().getCommaKeyword_2_2_0());
             	    				
-            	    // InternalEvoMappingRepairDsl.g:4201:5: ( (lv_variables_5_0= ruleEvoVariableTerm ) )
-            	    // InternalEvoMappingRepairDsl.g:4202:6: (lv_variables_5_0= ruleEvoVariableTerm )
+            	    // InternalEvoMappingRepairDsl.g:4210:5: ( (lv_variables_5_0= ruleEvoVariableTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:4211:6: (lv_variables_5_0= ruleEvoVariableTerm )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:4202:6: (lv_variables_5_0= ruleEvoVariableTerm )
-            	    // InternalEvoMappingRepairDsl.g:4203:7: lv_variables_5_0= ruleEvoVariableTerm
+            	    // InternalEvoMappingRepairDsl.g:4211:6: (lv_variables_5_0= ruleEvoVariableTerm )
+            	    // InternalEvoMappingRepairDsl.g:4212:7: lv_variables_5_0= ruleEvoVariableTerm
             	    {
 
             	    							newCompositeNode(grammarAccess.getEvoFeatureTypeAccess().getVariablesEvoVariableTermParserRuleCall_2_2_1_0());
@@ -11303,11 +11324,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_7, grammarAccess.getEvoFeatureTypeAccess().getEqualsSignEqualsSignKeyword_3());
             		
-            // InternalEvoMappingRepairDsl.g:4230:3: ( (lv_type_8_0= ruleHyFeatureTypeEnum ) )
-            // InternalEvoMappingRepairDsl.g:4231:4: (lv_type_8_0= ruleHyFeatureTypeEnum )
+            // InternalEvoMappingRepairDsl.g:4239:3: ( (lv_type_8_0= ruleHyFeatureTypeEnum ) )
+            // InternalEvoMappingRepairDsl.g:4240:4: (lv_type_8_0= ruleHyFeatureTypeEnum )
             {
-            // InternalEvoMappingRepairDsl.g:4231:4: (lv_type_8_0= ruleHyFeatureTypeEnum )
-            // InternalEvoMappingRepairDsl.g:4232:5: lv_type_8_0= ruleHyFeatureTypeEnum
+            // InternalEvoMappingRepairDsl.g:4240:4: (lv_type_8_0= ruleHyFeatureTypeEnum )
+            // InternalEvoMappingRepairDsl.g:4241:5: lv_type_8_0= ruleHyFeatureTypeEnum
             {
 
             					newCompositeNode(grammarAccess.getEvoFeatureTypeAccess().getTypeHyFeatureTypeEnumEnumRuleCall_4_0());
@@ -11357,7 +11378,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoGroupType"
-    // InternalEvoMappingRepairDsl.g:4253:1: entryRuleEvoGroupType returns [EObject current=null] : iv_ruleEvoGroupType= ruleEvoGroupType EOF ;
+    // InternalEvoMappingRepairDsl.g:4262:1: entryRuleEvoGroupType returns [EObject current=null] : iv_ruleEvoGroupType= ruleEvoGroupType EOF ;
     public final EObject entryRuleEvoGroupType() throws RecognitionException {
         EObject current = null;
 
@@ -11365,8 +11386,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4253:53: (iv_ruleEvoGroupType= ruleEvoGroupType EOF )
-            // InternalEvoMappingRepairDsl.g:4254:2: iv_ruleEvoGroupType= ruleEvoGroupType EOF
+            // InternalEvoMappingRepairDsl.g:4262:53: (iv_ruleEvoGroupType= ruleEvoGroupType EOF )
+            // InternalEvoMappingRepairDsl.g:4263:2: iv_ruleEvoGroupType= ruleEvoGroupType EOF
             {
              newCompositeNode(grammarAccess.getEvoGroupTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -11393,7 +11414,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoGroupType"
-    // InternalEvoMappingRepairDsl.g:4260:1: ruleEvoGroupType returns [EObject current=null] : ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) ) ;
+    // InternalEvoMappingRepairDsl.g:4269:1: ruleEvoGroupType returns [EObject current=null] : ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) ) ;
     public final EObject ruleEvoGroupType() throws RecognitionException {
         EObject current = null;
 
@@ -11413,14 +11434,14 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4266:2: ( ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) ) )
-            // InternalEvoMappingRepairDsl.g:4267:2: ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) )
+            // InternalEvoMappingRepairDsl.g:4275:2: ( ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) ) )
+            // InternalEvoMappingRepairDsl.g:4276:2: ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) )
             {
-            // InternalEvoMappingRepairDsl.g:4267:2: ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) )
-            // InternalEvoMappingRepairDsl.g:4268:3: () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) )
+            // InternalEvoMappingRepairDsl.g:4276:2: ( () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) ) )
+            // InternalEvoMappingRepairDsl.g:4277:3: () otherlv_1= 'groupType' (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' ) otherlv_7= '==' ( (lv_type_8_0= ruleHyGroupTypeEnum ) )
             {
-            // InternalEvoMappingRepairDsl.g:4268:3: ()
-            // InternalEvoMappingRepairDsl.g:4269:4: 
+            // InternalEvoMappingRepairDsl.g:4277:3: ()
+            // InternalEvoMappingRepairDsl.g:4278:4: 
             {
 
             				current = forceCreateModelElement(
@@ -11430,22 +11451,22 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_1=(Token)match(input,67,FOLLOW_3); 
+            otherlv_1=(Token)match(input,68,FOLLOW_3); 
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoGroupTypeAccess().getGroupTypeKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4279:3: (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' )
-            // InternalEvoMappingRepairDsl.g:4280:4: otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')'
+            // InternalEvoMappingRepairDsl.g:4288:3: (otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')' )
+            // InternalEvoMappingRepairDsl.g:4289:4: otherlv_2= '(' ( (lv_variables_3_0= ruleEvoGroupTerm ) ) (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )* otherlv_6= ')'
             {
             otherlv_2=(Token)match(input,13,FOLLOW_24); 
 
             				newLeafNode(otherlv_2, grammarAccess.getEvoGroupTypeAccess().getLeftParenthesisKeyword_2_0());
             			
-            // InternalEvoMappingRepairDsl.g:4284:4: ( (lv_variables_3_0= ruleEvoGroupTerm ) )
-            // InternalEvoMappingRepairDsl.g:4285:5: (lv_variables_3_0= ruleEvoGroupTerm )
+            // InternalEvoMappingRepairDsl.g:4293:4: ( (lv_variables_3_0= ruleEvoGroupTerm ) )
+            // InternalEvoMappingRepairDsl.g:4294:5: (lv_variables_3_0= ruleEvoGroupTerm )
             {
-            // InternalEvoMappingRepairDsl.g:4285:5: (lv_variables_3_0= ruleEvoGroupTerm )
-            // InternalEvoMappingRepairDsl.g:4286:6: lv_variables_3_0= ruleEvoGroupTerm
+            // InternalEvoMappingRepairDsl.g:4294:5: (lv_variables_3_0= ruleEvoGroupTerm )
+            // InternalEvoMappingRepairDsl.g:4295:6: lv_variables_3_0= ruleEvoGroupTerm
             {
 
             						newCompositeNode(grammarAccess.getEvoGroupTypeAccess().getVariablesEvoGroupTermParserRuleCall_2_1_0());
@@ -11472,7 +11493,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4303:4: (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )*
+            // InternalEvoMappingRepairDsl.g:4312:4: (otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) ) )*
             loop55:
             do {
                 int alt55=2;
@@ -11485,17 +11506,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt55) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:4304:5: otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:4313:5: otherlv_4= ',' ( (lv_variables_5_0= ruleEvoGroupTerm ) )
             	    {
             	    otherlv_4=(Token)match(input,25,FOLLOW_24); 
 
             	    					newLeafNode(otherlv_4, grammarAccess.getEvoGroupTypeAccess().getCommaKeyword_2_2_0());
             	    				
-            	    // InternalEvoMappingRepairDsl.g:4308:5: ( (lv_variables_5_0= ruleEvoGroupTerm ) )
-            	    // InternalEvoMappingRepairDsl.g:4309:6: (lv_variables_5_0= ruleEvoGroupTerm )
+            	    // InternalEvoMappingRepairDsl.g:4317:5: ( (lv_variables_5_0= ruleEvoGroupTerm ) )
+            	    // InternalEvoMappingRepairDsl.g:4318:6: (lv_variables_5_0= ruleEvoGroupTerm )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:4309:6: (lv_variables_5_0= ruleEvoGroupTerm )
-            	    // InternalEvoMappingRepairDsl.g:4310:7: lv_variables_5_0= ruleEvoGroupTerm
+            	    // InternalEvoMappingRepairDsl.g:4318:6: (lv_variables_5_0= ruleEvoGroupTerm )
+            	    // InternalEvoMappingRepairDsl.g:4319:7: lv_variables_5_0= ruleEvoGroupTerm
             	    {
 
             	    							newCompositeNode(grammarAccess.getEvoGroupTypeAccess().getVariablesEvoGroupTermParserRuleCall_2_2_1_0());
@@ -11542,11 +11563,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_7, grammarAccess.getEvoGroupTypeAccess().getEqualsSignEqualsSignKeyword_3());
             		
-            // InternalEvoMappingRepairDsl.g:4337:3: ( (lv_type_8_0= ruleHyGroupTypeEnum ) )
-            // InternalEvoMappingRepairDsl.g:4338:4: (lv_type_8_0= ruleHyGroupTypeEnum )
+            // InternalEvoMappingRepairDsl.g:4346:3: ( (lv_type_8_0= ruleHyGroupTypeEnum ) )
+            // InternalEvoMappingRepairDsl.g:4347:4: (lv_type_8_0= ruleHyGroupTypeEnum )
             {
-            // InternalEvoMappingRepairDsl.g:4338:4: (lv_type_8_0= ruleHyGroupTypeEnum )
-            // InternalEvoMappingRepairDsl.g:4339:5: lv_type_8_0= ruleHyGroupTypeEnum
+            // InternalEvoMappingRepairDsl.g:4347:4: (lv_type_8_0= ruleHyGroupTypeEnum )
+            // InternalEvoMappingRepairDsl.g:4348:5: lv_type_8_0= ruleHyGroupTypeEnum
             {
 
             					newCompositeNode(grammarAccess.getEvoGroupTypeAccess().getTypeHyGroupTypeEnumEnumRuleCall_4_0());
@@ -11596,7 +11617,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoGroupTerm"
-    // InternalEvoMappingRepairDsl.g:4360:1: entryRuleEvoGroupTerm returns [EObject current=null] : iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF ;
+    // InternalEvoMappingRepairDsl.g:4369:1: entryRuleEvoGroupTerm returns [EObject current=null] : iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF ;
     public final EObject entryRuleEvoGroupTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11604,8 +11625,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4360:53: (iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF )
-            // InternalEvoMappingRepairDsl.g:4361:2: iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF
+            // InternalEvoMappingRepairDsl.g:4369:53: (iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF )
+            // InternalEvoMappingRepairDsl.g:4370:2: iv_ruleEvoGroupTerm= ruleEvoGroupTerm EOF
             {
              newCompositeNode(grammarAccess.getEvoGroupTermRule()); 
             pushFollow(FOLLOW_1);
@@ -11632,7 +11653,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoGroupTerm"
-    // InternalEvoMappingRepairDsl.g:4367:1: ruleEvoGroupTerm returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) ;
+    // InternalEvoMappingRepairDsl.g:4376:1: ruleEvoGroupTerm returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) ;
     public final EObject ruleEvoGroupTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11643,17 +11664,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4373:2: ( ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) )
-            // InternalEvoMappingRepairDsl.g:4374:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
+            // InternalEvoMappingRepairDsl.g:4382:2: ( ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? ) )
+            // InternalEvoMappingRepairDsl.g:4383:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
             {
-            // InternalEvoMappingRepairDsl.g:4374:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
-            // InternalEvoMappingRepairDsl.g:4375:3: ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )?
+            // InternalEvoMappingRepairDsl.g:4383:2: ( ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )? )
+            // InternalEvoMappingRepairDsl.g:4384:3: ( ( ruleQualifiedName ) ) ( (lv_type_1_0= ruleEvoVariableType ) )?
             {
-            // InternalEvoMappingRepairDsl.g:4375:3: ( ( ruleQualifiedName ) )
-            // InternalEvoMappingRepairDsl.g:4376:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4384:3: ( ( ruleQualifiedName ) )
+            // InternalEvoMappingRepairDsl.g:4385:4: ( ruleQualifiedName )
             {
-            // InternalEvoMappingRepairDsl.g:4376:4: ( ruleQualifiedName )
-            // InternalEvoMappingRepairDsl.g:4377:5: ruleQualifiedName
+            // InternalEvoMappingRepairDsl.g:4385:4: ( ruleQualifiedName )
+            // InternalEvoMappingRepairDsl.g:4386:5: ruleQualifiedName
             {
 
             					if (current==null) {
@@ -11677,19 +11698,19 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4391:3: ( (lv_type_1_0= ruleEvoVariableType ) )?
+            // InternalEvoMappingRepairDsl.g:4400:3: ( (lv_type_1_0= ruleEvoVariableType ) )?
             int alt56=2;
             int LA56_0 = input.LA(1);
 
-            if ( ((LA56_0>=74 && LA56_0<=76)) ) {
+            if ( ((LA56_0>=75 && LA56_0<=77)) ) {
                 alt56=1;
             }
             switch (alt56) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4392:4: (lv_type_1_0= ruleEvoVariableType )
+                    // InternalEvoMappingRepairDsl.g:4401:4: (lv_type_1_0= ruleEvoVariableType )
                     {
-                    // InternalEvoMappingRepairDsl.g:4392:4: (lv_type_1_0= ruleEvoVariableType )
-                    // InternalEvoMappingRepairDsl.g:4393:5: lv_type_1_0= ruleEvoVariableType
+                    // InternalEvoMappingRepairDsl.g:4401:4: (lv_type_1_0= ruleEvoVariableType )
+                    // InternalEvoMappingRepairDsl.g:4402:5: lv_type_1_0= ruleEvoVariableType
                     {
 
                     					newCompositeNode(grammarAccess.getEvoGroupTermAccess().getTypeEvoVariableTypeEnumRuleCall_1_0());
@@ -11742,7 +11763,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetTerm"
-    // InternalEvoMappingRepairDsl.g:4414:1: entryRuleEvoSetTerm returns [EObject current=null] : iv_ruleEvoSetTerm= ruleEvoSetTerm EOF ;
+    // InternalEvoMappingRepairDsl.g:4423:1: entryRuleEvoSetTerm returns [EObject current=null] : iv_ruleEvoSetTerm= ruleEvoSetTerm EOF ;
     public final EObject entryRuleEvoSetTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11750,8 +11771,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4414:51: (iv_ruleEvoSetTerm= ruleEvoSetTerm EOF )
-            // InternalEvoMappingRepairDsl.g:4415:2: iv_ruleEvoSetTerm= ruleEvoSetTerm EOF
+            // InternalEvoMappingRepairDsl.g:4423:51: (iv_ruleEvoSetTerm= ruleEvoSetTerm EOF )
+            // InternalEvoMappingRepairDsl.g:4424:2: iv_ruleEvoSetTerm= ruleEvoSetTerm EOF
             {
              newCompositeNode(grammarAccess.getEvoSetTermRule()); 
             pushFollow(FOLLOW_1);
@@ -11778,7 +11799,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetTerm"
-    // InternalEvoMappingRepairDsl.g:4421:1: ruleEvoSetTerm returns [EObject current=null] : (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' ) ;
+    // InternalEvoMappingRepairDsl.g:4430:1: ruleEvoSetTerm returns [EObject current=null] : (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' ) ;
     public final EObject ruleEvoSetTerm() throws RecognitionException {
         EObject current = null;
 
@@ -11794,21 +11815,21 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4427:2: ( (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' ) )
-            // InternalEvoMappingRepairDsl.g:4428:2: (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' )
+            // InternalEvoMappingRepairDsl.g:4436:2: ( (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' ) )
+            // InternalEvoMappingRepairDsl.g:4437:2: (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' )
             {
-            // InternalEvoMappingRepairDsl.g:4428:2: (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' )
-            // InternalEvoMappingRepairDsl.g:4429:3: otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}'
+            // InternalEvoMappingRepairDsl.g:4437:2: (otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}' )
+            // InternalEvoMappingRepairDsl.g:4438:3: otherlv_0= '{' ( (lv_variables_1_0= ruleEvoSetVariable ) ) (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,68,FOLLOW_58); 
+            otherlv_0=(Token)match(input,69,FOLLOW_58); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoSetTermAccess().getLeftCurlyBracketKeyword_0());
             		
-            // InternalEvoMappingRepairDsl.g:4433:3: ( (lv_variables_1_0= ruleEvoSetVariable ) )
-            // InternalEvoMappingRepairDsl.g:4434:4: (lv_variables_1_0= ruleEvoSetVariable )
+            // InternalEvoMappingRepairDsl.g:4442:3: ( (lv_variables_1_0= ruleEvoSetVariable ) )
+            // InternalEvoMappingRepairDsl.g:4443:4: (lv_variables_1_0= ruleEvoSetVariable )
             {
-            // InternalEvoMappingRepairDsl.g:4434:4: (lv_variables_1_0= ruleEvoSetVariable )
-            // InternalEvoMappingRepairDsl.g:4435:5: lv_variables_1_0= ruleEvoSetVariable
+            // InternalEvoMappingRepairDsl.g:4443:4: (lv_variables_1_0= ruleEvoSetVariable )
+            // InternalEvoMappingRepairDsl.g:4444:5: lv_variables_1_0= ruleEvoSetVariable
             {
 
             					newCompositeNode(grammarAccess.getEvoSetTermAccess().getVariablesEvoSetVariableParserRuleCall_1_0());
@@ -11835,7 +11856,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             }
 
-            // InternalEvoMappingRepairDsl.g:4452:3: (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )*
+            // InternalEvoMappingRepairDsl.g:4461:3: (otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) ) )*
             loop57:
             do {
                 int alt57=2;
@@ -11848,17 +11869,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
                 switch (alt57) {
             	case 1 :
-            	    // InternalEvoMappingRepairDsl.g:4453:4: otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) )
+            	    // InternalEvoMappingRepairDsl.g:4462:4: otherlv_2= ',' ( (lv_variables_3_0= ruleEvoSetVariable ) )
             	    {
             	    otherlv_2=(Token)match(input,25,FOLLOW_58); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEvoSetTermAccess().getCommaKeyword_2_0());
             	    			
-            	    // InternalEvoMappingRepairDsl.g:4457:4: ( (lv_variables_3_0= ruleEvoSetVariable ) )
-            	    // InternalEvoMappingRepairDsl.g:4458:5: (lv_variables_3_0= ruleEvoSetVariable )
+            	    // InternalEvoMappingRepairDsl.g:4466:4: ( (lv_variables_3_0= ruleEvoSetVariable ) )
+            	    // InternalEvoMappingRepairDsl.g:4467:5: (lv_variables_3_0= ruleEvoSetVariable )
             	    {
-            	    // InternalEvoMappingRepairDsl.g:4458:5: (lv_variables_3_0= ruleEvoSetVariable )
-            	    // InternalEvoMappingRepairDsl.g:4459:6: lv_variables_3_0= ruleEvoSetVariable
+            	    // InternalEvoMappingRepairDsl.g:4467:5: (lv_variables_3_0= ruleEvoSetVariable )
+            	    // InternalEvoMappingRepairDsl.g:4468:6: lv_variables_3_0= ruleEvoSetVariable
             	    {
 
             	    						newCompositeNode(grammarAccess.getEvoSetTermAccess().getVariablesEvoSetVariableParserRuleCall_2_1_0());
@@ -11894,7 +11915,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,69,FOLLOW_2); 
+            otherlv_4=(Token)match(input,70,FOLLOW_2); 
 
             			newLeafNode(otherlv_4, grammarAccess.getEvoSetTermAccess().getRightCurlyBracketKeyword_3());
             		
@@ -11921,7 +11942,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSetVariable"
-    // InternalEvoMappingRepairDsl.g:4485:1: entryRuleEvoSetVariable returns [EObject current=null] : iv_ruleEvoSetVariable= ruleEvoSetVariable EOF ;
+    // InternalEvoMappingRepairDsl.g:4494:1: entryRuleEvoSetVariable returns [EObject current=null] : iv_ruleEvoSetVariable= ruleEvoSetVariable EOF ;
     public final EObject entryRuleEvoSetVariable() throws RecognitionException {
         EObject current = null;
 
@@ -11929,8 +11950,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4485:55: (iv_ruleEvoSetVariable= ruleEvoSetVariable EOF )
-            // InternalEvoMappingRepairDsl.g:4486:2: iv_ruleEvoSetVariable= ruleEvoSetVariable EOF
+            // InternalEvoMappingRepairDsl.g:4494:55: (iv_ruleEvoSetVariable= ruleEvoSetVariable EOF )
+            // InternalEvoMappingRepairDsl.g:4495:2: iv_ruleEvoSetVariable= ruleEvoSetVariable EOF
             {
              newCompositeNode(grammarAccess.getEvoSetVariableRule()); 
             pushFollow(FOLLOW_1);
@@ -11957,7 +11978,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSetVariable"
-    // InternalEvoMappingRepairDsl.g:4492:1: ruleEvoSetVariable returns [EObject current=null] : (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot ) ;
+    // InternalEvoMappingRepairDsl.g:4501:1: ruleEvoSetVariable returns [EObject current=null] : (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot ) ;
     public final EObject ruleEvoSetVariable() throws RecognitionException {
         EObject current = null;
 
@@ -11972,10 +11993,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4498:2: ( (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot ) )
-            // InternalEvoMappingRepairDsl.g:4499:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot )
+            // InternalEvoMappingRepairDsl.g:4507:2: ( (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot ) )
+            // InternalEvoMappingRepairDsl.g:4508:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot )
             {
-            // InternalEvoMappingRepairDsl.g:4499:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot )
+            // InternalEvoMappingRepairDsl.g:4508:2: (this_EvoVariableTerm_0= ruleEvoVariableTerm | this_EvoSetTerm_1= ruleEvoSetTerm | this_EvoNot_2= ruleEvoNot )
             int alt58=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -11983,13 +12004,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                 alt58=1;
                 }
                 break;
-            case 68:
+            case 69:
                 {
                 alt58=2;
                 }
                 break;
-            case 34:
-            case 61:
+            case 35:
+            case 62:
                 {
                 alt58=3;
                 }
@@ -12003,7 +12024,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             switch (alt58) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4500:3: this_EvoVariableTerm_0= ruleEvoVariableTerm
+                    // InternalEvoMappingRepairDsl.g:4509:3: this_EvoVariableTerm_0= ruleEvoVariableTerm
                     {
 
                     			newCompositeNode(grammarAccess.getEvoSetVariableAccess().getEvoVariableTermParserRuleCall_0());
@@ -12021,7 +12042,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:4509:3: this_EvoSetTerm_1= ruleEvoSetTerm
+                    // InternalEvoMappingRepairDsl.g:4518:3: this_EvoSetTerm_1= ruleEvoSetTerm
                     {
 
                     			newCompositeNode(grammarAccess.getEvoSetVariableAccess().getEvoSetTermParserRuleCall_1());
@@ -12039,7 +12060,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:4518:3: this_EvoNot_2= ruleEvoNot
+                    // InternalEvoMappingRepairDsl.g:4527:3: this_EvoNot_2= ruleEvoNot
                     {
 
                     			newCompositeNode(grammarAccess.getEvoSetVariableAccess().getEvoNotParserRuleCall_2());
@@ -12079,7 +12100,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoParentOf"
-    // InternalEvoMappingRepairDsl.g:4530:1: entryRuleEvoParentOf returns [EObject current=null] : iv_ruleEvoParentOf= ruleEvoParentOf EOF ;
+    // InternalEvoMappingRepairDsl.g:4539:1: entryRuleEvoParentOf returns [EObject current=null] : iv_ruleEvoParentOf= ruleEvoParentOf EOF ;
     public final EObject entryRuleEvoParentOf() throws RecognitionException {
         EObject current = null;
 
@@ -12087,8 +12108,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4530:52: (iv_ruleEvoParentOf= ruleEvoParentOf EOF )
-            // InternalEvoMappingRepairDsl.g:4531:2: iv_ruleEvoParentOf= ruleEvoParentOf EOF
+            // InternalEvoMappingRepairDsl.g:4539:52: (iv_ruleEvoParentOf= ruleEvoParentOf EOF )
+            // InternalEvoMappingRepairDsl.g:4540:2: iv_ruleEvoParentOf= ruleEvoParentOf EOF
             {
              newCompositeNode(grammarAccess.getEvoParentOfRule()); 
             pushFollow(FOLLOW_1);
@@ -12115,7 +12136,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoParentOf"
-    // InternalEvoMappingRepairDsl.g:4537:1: ruleEvoParentOf returns [EObject current=null] : (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:4546:1: ruleEvoParentOf returns [EObject current=null] : (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
     public final EObject ruleEvoParentOf() throws RecognitionException {
         EObject current = null;
 
@@ -12129,13 +12150,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4543:2: ( (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
-            // InternalEvoMappingRepairDsl.g:4544:2: (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4552:2: ( (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
+            // InternalEvoMappingRepairDsl.g:4553:2: (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:4544:2: (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
-            // InternalEvoMappingRepairDsl.g:4545:3: otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
+            // InternalEvoMappingRepairDsl.g:4553:2: (otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4554:3: otherlv_0= 'parentOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,70,FOLLOW_3); 
+            otherlv_0=(Token)match(input,71,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoParentOfAccess().getParentOfKeyword_0());
             		
@@ -12143,11 +12164,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoParentOfAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4553:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:4554:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4562:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:4563:4: (lv_variable_2_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:4554:4: (lv_variable_2_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:4555:5: lv_variable_2_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:4563:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4564:5: lv_variable_2_0= ruleEvoVariableTerm
             {
 
             					newCompositeNode(grammarAccess.getEvoParentOfAccess().getVariableEvoVariableTermParserRuleCall_2_0());
@@ -12201,7 +12222,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoSiblingsOf"
-    // InternalEvoMappingRepairDsl.g:4580:1: entryRuleEvoSiblingsOf returns [EObject current=null] : iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF ;
+    // InternalEvoMappingRepairDsl.g:4589:1: entryRuleEvoSiblingsOf returns [EObject current=null] : iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF ;
     public final EObject entryRuleEvoSiblingsOf() throws RecognitionException {
         EObject current = null;
 
@@ -12209,8 +12230,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4580:54: (iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF )
-            // InternalEvoMappingRepairDsl.g:4581:2: iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF
+            // InternalEvoMappingRepairDsl.g:4589:54: (iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF )
+            // InternalEvoMappingRepairDsl.g:4590:2: iv_ruleEvoSiblingsOf= ruleEvoSiblingsOf EOF
             {
              newCompositeNode(grammarAccess.getEvoSiblingsOfRule()); 
             pushFollow(FOLLOW_1);
@@ -12237,7 +12258,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoSiblingsOf"
-    // InternalEvoMappingRepairDsl.g:4587:1: ruleEvoSiblingsOf returns [EObject current=null] : (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:4596:1: ruleEvoSiblingsOf returns [EObject current=null] : (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
     public final EObject ruleEvoSiblingsOf() throws RecognitionException {
         EObject current = null;
 
@@ -12251,13 +12272,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4593:2: ( (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
-            // InternalEvoMappingRepairDsl.g:4594:2: (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4602:2: ( (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
+            // InternalEvoMappingRepairDsl.g:4603:2: (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:4594:2: (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
-            // InternalEvoMappingRepairDsl.g:4595:3: otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
+            // InternalEvoMappingRepairDsl.g:4603:2: (otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4604:3: otherlv_0= 'sibilingsOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,71,FOLLOW_3); 
+            otherlv_0=(Token)match(input,72,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoSiblingsOfAccess().getSibilingsOfKeyword_0());
             		
@@ -12265,11 +12286,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoSiblingsOfAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4603:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:4604:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4612:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:4613:4: (lv_variable_2_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:4604:4: (lv_variable_2_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:4605:5: lv_variable_2_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:4613:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4614:5: lv_variable_2_0= ruleEvoVariableTerm
             {
 
             					newCompositeNode(grammarAccess.getEvoSiblingsOfAccess().getVariableEvoVariableTermParserRuleCall_2_0());
@@ -12323,7 +12344,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleEvoChildrenOf"
-    // InternalEvoMappingRepairDsl.g:4630:1: entryRuleEvoChildrenOf returns [EObject current=null] : iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF ;
+    // InternalEvoMappingRepairDsl.g:4639:1: entryRuleEvoChildrenOf returns [EObject current=null] : iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF ;
     public final EObject entryRuleEvoChildrenOf() throws RecognitionException {
         EObject current = null;
 
@@ -12331,8 +12352,8 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalEvoMappingRepairDsl.g:4630:54: (iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF )
-            // InternalEvoMappingRepairDsl.g:4631:2: iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF
+            // InternalEvoMappingRepairDsl.g:4639:54: (iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF )
+            // InternalEvoMappingRepairDsl.g:4640:2: iv_ruleEvoChildrenOf= ruleEvoChildrenOf EOF
             {
              newCompositeNode(grammarAccess.getEvoChildrenOfRule()); 
             pushFollow(FOLLOW_1);
@@ -12359,7 +12380,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoChildrenOf"
-    // InternalEvoMappingRepairDsl.g:4637:1: ruleEvoChildrenOf returns [EObject current=null] : (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
+    // InternalEvoMappingRepairDsl.g:4646:1: ruleEvoChildrenOf returns [EObject current=null] : (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) ;
     public final EObject ruleEvoChildrenOf() throws RecognitionException {
         EObject current = null;
 
@@ -12373,13 +12394,13 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4643:2: ( (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
-            // InternalEvoMappingRepairDsl.g:4644:2: (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4652:2: ( (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' ) )
+            // InternalEvoMappingRepairDsl.g:4653:2: (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
             {
-            // InternalEvoMappingRepairDsl.g:4644:2: (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
-            // InternalEvoMappingRepairDsl.g:4645:3: otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
+            // InternalEvoMappingRepairDsl.g:4653:2: (otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')' )
+            // InternalEvoMappingRepairDsl.g:4654:3: otherlv_0= 'childrenOf' otherlv_1= '(' ( (lv_variable_2_0= ruleEvoVariableTerm ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,72,FOLLOW_3); 
+            otherlv_0=(Token)match(input,73,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoChildrenOfAccess().getChildrenOfKeyword_0());
             		
@@ -12387,11 +12408,11 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_1, grammarAccess.getEvoChildrenOfAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEvoMappingRepairDsl.g:4653:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
-            // InternalEvoMappingRepairDsl.g:4654:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4662:3: ( (lv_variable_2_0= ruleEvoVariableTerm ) )
+            // InternalEvoMappingRepairDsl.g:4663:4: (lv_variable_2_0= ruleEvoVariableTerm )
             {
-            // InternalEvoMappingRepairDsl.g:4654:4: (lv_variable_2_0= ruleEvoVariableTerm )
-            // InternalEvoMappingRepairDsl.g:4655:5: lv_variable_2_0= ruleEvoVariableTerm
+            // InternalEvoMappingRepairDsl.g:4663:4: (lv_variable_2_0= ruleEvoVariableTerm )
+            // InternalEvoMappingRepairDsl.g:4664:5: lv_variable_2_0= ruleEvoVariableTerm
             {
 
             					newCompositeNode(grammarAccess.getEvoChildrenOfAccess().getVariableEvoVariableTermParserRuleCall_2_0());
@@ -12445,7 +12466,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoMappingRelativeVersionRestrictionOperator"
-    // InternalEvoMappingRepairDsl.g:4680:1: ruleEvoMappingRelativeVersionRestrictionOperator returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) ) ;
+    // InternalEvoMappingRepairDsl.g:4689:1: ruleEvoMappingRelativeVersionRestrictionOperator returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) ) ;
     public final Enumerator ruleEvoMappingRelativeVersionRestrictionOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -12459,10 +12480,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4686:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) ) )
-            // InternalEvoMappingRepairDsl.g:4687:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) )
+            // InternalEvoMappingRepairDsl.g:4695:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) ) )
+            // InternalEvoMappingRepairDsl.g:4696:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) )
             {
-            // InternalEvoMappingRepairDsl.g:4687:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) )
+            // InternalEvoMappingRepairDsl.g:4696:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '>' ) )
             int alt59=5;
             switch ( input.LA(1) ) {
             case 23:
@@ -12475,7 +12496,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                 alt59=2;
                 }
                 break;
-            case 73:
+            case 74:
                 {
                 alt59=3;
                 }
@@ -12499,10 +12520,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             switch (alt59) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4688:3: (enumLiteral_0= '<' )
+                    // InternalEvoMappingRepairDsl.g:4697:3: (enumLiteral_0= '<' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4688:3: (enumLiteral_0= '<' )
-                    // InternalEvoMappingRepairDsl.g:4689:4: enumLiteral_0= '<'
+                    // InternalEvoMappingRepairDsl.g:4697:3: (enumLiteral_0= '<' )
+                    // InternalEvoMappingRepairDsl.g:4698:4: enumLiteral_0= '<'
                     {
                     enumLiteral_0=(Token)match(input,23,FOLLOW_2); 
 
@@ -12516,10 +12537,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:4696:3: (enumLiteral_1= '<=' )
+                    // InternalEvoMappingRepairDsl.g:4705:3: (enumLiteral_1= '<=' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4696:3: (enumLiteral_1= '<=' )
-                    // InternalEvoMappingRepairDsl.g:4697:4: enumLiteral_1= '<='
+                    // InternalEvoMappingRepairDsl.g:4705:3: (enumLiteral_1= '<=' )
+                    // InternalEvoMappingRepairDsl.g:4706:4: enumLiteral_1= '<='
                     {
                     enumLiteral_1=(Token)match(input,26,FOLLOW_2); 
 
@@ -12533,12 +12554,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:4704:3: (enumLiteral_2= '=' )
+                    // InternalEvoMappingRepairDsl.g:4713:3: (enumLiteral_2= '=' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4704:3: (enumLiteral_2= '=' )
-                    // InternalEvoMappingRepairDsl.g:4705:4: enumLiteral_2= '='
+                    // InternalEvoMappingRepairDsl.g:4713:3: (enumLiteral_2= '=' )
+                    // InternalEvoMappingRepairDsl.g:4714:4: enumLiteral_2= '='
                     {
-                    enumLiteral_2=(Token)match(input,73,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,74,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoMappingRelativeVersionRestrictionOperatorAccess().getEqualEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getEvoMappingRelativeVersionRestrictionOperatorAccess().getEqualEnumLiteralDeclaration_2());
@@ -12550,10 +12571,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalEvoMappingRepairDsl.g:4712:3: (enumLiteral_3= '>=' )
+                    // InternalEvoMappingRepairDsl.g:4721:3: (enumLiteral_3= '>=' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4712:3: (enumLiteral_3= '>=' )
-                    // InternalEvoMappingRepairDsl.g:4713:4: enumLiteral_3= '>='
+                    // InternalEvoMappingRepairDsl.g:4721:3: (enumLiteral_3= '>=' )
+                    // InternalEvoMappingRepairDsl.g:4722:4: enumLiteral_3= '>='
                     {
                     enumLiteral_3=(Token)match(input,28,FOLLOW_2); 
 
@@ -12567,10 +12588,10 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalEvoMappingRepairDsl.g:4720:3: (enumLiteral_4= '>' )
+                    // InternalEvoMappingRepairDsl.g:4729:3: (enumLiteral_4= '>' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4720:3: (enumLiteral_4= '>' )
-                    // InternalEvoMappingRepairDsl.g:4721:4: enumLiteral_4= '>'
+                    // InternalEvoMappingRepairDsl.g:4729:3: (enumLiteral_4= '>' )
+                    // InternalEvoMappingRepairDsl.g:4730:4: enumLiteral_4= '>'
                     {
                     enumLiteral_4=(Token)match(input,27,FOLLOW_2); 
 
@@ -12606,7 +12627,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleEvoVariableType"
-    // InternalEvoMappingRepairDsl.g:4731:1: ruleEvoVariableType returns [Enumerator current=null] : ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) ) ;
+    // InternalEvoMappingRepairDsl.g:4740:1: ruleEvoVariableType returns [Enumerator current=null] : ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) ) ;
     public final Enumerator ruleEvoVariableType() throws RecognitionException {
         Enumerator current = null;
 
@@ -12618,23 +12639,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4737:2: ( ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) ) )
-            // InternalEvoMappingRepairDsl.g:4738:2: ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) )
+            // InternalEvoMappingRepairDsl.g:4746:2: ( ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) ) )
+            // InternalEvoMappingRepairDsl.g:4747:2: ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) )
             {
-            // InternalEvoMappingRepairDsl.g:4738:2: ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) )
+            // InternalEvoMappingRepairDsl.g:4747:2: ( (enumLiteral_0= '@ident' ) | (enumLiteral_1= '@pre' ) | (enumLiteral_2= '@post' ) )
             int alt60=3;
             switch ( input.LA(1) ) {
-            case 74:
+            case 75:
                 {
                 alt60=1;
                 }
                 break;
-            case 75:
+            case 76:
                 {
                 alt60=2;
                 }
                 break;
-            case 76:
+            case 77:
                 {
                 alt60=3;
                 }
@@ -12648,12 +12669,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             switch (alt60) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4739:3: (enumLiteral_0= '@ident' )
+                    // InternalEvoMappingRepairDsl.g:4748:3: (enumLiteral_0= '@ident' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4739:3: (enumLiteral_0= '@ident' )
-                    // InternalEvoMappingRepairDsl.g:4740:4: enumLiteral_0= '@ident'
+                    // InternalEvoMappingRepairDsl.g:4748:3: (enumLiteral_0= '@ident' )
+                    // InternalEvoMappingRepairDsl.g:4749:4: enumLiteral_0= '@ident'
                     {
-                    enumLiteral_0=(Token)match(input,74,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,75,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoVariableTypeAccess().getEvoIdentifierEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getEvoVariableTypeAccess().getEvoIdentifierEnumLiteralDeclaration_0());
@@ -12665,12 +12686,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:4747:3: (enumLiteral_1= '@pre' )
+                    // InternalEvoMappingRepairDsl.g:4756:3: (enumLiteral_1= '@pre' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4747:3: (enumLiteral_1= '@pre' )
-                    // InternalEvoMappingRepairDsl.g:4748:4: enumLiteral_1= '@pre'
+                    // InternalEvoMappingRepairDsl.g:4756:3: (enumLiteral_1= '@pre' )
+                    // InternalEvoMappingRepairDsl.g:4757:4: enumLiteral_1= '@pre'
                     {
-                    enumLiteral_1=(Token)match(input,75,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,76,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoVariableTypeAccess().getEvoSourceEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getEvoVariableTypeAccess().getEvoSourceEnumLiteralDeclaration_1());
@@ -12682,12 +12703,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:4755:3: (enumLiteral_2= '@post' )
+                    // InternalEvoMappingRepairDsl.g:4764:3: (enumLiteral_2= '@post' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4755:3: (enumLiteral_2= '@post' )
-                    // InternalEvoMappingRepairDsl.g:4756:4: enumLiteral_2= '@post'
+                    // InternalEvoMappingRepairDsl.g:4764:3: (enumLiteral_2= '@post' )
+                    // InternalEvoMappingRepairDsl.g:4765:4: enumLiteral_2= '@post'
                     {
-                    enumLiteral_2=(Token)match(input,76,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,77,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoVariableTypeAccess().getEvoTargetEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getEvoVariableTypeAccess().getEvoTargetEnumLiteralDeclaration_2());
@@ -12721,7 +12742,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleHyFeatureTypeEnum"
-    // InternalEvoMappingRepairDsl.g:4766:1: ruleHyFeatureTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) ) ;
+    // InternalEvoMappingRepairDsl.g:4775:1: ruleHyFeatureTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) ) ;
     public final Enumerator ruleHyFeatureTypeEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -12732,17 +12753,17 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4772:2: ( ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) ) )
-            // InternalEvoMappingRepairDsl.g:4773:2: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) )
+            // InternalEvoMappingRepairDsl.g:4781:2: ( ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) ) )
+            // InternalEvoMappingRepairDsl.g:4782:2: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) )
             {
-            // InternalEvoMappingRepairDsl.g:4773:2: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) )
+            // InternalEvoMappingRepairDsl.g:4782:2: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'mandatory' ) )
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==77) ) {
+            if ( (LA61_0==78) ) {
                 alt61=1;
             }
-            else if ( (LA61_0==78) ) {
+            else if ( (LA61_0==79) ) {
                 alt61=2;
             }
             else {
@@ -12753,12 +12774,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             }
             switch (alt61) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4774:3: (enumLiteral_0= 'optional' )
+                    // InternalEvoMappingRepairDsl.g:4783:3: (enumLiteral_0= 'optional' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4774:3: (enumLiteral_0= 'optional' )
-                    // InternalEvoMappingRepairDsl.g:4775:4: enumLiteral_0= 'optional'
+                    // InternalEvoMappingRepairDsl.g:4783:3: (enumLiteral_0= 'optional' )
+                    // InternalEvoMappingRepairDsl.g:4784:4: enumLiteral_0= 'optional'
                     {
-                    enumLiteral_0=(Token)match(input,77,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,78,FOLLOW_2); 
 
                     				current = grammarAccess.getHyFeatureTypeEnumAccess().getOPTIONALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getHyFeatureTypeEnumAccess().getOPTIONALEnumLiteralDeclaration_0());
@@ -12770,12 +12791,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:4782:3: (enumLiteral_1= 'mandatory' )
+                    // InternalEvoMappingRepairDsl.g:4791:3: (enumLiteral_1= 'mandatory' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4782:3: (enumLiteral_1= 'mandatory' )
-                    // InternalEvoMappingRepairDsl.g:4783:4: enumLiteral_1= 'mandatory'
+                    // InternalEvoMappingRepairDsl.g:4791:3: (enumLiteral_1= 'mandatory' )
+                    // InternalEvoMappingRepairDsl.g:4792:4: enumLiteral_1= 'mandatory'
                     {
-                    enumLiteral_1=(Token)match(input,78,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,79,FOLLOW_2); 
 
                     				current = grammarAccess.getHyFeatureTypeEnumAccess().getMANDATORYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getHyFeatureTypeEnumAccess().getMANDATORYEnumLiteralDeclaration_1());
@@ -12809,7 +12830,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleHyGroupTypeEnum"
-    // InternalEvoMappingRepairDsl.g:4793:1: ruleHyGroupTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) ) ;
+    // InternalEvoMappingRepairDsl.g:4802:1: ruleHyGroupTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) ) ;
     public final Enumerator ruleHyGroupTypeEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -12821,23 +12842,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalEvoMappingRepairDsl.g:4799:2: ( ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) ) )
-            // InternalEvoMappingRepairDsl.g:4800:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) )
+            // InternalEvoMappingRepairDsl.g:4808:2: ( ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) ) )
+            // InternalEvoMappingRepairDsl.g:4809:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) )
             {
-            // InternalEvoMappingRepairDsl.g:4800:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) )
+            // InternalEvoMappingRepairDsl.g:4809:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'alternative' ) )
             int alt62=3;
             switch ( input.LA(1) ) {
-            case 79:
+            case 80:
                 {
                 alt62=1;
                 }
                 break;
-            case 80:
+            case 81:
                 {
                 alt62=2;
                 }
                 break;
-            case 81:
+            case 82:
                 {
                 alt62=3;
                 }
@@ -12851,12 +12872,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
             switch (alt62) {
                 case 1 :
-                    // InternalEvoMappingRepairDsl.g:4801:3: (enumLiteral_0= 'and' )
+                    // InternalEvoMappingRepairDsl.g:4810:3: (enumLiteral_0= 'and' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4801:3: (enumLiteral_0= 'and' )
-                    // InternalEvoMappingRepairDsl.g:4802:4: enumLiteral_0= 'and'
+                    // InternalEvoMappingRepairDsl.g:4810:3: (enumLiteral_0= 'and' )
+                    // InternalEvoMappingRepairDsl.g:4811:4: enumLiteral_0= 'and'
                     {
-                    enumLiteral_0=(Token)match(input,79,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,80,FOLLOW_2); 
 
                     				current = grammarAccess.getHyGroupTypeEnumAccess().getANDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getHyGroupTypeEnumAccess().getANDEnumLiteralDeclaration_0());
@@ -12868,12 +12889,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalEvoMappingRepairDsl.g:4809:3: (enumLiteral_1= 'or' )
+                    // InternalEvoMappingRepairDsl.g:4818:3: (enumLiteral_1= 'or' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4809:3: (enumLiteral_1= 'or' )
-                    // InternalEvoMappingRepairDsl.g:4810:4: enumLiteral_1= 'or'
+                    // InternalEvoMappingRepairDsl.g:4818:3: (enumLiteral_1= 'or' )
+                    // InternalEvoMappingRepairDsl.g:4819:4: enumLiteral_1= 'or'
                     {
-                    enumLiteral_1=(Token)match(input,80,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,81,FOLLOW_2); 
 
                     				current = grammarAccess.getHyGroupTypeEnumAccess().getOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getHyGroupTypeEnumAccess().getOREnumLiteralDeclaration_1());
@@ -12885,12 +12906,12 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalEvoMappingRepairDsl.g:4817:3: (enumLiteral_2= 'alternative' )
+                    // InternalEvoMappingRepairDsl.g:4826:3: (enumLiteral_2= 'alternative' )
                     {
-                    // InternalEvoMappingRepairDsl.g:4817:3: (enumLiteral_2= 'alternative' )
-                    // InternalEvoMappingRepairDsl.g:4818:4: enumLiteral_2= 'alternative'
+                    // InternalEvoMappingRepairDsl.g:4826:3: (enumLiteral_2= 'alternative' )
+                    // InternalEvoMappingRepairDsl.g:4827:4: enumLiteral_2= 'alternative'
                     {
-                    enumLiteral_2=(Token)match(input,81,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,82,FOLLOW_2); 
 
                     				current = grammarAccess.getHyGroupTypeEnumAccess().getALTERNATIVEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getHyGroupTypeEnumAccess().getALTERNATIVEEnumLiteralDeclaration_2());
@@ -12927,15 +12948,16 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
 
     protected DFA19 dfa19 = new DFA19(this);
     protected DFA22 dfa22 = new DFA22(this);
-    static final String dfa_1s = "\15\uffff";
-    static final String dfa_2s = "\1\uffff\1\13\13\uffff";
-    static final String dfa_3s = "\1\4\1\16\13\uffff";
-    static final String dfa_4s = "\1\55\1\51\13\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\7\1\10\1\11\1\12\1\13\1\1\1\6";
-    static final String dfa_6s = "\15\uffff}>";
+    static final String dfa_1s = "\16\uffff";
+    static final String dfa_2s = "\1\uffff\1\14\14\uffff";
+    static final String dfa_3s = "\1\4\1\16\14\uffff";
+    static final String dfa_4s = "\1\56\1\52\14\uffff";
+    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\10\1\11\1\12\1\13\1\14\1\1\1\7";
+    static final String dfa_6s = "\16\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\1\uffff\1\6\6\uffff\1\2\17\uffff\1\3\4\uffff\1\12\1\4\2\uffff\2\7\1\5\3\uffff\1\10\1\11",
-            "\1\13\2\uffff\21\13\7\uffff\1\14",
+            "\1\1\1\2\1\7\6\uffff\1\3\24\uffff\1\4\1\13\1\5\2\uffff\2\10\1\6\3\uffff\1\11\1\12",
+            "\1\14\2\uffff\21\14\10\uffff\1\15",
+            "",
             "",
             "",
             "",
@@ -12971,23 +12993,23 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoMappingNestedExpression_1= ruleEvoMappingNestedExpression | this_EvoMappingNegation_2= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_3= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_4= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_5= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_6= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_7= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_8= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_9= ruleEvoMappingMaximumExpression | this_EvoMappingNot_10= ruleEvoMappingNot )";
+            return "1303:2: (this_EvoMappingFeatureReferenceExpression_0= ruleEvoMappingFeatureReferenceExpression | this_EvoVariableTerm_1= ruleEvoVariableTerm | this_EvoMappingNestedExpression_2= ruleEvoMappingNestedExpression | this_EvoMappingNegation_3= ruleEvoMappingNegation | this_EvoMappingConditionalFeatureReferenceExpression_4= ruleEvoMappingConditionalFeatureReferenceExpression | this_EvoMappingContextInformationReferenceExpression_5= ruleEvoMappingContextInformationReferenceExpression | this_EvoMappingAttributeReferenceExpression_6= ruleEvoMappingAttributeReferenceExpression | this_EvoMappingValueExpression_7= ruleEvoMappingValueExpression | this_EvoMappingBooleanValueExpression_8= ruleEvoMappingBooleanValueExpression | this_EvoMappingMimumumExpression_9= ruleEvoMappingMimumumExpression | this_EvoMappingMaximumExpression_10= ruleEvoMappingMaximumExpression | this_EvoMappingNot_11= ruleEvoMappingNot )";
         }
     }
     static final String dfa_8s = "\10\uffff";
-    static final String dfa_9s = "\1\44\1\uffff\1\5\1\35\1\5\2\uffff\1\35";
-    static final String dfa_10s = "\1\47\1\uffff\1\5\1\51\1\5\2\uffff\1\51";
+    static final String dfa_9s = "\1\45\1\uffff\1\5\1\35\1\5\2\uffff\1\35";
+    static final String dfa_10s = "\1\50\1\uffff\1\5\1\52\1\5\2\uffff\1\52";
     static final String dfa_11s = "\1\uffff\1\1\3\uffff\1\3\1\2\1\uffff";
     static final String dfa_12s = "\10\uffff}>";
     static final String[] dfa_13s = {
             "\1\1\2\uffff\1\2",
             "",
             "\1\3",
-            "\1\6\7\uffff\1\5\3\uffff\1\4",
+            "\1\6\10\uffff\1\5\3\uffff\1\4",
             "\1\7",
             "",
             "",
-            "\1\6\7\uffff\1\5\3\uffff\1\4"
+            "\1\6\10\uffff\1\5\3\uffff\1\4"
     };
 
     static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
@@ -13011,7 +13033,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
             this.transition = dfa_13;
         }
         public String getDescription() {
-            return "1691:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )";
+            return "1700:2: ( (otherlv_0= '[' ( (lv_lowerIncluded_1_0= 'true' ) ) ) | (otherlv_2= 'false' ( ( ruleQualifiedName ) ) otherlv_4= '-' ( (lv_upperIncluded_5_0= 'true' ) ) ) | (otherlv_6= 'false' ( ( ruleQualifiedName ) ) otherlv_8= ']' ) )";
         }
     }
  
@@ -13019,7 +13041,7 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000031CC20002050L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000639C00002070L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020002L});
@@ -13040,40 +13062,40 @@ public class InternalEvoMappingRepairDslParser extends AbstractInternalAntlrPars
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000002L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000002L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000009000000002L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x000000001C800000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000012000000002L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x000000001C800000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000080000000080L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000100000000080L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x7580000400002020L,0x00000000000001DEL});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x7580000400002060L,0x00000000000001DEL});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0002000000000002L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0004000000000002L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0010000000000002L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0040000000000002L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0xF580000400002020L,0x00000000000001DFL});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0800000002000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x2000000400000020L,0x0000000000000012L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001C00L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0xEB00000800002020L,0x00000000000003BCL});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0xEB00000800002060L,0x00000000000003BCL});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0004000000000002L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0010000000000002L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0040000000000002L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0xEB00000800002020L,0x00000000000003BFL});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x1000000002000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x4000000800000020L,0x0000000000000024L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000002L,0x0000000000003800L});
     public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000000L,0x0000000000006000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000000L,0x0000000000038000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x2000000400000020L,0x0000000000000010L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000000L,0x000000000000C000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000000L,0x0000000000070000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x4000000800000020L,0x0000000000000020L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000040L});
 
 }

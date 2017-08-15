@@ -2,7 +2,11 @@ package de.evorepair.analysis.operator;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
+import de.evorepair.evolution.evovariable.EvoFeatureVariable;
+import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
+import de.evorepair.logic.evologic.EvoVariableTerm;
+import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.expression.HyAdditionExpression;
 import eu.hyvar.feature.expression.HyAndExpression;
 import eu.hyvar.feature.expression.HyAttributeReferenceExpression;
@@ -14,6 +18,7 @@ import eu.hyvar.feature.expression.HyDivisionExpression;
 import eu.hyvar.feature.expression.HyEqualExpression;
 import eu.hyvar.feature.expression.HyEquivalenceExpression;
 import eu.hyvar.feature.expression.HyExpression;
+import eu.hyvar.feature.expression.HyExpressionFactory;
 import eu.hyvar.feature.expression.HyFeatureReferenceExpression;
 import eu.hyvar.feature.expression.HyGreaterExpression;
 import eu.hyvar.feature.expression.HyGreaterOrEqualExpression;
@@ -40,6 +45,10 @@ import eu.hyvar.feature.mapping.HyMappingModel;
 public class EvoGuidanceMappingActionOperator {
 	Resource mappingResource;
 	
+	private boolean featureMatch(HyFeature feature1, HyFeature feature2) {
+		return feature1.equals(feature2) || feature1.getId().equals(feature2.getId());
+	}
+	
 	private boolean expressionsMatch(HyExpression expression1, HyExpression expression2) {
 		if(expression1 instanceof HyAndExpression && expression2  instanceof HyAndExpression) {
 			return true;
@@ -54,7 +63,24 @@ public class EvoGuidanceMappingActionOperator {
 		}else if(expression1 instanceof HyNestedExpression && expression2  instanceof HyNestedExpression) {
 			return true;
 		}else if(expression1 instanceof HyFeatureReferenceExpression && expression2  instanceof HyFeatureReferenceExpression) {
-			return (((HyFeatureReferenceExpression)expression1).getFeature().equals(((HyFeatureReferenceExpression)expression2).getFeature()));
+			return featureMatch(((HyFeatureReferenceExpression)expression1).getFeature(), ((HyFeatureReferenceExpression)expression2).getFeature());
+		}else if(expression1 instanceof HyFeatureReferenceExpression && expression2 instanceof EvoVariableTerm) {
+			EvoVariable variable = ((EvoVariableTerm)expression2).getVariable();
+			
+			if(variable instanceof EvoFeatureVariable) {
+				return featureMatch(((HyFeatureReferenceExpression)expression1).getFeature(), ((EvoFeatureVariable)variable).getFeature());
+			}
+			
+			return false;
+		}else if(expression1 instanceof EvoVariableTerm && expression2 instanceof EvoVariableTerm) {
+			EvoVariable variable1 = ((EvoVariableTerm)expression1).getVariable();
+			EvoVariable variable2 = ((EvoVariableTerm)expression2).getVariable();
+			
+			if(variable1 instanceof EvoFeatureVariable && variable2 instanceof EvoFeatureVariable) {
+				return featureMatch(((EvoFeatureVariable)variable1).getFeature(), ((EvoFeatureVariable)variable2).getFeature());				
+			}
+			
+			return false;
 		}else if(expression1 instanceof HyBooleanValueExpression && expression2  instanceof HyBooleanValueExpression) {
 			return true;
 		}else if(expression1 instanceof HyConditionalFeatureReferenceExpression && expression2  instanceof HyConditionalFeatureReferenceExpression) {
@@ -102,14 +128,35 @@ public class EvoGuidanceMappingActionOperator {
 		return false;
 	}
 	
+	private HyExpression replaceVariableReferenceExpressionWithFeatureReferenceExpression(HyExpression replacementExpression) {
+		// replace the expression containing the reference to the variable with a actual feature reference like it is used in HyExpressions per default
+		if(replacementExpression instanceof EvoVariableTerm) {
+			EvoVariable variable = ((EvoVariableTerm)replacementExpression).getVariable();
+			
+			if(variable instanceof EvoFeatureVariable) {
+				HyFeatureReferenceExpression correctReplacementExpression = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
+				correctReplacementExpression.setFeature(((EvoFeatureVariable)variable).getFeature());
+				
+				return correctReplacementExpression;
+			}
+		}	
+		
+		return replacementExpression;
+	}
+	
 	private void replaceExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
+		replacementExpression = replaceVariableReferenceExpressionWithFeatureReferenceExpression(replacementExpression);
+		
 		if(expression.eContainer() instanceof HyMapping) {
 			((HyMapping)expression.eContainer()).setExpression(replacementExpression);
 		}else if(expression.eContainer() instanceof HyUnaryExpression) {
 			((HyUnaryExpression)expression.eContainer()).setOperand(replacementExpression);
 		}else if(expression.eContainer() instanceof HyBinaryExpression) {
+			
+			
 			HyBinaryExpression container = (HyBinaryExpression)expression.eContainer();
-			if(container.getOperand1().equals(searchExpression))
+			
+			if(expressionsMatch(container.getOperand1(), searchExpression))
 				container.setOperand1(replacementExpression);
 			else
 				container.setOperand2(replacementExpression);
@@ -143,9 +190,12 @@ public class EvoGuidanceMappingActionOperator {
 			return expressionIsContainedInExpression(unaryExpression.getOperand(), searchExpression, replacementExpression);
 		}else if(expression instanceof HyFeatureReferenceExpression) {
 			if(searchExpression instanceof HyFeatureReferenceExpression) {
-				return (((HyFeatureReferenceExpression)expression).getFeature().equals(((HyFeatureReferenceExpression)searchExpression).getFeature()));
+				return featureMatch(((HyFeatureReferenceExpression)expression).getFeature(), ((HyFeatureReferenceExpression)searchExpression).getFeature());
 			}else
 				return false;
+		}else if(expression instanceof EvoVariableTerm) {
+			System.out.println("F");
+			return false;
 		}else {
 			System.err.println("No valid expression object");
 			return false;
