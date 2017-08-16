@@ -85,7 +85,7 @@ EvoMappingDivisionExpression returns dw_expression::HyExpression:
 	EvoMappingTerminal({dw_expression::HyDivisionExpression.operand1=current} ('/') operand2=EvoMappingTerminal)*;
 
 EvoMappingNegation returns dw_expression::HyNegationExpression:
-	'--' operand=EvoMappingTerminal;
+	'-' operand=EvoMappingTerminal;
 
 
 EvoMappingTerminal returns dw_expression::HyExpression:	

@@ -112,6 +112,22 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 		return configurationPanel;
 	}
 
+	
+	private IResource[] getFilesFromSolutionFolder() {
+		IResource resource = ((IFileEditorInput)getEditorInput()).getFile();
+		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IResource[] files;
+
+		try {
+			files = folder.members();
+			return files;
+		} catch (CoreException e) {
+			e.printStackTrace();
+
+			return new IResource[0];
+		}
+	}
+	
 	/**
 	 * Sets the input of the editor. Also adds all possible solutions to the suggestions list
 	 */
@@ -119,23 +135,14 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 	protected void setInput(IEditorInput input) {
 		super.setInput(input);
 
-		IResource resource = ((IFileEditorInput)input).getFile();
-
-		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
-		IResource[] files;
-		try {
-			files = folder.members();
-
-			for(int i=0; i<files.length; i++) {
-				if(files[i] instanceof IFile) {
-					HyConfiguration suggestion = EcoreIOUtil.loadModel((IFile)files[i]);
+		for(IResource file : getFilesFromSolutionFolder()) {
+			if(file instanceof IFile) {
+				if(!file.getFileExtension().equals("description")) {
+					HyConfiguration suggestion = EcoreIOUtil.loadModel((IFile)file);
 					suggestions.add(suggestion);
 				}
-			}		
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			}
+		}	
 	}
 
 	/**

@@ -375,12 +375,9 @@ ruleEvoGroupVariable returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getEvoGroupVariableRule());
 						}
 					}
+					otherlv_4=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupCrossReference_2_2_0());
-					}
-					ruleQualifiedName
-					{
-						afterParserOrEnumRuleCall();
+						newLeafNode(otherlv_4, grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupCrossReference_2_2_0());
 					}
 				)
 			)
@@ -578,46 +575,34 @@ ruleEvoConfigurationVariable returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
-	iv_ruleQualifiedName=ruleQualifiedName
-	{ $current=$iv_ruleQualifiedName.current.getText(); }
-	EOF;
-
-// Rule QualifiedName
-ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
-		}
 		(
-			kw='.'
+			otherlv_2='('
 			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+				newLeafNode(otherlv_2, grammarAccess.getEvoConfigurationVariableAccess().getLeftParenthesisKeyword_2_0());
 			}
-			this_ID_2=RULE_ID
+			(
+				(
+					lv_configuration_3_0=RULE_STRING
+					{
+						newLeafNode(lv_configuration_3_0, grammarAccess.getEvoConfigurationVariableAccess().getConfigurationSTRINGTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEvoConfigurationVariableRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"configuration",
+							lv_configuration_3_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_4=')'
 			{
-				$current.merge(this_ID_2);
+				newLeafNode(otherlv_4, grammarAccess.getEvoConfigurationVariableAccess().getRightParenthesisKeyword_2_2());
 			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
+		)?
 	)
 ;
 

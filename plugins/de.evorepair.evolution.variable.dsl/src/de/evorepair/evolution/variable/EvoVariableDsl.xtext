@@ -5,6 +5,8 @@ generate evoVariableDsl "http://www.evorepair.de/evolution/variable/EvoVariableD
 import "http://darwinspl.de/evorepair/variable/0.2"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://hyvar-project.eu/feature/1.0" as feature
+import "http://hyvar-project.eu/feature/configuration/1.0" as dw_configuration
+import "http://hyvar-project.eu/feature/mapping/1.0" as dw_mapping
 
 Model:
 	variables+=EvoVariable*;
@@ -20,7 +22,7 @@ EvoFeatureRelation returns EvoFeatureRelation:
 	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')';
 
 EvoGroupVariable returns EvoGroupVariable:
-	'group' name=ID ('value' '=' group=[feature::HyGroup | QualifiedName])?;
+	'group' name=ID ('value' '=' group=[feature::HyGroup | STRING])?;
 
 EvoSetVariable returns EvoSetVariable: 
 	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
@@ -29,12 +31,9 @@ EvoMappingVariable returns EvoMappingVariable:
 	'mapping' name=ID ('(' mapping=STRING ')')?;
 
 EvoConfigurationVariable returns EvoConfigurationVariable:
-	'configuration' name=ID;
+	'configuration' name=ID ('(' configuration=STRING ')')?;
 
 enum EvoFeatureVariableType:
 	EvoParent = 'parentOf' |
 	EvoSibling = 'siblingOf' |
 	EvoChild = 'childOf';
-
-QualifiedName returns ecore::EString:
-	ID ("." ID)*;

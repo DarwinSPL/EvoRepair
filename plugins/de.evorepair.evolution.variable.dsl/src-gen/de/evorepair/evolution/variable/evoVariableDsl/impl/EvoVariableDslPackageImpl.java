@@ -15,8 +15,6 @@ import eu.hyvar.evolution.HyEvolutionPackage;
 
 import eu.hyvar.feature.HyFeaturePackage;
 
-import eu.hyvar.feature.configuration.HyConfigurationPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -89,7 +87,6 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     // Initialize simple dependencies
     EvoVariablePackage.eINSTANCE.eClass();
     HyFeaturePackage.eINSTANCE.eClass();
-    HyConfigurationPackage.eINSTANCE.eClass();
     HyDataValuesPackage.eINSTANCE.eClass();
     HyEvolutionPackage.eINSTANCE.eClass();
 

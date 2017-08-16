@@ -2,6 +2,7 @@ module org.xtext.example.mydsl.GenerateMyDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe2.ecore.EcoreGenerator
 import org.eclipse.emf.mwe.utils.*
 
 /**
@@ -39,7 +40,7 @@ Workflow {
 		directory = "platform:/resource/de.evorepair.logic.dsl/src-gen"
 	}
 	
-	/*
+
 	// Generate Operation Code
 	component = EcoreGenerator {
 		genModel = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
@@ -73,7 +74,7 @@ Workflow {
 		genModel = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 		srcPath = "platform:/resource/de.evorepair.logic/src-gen"
 	}
-*/
+
 	
 	// Generate DSLs
 	component = @de.evorepair.logic.GenerateEvoLogicDsl {}

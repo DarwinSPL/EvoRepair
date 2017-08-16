@@ -650,19 +650,19 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	public class EvoMappingNegationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingNegation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHyphenMinusHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cOperandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOperandEvoMappingTerminalParserRuleCall_1_0 = (RuleCall)cOperandAssignment_1.eContents().get(0);
 		
 		//EvoMappingNegation dw_expression::HyNegationExpression:
-		//	'--' operand=EvoMappingTerminal;
+		//	'-' operand=EvoMappingTerminal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'--' operand=EvoMappingTerminal
+		//'-' operand=EvoMappingTerminal
 		public Group getGroup() { return cGroup; }
 		
-		//'--'
-		public Keyword getHyphenMinusHyphenMinusKeyword_0() { return cHyphenMinusHyphenMinusKeyword_0; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 		
 		//operand=EvoMappingTerminal
 		public Assignment getOperandAssignment_1() { return cOperandAssignment_1; }
@@ -1802,7 +1802,7 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'--' operand=EvoMappingTerminal;
+	//	'-' operand=EvoMappingTerminal;
 	public EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return pEvoMappingNegation;
 	}

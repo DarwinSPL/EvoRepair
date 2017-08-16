@@ -437,7 +437,7 @@ public class EvoMappingRepairDslGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//EvoMappingNegation dw_expression::HyNegationExpression:
-	//	'--' operand=EvoMappingTerminal;
+	//	'-' operand=EvoMappingTerminal;
 	public EvoExpressionDslGrammarAccess.EvoMappingNegationElements getEvoMappingNegationAccess() {
 		return gaEvoExpressionDsl.getEvoMappingNegationAccess();
 	}

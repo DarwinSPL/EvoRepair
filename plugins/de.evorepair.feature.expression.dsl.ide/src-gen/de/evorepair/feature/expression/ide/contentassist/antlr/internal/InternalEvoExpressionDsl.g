@@ -4828,9 +4828,9 @@ rule__EvoMappingNegation__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0()); }
-	'--'
-	{ after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0()); }
+	{ before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); }
+	'-'
+	{ after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); }
 )
 ;
 finally {

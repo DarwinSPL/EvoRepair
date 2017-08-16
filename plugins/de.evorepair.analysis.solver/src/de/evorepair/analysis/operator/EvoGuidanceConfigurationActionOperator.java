@@ -1,10 +1,15 @@
 package de.evorepair.analysis.operator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.evorepair.analysis.provider.EvoResourceProvider;
+import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
@@ -26,37 +31,43 @@ import eu.hyvar.feature.expression.HyExpression;
  * @author Gil Engel
  *
  */
-public class EvoGuidanceConfigurationActionOperator {
-	Resource configurationResource;
-
-	public EvoGuidanceConfigurationActionOperator(Resource configurationResource){
-		this.configurationResource = configurationResource;
-	}
+public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOperator{
 
 	/**
 	 * Recursives solves a term and creates the resulting list of features
 	 * @param term to be solved
 	 * @return List with features
 	 */
-	private List<HyFeature> solveSetTerm(HyExpression term){
+	private HashMap<String, HyFeature> solveSetTerm(HyExpression term){
 		if(term instanceof EvoVariableTerm){			
 			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
 			EvoVariable variable = variableTerm.getVariable();
 
 			if(variableTerm.getVariable() instanceof EvoConfigurationVariable){
 
-				List<HyFeature> result = new ArrayList<>();	
-				for(HyConfigurationElement element : ((EvoConfigurationVariable) variable).getConfiguration().getElements()){
+				HashMap<String, HyFeature> result = new HashMap<>();	
+				
+				String filename = ((EvoConfigurationVariable) variable).getConfiguration();
+				
+				URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(model, filename);
+				HyConfiguration configuration = (HyConfiguration)resourceProvider.getResource(relativeURI);
+				if(configuration == null) { 
+					System.err.println("Configuration at path "+relativeURI.devicePath()+" couldn't be found");
+				}
+				
+				for(HyConfigurationElement element : configuration.getElements()){
 					if(element instanceof HyFeatureSelected){
 						HyFeatureSelected feature = (HyFeatureSelected)element;
-						result.add(feature.getSelectedFeature());
+						result.put(feature.getSelectedFeature().getId(), feature.getSelectedFeature());
 					}
 				}
 
 				return result;
 			}else if(variable instanceof EvoFeatureVariable){
-				List<HyFeature> result = new ArrayList<>();	
-				result.add(((EvoFeatureVariable)variable).getFeature());
+				HashMap<String, HyFeature> result = new HashMap<>();
+				
+				HyFeature feature = ((EvoFeatureVariable)variable).getFeature();
+				result.put(feature.getId(), feature);
 
 				return result;
 			}
@@ -64,12 +75,14 @@ public class EvoGuidanceConfigurationActionOperator {
 		}else if(term instanceof EvoSetTerm){
 			EvoSetTerm setTerm = (EvoSetTerm)term;
 
-			List<HyFeature> result = new ArrayList<>();
+			HashMap<String, HyFeature> result = new HashMap<>();
 			for(HyExpression variable : setTerm.getVariables()){
 				EvoVariableTerm variableTerm = (EvoVariableTerm)variable;
 
 				if(variableTerm.getVariable() instanceof EvoFeatureVariable){
-					result.add(((EvoFeatureVariable)variableTerm.getVariable()).getFeature());
+					HyFeature feature = ((EvoFeatureVariable)variableTerm.getVariable()).getFeature();
+					result.put(feature.getId(), feature);
+
 				}
 			}
 
@@ -77,70 +90,70 @@ public class EvoGuidanceConfigurationActionOperator {
 		}else if(term instanceof EvoSetIntersection){
 			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
 
-			List<HyFeature> result = new ArrayList<>();
-			for(HyFeature feature1 : set1){
-				for(HyFeature feature2 : set2){
-					if(feature1.equals(feature2))
-						result.add(feature2);
-				}
+			HashMap<String, HyFeature> result = new HashMap<>();
+			
+			for(String key : set1.keySet()){
+				if(set2.containsKey(key)){
+					result.put(key, set1.get(key));
+				}				
 			}
 
 			return result;
 		}else if(term instanceof EvoSetUnion){
-			EvoSetUnion intersectionTerm = (EvoSetUnion)term;
+			EvoSetUnion unionTerm = (EvoSetUnion)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetTerm(unionTerm.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetTerm(unionTerm.getOperand2());
 
-			List<HyFeature> result = new ArrayList<>();
-			for(HyFeature feature1 : set1){
-				result.add(feature1);
+			HashMap<String, HyFeature> result = new HashMap<>();
+
+			for(HyFeature feature : set1.values()){
+				result.put(feature.getId(), feature);
 			}
 
-			for(HyFeature feature2 : set2){
-				if(!result.contains(feature2))
-					result.add(feature2);
+			for(HyFeature feature : set2.values()){
+				result.put(feature.getId(), feature);
 			}
-
+			
 			return result;
 		}else if(term instanceof EvoSetDifference){
 			EvoSetDifference differenceTerm = (EvoSetDifference)term;
 
-			List<HyFeature> set1 = solveSetTerm(differenceTerm.getOperand1());
-			List<HyFeature> set2 = solveSetTerm(differenceTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetTerm(differenceTerm.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetTerm(differenceTerm.getOperand2());
 
-			List<HyFeature> result = new ArrayList<>();
-			for(HyFeature feature1 : set1){
-				if(!set2.contains(feature1))
-					result.add(feature1);
+			HashMap<String, HyFeature> result = new HashMap<>();
+			for(String key : set1.keySet()){
+				if(!set2.containsKey(key))
+					result.put(key, set1.get(key));
 			}
 
 			return result;
 		}else if(term instanceof EvoSetSymmetricDifference){
-			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
+			EvoSetIntersection symmetricTerm = (EvoSetIntersection)term;
 
-			List<HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
-			List<HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetTerm(symmetricTerm.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetTerm(symmetricTerm.getOperand2());
 
-			List<HyFeature> result = new ArrayList<>();
-			for(HyFeature feature1 : set1){
-				if(!set2.contains(feature1))
-					result.add(feature1);
+			HashMap<String, HyFeature> result = new HashMap<>();
+			for(String key : set1.keySet()){
+				if(!set2.containsKey(key))
+					result.put(key, set1.get(key));
 			}
 
-			for(HyFeature feature2 : set2){
-				if(!set1.contains(feature2))
-					result.add(feature2);
+			for(String key : set2.keySet()){
+				if(!set1.containsKey(key))
+					result.put(key, set2.get(key));
 			}
 
 			return result;
 		}
 
 		// return an empty list to avoid errors
-		return new ArrayList<HyFeature>();
+		return new HashMap<String, HyFeature>();
 	}
 
 	/**
@@ -148,19 +161,19 @@ public class EvoGuidanceConfigurationActionOperator {
 	 * @param configuration to be modified. Be aware that the file will be overridden
 	 * @param features List of all features that will kept
 	 */
-	private HyConfiguration modifyConfiguration(HyConfiguration configuration, List<HyFeature> features){
+	private HyConfiguration modifyConfiguration(HyConfiguration configuration, HashMap<String, HyFeature> features){
 		List<HyConfigurationElement> elementsToRemove = new ArrayList<>();
 
 		for(HyConfigurationElement element : configuration.getElements()) {
 			if(element instanceof HyFeatureSelected){
 				HyFeatureSelected featureSelected = (HyFeatureSelected)element;
 
-				if(!features.contains(featureSelected.getSelectedFeature()))
+				if(!features.containsKey(featureSelected.getSelectedFeature().getId()))
 					elementsToRemove.add(element);
 			}
 		}
 		
-		for(HyFeature feature : features){
+		for(HyFeature feature : features.values()){
 			
 			boolean isSelected = false;
 			for(HyConfigurationElement element : configuration.getElements()) {
@@ -187,7 +200,17 @@ public class EvoGuidanceConfigurationActionOperator {
 		return configuration;
 	}
 
-	public HyConfiguration perform(HyConfiguration configuration, HyExpression term){		
-		return modifyConfiguration(configuration, solveSetTerm(term));
+	@Override
+	public EObject perform(EObject model, HyExpression expression, EvoResourceProvider resourceProvider) {
+		this.model = model;
+		this.modelCopy = EcoreUtil.copy(model);
+		
+		this.resourceProvider = resourceProvider;
+		
+		// do nothing in case the parameter has the wrong type
+		if(!(model instanceof HyConfiguration))
+			return model;
+		
+		return modifyConfiguration((HyConfiguration)modelCopy, solveSetTerm(expression));
 	}
 }

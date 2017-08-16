@@ -17,6 +17,8 @@ import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableRangeS
 import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUtils;
 import org.eclipse.emf.common.util.URI;
 
+import de.evorepair.analysis.provider.EvoResourceProvider;
+import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import de.evorepair.evolution.evooperation.EvoOperation;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureRelation;
@@ -29,6 +31,7 @@ import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.evolution.evovariable.EvoVariableType;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
+import de.evorepair.logic.evologic.EvoAllConfigurations;
 import de.evorepair.logic.evologic.EvoAllMappings;
 import de.evorepair.logic.evologic.EvoBiconditional;
 import de.evorepair.logic.evologic.EvoChildrenOf;
@@ -48,6 +51,7 @@ import de.evorepair.logic.evologic.EvoSetUnion;
 import de.evorepair.logic.evologic.EvoSize;
 import de.evorepair.logic.evologic.EvoVariableTerm;
 import de.evorepair.logic.evologic.EvoXOr;
+import eu.hyvar.evolution.HyTemporalElement;
 import eu.hyvar.evolution.util.HyEvolutionUtil;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.HyFeatureChild;
@@ -56,6 +60,7 @@ import eu.hyvar.feature.HyFeatureType;
 import eu.hyvar.feature.HyGroup;
 import eu.hyvar.feature.HyGroupComposition;
 import eu.hyvar.feature.HyGroupType;
+import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.HyConfigurationElement;
 import eu.hyvar.feature.configuration.HyFeatureSelected;
 import eu.hyvar.feature.expression.HyAndExpression;
@@ -73,7 +78,7 @@ public class EvoSolver {
 	/**
 	 * Contains all for the solver necessary features of a model. The key to identify the feature is a HyFeature
 	 */
-	HashMap<HyFeature, IntVar> featureVariables = new HashMap<>();
+	HashMap<String, IntVar> featureVariables = new HashMap<>();
 	
 	/**
 	 * Contains all for the solver necessary groups of a model. The key to identify the group is a HyGroup
@@ -91,10 +96,14 @@ public class EvoSolver {
 	Model model;
 	
 	
+	
+	EvoResourceProvider configurationModelProvider;
+	EvoResourceProvider mappingModelProvider;
 
-	public EvoSolver(HyFeatureModel featureModel) {
+	public EvoSolver(HyFeatureModel featureModel, EvoResourceProvider configurationModelProvider, EvoResourceProvider mappingModelProvider) {
 		super();
 		this.featureModel = featureModel;
+		this.configurationModelProvider = configurationModelProvider;
 	}
 
 	/**
@@ -107,7 +116,7 @@ public class EvoSolver {
 			EvoFeatureVariable featureVariable = (EvoFeatureVariable)variable;
 
 			String key = createVariableName(operation, variable);
-			featureVariables.put(featureVariable.getFeature(), model.intVar(key, featureVariables.size()));
+			featureVariables.put(featureVariable.getFeature().getId(), model.intVar(key, featureVariables.size()));
 		}else if(variable instanceof EvoGroupVariable){
 			EvoGroupVariable groupVariable = (EvoGroupVariable)variable;
 
@@ -120,19 +129,25 @@ public class EvoSolver {
 			IntIterableRangeSet set = new IntIterableRangeSet();
 
 			for(EvoVariable childVariable : setVariable.getElements()){
-				String childKey = createVariableName(operation, childVariable); 
 
+				// obtain the corresponding key
+				HyTemporalElement childKey = null;
+				if(childVariable instanceof EvoFeatureVariable)
+					childKey = ((EvoFeatureVariable)childVariable).getFeature();
+				if(childVariable instanceof EvoGroupVariable)
+					childKey = ((EvoGroupVariable)childVariable).getGroup();
+				
 				// the variable was not added to the solver yet, add it immediatly to continue
-				if( !featureVariables.containsKey(childKey) &&
+				if( !featureVariables.containsKey(childKey.getId()) &&
 						!groupVariables.containsKey(childKey) && 
-						!setVariables.containsKey(childKey)){
+						!setVariables.containsKey(createVariableName(operation, childVariable))){
 
 					addVariable(operation, childVariable, false);
 
-					if(featureVariables.containsKey(childKey))
-						set.add(featureVariables.get(childKey).getValue());
+					if(featureVariables.containsKey(childKey.getId()))
+						set.add(featureVariables.get(childKey.getId()).getValue());
 					if(groupVariables.containsKey(childKey))
-						set.add(featureVariables.get(childKey).getValue());
+						set.add(featureVariables.get(childKey.getId()).getValue());
 				}
 			}
 
@@ -188,9 +203,12 @@ public class EvoSolver {
 				
 				// find the HyFeature of the replacement variable
 				if(featureVariable.equals(variableToBeReplaced)) {
-					for(HyFeature key : this.featureVariables.keySet()) {
+					for(String key : this.featureVariables.keySet()) {
 						if(featureVariables.get(key).equals(replacedByVariable)){
-							feature = key;
+							for(HyFeature modelFeature : featureModel.getFeatures()) {
+								if(modelFeature.getId().equals(key))
+									feature = modelFeature;
+							}
 						}
 					}
 				}else
@@ -282,7 +300,7 @@ public class EvoSolver {
 				result.add(replacedByVariable);
 				return result;
 			}else {
-				result.add(featureVariables.get(featureVariableTerm.getFeature()));
+				result.add(featureVariables.get(featureVariableTerm.getFeature().getId()));
 				return result;				
 			}
 				
@@ -312,15 +330,15 @@ public class EvoSolver {
 								HyFeature parent = relatedFeatureVariable.getFeature();
 								for(HyFeatureChild child : HyEvolutionUtil.getValidTemporalElements(parent.getParentOf(), date)) {
 									for(HyGroupComposition composition : HyEvolutionUtil.getValidTemporalElements(child.getChildGroup().getParentOf(), date)) {
-										int index = 0; 
+
 										for(HyFeature childFeature : HyEvolutionUtil.getValidTemporalElements(composition.getFeatures(), date)) {		
 											// add the feature to the solver
-											if(!featureVariables.containsKey(childFeature)) {												
+											if(!featureVariables.containsKey(childFeature.getId())) {												
 												String parentName = HyEvolutionUtil.getValidTemporalElement(parent.getNames(), date).getName();
 												String childName = HyEvolutionUtil.getValidTemporalElement(childFeature.getNames(), date).getName();
-												featureVariables.put(childFeature, model.intVar(parentName+'_'+childName, featureVariables.size()));
+												featureVariables.put(childFeature.getId(), model.intVar(parentName+'_'+childName, featureVariables.size()));
 											}
-											result.add(featureVariables.get(childFeature));
+											result.add(featureVariables.get(childFeature.getId()));
 										}
 									}
 								}
@@ -335,11 +353,11 @@ public class EvoSolver {
 				}
 				
 			}else {
-				if(((EvoFeatureVariable)term).equals(variableToBeReplaced)) {
+				if(((EvoVariableTerm)term).getVariable().equals(variableToBeReplaced)) {
 					result.add(replacedByVariable);
 					return result;
 				}else {
-					result.add(featureVariables.get(feature));
+					result.add(featureVariables.get(feature.getId()));
 					return result;				
 				}
 			}
@@ -348,12 +366,14 @@ public class EvoSolver {
 			
 		}else if(term instanceof EvoGroupVariable){
 			EvoGroupVariable groupVariableTerm = (EvoGroupVariable)term;
-			result.add( groupVariables.get(groupVariableTerm.getName()));
+			result.add( groupVariables.get(groupVariableTerm.getGroup()));
 			return result;
 		}
 
 		return null;
 	}
+	
+
 
 	/**
 	 * Sometimes a set is not immediately visible and needs to be calculated: e.g. the intersection of two sets. 
@@ -371,17 +391,26 @@ public class EvoSolver {
 			
 			if(variable instanceof EvoConfigurationVariable){
 				IntIterableRangeSet result = new IntIterableRangeSet();
-				for(HyConfigurationElement element : ((EvoConfigurationVariable) variable).getConfiguration().getElements()){
+				
+				String filename = ((EvoConfigurationVariable) variable).getConfiguration();
+				
+				URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.featureModel, filename);
+				HyConfiguration configuration = (HyConfiguration)configurationModelProvider.getResource(relativeURI);
+				if(configuration == null) { 
+					System.err.println("Configuration at path "+relativeURI.devicePath()+" couldn't be found");
+				}
+				
+				for(HyConfigurationElement element : configuration.getElements()){
 					if(element instanceof HyFeatureSelected){
 						HyFeatureSelected feature = (HyFeatureSelected)element;
 						
-						IntVar var = featureVariables.get(feature.getSelectedFeature());
+						IntVar var = featureVariables.get(feature.getSelectedFeature().getId());
 						
 						// feature variable was not added to the list, add it now
 						if(var == null) {
-							featureVariables.put(feature.getSelectedFeature(), model.intVar(featureVariables.size()));
+							featureVariables.put(feature.getSelectedFeature().getId(), model.intVar(featureVariables.size()));
 							
-							var = featureVariables.get(feature.getSelectedFeature());
+							var = featureVariables.get(feature.getSelectedFeature().getId());
 						}
 						
 						result.add(var.getValue());
@@ -398,7 +427,7 @@ public class EvoSolver {
 				EvoVariableTerm variableTerm = (EvoVariableTerm)variable;
 
 				if(variableTerm.getVariable() instanceof EvoFeatureVariable){
-					result.add(this.featureVariables.get(((EvoFeatureVariable)variableTerm.getVariable()).getFeature()).getValue());
+					result.add(this.featureVariables.get(((EvoFeatureVariable)variableTerm.getVariable()).getFeature().getId()).getValue());
 				}
 			}
 
@@ -460,11 +489,11 @@ public class EvoSolver {
 						if(HyEvolutionUtil.isValid(feature, date)){
 							children.add(feature);
 
-							if(featureVariables.containsKey(feature)){
-								set.add(featureVariables.get(feature).getValue());
+							if(featureVariables.containsKey(feature.getId())){
+								set.add(featureVariables.get(feature.getId()).getValue());
 							}else{
 								IntVar intVar = model.intVar(featureVariables.size());
-								featureVariables.put(feature, intVar);
+								featureVariables.put(feature.getId(), intVar);
 
 								set.add(intVar.getValue());
 							}
@@ -483,11 +512,11 @@ public class EvoSolver {
 			HyFeature feature = featureChild.getParent();
 
 			IntIterableRangeSet set = new IntIterableRangeSet();
-			if(featureVariables.containsKey(feature)){
-				set.add(featureVariables.get(feature).getValue());
+			if(featureVariables.containsKey(feature.getId())){
+				set.add(featureVariables.get(feature.getId()).getValue());
 			}else{
 				IntVar intVar = model.intVar(featureVariables.size());
-				featureVariables.put(feature, intVar);
+				featureVariables.put(feature.getId(), intVar);
 				set.add(intVar.getValue());
 			}			
 
@@ -551,6 +580,42 @@ public class EvoSolver {
 					model.addClauseFalse(result);
 			}
 		}	
+	}
+	
+	/**
+	 * Checks if a mapping is part of all to the feature model related mappings or not. Be aware, that no type check is done within this function.
+	 * @param expression
+	 * @return true if the mapping specified in expression is related to the feature model, false otherwise
+	 */
+	private boolean mappingIsPartOfAllMappings(EvoElementOf expression) {
+		EvoMappingVariable mappingVariable = ((EvoMappingVariable)((EvoVariableTerm)expression.getOperand1()).getVariable());
+		
+		URI uri = EvoEclipseUtil.platformURIForRelativeFile(featureModel, mappingVariable.getMapping());
+		
+		try {
+			featureModel.eResource().getResourceSet().getResource(uri, true);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}			
+	}
+	
+	/**
+	 * Checks if a configuration is part of all to the feature model related configurations or not. Be aware, that no type check is done within this function.
+	 * @param expression
+	 * @return true if the mapping specified in expression is related to the feature model, false otherwise
+	 */
+	private boolean configurationIsPartOfAllConfigurations(EvoElementOf expression) {
+		EvoConfigurationVariable mappingVariable = ((EvoConfigurationVariable)((EvoVariableTerm)expression.getOperand1()).getVariable());
+	
+		URI uri = EvoEclipseUtil.platformURIForRelativeFile(featureModel, mappingVariable.getConfiguration());
+		
+		try {
+			featureModel.eResource().getResourceSet().getResource(uri, true);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}		
 	}
 	
 	/**
@@ -670,26 +735,22 @@ public class EvoSolver {
 		}else if(term instanceof EvoElementOf){
 			EvoElementOf setElementOfTerm = (EvoElementOf)term;
 
+			// mapping part of all mappings
 			if(setElementOfTerm.getOperand1() instanceof EvoVariableTerm && setElementOfTerm.getOperand2() instanceof EvoAllMappings &&
 					((EvoVariableTerm)setElementOfTerm.getOperand1()).getVariable() instanceof EvoMappingVariable) {
 				
-				EvoMappingVariable mappingVariable = ((EvoMappingVariable)((EvoVariableTerm)setElementOfTerm.getOperand1()).getVariable());
-				List<String> uriFragments = featureModel.eResource().getURI().segmentsList();
-				uriFragments = uriFragments.subList(0, uriFragments.size()-1);
-				
-				String uri = "platform:/"+String.join("/", uriFragments);
-				uri += mappingVariable.getMapping();
-				
-				try {
-					featureModel.eResource().getResourceSet().getResource(URI.createURI(uri), true);
-				}catch(Exception e) {
-					BoolVar result = model.boolVar(true);
-					model.addClauseTrue(result);
-				}
-				
-				BoolVar result = model.boolVar(true);
+				boolean isPartOfAllMappings = mappingIsPartOfAllMappings(setElementOfTerm);
+		
+				BoolVar result = model.boolVar(isPartOfAllMappings);
 				model.addClauseTrue(result);
-			}else {
+			}else if(setElementOfTerm.getOperand1() instanceof EvoVariableTerm && setElementOfTerm.getOperand2() instanceof EvoAllConfigurations &&
+					((EvoVariableTerm)setElementOfTerm.getOperand1()).getVariable() instanceof EvoConfigurationVariable) {	
+				
+				boolean isPartOfAllConfigurations = configurationIsPartOfAllConfigurations(setElementOfTerm);
+				
+				BoolVar result = model.boolVar(isPartOfAllConfigurations);
+				model.addClauseTrue(result);
+			} else {
 				IntIterableRangeSet set = getSet(setElementOfTerm.getOperand2(), date);
 				IntVar var = (IntVar)getVariable(setElementOfTerm.getOperand1(), date, false, replacedByVariable, variableToBeReplaced).get(0);
 				boolean value = IntIterableSetUtils.includedIn(var, set);
@@ -722,7 +783,6 @@ public class EvoSolver {
 			return model.boolVar(IntIterableSetUtils.notIncludedIn(element, set));
 		}else if(term instanceof EvoForAll){
 			EvoForAll forAllTerm = (EvoForAll)term;
-			List<Variable> variables = new ArrayList<>();
 			
 			BoolVar result = model.boolVar();
 			
@@ -750,7 +810,7 @@ public class EvoSolver {
 	}
 
 	/**
-	 * Checks for all in the given guidance table defined anomalies if one occures
+	 * Checks for all in the given guidance table defined anomalies if one occurs
 	 * @param guidanceTable
 	 */
 	public List<EvoAnomaly> solve(EvoGuidanceTable guidanceTable){
@@ -766,7 +826,6 @@ public class EvoSolver {
 		List<EvoAnomaly> anomalies = new ArrayList<>();
 		
 		for(EvoAnomaly anomaly : guidanceTable.getAnomalies()){
-			//if(anomaly instanceof EvoConfigurationAnomaly) {
 				solveTerm(anomaly.getCondition().getTerm(), null, new Date(), null, null);
 	
 				Solver solver = model.getSolver();
@@ -777,8 +836,7 @@ public class EvoSolver {
 					anomalies.add(anomaly);
 				}else{
 					System.err.println(":(");
-				}			
-			//}
+				}	
 		}
 
 		return anomalies;

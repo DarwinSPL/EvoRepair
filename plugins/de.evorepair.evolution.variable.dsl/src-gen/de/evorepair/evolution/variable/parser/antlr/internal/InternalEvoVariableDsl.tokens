@@ -1,18 +1,17 @@
 '('=14
 ')'=16
 ','=15
-'.'=23
 ':'=13
 '='=19
-'childOf'=26
+'childOf'=25
 'configuration'=22
 'feature'=11
 'group'=17
 'mapping'=21
-'parentOf'=24
+'parentOf'=23
 'reference'=12
 'set'=20
-'siblingOf'=25
+'siblingOf'=24
 'value'=18
 RULE_ANY_OTHER=10
 RULE_ID=4
@@ -36,4 +35,3 @@ T__22=22
 T__23=23
 T__24=24
 T__25=25
-T__26=26

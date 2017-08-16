@@ -21,8 +21,6 @@ import eu.hyvar.evolution.HyEvolutionPackage;
 
 import eu.hyvar.feature.HyFeaturePackage;
 
-import eu.hyvar.feature.configuration.HyConfigurationPackage;
-
 import eu.hyvar.feature.expression.HyExpressionPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -105,7 +103,6 @@ public class Evo_expression_dslPackageImpl extends EPackageImpl implements Evo_e
     HyContextInformationPackage.eINSTANCE.eClass();
     EvoVariablePackage.eINSTANCE.eClass();
     HyEvolutionPackage.eINSTANCE.eClass();
-    HyConfigurationPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theEvo_expression_dslPackage.createPackageContents();

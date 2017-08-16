@@ -1259,9 +1259,9 @@ ruleEvoMappingNegation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='--'
+		otherlv_0='-'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0());
 		}
 		(
 			(

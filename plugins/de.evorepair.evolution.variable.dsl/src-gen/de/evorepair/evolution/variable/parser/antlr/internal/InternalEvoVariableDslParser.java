@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'feature'", "'reference'", "':'", "'('", "','", "')'", "'group'", "'value'", "'='", "'set'", "'mapping'", "'configuration'", "'.'", "'parentOf'", "'siblingOf'", "'childOf'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'feature'", "'reference'", "':'", "'('", "','", "')'", "'group'", "'value'", "'='", "'set'", "'mapping'", "'configuration'", "'parentOf'", "'siblingOf'", "'childOf'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -39,7 +39,6 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int T__26=26;
     public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
@@ -507,7 +506,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=24 && LA3_0<=26)) ) {
+            if ( ((LA3_0>=23 && LA3_0<=25)) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -833,7 +832,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvoGroupVariable"
-    // InternalEvoVariableDsl.g:332:1: ruleEvoGroupVariable returns [EObject current=null] : (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )? ) ;
+    // InternalEvoVariableDsl.g:332:1: ruleEvoGroupVariable returns [EObject current=null] : (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )? ) ;
     public final EObject ruleEvoGroupVariable() throws RecognitionException {
         EObject current = null;
 
@@ -841,16 +840,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalEvoVariableDsl.g:338:2: ( (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )? ) )
-            // InternalEvoVariableDsl.g:339:2: (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )? )
+            // InternalEvoVariableDsl.g:338:2: ( (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )? ) )
+            // InternalEvoVariableDsl.g:339:2: (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )? )
             {
-            // InternalEvoVariableDsl.g:339:2: (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )? )
-            // InternalEvoVariableDsl.g:340:3: otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )?
+            // InternalEvoVariableDsl.g:339:2: (otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )? )
+            // InternalEvoVariableDsl.g:340:3: otherlv_0= 'group' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )?
             {
             otherlv_0=(Token)match(input,17,FOLLOW_4); 
 
@@ -882,7 +882,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEvoVariableDsl.g:362:3: (otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) ) )?
+            // InternalEvoVariableDsl.g:362:3: (otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -891,37 +891,30 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalEvoVariableDsl.g:363:4: otherlv_2= 'value' otherlv_3= '=' ( ( ruleQualifiedName ) )
+                    // InternalEvoVariableDsl.g:363:4: otherlv_2= 'value' otherlv_3= '=' ( (otherlv_4= RULE_STRING ) )
                     {
                     otherlv_2=(Token)match(input,18,FOLLOW_13); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getEvoGroupVariableAccess().getValueKeyword_2_0());
                     			
-                    otherlv_3=(Token)match(input,19,FOLLOW_4); 
+                    otherlv_3=(Token)match(input,19,FOLLOW_8); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getEvoGroupVariableAccess().getEqualsSignKeyword_2_1());
                     			
-                    // InternalEvoVariableDsl.g:371:4: ( ( ruleQualifiedName ) )
-                    // InternalEvoVariableDsl.g:372:5: ( ruleQualifiedName )
+                    // InternalEvoVariableDsl.g:371:4: ( (otherlv_4= RULE_STRING ) )
+                    // InternalEvoVariableDsl.g:372:5: (otherlv_4= RULE_STRING )
                     {
-                    // InternalEvoVariableDsl.g:372:5: ( ruleQualifiedName )
-                    // InternalEvoVariableDsl.g:373:6: ruleQualifiedName
+                    // InternalEvoVariableDsl.g:372:5: (otherlv_4= RULE_STRING )
+                    // InternalEvoVariableDsl.g:373:6: otherlv_4= RULE_STRING
                     {
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getEvoGroupVariableRule());
                     						}
                     					
+                    otherlv_4=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-                    						newCompositeNode(grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupCrossReference_2_2_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    ruleQualifiedName();
-
-                    state._fsp--;
-
-
-                    						afterParserOrEnumRuleCall();
+                    						newLeafNode(otherlv_4, grammarAccess.getEvoGroupVariableAccess().getGroupHyGroupCrossReference_2_2_0());
                     					
 
                     }
@@ -958,7 +951,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEvoSetVariable"
-    // InternalEvoVariableDsl.g:392:1: entryRuleEvoSetVariable returns [EObject current=null] : iv_ruleEvoSetVariable= ruleEvoSetVariable EOF ;
+    // InternalEvoVariableDsl.g:389:1: entryRuleEvoSetVariable returns [EObject current=null] : iv_ruleEvoSetVariable= ruleEvoSetVariable EOF ;
     public final EObject entryRuleEvoSetVariable() throws RecognitionException {
         EObject current = null;
 
@@ -966,8 +959,8 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEvoVariableDsl.g:392:55: (iv_ruleEvoSetVariable= ruleEvoSetVariable EOF )
-            // InternalEvoVariableDsl.g:393:2: iv_ruleEvoSetVariable= ruleEvoSetVariable EOF
+            // InternalEvoVariableDsl.g:389:55: (iv_ruleEvoSetVariable= ruleEvoSetVariable EOF )
+            // InternalEvoVariableDsl.g:390:2: iv_ruleEvoSetVariable= ruleEvoSetVariable EOF
             {
              newCompositeNode(grammarAccess.getEvoSetVariableRule()); 
             pushFollow(FOLLOW_1);
@@ -994,7 +987,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvoSetVariable"
-    // InternalEvoVariableDsl.g:399:1: ruleEvoSetVariable returns [EObject current=null] : (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? ) ;
+    // InternalEvoVariableDsl.g:396:1: ruleEvoSetVariable returns [EObject current=null] : (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? ) ;
     public final EObject ruleEvoSetVariable() throws RecognitionException {
         EObject current = null;
 
@@ -1010,21 +1003,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEvoVariableDsl.g:405:2: ( (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? ) )
-            // InternalEvoVariableDsl.g:406:2: (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? )
+            // InternalEvoVariableDsl.g:402:2: ( (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? ) )
+            // InternalEvoVariableDsl.g:403:2: (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? )
             {
-            // InternalEvoVariableDsl.g:406:2: (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? )
-            // InternalEvoVariableDsl.g:407:3: otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )?
+            // InternalEvoVariableDsl.g:403:2: (otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )? )
+            // InternalEvoVariableDsl.g:404:3: otherlv_0= 'set' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )?
             {
             otherlv_0=(Token)match(input,20,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoSetVariableAccess().getSetKeyword_0());
             		
-            // InternalEvoVariableDsl.g:411:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalEvoVariableDsl.g:412:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:408:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalEvoVariableDsl.g:409:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalEvoVariableDsl.g:412:4: (lv_name_1_0= RULE_ID )
-            // InternalEvoVariableDsl.g:413:5: lv_name_1_0= RULE_ID
+            // InternalEvoVariableDsl.g:409:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:410:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_14); 
 
@@ -1046,7 +1039,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEvoVariableDsl.g:429:3: (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )?
+            // InternalEvoVariableDsl.g:426:3: (otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1055,17 +1048,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalEvoVariableDsl.g:430:4: otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')'
+                    // InternalEvoVariableDsl.g:427:4: otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) ) otherlv_6= ')'
                     {
                     otherlv_2=(Token)match(input,14,FOLLOW_4); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getEvoSetVariableAccess().getLeftParenthesisKeyword_2_0());
                     			
-                    // InternalEvoVariableDsl.g:434:4: ( (otherlv_3= RULE_ID ) )
-                    // InternalEvoVariableDsl.g:435:5: (otherlv_3= RULE_ID )
+                    // InternalEvoVariableDsl.g:431:4: ( (otherlv_3= RULE_ID ) )
+                    // InternalEvoVariableDsl.g:432:5: (otherlv_3= RULE_ID )
                     {
-                    // InternalEvoVariableDsl.g:435:5: (otherlv_3= RULE_ID )
-                    // InternalEvoVariableDsl.g:436:6: otherlv_3= RULE_ID
+                    // InternalEvoVariableDsl.g:432:5: (otherlv_3= RULE_ID )
+                    // InternalEvoVariableDsl.g:433:6: otherlv_3= RULE_ID
                     {
 
                     						if (current==null) {
@@ -1082,18 +1075,18 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalEvoVariableDsl.g:447:4: (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) )
-                    // InternalEvoVariableDsl.g:448:5: otherlv_4= ',' ( (otherlv_5= RULE_ID ) )
+                    // InternalEvoVariableDsl.g:444:4: (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) )
+                    // InternalEvoVariableDsl.g:445:5: otherlv_4= ',' ( (otherlv_5= RULE_ID ) )
                     {
                     otherlv_4=(Token)match(input,15,FOLLOW_4); 
 
                     					newLeafNode(otherlv_4, grammarAccess.getEvoSetVariableAccess().getCommaKeyword_2_2_0());
                     				
-                    // InternalEvoVariableDsl.g:452:5: ( (otherlv_5= RULE_ID ) )
-                    // InternalEvoVariableDsl.g:453:6: (otherlv_5= RULE_ID )
+                    // InternalEvoVariableDsl.g:449:5: ( (otherlv_5= RULE_ID ) )
+                    // InternalEvoVariableDsl.g:450:6: (otherlv_5= RULE_ID )
                     {
-                    // InternalEvoVariableDsl.g:453:6: (otherlv_5= RULE_ID )
-                    // InternalEvoVariableDsl.g:454:7: otherlv_5= RULE_ID
+                    // InternalEvoVariableDsl.g:450:6: (otherlv_5= RULE_ID )
+                    // InternalEvoVariableDsl.g:451:7: otherlv_5= RULE_ID
                     {
 
                     							if (current==null) {
@@ -1146,7 +1139,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEvoMappingVariable"
-    // InternalEvoVariableDsl.g:475:1: entryRuleEvoMappingVariable returns [EObject current=null] : iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF ;
+    // InternalEvoVariableDsl.g:472:1: entryRuleEvoMappingVariable returns [EObject current=null] : iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF ;
     public final EObject entryRuleEvoMappingVariable() throws RecognitionException {
         EObject current = null;
 
@@ -1154,8 +1147,8 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEvoVariableDsl.g:475:59: (iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF )
-            // InternalEvoVariableDsl.g:476:2: iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF
+            // InternalEvoVariableDsl.g:472:59: (iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF )
+            // InternalEvoVariableDsl.g:473:2: iv_ruleEvoMappingVariable= ruleEvoMappingVariable EOF
             {
              newCompositeNode(grammarAccess.getEvoMappingVariableRule()); 
             pushFollow(FOLLOW_1);
@@ -1182,7 +1175,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvoMappingVariable"
-    // InternalEvoVariableDsl.g:482:1: ruleEvoMappingVariable returns [EObject current=null] : (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) ;
+    // InternalEvoVariableDsl.g:479:1: ruleEvoMappingVariable returns [EObject current=null] : (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) ;
     public final EObject ruleEvoMappingVariable() throws RecognitionException {
         EObject current = null;
 
@@ -1196,21 +1189,21 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEvoVariableDsl.g:488:2: ( (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) )
-            // InternalEvoVariableDsl.g:489:2: (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
+            // InternalEvoVariableDsl.g:485:2: ( (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) )
+            // InternalEvoVariableDsl.g:486:2: (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
             {
-            // InternalEvoVariableDsl.g:489:2: (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
-            // InternalEvoVariableDsl.g:490:3: otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )?
+            // InternalEvoVariableDsl.g:486:2: (otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
+            // InternalEvoVariableDsl.g:487:3: otherlv_0= 'mapping' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )?
             {
             otherlv_0=(Token)match(input,21,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoMappingVariableAccess().getMappingKeyword_0());
             		
-            // InternalEvoVariableDsl.g:494:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalEvoVariableDsl.g:495:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:491:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalEvoVariableDsl.g:492:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalEvoVariableDsl.g:495:4: (lv_name_1_0= RULE_ID )
-            // InternalEvoVariableDsl.g:496:5: lv_name_1_0= RULE_ID
+            // InternalEvoVariableDsl.g:492:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:493:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_14); 
 
@@ -1232,7 +1225,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEvoVariableDsl.g:512:3: (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )?
+            // InternalEvoVariableDsl.g:509:3: (otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1241,17 +1234,17 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalEvoVariableDsl.g:513:4: otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')'
+                    // InternalEvoVariableDsl.g:510:4: otherlv_2= '(' ( (lv_mapping_3_0= RULE_STRING ) ) otherlv_4= ')'
                     {
                     otherlv_2=(Token)match(input,14,FOLLOW_8); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getEvoMappingVariableAccess().getLeftParenthesisKeyword_2_0());
                     			
-                    // InternalEvoVariableDsl.g:517:4: ( (lv_mapping_3_0= RULE_STRING ) )
-                    // InternalEvoVariableDsl.g:518:5: (lv_mapping_3_0= RULE_STRING )
+                    // InternalEvoVariableDsl.g:514:4: ( (lv_mapping_3_0= RULE_STRING ) )
+                    // InternalEvoVariableDsl.g:515:5: (lv_mapping_3_0= RULE_STRING )
                     {
-                    // InternalEvoVariableDsl.g:518:5: (lv_mapping_3_0= RULE_STRING )
-                    // InternalEvoVariableDsl.g:519:6: lv_mapping_3_0= RULE_STRING
+                    // InternalEvoVariableDsl.g:515:5: (lv_mapping_3_0= RULE_STRING )
+                    // InternalEvoVariableDsl.g:516:6: lv_mapping_3_0= RULE_STRING
                     {
                     lv_mapping_3_0=(Token)match(input,RULE_STRING,FOLLOW_11); 
 
@@ -1306,7 +1299,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEvoConfigurationVariable"
-    // InternalEvoVariableDsl.g:544:1: entryRuleEvoConfigurationVariable returns [EObject current=null] : iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF ;
+    // InternalEvoVariableDsl.g:541:1: entryRuleEvoConfigurationVariable returns [EObject current=null] : iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF ;
     public final EObject entryRuleEvoConfigurationVariable() throws RecognitionException {
         EObject current = null;
 
@@ -1314,8 +1307,8 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEvoVariableDsl.g:544:65: (iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF )
-            // InternalEvoVariableDsl.g:545:2: iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF
+            // InternalEvoVariableDsl.g:541:65: (iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF )
+            // InternalEvoVariableDsl.g:542:2: iv_ruleEvoConfigurationVariable= ruleEvoConfigurationVariable EOF
             {
              newCompositeNode(grammarAccess.getEvoConfigurationVariableRule()); 
             pushFollow(FOLLOW_1);
@@ -1342,34 +1335,37 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvoConfigurationVariable"
-    // InternalEvoVariableDsl.g:551:1: ruleEvoConfigurationVariable returns [EObject current=null] : (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // InternalEvoVariableDsl.g:548:1: ruleEvoConfigurationVariable returns [EObject current=null] : (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) ;
     public final EObject ruleEvoConfigurationVariable() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token lv_configuration_3_0=null;
+        Token otherlv_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalEvoVariableDsl.g:557:2: ( (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) ) )
-            // InternalEvoVariableDsl.g:558:2: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalEvoVariableDsl.g:554:2: ( (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )? ) )
+            // InternalEvoVariableDsl.g:555:2: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
             {
-            // InternalEvoVariableDsl.g:558:2: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) )
-            // InternalEvoVariableDsl.g:559:3: otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) )
+            // InternalEvoVariableDsl.g:555:2: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )? )
+            // InternalEvoVariableDsl.g:556:3: otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )?
             {
             otherlv_0=(Token)match(input,22,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEvoConfigurationVariableAccess().getConfigurationKeyword_0());
             		
-            // InternalEvoVariableDsl.g:563:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalEvoVariableDsl.g:564:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:560:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalEvoVariableDsl.g:561:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalEvoVariableDsl.g:564:4: (lv_name_1_0= RULE_ID )
-            // InternalEvoVariableDsl.g:565:5: lv_name_1_0= RULE_ID
+            // InternalEvoVariableDsl.g:561:4: (lv_name_1_0= RULE_ID )
+            // InternalEvoVariableDsl.g:562:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_14); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getEvoConfigurationVariableAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -1386,6 +1382,57 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
             }
 
+
+            }
+
+            // InternalEvoVariableDsl.g:578:3: (otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')' )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==14) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalEvoVariableDsl.g:579:4: otherlv_2= '(' ( (lv_configuration_3_0= RULE_STRING ) ) otherlv_4= ')'
+                    {
+                    otherlv_2=(Token)match(input,14,FOLLOW_8); 
+
+                    				newLeafNode(otherlv_2, grammarAccess.getEvoConfigurationVariableAccess().getLeftParenthesisKeyword_2_0());
+                    			
+                    // InternalEvoVariableDsl.g:583:4: ( (lv_configuration_3_0= RULE_STRING ) )
+                    // InternalEvoVariableDsl.g:584:5: (lv_configuration_3_0= RULE_STRING )
+                    {
+                    // InternalEvoVariableDsl.g:584:5: (lv_configuration_3_0= RULE_STRING )
+                    // InternalEvoVariableDsl.g:585:6: lv_configuration_3_0= RULE_STRING
+                    {
+                    lv_configuration_3_0=(Token)match(input,RULE_STRING,FOLLOW_11); 
+
+                    						newLeafNode(lv_configuration_3_0, grammarAccess.getEvoConfigurationVariableAccess().getConfigurationSTRINGTerminalRuleCall_2_1_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getEvoConfigurationVariableRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"configuration",
+                    							lv_configuration_3_0,
+                    							"org.eclipse.xtext.common.Terminals.STRING");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_4=(Token)match(input,16,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_4, grammarAccess.getEvoConfigurationVariableAccess().getRightParenthesisKeyword_2_2());
+                    			
+
+                    }
+                    break;
 
             }
 
@@ -1411,128 +1458,8 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleEvoConfigurationVariable"
 
 
-    // $ANTLR start "entryRuleQualifiedName"
-    // InternalEvoVariableDsl.g:585:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
-    public final String entryRuleQualifiedName() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
-
-
-        try {
-            // InternalEvoVariableDsl.g:585:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalEvoVariableDsl.g:586:2: iv_ruleQualifiedName= ruleQualifiedName EOF
-            {
-             newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleQualifiedName=ruleQualifiedName();
-
-            state._fsp--;
-
-             current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleQualifiedName"
-
-
-    // $ANTLR start "ruleQualifiedName"
-    // InternalEvoVariableDsl.g:592:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
-    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_ID_0=null;
-        Token kw=null;
-        Token this_ID_2=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalEvoVariableDsl.g:598:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalEvoVariableDsl.g:599:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            {
-            // InternalEvoVariableDsl.g:599:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalEvoVariableDsl.g:600:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
-            {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_16); 
-
-            			current.merge(this_ID_0);
-            		
-
-            			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
-            		
-            // InternalEvoVariableDsl.g:607:3: (kw= '.' this_ID_2= RULE_ID )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==23) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalEvoVariableDsl.g:608:4: kw= '.' this_ID_2= RULE_ID
-            	    {
-            	    kw=(Token)match(input,23,FOLLOW_4); 
-
-            	    				current.merge(kw);
-            	    				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
-            	    			
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_16); 
-
-            	    				current.merge(this_ID_2);
-            	    			
-
-            	    				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
-            	    			
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleQualifiedName"
-
-
     // $ANTLR start "ruleEvoFeatureVariableType"
-    // InternalEvoVariableDsl.g:625:1: ruleEvoFeatureVariableType returns [Enumerator current=null] : ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) ) ;
+    // InternalEvoVariableDsl.g:610:1: ruleEvoFeatureVariableType returns [Enumerator current=null] : ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) ) ;
     public final Enumerator ruleEvoFeatureVariableType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1544,23 +1471,23 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEvoVariableDsl.g:631:2: ( ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) ) )
-            // InternalEvoVariableDsl.g:632:2: ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) )
+            // InternalEvoVariableDsl.g:616:2: ( ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) ) )
+            // InternalEvoVariableDsl.g:617:2: ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) )
             {
-            // InternalEvoVariableDsl.g:632:2: ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) )
+            // InternalEvoVariableDsl.g:617:2: ( (enumLiteral_0= 'parentOf' ) | (enumLiteral_1= 'siblingOf' ) | (enumLiteral_2= 'childOf' ) )
             int alt10=3;
             switch ( input.LA(1) ) {
-            case 24:
+            case 23:
                 {
                 alt10=1;
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 alt10=2;
                 }
                 break;
-            case 26:
+            case 25:
                 {
                 alt10=3;
                 }
@@ -1574,12 +1501,12 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
 
             switch (alt10) {
                 case 1 :
-                    // InternalEvoVariableDsl.g:633:3: (enumLiteral_0= 'parentOf' )
+                    // InternalEvoVariableDsl.g:618:3: (enumLiteral_0= 'parentOf' )
                     {
-                    // InternalEvoVariableDsl.g:633:3: (enumLiteral_0= 'parentOf' )
-                    // InternalEvoVariableDsl.g:634:4: enumLiteral_0= 'parentOf'
+                    // InternalEvoVariableDsl.g:618:3: (enumLiteral_0= 'parentOf' )
+                    // InternalEvoVariableDsl.g:619:4: enumLiteral_0= 'parentOf'
                     {
-                    enumLiteral_0=(Token)match(input,24,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,23,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoParentEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoParentEnumLiteralDeclaration_0());
@@ -1591,12 +1518,12 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalEvoVariableDsl.g:641:3: (enumLiteral_1= 'siblingOf' )
+                    // InternalEvoVariableDsl.g:626:3: (enumLiteral_1= 'siblingOf' )
                     {
-                    // InternalEvoVariableDsl.g:641:3: (enumLiteral_1= 'siblingOf' )
-                    // InternalEvoVariableDsl.g:642:4: enumLiteral_1= 'siblingOf'
+                    // InternalEvoVariableDsl.g:626:3: (enumLiteral_1= 'siblingOf' )
+                    // InternalEvoVariableDsl.g:627:4: enumLiteral_1= 'siblingOf'
                     {
-                    enumLiteral_1=(Token)match(input,25,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,24,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoSiblingEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoSiblingEnumLiteralDeclaration_1());
@@ -1608,12 +1535,12 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalEvoVariableDsl.g:649:3: (enumLiteral_2= 'childOf' )
+                    // InternalEvoVariableDsl.g:634:3: (enumLiteral_2= 'childOf' )
                     {
-                    // InternalEvoVariableDsl.g:649:3: (enumLiteral_2= 'childOf' )
-                    // InternalEvoVariableDsl.g:650:4: enumLiteral_2= 'childOf'
+                    // InternalEvoVariableDsl.g:634:3: (enumLiteral_2= 'childOf' )
+                    // InternalEvoVariableDsl.g:635:4: enumLiteral_2= 'childOf'
                     {
-                    enumLiteral_2=(Token)match(input,26,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,25,FOLLOW_2); 
 
                     				current = grammarAccess.getEvoFeatureVariableTypeAccess().getEvoChildEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getEvoFeatureVariableTypeAccess().getEvoChildEnumLiteralDeclaration_2());
@@ -1654,7 +1581,7 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000720802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000007001002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000003801002L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001002L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000020L});
@@ -1665,6 +1592,5 @@ public class InternalEvoVariableDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800002L});
 
 }

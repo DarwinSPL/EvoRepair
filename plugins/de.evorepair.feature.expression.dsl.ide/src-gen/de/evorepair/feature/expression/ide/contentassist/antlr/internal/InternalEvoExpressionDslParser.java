@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvoExpressionDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_DATE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'<'", "'<='", "'='", "'>='", "'>'", "'@ident'", "'@pre'", "'@post'", "'optional'", "'mandatory'", "'and'", "'or'", "'alternative'", "'||'", "'&&'", "'=='", "'!='", "'->'", "'<->'", "'ifPossible('", "')'", "','", "'-'", "'+'", "'%'", "'*'", "'/'", "'--'", "'('", "'!'", "'?'", "'['", "']'", "'context:'", "'.'", "'EnumLiteral('", "'eternity'", "'min('", "'max('", "'xor'", "'=>'", "'<=>'", "'inclusion'", "'intersection'", "'union'", "'difference'", "'symmetric_difference'", "'x'", "'|'", "'size'", "'elementOf'", "'forAll'", "':'", "'exists'", "'not'", "'satisfiable'", "'All_Mappings'", "'All_Configurations'", "'AC'", "'featureType'", "'groupType'", "'{'", "'}'", "'parentOf'", "'sibilingsOf'", "'childrenOf'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_DATE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'<'", "'<='", "'='", "'>='", "'>'", "'@ident'", "'@pre'", "'@post'", "'optional'", "'mandatory'", "'and'", "'or'", "'alternative'", "'||'", "'&&'", "'=='", "'!='", "'->'", "'<->'", "'ifPossible('", "')'", "','", "'-'", "'+'", "'%'", "'*'", "'/'", "'('", "'!'", "'?'", "'['", "']'", "'context:'", "'.'", "'EnumLiteral('", "'eternity'", "'min('", "'max('", "'xor'", "'=>'", "'<=>'", "'inclusion'", "'intersection'", "'union'", "'difference'", "'symmetric_difference'", "'x'", "'|'", "'size'", "'elementOf'", "'forAll'", "':'", "'exists'", "'not'", "'satisfiable'", "'All_Mappings'", "'All_Configurations'", "'AC'", "'featureType'", "'groupType'", "'{'", "'}'", "'parentOf'", "'sibilingsOf'", "'childrenOf'", "'true'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -79,7 +79,6 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
     public static final int T__34=34;
     public static final int T__78=78;
     public static final int T__35=35;
-    public static final int T__79=79;
     public static final int T__36=36;
     public static final int T__73=73;
     public static final int EOF=-1;
@@ -6278,13 +6277,13 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==44) ) {
+            if ( (LA2_0==43) ) {
                 int LA2_1 = input.LA(2);
 
                 if ( ((LA2_1>=13 && LA2_1<=17)) ) {
                     alt2=1;
                 }
-                else if ( (LA2_1==79) ) {
+                else if ( (LA2_1==78) ) {
                     alt2=2;
                 }
                 else {
@@ -6473,7 +6472,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==79) ) {
+            if ( (LA4_0==78) ) {
                 alt4=1;
             }
             else if ( (LA4_0==12) ) {
@@ -6560,7 +6559,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 if ( (LA5_1==35) ) {
                     int LA5_3 = input.LA(3);
 
-                    if ( (LA5_3==45) ) {
+                    if ( (LA5_3==44) ) {
                         alt5=2;
                     }
                     else if ( (LA5_3==RULE_DATE) ) {
@@ -6580,7 +6579,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                     throw nvae;
                 }
             }
-            else if ( (LA5_0==49) ) {
+            else if ( (LA5_0==48) ) {
                 alt5=3;
             }
             else {
@@ -6693,7 +6692,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_ID||(LA6_0>=41 && LA6_0<=42)||(LA6_0>=61 && LA6_0<=62)||LA6_0==64||(LA6_0>=66 && LA6_0<=68)||(LA6_0>=71 && LA6_0<=74)||(LA6_0>=76 && LA6_0<=78)) ) {
+            if ( (LA6_0==RULE_ID||(LA6_0>=40 && LA6_0<=41)||(LA6_0>=60 && LA6_0<=61)||LA6_0==63||(LA6_0>=65 && LA6_0<=67)||(LA6_0>=70 && LA6_0<=73)||(LA6_0>=75 && LA6_0<=77)) ) {
                 alt6=1;
             }
             else if ( (LA6_0==RULE_INT) ) {
@@ -6772,7 +6771,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_ID||(LA7_0>=41 && LA7_0<=42)||(LA7_0>=61 && LA7_0<=62)||LA7_0==64||(LA7_0>=66 && LA7_0<=68)||(LA7_0>=71 && LA7_0<=74)||(LA7_0>=76 && LA7_0<=78)) ) {
+            if ( (LA7_0==RULE_ID||(LA7_0>=40 && LA7_0<=41)||(LA7_0>=60 && LA7_0<=61)||LA7_0==63||(LA7_0>=65 && LA7_0<=67)||(LA7_0>=70 && LA7_0<=73)||(LA7_0>=75 && LA7_0<=77)) ) {
                 alt7=1;
             }
             else if ( (LA7_0==RULE_INT) ) {
@@ -6851,7 +6850,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_ID||(LA8_0>=41 && LA8_0<=42)||(LA8_0>=61 && LA8_0<=62)||LA8_0==64||(LA8_0>=66 && LA8_0<=68)||(LA8_0>=71 && LA8_0<=74)||(LA8_0>=76 && LA8_0<=78)) ) {
+            if ( (LA8_0==RULE_ID||(LA8_0>=40 && LA8_0<=41)||(LA8_0>=60 && LA8_0<=61)||LA8_0==63||(LA8_0>=65 && LA8_0<=67)||(LA8_0>=70 && LA8_0<=73)||(LA8_0>=75 && LA8_0<=77)) ) {
                 alt8=1;
             }
             else if ( (LA8_0==RULE_INT) ) {
@@ -6930,7 +6929,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_ID||(LA9_0>=41 && LA9_0<=42)||(LA9_0>=61 && LA9_0<=62)||LA9_0==64||(LA9_0>=66 && LA9_0<=68)||(LA9_0>=71 && LA9_0<=74)||(LA9_0>=76 && LA9_0<=78)) ) {
+            if ( (LA9_0==RULE_ID||(LA9_0>=40 && LA9_0<=41)||(LA9_0>=60 && LA9_0<=61)||LA9_0==63||(LA9_0>=65 && LA9_0<=67)||(LA9_0>=70 && LA9_0<=73)||(LA9_0>=75 && LA9_0<=77)) ) {
                 alt9=1;
             }
             else if ( (LA9_0==RULE_INT) ) {
@@ -7009,10 +7008,10 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==61) ) {
+            if ( (LA10_0==60) ) {
                 alt10=1;
             }
-            else if ( (LA10_0==62) ) {
+            else if ( (LA10_0==61) ) {
                 alt10=2;
             }
             else {
@@ -7100,31 +7099,31 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt11=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
+            case 40:
             case 41:
-            case 42:
+            case 60:
             case 61:
-            case 62:
-            case 64:
+            case 63:
+            case 65:
             case 66:
             case 67:
-            case 68:
+            case 70:
             case 71:
             case 72:
             case 73:
-            case 74:
+            case 75:
             case 76:
             case 77:
-            case 78:
                 {
                 alt11=1;
                 }
                 break;
-            case 69:
+            case 68:
                 {
                 alt11=2;
                 }
                 break;
-            case 70:
+            case 69:
                 {
                 alt11=3;
                 }
@@ -7222,10 +7221,10 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==67) ) {
+            if ( (LA12_0==66) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==42) ) {
+            else if ( (LA12_0==41) ) {
                 alt12=2;
             }
             else {
@@ -7313,10 +7312,10 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_ID||LA13_0==42||LA13_0==67||LA13_0==74) ) {
+            if ( (LA13_0==RULE_ID||LA13_0==41||LA13_0==66||LA13_0==73) ) {
                 alt13=1;
             }
-            else if ( (LA13_0==71) ) {
+            else if ( (LA13_0==70) ) {
                 alt13=2;
             }
             else {
@@ -7392,10 +7391,10 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_ID||LA14_0==42||LA14_0==67||LA14_0==74) ) {
+            if ( (LA14_0==RULE_ID||LA14_0==41||LA14_0==66||LA14_0==73) ) {
                 alt14=1;
             }
-            else if ( (LA14_0==71) ) {
+            else if ( (LA14_0==70) ) {
                 alt14=2;
             }
             else {
@@ -7475,69 +7474,69 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 alt15=1;
                 }
                 break;
-            case 74:
+            case 73:
                 {
                 alt15=2;
                 }
                 break;
-            case 71:
+            case 70:
                 {
                 alt15=3;
                 }
                 break;
-            case 64:
+            case 63:
                 {
                 alt15=4;
                 }
                 break;
-            case 66:
+            case 65:
                 {
                 alt15=5;
                 }
                 break;
-            case 42:
-            case 67:
+            case 41:
+            case 66:
                 {
                 alt15=6;
                 }
                 break;
-            case 72:
+            case 71:
                 {
                 alt15=7;
                 }
                 break;
-            case 73:
+            case 72:
                 {
                 alt15=8;
                 }
                 break;
+            case 60:
             case 61:
-            case 62:
                 {
                 alt15=9;
                 }
                 break;
-            case 78:
+            case 77:
                 {
                 alt15=10;
                 }
                 break;
-            case 76:
+            case 75:
                 {
                 alt15=11;
                 }
                 break;
-            case 77:
+            case 76:
                 {
                 alt15=12;
                 }
                 break;
-            case 68:
+            case 67:
                 {
                 alt15=13;
                 }
                 break;
-            case 41:
+            case 40:
                 {
                 alt15=14;
                 }
@@ -7854,13 +7853,13 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 alt16=1;
                 }
                 break;
-            case 74:
+            case 73:
                 {
                 alt16=2;
                 }
                 break;
-            case 42:
-            case 67:
+            case 41:
+            case 66:
                 {
                 alt16=3;
                 }
@@ -15220,21 +15219,21 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EvoMappingNegation__Group__0__Impl"
-    // InternalEvoExpressionDsl.g:4825:1: rule__EvoMappingNegation__Group__0__Impl : ( '--' ) ;
+    // InternalEvoExpressionDsl.g:4825:1: rule__EvoMappingNegation__Group__0__Impl : ( '-' ) ;
     public final void rule__EvoMappingNegation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEvoExpressionDsl.g:4829:1: ( ( '--' ) )
-            // InternalEvoExpressionDsl.g:4830:1: ( '--' )
+            // InternalEvoExpressionDsl.g:4829:1: ( ( '-' ) )
+            // InternalEvoExpressionDsl.g:4830:1: ( '-' )
             {
-            // InternalEvoExpressionDsl.g:4830:1: ( '--' )
-            // InternalEvoExpressionDsl.g:4831:2: '--'
+            // InternalEvoExpressionDsl.g:4830:1: ( '-' )
+            // InternalEvoExpressionDsl.g:4831:2: '-'
             {
-             before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0()); 
-            match(input,40,FOLLOW_2); 
-             after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusHyphenMinusKeyword_0()); 
+             before(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getEvoMappingNegationAccess().getHyphenMinusKeyword_0()); 
 
             }
 
@@ -15388,7 +15387,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:4885:2: '('
             {
              before(grammarAccess.getEvoMappingNestedExpressionAccess().getLeftParenthesisKeyword_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoMappingNestedExpressionAccess().getLeftParenthesisKeyword_0()); 
 
             }
@@ -15618,7 +15617,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:4966:2: '!'
             {
              before(grammarAccess.getEvoMappingNotAccess().getExclamationMarkKeyword_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getEvoMappingNotAccess().getExclamationMarkKeyword_0()); 
 
             }
@@ -15773,7 +15772,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5020:2: '?'
             {
              before(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getQuestionMarkKeyword_0()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getEvoMappingConditionalFeatureReferenceExpressionAccess().getQuestionMarkKeyword_0()); 
 
             }
@@ -15932,7 +15931,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( (LA38_0==12||LA38_0==44) ) {
+            if ( (LA38_0==12||LA38_0==43) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -16024,7 +16023,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5101:2: '['
             {
              before(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getLeftSquareBracketKeyword_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getLeftSquareBracketKeyword_0()); 
 
             }
@@ -16264,7 +16263,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5181:2: ']'
             {
              before(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getRightSquareBracketKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getEvoMappingRelativeVersionRestrictionAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -16339,7 +16338,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5209:2: '['
             {
              before(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLeftSquareBracketKeyword_0_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLeftSquareBracketKeyword_0_0()); 
 
             }
@@ -16964,7 +16963,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5424:2: ']'
             {
              before(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getRightSquareBracketKeyword_2_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getRightSquareBracketKeyword_2_2()); 
 
             }
@@ -17039,7 +17038,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5452:2: 'context:'
             {
              before(grammarAccess.getEvoMappingContextInformationReferenceExpressionAccess().getContextKeyword_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getEvoMappingContextInformationReferenceExpressionAccess().getContextKeyword_0()); 
 
             }
@@ -17279,7 +17278,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5533:2: '.'
             {
              before(grammarAccess.getEvoMappingAttributeReferenceExpressionAccess().getFullStopKeyword_1()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getEvoMappingAttributeReferenceExpressionAccess().getFullStopKeyword_1()); 
 
             }
@@ -17589,7 +17588,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5641:2: 'EnumLiteral('
             {
              before(grammarAccess.getEvoMappingEnumLiteralAccess().getEnumLiteralKeyword_0()); 
-            match(input,48,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getEvoMappingEnumLiteralAccess().getEnumLiteralKeyword_0()); 
 
             }
@@ -17983,7 +17982,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             int alt39=2;
             int LA39_0 = input.LA(1);
 
-            if ( (LA39_0==44) ) {
+            if ( (LA39_0==43) ) {
                 alt39=1;
             }
             switch (alt39) {
@@ -18075,7 +18074,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5803:2: '['
             {
              before(grammarAccess.getEvoMappingEnumLiteralAccess().getLeftSquareBracketKeyword_5_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getEvoMappingEnumLiteralAccess().getLeftSquareBracketKeyword_5_0()); 
 
             }
@@ -18230,7 +18229,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:5856:2: ']'
             {
              before(grammarAccess.getEvoMappingEnumLiteralAccess().getRightSquareBracketKeyword_5_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getEvoMappingEnumLiteralAccess().getRightSquareBracketKeyword_5_2()); 
 
             }
@@ -18700,7 +18699,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:6019:2: 'eternity'
             {
              before(grammarAccess.getEvoMappingEnumLiteralAccess().getEternityKeyword_5_1_2_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getEvoMappingEnumLiteralAccess().getEternityKeyword_5_1_2_0()); 
 
             }
@@ -18930,7 +18929,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:6100:2: 'min('
             {
              before(grammarAccess.getEvoMappingMimumumExpressionAccess().getMinKeyword_0()); 
-            match(input,50,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getEvoMappingMimumumExpressionAccess().getMinKeyword_0()); 
 
             }
@@ -19160,7 +19159,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:6181:2: 'max('
             {
              before(grammarAccess.getEvoMappingMaximumExpressionAccess().getMaxKeyword_0()); 
-            match(input,51,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getEvoMappingMaximumExpressionAccess().getMaxKeyword_0()); 
 
             }
@@ -19466,7 +19465,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt40=2;
                 int LA40_0 = input.LA(1);
 
-                if ( (LA40_0==47) ) {
+                if ( (LA40_0==46) ) {
                     alt40=1;
                 }
 
@@ -19563,7 +19562,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:6316:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -19788,7 +19787,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==52) ) {
+                if ( (LA41_0==51) ) {
                     alt41=1;
                 }
 
@@ -19960,7 +19959,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:6451:2: 'xor'
             {
              before(grammarAccess.getEvoXOrAccess().getXorKeyword_1_1()); 
-            match(input,52,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getEvoXOrAccess().getXorKeyword_1_1()); 
 
             }
@@ -21823,7 +21822,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt46=2;
                 int LA46_0 = input.LA(1);
 
-                if ( (LA46_0==53) ) {
+                if ( (LA46_0==52) ) {
                     alt46=1;
                 }
 
@@ -21995,7 +21994,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7126:2: '=>'
             {
              before(grammarAccess.getEvoImplicationAccess().getEqualsSignGreaterThanSignKeyword_1_1()); 
-            match(input,53,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getEvoImplicationAccess().getEqualsSignGreaterThanSignKeyword_1_1()); 
 
             }
@@ -22230,7 +22229,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt47=2;
                 int LA47_0 = input.LA(1);
 
-                if ( (LA47_0==54) ) {
+                if ( (LA47_0==53) ) {
                     alt47=1;
                 }
 
@@ -22402,7 +22401,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7261:2: '<=>'
             {
              before(grammarAccess.getEvoBiconditionalAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_1()); 
-            match(input,54,FOLLOW_2); 
+            match(input,53,FOLLOW_2); 
              after(grammarAccess.getEvoBiconditionalAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_1()); 
 
             }
@@ -22637,7 +22636,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt48=2;
                 int LA48_0 = input.LA(1);
 
-                if ( (LA48_0==55) ) {
+                if ( (LA48_0==54) ) {
                     alt48=1;
                 }
 
@@ -22809,7 +22808,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7396:2: 'inclusion'
             {
              before(grammarAccess.getEvoSetInclusionAccess().getInclusionKeyword_1_1()); 
-            match(input,55,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getEvoSetInclusionAccess().getInclusionKeyword_1_1()); 
 
             }
@@ -23044,7 +23043,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt49=2;
                 int LA49_0 = input.LA(1);
 
-                if ( (LA49_0==56) ) {
+                if ( (LA49_0==55) ) {
                     alt49=1;
                 }
 
@@ -23216,7 +23215,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7531:2: 'intersection'
             {
              before(grammarAccess.getEvoSetIntersectionAccess().getIntersectionKeyword_1_1()); 
-            match(input,56,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getEvoSetIntersectionAccess().getIntersectionKeyword_1_1()); 
 
             }
@@ -23451,7 +23450,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt50=2;
                 int LA50_0 = input.LA(1);
 
-                if ( (LA50_0==57) ) {
+                if ( (LA50_0==56) ) {
                     alt50=1;
                 }
 
@@ -23623,7 +23622,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7666:2: 'union'
             {
              before(grammarAccess.getEvoSetUnionAccess().getUnionKeyword_1_1()); 
-            match(input,57,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getEvoSetUnionAccess().getUnionKeyword_1_1()); 
 
             }
@@ -23858,7 +23857,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt51=2;
                 int LA51_0 = input.LA(1);
 
-                if ( (LA51_0==58) ) {
+                if ( (LA51_0==57) ) {
                     alt51=1;
                 }
 
@@ -24030,7 +24029,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7801:2: 'difference'
             {
              before(grammarAccess.getEvoSetDifferenceAccess().getDifferenceKeyword_1_1()); 
-            match(input,58,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getEvoSetDifferenceAccess().getDifferenceKeyword_1_1()); 
 
             }
@@ -24265,7 +24264,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt52=2;
                 int LA52_0 = input.LA(1);
 
-                if ( (LA52_0==59) ) {
+                if ( (LA52_0==58) ) {
                     alt52=1;
                 }
 
@@ -24437,7 +24436,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:7936:2: 'symmetric_difference'
             {
              before(grammarAccess.getEvoSetSymmetricDifferenceAccess().getSymmetric_differenceKeyword_1_1()); 
-            match(input,59,FOLLOW_2); 
+            match(input,58,FOLLOW_2); 
              after(grammarAccess.getEvoSetSymmetricDifferenceAccess().getSymmetric_differenceKeyword_1_1()); 
 
             }
@@ -24672,7 +24671,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt53=2;
                 int LA53_0 = input.LA(1);
 
-                if ( (LA53_0==60) ) {
+                if ( (LA53_0==59) ) {
                     alt53=1;
                 }
 
@@ -24844,7 +24843,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8071:2: 'x'
             {
              before(grammarAccess.getEvoSetCartesianProductAccess().getXKeyword_1_1()); 
-            match(input,60,FOLLOW_2); 
+            match(input,59,FOLLOW_2); 
              after(grammarAccess.getEvoSetCartesianProductAccess().getXKeyword_1_1()); 
 
             }
@@ -25154,7 +25153,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8179:2: '|'
             {
              before(grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_0()); 
-            match(input,61,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_0()); 
 
             }
@@ -25309,7 +25308,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8232:2: '|'
             {
              before(grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_2()); 
-            match(input,61,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getEvoSetCardinalityAccess().getVerticalLineKeyword_1_0_2()); 
 
             }
@@ -25384,7 +25383,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8260:2: 'size'
             {
              before(grammarAccess.getEvoSetCardinalityAccess().getSizeKeyword_1_1_0()); 
-            match(input,62,FOLLOW_2); 
+            match(input,61,FOLLOW_2); 
              after(grammarAccess.getEvoSetCardinalityAccess().getSizeKeyword_1_1_0()); 
 
             }
@@ -25459,7 +25458,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8287:2: '('
             {
              before(grammarAccess.getEvoSetCardinalityAccess().getLeftParenthesisKeyword_1_1_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoSetCardinalityAccess().getLeftParenthesisKeyword_1_1_1()); 
 
             }
@@ -25769,7 +25768,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
                 int alt54=2;
                 int LA54_0 = input.LA(1);
 
-                if ( (LA54_0==63) ) {
+                if ( (LA54_0==62) ) {
                     alt54=1;
                 }
 
@@ -25941,7 +25940,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8449:2: 'elementOf'
             {
              before(grammarAccess.getEvoElementOfAccess().getElementOfKeyword_1_1()); 
-            match(input,63,FOLLOW_2); 
+            match(input,62,FOLLOW_2); 
              after(grammarAccess.getEvoElementOfAccess().getElementOfKeyword_1_1()); 
 
             }
@@ -26096,7 +26095,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8503:2: 'forAll'
             {
              before(grammarAccess.getEvoForAllAccess().getForAllKeyword_0()); 
-            match(input,64,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getEvoForAllAccess().getForAllKeyword_0()); 
 
             }
@@ -26171,7 +26170,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8530:2: '('
             {
              before(grammarAccess.getEvoForAllAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoForAllAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -26434,7 +26433,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8611:2: ':'
             {
              before(grammarAccess.getEvoForAllAccess().getColonKeyword_4()); 
-            match(input,65,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getEvoForAllAccess().getColonKeyword_4()); 
 
             }
@@ -26819,7 +26818,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8746:2: 'exists'
             {
              before(grammarAccess.getEvoExistsAccess().getExistsKeyword_0()); 
-            match(input,66,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getEvoExistsAccess().getExistsKeyword_0()); 
 
             }
@@ -26894,7 +26893,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8773:2: '('
             {
              before(grammarAccess.getEvoExistsAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoExistsAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -27054,7 +27053,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8827:2: ':'
             {
              before(grammarAccess.getEvoExistsAccess().getColonKeyword_3()); 
-            match(input,65,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getEvoExistsAccess().getColonKeyword_3()); 
 
             }
@@ -27284,7 +27283,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8908:2: 'not'
             {
              before(grammarAccess.getEvoNotAccess().getNotKeyword_0_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getEvoNotAccess().getNotKeyword_0_0()); 
 
             }
@@ -27359,7 +27358,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:8935:2: '('
             {
              before(grammarAccess.getEvoNotAccess().getLeftParenthesisKeyword_0_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoNotAccess().getLeftParenthesisKeyword_0_1()); 
 
             }
@@ -27589,7 +27588,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9016:2: '!'
             {
              before(grammarAccess.getEvoNotAccess().getExclamationMarkKeyword_1_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getEvoNotAccess().getExclamationMarkKeyword_1_0()); 
 
             }
@@ -27819,7 +27818,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9097:2: 'satisfiable'
             {
              before(grammarAccess.getEvoSatisfiableAccess().getSatisfiableKeyword_1()); 
-            match(input,68,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getEvoSatisfiableAccess().getSatisfiableKeyword_1()); 
 
             }
@@ -27894,7 +27893,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9124:2: '('
             {
              before(grammarAccess.getEvoSatisfiableAccess().getLeftParenthesisKeyword_2()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoSatisfiableAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -28382,7 +28381,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9286:2: '('
             {
              before(grammarAccess.getEvoTerminalAccess().getLeftParenthesisKeyword_13_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoTerminalAccess().getLeftParenthesisKeyword_13_0()); 
 
             }
@@ -28676,7 +28675,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9393:2: 'All_Mappings'
             {
              before(grammarAccess.getEvoAllMappingTerminalAccess().getAll_MappingsKeyword_1()); 
-            match(input,69,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getEvoAllMappingTerminalAccess().getAll_MappingsKeyword_1()); 
 
             }
@@ -28821,7 +28820,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9447:2: 'All_Configurations'
             {
              before(grammarAccess.getEvoAllConfigurationTerminalAccess().getAll_ConfigurationsKeyword_1()); 
-            match(input,70,FOLLOW_2); 
+            match(input,69,FOLLOW_2); 
              after(grammarAccess.getEvoAllConfigurationTerminalAccess().getAll_ConfigurationsKeyword_1()); 
 
             }
@@ -29227,7 +29226,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9583:2: 'AC'
             {
              before(grammarAccess.getEvoApplicationConstraintTermAccess().getACKeyword_0()); 
-            match(input,71,FOLLOW_2); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getEvoApplicationConstraintTermAccess().getACKeyword_0()); 
 
             }
@@ -29302,7 +29301,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9610:2: '('
             {
              before(grammarAccess.getEvoApplicationConstraintTermAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoApplicationConstraintTermAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -29607,7 +29606,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9718:2: 'featureType'
             {
              before(grammarAccess.getEvoFeatureTypeAccess().getFeatureTypeKeyword_1()); 
-            match(input,72,FOLLOW_2); 
+            match(input,71,FOLLOW_2); 
              after(grammarAccess.getEvoFeatureTypeAccess().getFeatureTypeKeyword_1()); 
 
             }
@@ -29922,7 +29921,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:9826:2: '('
             {
              before(grammarAccess.getEvoFeatureTypeAccess().getLeftParenthesisKeyword_2_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoFeatureTypeAccess().getLeftParenthesisKeyword_2_0()); 
 
             }
@@ -30485,7 +30484,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10015:2: 'groupType'
             {
              before(grammarAccess.getEvoGroupTypeAccess().getGroupTypeKeyword_1()); 
-            match(input,73,FOLLOW_2); 
+            match(input,72,FOLLOW_2); 
              after(grammarAccess.getEvoGroupTypeAccess().getGroupTypeKeyword_1()); 
 
             }
@@ -30800,7 +30799,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10123:2: '('
             {
              before(grammarAccess.getEvoGroupTypeAccess().getLeftParenthesisKeyword_2_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoGroupTypeAccess().getLeftParenthesisKeyword_2_0()); 
 
             }
@@ -31464,7 +31463,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10339:2: '{'
             {
              before(grammarAccess.getEvoSetTermAccess().getLeftCurlyBracketKeyword_0()); 
-            match(input,74,FOLLOW_2); 
+            match(input,73,FOLLOW_2); 
              after(grammarAccess.getEvoSetTermAccess().getLeftCurlyBracketKeyword_0()); 
 
             }
@@ -31722,7 +31721,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10419:2: '}'
             {
              before(grammarAccess.getEvoSetTermAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,75,FOLLOW_2); 
+            match(input,74,FOLLOW_2); 
              after(grammarAccess.getEvoSetTermAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -31952,7 +31951,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10501:2: 'parentOf'
             {
              before(grammarAccess.getEvoParentOfAccess().getParentOfKeyword_0()); 
-            match(input,76,FOLLOW_2); 
+            match(input,75,FOLLOW_2); 
              after(grammarAccess.getEvoParentOfAccess().getParentOfKeyword_0()); 
 
             }
@@ -32027,7 +32026,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10528:2: '('
             {
              before(grammarAccess.getEvoParentOfAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoParentOfAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -32257,7 +32256,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10609:2: 'sibilingsOf'
             {
              before(grammarAccess.getEvoSiblingsOfAccess().getSibilingsOfKeyword_0()); 
-            match(input,77,FOLLOW_2); 
+            match(input,76,FOLLOW_2); 
              after(grammarAccess.getEvoSiblingsOfAccess().getSibilingsOfKeyword_0()); 
 
             }
@@ -32332,7 +32331,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10636:2: '('
             {
              before(grammarAccess.getEvoSiblingsOfAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoSiblingsOfAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -32562,7 +32561,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10717:2: 'childrenOf'
             {
              before(grammarAccess.getEvoChildrenOfAccess().getChildrenOfKeyword_0()); 
-            match(input,78,FOLLOW_2); 
+            match(input,77,FOLLOW_2); 
              after(grammarAccess.getEvoChildrenOfAccess().getChildrenOfKeyword_0()); 
 
             }
@@ -32637,7 +32636,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:10744:2: '('
             {
              before(grammarAccess.getEvoChildrenOfAccess().getLeftParenthesisKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEvoChildrenOfAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -33874,7 +33873,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:11202:4: 'true'
             {
              before(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLowerIncludedTrueKeyword_0_1_0()); 
-            match(input,79,FOLLOW_2); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getLowerIncludedTrueKeyword_0_1_0()); 
 
             }
@@ -33968,7 +33967,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:11240:4: 'true'
             {
              before(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getUpperIncludedTrueKeyword_1_3_0()); 
-            match(input,79,FOLLOW_2); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getEvoMappingVersionRangeRestrictionAccess().getUpperIncludedTrueKeyword_1_3_0()); 
 
             }
@@ -34246,7 +34245,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
             // InternalEvoExpressionDsl.g:11350:4: 'true'
             {
              before(grammarAccess.getEvoMappingBooleanValueExpressionAccess().getValueTrueKeyword_1_0_0()); 
-            match(input,79,FOLLOW_2); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getEvoMappingBooleanValueExpressionAccess().getValueTrueKeyword_1_0_0()); 
 
             }
@@ -36381,12 +36380,12 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
     static final String dfa_1s = "\16\uffff";
     static final String dfa_2s = "\1\uffff\1\15\14\uffff";
     static final String dfa_3s = "\1\4\1\15\14\uffff";
-    static final String dfa_4s = "\1\117\1\57\14\uffff";
+    static final String dfa_4s = "\1\116\1\56\14\uffff";
     static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\10\1\11\1\12\1\13\1\14\1\7\1\1";
     static final String dfa_6s = "\16\uffff}>";
     static final String[] dfa_7s = {
-            "\1\2\1\1\1\7\5\uffff\1\10\33\uffff\1\4\1\3\1\13\1\5\2\uffff\1\6\3\uffff\1\11\1\12\33\uffff\1\10",
-            "\2\15\1\uffff\2\15\10\uffff\16\15\7\uffff\1\14",
+            "\1\2\1\1\1\7\5\uffff\1\10\26\uffff\1\4\4\uffff\1\3\1\13\1\5\2\uffff\1\6\3\uffff\1\11\1\12\33\uffff\1\10",
+            "\2\15\1\uffff\2\15\10\uffff\16\15\6\uffff\1\14",
             "",
             "",
             "",
@@ -36428,18 +36427,18 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
     }
     static final String dfa_8s = "\10\uffff";
     static final String dfa_9s = "\1\14\1\uffff\1\4\1\43\1\4\2\uffff\1\43";
-    static final String dfa_10s = "\1\54\1\uffff\1\4\1\57\1\4\2\uffff\1\57";
+    static final String dfa_10s = "\1\53\1\uffff\1\4\1\56\1\4\2\uffff\1\56";
     static final String dfa_11s = "\1\uffff\1\1\3\uffff\1\3\1\2\1\uffff";
     static final String dfa_12s = "\10\uffff}>";
     static final String[] dfa_13s = {
-            "\1\2\37\uffff\1\1",
+            "\1\2\36\uffff\1\1",
             "",
             "\1\3",
-            "\1\6\11\uffff\1\5\1\uffff\1\4",
+            "\1\6\10\uffff\1\5\1\uffff\1\4",
             "\1\7",
             "",
             "",
-            "\1\6\11\uffff\1\5\1\uffff\1\4"
+            "\1\6\10\uffff\1\5\1\uffff\1\4"
     };
 
     static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
@@ -36472,7 +36471,7 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x000C4F0000001070L,0x0000000000008000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0006270800001070L,0x0000000000004000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000010000000L});
@@ -36507,55 +36506,55 @@ public class InternalEvoExpressionDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000008000000002L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000200000000L});
     public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000100000001000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000080000001000L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x000000000003E000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000001000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000001000L,0x0000000000004000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0002000000000080L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0001000000000080L});
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0010000000000002L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x6000060000000010L,0x000000000000779DL});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x6000060000000050L,0x000000000000779DL});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0040000000000002L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x6000000000000000L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x8000000000000002L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x6000060000000010L,0x00000000000077FDL});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000040000000010L,0x0000000000000488L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000400000000002L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0xB000030000000010L,0x0000000000003BCEL});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0xB000030000000050L,0x0000000000003BCEL});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0010000000000002L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0040000000000002L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0800000000000002L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x3000000000000000L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0xB000030000000010L,0x0000000000003BFEL});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000020000000010L,0x0000000000000244L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
     public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x00000000001C0000L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
     public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
     public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000003800000L});
-    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000040000000010L,0x0000000000000408L});
-    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000020000000010L,0x0000000000000204L});
+    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000400L});
 
 }

@@ -12,7 +12,7 @@ import org.eclipse.ui.internal.EditorReference;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import de.evorepair.analysis.solver.eclipse.EclipseUtil;
+import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 
 /**
@@ -64,7 +64,7 @@ public class Activator extends AbstractUIPlugin {
 
 
 	private void registerSuggestionViewerCloseListener() {
-		IWorkbenchPage page = EclipseUtil.getActivePage();
+		IWorkbenchPage page = EvoEclipseUtil.getActivePage();
 
 		IPartListener2 pl = new IPartListener2() {
 			public void partClosed(IWorkbenchPartReference partRef)

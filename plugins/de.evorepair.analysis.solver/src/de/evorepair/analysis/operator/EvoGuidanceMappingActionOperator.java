@@ -1,7 +1,9 @@
 package de.evorepair.analysis.operator;
 
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
@@ -42,9 +44,8 @@ import eu.hyvar.feature.expression.HyValueExpression;
 import eu.hyvar.feature.mapping.HyMapping;
 import eu.hyvar.feature.mapping.HyMappingModel;
 
-public class EvoGuidanceMappingActionOperator {
-	Resource mappingResource;
-	
+public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
+
 	private boolean featureMatch(HyFeature feature1, HyFeature feature2) {
 		return feature1.equals(feature2) || feature1.getId().equals(feature2.getId());
 	}
@@ -248,11 +249,23 @@ public class EvoGuidanceMappingActionOperator {
 		}
 	}
 	
-	public HyMappingModel perform(HyMappingModel mappingModel, EvoMappingReplace expression){
-		for(HyMapping mapping : mappingModel.getMappings()) {
-			expressionIsContainedInExpression(mapping.getExpression(), expression.getOperand1(), expression.getOperand2());
+	@Override
+	public EObject perform(EObject model, HyExpression expression, EvoResourceProvider resourceProvider) {
+		this.model = model;
+		this.modelCopy = EcoreUtil.copy(model);
+		
+		this.resourceProvider = resourceProvider;
+		
+		// do nothing in case the parameter have the wrong type
+		if(!(model instanceof HyMappingModel) || !(expression instanceof EvoMappingReplace))
+			return model;
+		
+		EvoMappingReplace replaceExpression = (EvoMappingReplace)expression;
+		
+		for(HyMapping mapping : ((HyMappingModel)modelCopy).getMappings()) {
+			expressionIsContainedInExpression(mapping.getExpression(), replaceExpression.getOperand1(), replaceExpression.getOperand2());
 		}
 		
-		return mappingModel;
+		return modelCopy;
 	}
 }

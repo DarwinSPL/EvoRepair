@@ -23,7 +23,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -117,16 +116,18 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 	private String getDescriptionFileContent(IFile file) {
 		try {
-			
+
 			StringBuilder sb = new StringBuilder();
 			FileInputStream input = (FileInputStream)file.getContents();
 			int character;
 			while((character = input.read())!=-1) {
-		         
-	            // converts integer to character
-	            sb.append((char)character);
+
+				// converts integer to character
+				sb.append((char)character);
 			}
 			
+			input.close();
+
 			return sb.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -139,8 +140,6 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	public void createPartControl(Composite parent) {
 
 		FillLayout fillLayout = new FillLayout();
-		fillLayout.marginHeight= 5;
-		fillLayout.marginWidth = 5;
 		parent.setLayout(fillLayout);
 
 		SashForm containerSashForm = new SashForm(parent, SWT.HORIZONTAL);   	        
@@ -197,33 +196,10 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 
 	private Composite createMappingPanel(Composite parent, FillLayout fillLayout) {
-		
-		/*
 		SashForm splitEditorComposite = new SashForm(parent, SWT.VERTICAL);
-		splitEditorComposite.setLayout(fillLayout);
-
-		splitEditorComposite.setWeights(new int[] { 3, 1});
-		splitEditorComposite.setSashWidth(4);		
-		
-		Composite configurationPanel = new Composite(splitEditorComposite, SWT.NONE);
-		//configurationPanel.setLayout(new GridLayout(1, false));
-
-
-
-		
-
-
-
-
-
-
-		return splitEditorComposite;
-		*/
-		
-		SashForm sashForm2 = new SashForm(parent, SWT.VERTICAL);
-		suggestionList = new List(sashForm2, SWT.BORDER | SWT.V_SCROLL);
+		suggestionList = new List(splitEditorComposite, SWT.BORDER | SWT.V_SCROLL);
 		suggestionList.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-	
+
 		int index = 0;
 		for(HyMappingModel mapping : suggestions) {
 			suggestionList.add("Repair Suggestion "+index);
@@ -233,26 +209,19 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 			index++;
 		}		
-		
-		Composite descriptionPanel = new Composite(sashForm2, SWT.NONE);
+
+		Composite descriptionPanel = new Composite(splitEditorComposite, SWT.NONE);
 		descriptionPanel.setLayout(new GridLayout(1, true));
-		
+
 		suggestionDescriptionLabel = new Label(descriptionPanel, SWT.LEFT | SWT.WRAP | SWT.BORDER);
 		suggestionDescriptionLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		suggestionDescriptionLabel.setText("Descriptions goes here");
-		
+
 		applyButton = new Button(descriptionPanel, SWT.PUSH);
 		applyButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 		applyButton.setText("Apply Suggestion");
-		
-		/*
-	    final Label labelA = new Label(sashForm2, SWT.BORDER | SWT.CENTER);
-	    labelA.setText("Label in pane A");
-	    final Label labelB = new Label(sashForm2, SWT.BORDER |SWT.CENTER);
-	    labelB.setText("Label in pane B");		
-	    */
-		
-	    return sashForm2;
+
+		return splitEditorComposite;
 	}
 
 
@@ -321,34 +290,37 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		});
 	}
 
+	private IResource[] getFilesFromSolutionFolder() {
+		IResource resource = ((IFileEditorInput)getEditorInput()).getFile();
+		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IResource[] files;
+
+		try {
+			files = folder.members();
+			return files;
+		} catch (CoreException e) {
+			e.printStackTrace();
+
+			return new IResource[0];
+		}
+	}
 
 	@Override
 	protected void setInput(IEditorInput input) {
 		super.setInput(input);
 
-		IResource resource = ((IFileEditorInput)input).getFile();
-
 		selectedMappingModel = EcoreIOUtil.loadModel(((IFileEditorInput)input).getFile());
 		mappingModel = selectedMappingModel;
 		mappingResource = (XtextResource)selectedMappingModel.eResource();
 
-
-		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
-		IResource[] files;
-		try {
-			files = folder.members();
-
-			for(int i=0; i<files.length; i++) {
-				if(files[i] instanceof IFile) {
-					if(!files[i].getFileExtension().equals("description")) {
-						HyMappingModel suggestion = EcoreIOUtil.loadModel((IFile)files[i]);
-						suggestions.add(suggestion);
-					}
+		for(IResource file : getFilesFromSolutionFolder()) {
+			if(file instanceof IFile) {
+				if(!file.getFileExtension().equals("description")) {
+					HyMappingModel suggestion = EcoreIOUtil.loadModel((IFile)file);
+					suggestions.add(suggestion);
 				}
-			}		
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
+			}
+		}		
 	}
 
 	/**
@@ -360,5 +332,16 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		this.mappingModel.getMappings().clear();
 		this.mappingModel.getMappings().addAll(mappingModel.getMappings());
 		EcoreIOUtil.saveModel(this.mappingModel);
+
+		IResource[] files = getFilesFromSolutionFolder();
+
+		for(IResource r : files) {
+			try {
+				
+				r.delete(true, null);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}		
 	}
 }

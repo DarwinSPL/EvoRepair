@@ -199,13 +199,13 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Assignment cGroupAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final CrossReference cGroupHyGroupCrossReference_2_2_0 = (CrossReference)cGroupAssignment_2_2.eContents().get(0);
-		private final RuleCall cGroupHyGroupQualifiedNameParserRuleCall_2_2_0_1 = (RuleCall)cGroupHyGroupCrossReference_2_2_0.eContents().get(1);
+		private final RuleCall cGroupHyGroupSTRINGTerminalRuleCall_2_2_0_1 = (RuleCall)cGroupHyGroupCrossReference_2_2_0.eContents().get(1);
 		
 		//EvoGroupVariable:
-		//	'group' name=ID ('value' '=' group=[feature::HyGroup|QualifiedName])?;
+		//	'group' name=ID ('value' '=' group=[feature::HyGroup|STRING])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'group' name=ID ('value' '=' group=[feature::HyGroup|QualifiedName])?
+		//'group' name=ID ('value' '=' group=[feature::HyGroup|STRING])?
 		public Group getGroup() { return cGroup; }
 		
 		//'group'
@@ -217,7 +217,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('value' '=' group=[feature::HyGroup|QualifiedName])?
+		//('value' '=' group=[feature::HyGroup|STRING])?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'value'
@@ -226,14 +226,14 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
 		
-		//group=[feature::HyGroup|QualifiedName]
+		//group=[feature::HyGroup|STRING]
 		public Assignment getGroupAssignment_2_2() { return cGroupAssignment_2_2; }
 		
-		//[feature::HyGroup|QualifiedName]
+		//[feature::HyGroup|STRING]
 		public CrossReference getGroupHyGroupCrossReference_2_2_0() { return cGroupHyGroupCrossReference_2_2_0; }
 		
-		//QualifiedName
-		public RuleCall getGroupHyGroupQualifiedNameParserRuleCall_2_2_0_1() { return cGroupHyGroupQualifiedNameParserRuleCall_2_2_0_1; }
+		//STRING
+		public RuleCall getGroupHyGroupSTRINGTerminalRuleCall_2_2_0_1() { return cGroupHyGroupSTRINGTerminalRuleCall_2_2_0_1; }
 	}
 	public class EvoSetVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoSetVariable");
@@ -351,12 +351,17 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cConfigurationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConfigurationAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConfigurationSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cConfigurationAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//EvoConfigurationVariable:
-		//	'configuration' name=ID;
+		//	'configuration' name=ID ('(' configuration=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'configuration' name=ID
+		//'configuration' name=ID ('(' configuration=STRING ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//'configuration'
@@ -367,33 +372,21 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-	}
-	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.QualifiedName");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//QualifiedName:
-		//	ID ("." ID)*;
-		@Override public ParserRule getRule() { return rule; }
+		//('(' configuration=STRING ')')?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//ID ("." ID)*
-		public Group getGroup() { return cGroup; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 		
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		//configuration=STRING
+		public Assignment getConfigurationAssignment_2_1() { return cConfigurationAssignment_2_1; }
 		
-		//("." ID)*
-		public Group getGroup_1() { return cGroup_1; }
+		//STRING
+		public RuleCall getConfigurationSTRINGTerminalRuleCall_2_1_0() { return cConfigurationSTRINGTerminalRuleCall_2_1_0; }
 		
-		//"."
-		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		//')'
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 	}
 	
 	public class EvoFeatureVariableTypeElements extends AbstractEnumRuleElementFinder {
@@ -443,7 +436,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final EvoMappingVariableElements pEvoMappingVariable;
 	private final EvoConfigurationVariableElements pEvoConfigurationVariable;
 	private final EvoFeatureVariableTypeElements eEvoFeatureVariableType;
-	private final QualifiedNameElements pQualifiedName;
 	
 	private final Grammar grammar;
 	
@@ -463,7 +455,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEvoMappingVariable = new EvoMappingVariableElements();
 		this.pEvoConfigurationVariable = new EvoConfigurationVariableElements();
 		this.eEvoFeatureVariableType = new EvoFeatureVariableTypeElements();
-		this.pQualifiedName = new QualifiedNameElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -535,7 +526,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoGroupVariable:
-	//	'group' name=ID ('value' '=' group=[feature::HyGroup|QualifiedName])?;
+	//	'group' name=ID ('value' '=' group=[feature::HyGroup|STRING])?;
 	public EvoGroupVariableElements getEvoGroupVariableAccess() {
 		return pEvoGroupVariable;
 	}
@@ -565,7 +556,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EvoConfigurationVariable:
-	//	'configuration' name=ID;
+	//	'configuration' name=ID ('(' configuration=STRING ')')?;
 	public EvoConfigurationVariableElements getEvoConfigurationVariableAccess() {
 		return pEvoConfigurationVariable;
 	}
@@ -584,16 +575,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getEvoFeatureVariableTypeRule() {
 		return getEvoFeatureVariableTypeAccess().getRule();
-	}
-	
-	//QualifiedName:
-	//	ID ("." ID)*;
-	public QualifiedNameElements getQualifiedNameAccess() {
-		return pQualifiedName;
-	}
-	
-	public ParserRule getQualifiedNameRule() {
-		return getQualifiedNameAccess().getRule();
 	}
 	
 	//terminal ID:
