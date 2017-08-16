@@ -300,9 +300,10 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 						// needed for the name of the solution configurations
 						int index = 0;
 						for(EvoGuidanceElement guidance : anomaly.getGuidance()){
-							EObject modifiedModel = (EObject)operator.perform(model, guidance.getAction().getTerm(), configurationProvider);
-
-							IFile modifiedModelFile = getSolutionFile(solutionFolder, index, modifiedModel);
+							IFile modifiedModelFile = getSolutionFile(solutionFolder, index, model);
+							XtextResource copy = (XtextResource)EcoreIOUtil.copyResourceTo(model.eResource(), modifiedModelFile);
+							EObject modifiedModel = (EObject)operator.perform(copy.getContents().get(0), guidance.getAction().getTerm(), configurationProvider);							
+							
 							saveDescriptionFile(guidance.getDescription(), EcoreIOUtil.createURIFromFile(modifiedModelFile));
 							EcoreIOUtil.saveModelAs(modifiedModel, modifiedModelFile);
 							
