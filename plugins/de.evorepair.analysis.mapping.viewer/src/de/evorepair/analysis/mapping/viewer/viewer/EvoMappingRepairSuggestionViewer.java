@@ -44,6 +44,7 @@ import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 import de.evorepair.feature.mapping.dsl.ui.internal.DslActivator;
 import eu.hyvar.feature.mapping.HyMappingModel;
+import eu.hyvar.feature.mapping.util.HyMappingModelUtil;
 
 @SuppressWarnings("restriction")
 public class EvoMappingRepairSuggestionViewer extends EditorPart{
@@ -315,7 +316,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 		for(IResource file : getFilesFromSolutionFolder()) {
 			if(file instanceof IFile) {
-				if(!file.getFileExtension().equals("description")) {
+				if(file.getFileExtension().equals(HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax())) {
 					HyMappingModel suggestion = EcoreIOUtil.loadModel((IFile)file);
 					suggestions.add(suggestion);
 				}
