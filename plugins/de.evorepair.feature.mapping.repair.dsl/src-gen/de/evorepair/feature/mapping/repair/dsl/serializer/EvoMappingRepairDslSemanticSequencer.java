@@ -39,11 +39,7 @@ import de.evorepair.logic.evologic.EvoSetIntersection;
 import de.evorepair.logic.evologic.EvoSetSymmetricDifference;
 import de.evorepair.logic.evologic.EvoSetUnion;
 import de.evorepair.logic.evologic.EvoVariableTerm;
-import eu.hyvar.dataValues.HyBooleanValue;
 import eu.hyvar.dataValues.HyDataValuesPackage;
-import eu.hyvar.dataValues.HyEnum;
-import eu.hyvar.dataValues.HyEnumLiteral;
-import eu.hyvar.dataValues.HyEnumValue;
 import eu.hyvar.dataValues.HyNumberValue;
 import eu.hyvar.feature.expression.HyAdditionExpression;
 import eu.hyvar.feature.expression.HyAndExpression;
@@ -99,18 +95,6 @@ public class EvoMappingRepairDslSemanticSequencer extends EvoExpressionDslSemant
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == HyDataValuesPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case HyDataValuesPackage.HY_BOOLEAN_VALUE:
-				sequence_EvoMappingBooleanValue(context, (HyBooleanValue) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM:
-				sequence_EvoMappingEnum(context, (HyEnum) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM_LITERAL:
-				sequence_EvoMappingEnumLiteral(context, (HyEnumLiteral) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM_VALUE:
-				sequence_EvoMappingEnumValue(context, (HyEnumValue) semanticObject); 
-				return; 
 			case HyDataValuesPackage.HY_NUMBER_VALUE:
 				sequence_EvoMappingNumberValue(context, (HyNumberValue) semanticObject); 
 				return; 

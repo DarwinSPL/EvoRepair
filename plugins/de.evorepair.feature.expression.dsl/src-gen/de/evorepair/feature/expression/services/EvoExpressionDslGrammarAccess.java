@@ -1110,271 +1110,6 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
 	}
-	public class EvoMappingBooleanValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingBooleanValue");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cHyBooleanValueAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final Keyword cValueTrueKeyword_1_0_0 = (Keyword)cValueAssignment_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		
-		//EvoMappingBooleanValue dw_data::HyBooleanValue:
-		//	{dw_data::HyBooleanValue} (value?='true' | 'false');
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{dw_data::HyBooleanValue} (value?='true' | 'false')
-		public Group getGroup() { return cGroup; }
-		
-		//{dw_data::HyBooleanValue}
-		public Action getHyBooleanValueAction_0() { return cHyBooleanValueAction_0; }
-		
-		//value?='true' | 'false'
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//value?='true'
-		public Assignment getValueAssignment_1_0() { return cValueAssignment_1_0; }
-		
-		//'true'
-		public Keyword getValueTrueKeyword_1_0_0() { return cValueTrueKeyword_1_0_0; }
-		
-		//'false'
-		public Keyword getFalseKeyword_1_1() { return cFalseKeyword_1_1; }
-	}
-	public class EvoMappingEnumValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingEnumValue");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEnumKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cEnumAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cEnumHyEnumCrossReference_1_0 = (CrossReference)cEnumAssignment_1.eContents().get(0);
-		private final RuleCall cEnumHyEnumQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cEnumHyEnumCrossReference_1_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cEnumLiteralAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cEnumLiteralHyEnumLiteralCrossReference_3_0 = (CrossReference)cEnumLiteralAssignment_3.eContents().get(0);
-		private final RuleCall cEnumLiteralHyEnumLiteralQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cEnumLiteralHyEnumLiteralCrossReference_3_0.eContents().get(1);
-		
-		//EvoMappingEnumValue dw_data::HyEnumValue:
-		//	"enum:" ^enum=[dw_data::HyEnum|QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral|QualifiedName];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"enum:" ^enum=[dw_data::HyEnum|QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral|QualifiedName]
-		public Group getGroup() { return cGroup; }
-		
-		//"enum:"
-		public Keyword getEnumKeyword_0() { return cEnumKeyword_0; }
-		
-		//^enum=[dw_data::HyEnum|QualifiedName]
-		public Assignment getEnumAssignment_1() { return cEnumAssignment_1; }
-		
-		//[dw_data::HyEnum|QualifiedName]
-		public CrossReference getEnumHyEnumCrossReference_1_0() { return cEnumHyEnumCrossReference_1_0; }
-		
-		//QualifiedName
-		public RuleCall getEnumHyEnumQualifiedNameParserRuleCall_1_0_1() { return cEnumHyEnumQualifiedNameParserRuleCall_1_0_1; }
-		
-		//"."
-		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
-		
-		//enumLiteral=[dw_data::HyEnumLiteral|QualifiedName]
-		public Assignment getEnumLiteralAssignment_3() { return cEnumLiteralAssignment_3; }
-		
-		//[dw_data::HyEnumLiteral|QualifiedName]
-		public CrossReference getEnumLiteralHyEnumLiteralCrossReference_3_0() { return cEnumLiteralHyEnumLiteralCrossReference_3_0; }
-		
-		//QualifiedName
-		public RuleCall getEnumLiteralHyEnumLiteralQualifiedNameParserRuleCall_3_0_1() { return cEnumLiteralHyEnumLiteralQualifiedNameParserRuleCall_3_0_1; }
-	}
-	public class EvoMappingEnumElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingEnum");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEnumKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cLiteralsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cLiteralsEvoMappingEnumLiteralParserRuleCall_3_0_0 = (RuleCall)cLiteralsAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cLiteralsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cLiteralsEvoMappingEnumLiteralParserRuleCall_3_1_1_0 = (RuleCall)cLiteralsAssignment_3_1_1.eContents().get(0);
-		
-		//EvoMappingEnum dw_data::HyEnum:
-		//	"Enum(" name=ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"Enum(" name=ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*)
-		public Group getGroup() { return cGroup; }
-		
-		//"Enum("
-		public Keyword getEnumKeyword_0() { return cEnumKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//","
-		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
-		
-		//literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//literals+=EvoMappingEnumLiteral
-		public Assignment getLiteralsAssignment_3_0() { return cLiteralsAssignment_3_0; }
-		
-		//EvoMappingEnumLiteral
-		public RuleCall getLiteralsEvoMappingEnumLiteralParserRuleCall_3_0_0() { return cLiteralsEvoMappingEnumLiteralParserRuleCall_3_0_0; }
-		
-		//(',' literals+=EvoMappingEnumLiteral)*
-		public Group getGroup_3_1() { return cGroup_3_1; }
-		
-		//','
-		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
-		
-		//literals+=EvoMappingEnumLiteral
-		public Assignment getLiteralsAssignment_3_1_1() { return cLiteralsAssignment_3_1_1; }
-		
-		//EvoMappingEnumLiteral
-		public RuleCall getLiteralsEvoMappingEnumLiteralParserRuleCall_3_1_1_0() { return cLiteralsEvoMappingEnumLiteralParserRuleCall_3_1_1_0; }
-	}
-	public class EvoMappingEnumLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingEnumLiteral");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEnumLiteralKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueINTTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cLeftSquareBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
-		private final Group cGroup_5_1_0 = (Group)cAlternatives_5_1.eContents().get(0);
-		private final Assignment cValidSinceAssignment_5_1_0_0 = (Assignment)cGroup_5_1_0.eContents().get(0);
-		private final RuleCall cValidSinceDATETerminalRuleCall_5_1_0_0_0 = (RuleCall)cValidSinceAssignment_5_1_0_0.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_5_1_0_1 = (Keyword)cGroup_5_1_0.eContents().get(1);
-		private final Assignment cValidUntilAssignment_5_1_0_2 = (Assignment)cGroup_5_1_0.eContents().get(2);
-		private final RuleCall cValidUntilDATETerminalRuleCall_5_1_0_2_0 = (RuleCall)cValidUntilAssignment_5_1_0_2.eContents().get(0);
-		private final Group cGroup_5_1_1 = (Group)cAlternatives_5_1.eContents().get(1);
-		private final Assignment cValidSinceAssignment_5_1_1_0 = (Assignment)cGroup_5_1_1.eContents().get(0);
-		private final RuleCall cValidSinceDATETerminalRuleCall_5_1_1_0_0 = (RuleCall)cValidSinceAssignment_5_1_1_0.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_5_1_1_1 = (Keyword)cGroup_5_1_1.eContents().get(1);
-		private final Group cGroup_5_1_2 = (Group)cAlternatives_5_1.eContents().get(2);
-		private final Keyword cEternityKeyword_5_1_2_0 = (Keyword)cGroup_5_1_2.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_5_1_2_1 = (Keyword)cGroup_5_1_2.eContents().get(1);
-		private final Assignment cValidUntilAssignment_5_1_2_2 = (Assignment)cGroup_5_1_2.eContents().get(2);
-		private final RuleCall cValidUntilDATETerminalRuleCall_5_1_2_2_0 = (RuleCall)cValidUntilAssignment_5_1_2_2.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		
-		//EvoMappingEnumLiteral dw_data::HyEnumLiteral:
-		//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity"
-		//	"-" validUntil=DATE) "]")?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity"
-		//"-" validUntil=DATE) "]")?
-		public Group getGroup() { return cGroup; }
-		
-		//"EnumLiteral("
-		public Keyword getEnumLiteralKeyword_0() { return cEnumLiteralKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//","
-		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
-		
-		//value=INT
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
-		
-		//INT
-		public RuleCall getValueINTTerminalRuleCall_3_0() { return cValueINTTerminalRuleCall_3_0; }
-		
-		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
-		
-		//("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity" "-" validUntil=DATE) "]")?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//"["
-		public Keyword getLeftSquareBracketKeyword_5_0() { return cLeftSquareBracketKeyword_5_0; }
-		
-		//validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity" "-" validUntil=DATE
-		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
-		
-		//validSince=DATE "-" validUntil=DATE
-		public Group getGroup_5_1_0() { return cGroup_5_1_0; }
-		
-		//validSince=DATE
-		public Assignment getValidSinceAssignment_5_1_0_0() { return cValidSinceAssignment_5_1_0_0; }
-		
-		//DATE
-		public RuleCall getValidSinceDATETerminalRuleCall_5_1_0_0_0() { return cValidSinceDATETerminalRuleCall_5_1_0_0_0; }
-		
-		//"-"
-		public Keyword getHyphenMinusKeyword_5_1_0_1() { return cHyphenMinusKeyword_5_1_0_1; }
-		
-		//validUntil=DATE
-		public Assignment getValidUntilAssignment_5_1_0_2() { return cValidUntilAssignment_5_1_0_2; }
-		
-		//DATE
-		public RuleCall getValidUntilDATETerminalRuleCall_5_1_0_2_0() { return cValidUntilDATETerminalRuleCall_5_1_0_2_0; }
-		
-		//validSince=DATE "-"
-		public Group getGroup_5_1_1() { return cGroup_5_1_1; }
-		
-		//validSince=DATE
-		public Assignment getValidSinceAssignment_5_1_1_0() { return cValidSinceAssignment_5_1_1_0; }
-		
-		//DATE
-		public RuleCall getValidSinceDATETerminalRuleCall_5_1_1_0_0() { return cValidSinceDATETerminalRuleCall_5_1_1_0_0; }
-		
-		//"-"
-		public Keyword getHyphenMinusKeyword_5_1_1_1() { return cHyphenMinusKeyword_5_1_1_1; }
-		
-		//"eternity" "-" validUntil=DATE
-		public Group getGroup_5_1_2() { return cGroup_5_1_2; }
-		
-		//"eternity"
-		public Keyword getEternityKeyword_5_1_2_0() { return cEternityKeyword_5_1_2_0; }
-		
-		//"-"
-		public Keyword getHyphenMinusKeyword_5_1_2_1() { return cHyphenMinusKeyword_5_1_2_1; }
-		
-		//validUntil=DATE
-		public Assignment getValidUntilAssignment_5_1_2_2() { return cValidUntilAssignment_5_1_2_2; }
-		
-		//DATE
-		public RuleCall getValidUntilDATETerminalRuleCall_5_1_2_2_0() { return cValidUntilDATETerminalRuleCall_5_1_2_2_0; }
-		
-		//"]"
-		public Keyword getRightSquareBracketKeyword_5_2() { return cRightSquareBracketKeyword_5_2; }
-	}
-	public class EvoBooleanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoBoolean");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//EvoBoolean ecore::EBoolean:
-		//	'true' | 'false';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'true' | 'false'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'true'
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
-		
-		//'false'
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
-	}
 	public class EvoMappingMimumumExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.EvoMappingMimumumExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1383,7 +1118,18 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cOperandEvoMappingExpressionParserRuleCall_1_0 = (RuleCall)cOperandAssignment_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
+		///*
+		//EvoMappingEnumValue returns dw_data::HyEnumValue:
+		//	"enum:" ^enum=[dw_data::HyEnum | QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral | QualifiedName];
+		//
+		//
+		//EvoMappingEnum returns dw_data::HyEnum:
+		//	"Enum(" name=ID"," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
+		//	
+		//
+		//EvoMappingEnumLiteral returns dw_data::HyEnumLiteral:
+		//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-"  | "eternity" "-" validUntil=DATE)  "]")?;
+		//*/ EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
 		//	"min(" operand=EvoMappingExpression ")";
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1515,11 +1261,6 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 	private final EvoMappingValueExpressionElements pEvoMappingValueExpression;
 	private final EvoMappingBooleanValueExpressionElements pEvoMappingBooleanValueExpression;
 	private final EvoMappingNumberValueElements pEvoMappingNumberValue;
-	private final EvoMappingBooleanValueElements pEvoMappingBooleanValue;
-	private final EvoMappingEnumValueElements pEvoMappingEnumValue;
-	private final EvoMappingEnumElements pEvoMappingEnum;
-	private final EvoMappingEnumLiteralElements pEvoMappingEnumLiteral;
-	private final EvoBooleanElements pEvoBoolean;
 	private final EvoMappingMimumumExpressionElements pEvoMappingMimumumExpression;
 	private final EvoMappingMaximumExpressionElements pEvoMappingMaximumExpression;
 	private final TerminalRule tDATE;
@@ -1570,11 +1311,6 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		this.pEvoMappingValueExpression = new EvoMappingValueExpressionElements();
 		this.pEvoMappingBooleanValueExpression = new EvoMappingBooleanValueExpressionElements();
 		this.pEvoMappingNumberValue = new EvoMappingNumberValueElements();
-		this.pEvoMappingBooleanValue = new EvoMappingBooleanValueElements();
-		this.pEvoMappingEnumValue = new EvoMappingEnumValueElements();
-		this.pEvoMappingEnum = new EvoMappingEnumElements();
-		this.pEvoMappingEnumLiteral = new EvoMappingEnumLiteralElements();
-		this.pEvoBoolean = new EvoBooleanElements();
 		this.pEvoMappingMimumumExpression = new EvoMappingMimumumExpressionElements();
 		this.pEvoMappingMaximumExpression = new EvoMappingMaximumExpressionElements();
 		this.tDATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.feature.expression.EvoExpressionDsl.DATE");
@@ -1956,58 +1692,18 @@ public class EvoExpressionDslGrammarAccess extends AbstractGrammarElementFinder 
 		return getEvoMappingNumberValueAccess().getRule();
 	}
 	
-	//EvoMappingBooleanValue dw_data::HyBooleanValue:
-	//	{dw_data::HyBooleanValue} (value?='true' | 'false');
-	public EvoMappingBooleanValueElements getEvoMappingBooleanValueAccess() {
-		return pEvoMappingBooleanValue;
-	}
-	
-	public ParserRule getEvoMappingBooleanValueRule() {
-		return getEvoMappingBooleanValueAccess().getRule();
-	}
-	
-	//EvoMappingEnumValue dw_data::HyEnumValue:
-	//	"enum:" ^enum=[dw_data::HyEnum|QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral|QualifiedName];
-	public EvoMappingEnumValueElements getEvoMappingEnumValueAccess() {
-		return pEvoMappingEnumValue;
-	}
-	
-	public ParserRule getEvoMappingEnumValueRule() {
-		return getEvoMappingEnumValueAccess().getRule();
-	}
-	
-	//EvoMappingEnum dw_data::HyEnum:
-	//	"Enum(" name=ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
-	public EvoMappingEnumElements getEvoMappingEnumAccess() {
-		return pEvoMappingEnum;
-	}
-	
-	public ParserRule getEvoMappingEnumRule() {
-		return getEvoMappingEnumAccess().getRule();
-	}
-	
-	//EvoMappingEnumLiteral dw_data::HyEnumLiteral:
-	//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity"
-	//	"-" validUntil=DATE) "]")?;
-	public EvoMappingEnumLiteralElements getEvoMappingEnumLiteralAccess() {
-		return pEvoMappingEnumLiteral;
-	}
-	
-	public ParserRule getEvoMappingEnumLiteralRule() {
-		return getEvoMappingEnumLiteralAccess().getRule();
-	}
-	
-	//EvoBoolean ecore::EBoolean:
-	//	'true' | 'false';
-	public EvoBooleanElements getEvoBooleanAccess() {
-		return pEvoBoolean;
-	}
-	
-	public ParserRule getEvoBooleanRule() {
-		return getEvoBooleanAccess().getRule();
-	}
-	
-	//EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
+	///*
+	//EvoMappingEnumValue returns dw_data::HyEnumValue:
+	//	"enum:" ^enum=[dw_data::HyEnum | QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral | QualifiedName];
+	//
+	//
+	//EvoMappingEnum returns dw_data::HyEnum:
+	//	"Enum(" name=ID"," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
+	//	
+	//
+	//EvoMappingEnumLiteral returns dw_data::HyEnumLiteral:
+	//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-"  | "eternity" "-" validUntil=DATE)  "]")?;
+	//*/ EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
 	//	"min(" operand=EvoMappingExpression ")";
 	public EvoMappingMimumumExpressionElements getEvoMappingMimumumExpressionAccess() {
 		return pEvoMappingMimumumExpression;

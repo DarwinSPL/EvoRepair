@@ -34,11 +34,7 @@ import de.evorepair.logic.evologic.EvoSetSymmetricDifference;
 import de.evorepair.logic.evologic.EvoSetUnion;
 import de.evorepair.logic.evologic.EvoVariableTerm;
 import de.evorepair.logic.serializer.EvoLogicDslSemanticSequencer;
-import eu.hyvar.dataValues.HyBooleanValue;
 import eu.hyvar.dataValues.HyDataValuesPackage;
-import eu.hyvar.dataValues.HyEnum;
-import eu.hyvar.dataValues.HyEnumLiteral;
-import eu.hyvar.dataValues.HyEnumValue;
 import eu.hyvar.dataValues.HyNumberValue;
 import eu.hyvar.feature.expression.HyAdditionExpression;
 import eu.hyvar.feature.expression.HyAndExpression;
@@ -94,18 +90,6 @@ public class EvoExpressionDslSemanticSequencer extends EvoLogicDslSemanticSequen
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == HyDataValuesPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case HyDataValuesPackage.HY_BOOLEAN_VALUE:
-				sequence_EvoMappingBooleanValue(context, (HyBooleanValue) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM:
-				sequence_EvoMappingEnum(context, (HyEnum) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM_LITERAL:
-				sequence_EvoMappingEnumLiteral(context, (HyEnumLiteral) semanticObject); 
-				return; 
-			case HyDataValuesPackage.HY_ENUM_VALUE:
-				sequence_EvoMappingEnumValue(context, (HyEnumValue) semanticObject); 
-				return; 
 			case HyDataValuesPackage.HY_NUMBER_VALUE:
 				sequence_EvoMappingNumberValue(context, (HyNumberValue) semanticObject); 
 				return; 
@@ -852,18 +836,6 @@ public class EvoExpressionDslSemanticSequencer extends EvoLogicDslSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     EvoMappingBooleanValue returns HyBooleanValue
-	 *
-	 * Constraint:
-	 *     value?='true'?
-	 */
-	protected void sequence_EvoMappingBooleanValue(ISerializationContext context, HyBooleanValue semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     EvoMappingExpression returns HyConditionalFeatureReferenceExpression
 	 *     EvoMappingOr returns HyConditionalFeatureReferenceExpression
 	 *     EvoMappingOr.HyOrExpression_1_0 returns HyConditionalFeatureReferenceExpression
@@ -1010,51 +982,6 @@ public class EvoExpressionDslSemanticSequencer extends EvoLogicDslSemanticSequen
 		feeder.accept(grammarAccess.getEvoMappingDivisionExpressionAccess().getHyDivisionExpressionOperand1Action_1_0(), semanticObject.getOperand1());
 		feeder.accept(grammarAccess.getEvoMappingDivisionExpressionAccess().getOperand2EvoMappingTerminalParserRuleCall_1_2_0(), semanticObject.getOperand2());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EvoMappingEnumLiteral returns HyEnumLiteral
-	 *
-	 * Constraint:
-	 *     (name=ID value=INT ((validSince=DATE validUntil=DATE) | validSince=DATE | validUntil=DATE)?)
-	 */
-	protected void sequence_EvoMappingEnumLiteral(ISerializationContext context, HyEnumLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EvoMappingEnumValue returns HyEnumValue
-	 *
-	 * Constraint:
-	 *     (enum=[HyEnum|QualifiedName] enumLiteral=[HyEnumLiteral|QualifiedName])
-	 */
-	protected void sequence_EvoMappingEnumValue(ISerializationContext context, HyEnumValue semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM));
-			if (transientValues.isValueTransient(semanticObject, HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM_LITERAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM_LITERAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEvoMappingEnumValueAccess().getEnumHyEnumQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM, false));
-		feeder.accept(grammarAccess.getEvoMappingEnumValueAccess().getEnumLiteralHyEnumLiteralQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(HyDataValuesPackage.Literals.HY_ENUM_VALUE__ENUM_LITERAL, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EvoMappingEnum returns HyEnum
-	 *
-	 * Constraint:
-	 *     (name=ID literals+=EvoMappingEnumLiteral literals+=EvoMappingEnumLiteral*)
-	 */
-	protected void sequence_EvoMappingEnum(ISerializationContext context, HyEnum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

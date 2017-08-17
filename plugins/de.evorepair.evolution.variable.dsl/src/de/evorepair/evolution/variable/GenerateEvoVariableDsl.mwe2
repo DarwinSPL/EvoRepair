@@ -59,6 +59,10 @@ Workflow {
 				generateStub = false
 			}
 			
+			formatter = {
+				generateStub = true
+			}
+			
 			validator = {
 				generateStub = false
 			}

@@ -156,11 +156,7 @@ EvoMappingBooleanValueExpression returns dw_expression::HyBooleanValueExpression
 EvoMappingNumberValue returns dw_data::HyNumberValue:
 	value=INT;
 	
-
-EvoMappingBooleanValue returns dw_data::HyBooleanValue:
-	{dw_data::HyBooleanValue}(value?='true' | 'false');
-	
-
+/*
 EvoMappingEnumValue returns dw_data::HyEnumValue:
 	"enum:" ^enum=[dw_data::HyEnum | QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral | QualifiedName];
 
@@ -171,11 +167,7 @@ EvoMappingEnum returns dw_data::HyEnum:
 
 EvoMappingEnumLiteral returns dw_data::HyEnumLiteral:
 	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-"  | "eternity" "-" validUntil=DATE)  "]")?;
-	
-
-EvoBoolean returns ecore::EBoolean:
-	'true' | 'false';
-
+*/	
 
 EvoMappingMimumumExpression returns dw_expression::HyMinimumExpression:
 	"min(" operand=EvoMappingExpression ")";
@@ -186,6 +178,6 @@ EvoMappingMaximumExpression returns dw_expression::HyMaximumExpression:
 
 
 
+
 terminal DATE returns ecore::EDate:
 	('0'..'9')*('/')('0' | '1')('0'..'9')('/')('0'('1'..'9'))|(('0'..'2')('1'..'9'))|('3'('0'..'1'));
-	

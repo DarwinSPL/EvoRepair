@@ -238,6 +238,13 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 			}else if(searchExpression instanceof HyUnaryExpression) {
 				return match && 
 						(expressionsAreIdentical(expression, ((HyUnaryExpression)searchExpression).getOperand()));
+			}else if(searchExpression instanceof EvoVariableTerm) {
+				EvoVariable variable = ((EvoVariableTerm)searchExpression).getVariable();
+				
+				if(variable instanceof EvoFeatureVariable) {
+					return featureMatch(((EvoFeatureVariable)variable).getFeature(), ((HyFeatureReferenceExpression)expression).getFeature());
+				}else
+					return match;
 			}else {
 				return match;
 			}

@@ -632,58 +632,18 @@ public class DwMappingDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoMappingNumberValueAccess().getRule();
 	}
 	
-	//EvoMappingBooleanValue dw_data::HyBooleanValue:
-	//	{dw_data::HyBooleanValue} (value?='true' | 'false');
-	public EvoExpressionDslGrammarAccess.EvoMappingBooleanValueElements getEvoMappingBooleanValueAccess() {
-		return gaEvoExpressionDsl.getEvoMappingBooleanValueAccess();
-	}
-	
-	public ParserRule getEvoMappingBooleanValueRule() {
-		return getEvoMappingBooleanValueAccess().getRule();
-	}
-	
-	//EvoMappingEnumValue dw_data::HyEnumValue:
-	//	"enum:" ^enum=[dw_data::HyEnum|QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral|QualifiedName];
-	public EvoExpressionDslGrammarAccess.EvoMappingEnumValueElements getEvoMappingEnumValueAccess() {
-		return gaEvoExpressionDsl.getEvoMappingEnumValueAccess();
-	}
-	
-	public ParserRule getEvoMappingEnumValueRule() {
-		return getEvoMappingEnumValueAccess().getRule();
-	}
-	
-	//EvoMappingEnum dw_data::HyEnum:
-	//	"Enum(" name=ID "," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
-	public EvoExpressionDslGrammarAccess.EvoMappingEnumElements getEvoMappingEnumAccess() {
-		return gaEvoExpressionDsl.getEvoMappingEnumAccess();
-	}
-	
-	public ParserRule getEvoMappingEnumRule() {
-		return getEvoMappingEnumAccess().getRule();
-	}
-	
-	//EvoMappingEnumLiteral dw_data::HyEnumLiteral:
-	//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-" | "eternity"
-	//	"-" validUntil=DATE) "]")?;
-	public EvoExpressionDslGrammarAccess.EvoMappingEnumLiteralElements getEvoMappingEnumLiteralAccess() {
-		return gaEvoExpressionDsl.getEvoMappingEnumLiteralAccess();
-	}
-	
-	public ParserRule getEvoMappingEnumLiteralRule() {
-		return getEvoMappingEnumLiteralAccess().getRule();
-	}
-	
-	//EvoBoolean ecore::EBoolean:
-	//	'true' | 'false';
-	public EvoExpressionDslGrammarAccess.EvoBooleanElements getEvoBooleanAccess() {
-		return gaEvoExpressionDsl.getEvoBooleanAccess();
-	}
-	
-	public ParserRule getEvoBooleanRule() {
-		return getEvoBooleanAccess().getRule();
-	}
-	
-	//EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
+	///*
+	//EvoMappingEnumValue returns dw_data::HyEnumValue:
+	//	"enum:" ^enum=[dw_data::HyEnum | QualifiedName] "." enumLiteral=[dw_data::HyEnumLiteral | QualifiedName];
+	//
+	//
+	//EvoMappingEnum returns dw_data::HyEnum:
+	//	"Enum(" name=ID"," (literals+=EvoMappingEnumLiteral (',' literals+=EvoMappingEnumLiteral)*);
+	//	
+	//
+	//EvoMappingEnumLiteral returns dw_data::HyEnumLiteral:
+	//	"EnumLiteral(" name=ID "," value=INT ")" ("[" (validSince=DATE "-" validUntil=DATE | validSince=DATE "-"  | "eternity" "-" validUntil=DATE)  "]")?;
+	//*/ EvoMappingMimumumExpression dw_expression::HyMinimumExpression:
 	//	"min(" operand=EvoMappingExpression ")";
 	public EvoExpressionDslGrammarAccess.EvoMappingMimumumExpressionElements getEvoMappingMimumumExpressionAccess() {
 		return gaEvoExpressionDsl.getEvoMappingMimumumExpressionAccess();
