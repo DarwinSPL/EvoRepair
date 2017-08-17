@@ -24,6 +24,7 @@ import org.eclipse.ui.IFileEditorInput;
 import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.darwinspl.feature.graphical.configurator.viewer.DwFeatureModelConfiguratorViewer;
 import eu.hyvar.feature.configuration.HyConfiguration;
+import eu.hyvar.feature.configuration.util.HyConfigurationUtil;
 
 public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
 	public static final String SUGGESTIONS_FOLDER = ".solutions";
@@ -137,7 +138,7 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 
 		for(IResource file : getFilesFromSolutionFolder()) {
 			if(file instanceof IFile) {
-				if(!file.getFileExtension().equals("description")) {
+				if(file.getFileExtension().equals(HyConfigurationUtil.getConfigurationModelFileExtensionForXmi())) {
 					HyConfiguration suggestion = EcoreIOUtil.loadModel((IFile)file);
 					suggestions.add(suggestion);
 				}
