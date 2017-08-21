@@ -16,15 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoAllMappingsImpl extends HyExpressionImpl implements EvoAllMappings
-{
+public class EvoAllMappingsImpl extends HyExpressionImpl implements EvoAllMappings {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAllMappingsImpl()
-	{
+	protected EvoAllMappingsImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public class EvoAllMappingsImpl extends HyExpressionImpl implements EvoAllMappin
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_ALL_MAPPINGS;
 	}
 

@@ -16,15 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoNotImpl extends HyUnaryExpressionImpl implements EvoNot
-{
+public class EvoNotImpl extends HyUnaryExpressionImpl implements EvoNot {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoNotImpl()
-	{
+	protected EvoNotImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public class EvoNotImpl extends HyUnaryExpressionImpl implements EvoNot
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_NOT;
 	}
 

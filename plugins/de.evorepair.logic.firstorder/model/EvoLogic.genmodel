@@ -9,21 +9,10 @@
   <foreignModel>EvoLogic.ecore</foreignModel>
   <genPackages prefix="EvoLogic" basePackage="de.evorepair.logic" disposableProviderFactory="true"
       ecorePackage="EvoLogic.ecore#/">
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoAnd"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoOr"/>
-    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractTwoParameterTerm"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoBinaryExpression"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoXOr"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoNot"/>
-    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractOneParameterTerm">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoAbstractOneParameterTerm/element"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractTerm"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoEqual"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoUnequal"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoImplication"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoBiconditional"/>
-    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoFormulaVariable"/>
-    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoFormulaSetVariable"/>
     <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractSetTerm"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetInclusion"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetIntersection"/>
@@ -32,17 +21,15 @@
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetSymmetricDifference"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetCartesianProduct"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetCardinality"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetElementOf"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoElementOf"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoSetNotElementOf"/>
     <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractQuantifierTerm">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoAbstractQuantifierTerm/boundedVariables"/>
     </genClasses>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoForAll"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoExist"/>
-    <genClasses ecoreClass="EvoLogic.ecore#//EvoUniqueExists"/>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoFormula">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoFormula/term"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoFormula/testTrigger"/>
     </genClasses>
     <genClasses ecoreClass="EvoLogic.ecore#//EvoVariableTerm">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoVariableTerm/variable"/>
@@ -77,5 +64,7 @@
     <genClasses ecoreClass="EvoLogic.ecore#//EvoParentOf">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoParentOf/variable"/>
     </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoAllMappings"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoAllConfigurations"/>
   </genPackages>
 </genmodel:GenModel>

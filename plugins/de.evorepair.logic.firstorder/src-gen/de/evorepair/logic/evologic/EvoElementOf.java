@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoElementOf extends EvoAbstractSetTerm, EvoBinaryExpression
-{
+public interface EvoElementOf extends EvoAbstractSetTerm, EvoBinaryExpression {
 } // EvoElementOf

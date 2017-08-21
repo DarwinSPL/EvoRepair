@@ -44,7 +44,7 @@ import de.evorepair.evolution.variable.services.EvoVariableDslGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "EvoVariableModel";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import de.evorepair.evolution.variable.services.EvoVariableDslGrammarAccess;
     }
 }
 
-// Entry rule entryRuleModel
-entryRuleModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getModelRule()); }
-	iv_ruleModel=ruleModel
-	{ $current=$iv_ruleModel.current; }
+// Entry rule entryRuleEvoVariableModel
+entryRuleEvoVariableModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEvoVariableModelRule()); }
+	iv_ruleEvoVariableModel=ruleEvoVariableModel
+	{ $current=$iv_ruleEvoVariableModel.current; }
 	EOF;
 
-// Rule Model
-ruleModel returns [EObject current=null]
+// Rule EvoVariableModel
+ruleEvoVariableModel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -79,12 +79,12 @@ ruleModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getVariablesEvoVariableParserRuleCall_0());
+				newCompositeNode(grammarAccess.getEvoVariableModelAccess().getVariablesEvoVariableParserRuleCall_0());
 			}
 			lv_variables_0_0=ruleEvoVariable
 			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getModelRule());
+					$current = createModelElementForParent(grammarAccess.getEvoVariableModelRule());
 				}
 				add(
 					$current,
@@ -198,126 +198,6 @@ ruleEvoFeatureVariable returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEvoFeatureVariableAccess().getRelationEvoFeatureRelationParserRuleCall_2_0());
-				}
-				lv_relation_2_0=ruleEvoFeatureRelation
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEvoFeatureVariableRule());
-					}
-					set(
-						$current,
-						"relation",
-						lv_relation_2_0,
-						"de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureRelation");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		(
-			otherlv_3='reference'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getEvoFeatureVariableAccess().getReferenceKeyword_3_0());
-			}
-			otherlv_4=':'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getEvoFeatureVariableAccess().getColonKeyword_3_1());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEvoFeatureVariableRule());
-						}
-					}
-					otherlv_5=RULE_STRING
-					{
-						newLeafNode(otherlv_5, grammarAccess.getEvoFeatureVariableAccess().getFeatureHyFeatureCrossReference_3_2_0());
-					}
-				)
-			)
-		)?
-	)
-;
-
-// Entry rule entryRuleEvoFeatureRelation
-entryRuleEvoFeatureRelation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEvoFeatureRelationRule()); }
-	iv_ruleEvoFeatureRelation=ruleEvoFeatureRelation
-	{ $current=$iv_ruleEvoFeatureRelation.current; }
-	EOF;
-
-// Rule EvoFeatureRelation
-ruleEvoFeatureRelation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEvoFeatureRelationAccess().getFeatureTypeEvoFeatureVariableTypeEnumRuleCall_0_0());
-				}
-				lv_featureType_0_0=ruleEvoFeatureVariableType
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEvoFeatureRelationRule());
-					}
-					set(
-						$current,
-						"featureType",
-						lv_featureType_0_0,
-						"de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureVariableType");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEvoFeatureRelationAccess().getLeftParenthesisKeyword_1());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEvoFeatureRelationRule());
-					}
-				}
-				otherlv_2=RULE_ID
-				{
-					newLeafNode(otherlv_2, grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_2_0());
-				}
-			)
-		)
-		(
-			otherlv_3=','
-			{
-				newLeafNode(otherlv_3, grammarAccess.getEvoFeatureRelationAccess().getCommaKeyword_3_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEvoFeatureRelationRule());
-						}
-					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_5=')'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getEvoFeatureRelationAccess().getRightParenthesisKeyword_4());
-		}
 	)
 ;
 

@@ -26,12 +26,12 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.Model");
+	public class EvoVariableModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoVariableModel");
 		private final Assignment cVariablesAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cVariablesEvoVariableParserRuleCall_0 = (RuleCall)cVariablesAssignment.eContents().get(0);
 		
-		//Model:
+		//EvoVariableModel:
 		//	variables+=EvoVariable*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -50,7 +50,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEvoSetVariableParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cEvoMappingVariableParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//EvoVariable:
+		//EvoVariable evo_variable::EvoVariable:
 		//	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -78,20 +78,12 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFeatureKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cRelationAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRelationEvoFeatureRelationParserRuleCall_2_0 = (RuleCall)cRelationAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cReferenceKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cFeatureAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final CrossReference cFeatureHyFeatureCrossReference_3_2_0 = (CrossReference)cFeatureAssignment_3_2.eContents().get(0);
-		private final RuleCall cFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1 = (RuleCall)cFeatureHyFeatureCrossReference_3_2_0.eContents().get(1);
 		
-		//EvoFeatureVariable:
-		//	'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?;
+		//EvoFeatureVariable evo_variable::EvoFeatureVariable:
+		//	'feature' name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?
+		//'feature' name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'feature'
@@ -102,30 +94,6 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//relation=EvoFeatureRelation?
-		public Assignment getRelationAssignment_2() { return cRelationAssignment_2; }
-		
-		//EvoFeatureRelation
-		public RuleCall getRelationEvoFeatureRelationParserRuleCall_2_0() { return cRelationEvoFeatureRelationParserRuleCall_2_0; }
-		
-		//('reference' ':' feature=[feature::HyFeature|STRING])?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'reference'
-		public Keyword getReferenceKeyword_3_0() { return cReferenceKeyword_3_0; }
-		
-		//':'
-		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
-		
-		//feature=[feature::HyFeature|STRING]
-		public Assignment getFeatureAssignment_3_2() { return cFeatureAssignment_3_2; }
-		
-		//[feature::HyFeature|STRING]
-		public CrossReference getFeatureHyFeatureCrossReference_3_2_0() { return cFeatureHyFeatureCrossReference_3_2_0; }
-		
-		//STRING
-		public RuleCall getFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1() { return cFeatureHyFeatureSTRINGTerminalRuleCall_3_2_0_1; }
 	}
 	public class EvoFeatureRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.evorepair.evolution.variable.EvoVariableDsl.EvoFeatureRelation");
@@ -143,13 +111,14 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRelatedFeaturesEvoFeatureVariableIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//EvoFeatureRelation:
-		//	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (','
-		//	relatedFeatures+=[EvoFeatureVariable])? ')';
+		////(relation=EvoFeatureRelation)?; //('reference' ':' feature=[feature::HyFeature | STRING])?;
+		//EvoFeatureRelation evo_variable::EvoFeatureRelation:
+		//	featureType=EvoFeatureVariableType '(' relatedFeatures+=[evo_variable::EvoFeatureVariable] (','
+		//	relatedFeatures+=[evo_variable::EvoFeatureVariable])? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (','
-		//relatedFeatures+=[EvoFeatureVariable])? ')'
+		//featureType=EvoFeatureVariableType '(' relatedFeatures+=[evo_variable::EvoFeatureVariable] (','
+		//relatedFeatures+=[evo_variable::EvoFeatureVariable])? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//featureType=EvoFeatureVariableType
@@ -161,25 +130,25 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//relatedFeatures+=[EvoFeatureVariable]
+		//relatedFeatures+=[evo_variable::EvoFeatureVariable]
 		public Assignment getRelatedFeaturesAssignment_2() { return cRelatedFeaturesAssignment_2; }
 		
-		//[EvoFeatureVariable]
+		//[evo_variable::EvoFeatureVariable]
 		public CrossReference getRelatedFeaturesEvoFeatureVariableCrossReference_2_0() { return cRelatedFeaturesEvoFeatureVariableCrossReference_2_0; }
 		
 		//ID
 		public RuleCall getRelatedFeaturesEvoFeatureVariableIDTerminalRuleCall_2_0_1() { return cRelatedFeaturesEvoFeatureVariableIDTerminalRuleCall_2_0_1; }
 		
-		//(',' relatedFeatures+=[EvoFeatureVariable])?
+		//(',' relatedFeatures+=[evo_variable::EvoFeatureVariable])?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//','
 		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 		
-		//relatedFeatures+=[EvoFeatureVariable]
+		//relatedFeatures+=[evo_variable::EvoFeatureVariable]
 		public Assignment getRelatedFeaturesAssignment_3_1() { return cRelatedFeaturesAssignment_3_1; }
 		
-		//[EvoFeatureVariable]
+		//[evo_variable::EvoFeatureVariable]
 		public CrossReference getRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0() { return cRelatedFeaturesEvoFeatureVariableCrossReference_3_1_0; }
 		
 		//ID
@@ -201,7 +170,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cGroupHyGroupCrossReference_2_2_0 = (CrossReference)cGroupAssignment_2_2.eContents().get(0);
 		private final RuleCall cGroupHyGroupSTRINGTerminalRuleCall_2_2_0_1 = (RuleCall)cGroupHyGroupCrossReference_2_2_0.eContents().get(1);
 		
-		//EvoGroupVariable:
+		//EvoGroupVariable evo_variable::EvoGroupVariable:
 		//	'group' name=ID ('value' '=' group=[feature::HyGroup|STRING])?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -253,11 +222,11 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElementsEvoVariableIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cElementsEvoVariableCrossReference_2_2_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
-		//EvoSetVariable:
-		//	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
+		//EvoSetVariable evo_variable::EvoSetVariable:
+		//	'set' name=ID ('(' elements+=[evo_variable::EvoVariable] (',' elements+=[evo_variable::EvoVariable]) ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
+		//'set' name=ID ('(' elements+=[evo_variable::EvoVariable] (',' elements+=[evo_variable::EvoVariable]) ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//'set'
@@ -269,31 +238,31 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?
+		//('(' elements+=[evo_variable::EvoVariable] (',' elements+=[evo_variable::EvoVariable]) ')')?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 		
-		//elements+=[EvoVariable]
+		//elements+=[evo_variable::EvoVariable]
 		public Assignment getElementsAssignment_2_1() { return cElementsAssignment_2_1; }
 		
-		//[EvoVariable]
+		//[evo_variable::EvoVariable]
 		public CrossReference getElementsEvoVariableCrossReference_2_1_0() { return cElementsEvoVariableCrossReference_2_1_0; }
 		
 		//ID
 		public RuleCall getElementsEvoVariableIDTerminalRuleCall_2_1_0_1() { return cElementsEvoVariableIDTerminalRuleCall_2_1_0_1; }
 		
-		//',' elements+=[EvoVariable]
+		//',' elements+=[evo_variable::EvoVariable]
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//elements+=[EvoVariable]
+		//elements+=[evo_variable::EvoVariable]
 		public Assignment getElementsAssignment_2_2_1() { return cElementsAssignment_2_2_1; }
 		
-		//[EvoVariable]
+		//[evo_variable::EvoVariable]
 		public CrossReference getElementsEvoVariableCrossReference_2_2_1_0() { return cElementsEvoVariableCrossReference_2_2_1_0; }
 		
 		//ID
@@ -314,7 +283,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMappingSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cMappingAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
-		//EvoMappingVariable:
+		//EvoMappingVariable evo_variable::EvoMappingVariable:
 		//	'mapping' name=ID ('(' mapping=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -357,7 +326,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConfigurationSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cConfigurationAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
-		//EvoConfigurationVariable:
+		//EvoConfigurationVariable evo_variable::EvoConfigurationVariable:
 		//	'configuration' name=ID ('(' configuration=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -399,7 +368,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cEvoChildEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cEvoChildChildOfKeyword_2_0 = (Keyword)cEvoChildEnumLiteralDeclaration_2.eContents().get(0);
 		
-		//enum EvoFeatureVariableType:
+		//enum EvoFeatureVariableType returns evo_variable::EvoFeatureVariableType:
 		//	EvoParent='parentOf' |
 		//	EvoSibling='siblingOf' |
 		//	EvoChild='childOf';
@@ -427,7 +396,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getEvoChildChildOfKeyword_2_0() { return cEvoChildChildOfKeyword_2_0; }
 	}
 	
-	private final ModelElements pModel;
+	private final EvoVariableModelElements pEvoVariableModel;
 	private final EvoVariableElements pEvoVariable;
 	private final EvoFeatureVariableElements pEvoFeatureVariable;
 	private final EvoFeatureRelationElements pEvoFeatureRelation;
@@ -446,7 +415,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
+		this.pEvoVariableModel = new EvoVariableModelElements();
 		this.pEvoVariable = new EvoVariableElements();
 		this.pEvoFeatureVariable = new EvoFeatureVariableElements();
 		this.pEvoFeatureRelation = new EvoFeatureRelationElements();
@@ -484,17 +453,17 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
+	//EvoVariableModel:
 	//	variables+=EvoVariable*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	public EvoVariableModelElements getEvoVariableModelAccess() {
+		return pEvoVariableModel;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getEvoVariableModelRule() {
+		return getEvoVariableModelAccess().getRule();
 	}
 	
-	//EvoVariable:
+	//EvoVariable evo_variable::EvoVariable:
 	//	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 	public EvoVariableElements getEvoVariableAccess() {
 		return pEvoVariable;
@@ -504,8 +473,8 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoVariableAccess().getRule();
 	}
 	
-	//EvoFeatureVariable:
-	//	'feature' name=ID relation=EvoFeatureRelation? ('reference' ':' feature=[feature::HyFeature|STRING])?;
+	//EvoFeatureVariable evo_variable::EvoFeatureVariable:
+	//	'feature' name=ID;
 	public EvoFeatureVariableElements getEvoFeatureVariableAccess() {
 		return pEvoFeatureVariable;
 	}
@@ -514,9 +483,10 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoFeatureVariableAccess().getRule();
 	}
 	
-	//EvoFeatureRelation:
-	//	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (','
-	//	relatedFeatures+=[EvoFeatureVariable])? ')';
+	////(relation=EvoFeatureRelation)?; //('reference' ':' feature=[feature::HyFeature | STRING])?;
+	//EvoFeatureRelation evo_variable::EvoFeatureRelation:
+	//	featureType=EvoFeatureVariableType '(' relatedFeatures+=[evo_variable::EvoFeatureVariable] (','
+	//	relatedFeatures+=[evo_variable::EvoFeatureVariable])? ')';
 	public EvoFeatureRelationElements getEvoFeatureRelationAccess() {
 		return pEvoFeatureRelation;
 	}
@@ -525,7 +495,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoFeatureRelationAccess().getRule();
 	}
 	
-	//EvoGroupVariable:
+	//EvoGroupVariable evo_variable::EvoGroupVariable:
 	//	'group' name=ID ('value' '=' group=[feature::HyGroup|STRING])?;
 	public EvoGroupVariableElements getEvoGroupVariableAccess() {
 		return pEvoGroupVariable;
@@ -535,8 +505,8 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoGroupVariableAccess().getRule();
 	}
 	
-	//EvoSetVariable:
-	//	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
+	//EvoSetVariable evo_variable::EvoSetVariable:
+	//	'set' name=ID ('(' elements+=[evo_variable::EvoVariable] (',' elements+=[evo_variable::EvoVariable]) ')')?;
 	public EvoSetVariableElements getEvoSetVariableAccess() {
 		return pEvoSetVariable;
 	}
@@ -545,7 +515,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoSetVariableAccess().getRule();
 	}
 	
-	//EvoMappingVariable:
+	//EvoMappingVariable evo_variable::EvoMappingVariable:
 	//	'mapping' name=ID ('(' mapping=STRING ')')?;
 	public EvoMappingVariableElements getEvoMappingVariableAccess() {
 		return pEvoMappingVariable;
@@ -555,7 +525,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoMappingVariableAccess().getRule();
 	}
 	
-	//EvoConfigurationVariable:
+	//EvoConfigurationVariable evo_variable::EvoConfigurationVariable:
 	//	'configuration' name=ID ('(' configuration=STRING ')')?;
 	public EvoConfigurationVariableElements getEvoConfigurationVariableAccess() {
 		return pEvoConfigurationVariable;
@@ -565,7 +535,7 @@ public class EvoVariableDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEvoConfigurationVariableAccess().getRule();
 	}
 	
-	//enum EvoFeatureVariableType:
+	//enum EvoFeatureVariableType returns evo_variable::EvoFeatureVariableType:
 	//	EvoParent='parentOf' |
 	//	EvoSibling='siblingOf' |
 	//	EvoChild='childOf';

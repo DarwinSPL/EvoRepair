@@ -38,7 +38,6 @@ public class EvoOperationDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoOperationAccess().getGroup_6(), "rule__EvoOperation__Group_6__0");
 					put(grammarAccess.getEvoOperationAccess().getGroup_9(), "rule__EvoOperation__Group_9__0");
 					put(grammarAccess.getEvoFeatureVariableAccess().getGroup(), "rule__EvoFeatureVariable__Group__0");
-					put(grammarAccess.getEvoFeatureVariableAccess().getGroup_3(), "rule__EvoFeatureVariable__Group_3__0");
 					put(grammarAccess.getEvoFeatureRelationAccess().getGroup(), "rule__EvoFeatureRelation__Group__0");
 					put(grammarAccess.getEvoFeatureRelationAccess().getGroup_3(), "rule__EvoFeatureRelation__Group_3__0");
 					put(grammarAccess.getEvoGroupVariableAccess().getGroup(), "rule__EvoGroupVariable__Group__0");
@@ -57,10 +56,8 @@ public class EvoOperationDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_5(), "rule__EvoOperation__VariablesAssignment_5");
 					put(grammarAccess.getEvoOperationAccess().getVariablesAssignment_6_1(), "rule__EvoOperation__VariablesAssignment_6_1");
 					put(grammarAccess.getEvoOperationAccess().getDateAssignment_9_2(), "rule__EvoOperation__DateAssignment_9_2");
-					put(grammarAccess.getModelAccess().getVariablesAssignment(), "rule__Model__VariablesAssignment");
+					put(grammarAccess.getEvoVariableModelAccess().getVariablesAssignment(), "rule__EvoVariableModel__VariablesAssignment");
 					put(grammarAccess.getEvoFeatureVariableAccess().getNameAssignment_1(), "rule__EvoFeatureVariable__NameAssignment_1");
-					put(grammarAccess.getEvoFeatureVariableAccess().getRelationAssignment_2(), "rule__EvoFeatureVariable__RelationAssignment_2");
-					put(grammarAccess.getEvoFeatureVariableAccess().getFeatureAssignment_3_2(), "rule__EvoFeatureVariable__FeatureAssignment_3_2");
 					put(grammarAccess.getEvoFeatureRelationAccess().getFeatureTypeAssignment_0(), "rule__EvoFeatureRelation__FeatureTypeAssignment_0");
 					put(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesAssignment_2(), "rule__EvoFeatureRelation__RelatedFeaturesAssignment_2");
 					put(grammarAccess.getEvoFeatureRelationAccess().getRelatedFeaturesAssignment_3_1(), "rule__EvoFeatureRelation__RelatedFeaturesAssignment_3_1");

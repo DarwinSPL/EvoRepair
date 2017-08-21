@@ -12,7 +12,7 @@ import de.evorepair.evolution.evovariable.EvoMappingVariable;
 import de.evorepair.evolution.evovariable.EvoSetVariable;
 import de.evorepair.evolution.evovariable.EvoVariablePackage;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage;
-import de.evorepair.evolution.variable.evoVariableDsl.Model;
+import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel;
 import de.evorepair.evolution.variable.services.EvoVariableDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -21,7 +21,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -37,8 +39,8 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EvoVariableDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EvoVariableDslPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case EvoVariableDslPackage.EVO_VARIABLE_MODEL:
+				sequence_EvoVariableModel(context, (EvoVariableModel) semanticObject); 
 				return; 
 			}
 		else if (epackage == EvoVariablePackage.eINSTANCE)
@@ -97,10 +99,16 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     EvoFeatureVariable returns EvoFeatureVariable
 	 *
 	 * Constraint:
-	 *     (name=ID relation=EvoFeatureRelation? feature=[HyFeature|STRING]?)
+	 *     name=ID
 	 */
 	protected void sequence_EvoFeatureVariable(ISerializationContext context, EvoFeatureVariable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvoVariablePackage.Literals.EVO_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEvoFeatureVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -145,12 +153,12 @@ public class EvoVariableDslSemanticSequencer extends AbstractDelegatingSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     EvoVariableModel returns EvoVariableModel
 	 *
 	 * Constraint:
 	 *     variables+=EvoVariable+
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_EvoVariableModel(ISerializationContext context, EvoVariableModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Container implements EvoApplicationConstraintTerm
-{
+public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Container implements EvoApplicationConstraintTerm {
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -45,8 +44,7 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoApplicationConstraintTermImpl()
-	{
+	protected EvoApplicationConstraintTermImpl() {
 		super();
 	}
 
@@ -56,8 +54,7 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_APPLICATION_CONSTRAINT_TERM;
 	}
 
@@ -66,14 +63,11 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable getVariable()
-	{
-		if (variable != null && variable.eIsProxy())
-		{
+	public EvoMappingVariable getVariable() {
+		if (variable != null && variable.eIsProxy()) {
 			InternalEObject oldVariable = (InternalEObject)variable;
 			variable = (EvoMappingVariable)eResolveProxy(oldVariable);
-			if (variable != oldVariable)
-			{
+			if (variable != oldVariable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE, oldVariable, variable));
 			}
@@ -86,8 +80,7 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoMappingVariable basicGetVariable()
-	{
+	public EvoMappingVariable basicGetVariable() {
 		return variable;
 	}
 
@@ -96,8 +89,7 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariable(EvoMappingVariable newVariable)
-	{
+	public void setVariable(EvoMappingVariable newVariable) {
 		EvoMappingVariable oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired())
@@ -110,10 +102,8 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE:
 				if (resolve) return getVariable();
 				return basicGetVariable();
@@ -127,10 +117,8 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE:
 				setVariable((EvoMappingVariable)newValue);
 				return;
@@ -144,10 +132,8 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE:
 				setVariable((EvoMappingVariable)null);
 				return;
@@ -161,10 +147,8 @@ public class EvoApplicationConstraintTermImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM__VARIABLE:
 				return variable != null;
 		}

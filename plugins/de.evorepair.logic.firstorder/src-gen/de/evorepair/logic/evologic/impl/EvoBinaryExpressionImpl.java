@@ -16,15 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoBinaryExpressionImpl extends HyBinaryExpressionImpl implements EvoBinaryExpression
-{
+public class EvoBinaryExpressionImpl extends HyBinaryExpressionImpl implements EvoBinaryExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoBinaryExpressionImpl()
-	{
+	protected EvoBinaryExpressionImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public class EvoBinaryExpressionImpl extends HyBinaryExpressionImpl implements E
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_BINARY_EXPRESSION;
 	}
 

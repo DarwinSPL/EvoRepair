@@ -7,7 +7,7 @@ import de.evorepair.evolution.evovariable.EvoVariablePackage;
 
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslFactory;
 import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableDslPackage;
-import de.evorepair.evolution.variable.evoVariableDsl.Model;
+import de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel;
 
 import eu.hyvar.dataValues.HyDataValuesPackage;
 
@@ -34,7 +34,7 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass evoVariableModelEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -110,9 +110,9 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModel()
+  public EClass getEvoVariableModel()
   {
-    return modelEClass;
+    return evoVariableModelEClass;
   }
 
   /**
@@ -120,9 +120,9 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Variables()
+  public EReference getEvoVariableModel_Variables()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)evoVariableModelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -155,8 +155,8 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__VARIABLES);
+    evoVariableModelEClass = createEClass(EVO_VARIABLE_MODEL);
+    createEReference(evoVariableModelEClass, EVO_VARIABLE_MODEL__VARIABLES);
   }
 
   /**
@@ -193,8 +193,8 @@ public class EvoVariableDslPackageImpl extends EPackageImpl implements EvoVariab
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Variables(), theEvoVariablePackage.getEvoVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(evoVariableModelEClass, EvoVariableModel.class, "EvoVariableModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEvoVariableModel_Variables(), theEvoVariablePackage.getEvoVariable(), null, "variables", null, 0, -1, EvoVariableModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

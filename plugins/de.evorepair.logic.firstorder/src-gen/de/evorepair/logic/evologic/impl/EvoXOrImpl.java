@@ -14,15 +14,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoXOrImpl extends EvoBinaryExpressionImpl implements EvoXOr
-{
+public class EvoXOrImpl extends EvoBinaryExpressionImpl implements EvoXOr {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoXOrImpl()
-	{
+	protected EvoXOrImpl() {
 		super();
 	}
 
@@ -32,8 +30,7 @@ public class EvoXOrImpl extends EvoBinaryExpressionImpl implements EvoXOr
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_XOR;
 	}
 

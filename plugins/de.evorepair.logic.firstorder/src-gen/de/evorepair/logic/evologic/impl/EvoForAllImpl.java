@@ -41,8 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
-{
+public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll {
 	/**
 	 * The cached value of the '{@link #getOperand() <em>Operand</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -68,8 +67,7 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoForAllImpl()
-	{
+	protected EvoForAllImpl() {
 		super();
 	}
 
@@ -79,8 +77,7 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_FOR_ALL;
 	}
 
@@ -89,8 +86,7 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HyExpression getOperand()
-	{
+	public HyExpression getOperand() {
 		return operand;
 	}
 
@@ -99,12 +95,10 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperand(HyExpression newOperand, NotificationChain msgs)
-	{
+	public NotificationChain basicSetOperand(HyExpression newOperand, NotificationChain msgs) {
 		HyExpression oldOperand = operand;
 		operand = newOperand;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoLogicPackage.EVO_FOR_ALL__OPERAND, oldOperand, newOperand);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -116,10 +110,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperand(HyExpression newOperand)
-	{
-		if (newOperand != operand)
-		{
+	public void setOperand(HyExpression newOperand) {
+		if (newOperand != operand) {
 			NotificationChain msgs = null;
 			if (operand != null)
 				msgs = ((InternalEObject)operand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoLogicPackage.EVO_FOR_ALL__OPERAND, null, msgs);
@@ -137,10 +129,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoVariableTerm> getBoundedVariables()
-	{
-		if (boundedVariables == null)
-		{
+	public EList<EvoVariableTerm> getBoundedVariables() {
+		if (boundedVariables == null) {
 			boundedVariables = new EObjectContainmentEList<EvoVariableTerm>(EvoVariableTerm.class, this, EvoLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES);
 		}
 		return boundedVariables;
@@ -152,10 +142,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FOR_ALL__OPERAND:
 				return basicSetOperand(null, msgs);
 			case EvoLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES:
@@ -170,10 +158,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FOR_ALL__OPERAND:
 				return getOperand();
 			case EvoLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES:
@@ -189,10 +175,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FOR_ALL__OPERAND:
 				setOperand((HyExpression)newValue);
 				return;
@@ -210,10 +194,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FOR_ALL__OPERAND:
 				setOperand((HyExpression)null);
 				return;
@@ -230,10 +212,8 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FOR_ALL__OPERAND:
 				return operand != null;
 			case EvoLogicPackage.EVO_FOR_ALL__BOUNDED_VARIABLES:
@@ -248,12 +228,9 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == HyUnaryExpression.class)
-		{
-			switch (derivedFeatureID)
-			{
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == HyUnaryExpression.class) {
+			switch (derivedFeatureID) {
 				case EvoLogicPackage.EVO_FOR_ALL__OPERAND: return HyExpressionPackage.HY_UNARY_EXPRESSION__OPERAND;
 				default: return -1;
 			}
@@ -267,12 +244,9 @@ public class EvoForAllImpl extends HyExpressionImpl implements EvoForAll
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == HyUnaryExpression.class)
-		{
-			switch (baseFeatureID)
-			{
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == HyUnaryExpression.class) {
+			switch (baseFeatureID) {
 				case HyExpressionPackage.HY_UNARY_EXPRESSION__OPERAND: return EvoLogicPackage.EVO_FOR_ALL__OPERAND;
 				default: return -1;
 			}

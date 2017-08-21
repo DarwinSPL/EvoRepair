@@ -20,8 +20,7 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model
  * @generated
  */
-public interface EvoSize extends HyExpression
-{
+public interface EvoSize extends HyExpression {
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->

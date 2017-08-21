@@ -2,8 +2,6 @@
  */
 package de.evorepair.logic.evologic;
 
-import de.evorepair.evolution.evovariable.EvoVariablePackage;
-
 import eu.hyvar.feature.expression.HyExpressionPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -28,8 +26,7 @@ import org.eclipse.emf.ecore.EReference;
  *        annotation="http://www.eclipse.org/OCL/Import configuration='../../eu.hyvar.feature.configuration/model/Configuration.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore' evooperation_0='../../de.evorepair.evolution.operation/model/EvoOperation.ecore#/' evovariable_0='../../de.evorepair.evolution.variable/model/EvoVariable.ecore#/' expression_0='../../eu.hyvar.feature.expression/model/Expression.ecore#/' feature_0='../../eu.hyvar.feature/model/Feature.ecore#/' mapping_0='../../eu.hyvar.feature.mapping/model/Mapping.ecore#/'"
  * @generated
  */
-public interface EvoLogicPackage extends EPackage
-{
+public interface EvoLogicPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -238,89 +235,6 @@ public interface EvoLogicPackage extends EPackage
 	int EVO_BICONDITIONAL_OPERATION_COUNT = EVO_BINARY_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaVariableImpl <em>Evo Formula Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.evorepair.logic.evologic.impl.EvoFormulaVariableImpl
-	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFormulaVariable()
-	 * @generated
-	 */
-	int EVO_FORMULA_VARIABLE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_VARIABLE__NAME = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Evo Formula Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_VARIABLE_FEATURE_COUNT = HyExpressionPackage.HY_EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Evo Formula Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_VARIABLE_OPERATION_COUNT = HyExpressionPackage.HY_EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaSetVariableImpl <em>Evo Formula Set Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.evorepair.logic.evologic.impl.EvoFormulaSetVariableImpl
-	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFormulaSetVariable()
-	 * @generated
-	 */
-	int EVO_FORMULA_SET_VARIABLE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE__NAME = EvoVariablePackage.EVO_SET_VARIABLE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE__ELEMENTS = EvoVariablePackage.EVO_SET_VARIABLE__ELEMENTS;
-
-	/**
-	 * The number of structural features of the '<em>Evo Formula Set Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE_FEATURE_COUNT = EvoVariablePackage.EVO_SET_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Evo Formula Set Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_FORMULA_SET_VARIABLE_OPERATION_COUNT = EvoVariablePackage.EVO_SET_VARIABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evologic.impl.EvoAbstractSetTermImpl <em>Evo Abstract Set Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,7 +242,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoAbstractSetTerm()
 	 * @generated
 	 */
-	int EVO_ABSTRACT_SET_TERM = 6;
+	int EVO_ABSTRACT_SET_TERM = 4;
 
 	/**
 	 * The number of structural features of the '<em>Evo Abstract Set Term</em>' class.
@@ -356,7 +270,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetInclusion()
 	 * @generated
 	 */
-	int EVO_SET_INCLUSION = 7;
+	int EVO_SET_INCLUSION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -402,7 +316,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetIntersection()
 	 * @generated
 	 */
-	int EVO_SET_INTERSECTION = 8;
+	int EVO_SET_INTERSECTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -448,7 +362,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetUnion()
 	 * @generated
 	 */
-	int EVO_SET_UNION = 9;
+	int EVO_SET_UNION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -494,7 +408,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetDifference()
 	 * @generated
 	 */
-	int EVO_SET_DIFFERENCE = 10;
+	int EVO_SET_DIFFERENCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -540,7 +454,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetSymmetricDifference()
 	 * @generated
 	 */
-	int EVO_SET_SYMMETRIC_DIFFERENCE = 11;
+	int EVO_SET_SYMMETRIC_DIFFERENCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -586,7 +500,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetCartesianProduct()
 	 * @generated
 	 */
-	int EVO_SET_CARTESIAN_PRODUCT = 12;
+	int EVO_SET_CARTESIAN_PRODUCT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -632,7 +546,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetCardinality()
 	 * @generated
 	 */
-	int EVO_SET_CARDINALITY = 13;
+	int EVO_SET_CARDINALITY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
@@ -669,7 +583,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoElementOf()
 	 * @generated
 	 */
-	int EVO_ELEMENT_OF = 14;
+	int EVO_ELEMENT_OF = 12;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -715,7 +629,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetNotElementOf()
 	 * @generated
 	 */
-	int EVO_SET_NOT_ELEMENT_OF = 15;
+	int EVO_SET_NOT_ELEMENT_OF = 13;
 
 	/**
 	 * The feature id for the '<em><b>Operand1</b></em>' containment reference.
@@ -761,7 +675,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoAbstractQuantifierTerm()
 	 * @generated
 	 */
-	int EVO_ABSTRACT_QUANTIFIER_TERM = 16;
+	int EVO_ABSTRACT_QUANTIFIER_TERM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
@@ -807,7 +721,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoForAll()
 	 * @generated
 	 */
-	int EVO_FOR_ALL = 17;
+	int EVO_FOR_ALL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
@@ -853,7 +767,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoExist()
 	 * @generated
 	 */
-	int EVO_EXIST = 18;
+	int EVO_EXIST = 16;
 
 	/**
 	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
@@ -892,52 +806,6 @@ public interface EvoLogicPackage extends EPackage
 	int EVO_EXIST_OPERATION_COUNT = EVO_ABSTRACT_QUANTIFIER_TERM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.evorepair.logic.evologic.impl.EvoUniqueExistsImpl <em>Evo Unique Exists</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.evorepair.logic.evologic.impl.EvoUniqueExistsImpl
-	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoUniqueExists()
-	 * @generated
-	 */
-	int EVO_UNIQUE_EXISTS = 19;
-
-	/**
-	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_UNIQUE_EXISTS__OPERAND = EVO_ABSTRACT_QUANTIFIER_TERM__OPERAND;
-
-	/**
-	 * The feature id for the '<em><b>Bounded Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_UNIQUE_EXISTS__BOUNDED_VARIABLES = EVO_ABSTRACT_QUANTIFIER_TERM__BOUNDED_VARIABLES;
-
-	/**
-	 * The number of structural features of the '<em>Evo Unique Exists</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_UNIQUE_EXISTS_FEATURE_COUNT = EVO_ABSTRACT_QUANTIFIER_TERM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Evo Unique Exists</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVO_UNIQUE_EXISTS_OPERATION_COUNT = EVO_ABSTRACT_QUANTIFIER_TERM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaImpl <em>Evo Formula</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,7 +813,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFormula()
 	 * @generated
 	 */
-	int EVO_FORMULA = 20;
+	int EVO_FORMULA = 17;
 
 	/**
 	 * The feature id for the '<em><b>Term</b></em>' containment reference.
@@ -982,7 +850,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoVariableTerm()
 	 * @generated
 	 */
-	int EVO_VARIABLE_TERM = 21;
+	int EVO_VARIABLE_TERM = 18;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -1028,7 +896,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoApplicationConstraintTerm()
 	 * @generated
 	 */
-	int EVO_APPLICATION_CONSTRAINT_TERM = 22;
+	int EVO_APPLICATION_CONSTRAINT_TERM = 19;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -1065,7 +933,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSize()
 	 * @generated
 	 */
-	int EVO_SIZE = 23;
+	int EVO_SIZE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -1102,7 +970,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoGroupType()
 	 * @generated
 	 */
-	int EVO_GROUP_TYPE = 24;
+	int EVO_GROUP_TYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1148,7 +1016,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFeatureType()
 	 * @generated
 	 */
-	int EVO_FEATURE_TYPE = 25;
+	int EVO_FEATURE_TYPE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1194,7 +1062,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSatisfiable()
 	 * @generated
 	 */
-	int EVO_SATISFIABLE = 26;
+	int EVO_SATISFIABLE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1231,7 +1099,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSetTerm()
 	 * @generated
 	 */
-	int EVO_SET_TERM = 27;
+	int EVO_SET_TERM = 24;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1268,7 +1136,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoChildrenOf()
 	 * @generated
 	 */
-	int EVO_CHILDREN_OF = 28;
+	int EVO_CHILDREN_OF = 25;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -1305,7 +1173,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoSiblingsOf()
 	 * @generated
 	 */
-	int EVO_SIBLINGS_OF = 29;
+	int EVO_SIBLINGS_OF = 26;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1351,7 +1219,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoParentOf()
 	 * @generated
 	 */
-	int EVO_PARENT_OF = 30;
+	int EVO_PARENT_OF = 27;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1397,7 +1265,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoAllMappings()
 	 * @generated
 	 */
-	int EVO_ALL_MAPPINGS = 31;
+	int EVO_ALL_MAPPINGS = 28;
 
 	/**
 	 * The number of structural features of the '<em>Evo All Mappings</em>' class.
@@ -1425,7 +1293,7 @@ public interface EvoLogicPackage extends EPackage
 	 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoAllConfigurations()
 	 * @generated
 	 */
-	int EVO_ALL_CONFIGURATIONS = 32;
+	int EVO_ALL_CONFIGURATIONS = 29;
 
 	/**
 	 * The number of structural features of the '<em>Evo All Configurations</em>' class.
@@ -1485,26 +1353,6 @@ public interface EvoLogicPackage extends EPackage
 	 * @generated
 	 */
 	EClass getEvoBiconditional();
-
-	/**
-	 * Returns the meta object for class '{@link de.evorepair.logic.evologic.EvoFormulaVariable <em>Evo Formula Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Evo Formula Variable</em>'.
-	 * @see de.evorepair.logic.evologic.EvoFormulaVariable
-	 * @generated
-	 */
-	EClass getEvoFormulaVariable();
-
-	/**
-	 * Returns the meta object for class '{@link de.evorepair.logic.evologic.EvoFormulaSetVariable <em>Evo Formula Set Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Evo Formula Set Variable</em>'.
-	 * @see de.evorepair.logic.evologic.EvoFormulaSetVariable
-	 * @generated
-	 */
-	EClass getEvoFormulaSetVariable();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evologic.EvoAbstractSetTerm <em>Evo Abstract Set Term</em>}'.
@@ -1646,16 +1494,6 @@ public interface EvoLogicPackage extends EPackage
 	 * @generated
 	 */
 	EClass getEvoExist();
-
-	/**
-	 * Returns the meta object for class '{@link de.evorepair.logic.evologic.EvoUniqueExists <em>Evo Unique Exists</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Evo Unique Exists</em>'.
-	 * @see de.evorepair.logic.evologic.EvoUniqueExists
-	 * @generated
-	 */
-	EClass getEvoUniqueExists();
 
 	/**
 	 * Returns the meta object for class '{@link de.evorepair.logic.evologic.EvoFormula <em>Evo Formula</em>}'.
@@ -1963,8 +1801,7 @@ public interface EvoLogicPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoBinaryExpressionImpl <em>Evo Binary Expression</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2004,26 +1841,6 @@ public interface EvoLogicPackage extends EPackage
 		 * @generated
 		 */
 		EClass EVO_BICONDITIONAL = eINSTANCE.getEvoBiconditional();
-
-		/**
-		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaVariableImpl <em>Evo Formula Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.evorepair.logic.evologic.impl.EvoFormulaVariableImpl
-		 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFormulaVariable()
-		 * @generated
-		 */
-		EClass EVO_FORMULA_VARIABLE = eINSTANCE.getEvoFormulaVariable();
-
-		/**
-		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaSetVariableImpl <em>Evo Formula Set Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.evorepair.logic.evologic.impl.EvoFormulaSetVariableImpl
-		 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoFormulaSetVariable()
-		 * @generated
-		 */
-		EClass EVO_FORMULA_SET_VARIABLE = eINSTANCE.getEvoFormulaSetVariable();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoAbstractSetTermImpl <em>Evo Abstract Set Term</em>}' class.
@@ -2162,16 +1979,6 @@ public interface EvoLogicPackage extends EPackage
 		 * @generated
 		 */
 		EClass EVO_EXIST = eINSTANCE.getEvoExist();
-
-		/**
-		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoUniqueExistsImpl <em>Evo Unique Exists</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.evorepair.logic.evologic.impl.EvoUniqueExistsImpl
-		 * @see de.evorepair.logic.evologic.impl.EvoLogicPackageImpl#getEvoUniqueExists()
-		 * @generated
-		 */
-		EClass EVO_UNIQUE_EXISTS = eINSTANCE.getEvoUniqueExists();
 
 		/**
 		 * The meta object literal for the '{@link de.evorepair.logic.evologic.impl.EvoFormulaImpl <em>Evo Formula</em>}' class.

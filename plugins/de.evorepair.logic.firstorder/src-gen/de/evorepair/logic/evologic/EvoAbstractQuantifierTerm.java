@@ -23,8 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface EvoAbstractQuantifierTerm extends HyExpression, HyUnaryExpression
-{
+public interface EvoAbstractQuantifierTerm extends HyExpression, HyUnaryExpression {
 	/**
 	 * Returns the value of the '<em><b>Bounded Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link de.evorepair.logic.evologic.EvoVariableTerm}.

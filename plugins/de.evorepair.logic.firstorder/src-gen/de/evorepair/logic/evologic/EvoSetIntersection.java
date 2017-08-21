@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoSetIntersection extends EvoAbstractSetTerm, EvoBinaryExpression
-{
+public interface EvoSetIntersection extends EvoAbstractSetTerm, EvoBinaryExpression {
 } // EvoSetIntersection

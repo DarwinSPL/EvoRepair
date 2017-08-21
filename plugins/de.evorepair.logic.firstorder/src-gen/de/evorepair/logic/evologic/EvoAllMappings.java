@@ -14,6 +14,5 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model
  * @generated
  */
-public interface EvoAllMappings extends HyExpression
-{
+public interface EvoAllMappings extends HyExpression {
 } // EvoAllMappings

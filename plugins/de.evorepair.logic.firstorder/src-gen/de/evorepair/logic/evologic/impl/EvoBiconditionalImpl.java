@@ -14,15 +14,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoBiconditionalImpl extends EvoBinaryExpressionImpl implements EvoBiconditional
-{
+public class EvoBiconditionalImpl extends EvoBinaryExpressionImpl implements EvoBiconditional {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoBiconditionalImpl()
-	{
+	protected EvoBiconditionalImpl() {
 		super();
 	}
 
@@ -32,8 +30,7 @@ public class EvoBiconditionalImpl extends EvoBinaryExpressionImpl implements Evo
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_BICONDITIONAL;
 	}
 

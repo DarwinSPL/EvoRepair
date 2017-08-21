@@ -14,6 +14,5 @@ import eu.hyvar.feature.expression.HyBinaryExpression;
  * @model
  * @generated
  */
-public interface EvoBinaryExpression extends HyBinaryExpression
-{
+public interface EvoBinaryExpression extends HyBinaryExpression {
 } // EvoBinaryExpression

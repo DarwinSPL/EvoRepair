@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoSetSymmetricDifference extends EvoAbstractSetTerm, EvoBinaryExpression
-{
+public interface EvoSetSymmetricDifference extends EvoAbstractSetTerm, EvoBinaryExpression {
 } // EvoSetSymmetricDifference

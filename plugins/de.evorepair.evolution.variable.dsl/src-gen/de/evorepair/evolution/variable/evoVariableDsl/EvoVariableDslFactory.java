@@ -24,13 +24,13 @@ public interface EvoVariableDslFactory extends EFactory
   EvoVariableDslFactory eINSTANCE = de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Evo Variable Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Evo Variable Model</em>'.
    * @generated
    */
-  Model createModel();
+  EvoVariableModel createEvoVariableModel();
 
   /**
    * Returns the package supported by this factory.

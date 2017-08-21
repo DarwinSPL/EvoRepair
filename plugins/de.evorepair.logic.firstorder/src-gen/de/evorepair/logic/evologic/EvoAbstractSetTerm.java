@@ -14,6 +14,5 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model abstract="true"
  * @generated
  */
-public interface EvoAbstractSetTerm extends HyExpression
-{
+public interface EvoAbstractSetTerm extends HyExpression {
 } // EvoAbstractSetTerm

@@ -24,8 +24,7 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model
  * @generated
  */
-public interface EvoVariableTerm extends HyExpression
-{
+public interface EvoVariableTerm extends HyExpression {
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->

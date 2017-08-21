@@ -22,8 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EvoSetTerm extends HyExpression
-{
+public interface EvoSetTerm extends HyExpression {
 	/**
 	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link eu.hyvar.feature.expression.HyExpression}.

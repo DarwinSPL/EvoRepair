@@ -19,8 +19,6 @@ import de.evorepair.logic.evologic.EvoExist;
 import de.evorepair.logic.evologic.EvoFeatureType;
 import de.evorepair.logic.evologic.EvoForAll;
 import de.evorepair.logic.evologic.EvoFormula;
-import de.evorepair.logic.evologic.EvoFormulaSetVariable;
-import de.evorepair.logic.evologic.EvoFormulaVariable;
 import de.evorepair.logic.evologic.EvoGroupType;
 import de.evorepair.logic.evologic.EvoLogicFactory;
 import de.evorepair.logic.evologic.EvoLogicPackage;
@@ -38,7 +36,6 @@ import de.evorepair.logic.evologic.EvoSetTerm;
 import de.evorepair.logic.evologic.EvoSetUnion;
 import de.evorepair.logic.evologic.EvoSiblingsOf;
 import de.evorepair.logic.evologic.EvoSize;
-import de.evorepair.logic.evologic.EvoUniqueExists;
 import de.evorepair.logic.evologic.EvoVariableTerm;
 import de.evorepair.logic.evologic.EvoXOr;
 
@@ -67,8 +64,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
-{
+public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,20 +92,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * @generated
 	 */
 	private EClass evoBiconditionalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoFormulaVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoFormulaSetVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,13 +183,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * @generated
 	 */
 	private EClass evoExistEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass evoUniqueExistsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,8 +290,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * @see #init()
 	 * @generated
 	 */
-	private EvoLogicPackageImpl()
-	{
+	private EvoLogicPackageImpl() {
 		super(eNS_URI, EvoLogicFactory.eINSTANCE);
 	}
 
@@ -339,8 +313,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static EvoLogicPackage init()
-	{
+	public static EvoLogicPackage init() {
 		if (isInited) return (EvoLogicPackage)EPackage.Registry.INSTANCE.getEPackage(EvoLogicPackage.eNS_URI);
 
 		// Obtain or create and register package
@@ -378,8 +351,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoBinaryExpression()
-	{
+	public EClass getEvoBinaryExpression() {
 		return evoBinaryExpressionEClass;
 	}
 
@@ -388,8 +360,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoXOr()
-	{
+	public EClass getEvoXOr() {
 		return evoXOrEClass;
 	}
 
@@ -398,8 +369,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoNot()
-	{
+	public EClass getEvoNot() {
 		return evoNotEClass;
 	}
 
@@ -408,8 +378,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoBiconditional()
-	{
+	public EClass getEvoBiconditional() {
 		return evoBiconditionalEClass;
 	}
 
@@ -418,28 +387,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFormulaVariable()
-	{
-		return evoFormulaVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoFormulaSetVariable()
-	{
-		return evoFormulaSetVariableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoAbstractSetTerm()
-	{
+	public EClass getEvoAbstractSetTerm() {
 		return evoAbstractSetTermEClass;
 	}
 
@@ -448,8 +396,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetInclusion()
-	{
+	public EClass getEvoSetInclusion() {
 		return evoSetInclusionEClass;
 	}
 
@@ -458,8 +405,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetIntersection()
-	{
+	public EClass getEvoSetIntersection() {
 		return evoSetIntersectionEClass;
 	}
 
@@ -468,8 +414,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetUnion()
-	{
+	public EClass getEvoSetUnion() {
 		return evoSetUnionEClass;
 	}
 
@@ -478,8 +423,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetDifference()
-	{
+	public EClass getEvoSetDifference() {
 		return evoSetDifferenceEClass;
 	}
 
@@ -488,8 +432,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetSymmetricDifference()
-	{
+	public EClass getEvoSetSymmetricDifference() {
 		return evoSetSymmetricDifferenceEClass;
 	}
 
@@ -498,8 +441,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetCartesianProduct()
-	{
+	public EClass getEvoSetCartesianProduct() {
 		return evoSetCartesianProductEClass;
 	}
 
@@ -508,8 +450,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetCardinality()
-	{
+	public EClass getEvoSetCardinality() {
 		return evoSetCardinalityEClass;
 	}
 
@@ -518,8 +459,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoElementOf()
-	{
+	public EClass getEvoElementOf() {
 		return evoElementOfEClass;
 	}
 
@@ -528,8 +468,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetNotElementOf()
-	{
+	public EClass getEvoSetNotElementOf() {
 		return evoSetNotElementOfEClass;
 	}
 
@@ -538,8 +477,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAbstractQuantifierTerm()
-	{
+	public EClass getEvoAbstractQuantifierTerm() {
 		return evoAbstractQuantifierTermEClass;
 	}
 
@@ -548,8 +486,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoAbstractQuantifierTerm_BoundedVariables()
-	{
+	public EReference getEvoAbstractQuantifierTerm_BoundedVariables() {
 		return (EReference)evoAbstractQuantifierTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -558,8 +495,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoForAll()
-	{
+	public EClass getEvoForAll() {
 		return evoForAllEClass;
 	}
 
@@ -568,8 +504,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoExist()
-	{
+	public EClass getEvoExist() {
 		return evoExistEClass;
 	}
 
@@ -578,18 +513,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoUniqueExists()
-	{
-		return evoUniqueExistsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvoFormula()
-	{
+	public EClass getEvoFormula() {
 		return evoFormulaEClass;
 	}
 
@@ -598,8 +522,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFormula_Term()
-	{
+	public EReference getEvoFormula_Term() {
 		return (EReference)evoFormulaEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -608,8 +531,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoVariableTerm()
-	{
+	public EClass getEvoVariableTerm() {
 		return evoVariableTermEClass;
 	}
 
@@ -618,8 +540,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoVariableTerm_Variable()
-	{
+	public EReference getEvoVariableTerm_Variable() {
 		return (EReference)evoVariableTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -628,8 +549,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoVariableTerm_Type()
-	{
+	public EAttribute getEvoVariableTerm_Type() {
 		return (EAttribute)evoVariableTermEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -638,8 +558,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoApplicationConstraintTerm()
-	{
+	public EClass getEvoApplicationConstraintTerm() {
 		return evoApplicationConstraintTermEClass;
 	}
 
@@ -648,8 +567,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoApplicationConstraintTerm_Variable()
-	{
+	public EReference getEvoApplicationConstraintTerm_Variable() {
 		return (EReference)evoApplicationConstraintTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -658,8 +576,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSize()
-	{
+	public EClass getEvoSize() {
 		return evoSizeEClass;
 	}
 
@@ -668,8 +585,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoSize_Size()
-	{
+	public EAttribute getEvoSize_Size() {
 		return (EAttribute)evoSizeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -678,8 +594,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoGroupType()
-	{
+	public EClass getEvoGroupType() {
 		return evoGroupTypeEClass;
 	}
 
@@ -688,8 +603,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoGroupType_Type()
-	{
+	public EAttribute getEvoGroupType_Type() {
 		return (EAttribute)evoGroupTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -698,8 +612,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoGroupType_Variables()
-	{
+	public EReference getEvoGroupType_Variables() {
 		return (EReference)evoGroupTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -708,8 +621,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoFeatureType()
-	{
+	public EClass getEvoFeatureType() {
 		return evoFeatureTypeEClass;
 	}
 
@@ -718,8 +630,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvoFeatureType_Type()
-	{
+	public EAttribute getEvoFeatureType_Type() {
 		return (EAttribute)evoFeatureTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -728,8 +639,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoFeatureType_Variables()
-	{
+	public EReference getEvoFeatureType_Variables() {
 		return (EReference)evoFeatureTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -738,8 +648,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSatisfiable()
-	{
+	public EClass getEvoSatisfiable() {
 		return evoSatisfiableEClass;
 	}
 
@@ -748,8 +657,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoSatisfiable_Variables()
-	{
+	public EReference getEvoSatisfiable_Variables() {
 		return (EReference)evoSatisfiableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -758,8 +666,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSetTerm()
-	{
+	public EClass getEvoSetTerm() {
 		return evoSetTermEClass;
 	}
 
@@ -768,8 +675,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoSetTerm_Variables()
-	{
+	public EReference getEvoSetTerm_Variables() {
 		return (EReference)evoSetTermEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -778,8 +684,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoChildrenOf()
-	{
+	public EClass getEvoChildrenOf() {
 		return evoChildrenOfEClass;
 	}
 
@@ -788,8 +693,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoChildrenOf_Variable()
-	{
+	public EReference getEvoChildrenOf_Variable() {
 		return (EReference)evoChildrenOfEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -798,8 +702,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoSiblingsOf()
-	{
+	public EClass getEvoSiblingsOf() {
 		return evoSiblingsOfEClass;
 	}
 
@@ -808,8 +711,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoSiblingsOf_Variable()
-	{
+	public EReference getEvoSiblingsOf_Variable() {
 		return (EReference)evoSiblingsOfEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -818,8 +720,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoParentOf()
-	{
+	public EClass getEvoParentOf() {
 		return evoParentOfEClass;
 	}
 
@@ -828,8 +729,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvoParentOf_Variable()
-	{
+	public EReference getEvoParentOf_Variable() {
 		return (EReference)evoParentOfEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -838,8 +738,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAllMappings()
-	{
+	public EClass getEvoAllMappings() {
 		return evoAllMappingsEClass;
 	}
 
@@ -848,8 +747,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvoAllConfigurations()
-	{
+	public EClass getEvoAllConfigurations() {
 		return evoAllConfigurationsEClass;
 	}
 
@@ -858,8 +756,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoLogicFactory getEvoLogicFactory()
-	{
+	public EvoLogicFactory getEvoLogicFactory() {
 		return (EvoLogicFactory)getEFactoryInstance();
 	}
 
@@ -877,8 +774,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents()
-	{
+	public void createPackageContents() {
 		if (isCreated) return;
 		isCreated = true;
 
@@ -890,10 +786,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		evoNotEClass = createEClass(EVO_NOT);
 
 		evoBiconditionalEClass = createEClass(EVO_BICONDITIONAL);
-
-		evoFormulaVariableEClass = createEClass(EVO_FORMULA_VARIABLE);
-
-		evoFormulaSetVariableEClass = createEClass(EVO_FORMULA_SET_VARIABLE);
 
 		evoAbstractSetTermEClass = createEClass(EVO_ABSTRACT_SET_TERM);
 
@@ -921,8 +813,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		evoForAllEClass = createEClass(EVO_FOR_ALL);
 
 		evoExistEClass = createEClass(EVO_EXIST);
-
-		evoUniqueExistsEClass = createEClass(EVO_UNIQUE_EXISTS);
 
 		evoFormulaEClass = createEClass(EVO_FORMULA);
 		createEReference(evoFormulaEClass, EVO_FORMULA__TERM);
@@ -979,8 +869,7 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents()
-	{
+	public void initializePackageContents() {
 		if (isInitialized) return;
 		isInitialized = true;
 
@@ -1003,9 +892,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		evoXOrEClass.getESuperTypes().add(this.getEvoBinaryExpression());
 		evoNotEClass.getESuperTypes().add(theHyExpressionPackage.getHyUnaryExpression());
 		evoBiconditionalEClass.getESuperTypes().add(this.getEvoBinaryExpression());
-		evoFormulaVariableEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
-		evoFormulaVariableEClass.getESuperTypes().add(theEvoVariablePackage.getEvoVariable());
-		evoFormulaSetVariableEClass.getESuperTypes().add(theEvoVariablePackage.getEvoSetVariable());
 		evoAbstractSetTermEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 		evoSetInclusionEClass.getESuperTypes().add(this.getEvoAbstractSetTerm());
 		evoSetInclusionEClass.getESuperTypes().add(this.getEvoBinaryExpression());
@@ -1029,7 +915,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		evoAbstractQuantifierTermEClass.getESuperTypes().add(theHyExpressionPackage.getHyUnaryExpression());
 		evoForAllEClass.getESuperTypes().add(this.getEvoAbstractQuantifierTerm());
 		evoExistEClass.getESuperTypes().add(this.getEvoAbstractQuantifierTerm());
-		evoUniqueExistsEClass.getESuperTypes().add(this.getEvoAbstractQuantifierTerm());
 		evoVariableTermEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 		evoSizeEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
 		evoGroupTypeEClass.getESuperTypes().add(theHyExpressionPackage.getHyExpression());
@@ -1050,10 +935,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		initEClass(evoNotEClass, EvoNot.class, "EvoNot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoBiconditionalEClass, EvoBiconditional.class, "EvoBiconditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoFormulaVariableEClass, EvoFormulaVariable.class, "EvoFormulaVariable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoFormulaSetVariableEClass, EvoFormulaSetVariable.class, "EvoFormulaSetVariable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoAbstractSetTermEClass, EvoAbstractSetTerm.class, "EvoAbstractSetTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1081,8 +962,6 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 		initEClass(evoForAllEClass, EvoForAll.class, "EvoForAll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoExistEClass, EvoExist.class, "EvoExist", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(evoUniqueExistsEClass, EvoUniqueExists.class, "EvoUniqueExists", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evoFormulaEClass, EvoFormula.class, "EvoFormula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvoFormula_Term(), theHyExpressionPackage.getHyExpression(), null, "term", null, 1, 1, EvoFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1138,14 +1017,12 @@ public class EvoLogicPackageImpl extends EPackageImpl implements EvoLogicPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createImportAnnotations()
-	{
+	protected void createImportAnnotations() {
 		String source = "http://www.eclipse.org/OCL/Import";	
 		addAnnotation
 		  (this, 
 		   source, 
-		   new String[] 
-		   {
+		   new String[] {
 			 "configuration", "../../eu.hyvar.feature.configuration/model/Configuration.ecore#/",
 			 "ecore", "http://www.eclipse.org/emf/2002/Ecore",
 			 "evooperation_0", "../../de.evorepair.evolution.operation/model/EvoOperation.ecore#/",

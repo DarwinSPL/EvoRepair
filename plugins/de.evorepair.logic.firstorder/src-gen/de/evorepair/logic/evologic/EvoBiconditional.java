@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoBiconditional extends EvoBinaryExpression
-{
+public interface EvoBiconditional extends EvoBinaryExpression {
 } // EvoBiconditional

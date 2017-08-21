@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
-{
+public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf {
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -46,8 +45,7 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoChildrenOfImpl()
-	{
+	protected EvoChildrenOfImpl() {
 		super();
 	}
 
@@ -57,8 +55,7 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_CHILDREN_OF;
 	}
 
@@ -67,8 +64,7 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableTerm getVariable()
-	{
+	public EvoVariableTerm getVariable() {
 		return variable;
 	}
 
@@ -77,12 +73,10 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVariable(EvoVariableTerm newVariable, NotificationChain msgs)
-	{
+	public NotificationChain basicSetVariable(EvoVariableTerm newVariable, NotificationChain msgs) {
 		EvoVariableTerm oldVariable = variable;
 		variable = newVariable;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE, oldVariable, newVariable);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -94,10 +88,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariable(EvoVariableTerm newVariable)
-	{
-		if (newVariable != variable)
-		{
+	public void setVariable(EvoVariableTerm newVariable) {
+		if (newVariable != variable) {
 			NotificationChain msgs = null;
 			if (variable != null)
 				msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE, null, msgs);
@@ -116,10 +108,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE:
 				return basicSetVariable(null, msgs);
 		}
@@ -132,10 +122,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE:
 				return getVariable();
 		}
@@ -148,10 +136,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE:
 				setVariable((EvoVariableTerm)newValue);
 				return;
@@ -165,10 +151,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE:
 				setVariable((EvoVariableTerm)null);
 				return;
@@ -182,10 +166,8 @@ public class EvoChildrenOfImpl extends HyExpressionImpl implements EvoChildrenOf
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_CHILDREN_OF__VARIABLE:
 				return variable != null;
 		}

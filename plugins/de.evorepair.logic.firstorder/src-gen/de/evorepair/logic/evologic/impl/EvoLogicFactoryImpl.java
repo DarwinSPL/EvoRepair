@@ -18,26 +18,21 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
-{
+public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EvoLogicFactory init()
-	{
-		try
-		{
+	public static EvoLogicFactory init() {
+		try {
 			EvoLogicFactory theEvoLogicFactory = (EvoLogicFactory)EPackage.Registry.INSTANCE.getEFactory(EvoLogicPackage.eNS_URI);
-			if (theEvoLogicFactory != null)
-			{
+			if (theEvoLogicFactory != null) {
 				return theEvoLogicFactory;
 			}
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EvoLogicFactoryImpl();
@@ -49,8 +44,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoLogicFactoryImpl()
-	{
+	public EvoLogicFactoryImpl() {
 		super();
 	}
 
@@ -60,10 +54,8 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass)
-	{
-		switch (eClass.getClassifierID())
-		{
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
 			case EvoLogicPackage.EVO_BINARY_EXPRESSION: return createEvoBinaryExpression();
 			case EvoLogicPackage.EVO_XOR: return createEvoXOr();
 			case EvoLogicPackage.EVO_NOT: return createEvoNot();
@@ -79,7 +71,6 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 			case EvoLogicPackage.EVO_SET_NOT_ELEMENT_OF: return createEvoSetNotElementOf();
 			case EvoLogicPackage.EVO_FOR_ALL: return createEvoForAll();
 			case EvoLogicPackage.EVO_EXIST: return createEvoExist();
-			case EvoLogicPackage.EVO_UNIQUE_EXISTS: return createEvoUniqueExists();
 			case EvoLogicPackage.EVO_FORMULA: return createEvoFormula();
 			case EvoLogicPackage.EVO_VARIABLE_TERM: return createEvoVariableTerm();
 			case EvoLogicPackage.EVO_APPLICATION_CONSTRAINT_TERM: return createEvoApplicationConstraintTerm();
@@ -103,8 +94,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoBinaryExpression createEvoBinaryExpression()
-	{
+	public EvoBinaryExpression createEvoBinaryExpression() {
 		EvoBinaryExpressionImpl evoBinaryExpression = new EvoBinaryExpressionImpl();
 		return evoBinaryExpression;
 	}
@@ -114,8 +104,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoXOr createEvoXOr()
-	{
+	public EvoXOr createEvoXOr() {
 		EvoXOrImpl evoXOr = new EvoXOrImpl();
 		return evoXOr;
 	}
@@ -125,8 +114,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoNot createEvoNot()
-	{
+	public EvoNot createEvoNot() {
 		EvoNotImpl evoNot = new EvoNotImpl();
 		return evoNot;
 	}
@@ -136,8 +124,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoBiconditional createEvoBiconditional()
-	{
+	public EvoBiconditional createEvoBiconditional() {
 		EvoBiconditionalImpl evoBiconditional = new EvoBiconditionalImpl();
 		return evoBiconditional;
 	}
@@ -147,8 +134,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetInclusion createEvoSetInclusion()
-	{
+	public EvoSetInclusion createEvoSetInclusion() {
 		EvoSetInclusionImpl evoSetInclusion = new EvoSetInclusionImpl();
 		return evoSetInclusion;
 	}
@@ -158,8 +144,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetIntersection createEvoSetIntersection()
-	{
+	public EvoSetIntersection createEvoSetIntersection() {
 		EvoSetIntersectionImpl evoSetIntersection = new EvoSetIntersectionImpl();
 		return evoSetIntersection;
 	}
@@ -169,8 +154,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetUnion createEvoSetUnion()
-	{
+	public EvoSetUnion createEvoSetUnion() {
 		EvoSetUnionImpl evoSetUnion = new EvoSetUnionImpl();
 		return evoSetUnion;
 	}
@@ -180,8 +164,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetDifference createEvoSetDifference()
-	{
+	public EvoSetDifference createEvoSetDifference() {
 		EvoSetDifferenceImpl evoSetDifference = new EvoSetDifferenceImpl();
 		return evoSetDifference;
 	}
@@ -191,8 +174,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetSymmetricDifference createEvoSetSymmetricDifference()
-	{
+	public EvoSetSymmetricDifference createEvoSetSymmetricDifference() {
 		EvoSetSymmetricDifferenceImpl evoSetSymmetricDifference = new EvoSetSymmetricDifferenceImpl();
 		return evoSetSymmetricDifference;
 	}
@@ -202,8 +184,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetCartesianProduct createEvoSetCartesianProduct()
-	{
+	public EvoSetCartesianProduct createEvoSetCartesianProduct() {
 		EvoSetCartesianProductImpl evoSetCartesianProduct = new EvoSetCartesianProductImpl();
 		return evoSetCartesianProduct;
 	}
@@ -213,8 +194,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetCardinality createEvoSetCardinality()
-	{
+	public EvoSetCardinality createEvoSetCardinality() {
 		EvoSetCardinalityImpl evoSetCardinality = new EvoSetCardinalityImpl();
 		return evoSetCardinality;
 	}
@@ -224,8 +204,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoElementOf createEvoElementOf()
-	{
+	public EvoElementOf createEvoElementOf() {
 		EvoElementOfImpl evoElementOf = new EvoElementOfImpl();
 		return evoElementOf;
 	}
@@ -235,8 +214,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetNotElementOf createEvoSetNotElementOf()
-	{
+	public EvoSetNotElementOf createEvoSetNotElementOf() {
 		EvoSetNotElementOfImpl evoSetNotElementOf = new EvoSetNotElementOfImpl();
 		return evoSetNotElementOf;
 	}
@@ -246,8 +224,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoForAll createEvoForAll()
-	{
+	public EvoForAll createEvoForAll() {
 		EvoForAllImpl evoForAll = new EvoForAllImpl();
 		return evoForAll;
 	}
@@ -257,8 +234,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoExist createEvoExist()
-	{
+	public EvoExist createEvoExist() {
 		EvoExistImpl evoExist = new EvoExistImpl();
 		return evoExist;
 	}
@@ -268,19 +244,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoUniqueExists createEvoUniqueExists()
-	{
-		EvoUniqueExistsImpl evoUniqueExists = new EvoUniqueExistsImpl();
-		return evoUniqueExists;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EvoFormula createEvoFormula()
-	{
+	public EvoFormula createEvoFormula() {
 		EvoFormulaImpl evoFormula = new EvoFormulaImpl();
 		return evoFormula;
 	}
@@ -290,8 +254,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoVariableTerm createEvoVariableTerm()
-	{
+	public EvoVariableTerm createEvoVariableTerm() {
 		EvoVariableTermImpl evoVariableTerm = new EvoVariableTermImpl();
 		return evoVariableTerm;
 	}
@@ -301,8 +264,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoApplicationConstraintTerm createEvoApplicationConstraintTerm()
-	{
+	public EvoApplicationConstraintTerm createEvoApplicationConstraintTerm() {
 		EvoApplicationConstraintTermImpl evoApplicationConstraintTerm = new EvoApplicationConstraintTermImpl();
 		return evoApplicationConstraintTerm;
 	}
@@ -312,8 +274,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSize createEvoSize()
-	{
+	public EvoSize createEvoSize() {
 		EvoSizeImpl evoSize = new EvoSizeImpl();
 		return evoSize;
 	}
@@ -323,8 +284,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoGroupType createEvoGroupType()
-	{
+	public EvoGroupType createEvoGroupType() {
 		EvoGroupTypeImpl evoGroupType = new EvoGroupTypeImpl();
 		return evoGroupType;
 	}
@@ -334,8 +294,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoFeatureType createEvoFeatureType()
-	{
+	public EvoFeatureType createEvoFeatureType() {
 		EvoFeatureTypeImpl evoFeatureType = new EvoFeatureTypeImpl();
 		return evoFeatureType;
 	}
@@ -345,8 +304,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSatisfiable createEvoSatisfiable()
-	{
+	public EvoSatisfiable createEvoSatisfiable() {
 		EvoSatisfiableImpl evoSatisfiable = new EvoSatisfiableImpl();
 		return evoSatisfiable;
 	}
@@ -356,8 +314,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSetTerm createEvoSetTerm()
-	{
+	public EvoSetTerm createEvoSetTerm() {
 		EvoSetTermImpl evoSetTerm = new EvoSetTermImpl();
 		return evoSetTerm;
 	}
@@ -367,8 +324,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoChildrenOf createEvoChildrenOf()
-	{
+	public EvoChildrenOf createEvoChildrenOf() {
 		EvoChildrenOfImpl evoChildrenOf = new EvoChildrenOfImpl();
 		return evoChildrenOf;
 	}
@@ -378,8 +334,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoSiblingsOf createEvoSiblingsOf()
-	{
+	public EvoSiblingsOf createEvoSiblingsOf() {
 		EvoSiblingsOfImpl evoSiblingsOf = new EvoSiblingsOfImpl();
 		return evoSiblingsOf;
 	}
@@ -389,8 +344,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoParentOf createEvoParentOf()
-	{
+	public EvoParentOf createEvoParentOf() {
 		EvoParentOfImpl evoParentOf = new EvoParentOfImpl();
 		return evoParentOf;
 	}
@@ -400,8 +354,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllMappings createEvoAllMappings()
-	{
+	public EvoAllMappings createEvoAllMappings() {
 		EvoAllMappingsImpl evoAllMappings = new EvoAllMappingsImpl();
 		return evoAllMappings;
 	}
@@ -411,8 +364,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoAllConfigurations createEvoAllConfigurations()
-	{
+	public EvoAllConfigurations createEvoAllConfigurations() {
 		EvoAllConfigurationsImpl evoAllConfigurations = new EvoAllConfigurationsImpl();
 		return evoAllConfigurations;
 	}
@@ -422,8 +374,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoLogicPackage getEvoLogicPackage()
-	{
+	public EvoLogicPackage getEvoLogicPackage() {
 		return (EvoLogicPackage)getEPackage();
 	}
 
@@ -434,8 +385,7 @@ public class EvoLogicFactoryImpl extends EFactoryImpl implements EvoLogicFactory
 	 * @generated
 	 */
 	@Deprecated
-	public static EvoLogicPackage getPackage()
-	{
+	public static EvoLogicPackage getPackage() {
 		return EvoLogicPackage.eINSTANCE;
 	}
 

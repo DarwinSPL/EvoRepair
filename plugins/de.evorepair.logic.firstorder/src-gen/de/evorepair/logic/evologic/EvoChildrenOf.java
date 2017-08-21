@@ -20,8 +20,7 @@ import eu.hyvar.feature.expression.HyExpression;
  * @model
  * @generated
  */
-public interface EvoChildrenOf extends HyExpression
-{
+public interface EvoChildrenOf extends HyExpression {
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -76,9 +76,9 @@ public class EvoVariableDslAdapterFactory extends AdapterFactoryImpl
     new EvoVariableDslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseEvoVariableModel(EvoVariableModel object)
       {
-        return createModelAdapter();
+        return createEvoVariableModelAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -103,16 +103,16 @@ public class EvoVariableDslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link de.evorepair.evolution.variable.evoVariableDsl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel <em>Evo Variable Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.evorepair.evolution.variable.evoVariableDsl.Model
+   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createEvoVariableModelAdapter()
   {
     return null;
   }

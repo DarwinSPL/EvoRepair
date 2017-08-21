@@ -39,8 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
-{
+public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,8 +75,7 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoGroupTypeImpl()
-	{
+	protected EvoGroupTypeImpl() {
 		super();
 	}
 
@@ -87,8 +85,7 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_GROUP_TYPE;
 	}
 
@@ -97,8 +94,7 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HyGroupTypeEnum getType()
-	{
+	public HyGroupTypeEnum getType() {
 		return type;
 	}
 
@@ -107,8 +103,7 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(HyGroupTypeEnum newType)
-	{
+	public void setType(HyGroupTypeEnum newType) {
 		HyGroupTypeEnum oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
@@ -120,10 +115,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EvoVariableTerm> getVariables()
-	{
-		if (variables == null)
-		{
+	public EList<EvoVariableTerm> getVariables() {
+		if (variables == null) {
 			variables = new EObjectContainmentEList<EvoVariableTerm>(EvoVariableTerm.class, this, EvoLogicPackage.EVO_GROUP_TYPE__VARIABLES);
 		}
 		return variables;
@@ -135,10 +128,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_GROUP_TYPE__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
@@ -151,10 +142,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_GROUP_TYPE__TYPE:
 				return getType();
 			case EvoLogicPackage.EVO_GROUP_TYPE__VARIABLES:
@@ -170,10 +159,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_GROUP_TYPE__TYPE:
 				setType((HyGroupTypeEnum)newValue);
 				return;
@@ -191,10 +178,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_GROUP_TYPE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
@@ -211,10 +196,8 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_GROUP_TYPE__TYPE:
 				return type != TYPE_EDEFAULT;
 			case EvoLogicPackage.EVO_GROUP_TYPE__VARIABLES:
@@ -229,8 +212,7 @@ public class EvoGroupTypeImpl extends HyExpressionImpl implements EvoGroupType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

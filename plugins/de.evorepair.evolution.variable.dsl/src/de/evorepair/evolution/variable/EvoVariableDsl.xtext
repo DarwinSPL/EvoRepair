@@ -2,38 +2,38 @@ grammar de.evorepair.evolution.variable.EvoVariableDsl with org.eclipse.xtext.co
 
 generate evoVariableDsl "http://www.evorepair.de/evolution/variable/EvoVariableDsl"
 
-import "http://darwinspl.de/evorepair/variable/0.2"
+import "http://darwinspl.de/evorepair/variable/0.2" as evo_variable
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://hyvar-project.eu/feature/1.0" as feature
 import "http://hyvar-project.eu/feature/configuration/1.0" as dw_configuration
 import "http://hyvar-project.eu/feature/mapping/1.0" as dw_mapping
 
-Model:
+EvoVariableModel:
 	variables+=EvoVariable*;
 
-EvoVariable:
+EvoVariable returns evo_variable::EvoVariable:
 	EvoConfigurationVariable | EvoFeatureVariable | EvoGroupVariable | EvoSetVariable | EvoMappingVariable;
 
 
-EvoFeatureVariable returns EvoFeatureVariable: 
-	'feature' name=ID (relation=EvoFeatureRelation)? ('reference' ':' feature=[feature::HyFeature | STRING])?;
+EvoFeatureVariable returns evo_variable::EvoFeatureVariable: 
+	'feature' name=ID; //(relation=EvoFeatureRelation)?; //('reference' ':' feature=[feature::HyFeature | STRING])?;
 
-EvoFeatureRelation returns EvoFeatureRelation:
-	featureType=EvoFeatureVariableType '(' relatedFeatures+=[EvoFeatureVariable] (',' relatedFeatures+=[EvoFeatureVariable])? ')';
+EvoFeatureRelation returns evo_variable::EvoFeatureRelation:
+	featureType=EvoFeatureVariableType '(' relatedFeatures+=[evo_variable::EvoFeatureVariable] (',' relatedFeatures+=[evo_variable::EvoFeatureVariable])? ')';
 
-EvoGroupVariable returns EvoGroupVariable:
+EvoGroupVariable returns evo_variable::EvoGroupVariable:
 	'group' name=ID ('value' '=' group=[feature::HyGroup | STRING])?;
 
-EvoSetVariable returns EvoSetVariable: 
-	'set' name=ID ('(' elements+=[EvoVariable] (',' elements+=[EvoVariable]) ')')?;
+EvoSetVariable returns evo_variable::EvoSetVariable: 
+	'set' name=ID ('(' elements+=[evo_variable::EvoVariable] (',' elements+=[evo_variable::EvoVariable]) ')')?;
 
-EvoMappingVariable returns EvoMappingVariable:
+EvoMappingVariable returns evo_variable::EvoMappingVariable:
 	'mapping' name=ID ('(' mapping=STRING ')')?;
 
-EvoConfigurationVariable returns EvoConfigurationVariable:
+EvoConfigurationVariable returns evo_variable::EvoConfigurationVariable:
 	'configuration' name=ID ('(' configuration=STRING ')')?;
 
-enum EvoFeatureVariableType:
+enum EvoFeatureVariableType returns evo_variable::EvoFeatureVariableType:
 	EvoParent = 'parentOf' |
 	EvoSibling = 'siblingOf' |
 	EvoChild = 'childOf';

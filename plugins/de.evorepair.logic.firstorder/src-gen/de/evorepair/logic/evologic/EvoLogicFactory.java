@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EFactory;
  * @see de.evorepair.logic.evologic.EvoLogicPackage
  * @generated
  */
-public interface EvoLogicFactory extends EFactory
-{
+public interface EvoLogicFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -156,15 +155,6 @@ public interface EvoLogicFactory extends EFactory
 	 * @generated
 	 */
 	EvoExist createEvoExist();
-
-	/**
-	 * Returns a new object of class '<em>Evo Unique Exists</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Evo Unique Exists</em>'.
-	 * @generated
-	 */
-	EvoUniqueExists createEvoUniqueExists();
 
 	/**
 	 * Returns a new object of class '<em>Evo Formula</em>'.

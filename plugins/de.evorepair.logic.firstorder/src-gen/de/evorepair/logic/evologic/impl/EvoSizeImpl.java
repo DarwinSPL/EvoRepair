@@ -26,8 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
-{
+public class EvoSizeImpl extends HyExpressionImpl implements EvoSize {
 	/**
 	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,8 +52,7 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoSizeImpl()
-	{
+	protected EvoSizeImpl() {
 		super();
 	}
 
@@ -64,8 +62,7 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_SIZE;
 	}
 
@@ -74,8 +71,7 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSize()
-	{
+	public int getSize() {
 		return size;
 	}
 
@@ -84,8 +80,7 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(int newSize)
-	{
+	public void setSize(int newSize) {
 		int oldSize = size;
 		size = newSize;
 		if (eNotificationRequired())
@@ -98,10 +93,8 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SIZE__SIZE:
 				return getSize();
 		}
@@ -114,10 +107,8 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SIZE__SIZE:
 				setSize((Integer)newValue);
 				return;
@@ -131,10 +122,8 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SIZE__SIZE:
 				setSize(SIZE_EDEFAULT);
 				return;
@@ -148,10 +137,8 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SIZE__SIZE:
 				return size != SIZE_EDEFAULT;
 		}
@@ -164,8 +151,7 @@ public class EvoSizeImpl extends HyExpressionImpl implements EvoSize
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

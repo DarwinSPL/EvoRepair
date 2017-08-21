@@ -34,8 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
-{
+public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm {
 	/**
 	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -51,8 +50,7 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoSetTermImpl()
-	{
+	protected EvoSetTermImpl() {
 		super();
 	}
 
@@ -62,8 +60,7 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_SET_TERM;
 	}
 
@@ -72,10 +69,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HyExpression> getVariables()
-	{
-		if (variables == null)
-		{
+	public EList<HyExpression> getVariables() {
+		if (variables == null) {
 			variables = new EObjectContainmentEList<HyExpression>(HyExpression.class, this, EvoLogicPackage.EVO_SET_TERM__VARIABLES);
 		}
 		return variables;
@@ -87,10 +82,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SET_TERM__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
@@ -103,10 +96,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SET_TERM__VARIABLES:
 				return getVariables();
 		}
@@ -120,10 +111,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SET_TERM__VARIABLES:
 				getVariables().clear();
 				getVariables().addAll((Collection<? extends HyExpression>)newValue);
@@ -138,10 +127,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SET_TERM__VARIABLES:
 				getVariables().clear();
 				return;
@@ -155,10 +142,8 @@ public class EvoSetTermImpl extends HyExpressionImpl implements EvoSetTerm
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_SET_TERM__VARIABLES:
 				return variables != null && !variables.isEmpty();
 		}

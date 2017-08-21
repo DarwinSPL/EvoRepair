@@ -60,7 +60,7 @@ Workflow {
 			}
 			
 			formatter = {
-				generateStub = true
+				generateStub = false
 			}
 			
 			validator = {

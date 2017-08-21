@@ -25,8 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EvoFeatureType extends HyExpression
-{
+public interface EvoFeatureType extends HyExpression {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link eu.hyvar.feature.HyFeatureTypeEnum}.

@@ -19,8 +19,7 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoParentOf extends EvoSetTerm
-{
+public interface EvoParentOf extends EvoSetTerm {
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

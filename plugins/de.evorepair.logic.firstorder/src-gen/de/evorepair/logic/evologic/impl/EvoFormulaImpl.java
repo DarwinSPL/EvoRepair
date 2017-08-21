@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoFormula
-{
+public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoFormula {
 	/**
 	 * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -46,8 +45,7 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoFormulaImpl()
-	{
+	protected EvoFormulaImpl() {
 		super();
 	}
 
@@ -57,8 +55,7 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_FORMULA;
 	}
 
@@ -67,8 +64,7 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HyExpression getTerm()
-	{
+	public HyExpression getTerm() {
 		return term;
 	}
 
@@ -77,12 +73,10 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTerm(HyExpression newTerm, NotificationChain msgs)
-	{
+	public NotificationChain basicSetTerm(HyExpression newTerm, NotificationChain msgs) {
 		HyExpression oldTerm = term;
 		term = newTerm;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EvoLogicPackage.EVO_FORMULA__TERM, oldTerm, newTerm);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -94,10 +88,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTerm(HyExpression newTerm)
-	{
-		if (newTerm != term)
-		{
+	public void setTerm(HyExpression newTerm) {
+		if (newTerm != term) {
 			NotificationChain msgs = null;
 			if (term != null)
 				msgs = ((InternalEObject)term).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EvoLogicPackage.EVO_FORMULA__TERM, null, msgs);
@@ -116,10 +108,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FORMULA__TERM:
 				return basicSetTerm(null, msgs);
 		}
@@ -132,10 +122,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FORMULA__TERM:
 				return getTerm();
 		}
@@ -148,10 +136,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FORMULA__TERM:
 				setTerm((HyExpression)newValue);
 				return;
@@ -165,10 +151,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FORMULA__TERM:
 				setTerm((HyExpression)null);
 				return;
@@ -182,10 +166,8 @@ public class EvoFormulaImpl extends MinimalEObjectImpl.Container implements EvoF
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case EvoLogicPackage.EVO_FORMULA__TERM:
 				return term != null;
 		}

@@ -14,6 +14,5 @@ import eu.hyvar.feature.expression.HyUnaryExpression;
  * @model
  * @generated
  */
-public interface EvoSetCardinality extends EvoAbstractSetTerm, HyUnaryExpression
-{
+public interface EvoSetCardinality extends EvoAbstractSetTerm, HyUnaryExpression {
 } // EvoSetCardinality

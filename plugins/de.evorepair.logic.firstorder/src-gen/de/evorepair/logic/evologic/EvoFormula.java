@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EvoFormula extends EObject
-{
+public interface EvoFormula extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Term</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

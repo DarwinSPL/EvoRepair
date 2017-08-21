@@ -16,15 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EvoAllConfigurationsImpl extends HyExpressionImpl implements EvoAllConfigurations
-{
+public class EvoAllConfigurationsImpl extends HyExpressionImpl implements EvoAllConfigurations {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAllConfigurationsImpl()
-	{
+	protected EvoAllConfigurationsImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public class EvoAllConfigurationsImpl extends HyExpressionImpl implements EvoAll
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_ALL_CONFIGURATIONS;
 	}
 

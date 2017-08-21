@@ -73,10 +73,10 @@ public class EvoVariableDslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case EvoVariableDslPackage.MODEL:
+      case EvoVariableDslPackage.EVO_VARIABLE_MODEL:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        EvoVariableModel evoVariableModel = (EvoVariableModel)theEObject;
+        T result = caseEvoVariableModel(evoVariableModel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -85,17 +85,17 @@ public class EvoVariableDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Evo Variable Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Evo Variable Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseEvoVariableModel(EvoVariableModel object)
   {
     return null;
   }

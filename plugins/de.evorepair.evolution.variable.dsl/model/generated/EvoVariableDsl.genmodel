@@ -6,8 +6,8 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13" usedGenPackages="platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable">
   <genPackages prefix="EvoVariableDsl" basePackage="de.evorepair.evolution.variable"
       disposableProviderFactory="true" fileExtensions="evovariable" ecorePackage="EvoVariableDsl.ecore#/">
-    <genClasses ecoreClass="EvoVariableDsl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoVariableDsl.ecore#//Model/variables"/>
+    <genClasses ecoreClass="EvoVariableDsl.ecore#//EvoVariableModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoVariableDsl.ecore#//EvoVariableModel/variables"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

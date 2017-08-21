@@ -57,14 +57,14 @@ public interface EvoVariableDslPackage extends EPackage
   EvoVariableDslPackage eINSTANCE = de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableModelImpl <em>Evo Variable Model</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl
-   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getModel()
+   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableModelImpl
+   * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getEvoVariableModel()
    * @generated
    */
-  int MODEL = 0;
+  int EVO_VARIABLE_MODEL = 0;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -73,38 +73,38 @@ public interface EvoVariableDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__VARIABLES = 0;
+  int EVO_VARIABLE_MODEL__VARIABLES = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Evo Variable Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int EVO_VARIABLE_MODEL_FEATURE_COUNT = 1;
 
 
   /**
-   * Returns the meta object for class '{@link de.evorepair.evolution.variable.evoVariableDsl.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel <em>Evo Variable Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see de.evorepair.evolution.variable.evoVariableDsl.Model
+   * @return the meta object for class '<em>Evo Variable Model</em>'.
+   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel
    * @generated
    */
-  EClass getModel();
+  EClass getEvoVariableModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.evorepair.evolution.variable.evoVariableDsl.Model#getVariables <em>Variables</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Variables</em>'.
-   * @see de.evorepair.evolution.variable.evoVariableDsl.Model#getVariables()
-   * @see #getModel()
+   * @see de.evorepair.evolution.variable.evoVariableDsl.EvoVariableModel#getVariables()
+   * @see #getEvoVariableModel()
    * @generated
    */
-  EReference getModel_Variables();
+  EReference getEvoVariableModel_Variables();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -130,14 +130,14 @@ public interface EvoVariableDslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableModelImpl <em>Evo Variable Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.ModelImpl
-     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getModel()
+     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableModelImpl
+     * @see de.evorepair.evolution.variable.evoVariableDsl.impl.EvoVariableDslPackageImpl#getEvoVariableModel()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass EVO_VARIABLE_MODEL = eINSTANCE.getEvoVariableModel();
 
     /**
      * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
@@ -145,7 +145,7 @@ public interface EvoVariableDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__VARIABLES = eINSTANCE.getModel_Variables();
+    EReference EVO_VARIABLE_MODEL__VARIABLES = eINSTANCE.getEvoVariableModel_Variables();
 
   }
 

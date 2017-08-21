@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoForAll extends EvoAbstractQuantifierTerm
-{
+public interface EvoForAll extends EvoAbstractQuantifierTerm {
 } // EvoForAll

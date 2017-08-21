@@ -14,6 +14,5 @@ import eu.hyvar.feature.expression.HyUnaryExpression;
  * @model
  * @generated
  */
-public interface EvoNot extends HyUnaryExpression
-{
+public interface EvoNot extends HyUnaryExpression {
 } // EvoNot

@@ -16,15 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class EvoAbstractSetTermImpl extends HyExpressionImpl implements EvoAbstractSetTerm
-{
+public abstract class EvoAbstractSetTermImpl extends HyExpressionImpl implements EvoAbstractSetTerm {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EvoAbstractSetTermImpl()
-	{
+	protected EvoAbstractSetTermImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public abstract class EvoAbstractSetTermImpl extends HyExpressionImpl implements
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return EvoLogicPackage.Literals.EVO_ABSTRACT_SET_TERM;
 	}
 

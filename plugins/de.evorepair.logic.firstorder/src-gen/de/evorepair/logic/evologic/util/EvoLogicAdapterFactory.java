@@ -2,9 +2,6 @@
  */
 package de.evorepair.logic.evologic.util;
 
-import de.evorepair.evolution.evovariable.EvoSetVariable;
-import de.evorepair.evolution.evovariable.EvoVariable;
-
 import de.evorepair.logic.evologic.*;
 
 import eu.hyvar.feature.expression.HyBinaryExpression;
@@ -26,8 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see de.evorepair.logic.evologic.EvoLogicPackage
  * @generated
  */
-public class EvoLogicAdapterFactory extends AdapterFactoryImpl
-{
+public class EvoLogicAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -42,10 +38,8 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EvoLogicAdapterFactory()
-	{
-		if (modelPackage == null)
-		{
+	public EvoLogicAdapterFactory() {
+		if (modelPackage == null) {
 			modelPackage = EvoLogicPackage.eINSTANCE;
 		}
 	}
@@ -59,14 +53,11 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object object)
-	{
-		if (object == modelPackage)
-		{
+	public boolean isFactoryForType(Object object) {
+		if (object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject)
-		{
+		if (object instanceof EObject) {
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -79,201 +70,141 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected EvoLogicSwitch<Adapter> modelSwitch =
-		new EvoLogicSwitch<Adapter>()
-		{
+		new EvoLogicSwitch<Adapter>() {
 			@Override
-			public Adapter caseEvoBinaryExpression(EvoBinaryExpression object)
-			{
+			public Adapter caseEvoBinaryExpression(EvoBinaryExpression object) {
 				return createEvoBinaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseEvoXOr(EvoXOr object)
-			{
+			public Adapter caseEvoXOr(EvoXOr object) {
 				return createEvoXOrAdapter();
 			}
 			@Override
-			public Adapter caseEvoNot(EvoNot object)
-			{
+			public Adapter caseEvoNot(EvoNot object) {
 				return createEvoNotAdapter();
 			}
 			@Override
-			public Adapter caseEvoBiconditional(EvoBiconditional object)
-			{
+			public Adapter caseEvoBiconditional(EvoBiconditional object) {
 				return createEvoBiconditionalAdapter();
 			}
 			@Override
-			public Adapter caseEvoFormulaVariable(EvoFormulaVariable object)
-			{
-				return createEvoFormulaVariableAdapter();
-			}
-			@Override
-			public Adapter caseEvoFormulaSetVariable(EvoFormulaSetVariable object)
-			{
-				return createEvoFormulaSetVariableAdapter();
-			}
-			@Override
-			public Adapter caseEvoAbstractSetTerm(EvoAbstractSetTerm object)
-			{
+			public Adapter caseEvoAbstractSetTerm(EvoAbstractSetTerm object) {
 				return createEvoAbstractSetTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetInclusion(EvoSetInclusion object)
-			{
+			public Adapter caseEvoSetInclusion(EvoSetInclusion object) {
 				return createEvoSetInclusionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetIntersection(EvoSetIntersection object)
-			{
+			public Adapter caseEvoSetIntersection(EvoSetIntersection object) {
 				return createEvoSetIntersectionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetUnion(EvoSetUnion object)
-			{
+			public Adapter caseEvoSetUnion(EvoSetUnion object) {
 				return createEvoSetUnionAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetDifference(EvoSetDifference object)
-			{
+			public Adapter caseEvoSetDifference(EvoSetDifference object) {
 				return createEvoSetDifferenceAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object)
-			{
+			public Adapter caseEvoSetSymmetricDifference(EvoSetSymmetricDifference object) {
 				return createEvoSetSymmetricDifferenceAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetCartesianProduct(EvoSetCartesianProduct object)
-			{
+			public Adapter caseEvoSetCartesianProduct(EvoSetCartesianProduct object) {
 				return createEvoSetCartesianProductAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetCardinality(EvoSetCardinality object)
-			{
+			public Adapter caseEvoSetCardinality(EvoSetCardinality object) {
 				return createEvoSetCardinalityAdapter();
 			}
 			@Override
-			public Adapter caseEvoElementOf(EvoElementOf object)
-			{
+			public Adapter caseEvoElementOf(EvoElementOf object) {
 				return createEvoElementOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetNotElementOf(EvoSetNotElementOf object)
-			{
+			public Adapter caseEvoSetNotElementOf(EvoSetNotElementOf object) {
 				return createEvoSetNotElementOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object)
-			{
+			public Adapter caseEvoAbstractQuantifierTerm(EvoAbstractQuantifierTerm object) {
 				return createEvoAbstractQuantifierTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoForAll(EvoForAll object)
-			{
+			public Adapter caseEvoForAll(EvoForAll object) {
 				return createEvoForAllAdapter();
 			}
 			@Override
-			public Adapter caseEvoExist(EvoExist object)
-			{
+			public Adapter caseEvoExist(EvoExist object) {
 				return createEvoExistAdapter();
 			}
 			@Override
-			public Adapter caseEvoUniqueExists(EvoUniqueExists object)
-			{
-				return createEvoUniqueExistsAdapter();
-			}
-			@Override
-			public Adapter caseEvoFormula(EvoFormula object)
-			{
+			public Adapter caseEvoFormula(EvoFormula object) {
 				return createEvoFormulaAdapter();
 			}
 			@Override
-			public Adapter caseEvoVariableTerm(EvoVariableTerm object)
-			{
+			public Adapter caseEvoVariableTerm(EvoVariableTerm object) {
 				return createEvoVariableTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoApplicationConstraintTerm(EvoApplicationConstraintTerm object)
-			{
+			public Adapter caseEvoApplicationConstraintTerm(EvoApplicationConstraintTerm object) {
 				return createEvoApplicationConstraintTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoSize(EvoSize object)
-			{
+			public Adapter caseEvoSize(EvoSize object) {
 				return createEvoSizeAdapter();
 			}
 			@Override
-			public Adapter caseEvoGroupType(EvoGroupType object)
-			{
+			public Adapter caseEvoGroupType(EvoGroupType object) {
 				return createEvoGroupTypeAdapter();
 			}
 			@Override
-			public Adapter caseEvoFeatureType(EvoFeatureType object)
-			{
+			public Adapter caseEvoFeatureType(EvoFeatureType object) {
 				return createEvoFeatureTypeAdapter();
 			}
 			@Override
-			public Adapter caseEvoSatisfiable(EvoSatisfiable object)
-			{
+			public Adapter caseEvoSatisfiable(EvoSatisfiable object) {
 				return createEvoSatisfiableAdapter();
 			}
 			@Override
-			public Adapter caseEvoSetTerm(EvoSetTerm object)
-			{
+			public Adapter caseEvoSetTerm(EvoSetTerm object) {
 				return createEvoSetTermAdapter();
 			}
 			@Override
-			public Adapter caseEvoChildrenOf(EvoChildrenOf object)
-			{
+			public Adapter caseEvoChildrenOf(EvoChildrenOf object) {
 				return createEvoChildrenOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoSiblingsOf(EvoSiblingsOf object)
-			{
+			public Adapter caseEvoSiblingsOf(EvoSiblingsOf object) {
 				return createEvoSiblingsOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoParentOf(EvoParentOf object)
-			{
+			public Adapter caseEvoParentOf(EvoParentOf object) {
 				return createEvoParentOfAdapter();
 			}
 			@Override
-			public Adapter caseEvoAllMappings(EvoAllMappings object)
-			{
+			public Adapter caseEvoAllMappings(EvoAllMappings object) {
 				return createEvoAllMappingsAdapter();
 			}
 			@Override
-			public Adapter caseEvoAllConfigurations(EvoAllConfigurations object)
-			{
+			public Adapter caseEvoAllConfigurations(EvoAllConfigurations object) {
 				return createEvoAllConfigurationsAdapter();
 			}
 			@Override
-			public Adapter caseHyExpression(HyExpression object)
-			{
+			public Adapter caseHyExpression(HyExpression object) {
 				return createHyExpressionAdapter();
 			}
 			@Override
-			public Adapter caseHyBinaryExpression(HyBinaryExpression object)
-			{
+			public Adapter caseHyBinaryExpression(HyBinaryExpression object) {
 				return createHyBinaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseHyUnaryExpression(HyUnaryExpression object)
-			{
+			public Adapter caseHyUnaryExpression(HyUnaryExpression object) {
 				return createHyUnaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseEvoVariable(EvoVariable object)
-			{
-				return createEvoVariableAdapter();
-			}
-			@Override
-			public Adapter caseEvoSetVariable(EvoSetVariable object)
-			{
-				return createEvoSetVariableAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object)
-			{
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -287,8 +218,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	@Override
-	public Adapter createAdapter(Notifier target)
-	{
+	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
@@ -303,8 +233,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoBinaryExpression
 	 * @generated
 	 */
-	public Adapter createEvoBinaryExpressionAdapter()
-	{
+	public Adapter createEvoBinaryExpressionAdapter() {
 		return null;
 	}
 
@@ -318,8 +247,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoXOr
 	 * @generated
 	 */
-	public Adapter createEvoXOrAdapter()
-	{
+	public Adapter createEvoXOrAdapter() {
 		return null;
 	}
 
@@ -333,8 +261,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoNot
 	 * @generated
 	 */
-	public Adapter createEvoNotAdapter()
-	{
+	public Adapter createEvoNotAdapter() {
 		return null;
 	}
 
@@ -348,38 +275,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoBiconditional
 	 * @generated
 	 */
-	public Adapter createEvoBiconditionalAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evologic.EvoFormulaVariable <em>Evo Formula Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.logic.evologic.EvoFormulaVariable
-	 * @generated
-	 */
-	public Adapter createEvoFormulaVariableAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evologic.EvoFormulaSetVariable <em>Evo Formula Set Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.logic.evologic.EvoFormulaSetVariable
-	 * @generated
-	 */
-	public Adapter createEvoFormulaSetVariableAdapter()
-	{
+	public Adapter createEvoBiconditionalAdapter() {
 		return null;
 	}
 
@@ -393,8 +289,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoAbstractSetTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractSetTermAdapter()
-	{
+	public Adapter createEvoAbstractSetTermAdapter() {
 		return null;
 	}
 
@@ -408,8 +303,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetInclusion
 	 * @generated
 	 */
-	public Adapter createEvoSetInclusionAdapter()
-	{
+	public Adapter createEvoSetInclusionAdapter() {
 		return null;
 	}
 
@@ -423,8 +317,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetIntersection
 	 * @generated
 	 */
-	public Adapter createEvoSetIntersectionAdapter()
-	{
+	public Adapter createEvoSetIntersectionAdapter() {
 		return null;
 	}
 
@@ -438,8 +331,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetUnion
 	 * @generated
 	 */
-	public Adapter createEvoSetUnionAdapter()
-	{
+	public Adapter createEvoSetUnionAdapter() {
 		return null;
 	}
 
@@ -453,8 +345,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetDifference
 	 * @generated
 	 */
-	public Adapter createEvoSetDifferenceAdapter()
-	{
+	public Adapter createEvoSetDifferenceAdapter() {
 		return null;
 	}
 
@@ -468,8 +359,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetSymmetricDifference
 	 * @generated
 	 */
-	public Adapter createEvoSetSymmetricDifferenceAdapter()
-	{
+	public Adapter createEvoSetSymmetricDifferenceAdapter() {
 		return null;
 	}
 
@@ -483,8 +373,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetCartesianProduct
 	 * @generated
 	 */
-	public Adapter createEvoSetCartesianProductAdapter()
-	{
+	public Adapter createEvoSetCartesianProductAdapter() {
 		return null;
 	}
 
@@ -498,8 +387,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetCardinality
 	 * @generated
 	 */
-	public Adapter createEvoSetCardinalityAdapter()
-	{
+	public Adapter createEvoSetCardinalityAdapter() {
 		return null;
 	}
 
@@ -513,8 +401,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoElementOf
 	 * @generated
 	 */
-	public Adapter createEvoElementOfAdapter()
-	{
+	public Adapter createEvoElementOfAdapter() {
 		return null;
 	}
 
@@ -528,8 +415,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetNotElementOf
 	 * @generated
 	 */
-	public Adapter createEvoSetNotElementOfAdapter()
-	{
+	public Adapter createEvoSetNotElementOfAdapter() {
 		return null;
 	}
 
@@ -543,8 +429,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoAbstractQuantifierTerm
 	 * @generated
 	 */
-	public Adapter createEvoAbstractQuantifierTermAdapter()
-	{
+	public Adapter createEvoAbstractQuantifierTermAdapter() {
 		return null;
 	}
 
@@ -558,8 +443,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoForAll
 	 * @generated
 	 */
-	public Adapter createEvoForAllAdapter()
-	{
+	public Adapter createEvoForAllAdapter() {
 		return null;
 	}
 
@@ -573,23 +457,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoExist
 	 * @generated
 	 */
-	public Adapter createEvoExistAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.logic.evologic.EvoUniqueExists <em>Evo Unique Exists</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.logic.evologic.EvoUniqueExists
-	 * @generated
-	 */
-	public Adapter createEvoUniqueExistsAdapter()
-	{
+	public Adapter createEvoExistAdapter() {
 		return null;
 	}
 
@@ -603,8 +471,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoFormula
 	 * @generated
 	 */
-	public Adapter createEvoFormulaAdapter()
-	{
+	public Adapter createEvoFormulaAdapter() {
 		return null;
 	}
 
@@ -618,8 +485,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoVariableTerm
 	 * @generated
 	 */
-	public Adapter createEvoVariableTermAdapter()
-	{
+	public Adapter createEvoVariableTermAdapter() {
 		return null;
 	}
 
@@ -633,8 +499,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoApplicationConstraintTerm
 	 * @generated
 	 */
-	public Adapter createEvoApplicationConstraintTermAdapter()
-	{
+	public Adapter createEvoApplicationConstraintTermAdapter() {
 		return null;
 	}
 
@@ -648,8 +513,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSize
 	 * @generated
 	 */
-	public Adapter createEvoSizeAdapter()
-	{
+	public Adapter createEvoSizeAdapter() {
 		return null;
 	}
 
@@ -663,8 +527,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoGroupType
 	 * @generated
 	 */
-	public Adapter createEvoGroupTypeAdapter()
-	{
+	public Adapter createEvoGroupTypeAdapter() {
 		return null;
 	}
 
@@ -678,8 +541,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoFeatureType
 	 * @generated
 	 */
-	public Adapter createEvoFeatureTypeAdapter()
-	{
+	public Adapter createEvoFeatureTypeAdapter() {
 		return null;
 	}
 
@@ -693,8 +555,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSatisfiable
 	 * @generated
 	 */
-	public Adapter createEvoSatisfiableAdapter()
-	{
+	public Adapter createEvoSatisfiableAdapter() {
 		return null;
 	}
 
@@ -708,8 +569,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSetTerm
 	 * @generated
 	 */
-	public Adapter createEvoSetTermAdapter()
-	{
+	public Adapter createEvoSetTermAdapter() {
 		return null;
 	}
 
@@ -723,8 +583,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoChildrenOf
 	 * @generated
 	 */
-	public Adapter createEvoChildrenOfAdapter()
-	{
+	public Adapter createEvoChildrenOfAdapter() {
 		return null;
 	}
 
@@ -738,8 +597,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoSiblingsOf
 	 * @generated
 	 */
-	public Adapter createEvoSiblingsOfAdapter()
-	{
+	public Adapter createEvoSiblingsOfAdapter() {
 		return null;
 	}
 
@@ -753,8 +611,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoParentOf
 	 * @generated
 	 */
-	public Adapter createEvoParentOfAdapter()
-	{
+	public Adapter createEvoParentOfAdapter() {
 		return null;
 	}
 
@@ -768,8 +625,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoAllMappings
 	 * @generated
 	 */
-	public Adapter createEvoAllMappingsAdapter()
-	{
+	public Adapter createEvoAllMappingsAdapter() {
 		return null;
 	}
 
@@ -783,8 +639,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see de.evorepair.logic.evologic.EvoAllConfigurations
 	 * @generated
 	 */
-	public Adapter createEvoAllConfigurationsAdapter()
-	{
+	public Adapter createEvoAllConfigurationsAdapter() {
 		return null;
 	}
 
@@ -798,8 +653,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see eu.hyvar.feature.expression.HyExpression
 	 * @generated
 	 */
-	public Adapter createHyExpressionAdapter()
-	{
+	public Adapter createHyExpressionAdapter() {
 		return null;
 	}
 
@@ -813,8 +667,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see eu.hyvar.feature.expression.HyBinaryExpression
 	 * @generated
 	 */
-	public Adapter createHyBinaryExpressionAdapter()
-	{
+	public Adapter createHyBinaryExpressionAdapter() {
 		return null;
 	}
 
@@ -828,38 +681,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @see eu.hyvar.feature.expression.HyUnaryExpression
 	 * @generated
 	 */
-	public Adapter createHyUnaryExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.evolution.evovariable.EvoVariable <em>Evo Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.evolution.evovariable.EvoVariable
-	 * @generated
-	 */
-	public Adapter createEvoVariableAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.evorepair.evolution.evovariable.EvoSetVariable <em>Evo Set Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.evorepair.evolution.evovariable.EvoSetVariable
-	 * @generated
-	 */
-	public Adapter createEvoSetVariableAdapter()
-	{
+	public Adapter createHyUnaryExpressionAdapter() {
 		return null;
 	}
 
@@ -871,8 +693,7 @@ public class EvoLogicAdapterFactory extends AdapterFactoryImpl
 	 * @return the new adapter.
 	 * @generated
 	 */
-	public Adapter createEObjectAdapter()
-	{
+	public Adapter createEObjectAdapter() {
 		return null;
 	}
 

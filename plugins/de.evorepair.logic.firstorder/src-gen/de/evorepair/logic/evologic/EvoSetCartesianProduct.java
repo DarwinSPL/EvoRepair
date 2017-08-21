@@ -13,6 +13,5 @@ package de.evorepair.logic.evologic;
  * @model
  * @generated
  */
-public interface EvoSetCartesianProduct extends EvoAbstractSetTerm, EvoBinaryExpression
-{
+public interface EvoSetCartesianProduct extends EvoAbstractSetTerm, EvoBinaryExpression {
 } // EvoSetCartesianProduct
