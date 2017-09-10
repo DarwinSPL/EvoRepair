@@ -3,14 +3,13 @@
  */
 package de.evorepair.feature.expression;
 
-import de.evorepair.feature.expression.EvoExpressionDslStandaloneSetupGenerated;
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class EvoExpressionDslStandaloneSetup extends EvoExpressionDslStandaloneSetupGenerated {
+public class EvoExpressionDslStandaloneSetup /* implements EvoExpressionDslStandaloneSetupGenerated  */{
   public static void doSetup() {
-    new EvoExpressionDslStandaloneSetup().createInjectorAndDoEMFRegistration();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type EvoExpressionDslStandaloneSetup");
   }
 }

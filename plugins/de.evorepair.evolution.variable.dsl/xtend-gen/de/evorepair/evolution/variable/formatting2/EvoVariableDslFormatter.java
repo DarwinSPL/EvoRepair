@@ -4,13 +4,7 @@
 package de.evorepair.evolution.variable.formatting2;
 
 import com.google.inject.Inject;
-import de.evorepair.evolution.evovariable.EvoFeatureRelation;
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.evovariable.EvoVariable;
-import de.evorepair.evolution.variable.evoVariableDsl.Model;
-import de.evorepair.evolution.variable.services.EvoVariableDslGrammarAccess;
 import java.util.Arrays;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
@@ -21,41 +15,40 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class EvoVariableDslFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
-  private EvoVariableDslGrammarAccess _evoVariableDslGrammarAccess;
+  private /* EvoVariableDslGrammarAccess */Object _evoVariableDslGrammarAccess;
   
-  protected void _format(final Model model, @Extension final IFormattableDocument document) {
-    EList<EvoVariable> _variables = model.getVariables();
-    for (final EvoVariable evoVariable : _variables) {
-      document.<EvoVariable>format(evoVariable);
-    }
+  protected void _format(final /* Model */Object model, @Extension final IFormattableDocument document) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nEvoVariable cannot be resolved to a type."
+      + "\ngetVariables cannot be resolved"
+      + "\nformat cannot be resolved");
   }
   
-  protected void _format(final EvoFeatureVariable evoFeatureVariable, @Extension final IFormattableDocument document) {
-    document.<EvoFeatureRelation>format(evoFeatureVariable.getRelation());
+  protected void _format(final /* EvoFeatureVariable */Object evoFeatureVariable, @Extension final IFormattableDocument document) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetRelation cannot be resolved"
+      + "\nformat cannot be resolved");
   }
   
-  public void format(final Object evoFeatureVariable, final IFormattableDocument document) {
-    if (evoFeatureVariable instanceof XtextResource) {
-      _format((XtextResource)evoFeatureVariable, document);
+  public void format(final Object model, final IFormattableDocument document) {
+    if (model instanceof XtextResource) {
+      _format((XtextResource)model, document);
       return;
-    } else if (evoFeatureVariable instanceof EvoFeatureVariable) {
-      _format((EvoFeatureVariable)evoFeatureVariable, document);
+    } else if (model instanceof EObject) {
+      _format((EObject)model, document);
       return;
-    } else if (evoFeatureVariable instanceof Model) {
-      _format((Model)evoFeatureVariable, document);
-      return;
-    } else if (evoFeatureVariable instanceof EObject) {
-      _format((EObject)evoFeatureVariable, document);
-      return;
-    } else if (evoFeatureVariable == null) {
+    } else if (model == null) {
       _format((Void)null, document);
       return;
-    } else if (evoFeatureVariable != null) {
-      _format(evoFeatureVariable, document);
+    } else if (model != null) {
+      _format(model, document);
+      return;
+    } else if (model != null) {
+      _format(model, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(evoFeatureVariable, document).toString());
+        Arrays.<Object>asList(model, document).toString());
     }
   }
 }

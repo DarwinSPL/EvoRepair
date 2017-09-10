@@ -3,13 +3,11 @@
  */
 package de.evorepair.evolution.variable.validation;
 
-import de.evorepair.evolution.variable.validation.AbstractEvoVariableDslValidator;
-
 /**
  * This class contains custom validation rules.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class EvoVariableDslValidator extends AbstractEvoVariableDslValidator {
+public class EvoVariableDslValidator /* implements AbstractEvoVariableDslValidator  */{
 }

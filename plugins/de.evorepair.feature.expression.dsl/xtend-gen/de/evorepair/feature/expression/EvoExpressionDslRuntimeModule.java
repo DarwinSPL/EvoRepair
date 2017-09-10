@@ -3,11 +3,9 @@
  */
 package de.evorepair.feature.expression;
 
-import de.evorepair.feature.expression.AbstractEvoExpressionDslRuntimeModule;
-
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class EvoExpressionDslRuntimeModule extends AbstractEvoExpressionDslRuntimeModule {
+public class EvoExpressionDslRuntimeModule /* implements AbstractEvoExpressionDslRuntimeModule  */{
 }

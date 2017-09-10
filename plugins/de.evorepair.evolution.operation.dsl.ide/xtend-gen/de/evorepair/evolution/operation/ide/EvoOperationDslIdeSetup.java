@@ -3,12 +3,8 @@
  */
 package de.evorepair.evolution.operation.ide;
 
-import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.evorepair.evolution.operation.EvoOperationDslRuntimeModule;
 import de.evorepair.evolution.operation.EvoOperationDslStandaloneSetup;
-import de.evorepair.evolution.operation.ide.EvoOperationDslIdeModule;
-import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -17,8 +13,8 @@ import org.eclipse.xtext.util.Modules2;
 public class EvoOperationDslIdeSetup extends EvoOperationDslStandaloneSetup {
   @Override
   public Injector createInjector() {
-    EvoOperationDslRuntimeModule _evoOperationDslRuntimeModule = new EvoOperationDslRuntimeModule();
-    EvoOperationDslIdeModule _evoOperationDslIdeModule = new EvoOperationDslIdeModule();
-    return Guice.createInjector(Modules2.mixin(_evoOperationDslRuntimeModule, _evoOperationDslIdeModule));
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EvoOperationDslRuntimeModule to Module"
+      + "\nType mismatch: cannot convert from EvoOperationDslIdeModule to Module");
   }
 }
