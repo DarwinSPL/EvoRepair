@@ -15,7 +15,7 @@ Workflow {
             to = "platform:/de.evorepair.evolution.variable.dsl/model/generated/EvoVariableDsl.genmodel"
         }
 		
-		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvoVariablePackage"
+		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvovariablePackage"
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable.dsl/model/generated/EvoVariableDsl.genmodel"
 	}
 	

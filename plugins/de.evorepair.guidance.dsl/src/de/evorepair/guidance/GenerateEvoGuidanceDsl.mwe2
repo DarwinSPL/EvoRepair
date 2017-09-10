@@ -15,9 +15,22 @@ Workflow {
             from = "platform:/plugin/de.evorepair.feature.mapping.repair.dsl/model/generated/EvoMappingRepairDsl.genmodel"
             to = "platform:/de.evorepair.feature.mapping.repair.dsl/model/generated/EvoMappingRepairDsl.genmodel"
         }
+ 
+ 		uriMap = {
+            from = "platform:/plugin/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
+            to = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
+        }       
         
+        uriMap = {
+        	from = "platform:/eu.hyvar.feature.mapping/model/Mapping.genmodel"
+        	to = "platform:/resource/eu.hyvar.feature.mapping/model/Mapping.genmodel"
+        }     
+        
+        registerGeneratedEPackage = "eu.hyvar.feature.mapping.MappingPackage"  
         
         registerGeneratedEPackage = "de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage"
+        
+        registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
         registerGenModelFile = "platform:/resource/de.evorepair.logic.dsl/model/generated/EvoLogicDsl.genmodel"
         registerGenModelFile = "platform:/resource/de.evorepair.feature.expression.dsl/model/generated/EvoExpressionDsl.genmodel"
         registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair.dsl/model/generated/EvoMappingRepairDsl.genmodel"
@@ -29,15 +42,11 @@ Workflow {
 			project = StandardProjectConfig {
 				baseName = "de.evorepair.guidance.dsl"
 				rootPath = rootPath
-				runtimeTest = {
-					enabled = true
-				}
+
 				eclipsePlugin = {
 					enabled = true
 				}
-				eclipsePluginTest = {
-					enabled = true
-				}
+				
 				createEclipseMetaData = true
 			}
 			code = {
@@ -51,30 +60,13 @@ Workflow {
 			
 			fileExtensions = "evoguidance"
 			referencedResource = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
-			/* 
-			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
-			fragment = exporting.SimpleNamesFragment2 auto-inject{}
-			
-			fragment = scoping.ImportNamespacesScopingFragment2 auto-inject{}
-			
-			
-			*/
 			fragment = ui.projectWizard.SimpleProjectWizardFragment2{
 				generate = true
 			}
-						
-			scopeProvider = {				
-				generateXtendStub = true
-			}
-
+			
 			serializer = {
 				generateStub = false
-			}
-			
-			
-			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}
 	}

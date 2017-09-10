@@ -14,11 +14,6 @@ Workflow {
             from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
             to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
         }
-        
-        uriMap = {
-            from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
-            to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
-        }    
 
         uriMap = {
             from = "platform:/plugin/eu.hyvar.feature.data/model/DataValues.genmodel"
@@ -34,16 +29,7 @@ Workflow {
             from = "platform:/plugin/eu.hyvar.evolution/model/Evolution.genmodel"
             to = "platform:/resource/eu.hyvar.evolution/model/Evolution.genmodel"
         }     
-        
-        uriMap = {
-            from = "platform:/plugin/eu.hyvar.evolution/model/Evolution.ecore"
-            to = "platform:/resource/eu.hyvar.evolution/model/Evolution.ecore"
-        }   
-       
-        uriMap = {
-            from = "platform:/plugin/eu.hyvar.mapping/model/Mapping.ecore"
-            to = "platform:/resource/eu.hyvar.mapping/model/Mapping.ecore"
-        }   
+
        
          // register the ecore model file directly otherwise DeltaEcore couldn't be referenced
 		registerEcoreFile ="platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"         
@@ -61,9 +47,7 @@ Workflow {
         registerGeneratedEPackage = "eu.hyvar.feature.expression.HyExpressionPackage"  
    	}	
 	
-	component = XtextGenerator {
-		
-		
+	component = XtextGenerator {		
 		configuration = {
 			project = StandardProjectConfig {
 				baseName = "de.evorepair.feature.mapping.dsl"
@@ -95,10 +79,21 @@ Workflow {
 			
 			referencedResource = "platform:/resource/eu.hyvar.feature.mapping/model/Mapping.genmodel"
 			referencedResource = "platform:/resource/de.evorepair.feature.expression.dsl/model/generated/EvoExpressionDsl.genmodel"
-
+			
+			serializer = {
+				generateStub = false
+			}
+			
+			scopeProvider = {
+				generateStub = false
+			}
+			
+			newProjectWizardForEclipse = {
+				generate = true
+			}
 			
 			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				generateStub = false
 			}
 		}
 	}

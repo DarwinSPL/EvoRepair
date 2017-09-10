@@ -10,6 +10,43 @@ Workflow {
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup{
 		scanClassPath=true
 
+		
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
+            to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+        }
+
+        uriMap = {
+            from = "platform:/plugin/eu.hyvar.feature.data/model/DataValues.genmodel"
+            to = "platform:/resource/eu.hyvar.feature.data/model/DataValues.genmodel"
+        }                    
+        
+        uriMap = {
+        	from = "platform:/plugin/org.deltaecore.core.decore/model/DEcore.genmodel"
+        	to = "platform:/resource/org.deltaecore.core.decore/model/DEcore.genmodel"
+        }   
+        
+        uriMap = {
+            from = "platform:/plugin/eu.hyvar.evolution/model/Evolution.genmodel"
+            to = "platform:/resource/eu.hyvar.evolution/model/Evolution.genmodel"
+        }     
+
+       
+         // register the ecore model file directly otherwise DeltaEcore couldn't be referenced
+		registerEcoreFile ="platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"         
+  
+        registerGenModelFile = "platform:/resource/org.deltaecore.core.decore/model/DEcore.genmodel"
+        registerGenModelFile = "platform:/resource/eu.hyvar.feature.data/model/DataValues.genmodel"
+        registerGenModelFile = "platform:/resource/eu.hyvar.feature.mapping/model/Mapping.genmodel"
+        
+        registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+        registerGeneratedEPackage = "org.deltaecore.core.decore.DEcorePackage"
+        registerGeneratedEPackage = "eu.hyvar.dataValues.HyDataValuesPackage"
+        
+		registerGeneratedEPackage = "de.evorepair.logic.evologic.EvoLogicPackage"
+        registerGeneratedEPackage = "eu.hyvar.feature.mapping.MappingPackage"     
+        registerGeneratedEPackage = "eu.hyvar.feature.expression.HyExpressionPackage"  
+
         registerGeneratedEPackage = "de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage"
    	}	
    	

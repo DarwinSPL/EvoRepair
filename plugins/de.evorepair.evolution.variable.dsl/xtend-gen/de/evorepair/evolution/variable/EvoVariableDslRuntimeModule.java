@@ -3,9 +3,11 @@
  */
 package de.evorepair.evolution.variable;
 
+import de.evorepair.evolution.variable.AbstractEvoVariableDslRuntimeModule;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class EvoVariableDslRuntimeModule /* implements AbstractEvoVariableDslRuntimeModule  */{
+public class EvoVariableDslRuntimeModule extends AbstractEvoVariableDslRuntimeModule {
 }

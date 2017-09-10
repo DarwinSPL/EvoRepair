@@ -10,7 +10,7 @@
       <!-- @generated EvoVariable -->
       <package
             uri="http://darwinspl.de/evorepair/variable/0.2"
-            class="de.evorepair.evolution.evovariable.EvoVariablePackage"
+            class="de.evorepair.evolution.evovariable.EvovariablePackage"
             genModel="model/EvoVariable.genmodel"/>
    </extension>
 

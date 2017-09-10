@@ -1,8 +1,10 @@
 package de.evorepair.analysis.toolbar;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -17,6 +19,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IEditorDescriptor;
@@ -298,15 +301,25 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 						for(IFile file : getAccompanyingFiles(featureModel, fileExtension)) {
 							EObject model = EcoreIOUtil.loadModel(file);
 
+							
 							// needed for the name of the solution configurations
 							int index = 0;
 							for(EvoGuidanceElement guidance : anomaly.getGuidance()){
 								IFile modifiedModelFile = getSolutionFile(solutionFolder, index, model);
 
-								EObject modifiedModel = (EObject)operator.perform(model, guidance.getAction().getTerm(), configurationProvider);							
+								// neue resource, gleiches resourceset, EcoreUtilcopy
+								Resource resourceCopy = EcoreIOUtil.createResource(modifiedModelFile, resourceSet, true);
+								resourceCopy.getContents().addAll(EcoreUtil.copyAll(model.eContents()));
+								
+								EObject modifiedModel = (EObject)operator.perform(resourceCopy.getContents().get(0), guidance.getAction().getTerm(), configurationProvider);							
 
 								saveDescriptionFile(guidance.getDescription(), EcoreIOUtil.createURIFromFile(modifiedModelFile));
-								EcoreIOUtil.saveModelAs(modifiedModel, modifiedModelFile);
+								try {
+									resourceCopy.save(new HashMap<Object, Object>());
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 
 								index++;
 							}    

@@ -3,13 +3,14 @@
  */
 package de.evorepair.evolution.variable;
 
+import de.evorepair.evolution.variable.EvoVariableDslStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class EvoVariableDslStandaloneSetup /* implements EvoVariableDslStandaloneSetupGenerated  */{
+public class EvoVariableDslStandaloneSetup extends EvoVariableDslStandaloneSetupGenerated {
   public static void doSetup() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type EvoVariableDslStandaloneSetup");
+    new EvoVariableDslStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
 }

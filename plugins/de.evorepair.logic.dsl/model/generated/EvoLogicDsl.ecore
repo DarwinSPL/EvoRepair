@@ -41,7 +41,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoSize" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoGroupType" eSuperTypes="platform:/resource/eu.hyvar.feature.expression/model/Expression.ecore#//HyExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"

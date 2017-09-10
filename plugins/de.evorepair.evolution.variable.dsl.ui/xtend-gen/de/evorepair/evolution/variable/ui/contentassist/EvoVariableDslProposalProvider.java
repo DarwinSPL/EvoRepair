@@ -3,10 +3,12 @@
  */
 package de.evorepair.evolution.variable.ui.contentassist;
 
+import de.evorepair.evolution.variable.ui.contentassist.AbstractEvoVariableDslProposalProvider;
+
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 @SuppressWarnings("all")
-public class EvoVariableDslProposalProvider /* implements AbstractEvoVariableDslProposalProvider  */{
+public class EvoVariableDslProposalProvider extends AbstractEvoVariableDslProposalProvider {
 }

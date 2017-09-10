@@ -3,6 +3,8 @@
  */
 package de.evorepair.feature.expression.ui;
 
+import de.evorepair.feature.expression.ui.AbstractEvoExpressionDslUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -10,5 +12,8 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class EvoExpressionDslUiModule /* implements AbstractEvoExpressionDslUiModule  */{
+public class EvoExpressionDslUiModule extends AbstractEvoExpressionDslUiModule {
+  public EvoExpressionDslUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }

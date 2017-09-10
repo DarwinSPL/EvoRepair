@@ -3,9 +3,11 @@
  */
 package de.evorepair.feature.expression.ide;
 
+import de.evorepair.feature.expression.ide.AbstractEvoExpressionDslIdeModule;
+
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class EvoExpressionDslIdeModule /* implements AbstractEvoExpressionDslIdeModule  */{
+public class EvoExpressionDslIdeModule extends AbstractEvoExpressionDslIdeModule {
 }

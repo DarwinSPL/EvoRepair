@@ -17,6 +17,14 @@ Workflow {
         	from = "platform:/plugin/eu.hyvar.feature/model/Feature.genmodel"
         	to = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
         }
+        
+        uriMap = {
+            from = "platform:/plugin/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+            to = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+        }
+        
+		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvovariablePackage"
+		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 		
 		registerGeneratedEPackage = "eu.hyvar.feature.HyFeaturePackage"		
 		registerGenModelFile = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
@@ -30,13 +38,13 @@ Workflow {
 				rootPath = rootPath
 				
 				runtimeTest = {
-					enabled = true
+					enabled = false
 				}
 				eclipsePlugin = {
 					enabled = true
 				}
 				eclipsePluginTest = {
-					enabled = true
+					enabled = false
 				}
 				createEclipseMetaData = true
 			}

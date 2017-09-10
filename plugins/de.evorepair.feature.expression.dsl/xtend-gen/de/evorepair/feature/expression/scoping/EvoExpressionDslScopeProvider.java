@@ -3,6 +3,8 @@
  */
 package de.evorepair.feature.expression.scoping;
 
+import de.evorepair.feature.expression.scoping.AbstractEvoExpressionDslScopeProvider;
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,5 +12,5 @@ package de.evorepair.feature.expression.scoping;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class EvoExpressionDslScopeProvider /* implements AbstractEvoExpressionDslScopeProvider  */{
+public class EvoExpressionDslScopeProvider extends AbstractEvoExpressionDslScopeProvider {
 }

@@ -1,7 +1,9 @@
 package de.evorepair.analysis.operator;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
@@ -267,6 +269,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 		
 		EvoMappingReplace replaceExpression = (EvoMappingReplace)expression;
 		
+		//EcoreIOUtil.copyResourceTo(model.eResource(), newFile)
 		for(HyMapping mapping : ((HyMappingModel)model).getMappings()) {
 			expressionIsContainedInExpression(mapping.getExpression(), replaceExpression.getOperand1(), replaceExpression.getOperand2());
 		}

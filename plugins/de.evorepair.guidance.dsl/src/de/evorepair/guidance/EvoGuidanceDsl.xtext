@@ -48,7 +48,7 @@ EvoMappingAnomaly:
 
 EvoConfigurationAnomaly:
  	'configuration' id=ID '{'
-		('type' type=EvoAnomalyType ';')?
+		('type' ':' type=EvoAnomalyType ';')?
 		'condition' ':' condition=EvoConfigurationFormula ';'
 		'guidances' '{' 
 			guidance+=EvoConfigurationGuidanceElement (guidance+=EvoConfigurationGuidanceElement)*

@@ -4,10 +4,10 @@
     editorDirectory="/de.evorepair.evolution.variable.editor/src-gen" modelPluginID="de.evorepair.evolution.variable"
     modelName="EvoVariable" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/de.evorepair.evolution.variable.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.configuration/model/Configuration.genmodel#//configuration ../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../org.deltaecore.core.decorebase/model/DEcoreBase.genmodel#//decorebase ../../org.deltaecore.core.decoredialect/model/DEcoreDialect.genmodel#//decoredialect ../../org.deltaecore.core.decore/model/DEcore.genmodel#//decore platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature ../../eu.hyvar.feature.mapping/model/Mapping.genmodel#//mapping"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
     operationReflection="true" importOrganizing="true">
   <foreignModel>EvoVariable.ecore</foreignModel>
-  <genPackages prefix="EvoVariable" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
+  <genPackages prefix="Evovariable" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
       ecorePackage="EvoVariable.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoVariable.ecore#//EvoVariableType">
       <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoIdentifier"/>
@@ -33,10 +33,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoVariable.ecore#//EvoSetVariable/elements"/>
     </genClasses>
     <genClasses ecoreClass="EvoVariable.ecore#//EvoMappingVariable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoMappingVariable/mapping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoMappingVariable/mapping"/>
     </genClasses>
     <genClasses ecoreClass="EvoVariable.ecore#//EvoConfigurationVariable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoConfigurationVariable/configuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoConfigurationVariable/configuration"/>
     </genClasses>
     <genClasses ecoreClass="EvoVariable.ecore#//EvoFeatureRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoVariable.ecore#//EvoFeatureRelation/featureType"/>

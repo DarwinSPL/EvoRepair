@@ -51,20 +51,6 @@ Workflow {
 			}
 			
 
-			builder = builder.BuilderIntegrationFragment2{
-				
-			}
-			
-			fragment = exporting.QualifiedNamesFragment2 auto-inject {}
-
-			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
-			
-			formatter = {
-				generateStub = true
-			}
-
 			serializer = {
 				generateStub = false
 			}				

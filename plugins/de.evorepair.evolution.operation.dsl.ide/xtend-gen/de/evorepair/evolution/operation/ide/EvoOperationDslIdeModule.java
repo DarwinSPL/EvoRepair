@@ -3,9 +3,11 @@
  */
 package de.evorepair.evolution.operation.ide;
 
+import de.evorepair.evolution.operation.ide.AbstractEvoOperationDslIdeModule;
+
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class EvoOperationDslIdeModule /* implements AbstractEvoOperationDslIdeModule  */{
+public class EvoOperationDslIdeModule extends AbstractEvoOperationDslIdeModule {
 }
