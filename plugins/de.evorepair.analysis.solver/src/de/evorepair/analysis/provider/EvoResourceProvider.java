@@ -12,15 +12,17 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 import de.christophseidl.util.ecore.EcoreIOUtil;
+import de.evorepair.analysis.viewer.viewer.EvoRepairSuggestionViewer;
 
 public class EvoResourceProvider {
 	private Map<URI, EObject> resources = new HashMap<URI, EObject>();
 
 	private void loadAllResourcesRecursive(IResource[] resources, String fileExtension) throws CoreException {
 		for(IResource resource : resources) {
-			if(resource instanceof IContainer)
-				loadAllResourcesRecursive(((IContainer)resource).members(), fileExtension);
-			else if(resource instanceof IFile) {
+			if(resource instanceof IContainer) {
+				if(!((IContainer)resource).getName().equals(EvoRepairSuggestionViewer.SUGGESTIONS_FOLDER))
+					loadAllResourcesRecursive(((IContainer)resource).members(), fileExtension);
+			}else if(resource instanceof IFile) {
 				IFile file = (IFile)resource;
 
 				if(file.getFileExtension().equals(fileExtension)) {
