@@ -396,14 +396,14 @@ public class EvoSolver {
 				
 				HyConfiguration configuration;
 				String filename = ((EvoConfigurationVariable) variable).getConfiguration();
-				if(filename == null) {
+				if(filename == null && linkedModel instanceof HyConfiguration) {
 					configuration = (HyConfiguration)linkedModel;
 				}else {
 					URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.featureModel, filename);
 					configuration = (HyConfiguration)configurationModelProvider.getResource(relativeURI);
 				}
 				if(configuration == null) { 
-					System.err.println("Configuration not specified");
+					return new IntIterableRangeSet();
 				}
 				
 				

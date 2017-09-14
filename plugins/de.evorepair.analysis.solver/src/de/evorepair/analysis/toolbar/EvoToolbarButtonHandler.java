@@ -39,6 +39,7 @@ import com.google.inject.Injector;
 
 import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.darwinspl.feature.graphical.base.editor.DwGraphicalFeatureModelViewer;
+import de.evorepair.analysis.mapping.viewer.viewer.EvoMappingRepairSuggestionViewer;
 import de.evorepair.analysis.operator.EvoGuidanceConfigurationActionOperator;
 import de.evorepair.analysis.operator.EvoGuidanceMappingActionOperator;
 import de.evorepair.analysis.operator.EvoGuidanceRepairOperator;
@@ -162,7 +163,8 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		for(int i=0; i<descriptors.length; i++) {			
 			if(descriptors[i].getId().equals("de.evorepair.analysis.mapping.viewer.repair.suggestion.viewer")) {
 				try {
-					EvoEclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
+					EvoMappingRepairSuggestionViewer viewer = (EvoMappingRepairSuggestionViewer)EvoEclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
+					viewer.setMappingModel(mappingModel);
 				} catch (PartInitException e) {
 					e.printStackTrace();
 				}
@@ -288,6 +290,18 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		return resourceProvider;
 	}
 
+	private XtextResourceSet getResourceSet() {
+		DslActivator activator = DslActivator.getInstance();
+		Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_GUIDANCE_EVOGUIDANCEDSL);
+		return injector.getInstance(XtextResourceSet.class);		
+	}
+	
+	private de.evorepair.guidance.evo_guidance_dsl.GrammarEntry loadGuidanceModel(HyFeatureModel featureModel, XtextResourceSet resourceSet){
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		Resource resource = resourceSet.getResource(featureModel.eResource().getURI().trimFileExtension().appendFileExtension("evoguidance"), true);
+		return (de.evorepair.guidance.evo_guidance_dsl.GrammarEntry) resource.getContents().get(0);
+	}
+	
 	/**
 	 * Searches in all guidance tables in the same folder as the feature model for defined anomalies 
 	 * and shows suggestions in case multiple solutions for an anomaly are found
@@ -305,14 +319,8 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}
 
 
-
-		DslActivator activator = DslActivator.getInstance();
-		Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_GUIDANCE_EVOGUIDANCEDSL);
-		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
-		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-		Resource resource = resourceSet.getResource(featureModel.eResource().getURI().trimFileExtension().appendFileExtension("evoguidance"), true);
-		de.evorepair.guidance.evo_guidance_dsl.GrammarEntry guidanceModel = (de.evorepair.guidance.evo_guidance_dsl.GrammarEntry) resource.getContents().get(0);
-
+		XtextResourceSet resourceSet = getResourceSet();
+		de.evorepair.guidance.evo_guidance_dsl.GrammarEntry guidanceModel = loadGuidanceModel(featureModel, resourceSet);
 
 		// save reference to the corresponding resource
 		featureModelResource = featureModel.eResource();    	 	
@@ -320,18 +328,25 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		// create the instances of the resource provider for mappings and configurations
 		EvoResourceProvider configurationProvider = initializeResourceProvider(HyConfigurationUtil.getConfigurationModelFileExtensionForXmi());
 		EvoResourceProvider mappingProvider = initializeResourceProvider(HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax());
-
+		EvoResourceProvider combinedProvider = new EvoResourceProvider();
+		
 		Map<EObject, List<EvoAnomaly>> anomalies = new HashMap<>();
 		if(configurationProvider.getResources().size() > 1) {
-			EvoResourceSelectionDialog dialog = new EvoResourceSelectionDialog(shell, configurationProvider);
+			EvoResourceSelectionDialog dialog = new EvoResourceSelectionDialog(shell, configurationProvider, mappingProvider);
 			if(dialog.open() == Dialog.CANCEL || dialog.getSelectedModels().isEmpty()) {
 				return null;
+				
 			}else {
-
+				configurationProvider.getResources().clear();
+				mappingProvider.getResources().clear();
 				Map<URI, EObject> selectedResource = new HashMap<>();
 				for(EObject model : dialog.getSelectedModels()) {
 					selectedResource.put(model.eResource().getURI(), model);
-
+					
+					if(model instanceof HyConfiguration)
+						configurationProvider.getResources().put(model.eResource().getURI(), model);
+					else
+						mappingProvider.getResources().put(model.eResource().getURI(), model);
 					// instantiate the solver
 					solver = new EvoSolver(featureModel, configurationProvider, mappingProvider);
 
@@ -340,19 +355,19 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					}
 				}
 
-				configurationProvider.setResources(selectedResource);
+				combinedProvider.setResources(selectedResource);
 			}
 		}		
 
 
-		EvoAnomalyViewerSelectionDialog anomalySelectionDialog = new EvoAnomalyViewerSelectionDialog(shell, configurationProvider, anomalies);
+		EvoAnomalyViewerSelectionDialog anomalySelectionDialog = new EvoAnomalyViewerSelectionDialog(shell, configurationProvider, mappingProvider, anomalies);
 		if(anomalySelectionDialog.open() == Dialog.CANCEL || anomalySelectionDialog.getSelectedModels().isEmpty()) {
 			return null;
 		}else {
 			// create a hidden folder to store all the solutions
 			IFolder solutionFolder = createSolutionsFolder();
 
-			// selected models for anomly view
+			// selected models for anomaly view
 			for(EObject selectedModel : anomalySelectionDialog.getSelectedModels()) {
 				for(EvoAnomaly anomaly : anomalies.get(selectedModel)){
 					int guidanceCount = anomaly.getGuidance().size();
@@ -389,7 +404,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 							Resource solutionResource = EcoreIOUtil.createResource(modifiedModelFile, resourceSet, true);								
 							solutionResource.getContents().add(modelCopy);
 
-							operator.perform(modelCopy, selectedModel, guidance.getAction().getTerm(), configurationProvider);							
+							operator.perform(modelCopy, selectedModel, guidance.getAction().getTerm(), combinedProvider);							
 							saveDescriptionFile(guidance.getDescription(), EcoreIOUtil.createURIFromFile(modifiedModelFile));
 
 							try {
@@ -423,27 +438,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			}		
 		}
 
-
-
 		return null;
-	}
-
-	/**
-	 * Displays a message dialog to inform the user that an anomaly was found and gives the possibility to the user
-	 * to show different solutions to fix the anomaly
-	 * 
-	 * @return true if the user wants to see possible solution else otherwise
-	 */
-	private boolean showRepairSuggestions(){
-		MessageDialog dialog = new MessageDialog(EvoEclipseUtil.getActiveEditor().getEditorSite().getShell(), "Anomaly Detected: Please Choose An Action", null,
-				"The SPL contains an anomaly and is possibly defect. "
-						+ "There is at least one suggestion to resolve the anomaly automatically. "
-						+ "You can continue (ignoring the anomaly) or show it (and fix it automatically), "
-						+ "what do you want to do?", MessageDialog.WARNING, new String[] { "Show Repair Suggestion(s)",
-								"Ignore Anomaly", }, 0);
-		int result = dialog.open();
-
-		return result == 0;
 	}
 
 	@Override

@@ -24,10 +24,9 @@ public class EvoAnomalyViewerSelectionDialog extends EvoResourceSelectionDialog 
 	Map<EObject, List<EvoAnomaly>> anomalies;
 
 	
-	public EvoAnomalyViewerSelectionDialog(Shell parentShell, EvoResourceProvider resourceProvider, Map<EObject, List<EvoAnomaly>> anomalies) {
-		super(parentShell, resourceProvider);
+	public EvoAnomalyViewerSelectionDialog(Shell parentShell, EvoResourceProvider configurationResourceProvider, EvoResourceProvider mappingResourceProvider, Map<EObject, List<EvoAnomaly>> anomalies) {
+		super(parentShell, configurationResourceProvider, mappingResourceProvider);
 		
-		this.resourceProvider = resourceProvider;
 		this.anomalies = anomalies;		
 	}
 	
@@ -45,17 +44,17 @@ public class EvoAnomalyViewerSelectionDialog extends EvoResourceSelectionDialog 
 	}
 	
 	protected void createTable() {
-		resourceTable.setHeaderVisible(true);
+		configurationResourceTable.setHeaderVisible(true);
         String[] titles = { "Resource", "Resource Type", "ID", "Type", "Guidance Elements" };
         for (String title : titles) {
-            TableColumn column = new TableColumn(resourceTable, SWT.NULL);
+            TableColumn column = new TableColumn(configurationResourceTable, SWT.NULL);
             column.setText(title);
           }
 
-        resourceTable.setLayoutData(new GridData(GridData.FILL_BOTH));
+        configurationResourceTable.setLayoutData(new GridData(GridData.FILL_BOTH));
         for (Map.Entry<EObject, List<EvoAnomaly>> anomalyResource : anomalies.entrySet()){
         	for(EvoAnomaly anomaly : anomalyResource.getValue()) {
-                TableItem item = new TableItem(resourceTable, SWT.NONE);
+                TableItem item = new TableItem(configurationResourceTable, SWT.NONE);
                 item.setText(anomalyResource.getKey().eResource().getURI().lastSegment());
                 item.setText(1, anomaly instanceof EvoConfigurationAnomaly ? "Configuration" : "Mapping");
                 item.setText(2, anomaly.getId());
@@ -67,20 +66,20 @@ public class EvoAnomalyViewerSelectionDialog extends EvoResourceSelectionDialog 
         }
         
         for (int loopIndex = 0; loopIndex < titles.length; loopIndex++) {
-        	resourceTable.getColumn(loopIndex).pack();
+        	configurationResourceTable.getColumn(loopIndex).pack();
           }
 
-		resourceTable.addListener(SWT.Selection, new Listener() {
+		configurationResourceTable.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event event) {
 				if(event.detail == SWT.CHECK) {
-					for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
+					for (Map.Entry<URI, EObject> entry : configurationResourceProvider.getResources().entrySet()){
 						if(entry.getKey().trimFileExtension().lastSegment().equals(((TableItem)event.item).getText(0))) {
 							selectedModels.add(entry.getValue());
 						}
 					}
 				}else {
-					for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
+					for (Map.Entry<URI, EObject> entry : configurationResourceProvider.getResources().entrySet()){
 						if(entry.getKey().trimFileExtension().lastSegment().equals(((TableItem)event.item).getText(0))) {
 							selectedModels.remove(entry.getValue());
 						}	

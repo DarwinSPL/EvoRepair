@@ -115,8 +115,15 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 
 	
 	private IResource[] getFilesFromSolutionFolder() {
-		IResource resource = ((IFileEditorInput)getEditorInput()).getFile();
-		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IFile resource = ((IFileEditorInput)getEditorInput()).getFile();
+		StringBuilder builder = new StringBuilder();
+		
+		
+		builder.append(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		builder.append("/.");
+		builder.append(resource.getName().replace('.'+resource.getFileExtension(), ""));
+		
+		IFolder folder = (IFolder)resource.getParent();
 		IResource[] files;
 
 		try {
@@ -128,6 +135,7 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 			return new IResource[0];
 		}
 	}
+
 	
 	/**
 	 * Sets the input of the editor. Also adds all possible solutions to the suggestions list

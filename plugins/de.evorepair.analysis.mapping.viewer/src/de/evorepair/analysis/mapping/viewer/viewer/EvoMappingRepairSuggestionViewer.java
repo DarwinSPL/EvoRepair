@@ -76,8 +76,27 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	Label suggestionDescriptionLabel;
 
 	EmbeddedEditorModelAccess suggestionModel;
+	EmbeddedEditorModelAccess defectMappingModel;
 
 	EmbeddedEditor suggestionEditor;
+	EmbeddedEditor defectMappingEditor;
+	
+	
+
+	public void setMappingModel(HyMappingModel mappingModel) {
+		this.mappingModel = mappingModel;
+		
+		DslActivator activator = DslActivator.getInstance();
+		Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_FEATURE_MAPPING_DWMAPPINGDSL);
+		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		XtextResource resource = (XtextResource)resourceSet.getResource(mappingModel.eResource().getURI(),  true);		
+		
+		defectMappingEditor.getDocument().setInput(resource);
+
+		defectMappingModel.updateModel("", getFileContent(resource), "");
+		defectMappingEditor.getViewer().setSelectedRange(0, 0);
+	}
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
@@ -185,9 +204,9 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		// Configuring default font
 		Font defaultFont = JFaceResources.getFont(JFaceResources.TEXT_FONT);
 
-		EmbeddedEditor editor = factory.newEditor(provider).readOnly().showLineNumbers().withParent(firstEditorComposite);
-		editor.getViewer().getTextWidget().setFont(defaultFont);
-		editor.createPartialEditor("", getFileContent(mappingResource), "", false);
+		defectMappingEditor = factory.newEditor(provider).readOnly().showLineNumbers().withParent(firstEditorComposite);
+		defectMappingEditor.getViewer().getTextWidget().setFont(defaultFont);
+		defectMappingModel = defectMappingEditor.createPartialEditor("", getFileContent(mappingResource), "", false);
 
 		suggestionEditor = factory.newEditor(provider).readOnly().withParent(secondEditorComposite);	
 		suggestionEditor.getViewer().getTextWidget().setFont(defaultFont);
@@ -292,8 +311,15 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	}
 
 	private IResource[] getFilesFromSolutionFolder() {
-		IResource resource = ((IFileEditorInput)getEditorInput()).getFile();
-		IFolder folder = resource.getProject().getFolder(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		IFile resource = ((IFileEditorInput)getEditorInput()).getFile();
+		StringBuilder builder = new StringBuilder();
+		
+		
+		builder.append(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
+		builder.append("/.");
+		builder.append(resource.getName().replace('.'+resource.getFileExtension(), ""));
+		
+		IFolder folder = (IFolder)resource.getParent();
 		IResource[] files;
 
 		try {

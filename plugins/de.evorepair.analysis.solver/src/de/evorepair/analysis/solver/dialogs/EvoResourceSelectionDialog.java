@@ -21,6 +21,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
@@ -28,16 +30,19 @@ import de.evorepair.analysis.provider.EvoResourceProvider;
 
 public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 
-	protected EvoResourceProvider resourceProvider;
+	protected EvoResourceProvider configurationResourceProvider;
+	protected EvoResourceProvider mappingResourceProvider;
 
-	protected Table resourceTable;
+	protected Table configurationResourceTable;
+	protected Table mappingResourceTable;
 
 	protected List<EObject> selectedModels = new ArrayList<EObject>();
 
-	public EvoResourceSelectionDialog(Shell parentShell, EvoResourceProvider resourceProvider) {
+	public EvoResourceSelectionDialog(Shell parentShell, EvoResourceProvider configurationResourceProvider, EvoResourceProvider mappingResourceProvider) {
 		super(parentShell);
 
-		this.resourceProvider = resourceProvider;
+		this.configurationResourceProvider = configurationResourceProvider;
+		this.mappingResourceProvider = mappingResourceProvider;
 	}
 
 	@Override
@@ -52,17 +57,22 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		setMessage("Multiple configurations found. Please specify which of them you want to search for anomalies. If you deselect all, none will be searched for.", IMessageProvider.INFORMATION);
 		setHelpAvailable(false);
 	}
-
-	@Override
-	protected Control createDialogArea(Composite parent) {
-		Composite container = (Composite) super.createDialogArea(parent);
+	
+	protected Table createTableWithinTab(TabFolder parent, String text, EvoResourceProvider resourceProvider) {
+		TabItem tabItem = new TabItem(parent, SWT.NULL);
+		tabItem.setText(text);
+		
+		Composite container = new Composite(parent, SWT.NO_SCROLL);
 		GridLayout  gridLayout = new GridLayout (1, false);
 		container.setLayout(gridLayout);
 
 		Composite buttonContainer = new Composite(container, SWT.NO_SCROLL);
 		buttonContainer.setLayout(new RowLayout());
+		
+		Table table = new Table(container, SWT.CHECK | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
+		table.setLayoutData(new GridData(GridData.FILL_BOTH));		
+	
 		Button selectAllButton = new Button(buttonContainer, SWT.PUSH);
-		// selectAllButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		selectAllButton.setText("Select All");
 		selectAllButton.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -71,41 +81,68 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 				for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
 					selectedModels.add(entry.getValue());
 				}
-				
-				for(TableItem item : resourceTable.getItems()) {
+
+				for(TableItem item : table.getItems()) {
 					item.setChecked(true);
 				}
 			}
 		});
 
 		Button deselectAllButton = new Button(buttonContainer, SWT.PUSH);
-		//deselectAllButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		deselectAllButton.setText("Deselect All");
 		deselectAllButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				selectedModels.clear();
-				for(TableItem item : resourceTable.getItems()) {
+				for(TableItem item : table.getItems()) {
 					item.setChecked(false);
 				}
 			}
-		});
-
-		resourceTable = new Table(container, SWT.CHECK | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
-		resourceTable.setLayoutData(new GridData(GridData.FILL_BOTH));
+		});		
 		
-		createTable();
+
+		
+		for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
+			TableItem item = new TableItem(table, SWT.NONE);
+			item.setText(entry.getKey().trimFileExtension().lastSegment());
+		}
+		
+		tabItem.setControl(container);
+		
+		return table;
+	}
+
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		Composite container = (Composite) super.createDialogArea(parent);
+		GridLayout  gridLayout = new GridLayout (1, false);
+		container.setLayout(gridLayout);
+
+
+		TabFolder tabFolder = new TabFolder(container, SWT.V_SCROLL | SWT.H_SCROLL);
+		tabFolder.setLayoutData(new GridData(GridData.FILL_BOTH));
+		String[] labels = {"Configurations", "Mappings"};
+		for (int i=0; i<labels.length; i++) {
+			if(i==0) {
+				configurationResourceTable = createTableWithinTab(tabFolder, labels[i], configurationResourceProvider);
+			}else {
+				mappingResourceTable = createTableWithinTab(tabFolder, labels[i], mappingResourceProvider);
+			}
+			
+		}
+		tabFolder.setSize(400, 200);		
+
+
+		registerTableSelectionListener(configurationResourceTable, configurationResourceProvider);
+		registerTableSelectionListener(mappingResourceTable, mappingResourceProvider);
 
 		return container;
 	}
-	
-	protected void createTable() {
-		for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
-			TableItem item = new TableItem(resourceTable, SWT.NONE);
-			item.setText(entry.getKey().trimFileExtension().lastSegment());
-		}
 
-		resourceTable.addListener(SWT.Selection, new Listener() {
+	
+	protected void registerTableSelectionListener(Table table, EvoResourceProvider resourceProvider) {
+
+		Listener resourceSelectionListener = new Listener() {
 			@Override
 			public void handleEvent(Event event) {
 				if(event.detail == SWT.CHECK) {
@@ -122,7 +159,9 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 					}
 				}
 			}
-		});		
+		};		
+		
+		table.addListener(SWT.Selection, resourceSelectionListener);
 	}
 
 	@Override

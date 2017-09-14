@@ -27,7 +27,8 @@ Require-Bundle: org.eclipse.ui,
  de.evorepair.logic.dsl;bundle-version="1.0.0",
  de.evorepair.feature.mapping.repair,
  org.eclipse.emf.workspace;bundle-version="1.5.1",
- de.evorepair.guidance.dsl.ui
+ de.evorepair.guidance.dsl.ui,
+ de.evorepair.analysis.mapping.viewer
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.evorepair.analysis.toolbar
