@@ -1,14 +1,11 @@
 package de.evorepair.analysis.operator;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
 import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
-import de.evorepair.logic.evologic.EvoVariableTerm;
+import de.evorepair.logic.evologic.EvoVariableExpression;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.expression.HyAdditionExpression;
 import eu.hyvar.feature.expression.HyAndExpression;
@@ -66,17 +63,17 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 			return true;
 		}else if(expression1 instanceof HyFeatureReferenceExpression && expression2  instanceof HyFeatureReferenceExpression) {
 			return featureMatch(((HyFeatureReferenceExpression)expression1).getFeature(), ((HyFeatureReferenceExpression)expression2).getFeature());
-		}else if(expression1 instanceof HyFeatureReferenceExpression && expression2 instanceof EvoVariableTerm) {
-			EvoVariable variable = ((EvoVariableTerm)expression2).getVariable();
+		}else if(expression1 instanceof HyFeatureReferenceExpression && expression2 instanceof EvoVariableExpression) {
+			EvoVariable variable = ((EvoVariableExpression)expression2).getVariable();
 			
 			if(variable instanceof EvoFeatureVariable) {
 				return featureMatch(((HyFeatureReferenceExpression)expression1).getFeature(), ((EvoFeatureVariable)variable).getFeature());
 			}
 			
 			return false;
-		}else if(expression1 instanceof EvoVariableTerm && expression2 instanceof EvoVariableTerm) {
-			EvoVariable variable1 = ((EvoVariableTerm)expression1).getVariable();
-			EvoVariable variable2 = ((EvoVariableTerm)expression2).getVariable();
+		}else if(expression1 instanceof EvoVariableExpression && expression2 instanceof EvoVariableExpression) {
+			EvoVariable variable1 = ((EvoVariableExpression)expression1).getVariable();
+			EvoVariable variable2 = ((EvoVariableExpression)expression2).getVariable();
 			
 			if(variable1 instanceof EvoFeatureVariable && variable2 instanceof EvoFeatureVariable) {
 				return featureMatch(((EvoFeatureVariable)variable1).getFeature(), ((EvoFeatureVariable)variable2).getFeature());				
@@ -132,8 +129,8 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 	
 	private HyExpression replaceVariableReferenceExpressionWithFeatureReferenceExpression(HyExpression replacementExpression) {
 		// replace the expression containing the reference to the variable with a actual feature reference like it is used in HyExpressions per default
-		if(replacementExpression instanceof EvoVariableTerm) {
-			EvoVariable variable = ((EvoVariableTerm)replacementExpression).getVariable();
+		if(replacementExpression instanceof EvoVariableExpression) {
+			EvoVariable variable = ((EvoVariableExpression)replacementExpression).getVariable();
 			
 			if(variable instanceof EvoFeatureVariable) {
 				HyFeatureReferenceExpression correctReplacementExpression = HyExpressionFactory.eINSTANCE.createHyFeatureReferenceExpression();
@@ -195,7 +192,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 				return featureMatch(((HyFeatureReferenceExpression)expression).getFeature(), ((HyFeatureReferenceExpression)searchExpression).getFeature());
 			}else
 				return false;
-		}else if(expression instanceof EvoVariableTerm) {
+		}else if(expression instanceof EvoVariableExpression) {
 			System.out.println("F");
 			return false;
 		}else {
@@ -240,8 +237,8 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 			}else if(searchExpression instanceof HyUnaryExpression) {
 				return match && 
 						(expressionsAreIdentical(expression, ((HyUnaryExpression)searchExpression).getOperand()));
-			}else if(searchExpression instanceof EvoVariableTerm) {
-				EvoVariable variable = ((EvoVariableTerm)searchExpression).getVariable();
+			}else if(searchExpression instanceof EvoVariableExpression) {
+				EvoVariable variable = ((EvoVariableExpression)searchExpression).getVariable();
 				
 				if(variable instanceof EvoFeatureVariable) {
 					return featureMatch(((EvoFeatureVariable)variable).getFeature(), ((HyFeatureReferenceExpression)expression).getFeature());
@@ -258,8 +255,9 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 	}
 	
 	@Override
-	public EObject perform(EObject model, HyExpression expression, EvoResourceProvider resourceProvider) {
+	public EObject perform(EObject model, EObject linkedModel, HyExpression expression, EvoResourceProvider resourceProvider) {
 		this.model = model;
+		this.linkedModel = linkedModel;
 		
 		this.resourceProvider = resourceProvider;
 		

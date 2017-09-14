@@ -1,6 +1,7 @@
 package de.evorepair.analysis.provider;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -13,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.christophseidl.util.ecore.EcoreIOUtil;
 
 public class EvoResourceProvider {
-	private HashMap<URI, EObject> resources = new HashMap<URI, EObject>();
+	private Map<URI, EObject> resources = new HashMap<URI, EObject>();
 
 	private void loadAllResourcesRecursive(IResource[] resources, String fileExtension) throws CoreException {
 		for(IResource resource : resources) {
@@ -30,6 +31,18 @@ public class EvoResourceProvider {
 			}
 		}
 	}
+	
+	
+
+	public Map<URI, EObject> getResources() {
+		return resources;
+	}
+	
+	public void setResources(Map<URI, EObject> resources) {
+		this.resources = resources;
+	}
+
+
 
 	public void loadAllResources(IProject project, String fileExtension) {
 		try {

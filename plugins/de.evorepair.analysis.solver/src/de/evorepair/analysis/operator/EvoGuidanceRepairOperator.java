@@ -10,8 +10,8 @@ public abstract class EvoGuidanceRepairOperator {
 	protected EvoResourceProvider resourceProvider;
 	
 	protected EObject model;
-	protected EObject modelCopy;
+	protected EObject linkedModel;
 	
-	public abstract EObject perform(EObject model, HyExpression expression, EvoResourceProvider resourceProvider);
+	public abstract EObject perform(EObject model, EObject linkedModel, HyExpression expression, EvoResourceProvider resourceProvider);
 
 }

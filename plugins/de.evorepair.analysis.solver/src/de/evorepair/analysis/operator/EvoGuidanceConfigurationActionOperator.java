@@ -6,19 +6,18 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
 import de.evorepair.evolution.evovariable.EvoFeatureVariable;
 import de.evorepair.evolution.evovariable.EvoVariable;
-import de.evorepair.logic.evologic.EvoSetDifference;
-import de.evorepair.logic.evologic.EvoSetIntersection;
-import de.evorepair.logic.evologic.EvoSetSymmetricDifference;
-import de.evorepair.logic.evologic.EvoSetTerm;
-import de.evorepair.logic.evologic.EvoSetUnion;
-import de.evorepair.logic.evologic.EvoVariableTerm;
+import de.evorepair.logic.evologic.EvoSetDifferenceExpression;
+import de.evorepair.logic.evologic.EvoSetExpression;
+import de.evorepair.logic.evologic.EvoSetIntersectionExpression;
+import de.evorepair.logic.evologic.EvoSetSymmetricDifferenceExpression;
+import de.evorepair.logic.evologic.EvoSetUnionExpression;
+import de.evorepair.logic.evologic.EvoVariableExpression;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.HyConfigurationElement;
@@ -34,25 +33,30 @@ import eu.hyvar.feature.expression.HyExpression;
 public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOperator{
 
 	/**
-	 * Recursives solves a term and creates the resulting list of features
-	 * @param term to be solved
+	 * Recursives solves a Expression and creates the resulting list of features
+	 * @param expression to be solved
 	 * @return List with features
 	 */
-	private HashMap<String, HyFeature> solveSetTerm(HyExpression term){
-		if(term instanceof EvoVariableTerm){			
-			EvoVariableTerm variableTerm = (EvoVariableTerm)term;
-			EvoVariable variable = variableTerm.getVariable();
+	private HashMap<String, HyFeature> solveSetExpression(HyExpression expression){
+		if(expression instanceof EvoVariableExpression){			
+			EvoVariableExpression variableExpression = (EvoVariableExpression)expression;
+			EvoVariable variable = variableExpression.getVariable();
 
-			if(variableTerm.getVariable() instanceof EvoConfigurationVariable){
+			if(variableExpression.getVariable() instanceof EvoConfigurationVariable){
 
 				HashMap<String, HyFeature> result = new HashMap<>();	
 				
+				HyConfiguration configuration;
 				String filename = ((EvoConfigurationVariable) variable).getConfiguration();
-				
-				URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(model, filename);
-				HyConfiguration configuration = (HyConfiguration)resourceProvider.getResource(relativeURI);
+				if(filename == null) {
+					configuration = (HyConfiguration)linkedModel;
+				}else {
+					URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.model, filename);
+					configuration = (HyConfiguration)resourceProvider.getResource(relativeURI);
+				}
 				if(configuration == null) { 
-					System.err.println("Configuration at path "+relativeURI.devicePath()+" couldn't be found");
+					System.err.println("Configuration not specified");
+					return new HashMap<String, HyFeature>();
 				}
 				
 				for(HyConfigurationElement element : configuration.getElements()){
@@ -72,26 +76,26 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 				return result;
 			}
 
-		}else if(term instanceof EvoSetTerm){
-			EvoSetTerm setTerm = (EvoSetTerm)term;
+		}else if(expression instanceof EvoSetExpression){
+			EvoSetExpression setExpression = (EvoSetExpression)expression;
 
 			HashMap<String, HyFeature> result = new HashMap<>();
-			for(HyExpression variable : setTerm.getVariables()){
-				EvoVariableTerm variableTerm = (EvoVariableTerm)variable;
+			for(HyExpression variable : setExpression.getVariables()){
+				EvoVariableExpression variableExpression = (EvoVariableExpression)variable;
 
-				if(variableTerm.getVariable() instanceof EvoFeatureVariable){
-					HyFeature feature = ((EvoFeatureVariable)variableTerm.getVariable()).getFeature();
+				if(variableExpression.getVariable() instanceof EvoFeatureVariable){
+					HyFeature feature = ((EvoFeatureVariable)variableExpression.getVariable()).getFeature();
 					result.put(feature.getId(), feature);
 
 				}
 			}
 
 			return result;
-		}else if(term instanceof EvoSetIntersection){
-			EvoSetIntersection intersectionTerm = (EvoSetIntersection)term;
+		}else if(expression instanceof EvoSetIntersectionExpression){
+			EvoSetIntersectionExpression intersectionExpression = (EvoSetIntersectionExpression)expression;
 
-			HashMap<String, HyFeature> set1 = solveSetTerm(intersectionTerm.getOperand1());
-			HashMap<String, HyFeature> set2 = solveSetTerm(intersectionTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetExpression(intersectionExpression.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetExpression(intersectionExpression.getOperand2());
 
 			HashMap<String, HyFeature> result = new HashMap<>();
 			
@@ -102,11 +106,11 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 			}
 
 			return result;
-		}else if(term instanceof EvoSetUnion){
-			EvoSetUnion unionTerm = (EvoSetUnion)term;
+		}else if(expression instanceof EvoSetUnionExpression){
+			EvoSetUnionExpression unionExpression = (EvoSetUnionExpression)expression;
 
-			HashMap<String, HyFeature> set1 = solveSetTerm(unionTerm.getOperand1());
-			HashMap<String, HyFeature> set2 = solveSetTerm(unionTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetExpression(unionExpression.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetExpression(unionExpression.getOperand2());
 
 			HashMap<String, HyFeature> result = new HashMap<>();
 
@@ -119,11 +123,11 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 			}
 			
 			return result;
-		}else if(term instanceof EvoSetDifference){
-			EvoSetDifference differenceTerm = (EvoSetDifference)term;
+		}else if(expression instanceof EvoSetDifferenceExpression){
+			EvoSetDifferenceExpression differenceExpression = (EvoSetDifferenceExpression)expression;
 
-			HashMap<String, HyFeature> set1 = solveSetTerm(differenceTerm.getOperand1());
-			HashMap<String, HyFeature> set2 = solveSetTerm(differenceTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetExpression(differenceExpression.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetExpression(differenceExpression.getOperand2());
 
 			HashMap<String, HyFeature> result = new HashMap<>();
 			for(String key : set1.keySet()){
@@ -132,11 +136,11 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 			}
 
 			return result;
-		}else if(term instanceof EvoSetSymmetricDifference){
-			EvoSetIntersection symmetricTerm = (EvoSetIntersection)term;
+		}else if(expression instanceof EvoSetSymmetricDifferenceExpression){
+			EvoSetIntersectionExpression symmetricExpression = (EvoSetIntersectionExpression)expression;
 
-			HashMap<String, HyFeature> set1 = solveSetTerm(symmetricTerm.getOperand1());
-			HashMap<String, HyFeature> set2 = solveSetTerm(symmetricTerm.getOperand2());
+			HashMap<String, HyFeature> set1 = solveSetExpression(symmetricExpression.getOperand1());
+			HashMap<String, HyFeature> set2 = solveSetExpression(symmetricExpression.getOperand2());
 
 			HashMap<String, HyFeature> result = new HashMap<>();
 			for(String key : set1.keySet()){
@@ -201,16 +205,12 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 	}
 
 	@Override
-	public EObject perform(EObject model, HyExpression expression, EvoResourceProvider resourceProvider) {
+	public EObject perform(EObject model, EObject linkedModel, HyExpression expression, EvoResourceProvider resourceProvider) {
 		this.model = model;
-		this.modelCopy = EcoreUtil.copy(model);
+		this.linkedModel = linkedModel;
 		
 		this.resourceProvider = resourceProvider;
 		
-		// do nothing in case the parameter has the wrong type
-		if(!(model instanceof HyConfiguration))
-			return model;
-		
-		return modifyConfiguration((HyConfiguration)modelCopy, solveSetTerm(expression));
+		return modifyConfiguration((HyConfiguration)model, solveSetExpression(expression));
 	}
 }
