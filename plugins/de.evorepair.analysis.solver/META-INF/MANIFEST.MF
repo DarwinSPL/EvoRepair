@@ -28,9 +28,11 @@ Require-Bundle: org.eclipse.ui,
  de.evorepair.feature.mapping.repair,
  org.eclipse.emf.workspace;bundle-version="1.5.1",
  de.evorepair.guidance.dsl.ui,
- de.evorepair.analysis.mapping.viewer
+ de.evorepair.analysis.mapping.viewer,
+ de.evorepair.evolution.variable
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.evorepair.analysis.toolbar
 Bundle-ClassPath: lib/choco-solver-4.0.4-with-dependencies.jar,
+ lib/freemarker.jar,
  .

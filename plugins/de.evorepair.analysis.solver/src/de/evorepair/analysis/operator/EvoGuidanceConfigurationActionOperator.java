@@ -9,15 +9,16 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
-import de.evorepair.evolution.evovariable.EvoConfigurationVariable;
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.evovariable.EvoVariable;
-import de.evorepair.logic.evologic.EvoSetDifferenceExpression;
-import de.evorepair.logic.evologic.EvoSetExpression;
-import de.evorepair.logic.evologic.EvoSetIntersectionExpression;
-import de.evorepair.logic.evologic.EvoSetSymmetricDifferenceExpression;
-import de.evorepair.logic.evologic.EvoSetUnionExpression;
-import de.evorepair.logic.evologic.EvoVariableExpression;
+import de.evorepair.evolution.variable.EvoConfigurationVariable;
+import de.evorepair.evolution.variable.EvoFeatureVariable;
+import de.evorepair.evolution.variable.EvoVariable;
+import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
+import de.evorepair.logic.EvoSetDifferenceExpression;
+import de.evorepair.logic.EvoSetExpression;
+import de.evorepair.logic.EvoSetIntersectionExpression;
+import de.evorepair.logic.EvoSetSymmetricDifferenceExpression;
+import de.evorepair.logic.EvoSetUnionExpression;
+import de.evorepair.logic.EvoVariableExpression;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.HyConfigurationElement;
@@ -209,7 +210,7 @@ public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOpe
 		this.model = model;
 		this.linkedModel = linkedModel;
 		
-		this.resourceProvider = resourceProvider;
+		this.resourceProvider = resourceProvider;		
 		
 		return modifyConfiguration((HyConfiguration)model, solveSetExpression(expression));
 	}

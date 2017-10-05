@@ -1,11 +1,12 @@
 package de.evorepair.analysis.operator;
 
 import org.eclipse.emf.ecore.EObject;
+
 import de.evorepair.analysis.provider.EvoResourceProvider;
-import de.evorepair.evolution.evovariable.EvoFeatureVariable;
-import de.evorepair.evolution.evovariable.EvoVariable;
+import de.evorepair.evolution.variable.EvoFeatureVariable;
+import de.evorepair.evolution.variable.EvoVariable;
 import de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingReplace;
-import de.evorepair.logic.evologic.EvoVariableExpression;
+import de.evorepair.logic.EvoVariableExpression;
 import eu.hyvar.feature.HyFeature;
 import eu.hyvar.feature.expression.HyAdditionExpression;
 import eu.hyvar.feature.expression.HyAndExpression;
@@ -193,7 +194,6 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 			}else
 				return false;
 		}else if(expression instanceof EvoVariableExpression) {
-			System.out.println("F");
 			return false;
 		}else {
 			System.err.println("No valid expression object");

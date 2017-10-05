@@ -5,8 +5,14 @@
          point="org.eclipse.ui.commands">
       <command
             defaultHandler="de.evorepair.analysis.toolbar.EvoToolbarButtonHandler"
+            description="Checks if configurations of the currently opened feature model contains anomalies"
             id="de.evorepair.analysis.solver.SolveCommand"
             name="SolveCommand">
+      </command>
+      <command
+            defaultHandler="de.evorepair.analysis.toolbar.EvoToolbarButtonHandler2"
+            id="de.evorepair.analysis.solver.EvaluationCommand"
+            name="EvaluationCommand">
       </command>
    </extension>
    <extension
@@ -18,7 +24,15 @@
                id="de.evorepair.analysis.solver.toolbar3">
             <command
                   commandId="de.evorepair.analysis.solver.SolveCommand"
-                  label="Solve"
+                  icon="icons/ic_bug_report_black_24dp_1x.png"
+                  label="Checks if configurations of the currently opened feature model contains anomalies"
+                  style="push"
+                  tooltip="Checks if configurations of the currently opened feature model contains anomalies">
+            </command>
+            <command
+                  commandId="de.evorepair.analysis.solver.EvaluationCommand"
+                  icon="icons/ic_launch_black_24dp_1x.png"
+                  label="Evaluation"
                   style="push">
             </command>
          </toolbar>

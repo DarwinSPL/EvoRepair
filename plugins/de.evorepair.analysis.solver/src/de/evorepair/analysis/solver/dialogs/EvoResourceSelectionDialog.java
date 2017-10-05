@@ -1,8 +1,11 @@
 package de.evorepair.analysis.solver.dialogs;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -26,23 +29,17 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
+import de.evorepair.analysis.provider.EvoResourceFactory;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 
 public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 
-	protected EvoResourceProvider configurationResourceProvider;
-	protected EvoResourceProvider mappingResourceProvider;
-
-	protected Table configurationResourceTable;
-	protected Table mappingResourceTable;
+	protected List<Table> resourceTables = new ArrayList<Table>();
 
 	protected List<EObject> selectedModels = new ArrayList<EObject>();
 
-	public EvoResourceSelectionDialog(Shell parentShell, EvoResourceProvider configurationResourceProvider, EvoResourceProvider mappingResourceProvider) {
+	public EvoResourceSelectionDialog(Shell parentShell) {
 		super(parentShell);
-
-		this.configurationResourceProvider = configurationResourceProvider;
-		this.mappingResourceProvider = mappingResourceProvider;
 	}
 
 	@Override
@@ -56,6 +53,21 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		setTitle("Select Configurations To Search For Anomalies");
 		setMessage("Multiple configurations found. Please specify which of them you want to search for anomalies. If you deselect all, none will be searched for.", IMessageProvider.INFORMATION);
 		setHelpAvailable(false);
+	}
+	
+	protected void createTableContent(Table table, EvoResourceProvider resourceProvider) {
+		SortedSet<URI> models = new TreeSet<>(new Comparator<URI>() {
+
+	        public int compare(URI o1, URI o2) {
+	            return o1.toString().compareTo(o2.toString());
+	        }
+	    });
+		
+		models.addAll(resourceProvider.getResources().keySet());
+		for (URI uri : models){
+			TableItem item = new TableItem(table, SWT.NONE);
+			item.setText(uri.trimFileExtension().lastSegment());
+		}		
 	}
 	
 	protected Table createTableWithinTab(TabFolder parent, String text, EvoResourceProvider resourceProvider) {
@@ -101,11 +113,8 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		});		
 		
 
-		
-		for (Map.Entry<URI, EObject> entry : resourceProvider.getResources().entrySet()){
-			TableItem item = new TableItem(table, SWT.NONE);
-			item.setText(entry.getKey().trimFileExtension().lastSegment());
-		}
+		createTableContent(table, resourceProvider);
+
 		
 		tabItem.setControl(container);
 		
@@ -121,20 +130,14 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 
 		TabFolder tabFolder = new TabFolder(container, SWT.V_SCROLL | SWT.H_SCROLL);
 		tabFolder.setLayoutData(new GridData(GridData.FILL_BOTH));
-		String[] labels = {"Configurations", "Mappings"};
-		for (int i=0; i<labels.length; i++) {
-			if(i==0) {
-				configurationResourceTable = createTableWithinTab(tabFolder, labels[i], configurationResourceProvider);
-			}else {
-				mappingResourceTable = createTableWithinTab(tabFolder, labels[i], mappingResourceProvider);
-			}
+		for(EvoResourceFactory resource : EvoResourceFactory.values()) {
+			Table table = createTableWithinTab(tabFolder, resource.getLabel(), resource.getInstance());
+			resourceTables.add(table);
 			
+			registerTableSelectionListener(table, resource.getInstance());
+
+			tabFolder.setSize(400, 200);	
 		}
-		tabFolder.setSize(400, 200);		
-
-
-		registerTableSelectionListener(configurationResourceTable, configurationResourceProvider);
-		registerTableSelectionListener(mappingResourceTable, mappingResourceProvider);
 
 		return container;
 	}
