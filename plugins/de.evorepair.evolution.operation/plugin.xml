@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated EvoOperation -->
       <package
-            uri="http://darwinspl.de/evorepair/evolutionoperation/0.1"
-            class="de.evorepair.evolution.evooperation.EvoOperationPackage"
+            uri="http://darwinspl.de/evorepair/evolutionoperation/0.2"
+            class="de.evorepair.evolution.operation.EvoOperationPackage"
             genModel="model/EvoOperation.genmodel"/>
    </extension>
 

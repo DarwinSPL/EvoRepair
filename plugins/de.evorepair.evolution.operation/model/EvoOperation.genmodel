@@ -4,7 +4,7 @@
     editorDirectory="/de.evorepair.evolution.operation.editor/src-gen" modelPluginID="de.evorepair.evolution.operation"
     modelName="EvoOperation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/de.evorepair.evolution.operation.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//variable ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
     operationReflection="true" importOrganizing="true">
   <foreignModel>EvoOperation.ecore</foreignModel>
   <genPackages prefix="EvoOperation" basePackage="de.evorepair.evolution" disposableProviderFactory="true"

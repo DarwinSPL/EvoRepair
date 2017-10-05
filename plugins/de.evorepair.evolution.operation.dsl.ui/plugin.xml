@@ -4,12 +4,13 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="de.evorepair.evolution.operation.ui.EvoOperationDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-			default="true"
-			extensions="evooperation"
-			id="de.evorepair.evolution.operation.EvoOperationDsl"
-			name="EvoRepair OperationEditor">
+        class="de.evorepair.evolution.operation.ui.EvoOperationDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+        contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+        default="true"
+        extensions="evooperation"
+        icon="icons/editor.png"
+        id="de.evorepair.evolution.operation.EvoOperationDsl"
+        name="EvoRepair OperationEditor">
 		</editor>
 	</extension>
 	<extension

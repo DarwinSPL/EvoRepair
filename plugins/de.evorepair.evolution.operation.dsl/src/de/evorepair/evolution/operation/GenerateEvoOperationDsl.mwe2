@@ -10,13 +10,7 @@ Workflow {
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup{
 		scanClassPath = true
 		
-		uriMap = {
-            from = "platform:/plugin/de.evorepair.evolution.variable.dsl/model/generated/EvoVariableDsl.genmodel"
-            to = "platform:/de.evorepair.evolution.variable.dsl/model/generated/EvoVariableDsl.genmodel"
-        }
-		
-		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvovariablePackage"
-		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable.dsl/model/generated/EvoVariableDsl.genmodel"
+		registerGeneratedEPackage = "de.evorepair.evolution.variable.EvoVariablePackage"
 	}
 	
 	component = XtextGenerator {		
@@ -51,6 +45,10 @@ Workflow {
 			
 			validator = {
 				generateStub = false
+			}
+			
+			emfGenerator = {
+				skipGenerate = true				
 			}
 		}
 	}

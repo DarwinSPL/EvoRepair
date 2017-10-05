@@ -10,7 +10,7 @@ import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter
 import org.eclipse.xtext.nodemodel.INode
 
 class EvoOperationValueConverter extends DefaultTerminalConverters{
-	val format = new SimpleDateFormat("\"yyyy/MM/dd HH:mm:ss\"");
+	val format = new SimpleDateFormat("\"yyyy-MM-dd HH:mm:ss\"");
 	
 	@ValueConverter(rule = "DATE")
 	def IValueConverter<Date> DateValue() {
