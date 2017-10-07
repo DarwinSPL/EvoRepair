@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.evorepair.logic/src-gen" editDirectory="/de.evorepair.logic.edit/src-gen"
+    editorDirectory="/de.evorepair.logic.editor/src-gen" modelPluginID="de.evorepair.logic"
+    modelName="EvoLogic" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/de.evorepair.logic.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//variable ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EvoLogic.ecore</foreignModel>
+  <genPackages prefix="EvoLogic" basePackage="de.evorepair" disposableProviderFactory="true"
+      ecorePackage="EvoLogic.ecore#/">
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoBinaryExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoXOrExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoNotExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoBiconditionalExpression"/>
+    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractSetExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetInclusionExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetIntersectionExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetUnionExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetDifferenceExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetSymmetricDifferenceExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetCartesianProductExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetCardinalityExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoElementOfExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetNotElementOfExpression"/>
+    <genClasses image="false" ecoreClass="EvoLogic.ecore#//EvoAbstractQuantifierExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoAbstractQuantifierExpression/boundedVariables"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoForAllExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoExistExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoFormula/term"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoVariableExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoVariableExpression/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoLogic.ecore#//EvoVariableExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSizeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoLogic.ecore#//EvoSizeExpression/size"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoGroupTypeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoLogic.ecore#//EvoGroupTypeExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoGroupTypeExpression/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoFeatureTypeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoLogic.ecore#//EvoFeatureTypeExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoFeatureTypeExpression/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSetExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoSetExpression/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoChildrenOfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoChildrenOfExpression/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoSiblingsOfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoSiblingsOfExpression/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoParentOfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoLogic.ecore#//EvoParentOfExpression/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoAllMappingsExpression"/>
+    <genClasses ecoreClass="EvoLogic.ecore#//EvoAllConfigurationsExpression"/>
+  </genPackages>
+</genmodel:GenModel>

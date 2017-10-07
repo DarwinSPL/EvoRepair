@@ -10,9 +10,14 @@
             name="SolveCommand">
       </command>
       <command
-            defaultHandler="de.evorepair.analysis.toolbar.EvoToolbarButtonHandler2"
+            defaultHandler="de.evorepair.analysis.toolbar.EvoConfiguratuionEvaluationToolbarButtonHandler"
             id="de.evorepair.analysis.solver.EvaluationCommand"
             name="EvaluationCommand">
+      </command>
+      <command
+            defaultHandler="de.evorepair.analysis.toolbar.EvoMappingEvaluationToolbarButtonHandler"
+            id="de.evorepair.analysis.solver.MappingEvaluationCommand"
+            name="MappingEvaluationCommand">
       </command>
    </extension>
    <extension
@@ -33,6 +38,12 @@
                   commandId="de.evorepair.analysis.solver.EvaluationCommand"
                   icon="icons/ic_launch_black_24dp_1x.png"
                   label="Evaluation"
+                  style="push">
+            </command>
+            <command
+                  commandId="de.evorepair.analysis.solver.MappingEvaluationCommand"
+                  icon="icons/ic_launch_black_24dp_2x.png"
+                  label="Evaluate Mappings"
                   style="push">
             </command>
          </toolbar>
