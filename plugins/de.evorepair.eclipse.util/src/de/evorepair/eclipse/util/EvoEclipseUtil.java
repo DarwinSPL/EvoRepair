@@ -43,7 +43,6 @@ public class EvoEclipseUtil {
 				container = container.getParent();
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

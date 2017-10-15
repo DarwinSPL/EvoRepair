@@ -20,10 +20,19 @@ import org.eclipse.ui.IFileEditorInput;
 import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.eclipse.util.EvoEclipseUtil;
 
+/**
+ * Provider to load resources of a specific type within a folder. It will determine all resources recursively.
+ * @author Gil Engel
+ *
+ */
 public class EvoResourceProvider {
 	String fileExtension;
 
-	EvoResourceProvider(String fileExtension) {
+	/**
+	 * Create a new resource provider for resources with the given file extension
+	 * @param fileExtension defines the extension for all resources to be found by the provider
+	 */
+	public EvoResourceProvider(String fileExtension) {
 		this.fileExtension = fileExtension;
 	}
 
@@ -49,32 +58,40 @@ public class EvoResourceProvider {
 		}
 	}
 
-
-
-
+	/**
+	 * Returns all resources that where found by the provider
+	 * @return a map of found resources
+	 */
 	public Map<URI, EObject> getResources() {
 		return resources;
-		/*
-		Map<URI, EObject> result = new HashMap<URI, EObject> (resources);
-		for(URI r : resources.keySet())
-			result.put(r, resources.get(r));
-		return result;
-		 */
 	}
 
+	/**
+	 * Sets all resources and overwrites all previous found resources
+	 * @param resources a map of resources to replace all resources within this provider.
+	 */
 	public void setResources(Map<URI, EObject> resources) {
 		this.resources = resources;
 	}
 
+	/**
+	 * Adds a resource to the resource map of the provider
+	 * @param resource the resource to be added to the map
+	 */
 	public void addResource(EObject resource) {
 		resources.put(resource.eResource().getURI(), resource);
 	}
 
+	/**
+	 * Clears the resource map of the provider
+	 */
 	public void clear() {
 		resources.clear();
 	}
 
-
+	/**
+	 * loads all resources of the given type within the folder of the active editor within Eclipse.
+	 */
 	public void loadResources() {
 		resources.clear();
 
@@ -83,6 +100,10 @@ public class EvoResourceProvider {
 		loadAllResources(((IFileEditorInput)input).getFile().getProject());
 	}
 
+	/**
+	 * Loads all resources recursively but from a specific root folder.
+	 * @param folder the root folder where that the provider will use as a root folder to search for resources.
+	 */
 	public void loadAllResources(IContainer folder) {
 		try {
 			loadAllResourcesRecursive(folder.members(), fileExtension);
@@ -103,10 +124,18 @@ public class EvoResourceProvider {
 		}
 	}
 
-	public EObject getResource(URI mappingFile) {
-		return resources.get(mappingFile);
+	/**
+	 * Gets a specific resource of the map
+	 * @param resourceFile key of the resource file
+	 * @return the resource saved with the given key
+	 */
+	public EObject getResource(URI resourceFile) {
+		return resources.get(resourceFile);
 	}
 
+	/**
+	 * Creates a clone of the resource provider
+	 */
 	public EvoResourceProvider clone() {
 		EvoResourceProvider clone = new EvoResourceProvider(fileExtension);
 		Map<URI, EObject> result = new HashMap<URI, EObject> (resources);

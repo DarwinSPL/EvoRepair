@@ -19,8 +19,10 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
@@ -109,13 +111,18 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 
 			index++;
 		}
-
+		
 		Composite descriptionPanel = new Composite(splitEditorComposite, SWT.NONE);
 		descriptionPanel.setLayout(new GridLayout(1, true));
 
 		suggestionDescriptionLabel = new Label(descriptionPanel, SWT.LEFT | SWT.WRAP | SWT.BORDER);
 		suggestionDescriptionLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		suggestionDescriptionLabel.setText("Descriptions goes here");		
+		
+		URI decriptionFileURI = EcoreIOUtil.createURIFromFile(EcoreIOUtil.getFile(selectedConfiguration.eResource()))
+				.trimFileExtension().appendFileExtension("description");
+		String description = getDescriptionFileContent(EcoreIOUtil.getFile(decriptionFileURI));
+		suggestionDescriptionLabel.setText(description);		
 
 		applyButton = new Button(descriptionPanel, SWT.PUSH);
 		applyButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
@@ -174,8 +181,6 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 			FileInputStream input = (FileInputStream)file.getContents();
 			int character;
 			while((character = input.read())!=-1) {
-
-				// converts integer to character
 				sb.append((char)character);
 			}
 
@@ -195,22 +200,22 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 	public void registerControlListeners() {
 		super.registerControlListeners();
 
-		suggestionList.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent event) {
+		suggestionList.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
 				int[] selections = suggestionList.getSelectionIndices();
+				selectedConfiguration = suggestions.get(selections[0]);
 
 				URI decriptionFileURI = EcoreIOUtil.createURIFromFile(EcoreIOUtil.getFile(selectedConfiguration.eResource()))
 						.trimFileExtension().appendFileExtension("description");
 				String description = getDescriptionFileContent(EcoreIOUtil.getFile(decriptionFileURI));
+				
+				System.out.println(decriptionFileURI);
 				suggestionDescriptionLabel.setText(description);
+				suggestionDescriptionLabel.update();
 
-				selectedConfiguration = suggestions.get(selections[0]);
+				
 				refreshView();
-			}
-
-			public void widgetDefaultSelected(SelectionEvent event) {
-				widgetSelected(event);
 			}
 		});
 
@@ -235,6 +240,7 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 				super.notifyChanged(notification);
 			}
 		});
+
 	}
 
 

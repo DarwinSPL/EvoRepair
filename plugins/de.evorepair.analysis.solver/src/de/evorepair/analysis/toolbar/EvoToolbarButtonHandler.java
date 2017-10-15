@@ -52,6 +52,7 @@ import de.evorepair.analysis.provider.EvoResourceFactory;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.analysis.solver.EvoSolver;
 import de.evorepair.analysis.solver.dialogs.EvoAnomalyViewerSelectionDialog;
+import de.evorepair.analysis.solver.dialogs.EvoResourceDialog;
 import de.evorepair.analysis.solver.dialogs.EvoResourceSelectionDialog;
 import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
 import de.evorepair.eclipse.util.EvoEclipseUtil;
@@ -76,6 +77,12 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+/**
+ * Handler to cause a review of all resources to check for anomalies.
+ * 
+ * @author Gil Engel
+ *
+ */
 public class EvoToolbarButtonHandler extends AbstractHandler {
 	protected EvoSolver solver;
 
@@ -274,11 +281,9 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			return null;
 		}
 
+		Map<URI, EObject> resourcesWithoutAnomalies = new HashMap<>();
 		for(Map.Entry<URI, EObject> resource : EvoResourceFactory.GUIDANCE.getInstance(true).getResources().entrySet()) {
 			EvoGuidanceContainer guidanceModel =  (EvoGuidanceContainer)resource.getValue();
-
-
-
 
 			// create the instances of the resource provider for mappings and configurations
 			EvoResourceProvider configurationProvider = EvoResourceFactory.CONFIGURATION.getInstance(false).clone();
@@ -298,13 +303,16 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					configurationProvider.getResources().put(model.eResource().getURI(), model);
 				else
 					mappingProvider.getResources().put(model.eResource().getURI(), model);
+				
 				// instantiate the solver
 				solver = new EvoSolver(featureModel);
 
 				for(EvoGuidanceTable table : guidanceModel.getTables()) {
 					List<EvoAnomaly> foundAnomalies = solver.solve(model, table, featureModelWrapped.getSelectedDate());
 					if(!foundAnomalies.isEmpty())
-						anomalies.put(model, foundAnomalies);	
+						anomalies.put(model, foundAnomalies);
+					else
+						resourcesWithoutAnomalies.put(model.eResource().getURI(), model);
 				}
 			}
 
@@ -367,6 +375,11 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					}		
 				}
 			}
+			
+			EvoResourceProvider provider = new EvoResourceProvider("");
+			provider.setResources(resourcesWithoutAnomalies);
+			EvoResourceDialog successDialog = new EvoResourceDialog(shell, provider);
+			successDialog.open();
 		}
 
 		return null;

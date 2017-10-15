@@ -213,6 +213,11 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		suggestionEditor = factory.newEditor(provider).readOnly().showLineNumbers().withParent(secondEditorComposite);	
 		suggestionEditor.getViewer().getTextWidget().setFont(defaultFont);
 		suggestionModel = suggestionEditor.createPartialEditor("", "", "", false);
+		
+		URI decriptionFileURI = EcoreIOUtil.createURIFromFile(EcoreIOUtil.getFile(selectedMappingModel.eResource()))
+				.trimFileExtension().appendFileExtension("description");
+		String description = getDescriptionFileContent(EcoreIOUtil.getFile(decriptionFileURI));
+		suggestionDescriptionLabel.setText(description);	
 
 	}
 
@@ -231,6 +236,8 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 			index++;
 		}		
+		
+		suggestionList.setSelection(0);
 
 		Composite descriptionPanel = new Composite(splitEditorComposite, SWT.NONE);
 		descriptionPanel.setLayout(new GridLayout(1, true));

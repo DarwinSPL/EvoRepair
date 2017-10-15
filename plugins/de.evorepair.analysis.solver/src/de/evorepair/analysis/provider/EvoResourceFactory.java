@@ -17,6 +17,10 @@ public enum EvoResourceFactory {
 		public String getExtension() {
 			return HyConfigurationUtil.getConfigurationModelFileExtensionForXmi();
 		}
+		
+		public boolean isVisibleWithinDialog() {
+			return true;
+		}
 
 		@Override
 		public synchronized EvoResourceProvider getInstance(boolean reload) {						
@@ -32,6 +36,10 @@ public enum EvoResourceFactory {
 		public String getExtension() {
 			return HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax();
 		}
+		
+		public boolean isVisibleWithinDialog() {
+			return true;
+		}		
 
 
 		@Override
@@ -48,6 +56,10 @@ public enum EvoResourceFactory {
 		public String getExtension() {
 			return "evoguidance";
 		}
+		
+		public boolean isVisibleWithinDialog() {
+			return false;
+		}
 
 		@Override
 		public synchronized EvoResourceProvider getInstance(boolean reload) {
@@ -63,6 +75,10 @@ public enum EvoResourceFactory {
 		public String getExtension() {
 			return "evooperation";
 		}
+		
+		public boolean isVisibleWithinDialog() {
+			return false;
+		}
 
 		@Override
 		public synchronized EvoResourceProvider getInstance(boolean reload) {
@@ -77,6 +93,7 @@ public enum EvoResourceFactory {
 	public abstract EvoResourceProvider getInstance(boolean reload);
 	public abstract String getLabel();
 	public abstract String getExtension();
+	public abstract boolean isVisibleWithinDialog();
 
 	private static EvoResourceProvider getResourceProvider(EvoResourceFactory resource, String fileExtension, boolean reload) {
 		EvoResourceProvider resourceProvider;
