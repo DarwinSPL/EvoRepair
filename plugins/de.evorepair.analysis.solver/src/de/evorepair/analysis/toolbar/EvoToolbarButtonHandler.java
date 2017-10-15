@@ -20,7 +20,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -46,16 +45,16 @@ import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.darwinspl.feature.graphical.base.editor.DwGraphicalFeatureModelViewer;
 import de.darwinspl.feature.graphical.base.model.DwFeatureModelWrapped;
 import de.evorepair.analysis.mapping.viewer.viewer.EvoMappingRepairSuggestionViewer;
-import de.evorepair.analysis.operator.EvoGuidanceConfigurationActionOperator;
-import de.evorepair.analysis.operator.EvoGuidanceMappingActionOperator;
+import de.evorepair.analysis.operator.EvoGuidanceConfigurationRepairOperator;
+import de.evorepair.analysis.operator.EvoGuidanceMappingRepairOperator;
 import de.evorepair.analysis.operator.EvoGuidanceRepairOperator;
 import de.evorepair.analysis.provider.EvoResourceFactory;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import de.evorepair.analysis.solver.EvoSolver;
 import de.evorepair.analysis.solver.dialogs.EvoAnomalyViewerSelectionDialog;
 import de.evorepair.analysis.solver.dialogs.EvoResourceSelectionDialog;
-import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
+import de.evorepair.eclipse.util.EvoEclipseUtil;
 import de.evorepair.evolution.operation.EvoOperation;
 import de.evorepair.evolution.variable.EvoFeatureVariable;
 import de.evorepair.evolution.variable.EvoVariable;
@@ -78,7 +77,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public class EvoToolbarButtonHandler extends AbstractHandler {
-	EvoSolver solver;
+	protected EvoSolver solver;
 
 	public EvoToolbarButtonHandler() {
 		super();
@@ -94,15 +93,11 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}
 	}
 
-	Resource featureModelResource;
-	Resource configurationModelResource;
-	Resource mappingModelResource;
-
 	/**
-	 * 
-	 * @return
+	 * Creates the hidden solution folder where all repair suggestions are saved.
+	 * @return the folder where all suggestions are saved within
 	 */
-	private IFolder createSolutionsFolder() {
+	protected IFolder createSolutionsFolder() {
 		String path = EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER;
 
 		IEditorPart activeEditorPart = EvoEclipseUtil.getActiveEditor();
@@ -114,91 +109,89 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			IFolder folder = resource.getProject().getFolder(path);
 
 			if(!folder.exists()) {
-				folder.create(true, false, null);
+				folder.create(true, true, null);
 			}
 
-			StringBuilder builder = new StringBuilder();
-			builder.append(path);
-			builder.append("/.");
-			builder.append(resource.getName().replace('.'+resource.getFileExtension(), ""));
-			IFolder specificSolutionFolder = resource.getProject().getFolder(builder.toString());
-
-			if(!specificSolutionFolder.exists()){
-				specificSolutionFolder.create(true, false, null);
-			}
-
-			return specificSolutionFolder;
+			return folder;
 		} catch (CoreException e) {
 			e.printStackTrace();
 			return null;
 		}
-	}	
+	}		
 
-	private IFolder createSolutionsFolderForResource(IFolder parentFolder, Resource resource) {
-		IFolder folder = parentFolder.getFolder("."+resource.getURI().trimFileExtension().lastSegment());
+	/**
+	 * Creates a hidden sub folder for a specific anomaly for a model. This is needed in order to prevent overwriting if multiple anomalies occurs.
+	 * @param parentFolder the parent folder where the folder should be created within. This is normally the folder created by {@link #createSolutionsFolder()}
+	 * @param anomaly the anomaly is needed for its name. the created folder will have its name.
+	 * @param resource the resource that contains the model which has the detected anomaly
+	 * @return a folder where repair suggestions are about to be saved within
+	 */
+	protected IFolder createSolutionsFolderForResource(IFolder parentFolder, EvoAnomaly anomaly, Resource resource) {
+		IFolder folder = parentFolder.getFolder("."+anomaly.getId());
 
 		try {
 			if(!folder.exists()) {				
-				folder.create(true, false, null);	
+				folder.create(true, true, null);	
 			}
 		} catch (CoreException e) {
 			e.printStackTrace();
 			return null;
 		}
 
-		return folder;
-	}
+		IFolder folder2 = folder.getFolder("."+resource.getURI().trimFileExtension().lastSegment());
+		try {
+			if(!folder2.exists()) {				
+				folder2.create(true, true, null);	
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+			return null;
+		}
 
+		return folder2;
+	}
 	/**
 	 * Finds the registered viewer and shows it. The viewer gives the user the ability to select a
 	 * suggested solution for a found anomaly
 	 * 
 	 * @param featureModelFile
 	 */
-	private void openSolutionViewer(HyConfiguration configuration, IFile featureModelFile) {
+	private void openSolutionViewer(EObject model, IFile featureModelFile) {
 		IEditorDescriptor[] descriptors = PlatformUI.getWorkbench().
 				getEditorRegistry().getEditors("model."+featureModelFile.getFileExtension());
 
 		for(int i=0; i<descriptors.length; i++) {
-			if(descriptors[i].getId().equals("de.evorepair.analysis.configuration.viewer.repair.suggestion.viewer")) {
-				try {
+			try {
+				if(model instanceof HyConfiguration && descriptors[i].getId().equals("de.evorepair.analysis.configuration.viewer.repair.suggestion.viewer")) {
 					EvoConfigurationRepairSuggestionViewer viewer = (EvoConfigurationRepairSuggestionViewer)EvoEclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
-					viewer.setConfiguration(configuration);
-				} catch (PartInitException e) {
-					e.printStackTrace();
-				}
-			}
-		}	
-	}
-
-	private void openSolutionViewer(HyMappingModel mappingModel, IFile featureModelFile) {
-		IEditorDescriptor[] descriptors = PlatformUI.getWorkbench().
-				getEditorRegistry().getEditors("model."+featureModelFile.getFileExtension());
-
-		for(int i=0; i<descriptors.length; i++) {			
-			if(descriptors[i].getId().equals("de.evorepair.analysis.mapping.viewer.repair.suggestion.viewer")) {
-				try {
+					viewer.setConfiguration((HyConfiguration)model);
+				}else if(model instanceof HyMappingModel && descriptors[i].getId().equals("de.evorepair.analysis.mapping.viewer.repair.suggestion.viewer")) {
 					EvoMappingRepairSuggestionViewer viewer = (EvoMappingRepairSuggestionViewer)EvoEclipseUtil.getActivePage().openEditor(new FileEditorInput(featureModelFile), descriptors[i].getId());
-					viewer.setMappingModel(mappingModel);
-				} catch (PartInitException e) {
-					e.printStackTrace();
+					viewer.setMappingModel((HyMappingModel)model);		
 				}
-			}			 
-		}		
+			} catch (PartInitException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
-	private IFile getSolutionFile(IFolder folder, int index, EObject model) {
+	/**
+	 * 
+	 * @param concatenates all given informations to get the solution file.
+	 * @param index specify which solution file should be returned in case there are multiple ones
+	 * @param model the corresponding model {@see eu.hyvar.feature.mapping.HyMapping}, {@see eu.hyvar.feature.configuration.HyConfiguration}
+	 * @return the solution file in case that the file exists. Otherwise the function will return null.
+	 */
+	protected IFile getSolutionFile(IFolder folder, int index, EObject model) {
 		StringBuilder builder = new StringBuilder();
-		builder.append("solution_");
+		builder.append(model.eResource().getURI().trimFileExtension().lastSegment());
+		builder.append("_solution_");
 		builder.append(index);
-		builder.append('_');
 
 		if(model instanceof HyConfiguration) {
-			builder.append("configuration");
 			builder.append('.');
 			builder.append(HyConfigurationUtil.getConfigurationModelFileExtensionForXmi());
 		}else if(model instanceof HyMappingModel) {
-			builder.append("mapping");
 			builder.append('.');
 			builder.append(HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax());
 		}else {
@@ -232,8 +225,12 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		}
 	}
 
-
-	private void saveDescriptionFile(String content, URI uri) {
+	/**
+	 * Saves the description for a repair suggestion within the solution folder
+	 * @param content to be saved
+	 * @param uri the uri of the file that will be used to save the description
+	 */
+	protected void saveDescriptionFile(String content, URI uri) {
 		if(content == null) content = "";
 
 		uri = uri.trimFileExtension().appendFileExtension("description");
@@ -241,50 +238,9 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		InputStream source = new ByteArrayInputStream(bytes);
 
 		try {
-			IFile file = EcoreIOUtil.getFile(uri);
+			IFile file = EcoreIOUtil.getFile(uri);			
 			if(file.exists()) {
-				file.delete(true, new IProgressMonitor() {
-
-					@Override
-					public void worked(int work) {
-					}
-
-					@Override
-					public void subTask(String name) {
-					}
-
-					@Override
-					public void setTaskName(String name) {
-					}
-
-					@Override
-					public void setCanceled(boolean value) {
-					}
-
-					@Override
-					public boolean isCanceled() {
-						return false;
-					}
-
-					@Override
-					public void internalWorked(double work) {
-					}
-
-					@Override
-					public void done() {
-						try {
-							file.create(source, IResource.FORCE, null);
-						} catch (CoreException e) {
-							e.printStackTrace();
-						}
-
-					}
-
-					@Override
-					public void beginTask(String name, int totalWork) {
-
-					}
-				});
+				file.setContents(source, IResource.FORCE , null);
 			}else
 				EcoreIOUtil.getFile(uri).create(source, IResource.FORCE, null);
 		} catch (CoreException e) {
@@ -293,7 +249,7 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 	}
 
-	private XtextResourceSet getResourceSet() {
+	protected XtextResourceSet getResourceSet() {
 		DslActivator activator = DslActivator.getInstance();
 		Injector injector = activator.getInjector(DslActivator.DE_EVOREPAIR_GUIDANCE_EVOGUIDANCEDSL);
 		return injector.getInstance(XtextResourceSet.class);		
@@ -309,13 +265,6 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		HyFeatureModel featureModel = featureModelWrapped.getModel();
 
 		Shell shell = EvoEclipseUtil.getActiveEditor().getSite().getShell();
-		// display an error in case that the user calls the solver without an active editor within eclipse
-		if(featureModel == null){
-			MessageDialog.openError(shell, "No active feature model editor", "You must open an active editor with a feature model in order to call "
-					+ "the solver");
-			return null;
-		}
-
 
 		XtextResourceSet resourceSet = getResourceSet();
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
@@ -325,43 +274,40 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			return null;
 		}
 
-		for(Map.Entry<URI, EObject> resource : EvoResourceFactory.GUIDANCE.getInstance().getResources().entrySet()) {
+		for(Map.Entry<URI, EObject> resource : EvoResourceFactory.GUIDANCE.getInstance(true).getResources().entrySet()) {
 			EvoGuidanceContainer guidanceModel =  (EvoGuidanceContainer)resource.getValue();
 
-			// save reference to the corresponding resource
-			featureModelResource = featureModel.eResource();    	 	
+
 
 
 			// create the instances of the resource provider for mappings and configurations
-			EvoResourceProvider configurationProvider = EvoResourceFactory.CONFIGURATION.getInstance().clone();
-			EvoResourceProvider mappingProvider = EvoResourceFactory.MAPPING.getInstance().clone();
-			EvoResourceProvider combinedProvider = EvoResourceFactory.CONFIGURATION.concatenate(EvoResourceFactory.MAPPING);
+			EvoResourceProvider configurationProvider = EvoResourceFactory.CONFIGURATION.getInstance(false).clone();
+			configurationProvider.loadResources();
+			EvoResourceProvider mappingProvider = EvoResourceFactory.MAPPING.getInstance(false).clone();
+			mappingProvider.loadResources();
 
 			Map<EObject, List<EvoAnomaly>> anomalies = new HashMap<>();
-			if(combinedProvider.getResources().size() > 1) {
 
-				configurationProvider.getResources().clear();
-				mappingProvider.getResources().clear();
-				Map<URI, EObject> selectedResource = new HashMap<>();
-				for(EObject model : dialog.getSelectedModels()) {
-					selectedResource.put(model.eResource().getURI(), model);
+			configurationProvider.getResources().clear();
+			mappingProvider.getResources().clear();
+			Map<URI, EObject> selectedResource = new HashMap<>();
+			for(EObject model : dialog.getSelectedModels()) {
+				selectedResource.put(model.eResource().getURI(), model);
 
-					if(model instanceof HyConfiguration)
-						configurationProvider.getResources().put(model.eResource().getURI(), model);
-					else
-						mappingProvider.getResources().put(model.eResource().getURI(), model);
-					// instantiate the solver
-					solver = new EvoSolver(featureModel);
+				if(model instanceof HyConfiguration)
+					configurationProvider.getResources().put(model.eResource().getURI(), model);
+				else
+					mappingProvider.getResources().put(model.eResource().getURI(), model);
+				// instantiate the solver
+				solver = new EvoSolver(featureModel);
 
-					for(EvoGuidanceTable table : guidanceModel.getTables()) {
-						System.out.println(table.eResource().getURI());
-						if(table.getTriggeringOperations().get(0).getName().equals("Check"))
-							anomalies.put(model, solver.solve(model, table, featureModelWrapped.getSelectedDate()));	
-					}
+				for(EvoGuidanceTable table : guidanceModel.getTables()) {
+					List<EvoAnomaly> foundAnomalies = solver.solve(model, table, featureModelWrapped.getSelectedDate());
+					if(!foundAnomalies.isEmpty())
+						anomalies.put(model, foundAnomalies);	
 				}
-
-				combinedProvider.setResources(selectedResource);
 			}
+
 
 
 			if(!anomalies.isEmpty()) {
@@ -370,54 +316,53 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					return null;
 				}else {
 					// create a hidden folder to store all the solutions
-					IFolder solutionFolder = createSolutionsFolder();
+					IFolder solutionFolder = createSolutionsFolder();					
 
 					// selected models for anomaly view
 					for(EObject selectedModel : anomalySelectionDialog.getSelectedModels()) {
-						try {
-							for(EvoAnomaly anomaly : anomalies.get(selectedModel)){
-								int guidanceCount = anomaly.getGuidance().size();
+						EObject key = null;
+						for(EObject modelKey : anomalies.keySet()) {
+							if(EcoreUtil.equals(modelKey, selectedModel)) key = modelKey;
+						}
 
-								EvoGuidanceRepairOperator operator;
-								EvoResourceProvider resourceProvider;
-								String fileExtension;
-								if(anomaly instanceof EvoConfigurationAnomaly) {
-									operator = new EvoGuidanceConfigurationActionOperator();
-									fileExtension = HyConfigurationUtil.getConfigurationModelFileExtensionForXmi();
-									resourceProvider = configurationProvider;
+						for(EvoAnomaly anomaly : anomalies.get(key)){
+							int guidanceCount = anomaly.getGuidance().size();
+
+							EvoGuidanceRepairOperator operator;
+							EvoResourceProvider resourceProvider;
+							String fileExtension;
+							if(anomaly instanceof EvoConfigurationAnomaly) {
+								operator = new EvoGuidanceConfigurationRepairOperator();
+								fileExtension = HyConfigurationUtil.getConfigurationModelFileExtensionForXmi();
+								resourceProvider = configurationProvider;
+							}else {
+								operator = new EvoGuidanceMappingRepairOperator();
+								fileExtension = HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax();
+								resourceProvider = mappingProvider;
+							}			
+
+
+							if(anomaly.getGuidance().get(0).getType() == EvoGuidanceType.INTERACTIVE_DEFAULT) {
+								createModelAndOpenViewer(anomaly, selectedModel, solutionFolder, operator, resourceProvider, featureModelWrapped.getSelectedDate());
+							} else if (guidanceCount == 1 && anomaly.getGuidance().get(0).getType() == EvoGuidanceType.AUTOMATIC_DEFAULT) {
+								MessageDialog automaticDialog = new MessageDialog(shell, "Automatic repair for anomaly.", null,
+										"There is an anomaly in your resource that can be fixed automatically. What do you want to do?", MessageDialog.INFORMATION, new String[] {
+												"Show repair operation", "Apply repair opteration" }, 0);
+								
+								// user wants to examine the repair suggestion, show it to him/her
+								if(automaticDialog.open() == 0) {
+									createModelAndOpenViewer(anomaly, selectedModel, solutionFolder, operator, resourceProvider, featureModelWrapped.getSelectedDate());
+									
+								// perform automatic repair operation
 								}else {
-									operator = new EvoGuidanceMappingActionOperator();
-									fileExtension = HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax();
-									resourceProvider = mappingProvider;
-								}			
-
-
-								if(guidanceCount > 1 || (guidanceCount == 1 && anomaly.getGuidance().get(0).getType() == EvoGuidanceType.INTERACTIVE_DEFAULT)) {
-
-
-									IFolder selectedModelFolder = performRepairAndSaveModel(anomaly, selectedModel, solutionFolder, operator, resourceProvider, featureModelWrapped.getSelectedDate());
-
-									// show the solution viewer. We use the first suggest solution configuration as a dummy
-									if(selectedModel instanceof HyConfiguration)
-										openSolutionViewer((HyConfiguration)selectedModel, getSolutionFile(selectedModelFolder, 0, selectedModel));
-									else
-										openSolutionViewer((HyMappingModel)selectedModel, getSolutionFile(selectedModelFolder, 0, selectedModel));
-
-									//}
-
-									// if an automatic repair operation should be performed, overwrite the original configuration
-								} else if (guidanceCount == 1 && anomaly.getGuidance().get(0).getType() == EvoGuidanceType.AUTOMATIC_DEFAULT) {
 									for(IFile file : getAccompanyingFiles(featureModel, fileExtension)) {
 										EObject model = EcoreIOUtil.loadModel(file);
 
 										EObject modifiedModel = operator.perform(model, selectedModel, anomaly.getGuidance().get(0).getAction().getTerm(), resourceProvider);
 										EcoreIOUtil.saveModel(modifiedModel);	
-									}						
+									}		
 								}
 							}
-						}catch (Exception e) {
-							e.printStackTrace();
-							// TODO: strange null pointer exception: key is not null yet hashmap throws a NullPointerException
 						}
 					}		
 				}
@@ -426,10 +371,38 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 		return null;
 	}
+	
+	private void createModelAndOpenViewer(EvoAnomaly anomaly, EObject selectedModel, IFolder solutionFolder, EvoGuidanceRepairOperator operator, EvoResourceProvider resourceProvider, Date date) {
+		IFolder selectedModelFolder = performRepairAndSaveModel(anomaly, selectedModel, solutionFolder, operator, resourceProvider, date);
 
-	private IFolder performRepairAndSaveModel(EvoAnomaly anomaly, EObject selectedModel, IFolder solutionFolder, EvoGuidanceRepairOperator operator, EvoResourceProvider resourceProvider, Date date) {
+		// show the solution viewer. We use the first suggest solution configuration as a dummy									
+		openSolutionViewer(selectedModel, getSolutionFile(selectedModelFolder, 0, selectedModel));
+
+		
+	}
+
+	/**
+	 * Performs a repair operation and saves the file as a repair suggestion in the solution folder.
+	 * @param anomaly the detected anomaly.
+	 * @param selectedModel model where the anomaly was detected and that should be repaired.
+	 * @param solutionFolder the folder where the solution will be saved within
+	 * @param operator the operator that will perform the operation
+	 * @param resourceProvider gives all necessary resources to perform the action
+	 * @param date date when the operation will be performed at
+	 * @return the folder where the solution will be saved within
+	 */
+	protected IFolder performRepairAndSaveModel(EvoAnomaly anomaly, EObject selectedModel, IFolder solutionFolder, EvoGuidanceRepairOperator operator, EvoResourceProvider resourceProvider, Date date) {
 		XtextResourceSet resourceSet = getResourceSet();
-		IFolder selectedModelFolder = createSolutionsFolderForResource(solutionFolder, selectedModel.eResource());
+
+		if(!solutionFolder.exists()) {
+			try {
+				solutionFolder.create(true, true, null);
+			} catch (CoreException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+		IFolder selectedModelFolder = createSolutionsFolderForResource(solutionFolder, anomaly, selectedModel.eResource());
 
 		// needed for the name of the solution configurations
 		int index = 0;
@@ -446,7 +419,9 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 			Resource solutionResource = EcoreIOUtil.createResource(modifiedModelFile, resourceSet, true);								
 			solutionResource.getContents().add(modelCopy);
 
-			operator.perform(modelCopy, selectedModel, guidance.getAction().getTerm(), resourceProvider);	
+
+			operator.perform(modelCopy, selectedModel, guidance.getAction().getTerm(), resourceProvider);				
+
 			String description = performTemplateProcessor(guidance.getDescription(), anomaly.getTable().getTriggeringOperations(), date);
 			saveDescriptionFile(description, EcoreIOUtil.createURIFromFile(modifiedModelFile));
 
@@ -462,7 +437,14 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 		return selectedModelFolder;
 	}
 
-	private String performTemplateProcessor(String template, EList<EvoOperation> operations, Date date) {
+	/**
+	 * Converts all variable within a description templates to feature names
+	 * @param template the template that should be processed
+	 * @param operations the operation to be performed
+	 * @param date the date when the operation is performed
+	 * @return the processed template with feature names as string. In case an error occured an empty string will be returned.
+	 */
+	protected String performTemplateProcessor(String template, EList<EvoOperation> operations, Date date) {
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
 		cfg.setDefaultEncoding("UTF-8");
 
@@ -485,13 +467,9 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 				}
 			}
 
-			// Put string "user" into the root
-
-
 			t.process(root, out);
 			return out.toString();
 		} catch (TemplateException | IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
 
@@ -500,6 +478,6 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return (getFeatureModelFromActiveEditor() != null);
 	}  
 }

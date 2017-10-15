@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated EvoVariable -->
       <package
-            uri="http://darwinspl.de/evorepair/variable/0.2"
-            class="de.evorepair.evolution.evovariable.EvovariablePackage"
+            uri="http://darwinspl.de/evorepair/variable/0.3"
+            class="de.evorepair.evolution.variable.EvoVariablePackage"
             genModel="model/EvoVariable.genmodel"/>
    </extension>
 

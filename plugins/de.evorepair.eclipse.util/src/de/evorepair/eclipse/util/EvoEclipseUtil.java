@@ -1,7 +1,11 @@
-package de.evorepair.analysis.solver.eclipse;
+package de.evorepair.eclipse.util;
 
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.IEditorPart;
@@ -25,5 +29,23 @@ public class EvoEclipseUtil {
 		uri += '/'+relativePathToAnotherFile;
 		
 		return URI.createURI(uri);
+	}
+	
+	public static void removeSolutionFoldersRecursiveFromFile(IFile file) {
+		try {
+			file.delete(true, null);
+			IContainer container = file.getParent();
+			container.delete(true, null);
+
+			while(!(container.getParent() instanceof IProject) && container.getParent().members().length == 0) {
+				container.getParent().delete(true, null);
+
+				container = container.getParent();
+			}
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

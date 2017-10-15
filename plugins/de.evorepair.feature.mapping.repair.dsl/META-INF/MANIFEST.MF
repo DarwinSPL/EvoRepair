@@ -22,14 +22,11 @@ Require-Bundle: org.eclipse.xtext,
  de.evorepair.feature.mapping.repair;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.feature.mapping.repair.dsl.scoping,
- de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.impl,
  de.evorepair.feature.mapping.repair.dsl.generator,
  de.evorepair.feature.mapping.repair.dsl.parser.antlr.internal,
  de.evorepair.feature.mapping.repair.dsl,
- de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl,
  de.evorepair.feature.mapping.repair.dsl.parser.antlr,
  de.evorepair.feature.mapping.repair.dsl.services,
- de.evorepair.feature.mapping.repair.dsl.mappingRepairDsl.util,
  de.evorepair.feature.mapping.repair.dsl.validation,
  de.evorepair.feature.mapping.repair.dsl.serializer
 Import-Package: org.apache.log4j

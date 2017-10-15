@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Decore
+Bundle-SymbolicName: de.evorepair.xtext.util.decore
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext,
+ org.deltaecore.core.decore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.evorepair.xtext.util.dedelta

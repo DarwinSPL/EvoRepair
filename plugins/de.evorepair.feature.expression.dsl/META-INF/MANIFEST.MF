@@ -34,8 +34,5 @@ Export-Package: de.evorepair.feature.expression.parser.antlr,
  de.evorepair.feature.expression,
  de.evorepair.feature.expression.serializer,
  de.evorepair.feature.expression.validation,
- de.evorepair.feature.expression.generator,
- de.evorepair.feature.expression.evo_expression_dsl.util,
- de.evorepair.feature.expression.evo_expression_dsl,
- de.evorepair.feature.expression.evo_expression_dsl.impl
+ de.evorepair.feature.expression.generator
 Import-Package: org.apache.log4j

@@ -8,11 +8,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 import de.evorepair.analysis.provider.EvoResourceProvider;
-import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
+import de.evorepair.eclipse.util.EvoEclipseUtil;
 import de.evorepair.evolution.variable.EvoConfigurationVariable;
 import de.evorepair.evolution.variable.EvoFeatureVariable;
 import de.evorepair.evolution.variable.EvoVariable;
-import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
 import de.evorepair.logic.EvoSetDifferenceExpression;
 import de.evorepair.logic.EvoSetExpression;
 import de.evorepair.logic.EvoSetIntersectionExpression;
@@ -31,7 +30,7 @@ import eu.hyvar.feature.expression.HyExpression;
  * @author Gil Engel
  *
  */
-public class EvoGuidanceConfigurationActionOperator extends EvoGuidanceRepairOperator{
+public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOperator{
 
 	/**
 	 * Recursives solves a Expression and creates the resulting list of features

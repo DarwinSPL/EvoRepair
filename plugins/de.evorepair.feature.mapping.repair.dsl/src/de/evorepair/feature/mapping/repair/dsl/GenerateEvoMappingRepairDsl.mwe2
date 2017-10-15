@@ -43,7 +43,7 @@ Workflow {
         registerGeneratedEPackage = "org.deltaecore.core.decore.DEcorePackage"
         registerGeneratedEPackage = "eu.hyvar.dataValues.HyDataValuesPackage"
         
-		registerGeneratedEPackage = "de.evorepair.logic.evologic.EvoLogicPackage"
+		registerGeneratedEPackage = "de.evorepair.logic.EvoLogicPackage"
         registerGeneratedEPackage = "eu.hyvar.feature.mapping.MappingPackage"     
         registerGeneratedEPackage = "eu.hyvar.feature.expression.HyExpressionPackage"  
 
@@ -77,13 +77,18 @@ Workflow {
 			fileExtensions = "evomappingrepair"
 			
 			referencedResource = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
-			referencedResource = "platform:/resource/de.evorepair.feature.expression.dsl/model/generated/EvoExpressionDsl.genmodel"
+			referencedResource = "platform:/resource/eu.hyvar.feature.expression/model/Expression.genmodel"
+			referencedResource = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 
 			serializer = {
 				generateStub = false
 			}
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+			
+			emfGenerator = {
+				skipGenerate = true
 			}
 		}
 	}

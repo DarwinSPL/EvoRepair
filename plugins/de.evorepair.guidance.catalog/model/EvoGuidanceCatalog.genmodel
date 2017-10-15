@@ -4,7 +4,7 @@
     editorDirectory="/de.evorepair.guidance.catalog.editor/src-gen" modelPluginID="de.evorepair.guidance.catalog"
     modelName="EvoGuidanceCatalog" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/de.evorepair.guidance.catalog.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.configuration/model/Configuration.genmodel#//configuration ../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.logic/model/EvoLogic.genmodel#//evologic ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//evooperation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//evovariable ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.context.information/model/ContextInformation.genmodel#//context ../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../de.evorepair.logic/model/EvoLogic.genmodel#//logic ../../de.evorepair.evolution.operation/model/EvoOperation.genmodel#//operation ../../de.evorepair.evolution.variable/model/EvoVariable.genmodel#//variable ../../eu.hyvar.feature.expression/model/Expression.genmodel#//expression ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
     operationReflection="true" importOrganizing="true">
   <foreignModel>EvoGuidanceCatalog.ecore</foreignModel>
   <genPackages prefix="EvoGuidanceCatalog" basePackage="de.evorepair.guidance" disposableProviderFactory="true"
@@ -12,10 +12,6 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoAnomalyType">
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyType/DEFECT"/>
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyType/BEHAVIORAL_CHANGE"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory">
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/MAPPING"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoAnomalyCategory/CONFIGURATION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoGuidanceCatalog.ecore#//EvoGuidanceType">
       <genEnumLiterals ecoreEnumLiteral="EvoGuidanceCatalog.ecore#//EvoGuidanceType/AUTOMATIC_DEFAULT"/>
@@ -32,7 +28,6 @@
     </genClasses>
     <genClasses ecoreClass="EvoGuidanceCatalog.ecore#//EvoAnomaly">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EvoGuidanceCatalog.ecore#//EvoAnomaly/category"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/guidance"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EvoGuidanceCatalog.ecore#//EvoAnomaly/table"/>

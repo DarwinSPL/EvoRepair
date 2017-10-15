@@ -9,16 +9,6 @@
             id="de.evorepair.analysis.solver.SolveCommand"
             name="SolveCommand">
       </command>
-      <command
-            defaultHandler="de.evorepair.analysis.toolbar.EvoConfiguratuionEvaluationToolbarButtonHandler"
-            id="de.evorepair.analysis.solver.EvaluationCommand"
-            name="EvaluationCommand">
-      </command>
-      <command
-            defaultHandler="de.evorepair.analysis.toolbar.EvoMappingEvaluationToolbarButtonHandler"
-            id="de.evorepair.analysis.solver.MappingEvaluationCommand"
-            name="MappingEvaluationCommand">
-      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -33,18 +23,6 @@
                   label="Checks if configurations of the currently opened feature model contains anomalies"
                   style="push"
                   tooltip="Checks if configurations of the currently opened feature model contains anomalies">
-            </command>
-            <command
-                  commandId="de.evorepair.analysis.solver.EvaluationCommand"
-                  icon="icons/ic_launch_black_24dp_1x.png"
-                  label="Evaluation"
-                  style="push">
-            </command>
-            <command
-                  commandId="de.evorepair.analysis.solver.MappingEvaluationCommand"
-                  icon="icons/ic_launch_black_24dp_2x.png"
-                  label="Evaluate Mappings"
-                  style="push">
             </command>
          </toolbar>
       </menuContribution>

@@ -11,7 +11,6 @@ import org.eclipse.xtext.parsetree.reconstr.ITransientValueService;
 public class DwMappingDslRuntimeModule extends AbstractDwMappingDslRuntimeModule {
 	
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Class<? extends ITransientValueService> bindITransientValueService() {
 		return (Class<? extends ITransientValueService>) DwMappingDslValueConverterService.class;

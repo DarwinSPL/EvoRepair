@@ -29,10 +29,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.workspace;bundle-version="1.5.1",
  de.evorepair.guidance.dsl.ui,
  de.evorepair.analysis.mapping.viewer,
- de.evorepair.evolution.variable
+ de.evorepair.evolution.variable,
+ de.evorepair.eclipse.util,
+ org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: de.evorepair.analysis.toolbar
+Export-Package: de.evorepair.analysis.operator,
+ de.evorepair.analysis.provider,
+ de.evorepair.analysis.solver,
+ de.evorepair.analysis.toolbar
 Bundle-ClassPath: lib/choco-solver-4.0.4-with-dependencies.jar,
  lib/freemarker.jar,
  .

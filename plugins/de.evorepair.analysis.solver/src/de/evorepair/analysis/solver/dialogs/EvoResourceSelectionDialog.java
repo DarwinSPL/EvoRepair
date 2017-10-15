@@ -55,7 +55,13 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		setHelpAvailable(false);
 	}
 	
-	protected void createTableContent(Table table, EvoResourceProvider resourceProvider) {
+	/**
+	 * Populates the table created by {@link #createTableWithinTab(TabFolder, EvoResourceFactory, EvoResourceProvider)} with available resources
+	 * @param table the table where the elements are added
+	 * @param factory resource factory to check if resources fit to the table
+	 * @param resourceProvider
+	 */
+	protected void createTableContent(Table table, EvoResourceFactory factory, EvoResourceProvider resourceProvider) {
 		SortedSet<URI> models = new TreeSet<>(new Comparator<URI>() {
 
 	        public int compare(URI o1, URI o2) {
@@ -70,10 +76,17 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		}		
 	}
 	
-	protected Table createTableWithinTab(TabFolder parent, String text, EvoResourceProvider resourceProvider) {
+	/**
+	 * Creates a table to display a list of resources within
+	 * @param parent the parent tab where the table will be added to
+	 * @param factory resource factory to check if resources fit to the table
+	 * @param resourceProvider
+	 * @return
+	 */
+	protected Table createTableWithinTab(TabFolder parent, EvoResourceFactory factory, EvoResourceProvider resourceProvider) {
 		TabItem tabItem = new TabItem(parent, SWT.NULL);
-		tabItem.setText(text);
-		
+		tabItem.setText(factory.getLabel());
+	
 		Composite container = new Composite(parent, SWT.NO_SCROLL);
 		GridLayout  gridLayout = new GridLayout (1, false);
 		container.setLayout(gridLayout);
@@ -113,7 +126,7 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		});		
 		
 
-		createTableContent(table, resourceProvider);
+		createTableContent(table, factory, resourceProvider);
 
 		
 		tabItem.setControl(container);
@@ -131,10 +144,14 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		TabFolder tabFolder = new TabFolder(container, SWT.V_SCROLL | SWT.H_SCROLL);
 		tabFolder.setLayoutData(new GridData(GridData.FILL_BOTH));
 		for(EvoResourceFactory resource : EvoResourceFactory.values()) {
-			Table table = createTableWithinTab(tabFolder, resource.getLabel(), resource.getInstance());
+			EvoResourceProvider provider = resource.getInstance(true);
+			provider.loadResources();
+			
+			
+			Table table = createTableWithinTab(tabFolder, resource, provider);
 			resourceTables.add(table);
 			
-			registerTableSelectionListener(table, resource.getInstance());
+			registerTableSelectionListener(table, resource.getInstance(false));
 
 			tabFolder.setSize(400, 200);	
 		}
@@ -142,7 +159,11 @@ public class EvoResourceSelectionDialog extends TitleAreaDialog  {
 		return container;
 	}
 
-	
+	/**
+	 * Registers a listener to respond to cell selection of a item
+	 * @param table the table where the listener should be added
+	 * @param resourceProvider
+	 */
 	protected void registerTableSelectionListener(Table table, EvoResourceProvider resourceProvider) {
 
 		Listener resourceSelectionListener = new Listener() {

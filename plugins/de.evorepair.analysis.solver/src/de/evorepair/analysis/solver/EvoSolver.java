@@ -18,8 +18,9 @@ import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSetUti
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
+import de.evorepair.analysis.operator.EvoGuidanceMappingRepairOperator;
 import de.evorepair.analysis.provider.EvoResourceProvider;
-import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
+import de.evorepair.eclipse.util.EvoEclipseUtil;
 import de.evorepair.evolution.operation.EvoOperation;
 import de.evorepair.evolution.variable.EvoConfigurationVariable;
 import de.evorepair.evolution.variable.EvoFeatureRelation;
@@ -31,10 +32,10 @@ import de.evorepair.evolution.variable.EvoSetVariable;
 import de.evorepair.evolution.variable.EvoVariable;
 import de.evorepair.evolution.variable.EvoVariableType;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
+import de.evorepair.guidance.evoguidancecatalog.EvoConfigurationAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoGuidanceTable;
+import de.evorepair.guidance.evoguidancecatalog.EvoMappingAnomaly;
 import de.evorepair.logic.EvoAbstractQuantifierExpression;
-import de.evorepair.logic.EvoAllConfigurationsExpression;
-import de.evorepair.logic.EvoAllMappingsExpression;
 import de.evorepair.logic.EvoBiconditionalExpression;
 import de.evorepair.logic.EvoChildrenOfExpression;
 import de.evorepair.logic.EvoElementOfExpression;
@@ -73,7 +74,15 @@ import eu.hyvar.feature.expression.HyImpliesExpression;
 import eu.hyvar.feature.expression.HyNotEqualExpression;
 import eu.hyvar.feature.expression.HyNotExpression;
 import eu.hyvar.feature.expression.HyOrExpression;
+import eu.hyvar.feature.mapping.HyMapping;
+import eu.hyvar.feature.mapping.HyMappingModel;
 
+/**
+ * Solver to check expressions of anomalies. If a expression is satisfiable, all anomalies of a given guidance table are returned for further studying.
+ * 
+ * @author Gil Engel
+ *
+ */
 public class EvoSolver {
 	HyFeatureModel featureModel;
 
@@ -99,7 +108,6 @@ public class EvoSolver {
 
 	EObject linkedModel;
 
-
 	EvoResourceProvider configurationModelProvider;
 	EvoResourceProvider mappingModelProvider;
 
@@ -120,7 +128,7 @@ public class EvoSolver {
 			String key = createVariableName(operation, variable);
 			if(featureVariable == null || featureVariable.getFeature() == null)
 				System.out.println("");
-			
+
 			featureVariables.put(featureVariable.getFeature().getId(), model.intVar(key, featureVariables.size()));
 		}else if(variable instanceof EvoGroupVariable){
 			EvoGroupVariable groupVariable = (EvoGroupVariable)variable;
@@ -162,7 +170,7 @@ public class EvoSolver {
 
 	/**
 	 * Collect variables of a guidance table and adds them to the solver
-	 * @param guidanceTable
+	 * @param guidanceTable table where the 
 	 */
 	private void collectVariables(EvoGuidanceTable guidanceTable){
 		for(EvoOperation operation : guidanceTable.getTriggeringOperations()){
@@ -194,12 +202,12 @@ public class EvoSolver {
 
 	/**
 	 * Checks if a certain feature has the desired type and returns the result
-	 * @param operation
-	 * @param oldFeature
-	 * @return
+	 * @param operation represents the term that contains the feature and the type for checking
+	 * @param date defines the timestamp to be used to determine the feature type value
+	 * @return Returns true if the feature has the correct type, else otherwise
 	 */
-	public boolean determineValueOfFeatureTypeOperation(EvoFeatureTypeExpression operation, HyFeature oldFeature, Date date, Variable replacedByVariable, EvoVariable variableToBeReplaced){
-		
+	public boolean determineValueOfFeatureTypeOperation(EvoFeatureTypeExpression operation, Date date, Variable replacedByVariable, EvoVariable variableToBeReplaced){
+
 
 		for(EvoVariableExpression variable : operation.getVariables()){
 			HyFeature feature = null;
@@ -218,8 +226,6 @@ public class EvoSolver {
 					}
 				}else
 					feature = featureVariable.getFeature();
-			}else if(variable.getType() == EvoVariableType.EVO_PRE){
-				feature = oldFeature;
 			}
 
 			if(feature != null){
@@ -249,7 +255,7 @@ public class EvoSolver {
 	 * Chekcs if a certain group has the desired type and returns the result
 	 * @param operation
 	 * @param oldGroup
-	 * @return
+	 * @return Returns true if the group has the desired type, else otherwise
 	 */
 	public boolean determineValueOfGroupTypeOperation(EvoGroupTypeExpression operation, HyGroup oldGroup){
 		Date date = new Date();
@@ -291,17 +297,17 @@ public class EvoSolver {
 	}
 
 	/**
-	 * Returns the variables defined in the given abstract Expression and saved in the hashmap
-	 * @param Expression
-	 * @return
+	 * Returns the variables defined in the given abstract expression and saved in the hashmap
+	 * @param expression
+	 * @return a list of all variables defined as by the given expression
 	 */
-	private List<Variable> getVariable(HyExpression Expression, Date date, boolean bounded, Variable replacedByVariable, EvoVariable variableToBeReplaced){
+	private List<Variable> getVariables(HyExpression expression, Date date, boolean bounded, Variable replacedByVariable, EvoVariable variableToBeReplaced){
 		List<Variable> result = new ArrayList<>();
 
-		if(Expression instanceof EvoFeatureVariable){
-			EvoFeatureVariable featureVariableExpression = (EvoFeatureVariable)Expression;
+		if(expression instanceof EvoFeatureVariable){
+			EvoFeatureVariable featureVariableExpression = (EvoFeatureVariable)expression;
 
-			if(((EvoFeatureVariable)Expression).equals(variableToBeReplaced)) {
+			if(((EvoFeatureVariable)expression).equals(variableToBeReplaced)) {
 				result.add(replacedByVariable);
 				return result;
 			}else {
@@ -310,8 +316,8 @@ public class EvoSolver {
 			}
 
 
-		}else if(Expression instanceof EvoVariableExpression){
-			EvoVariableExpression variableExpression = (EvoVariableExpression)Expression;
+		}else if(expression instanceof EvoVariableExpression){
+			EvoVariableExpression variableExpression = (EvoVariableExpression)expression;
 			EvoVariable variable = variableExpression.getVariable();
 			if(variable instanceof EvoFeatureVariable) {
 				EvoFeatureVariable featureVariable = (EvoFeatureVariable)variableExpression.getVariable();
@@ -354,13 +360,10 @@ public class EvoSolver {
 						}
 
 						return result;
-						// throw an error because the variable doesn't have a relation reference and cannot be established	
-					} else {
-						// TODO error handling
 					}
 
 				}else {
-					if(((EvoVariableExpression)Expression).getVariable().equals(variableToBeReplaced)) {
+					if(((EvoVariableExpression)expression).getVariable().equals(variableToBeReplaced)) {
 						result.add(replacedByVariable);
 						return result;
 					}else {
@@ -371,8 +374,8 @@ public class EvoSolver {
 
 			}
 
-		}else if(Expression instanceof EvoGroupVariable){
-			EvoGroupVariable groupVariableExpression = (EvoGroupVariable)Expression;
+		}else if(expression instanceof EvoGroupVariable){
+			EvoGroupVariable groupVariableExpression = (EvoGroupVariable)expression;
 			result.add( groupVariables.get(groupVariableExpression.getGroup()));
 			return result;
 		}
@@ -386,14 +389,14 @@ public class EvoSolver {
 	 * Sometimes a set is not immediately visible and needs to be calculated: e.g. the intersection of two sets. 
 	 * This method derivates the solution of arbitrary (set) formulas and returns the resulting set
 	 * 
-	 * @param Expression
-	 * @param date
+	 * @param expression the expression to be solved
+	 * @param date the date when set expressions are solved
 	 * @return The derivated set
 	 */
-	private IntIterableRangeSet solveSetExpression(HyExpression Expression, Date date){
+	private IntIterableRangeSet solveSetExpression(HyExpression expression, Date date){
 
-		if(Expression instanceof EvoVariableExpression){
-			EvoVariableExpression variableExpression = (EvoVariableExpression)Expression;
+		if(expression instanceof EvoVariableExpression){
+			EvoVariableExpression variableExpression = (EvoVariableExpression)expression;
 			EvoVariable variable = variableExpression.getVariable();
 
 			if(variable instanceof EvoConfigurationVariable){
@@ -404,6 +407,9 @@ public class EvoSolver {
 				if(filename == null && linkedModel instanceof HyConfiguration) {
 					configuration = (HyConfiguration)linkedModel;
 				}else {
+					if(configurationModelProvider == null)
+						return new IntIterableRangeSet();
+
 					URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.featureModel, filename);
 					configuration = (HyConfiguration)configurationModelProvider.getResource(relativeURI);
 				}
@@ -431,8 +437,8 @@ public class EvoSolver {
 
 				return result;
 			}
-		}else if(Expression instanceof EvoSetExpression){
-			EvoSetExpression setExpression = (EvoSetExpression)Expression;
+		}else if(expression instanceof EvoSetExpression){
+			EvoSetExpression setExpression = (EvoSetExpression)expression;
 
 			IntIterableRangeSet result = new IntIterableRangeSet();
 			for(HyExpression variable : setExpression.getVariables()){
@@ -444,22 +450,22 @@ public class EvoSolver {
 			}
 
 			return result;
-		}else if(Expression instanceof EvoSetIntersectionExpression){
-			EvoSetIntersectionExpression intersectionExpression = (EvoSetIntersectionExpression)Expression;
+		}else if(expression instanceof EvoSetIntersectionExpression){
+			EvoSetIntersectionExpression intersectionExpression = (EvoSetIntersectionExpression)expression;
 
 			IntIterableRangeSet set1 = getSet(intersectionExpression.getOperand1(), date);
 			IntIterableRangeSet set2 = getSet(intersectionExpression.getOperand2(), date);
 
 			return IntIterableSetUtils.intersection(set1, set2);
-		}else if(Expression instanceof EvoSetUnionExpression){
-			EvoSetUnionExpression unionExpression = (EvoSetUnionExpression)Expression;
+		}else if(expression instanceof EvoSetUnionExpression){
+			EvoSetUnionExpression unionExpression = (EvoSetUnionExpression)expression;
 
 			IntIterableRangeSet set1 = getSet(unionExpression.getOperand1(), date);
 			IntIterableRangeSet set2 = getSet(unionExpression.getOperand2(), date);
 
 			return IntIterableSetUtils.union(set1, set2);
-		}else if(Expression instanceof EvoSetDifferenceExpression){
-			EvoSetDifferenceExpression differenceExpression = (EvoSetDifferenceExpression)Expression;
+		}else if(expression instanceof EvoSetDifferenceExpression){
+			EvoSetDifferenceExpression differenceExpression = (EvoSetDifferenceExpression)expression;
 
 			IntIterableRangeSet set1 = getSet(differenceExpression.getOperand1(), date);
 			IntIterableRangeSet set2 = getSet(differenceExpression.getOperand2(), date);
@@ -471,8 +477,8 @@ public class EvoSolver {
 			}	
 
 			return result;
-		}else if(Expression instanceof EvoSetSymmetricDifferenceExpression){
-			EvoSetSymmetricDifferenceExpression differenceExpression = (EvoSetSymmetricDifferenceExpression)Expression;
+		}else if(expression instanceof EvoSetSymmetricDifferenceExpression){
+			EvoSetSymmetricDifferenceExpression differenceExpression = (EvoSetSymmetricDifferenceExpression)expression;
 
 			IntIterableRangeSet set1 = getSet(differenceExpression.getOperand1(), date);
 			IntIterableRangeSet set2 = getSet(differenceExpression.getOperand2(), date);
@@ -489,8 +495,8 @@ public class EvoSolver {
 			}
 
 			return result;
-		}else if(Expression instanceof EvoParentOfExpression){
-			EvoParentOfExpression parentOfExpression = (EvoParentOfExpression)Expression;
+		}else if(expression instanceof EvoParentOfExpression){
+			EvoParentOfExpression parentOfExpression = (EvoParentOfExpression)expression;
 			EvoFeatureVariable variable = (EvoFeatureVariable)parentOfExpression.getVariable();
 
 			IntIterableRangeSet set = new IntIterableRangeSet();
@@ -515,8 +521,8 @@ public class EvoSolver {
 			}
 
 			return set;
-		}else if(Expression instanceof EvoChildrenOfExpression){
-			EvoChildrenOfExpression childrenOfExpression = (EvoChildrenOfExpression)Expression;
+		}else if(expression instanceof EvoChildrenOfExpression){
+			EvoChildrenOfExpression childrenOfExpression = (EvoChildrenOfExpression)expression;
 			EvoFeatureVariable variable = (EvoFeatureVariable)childrenOfExpression.getVariable();
 
 			HyGroupComposition groupComposition = HyEvolutionUtil.getValidTemporalElement(variable.getFeature().getGroupMembership(), date);
@@ -595,47 +601,11 @@ public class EvoSolver {
 	}
 
 	/**
-	 * Checks if a mapping is part of all to the feature model related mappings or not. Be aware, that no type check is done within this function.
-	 * @param expression
-	 * @return true if the mapping specified in expression is related to the feature model, false otherwise
-	 */
-	private boolean mappingIsPartOfAllMappings(EvoElementOfExpression expression) {
-		EvoMappingVariable mappingVariable = ((EvoMappingVariable)((EvoVariableExpression)expression.getOperand1()).getVariable());
-
-		URI uri = EvoEclipseUtil.platformURIForRelativeFile(featureModel, mappingVariable.getMapping());
-
-		try {
-			featureModel.eResource().getResourceSet().getResource(uri, true);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}			
-	}
-
-	/**
-	 * Checks if a configuration is part of all to the feature model related configurations or not. Be aware, that no type check is done within this function.
-	 * @param expression
-	 * @return true if the mapping specified in expression is related to the feature model, false otherwise
-	 */
-	private boolean configurationIsPartOfAllConfigurations(EvoElementOfExpression expression) {
-		EvoConfigurationVariable mappingVariable = ((EvoConfigurationVariable)((EvoVariableExpression)expression.getOperand1()).getVariable());
-
-		URI uri = EvoEclipseUtil.platformURIForRelativeFile(featureModel, mappingVariable.getConfiguration());
-
-		try {
-			featureModel.eResource().getResourceSet().getResource(uri, true);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}		
-	}
-
-	/**
-	 * walks through the formula and translates it into clauses that are added to the solver.
+	 * Walks through the formula and translates it into clauses that are added to the solver.
 	 * @param expression
 	 * @param parentExpression
 	 * @param date
-	 * @return
+	 * @return part expression that can be connected by clauses
 	 */
 	private ILogical solveExpression(HyExpression expression, HyExpression parentExpression, Date date, Variable replacedByVariable, EvoVariable boundedVariable){
 		if(expression instanceof HyAndExpression){
@@ -651,7 +621,7 @@ public class EvoSolver {
 
 			BoolVar result = model.boolVar();
 			model.addClauseTrue(result);
-			
+
 			return result;
 		}else if(expression instanceof HyOrExpression){
 			HyOrExpression orExpression = (HyOrExpression)expression;
@@ -671,7 +641,7 @@ public class EvoSolver {
 		}else if(expression instanceof HyNotExpression){
 			HyNotExpression notExpression = (HyNotExpression)expression;
 			BoolVar var1 = model.boolVar();
-			
+
 			ILogical result = solveExpression(notExpression.getOperand(), notExpression, date, replacedByVariable, boundedVariable);
 			if(!(result instanceof BoolVar))
 				LogOp.reified(var1, result);
@@ -681,7 +651,7 @@ public class EvoSolver {
 			if(!model.addClauseFalse(var1)){
 				System.err.println("Error: not clause could not be added to the model");
 			}
-			
+
 			return var1;
 		}else if(expression instanceof HyEqualExpression){
 			HyEqualExpression equalExpression = (HyEqualExpression)expression;
@@ -728,10 +698,10 @@ public class EvoSolver {
 
 		}else if(expression instanceof HyImpliesExpression){
 			HyImpliesExpression implicationExpression = (HyImpliesExpression)expression;
-			
+
 			BoolVar result = model.boolVar();
 			LogOp.reified(result, LogOp.implies(solveExpression(implicationExpression.getOperand1(), implicationExpression, date, replacedByVariable, boundedVariable), 
-								  solveExpression(implicationExpression.getOperand2(), implicationExpression, date, replacedByVariable, boundedVariable)));
+					solveExpression(implicationExpression.getOperand2(), implicationExpression, date, replacedByVariable, boundedVariable)));
 			return result;
 		}else if(expression instanceof EvoBiconditionalExpression){
 			EvoBiconditionalExpression biconditionalExpression = (EvoBiconditionalExpression)expression;
@@ -741,7 +711,7 @@ public class EvoSolver {
 		}else if(expression instanceof EvoFeatureTypeExpression){
 			EvoFeatureTypeExpression featureTypeExpression = (EvoFeatureTypeExpression)expression;
 
-			BoolVar result = model.boolVar("ft_"+(date), determineValueOfFeatureTypeOperation(featureTypeExpression, null, date, replacedByVariable, boundedVariable));
+			BoolVar result = model.boolVar("ft_"+(date), determineValueOfFeatureTypeOperation(featureTypeExpression, date, replacedByVariable, boundedVariable));
 
 			if(parentExpression == null)
 				model.addClauseTrue(result);
@@ -760,23 +730,40 @@ public class EvoSolver {
 			EvoElementOfExpression setElementOfExpression = (EvoElementOfExpression)expression;
 
 			// mapping part of all mappings
-			if(setElementOfExpression.getOperand1() instanceof EvoVariableExpression && setElementOfExpression.getOperand2() instanceof EvoAllMappingsExpression &&
-					((EvoVariableExpression)setElementOfExpression.getOperand1()).getVariable() instanceof EvoMappingVariable) {
+			if(setElementOfExpression.getOperand2() instanceof EvoVariableExpression &&	((EvoVariableExpression)setElementOfExpression.getOperand2()).getVariable() instanceof EvoMappingVariable) {
 
-				boolean isPartOfAllMappings = mappingIsPartOfAllMappings(setElementOfExpression);
+				EvoMappingVariable mappingVariable = (EvoMappingVariable)((EvoVariableExpression)setElementOfExpression.getOperand2()).getVariable();
 
-				BoolVar result = model.boolVar(isPartOfAllMappings);
+				String filename = mappingVariable.getMapping();
+				HyMappingModel mappingModel;
+				if(filename == null && linkedModel instanceof HyMappingModel) {
+					mappingModel = (HyMappingModel)linkedModel;
+				}else {
+					URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.featureModel, mappingVariable.getMapping());
+					mappingModel = (HyMappingModel)mappingModelProvider.getResource(relativeURI);										
+				}
+
+				
+				BoolVar[] vars = model.boolVarArray(mappingModel.getMappings().size());
+				boolean contains = false;
+				for(int i=0; i<vars.length; i++) {				
+					HyMapping mapping = mappingModel.getMappings().get(i);
+
+					boolean containsExpression =  EvoGuidanceMappingRepairOperator.expressionIsContainedInExpression(mapping.getExpression(), setElementOfExpression.getOperand1());
+					
+					if(containsExpression)
+						contains = true;
+					
+					vars[i] = model.boolVar(containsExpression);
+				}
+
+				BoolVar result = model.boolVar(contains);
 				model.addClauseTrue(result);
-			}else if(setElementOfExpression.getOperand1() instanceof EvoVariableExpression && setElementOfExpression.getOperand2() instanceof EvoAllConfigurationsExpression &&
-					((EvoVariableExpression)setElementOfExpression.getOperand1()).getVariable() instanceof EvoConfigurationVariable) {	
-
-				boolean isPartOfAllConfigurations = configurationIsPartOfAllConfigurations(setElementOfExpression);
-
-				BoolVar result = model.boolVar(isPartOfAllConfigurations);
-				model.addClauseTrue(result);
-			} else {
+				model.addClausesBoolOrArrayEqVar(vars, result);
+				return result;
+			}else{
 				IntIterableRangeSet set = getSet(setElementOfExpression.getOperand2(), date);
-				IntVar var = (IntVar)getVariable(setElementOfExpression.getOperand1(), date, false, replacedByVariable, boundedVariable).get(0);
+				IntVar var = (IntVar)getVariables(setElementOfExpression.getOperand1(), date, false, replacedByVariable, boundedVariable).get(0);
 				boolean value = IntIterableSetUtils.includedIn(var, set);
 
 				BoolVar variable = model.boolVar(value);
@@ -801,7 +788,7 @@ public class EvoSolver {
 		}else if(expression instanceof EvoSetNotElementOfExpression){
 			EvoSetNotElementOfExpression elementOfExpression = (EvoSetNotElementOfExpression)expression;
 
-			IntVar element = (IntVar)getVariable(elementOfExpression.getOperand1(), date, false, replacedByVariable, boundedVariable).get(0);
+			IntVar element = (IntVar)getVariables(elementOfExpression.getOperand1(), date, false, replacedByVariable, boundedVariable).get(0);
 			IntIterableRangeSet set = getSet(elementOfExpression.getOperand2(), date);
 
 			return model.boolVar(IntIterableSetUtils.notIncludedIn(element, set));
@@ -812,7 +799,7 @@ public class EvoSolver {
 
 			List<BoolVar> operationResults = new ArrayList<>();
 			for(EvoVariableExpression variableExpression : quantifierExpression.getBoundedVariables()){
-				List<Variable> resolvedVariables = getVariable(variableExpression, date, false, replacedByVariable, boundedVariable);
+				List<Variable> resolvedVariables = getVariables(variableExpression, date, false, replacedByVariable, boundedVariable);
 
 				for(Variable resolvedVariable: resolvedVariables) {
 					operationResults.add((BoolVar)solveExpression(quantifierExpression.getOperand(), quantifierExpression, date, resolvedVariable, variableExpression.getVariable()));
@@ -829,18 +816,24 @@ public class EvoSolver {
 
 			model.addClauseTrue(result);
 			return result;			
-		}
+		}else if(expression instanceof EvoVariableExpression) {
 
+		}
 		return null;
 	}
 
 	/**
-	 * Checks for all in the given guidance table defined anomalies if one occurs
-	 * @param guidanceTable
+	 * Checks if one of the anomalies as defined by the guidance table.
+	 * @param linkedModel Represents the resource that should be checked for anomalies. Valid resources are "*.hymappingmodel" and "*.hyconfiguration"
+	 * @param guidanceTable The table containing all anomalies for evaluation
+	 * @param date The timestamp of the model when the model is checked. This is needed to determine the correct values like name and types for features.
+	 * @see GuidanceTable
+	 * 
+	 * @return Returns a list with all found anomalies. In case there wheren't any anomalies found the list will be empty.
 	 */
 	public List<EvoAnomaly> solve(EObject linkedModel, EvoGuidanceTable guidanceTable, Date date){
 		long start = System.nanoTime();
-		
+
 		model = new Model("");
 
 		this.linkedModel = linkedModel;
@@ -855,19 +848,25 @@ public class EvoSolver {
 		List<EvoAnomaly> anomalies = new ArrayList<>();
 
 		for(EvoAnomaly anomaly : guidanceTable.getAnomalies()){
-			model = new Model("");
-			solveExpression(anomaly.getCondition().getTerm(), null, date, null, null);
+			// only check mapping anomalies for mapping models and configuration anomalies for configuration models
+			if((anomaly instanceof EvoMappingAnomaly && linkedModel instanceof HyMappingModel) ||
+			(anomaly instanceof EvoConfigurationAnomaly && linkedModel instanceof HyConfiguration)){
+				model = new Model("");
+				solveExpression(anomaly.getCondition().getTerm(), null, date, null, null);
 
-			Solver solver = model.getSolver();
-			solver.setSearch(Search.defaultSearch(model));
+				Solver solver = model.getSolver();
+				solver.setSearch(Search.defaultSearch(model));
 
-			// a condition for an anomaly was true so inform the user with the help of the guidance element
-			if(solver.solve()){
-				anomalies.add(anomaly);
-			}	
+				// a condition for an anomaly was true so inform the user with the help of the guidance element
+				if(solver.solve()){
+					anomalies.add(anomaly);
+				}					
+			}
 		}
-
 		
+		System.out.print(""+(System.nanoTime() - start)+',');
+
+
 		return anomalies;
 	}
 }

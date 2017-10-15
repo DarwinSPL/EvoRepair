@@ -28,8 +28,5 @@ Export-Package: de.evorepair.guidance.formatting2,
  de.evorepair.guidance.validation,
  de.evorepair.guidance.parser.antlr.internal,
  de.evorepair.guidance,
- de.evorepair.guidance.generator,
- de.evorepair.guidance.evo_guidance_dsl.util,
- de.evorepair.guidance.evo_guidance_dsl.impl,
- de.evorepair.guidance.evo_guidance_dsl
+ de.evorepair.guidance.generator
 Import-Package: org.apache.log4j

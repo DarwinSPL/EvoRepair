@@ -43,13 +43,16 @@ import eu.hyvar.feature.expression.HyValueExpression;
 import eu.hyvar.feature.mapping.HyMapping;
 import eu.hyvar.feature.mapping.HyMappingModel;
 
-public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
+public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
 
-	private boolean featureMatch(HyFeature feature1, HyFeature feature2) {
+	private static boolean featureMatch(HyFeature feature1, HyFeature feature2) {
+		if(feature1 == null || feature2 == null) {
+			System.out.println("");
+		}
 		return feature1.equals(feature2) || feature1.getId().equals(feature2.getId());
 	}
 	
-	private boolean expressionsMatch(HyExpression expression1, HyExpression expression2) {
+	private static boolean expressionsMatch(HyExpression expression1, HyExpression expression2) {
 		if(expression1 instanceof HyAndExpression && expression2  instanceof HyAndExpression) {
 			return true;
 		}else if(expression1 instanceof HyOrExpression && expression2  instanceof HyOrExpression) {
@@ -128,7 +131,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 		return false;
 	}
 	
-	private HyExpression replaceVariableReferenceExpressionWithFeatureReferenceExpression(HyExpression replacementExpression) {
+	private static HyExpression replaceVariableReferenceExpressionWithFeatureReferenceExpression(HyExpression replacementExpression) {
 		// replace the expression containing the reference to the variable with a actual feature reference like it is used in HyExpressions per default
 		if(replacementExpression instanceof EvoVariableExpression) {
 			EvoVariable variable = ((EvoVariableExpression)replacementExpression).getVariable();
@@ -139,12 +142,16 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 				
 				return correctReplacementExpression;
 			}
-		}	
+		}else if(replacementExpression instanceof HyBinaryExpression) {
+			HyBinaryExpression binaryReplacementExpression = (HyBinaryExpression)replacementExpression;
+			binaryReplacementExpression.setOperand1(replaceVariableReferenceExpressionWithFeatureReferenceExpression(binaryReplacementExpression.getOperand1()));
+			binaryReplacementExpression.setOperand2(replaceVariableReferenceExpressionWithFeatureReferenceExpression(binaryReplacementExpression.getOperand2()));
+		}
 		
 		return replacementExpression;
 	}
 	
-	private void replaceExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
+	private static void replaceExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
 		replacementExpression = replaceVariableReferenceExpressionWithFeatureReferenceExpression(replacementExpression);
 		
 		if(expression.eContainer() instanceof HyMapping) {
@@ -163,7 +170,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 		}
 	}
 	
-	private boolean expressionIsContainedInExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
+	public static boolean expressionIsContainedInExpression(HyExpression expression, HyExpression searchExpression) {
 		// subtree is not specified and therefore per definition contained within expression
 		if(searchExpression == null)
 			return true;
@@ -173,21 +180,18 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 			return false;
 		
 		if(expressionsAreIdentical(expression, searchExpression)) {
-			// replace the expression and return true
-			replaceExpression(expression, searchExpression, replacementExpression);
-			
 			return true;
 		}
 		
 		if(expression instanceof HyBinaryExpression) {
 			HyBinaryExpression binaryExpression = (HyBinaryExpression)expression;
 			
-			return expressionIsContainedInExpression(binaryExpression.getOperand1(), searchExpression, replacementExpression) ||
-				   expressionIsContainedInExpression(binaryExpression.getOperand2(), searchExpression, replacementExpression);
+			return expressionIsContainedInExpression(binaryExpression.getOperand1(), searchExpression) ||
+					expressionIsContainedInExpression(binaryExpression.getOperand2(), searchExpression);
 		}else if(expression instanceof HyUnaryExpression) {
 			HyUnaryExpression unaryExpression = (HyUnaryExpression)expression;
 		
-			return expressionIsContainedInExpression(unaryExpression.getOperand(), searchExpression, replacementExpression);
+			return expressionIsContainedInExpression(unaryExpression.getOperand(), searchExpression);
 		}else if(expression instanceof HyFeatureReferenceExpression) {
 			if(searchExpression instanceof HyFeatureReferenceExpression) {
 				return featureMatch(((HyFeatureReferenceExpression)expression).getFeature(), ((HyFeatureReferenceExpression)searchExpression).getFeature());
@@ -196,11 +200,34 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 		}else if(expression instanceof EvoVariableExpression) {
 			return false;
 		}else {
-			System.err.println("No valid expression object");
 			return false;
 		}
 	}
-	private boolean expressionsAreIdentical(HyExpression expression, HyExpression searchExpression){
+	
+	private void searchAndReplaceExpressionWithinExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
+		if(expressionsAreIdentical(expression, searchExpression)) {
+			// replace the expression and return true
+			if(replacementExpression != null) {
+				replaceExpression(expression, searchExpression, replacementExpression);
+			}
+		}
+		
+		if(expression instanceof HyBinaryExpression) {
+			HyBinaryExpression binaryExpression = (HyBinaryExpression)expression;
+			
+			searchAndReplaceExpressionWithinExpression(binaryExpression.getOperand1(), searchExpression, replacementExpression);
+			searchAndReplaceExpressionWithinExpression(binaryExpression.getOperand2(), searchExpression, replacementExpression);
+		}else if(expression instanceof HyUnaryExpression) {
+			HyUnaryExpression unaryExpression = (HyUnaryExpression)expression;
+		
+			searchAndReplaceExpressionWithinExpression(unaryExpression.getOperand(), searchExpression, replacementExpression);
+		}else if(expression instanceof HyFeatureReferenceExpression) {
+			if(searchExpression instanceof HyFeatureReferenceExpression) {
+				featureMatch(((HyFeatureReferenceExpression)expression).getFeature(), ((HyFeatureReferenceExpression)searchExpression).getFeature());
+			}
+		}
+	}
+	private static boolean expressionsAreIdentical(HyExpression expression, HyExpression searchExpression){
 		boolean match = expressionsMatch(expression, searchExpression);		
 		
 		if(expression instanceof HyBinaryExpression) {
@@ -256,10 +283,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 	
 	@Override
 	public EObject perform(EObject model, EObject linkedModel, HyExpression expression, EvoResourceProvider resourceProvider) {
-		this.model = model;
-		this.linkedModel = linkedModel;
-		
-		this.resourceProvider = resourceProvider;
+		this.model = model;		
 		
 		// do nothing in case the parameter have the wrong type
 		if(!(model instanceof HyMappingModel) || !(expression instanceof EvoMappingReplace))
@@ -269,7 +293,7 @@ public class EvoGuidanceMappingActionOperator extends EvoGuidanceRepairOperator{
 		
 		//EcoreIOUtil.copyResourceTo(model.eResource(), newFile)
 		for(HyMapping mapping : ((HyMappingModel)model).getMappings()) {
-			expressionIsContainedInExpression(mapping.getExpression(), replaceExpression.getOperand1(), replaceExpression.getOperand2());
+			searchAndReplaceExpressionWithinExpression(mapping.getExpression(), replaceExpression.getOperand1(), replaceExpression.getOperand2());
 		}
 		
 		return model;

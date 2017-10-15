@@ -24,11 +24,29 @@ Workflow {
             to = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
         }
         
+        uriMap = {
+            from = "platform:/plugin/eu.hyvar.feature/model/Feature.genmodel"
+            to = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
+        }
+        
+        uriMap = {
+            from = "platform:/plugin/eu.hyvar.evolution/model/Evolution.genmodel"
+            to = "platform:/resource/eu.hyvar.evolution/model/Evolution.genmodel"
+        }
+        
+        registerGeneratedEPackage = "eu.hyvar.feature.HyFeaturePackage"
+        registerGeneratedEPackage = "eu.hyvar.evolution.HyEvolutionPackage"
 		registerGeneratedEPackage = "eu.hyvar.feature.expression.HyExpressionPackage"
-		registerGeneratedEPackage = "de.evorepair.evolution.evooperation.EvoOperationPackage"
-		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvovariablePackage"
+		registerGeneratedEPackage = "de.evorepair.evolution.operation.EvoOperationPackage"
+		registerGeneratedEPackage = "de.evorepair.evolution.variable.EvoVariablePackage"
+		
+		registerGenModelFile = "platform:/resource/eu.hyvar.feature/model/Feature.genmodel"
+		registerGenModelFile = "platform:/resource/eu.hyvar.evolution/model/Evolution.genmodel"
+		
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+		
+		
 		
 	}
 	component = XtextGenerator {
@@ -65,6 +83,14 @@ Workflow {
 			referencedResource = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 			referencedResource = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 			referencedResource = "platform:/resource/eu.hyvar.feature.expression/model/Expression.genmodel"
+			
+			validator = {
+				generateStub = false
+			}
+			
+			emfGenerator = {
+				skipGenerate = true
+			}
 		}
 	}
 }

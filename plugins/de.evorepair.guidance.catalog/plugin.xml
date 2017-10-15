@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated EvoGuidanceCatalog -->
       <package
-            uri="http://darwinspl.de/evorepair/guidance/catalog/0.1"
+            uri="http://darwinspl.de/evorepair/guidance/catalog/0.2"
             class="de.evorepair.guidance.evoguidancecatalog.EvoGuidanceCatalogPackage"
             genModel="model/EvoGuidanceCatalog.genmodel"/>
    </extension>

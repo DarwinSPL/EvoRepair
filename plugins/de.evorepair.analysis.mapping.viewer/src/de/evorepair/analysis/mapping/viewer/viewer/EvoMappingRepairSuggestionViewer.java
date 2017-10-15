@@ -32,6 +32,7 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
@@ -42,6 +43,7 @@ import com.google.inject.Injector;
 
 import de.christophseidl.util.ecore.EcoreIOUtil;
 import de.evorepair.analysis.viewer.viewer.EvoConfigurationRepairSuggestionViewer;
+import de.evorepair.eclipse.util.EvoEclipseUtil;
 import de.evorepair.feature.mapping.dsl.ui.internal.DslActivator;
 import eu.hyvar.feature.mapping.HyMappingModel;
 import eu.hyvar.feature.mapping.util.HyMappingModelUtil;
@@ -208,7 +210,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		defectMappingEditor.getViewer().getTextWidget().setFont(defaultFont);
 		defectMappingModel = defectMappingEditor.createPartialEditor("", getFileContent(mappingResource), "", false);
 
-		suggestionEditor = factory.newEditor(provider).readOnly().withParent(secondEditorComposite);	
+		suggestionEditor = factory.newEditor(provider).readOnly().showLineNumbers().withParent(secondEditorComposite);	
 		suggestionEditor.getViewer().getTextWidget().setFont(defaultFont);
 		suggestionModel = suggestionEditor.createPartialEditor("", "", "", false);
 
@@ -371,4 +373,13 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 			}
 		}		
 	}
+	
+	@Override
+	public void dispose() {
+		IFile file = ((FileEditorInput)getEditorInput()).getFile();
+
+		EvoEclipseUtil.removeSolutionFoldersRecursiveFromFile(file);
+
+		super.dispose();
+	}	
 }

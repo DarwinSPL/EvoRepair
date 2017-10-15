@@ -5,6 +5,8 @@ Bundle-SymbolicName: de.evorepair.xtext.util.hyfeature
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.xtext,
- eu.hyvar.feature;bundle-version="1.0.0"
+ eu.hyvar.feature;bundle-version="1.0.0",
+ org.eclipse.swt,
+ org.eclipse.ui.workbench
 Export-Package: de.evorepair.xtext.util.hyfeature
 Import-Package: org.apache.log4j;version="1.2.15"

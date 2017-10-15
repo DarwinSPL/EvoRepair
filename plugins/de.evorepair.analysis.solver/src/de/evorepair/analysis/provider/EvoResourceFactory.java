@@ -3,11 +3,7 @@ package de.evorepair.analysis.provider;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IFileEditorInput;
 
-import de.evorepair.analysis.solver.eclipse.EvoEclipseUtil;
 import eu.hyvar.feature.configuration.util.HyConfigurationUtil;
 import eu.hyvar.feature.mapping.util.HyMappingModelUtil;
 
@@ -17,10 +13,14 @@ public enum EvoResourceFactory {
 		public String getLabel() {
 			return "Configuration";
 		}
+		
+		public String getExtension() {
+			return HyConfigurationUtil.getConfigurationModelFileExtensionForXmi();
+		}
 
 		@Override
-		public synchronized EvoResourceProvider getInstance() {						
-			return getResourceProvider(CONFIGURATION, HyConfigurationUtil.getConfigurationModelFileExtensionForXmi());
+		public synchronized EvoResourceProvider getInstance(boolean reload) {						
+			return getResourceProvider(CONFIGURATION, getExtension(), reload);
 		}	
 	},		
 
@@ -28,10 +28,15 @@ public enum EvoResourceFactory {
 		public String getLabel() {
 			return "Mapping";
 		}
+		
+		public String getExtension() {
+			return HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax();
+		}
+
 
 		@Override
-		public synchronized EvoResourceProvider getInstance() {
-			return getResourceProvider(MAPPING, HyMappingModelUtil.getMappingModelFileExtensionForConcreteSyntax());
+		public synchronized EvoResourceProvider getInstance(boolean reload) {
+			return getResourceProvider(MAPPING, getExtension(), reload);
 		}
 	},
 
@@ -39,10 +44,14 @@ public enum EvoResourceFactory {
 		public String getLabel() {
 			return "Guidance";
 		}
+		
+		public String getExtension() {
+			return "evoguidance";
+		}
 
 		@Override
-		public synchronized EvoResourceProvider getInstance() {
-			return getResourceProvider(GUIDANCE, "evoguidance");
+		public synchronized EvoResourceProvider getInstance(boolean reload) {
+			return getResourceProvider(GUIDANCE,  getExtension(), reload);
 		}
 	},
 
@@ -50,10 +59,14 @@ public enum EvoResourceFactory {
 		public String getLabel() {
 			return "Operation";
 		}
+		
+		public String getExtension() {
+			return "evooperation";
+		}
 
 		@Override
-		public synchronized EvoResourceProvider getInstance() {
-			return getResourceProvider(OPERATION, "evooperation");
+		public synchronized EvoResourceProvider getInstance(boolean reload) {
+			return getResourceProvider(OPERATION, getExtension(), reload);
 		}
 	};	
 
@@ -61,10 +74,11 @@ public enum EvoResourceFactory {
 
 	private static final Map<EvoResourceFactory, EvoResourceProvider> instances = new HashMap<EvoResourceFactory, EvoResourceProvider>();
 
-	public abstract EvoResourceProvider getInstance();
+	public abstract EvoResourceProvider getInstance(boolean reload);
 	public abstract String getLabel();
+	public abstract String getExtension();
 
-	private static EvoResourceProvider getResourceProvider(EvoResourceFactory resource, String fileExtension) {
+	private static EvoResourceProvider getResourceProvider(EvoResourceFactory resource, String fileExtension, boolean reload) {
 		EvoResourceProvider resourceProvider;
 
 		resourceProvider = instances.get(resource);
@@ -74,17 +88,12 @@ public enum EvoResourceFactory {
 			resourceProvider.loadResources();
 
 			instances.put(resource, resourceProvider);
-		}	
+		}else if(reload) {
+			resourceProvider.loadResources();
+		}
 
-
+		
 		return resourceProvider;
 	}
 
-	public EvoResourceProvider concatenate(EvoResourceFactory other) {
-		EvoResourceProvider result = new EvoResourceProvider(null);
-		result.getResources().putAll(getInstance().getResources());
-		result.getResources().putAll(other.getInstance().getResources());
-
-		return result;
-	}	
 }

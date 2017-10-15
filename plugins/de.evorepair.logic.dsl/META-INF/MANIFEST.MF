@@ -16,7 +16,9 @@ Require-Bundle: de.evorepair.evolution.operation;bundle-version="1.0.0",
  org.eclipse.xtend.lib,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
- de.evorepair.evolution.variable.dsl;bundle-version="1.0.0"
+ de.evorepair.evolution.variable.dsl;bundle-version="1.0.0",
+ eu.hyvar.evolution;bundle-version="1.0.0",
+ eu.hyvar.feature;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.evorepair.logic,
  de.evorepair.logic.generator,
@@ -25,8 +27,5 @@ Export-Package: de.evorepair.logic,
  de.evorepair.logic.scoping,
  de.evorepair.logic.serializer,
  de.evorepair.logic.services,
- de.evorepair.logic.validation,
- de.evorepair.logic.evo_logic_dsl.impl,
- de.evorepair.logic.evo_logic_dsl,
- de.evorepair.logic.evo_logic_dsl.util
+ de.evorepair.logic.validation
 Import-Package: org.apache.log4j

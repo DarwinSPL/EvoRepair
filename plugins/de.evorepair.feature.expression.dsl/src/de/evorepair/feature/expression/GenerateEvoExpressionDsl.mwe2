@@ -43,17 +43,20 @@ Workflow {
 			name = "de.evorepair.feature.expression.EvoExpressionDsl"
 			fileExtensions = "evoexpression"
 		
-			referencedResource = "platform:/resource/de.evorepair.logic.dsl/model/generated/EvoLogicDsl.genmodel"
+			referencedResource = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 			
 
 			fragment = ui.projectWizard.SimpleProjectWizardFragment2{
 				generate = true
 			}
 			
-
 			serializer = {
 				generateStub = false
-			}				
+			}		
+			
+			emfGenerator = {
+				skipGenerate = true
+			}		
 		}
 	}
 }

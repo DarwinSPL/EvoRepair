@@ -31,9 +31,6 @@ Workflow {
         registerGeneratedEPackage = "de.evorepair.feature.mapping.repair.evomappingrepair.EvoMappingRepairPackage"
         
         registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
-        registerGenModelFile = "platform:/resource/de.evorepair.logic.dsl/model/generated/EvoLogicDsl.genmodel"
-        registerGenModelFile = "platform:/resource/de.evorepair.feature.expression.dsl/model/generated/EvoExpressionDsl.genmodel"
-        registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair.dsl/model/generated/EvoMappingRepairDsl.genmodel"
 	}	
 
 
@@ -67,6 +64,10 @@ Workflow {
 			
 			serializer = {
 				generateStub = false
+			}
+			
+			emfGenerator = {
+				skipGenerate = true
 			}
 		}
 	}

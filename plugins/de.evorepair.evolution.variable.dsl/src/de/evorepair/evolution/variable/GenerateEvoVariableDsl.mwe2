@@ -23,7 +23,7 @@ Workflow {
             to = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
         }
         
-		registerGeneratedEPackage = "de.evorepair.evolution.evovariable.EvovariablePackage"
+		registerGeneratedEPackage = "de.evorepair.evolution.variable.EvoVariablePackage"
 		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
 		
 		registerGeneratedEPackage = "eu.hyvar.feature.HyFeaturePackage"		
@@ -73,6 +73,10 @@ Workflow {
 			
 			validator = {
 				generateStub = false
+			}
+			
+			emfGenerator = {
+				skipGenerate = true
 			}
 		}
 	}

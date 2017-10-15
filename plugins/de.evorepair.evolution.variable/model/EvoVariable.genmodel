@@ -7,12 +7,12 @@
     complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../eu.hyvar.feature.data/model/DataValues.genmodel#//dataValues ../../eu.hyvar.evolution/model/Evolution.genmodel#//evolution ../../eu.hyvar.feature/model/Feature.genmodel#//feature"
     operationReflection="true" importOrganizing="true">
   <foreignModel>EvoVariable.ecore</foreignModel>
-  <genPackages prefix="Evovariable" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
+  <genPackages prefix="EvoVariable" basePackage="de.evorepair.evolution" disposableProviderFactory="true"
       ecorePackage="EvoVariable.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoVariable.ecore#//EvoVariableType">
-      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoIdentifier"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoSource"/>
-      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoTarget"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoNotSpecified"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoPre"/>
+      <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoVariableType/EvoPost"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EvoVariable.ecore#//EvoFeatureVariableType">
       <genEnumLiterals ecoreEnumLiteral="EvoVariable.ecore#//EvoFeatureVariableType/EvoParent"/>

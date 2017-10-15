@@ -2,12 +2,6 @@ grammar de.evorepair.feature.mapping.repair.dsl.EvoMappingRepairDsl with de.evor
 
 import "http://hyvar-project.eu/feature/expression/1.0" as dw_expression
 import "http://darwinspl.de/evorepair/mapping/repair/0.1" as evo_mappingrepair
-generate mappingRepairDsl "http://www.evorepair.de/feature/mapping/repair/dsl/MappingRepairDsl"
-
-
-MappingRepairGrammarEntry :
-	action=EvoMappingRepairExpression;
-
 
 EvoMappingRepairExpression returns dw_expression::HyExpression:
 	EvoMappingKeep | EvoMappingReplace;

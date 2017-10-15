@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="evovariable" nsURI="http://darwinspl.de/evorepair/variable/0.2"
-    nsPrefix="evovariable">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="variable" nsURI="http://darwinspl.de/evorepair/variable/0.3"
+    nsPrefix="variable">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
     <details key="feature_0" value="../../eu.hyvar.feature/model/Feature.ecore#/"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EEnum" name="EvoVariableType">
-    <eLiterals name="EvoIdentifier"/>
-    <eLiterals name="EvoSource" value="1"/>
-    <eLiterals name="EvoTarget" value="2"/>
+    <eLiterals name="EvoNotSpecified"/>
+    <eLiterals name="EvoPre" value="1"/>
+    <eLiterals name="EvoPost" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvoVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
