@@ -771,9 +771,6 @@ public class EvoSolver {
 				if(parentExpression == null)
 					model.addClauseTrue(variable);
 
-				//if(parentExpression instanceof HyNotExpression)
-				//	model.addClauseFalse(variable);
-
 				return variable;	
 			}
 		}else if(expression instanceof EvoSetInclusionExpression){

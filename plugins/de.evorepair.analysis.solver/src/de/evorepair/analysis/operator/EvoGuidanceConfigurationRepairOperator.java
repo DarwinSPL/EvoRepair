@@ -42,18 +42,25 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 			EvoVariableExpression variableExpression = (EvoVariableExpression)expression;
 			EvoVariable variable = variableExpression.getVariable();
 
+			// resolve configuration variable reference
 			if(variableExpression.getVariable() instanceof EvoConfigurationVariable){
 
 				HashMap<String, HyFeature> result = new HashMap<>();	
 				
 				HyConfiguration configuration;
 				String filename = ((EvoConfigurationVariable) variable).getConfiguration();
+				
+				// no configuration was specified by the variable, use the linked configuration instead
 				if(filename == null) {
 					configuration = (HyConfiguration)linkedModel;
+					
+				// load the configuration as specified by the relative path from the variable
 				}else {
 					URI relativeURI = EvoEclipseUtil.platformURIForRelativeFile(this.model, filename);
 					configuration = (HyConfiguration)resourceProvider.getResource(relativeURI);
 				}
+				
+				// show an error in case the reference could not be solved
 				if(configuration == null) { 
 					System.err.println("Configuration not specified");
 					return new HashMap<String, HyFeature>();
@@ -76,6 +83,7 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 				return result;
 			}
 
+		// create a set and returns it
 		}else if(expression instanceof EvoSetExpression){
 			EvoSetExpression setExpression = (EvoSetExpression)expression;
 
@@ -91,6 +99,8 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 			}
 
 			return result;
+			
+		// create the intersection of two sets and return it		
 		}else if(expression instanceof EvoSetIntersectionExpression){
 			EvoSetIntersectionExpression intersectionExpression = (EvoSetIntersectionExpression)expression;
 
@@ -106,6 +116,8 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 			}
 
 			return result;
+			
+		// create the union of two sets and return it
 		}else if(expression instanceof EvoSetUnionExpression){
 			EvoSetUnionExpression unionExpression = (EvoSetUnionExpression)expression;
 
@@ -123,6 +135,8 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 			}
 			
 			return result;
+			
+		// create the difference of two sets and return it	
 		}else if(expression instanceof EvoSetDifferenceExpression){
 			EvoSetDifferenceExpression differenceExpression = (EvoSetDifferenceExpression)expression;
 
@@ -136,6 +150,8 @@ public class EvoGuidanceConfigurationRepairOperator extends EvoGuidanceRepairOpe
 			}
 
 			return result;
+			
+		// create the symmetric difference of two sets and return it	
 		}else if(expression instanceof EvoSetSymmetricDifferenceExpression){
 			EvoSetIntersectionExpression symmetricExpression = (EvoSetIntersectionExpression)expression;
 

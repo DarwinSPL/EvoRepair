@@ -22,6 +22,12 @@ import de.evorepair.guidance.evoguidancecatalog.EvoAnomaly;
 import de.evorepair.guidance.evoguidancecatalog.EvoAnomalyType;
 import de.evorepair.guidance.evoguidancecatalog.EvoConfigurationAnomaly;
 
+/**
+ * Dialog to show a list of found anomalies. The user can use this dialog to specify which anomalies should be displayed.
+ * 
+ * @author Gil Engel
+ *
+ */
 public class EvoAnomalyViewerSelectionDialog extends EvoResourceSelectionDialog  {
 
 	Map<EObject, List<EvoAnomaly>> anomalies;
@@ -104,7 +110,6 @@ public class EvoAnomalyViewerSelectionDialog extends EvoResourceSelectionDialog 
 				}
 			}
 		}
-
 
 		for (int loopIndex = 0; loopIndex < titles.length; loopIndex++) {
 			table.getColumn(loopIndex).pack();

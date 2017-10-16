@@ -33,7 +33,15 @@ import de.evorepair.eclipse.util.EvoEclipseUtil;
 import eu.hyvar.feature.configuration.HyConfiguration;
 import eu.hyvar.feature.configuration.util.HyConfigurationUtil;
 
+/**
+ * Viewer to show alternative repair solutions for configurations.
+ * @author Gil Engel
+ *
+ */
 public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfiguratorViewer{
+	/**
+	 * Specifies the solution folder where alternative repair solutions are saved
+	 */
 	public static final String SUGGESTIONS_FOLDER = ".solutions";
 
 	/**
@@ -58,10 +66,17 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 	 */
 	Button applyButton;
 
+	/**
+	 * Returns the original, unmodified configuration
+	 */
 	public HyConfiguration getConfiguration() {
 		return configuration;
 	}
 
+	/**
+	 * Sets the original configuration
+	 * @param configuration the configuration to be set
+	 */
 	public void setConfiguration(HyConfiguration configuration) {
 		this.configuration = configuration;
 	}
@@ -93,8 +108,8 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 	 * Creates the right panel that displays a list with all possible solutions and a button 
 	 * to apply a particular suggestion
 	 * 
-	 * @param parent
-	 * @return
+	 * @param parent the composite widget where the panel will be added to
+	 * @return the component that contains the suggestion list and additional buttons
 	 */
 	private Composite createConfigurationPanel(Composite parent) {
 		SashForm splitEditorComposite = new SashForm(parent, SWT.VERTICAL);
@@ -133,15 +148,12 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 		return splitEditorComposite;
 	}
 
-
+	/**
+	 * Gets a list of all files within the specific solution folder for this anomaly
+	 * @return a list of all configurations as alternative repair suggestions
+	 */
 	private IResource[] getFilesFromSolutionFolder() {
 		IFile resource = ((IFileEditorInput)getEditorInput()).getFile();
-		StringBuilder builder = new StringBuilder();
-
-
-		builder.append(EvoConfigurationRepairSuggestionViewer.SUGGESTIONS_FOLDER);
-		builder.append("/.");
-		builder.append(resource.getName().replace('.'+resource.getFileExtension(), ""));
 
 		IFolder folder = (IFolder)resource.getParent();
 		IResource[] files;
@@ -174,6 +186,11 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 		}	
 	}
 
+	/**
+	 * Loads a description file and returns its content
+	 * @param file the description file that should be loaded and read
+	 * @return the content as string. If the file couldn't be read, it will return an empty string
+	 */
 	private String getDescriptionFileContent(IFile file) {
 		try {
 
@@ -267,6 +284,11 @@ public class EvoConfigurationRepairSuggestionViewer extends DwFeatureModelConfig
 		EcoreIOUtil.saveModel(this.configuration);
 	}
 
+	/**
+	 * Deletes all alternative repair suggestions after the viewer was closed.
+	 * 
+	 * @see org.eclipse.ui.IWorkbenchPart#dispose()
+	 */
 	@Override
 	public void dispose() {
 		IFile file = ((FileEditorInput)getEditorInput()).getFile();

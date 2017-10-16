@@ -23,6 +23,11 @@ import org.eclipse.swt.widgets.TableItem;
 import de.evorepair.analysis.provider.EvoResourceFactory;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 
+/**
+ * Dialog that shows lists for resources that can be selected. To register resources take a look at {@see de.evorepair.analysis.provider.EvoResourceProvider}
+ * @author Gil Engel
+ *
+ */
 public class EvoResourceSelectionDialog extends EvoResourceDialog  {
 
 	public EvoResourceSelectionDialog(Shell parentShell) {

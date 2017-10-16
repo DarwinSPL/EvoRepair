@@ -5,6 +5,13 @@ import org.eclipse.emf.ecore.EObject;
 import de.evorepair.analysis.provider.EvoResourceProvider;
 import eu.hyvar.feature.expression.HyExpression;
 
+/**
+ * Abstract representation for a repair operation. Use this class to implement your repair operator for a custom resource.
+ * To do this, just overwrite the function perform.
+ * 
+ * @author Gil Engel
+ *
+ */
 public abstract class EvoGuidanceRepairOperator {
 	protected EvoResourceProvider resourceProvider;
 	

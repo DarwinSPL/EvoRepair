@@ -44,14 +44,22 @@ import eu.hyvar.feature.mapping.HyMapping;
 import eu.hyvar.feature.mapping.HyMappingModel;
 
 public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
-
+	/**
+	 * Checks if two features are the same (same id).
+	 * @param feature1
+	 * @param feature2
+	 * @return true if both features are the same or have the same id
+	 */
 	private static boolean featureMatch(HyFeature feature1, HyFeature feature2) {
-		if(feature1 == null || feature2 == null) {
-			System.out.println("");
-		}
 		return feature1.equals(feature2) || feature1.getId().equals(feature2.getId());
 	}
 	
+	/**
+	 * Check if two expressions match. Checks only if the types of the expressions match not the content.
+	 * @param expression1
+	 * @param expression2
+	 * @return true if both expressions match
+	 */
 	private static boolean expressionsMatch(HyExpression expression1, HyExpression expression2) {
 		if(expression1 instanceof HyAndExpression && expression2  instanceof HyAndExpression) {
 			return true;
@@ -131,6 +139,12 @@ public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
 		return false;
 	}
 	
+	/**
+	 * Replace the reference of a variable with another
+	 * 
+	 * @param replacementExpression
+	 * @return the modified reference with the new variable reference
+	 */
 	private static HyExpression replaceVariableReferenceExpressionWithFeatureReferenceExpression(HyExpression replacementExpression) {
 		// replace the expression containing the reference to the variable with a actual feature reference like it is used in HyExpressions per default
 		if(replacementExpression instanceof EvoVariableExpression) {
@@ -151,6 +165,12 @@ public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
 		return replacementExpression;
 	}
 	
+	/**
+	 * Replaces an expression by another
+	 * @param expression the original expression that is will be searched for
+	 * @param searchExpression the expression that should be replaced
+	 * @param replacementExpression the expression that will replace the searchExpression
+	 */
 	private static void replaceExpression(HyExpression expression, HyExpression searchExpression, HyExpression replacementExpression) {
 		replacementExpression = replaceVariableReferenceExpressionWithFeatureReferenceExpression(replacementExpression);
 		
@@ -170,6 +190,12 @@ public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
 		}
 	}
 	
+	/**
+	 * Checks if an expression is contained within another expression or if both expressions are equal
+	 * @param expression
+	 * @param searchExpression
+	 * @return true if contained within another expression or if both expressions are equal
+	 */
 	public static boolean expressionIsContainedInExpression(HyExpression expression, HyExpression searchExpression) {
 		// subtree is not specified and therefore per definition contained within expression
 		if(searchExpression == null)
@@ -227,6 +253,7 @@ public class EvoGuidanceMappingRepairOperator extends EvoGuidanceRepairOperator{
 			}
 		}
 	}
+	
 	private static boolean expressionsAreIdentical(HyExpression expression, HyExpression searchExpression){
 		boolean match = expressionsMatch(expression, searchExpression);		
 		

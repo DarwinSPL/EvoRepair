@@ -48,6 +48,11 @@ import de.evorepair.feature.mapping.dsl.ui.internal.DslActivator;
 import eu.hyvar.feature.mapping.HyMappingModel;
 import eu.hyvar.feature.mapping.util.HyMappingModelUtil;
 
+/**
+ * Viewer to show alternative repair solutions for mappings.
+ * @author Gil Engel
+ *
+ */
 @SuppressWarnings("restriction")
 public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	/**
@@ -55,6 +60,9 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	 */
 	private HyMappingModel mappingModel;
 
+	/**
+	 * the currently selected mapping model
+	 */
 	protected HyMappingModel selectedMappingModel;
 
 	XtextResource mappingResource;
@@ -63,7 +71,6 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	 * the widget that shows all possible suggestions
 	 */
 	List suggestionList;	
-
 
 	/**
 	 * Contains all possible solutions for an anomaly that can be found in the solution folder
@@ -84,7 +91,10 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	EmbeddedEditor defectMappingEditor;
 	
 	
-
+	/**
+	 * Specify the mapping model that should be displayed in one of the editors.
+	 * @param mappingModel the original, unmodified mapping model
+	 */
 	public void setMappingModel(HyMappingModel mappingModel) {
 		this.mappingModel = mappingModel;
 		
@@ -101,13 +111,10 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	}
 
 	@Override
-	public void doSave(IProgressMonitor monitor) {
-	}
+	public void doSave(IProgressMonitor monitor) {}
 
 	@Override
-	public void doSaveAs() {
-
-	}
+	public void doSaveAs() {}
 
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
@@ -125,6 +132,11 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		return false;
 	}
 
+	/**
+	 * Loads and reads a xtext resource and returns its content as string
+	 * @param resource the xtext resource
+	 * @return the content as string. In case there was an error the message "Error With Mapping File" will be returned.
+	 */
 	private String getFileContent(XtextResource resource) {
 		ByteArrayOutputStream fileContent = new ByteArrayOutputStream();
 		try {
@@ -136,6 +148,11 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		}
 	}
 
+	/**
+	 * Loads a description file and returns its content
+	 * @param file the description file that should be loaded and read
+	 * @return the content as string. If the file couldn't be read, it will return an empty string
+	 */
 	private String getDescriptionFileContent(IFile file) {
 		try {
 
@@ -184,6 +201,11 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		registerControlListeners();
 	}	
 
+	/**
+	 * Creates the editor panel that shows the two different editors
+	 * @param parent where the editor panel will be added
+	 * @param fillLayout the layout that will be used to add the editors
+	 */
 	private void createEditorPanel(SashForm parent, FillLayout fillLayout) {
 		Composite firstEditorComposite = new Composite(parent, SWT.NONE);
 		firstEditorComposite.setLayout(fillLayout);
@@ -221,7 +243,13 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 	}
 
-
+	/**
+	 * Creates the right panel that displays a list with all possible solutions and a button 
+	 * to apply a particular suggestion
+	 * 
+	 * @param parent the composite widget where the panel will be added to
+	 * @return the component that contains the suggestion list and additional buttons
+	 */
 	private Composite createMappingPanel(Composite parent, FillLayout fillLayout) {
 		SashForm splitEditorComposite = new SashForm(parent, SWT.VERTICAL);
 		suggestionList = new List(splitEditorComposite, SWT.BORDER | SWT.V_SCROLL);
@@ -255,8 +283,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 
 
 	@Override
-	public void setFocus() {
-	}
+	public void setFocus() {}
 
 	/**
 	 * Register different listeners to react on user input
@@ -319,6 +346,10 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 		});
 	}
 
+	/**
+	 * Gets a list of all files within the specific solution folder for this anomaly
+	 * @return a list of all configurations as alternative repair suggestions
+	 */	
 	private IResource[] getFilesFromSolutionFolder() {
 		IFile resource = ((IFileEditorInput)getEditorInput()).getFile();
 		StringBuilder builder = new StringBuilder();
@@ -362,7 +393,7 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 	/**
 	 * applies a solution and replace the original configuration file
 	 * 
-	 * @param configuration
+	 * @param mappingModel the mapping that will be applied
 	 */
 	private void applySuggestion(HyMappingModel mappingModel) {
 		this.mappingModel.getMappings().clear();
@@ -380,7 +411,12 @@ public class EvoMappingRepairSuggestionViewer extends EditorPart{
 			}
 		}		
 	}
-	
+
+	/**
+	 * Deletes all alternative repair suggestions after the viewer was closed.
+	 * 
+	 * @see org.eclipse.ui.IWorkbenchPart#dispose()
+	 */
 	@Override
 	public void dispose() {
 		IFile file = ((FileEditorInput)getEditorInput()).getFile();
