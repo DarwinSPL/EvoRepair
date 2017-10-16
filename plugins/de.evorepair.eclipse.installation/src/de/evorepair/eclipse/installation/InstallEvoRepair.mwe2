@@ -25,19 +25,19 @@ Workflow {
 	
 	component = DirectoryCleaner {
 		// clean directories of all models
-		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen"
-		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen"
-		directory = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
-		directory = "platform:/resource/de.evorepair.logic/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen/de"
+		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen/de"
+		directory = "platform:/resource/de.evorepair.guidance.catalog/src-gen/de"
+		directory = "platform:/resource/de.evorepair.logic/src-gen/de"
 		
 		// clean directories of all dsls
-		directory = "platform:/resource/de.evorepair.evolution.operation.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.evolution.variable.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.expression.dsl/src-gen"
-		//directory = "platform:/resource/de.evorepair.feature.mapping.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.feature.mapping.repair.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.guidance.dsl/src-gen"
-		directory = "platform:/resource/de.evorepair.logic.dsl/src-gen"
+		directory = "platform:/resource/de.evorepair.evolution.operation.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.evolution.variable.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.expression.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.feature.mapping.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.feature.mapping.repair.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.guidance.dsl/src-gen/de"
+		directory = "platform:/resource/de.evorepair.logic.dsl/src-gen/de"
 	}
 	
 
@@ -75,7 +75,6 @@ Workflow {
 		genModel = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
 		srcPath = "platform:/resource/de.evorepair.logic/src-gen"
 	}
-
 	
 	// Generate DSLs
 	component = @de.evorepair.logic.GenerateEvoLogicDsl {}
@@ -84,6 +83,5 @@ Workflow {
 	component = @de.evorepair.feature.expression.GenerateEvoExpressionDsl {}
 	component = @de.evorepair.feature.mapping.GenerateDwMappingDsl {}
 	component = @de.evorepair.feature.mapping.repair.dsl.GenerateEvoMappingRepairDsl {}
-	component = @de.evorepair.guidance.GenerateEvoGuidanceDsl {}
-	
+	component = @de.evorepair.guidance.GenerateEvoGuidanceDsl {}	
 }

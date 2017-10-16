@@ -54,6 +54,10 @@ Workflow {
 				generateStub = false
 			}		
 			
+			validator = {
+				generateStub = false
+			}
+			
 			emfGenerator = {
 				skipGenerate = true
 			}		

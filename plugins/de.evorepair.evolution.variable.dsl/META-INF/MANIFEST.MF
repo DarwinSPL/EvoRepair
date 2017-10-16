@@ -23,7 +23,6 @@ Export-Package: de.evorepair.evolution.variable.services,
  de.evorepair.evolution.variable.validation,
  de.evorepair.evolution.variable.scoping,
  de.evorepair.evolution.variable.parser.antlr.internal,
- de.evorepair.evolution.variable.formatting2,
  de.evorepair.evolution.variable.serializer,
  de.evorepair.evolution.variable.generator,
  de.evorepair.evolution.variable

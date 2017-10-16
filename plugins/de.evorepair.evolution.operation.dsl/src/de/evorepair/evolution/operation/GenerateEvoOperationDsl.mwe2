@@ -43,8 +43,12 @@ Workflow {
 				generateStub = false
 			}
 			
-			validator = {
+			formatter = {
 				generateStub = false
+			}			
+			
+			validator = {
+				generateStub = true
 			}
 			
 			emfGenerator = {

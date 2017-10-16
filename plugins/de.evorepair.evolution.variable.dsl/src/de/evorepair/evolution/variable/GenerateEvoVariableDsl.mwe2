@@ -72,7 +72,7 @@ Workflow {
 			}
 			
 			validator = {
-				generateStub = false
+				generateStub = true
 			}
 			
 			emfGenerator = {
