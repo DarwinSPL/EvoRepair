@@ -309,10 +309,12 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 
 				for(EvoGuidanceTable table : guidanceModel.getTables()) {
 					List<EvoAnomaly> foundAnomalies = solver.solve(model, table, featureModelWrapped.getSelectedDate());
-					if(!foundAnomalies.isEmpty())
+					if(!foundAnomalies.isEmpty()) {
 						anomalies.put(model, foundAnomalies);
-					else
+					}else if(foundAnomalies.size() == 0){
+						System.out.println(foundAnomalies.size());
 						resourcesWithoutAnomalies.put(model.eResource().getURI(), model);
+					}
 				}
 			}
 
@@ -375,13 +377,16 @@ public class EvoToolbarButtonHandler extends AbstractHandler {
 					}		
 				}
 			}
-			
-			EvoResourceProvider provider = new EvoResourceProvider("");
-			provider.setResources(resourcesWithoutAnomalies);
+
+		}
+		
+		EvoResourceProvider provider = new EvoResourceProvider("");
+		provider.setResources(resourcesWithoutAnomalies);
+		if(!provider.getResources().isEmpty()) {
 			EvoResourceDialog successDialog = new EvoResourceDialog(shell, provider);
 			successDialog.open();
 		}
-
+		
 		return null;
 	}
 	

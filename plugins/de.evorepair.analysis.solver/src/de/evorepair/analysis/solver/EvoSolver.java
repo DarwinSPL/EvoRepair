@@ -829,8 +829,6 @@ public class EvoSolver {
 	 * @return Returns a list with all found anomalies. In case there wheren't any anomalies found the list will be empty.
 	 */
 	public List<EvoAnomaly> solve(EObject linkedModel, EvoGuidanceTable guidanceTable, Date date){
-		long start = System.nanoTime();
-
 		model = new Model("");
 
 		this.linkedModel = linkedModel;
@@ -859,10 +857,7 @@ public class EvoSolver {
 					anomalies.add(anomaly);
 				}					
 			}
-		}
-		
-		System.out.print(""+(System.nanoTime() - start)+',');
-
+		}		
 
 		return anomalies;
 	}
