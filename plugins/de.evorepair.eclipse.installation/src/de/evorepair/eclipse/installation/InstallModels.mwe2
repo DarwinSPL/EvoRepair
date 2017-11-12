@@ -1,0 +1,69 @@
+module de.evorepair.eclipse.installation.EvoInstallScript
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe2.ecore.EcoreGenerator
+import org.eclipse.emf.mwe.utils.*
+
+/**
+ * Install EvoRepair by running this workflow. It creates all necessary models and generates the corresponding
+ * languages. To run this workflow, select "Run As" -> "MWE2 Workflow". Be aware that you must install Xtext(>2.12) first.
+ */
+Workflow {	
+	bean = StandaloneSetup {
+		platformUri = ".."
+		
+		scanClassPath = true
+		
+		registerGenModelFile = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
+		registerGenModelFile = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
+	}
+	
+	
+	component = DirectoryCleaner {
+		// clean directories of all models
+		directory = "platform:/resource/de.evorepair.evolution.operation/src-gen/de"
+		directory = "platform:/resource/de.evorepair.evolution.variable/src-gen/de"
+		directory = "platform:/resource/de.evorepair.guidance.catalog/src-gen/de"
+		directory = "platform:/resource/de.evorepair.logic/src-gen/de"
+	}
+	
+
+ 
+	// Generate Operation Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.evolution.operation/model/EvoOperation.genmodel"
+		srcPath = "platform:/resource/de.evorepair.evolution.operation/src-gen"
+	}
+	
+	
+	// Generate Variable Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.evolution.variable/model/EvoVariable.genmodel"
+		srcPath = "platform:/resource/de.evorepair.evolution.variable/src-gen"
+	}
+	
+	
+	// Generate Guidance Catalog Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.guidance.catalog/model/EvoGuidanceCatalog.genmodel"
+		srcPath = "platform:/resource/de.evorepair.guidance.catalog/src-gen"
+	}
+	
+	
+	// Generate Mapping Repair Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.feature.mapping.repair/model/EvoMappingRepair.genmodel"
+		srcPath = "platform:/resource/de.evorepair.feature.mapping.repair/src-gen"
+	}
+	
+	
+	// Generate Logic Code
+	component = EcoreGenerator {
+		genModel = "platform:/resource/de.evorepair.logic/model/EvoLogic.genmodel"
+		srcPath = "platform:/resource/de.evorepair.logic/src-gen"
+	}
+}
